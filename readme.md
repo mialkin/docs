@@ -9,4 +9,4 @@
 
 ## Translation
 
-[Перевод терминов с английского](translation.md)
+[Перевод терминов на русский](translation.md)
