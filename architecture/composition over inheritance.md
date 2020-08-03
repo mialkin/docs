@@ -12,9 +12,12 @@ An implementation of composition over inheritance typically begins with the crea
 The following C# example demonstrates the principle of using composition and interfaces to achieve code reuse and polymorphism.
 
 ```csharp
+using System;
 
-class Program {
-    static void Main() {
+class Program
+{
+    static void Main()
+    {
         var player = new GameObject(new Visible(), new Movable(), new Solid());
         player.Update(); player.Collide(); player.Draw();
 
@@ -29,74 +32,93 @@ class Program {
     }
 }
 
-interface IVisible {
+interface IVisible
+{
     void Draw();
 }
 
-class Invisible : IVisible {
-    public void Draw() {
-        Console.Write("I won't appear.");
+class Invisible : IVisible
+{
+    public void Draw()
+    {
+        Console.WriteLine("I won't appear.");
     }
 }
 
-class Visible : IVisible {
-    public void Draw() {
-        Console.Write("I'm showing myself.");
+class Visible : IVisible
+{
+    public void Draw()
+    {
+        Console.WriteLine("I'm showing myself.");
     }
 }
 
-interface ICollidable {
+interface ICollidable
+{
     void Collide();
 }
 
-class Solid : ICollidable {
-    public void Collide() {
-        Console.Write("Bang!");
+class Solid : ICollidable
+{
+    public void Collide()
+    {
+        Console.WriteLine("Bang!");
     }
 }
 
-class NotSolid : ICollidable {
-    public void Collide() {
-        Console.Write("Splash!");
+class NotSolid : ICollidable
+{
+    public void Collide()
+    {
+        Console.WriteLine("Splash!");
     }
 }
 
-interface IUpdatable {
+interface IUpdatable
+{
     void Update();
 }
 
-class Movable : IUpdatable {
-    public void Update() {
-        Console.Write("Moving forward.");
+class Movable : IUpdatable
+{
+    public void Update()
+    {
+        Console.WriteLine("Moving forward.");
     }
 }
 
-class NotMovable : IUpdatable {
-    public void Update() {
-        Console.Write("I'm staying put.");
+class NotMovable : IUpdatable
+{
+    public void Update()
+    {
+        Console.WriteLine("I'm staying put.");
     }
 }
 
-class GameObject : IVisible, IUpdatable, ICollidable {
+class GameObject : IVisible, IUpdatable, ICollidable
+{
     private readonly IVisible _visible;
     private readonly IUpdatable _updatable;
     private readonly ICollidable _collidable;
-
-    public GameObject(IVisible visible, IUpdatable updatable, ICollidable collidable) {
+    public GameObject(IVisible visible, IUpdatable updatable, ICollidable collidable)
+    {
         _visible = visible;
         _updatable = updatable;
         _collidable = collidable;
     }
 
-    public void Update() {
+    public void Update()
+    {
         _updatable.Update();
     }
 
-    public void Draw() {
+    public void Draw()
+    {
         _visible.Draw();
     }
 
-    public void Collide() {
+    public void Collide()
+    {
         _collidable.Collide();
     }
 }

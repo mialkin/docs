@@ -59,3 +59,10 @@ public class BehaviorUser
     }
 }
 ```
+
+Output:
+
+```console
+One
+Two
+```
