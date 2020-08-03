@@ -4,6 +4,8 @@
 
 An implementation of composition over inheritance typically begins with the creation of various interfaces representing the behaviors that the system must exhibit. Interfaces enable polymorphic behavior. Thus, system behaviors are realized without inheritance.
 
+> Favor object composition over class inheritance
+
 The following C# example demonstrates the principle of using composition and interfaces to achieve code reuse and polymorphism.
 
 ```csharp
@@ -97,5 +99,3 @@ class GameObject : IVisible, IUpdatable, ICollidable {
 }
 
 ```
-
-> Favor object composition over class inheritance
