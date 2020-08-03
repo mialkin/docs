@@ -9,53 +9,53 @@ using System;
 
 public class Program
 {
- public static void Main()
- {
-    var user = new BehaviorUser(new BehaviorOne());
-    user.Behave();
-    user.SetBehavior(new BehaviorTwo());
-    user.Behave();
-  }
+    public static void Main()
+    {
+        var user = new BehaviorUser(new BehaviorOne());
+        user.Behave();
+        user.SetBehavior(new BehaviorTwo());
+        user.Behave();
+    }
 }
 
 public interface IBehavior
 {
-  void Behave();
+    void Behave();
 }
 
 public class BehaviorOne : IBehavior
 {
-  public void Behave()
- {
-    Console.WriteLine("One");
-  }
+    public void Behave()
+    {
+        Console.WriteLine("One");
+    }
 }
 
 public class BehaviorTwo : IBehavior
 {
-  public void Behave()
- {
-    Console.WriteLine("Two");
-  }
+    public void Behave()
+    {
+        Console.WriteLine("Two");
+    }
 }
 
 public class BehaviorUser
 {
-  private IBehavior _behavior;
+    private IBehavior _behavior;
 
-  public BehaviorUser(IBehavior behavior)
- {
-    _behavior = behavior;
-  }
+    public BehaviorUser(IBehavior behavior)
+    {
+        _behavior = behavior;
+    }
 
-  public void Behave()
- {
-    _behavior.Behave();
-  }
+    public void Behave()
+    {
+        _behavior.Behave();
+    }
 
-  public void SetBehavior(IBehavior behavior)
- {
-    _behavior = behavior;
-  }
+    public void SetBehavior(IBehavior behavior)
+    {
+        _behavior = behavior;
+    }
 }
 ```
