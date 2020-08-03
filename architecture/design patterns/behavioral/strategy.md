@@ -66,3 +66,7 @@ Output:
 One
 Two
 ```
+
+## See also
+
+[Composition over inheritance](../../composition%20over%20inheritance.md)

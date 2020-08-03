@@ -144,3 +144,7 @@ I'm staying put.
 Bang!
 I won't appear.
 ```
+
+## See also
+
+[Strategy pattern](design%20patterns/behavioral/strategy.md)
