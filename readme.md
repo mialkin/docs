@@ -2,7 +2,10 @@
 
 ## Architecture
 
-[Composition over inheritance](architecture/composition%20over%20inheritance.md)
+* [Composition over inheritance](architecture/composition%20over%20inheritance.md)
+* Design patterns
+  * Behavioral
+    * [Strategy](architecture/design%20patterns/behavioral/strategy.md)
 
 ## Translation
 
