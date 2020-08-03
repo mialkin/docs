@@ -97,3 +97,5 @@ class GameObject : IVisible, IUpdatable, ICollidable {
 }
 
 ```
+
+> Favor object composition over class inheritance
