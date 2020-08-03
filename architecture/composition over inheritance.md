@@ -19,16 +19,16 @@ class Program
     static void Main()
     {
         var player = new GameObject(new Visible(), new Movable(), new Solid());
-        player.Update(); player.Collide(); player.Draw();
+        player.Update(); player.Collide(); player.Draw(); Console.WriteLine();
 
         var cloud = new GameObject(new Visible(), new Movable(), new NotSolid());
-        cloud.Update(); cloud.Collide(); cloud.Draw();
+        cloud.Update(); cloud.Collide(); cloud.Draw(); Console.WriteLine();
 
         var building = new GameObject(new Visible(), new NotMovable(), new Solid());
-        building.Update(); building.Collide(); building.Draw();
+        building.Update(); building.Collide(); building.Draw(); Console.WriteLine();
 
         var trap = new GameObject(new Invisible(), new NotMovable(), new Solid());
-        trap.Update(); trap.Collide(); trap.Draw();
+        trap.Update(); trap.Collide(); trap.Draw(); Console.WriteLine();
     }
 }
 
@@ -123,4 +123,24 @@ class GameObject : IVisible, IUpdatable, ICollidable
     }
 }
 
+```
+
+Output:
+
+```console
+Moving forward.
+Bang!
+I'm showing myself.
+
+Moving forward.
+Splash!
+I'm showing myself.
+
+I'm staying put.
+Bang!
+I'm showing myself.
+
+I'm staying put.
+Bang!
+I won't appear.
 ```
