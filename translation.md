@@ -12,35 +12,35 @@
 
 ## D
 
-4. **Dependency injection** – внедрение зависимости
+* **Dependency injection** – внедрение зависимости
 
 ## F
 
-5. **Favor object composition over class inheritance** – отдавайте предпочтение композиции перед наследованием
+* **Favor object composition over class inheritance** – отдавайте предпочтение композиции перед наследованием
 
 ## G
 
-6. **Globalization** – глобализация
+* **Globalization** – глобализация
 
 ## H
-7. **Host** – узел
+* **Host** – узел
 
 ## I
-8. **Inversion of control** – инверсия управления
+* **Inversion of control** – инверсия управления
 
 ## L
-9. **Localization** – локализация
-10. **Logging** – ведение журнала
-11. **Loose coupling** – слабая связь
+* **Localization** – локализация
+* **Logging** – ведение журнала
+* **Loose coupling** – слабая связь
 
 ## M
 
-12. **Middleware** – ПО промежуточного слоя
+* **Middleware** – ПО промежуточного слоя
 
 ## R
 
-13. **Routing** – маршрутизация
+* **Routing** – маршрутизация
 
 ## T
 
-14. **Test-driven development** — разработка через тестирование
+* **Test-driven development** — разработка через тестирование
