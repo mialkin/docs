@@ -6,6 +6,8 @@
 * Design patterns
   * Behavioral
     * [Strategy](architecture/design%20patterns/behavioral/strategy.md)
+  * Structural
+    * [Adapter](architecture/design%20patterns/structural/adapter.md)
 
 ## Translation
 
