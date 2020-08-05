@@ -2,9 +2,9 @@
 
 ## A
 
-* **Account** – учетная запись
-* **Authentication** – проверка подлинности
-* **Authorization** – авторизация
+* **Account** — учетная запись
+* **Authentication** — проверка подлинности
+* **Authorization** — авторизация
 
 ## C
 
@@ -12,34 +12,37 @@
 
 ## D
 
-* **Dependency injection** – внедрение зависимости
+* **Dependency injection** — внедрение зависимости
 
 ## F
 
-* **Favor object composition over class inheritance** – отдавайте предпочтение композиции перед наследованием
+* **Favor object composition over class inheritance** — отдавайте предпочтение композиции перед наследованием
 
 ## G
 
 * **Globalization** — глобализация
 
 ## H
-* **Host** – узел
+
+* **Host** — узел
 
 ## I
-* **Inversion of control** – инверсия управления
+
+* **Inversion of control** — инверсия управления
 
 ## L
-* **Localization** – локализация
-* **Logging** – ведение журнала
-* **Loose coupling** – слабая связь
+
+* **Localization** — локализация
+* **Logging** — ведение журнала
+* **Loose coupling** — слабая связь
 
 ## M
 
-* **Middleware** – ПО промежуточного слоя
+* **Middleware** — ПО промежуточного слоя
 
 ## R
 
-* **Routing** – маршрутизация
+* **Routing** — маршрутизация
 * **Runtime** — время исполнения
 
 ## T
