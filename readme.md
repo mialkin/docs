@@ -12,7 +12,7 @@
 
 ## Knowledge map
 
-Covers topics which I am familiar with.
+Covers the topics that I am familiar with.
 
 [Knowedge map](map.svg)
 
