@@ -23,7 +23,7 @@
 
 ## F
 
-* **Favor object composition over class inheritance** — отдавайте предпочтение композиции перед наследованием
+* **Favor object composition over class inheritance** — отдавать предпочтение композиции перед наследованием
 
 ## G
 
