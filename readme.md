@@ -12,7 +12,7 @@
 
 ## Knowledge map
 
-[Knowedge map](map.md)
+[Knowedge map](map.svg)
 
 ## Translation
 
