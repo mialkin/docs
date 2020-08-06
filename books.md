@@ -14,7 +14,9 @@ UML Distilled: A Brief Guide to the Standard Object Modeling Language, 3rd Editi
 
 Refactoring: Improving the Design of Existing Code (2nd Edition), 2018
 
-### Erich Gamma, Richard Helm, Ralf Johnson, John Vlissides
+### Erich Gamma (1961), Richard Helm, Ralf Johnson (1955), John Vlissides (1961–2005)
+
+Design Patterns: Elements of Reusable Object-Oriented Software, 1994
 
 ### Robert C. Martin (1952)
 

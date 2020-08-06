@@ -26,6 +26,7 @@
 * **Dependency inversion principle** — принцип инверсии зависимостей
 * **Design patterns** — шаблоны проектирования
 * **Domain-driven design** — предметно-ориентированное проектирование
+* **Extreme programming** — экстремальное программирование
 
 ## F
 
@@ -54,6 +55,7 @@
 ## M
 
 * **Middleware** — ПО промежуточного слоя
+* **Message broker** — брокер сообщений
 
 ## O
 
