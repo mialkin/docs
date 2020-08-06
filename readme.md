@@ -1,5 +1,9 @@
 # Technical documentation
 
+## Expertise
+
+[Expertise](expertise.md)
+
 ## Architecture
 
 * [Composition over inheritance](architecture/composition%20over%20inheritance.md)
