@@ -10,12 +10,7 @@ class Program
     static void Main()
     {
         IContractB adapter = new Adapter(new A());
-        Call(adapter);
-    }
-
-    static void Call(IContractB contractB)
-    {
-        contractB.MethodB();
+        adapter.MethodB();
     }
 }
 
@@ -40,6 +35,7 @@ class A : IContractA
 class Adapter : IContractB
 {
     private IContractA _contractA;
+
     public Adapter(IContractA contractA)
     {
         _contractA = contractA;
