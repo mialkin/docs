@@ -1,6 +1,6 @@
 graph expertise {
 
-    programming [label="Programming"]
+    programming[label="Programming"]
     programming -- computer_languages;
     programming -- desing
     programming -- web_programming
@@ -12,31 +12,33 @@ graph expertise {
     computer_languages -- javascript;
     computer_languages -- typescript;
 
-    javascript [label="JavaScript"]
-    typescript [label="TypeScript"]
+    javascript[label="JavaScript"]
+    typescript[label="TypeScript"]
 
-    desing [label="Design"]
+    desing[label="Design"]
     desing -- desing_patterns
     desing -- solid
 
-    desing_patterns [label="Design patterns"]
+    desing_patterns[label="Design patterns"]
     
-    solid [label="SOLID"]
+    solid[label="SOLID"]
     solid -- single_responsibility_principle
+    solid -- open_closed_principle
 
     single_responsibility_principle[label="Single-responsibility principle"]
+    open_closed_principle[label="Open–closed principle"]
 
-    t_sql [label="T-SQL"]
-    csharp [label="C#"]
+    t_sql[label="T-SQL"]
+    csharp[label="C#"]
       
-    web_programming [label="Web programming"]
+    web_programming[label="Web programming"]
     web_programming -- client_side
     web_programming -- server_side
 
-    desktop_programming [label="Desktop programming"]
+    desktop_programming[label="Desktop programming"]
     desktop_programming -- desktop_programming_windows
    
-    desktop_programming_windows [label="Windows"]
+    desktop_programming_windows[label="Windows"]
     desktop_programming_windows -- dot_net_framework
     
     dot_net_framework[label = ".NET Framework"]
@@ -44,31 +46,31 @@ graph expertise {
     dot_net_framework -- winforms
     dot_net_framework -- devexpress
 
-    wpf [label="WPF"]
-    winforms [label="WinForms"]
-    devexpress [label="DevExpress"]
+    wpf[label="WPF"]
+    winforms[label="WinForms"]
+    devexpress[label="DevExpress"]
 
-    server_side [label="Server-side"]
+    server_side[label="Server-side"]
     server_side -- dot_net_core
 
-    dot_net_core [label = ".NET Core"]
+    dot_net_core[label = ".NET Core"]
     dot_net_core -- asp_net_core
 
-    asp_net_core [label = "ASP.NET Core 3.1"]
+    asp_net_core[label = "ASP.NET Core 3.1"]
 
-    client_side [label="Client-side"]
+    client_side[label="Client-side"]
     client_side -- html
     client_side -- css
     client_side -- spa;
 
-    spa [label="Single-page applications"]
+    spa[label="Single-page applications"]
     spa -- react;
     spa -- angular;
 
-    react [label="React"]
-    angular [label="Angular"]
+    react[label="React"]
+    angular[label="Angular"]
 
-    html [label="HTML"]
-    css [label="CSS"]
+    html[label="HTML"]
+    css[label="CSS"]
     
 }
