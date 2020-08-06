@@ -22,11 +22,6 @@ graph expertise {
     desing_patterns[label="Design patterns"]
     
     solid[label="SOLID"]
-    solid -- single_responsibility_principle
-    solid -- open_closed_principle
-
-    single_responsibility_principle[label="Single-responsibility principle"]
-    open_closed_principle[label="Open–closed principle"]
 
     t_sql[label="T-SQL"]
     csharp[label="C#"]
@@ -34,21 +29,6 @@ graph expertise {
     web_programming[label="Web programming"]
     web_programming -- client_side
     web_programming -- server_side
-
-    desktop_programming[label="Desktop programming"]
-    desktop_programming -- desktop_programming_windows
-   
-    desktop_programming_windows[label="Windows"]
-    desktop_programming_windows -- dot_net_framework
-    
-    dot_net_framework[label = ".NET Framework"]
-    dot_net_framework -- wpf
-    dot_net_framework -- winforms
-    dot_net_framework -- devexpress
-
-    wpf[label="WPF"]
-    winforms[label="WinForms"]
-    devexpress[label="DevExpress"]
 
     server_side[label="Server-side"]
     server_side -- dot_net_core
@@ -72,5 +52,20 @@ graph expertise {
 
     html[label="HTML"]
     css[label="CSS"]
+
+    desktop_programming[label="Desktop programming"]
+    desktop_programming -- desktop_programming_windows
+   
+    desktop_programming_windows[label="Windows"]
+    desktop_programming_windows -- dot_net_framework
+    
+    dot_net_framework[label = ".NET Framework"]
+    dot_net_framework -- wpf
+    dot_net_framework -- winforms
+    dot_net_framework -- devexpress
+
+    wpf[label="WPF"]
+    winforms[label="WinForms"]
+    devexpress[label="DevExpress"]
     
 }

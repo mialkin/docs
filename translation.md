@@ -22,6 +22,7 @@
 ## D
 
 * **Dependency injection** — внедрение зависимости
+* **Dependency inversion principle** — принцип инверсии зависимостей
 * **Design patterns** — шаблоны проектирования
 
 ## F
@@ -38,6 +39,7 @@
 
 ## I
 
+* **Interface segregation principle** — принцип разделения интерфейса
 * **Inversion of control** — инверсия управления
 
 ## L
@@ -62,7 +64,7 @@
 ## S
 
 * **Single-page application** — одностраничное приложение
-* **Single-responsibility principle** — принцип единственной ответственности
+* **Single responsibility principle** — принцип единственной ответственности
 * **Structure diagram** — диаграмма структуры
 
 ## T
