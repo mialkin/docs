@@ -10,11 +10,9 @@
     * [Adapter](design/design%20patterns/structural/adapter.md)
 * [UML](design/uml.md)
 
-## Knowledge map
+## My knowledge tree
 
-Covers the topics that I am familiar with.
-
-[Knowedge map](map.svg)
+[My knowedge tree](tree.svg)
 
 ## Translation
 
