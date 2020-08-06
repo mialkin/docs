@@ -42,6 +42,7 @@
 
 ## L
 
+* **Liskov substitution principle** — принцип подстановки Лисков
 * **Localization** — локализация
 * **Logging** — ведение журнала
 * **Loose coupling** — слабая связь
