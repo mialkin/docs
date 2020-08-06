@@ -1,9 +1,5 @@
 # Technical documentation
 
-## Expertise
-
-[Expertise](expertise.md)
-
 ## Architecture
 
 * [Composition over inheritance](architecture/composition%20over%20inheritance.md)
@@ -13,6 +9,10 @@
   * Structural
     * [Adapter](architecture/design%20patterns/structural/adapter.md)
 * [UML](architecture/uml.md)
+
+## Knowledge map
+
+[Knowedge map](map.md)
 
 ## Translation
 
