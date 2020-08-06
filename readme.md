@@ -10,9 +10,9 @@
     * [Adapter](design/design%20patterns/structural/adapter.md)
 * [UML](design/uml.md)
 
-## My knowledge tree
+## Knowledge tree
 
-[My knowedge tree](https://raw.githubusercontent.com/mialkin/documentation/master/tree.svg)
+[Knowledge tree](https://raw.githubusercontent.com/mialkin/documentation/master/tree.svg)
 
 ## Translation
 
