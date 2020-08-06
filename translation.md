@@ -6,13 +6,20 @@
 * **Authentication** — проверка подлинности
 * **Authorization** — авторизация
 
+## B
+
+* **Behavior diagram** — диаграмма поведения
+* **Behavioral design pattern** — поведенческий шаблон проектирования
+
 ## C
 
 * **Callback** — функция обратного вызова
+* **Class diagram** — диаграмма классов
 
 ## D
 
 * **Dependency injection** — внедрение зависимости
+* **Design patterns** — шаблоны проектирования
 
 ## F
 
@@ -44,6 +51,10 @@
 
 * **Routing** — маршрутизация
 * **Runtime** — время исполнения
+
+## S
+
+* **Structure diagram** — диаграмма структуры
 
 ## T
 
