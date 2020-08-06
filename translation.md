@@ -18,7 +18,7 @@
 
 * **Callback** — функция обратного вызова
 * **Class diagram** — диаграмма классов
-* **Creational desingn pattern** — порождающий шаблон проектирования
+* **Creational design pattern** — порождающий шаблон проектирования
 
 ## D
 
@@ -74,6 +74,7 @@
 
 * **Single-page application** — одностраничное приложение
 * **Single responsibility principle** — принцип единственной ответственности
+* **Structural design pattern** — структурный шаблон проектирования
 * **Structure diagram** — диаграмма структуры
 
 ## T

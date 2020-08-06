@@ -20,9 +20,13 @@ graph expertise {
     desing -- desing_principles
 
     desing_patterns[label="Design patterns"]
-    desing_patterns -- behavirol_patterns
+    desing_patterns -- creational_patterns
+    desing_patterns -- behavioral_patterns
+    desing_patterns -- structural_patterns
 
-    behavirol_patterns[label="Behavirol patterns"]
+    creational_patterns[label="Creational patterns"]
+    structural_patterns[label="Structural patterns"]
+    behavioral_patterns[label="Behavioral patterns"]
 
     desing_principles[label="Desing principles"]
     desing_principles -- solid
