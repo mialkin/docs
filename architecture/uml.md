@@ -9,11 +9,11 @@ The **Unified Modeling Language** (**UML**) is a general-purpose, developmental,
 
 ## Stereotype
 
-Graphically, a stereotype is rendered as a name enclosed by guillemets (« » or, if guillemets proper are unavailable, << >>) and placed above the name of another element. In addition or alternatively it may be indicated by a specific icon. Despite its appearance, «interface» is not a stereotype but a classifier.
+Graphically, a **stereotype** is rendered as a name enclosed by guillemets (« » or, if guillemets proper are unavailable, << >>) and placed above the name of another element. In addition or alternatively it may be indicated by a specific icon. Despite its appearance, «interface» is not a stereotype but a classifier.
 
 ## Classfifier
 
-A classifier is a category of UML elements that have some common features, such as attributes or methods.
+A **classifier** is a category of UML elements that have some common features, such as attributes or methods.
 
 Examples of some predefined UML classifiers:
 
