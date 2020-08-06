@@ -57,6 +57,8 @@
 
 ## S
 
+* **Single-page application** — одностраничное приложение
+* **Single-responsibility principle** — принцип единственной ответственности
 * **Structure diagram** — диаграмма структуры
 
 ## T
