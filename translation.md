@@ -2,6 +2,7 @@
 
 ## A
 
+* **Abstract factory** (design pattern) — абстрактная фабрика (шаблон проектирования)
 * **Account** — учетная запись
 * **Authentication** — проверка подлинности
 * **Authorization** — авторизация
@@ -10,6 +11,7 @@
 
 * **Behavior diagram** — диаграмма поведения
 * **Behavioral design pattern** — поведенческий шаблон проектирования
+* **Builder** (design pattern) — строитель (шаблон проектирования)
 
 ## C
 
