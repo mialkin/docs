@@ -24,6 +24,7 @@
 * **Dependency injection** — внедрение зависимости
 * **Dependency inversion principle** — принцип инверсии зависимостей
 * **Design patterns** — шаблоны проектирования
+* **Domain-driven design** — предметно-ориентированное проектирование
 
 ## F
 
