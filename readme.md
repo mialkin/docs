@@ -12,7 +12,7 @@
 
 ## My knowledge tree
 
-[My knowedge tree](tree.svg)
+[My knowedge tree]([tree.svg](https://raw.githubusercontent.com/mialkin/documentation/master/tree.svg))
 
 ## Translation
 
