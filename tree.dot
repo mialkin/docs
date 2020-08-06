@@ -1,27 +1,39 @@
 graph expertise {
 
     programming[label="Programming"]
-    programming -- computer_languages;
+    programming -- computer_languages
     programming -- desing
     programming -- web_programming
     programming -- desktop_programming
 
     computer_languages[label="Computer languages"]
-    computer_languages -- csharp;
-    computer_languages -- t_sql;
-    computer_languages -- javascript;
-    computer_languages -- typescript;
+    computer_languages -- csharp
+    computer_languages -- t_sql
+    computer_languages -- javascript
+    computer_languages -- typescript
 
     javascript[label="JavaScript"]
     typescript[label="TypeScript"]
 
     desing[label="Design"]
     desing -- desing_patterns
-    desing -- solid
+    desing -- desing_principles
 
     desing_patterns[label="Design patterns"]
+    desing_patterns -- behavirol_patterns
+
+    behavirol_patterns[label="Behavirol patterns"]
+
+    desing_principles[label="Desing principles"]
+    desing_principles -- solid
+    desing_principles -- dry
+    desing_principles -- kiss
+    desing_principles -- yagni
     
     solid[label="SOLID"]
+    dry[label="DRY"]
+    kiss[label="KISS"]
+    yagni[label="YAGNI"]
 
     t_sql[label="T-SQL"]
     csharp[label="C#"]

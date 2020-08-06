@@ -14,6 +14,10 @@
 
 [Knowledge tree](https://raw.githubusercontent.com/mialkin/documentation/master/tree.svg)
 
+## Books
+
+[Books](books.md)
+
 ## Translation
 
 [Перевод терминов на русский](translation.md)
