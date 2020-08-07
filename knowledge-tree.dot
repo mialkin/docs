@@ -5,6 +5,7 @@ graph expertise {
     software_development -- operating_systems
     software_development -- programming
     software_development -- devops
+    software_development -- uml
     software_development -- developer_platforms
     software_development -- databases
 
@@ -63,30 +64,38 @@ graph expertise {
     programming -- coding
     programming -- testing
     programming -- regular_expressions
+    programming -- oauth
 
     developer_platforms[label="Developer platforms"]
-    developer_platforms -- web_development
+    developer_platforms -- web
     developer_platforms -- dot_net
-    developer_platforms -- java
 
-    web_development[label="Web development"]
-    web_development -- client_side
-    
-    client_side[label="Client-side"]
-    client_side -- html
-    client_side -- css
-    client_side -- javascript
-    client_side -- typescript
-    client_side -- react;
-    client_side -- angular;
+    web[label="Web"]
+    web -- html
+    web -- css
+    web -- javascript
 
     html[label="HTML"]
     css[label="CSS"]
     javascript[label="JavaScript"]
-    typescript[label="TypeScript"]
+    javascript -- typescript
+    javascript -- jslibraries
+    javascript -- jsframeworks
+
+    jslibraries[label="Libraries"]
+    jslibraries -- react
+    jslibraries -- jquery
 
     react[label="React"]
+    jquery[label="jQuery"]    
+    typescript[label="TypeScript"]
+    
+    jsframeworks[label="Frameworks"]
+    jsframeworks -- angular
+    jsframeworks -- extjs
+
     angular[label="Angular"]
+    extjs[label="Ext JS"]
 
     dot_net[label=".NET"]
     dot_net -- common_language_infrastructure
@@ -147,8 +156,6 @@ graph expertise {
 
     entity_framework[label="Entity Framework"]
 
-    java[label="Java"]
-
     coding[label="Coding"]
     coding -- ide
     coding -- version_control_systems
@@ -188,10 +195,12 @@ graph expertise {
     integration_testing[label="Integration testing"]
 
     regular_expressions[label="Regular expressions"]
-
+    oauth[label="OAuth"]
+    
     devops[label="DevOps"]
     devops -- ci_cd
-    devops -- documentation
+    devops -- planning
+    devops -- documenting
 
     ci_cd[label="CI/CD"]
     ci_cd -- teamcity
@@ -202,12 +211,27 @@ graph expertise {
     gitlab[label="GitLab"]
     jenkins[label="Jenkins"]
 
-    documentation[label="Documentation"]
-    documentation -- markdown
-    documentation -- confluence
+    planning[label="Planning"]
+    planning -- jira
+
+    jira[label="Jira"]
+
+    documenting[label="Documenting"]
+    documenting -- markdown
+    documenting -- confluence
 
     markdown[label="Markdown"]
     confluence[label="Confluence"]
+    
+    uml[label="Unified Modeling Language (UML)"]
+    uml -- diagrams
+    
+    diagrams[label="Diagrams"]
+    diagrams -- class_diagram
+    diagrams -- sequence_diagram
+
+    class_diagram[label="Class diagram"]
+    sequence_diagram[label="Sequence diagram"]
 
     databases[label="Databases"]    
     databases -- acid
@@ -219,10 +243,9 @@ graph expertise {
     databases -- triggers
     databases -- stored_procedures
     databases -- functions
+    databases -- cursors
     databases -- sql
     databases -- relational_dbms
-    databases -- nosql_databases
-    databases -- column_oriented_dbms
 
     acid[label="ACID"]
     isolation_levels[label="Isolation levels"]
@@ -233,12 +256,12 @@ graph expertise {
     indexes -- nonclustered_indexes
 
     joins[label="Joins"]
+    execution_plan[label="Execution plan"]
     clustered_indexes[label="Clustered indexes"]
     nonclustered_indexes[label="Nonclustered indexes"]
-
     stored_procedures[label="Stored procedures"]
     functions[label="Functions"]
-    execution_plan[label="Execution plan"]
+    cursors[label="Cursors"]
     sql[label="SQL"]
     sql -- t_sql
     sql -- plsql
@@ -250,10 +273,6 @@ graph expertise {
     relational_dbms -- oracle_database
     relational_dbms -- sqlite
    
-    nosql_databases[label="NoSQL databases"]
-
-    column_oriented_dbms[label="Column-oriented DBMS"]   
-
     sql_server[label="Microsoft SQL Server"]
     oracle_database[label="Oracle Database"]
     sqlite[label="SQLite"]
