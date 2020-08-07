@@ -10,9 +10,10 @@ graph expertise {
     software_development -- mathematics
 
     programming[label="Programming"]
-    programming -- desing
-    programming -- web_programming
+    programming -- desinging
+    programming -- web_development
     programming -- ide
+    programming -- version_control_system
 
     computer_science[label="Computer science"]
     computer_science -- algorithms
@@ -41,6 +42,12 @@ graph expertise {
 
     windows[label="Windows"]
 
+    dot_net[label=".NET"]
+    dot_net -- common_language_infrastructure
+    dot_net -- nuget
+    
+    nuget[label="NuGet"]
+
     common_language_infrastructure[label="Common Language Infrastructure (CLI)"]
     common_language_infrastructure -- common_type_system
     common_language_infrastructure -- cli_metadata
@@ -55,34 +62,64 @@ graph expertise {
     csharp[label="C#"]
 
     cli_implementations[label="CLI implementations"]
-    cli_implementations -- dot_net_core
-    cli_implementations -- dot_net_framework
+    cli_implementations -- dot_net_standard
+
+    dot_net_standard[label=".NET Standard"]
+    dot_net_standard -- dot_net_core
+    dot_net_standard -- dot_net_framework
+
+    dot_net_core[label = ".NET Core"][label = ".NET Core"]
+    dot_net_core -- core_crl
+    dot_net_core -- corefx
+
+    core_crl[label="CoreCLR"]
+    corefx[label="CoreFx"]
+    corefx -- asp_net_core
+    corefx -- ef_core
+
+    asp_net_core[label = "ASP.NET Core"]
+    ef_core[label="Entity Framework Core"]
 
     dot_net_framework[label = ".NET Framework"]
-    dot_net_framework -- wpf
-    dot_net_framework -- winforms
-    dot_net_framework -- devexpress
+    dot_net_framework -- base_class_library
 
+    base_class_library[label="Base Class Library (BCL)"]
+
+    base_class_library -- asp_net_mvc
+    base_class_library -- wpf
+    base_class_library -- winforms
+    base_class_library -- entity_framework
+
+    asp_net_mvc[label="ASP.NET MVC"]
     wpf[label="WPF"]
-    winforms[label="WinForms"]
-    devexpress[label="DevExpress"]
-    dot_net_core    dot_net_core[label = ".NET Core"][label = ".NET Core"]
-    dot_net_core -- asp_net_core
+    wpf -- devexpress_wpf
 
-    asp_net_core[label = "ASP.NET Core 3.1"]
+    devexpress_wpf[label="DevExpress WPF"]
+    winforms[label="WinForms"]
+
+    entity_framework[label="Entity Framework"]
 
     databases[label="Databases"]    
     databases -- relational_dbms
     databases -- nosql_databases
     databases -- column_oriented_dbms
+    databases -- db_ide
 
     relational_dbms[label="Relational DBMS"]
     relational_dbms -- sql_server
     relational_dbms -- oracle_database
+    relational_dbms -- sqlite
    
     nosql_databases[label="NoSQL databases"]
 
     column_oriented_dbms[label="Column-oriented DBMS"]
+
+    db_ide[label="IDE"]
+    db_ide -- ssms
+    db_ide -- datagrip
+
+    ssms[label="SQL Server Management Studio"]
+    datagrip[label="DataGrip"]
 
     sql_server[label="Microsoft SQL Server"]
     sql_server -- t_sql
@@ -90,10 +127,11 @@ graph expertise {
     t_sql[label="T-SQL"]
 
     oracle_database[label="Oracle Database"]
+    sqlite[label="SQLite"]
 
-    desing[label="Design"]
-    desing -- desing_patterns
-    desing -- desing_principles
+    desinging[label="Designing"]
+    desinging -- desing_patterns
+    desinging -- desing_principles
 
     desing_patterns[label="Design patterns"]
     desing_patterns -- creational_patterns
@@ -116,8 +154,8 @@ graph expertise {
     yagni[label="YAGNI"]
 
       
-    web_programming[label="Web programming"]
-    web_programming -- client_side
+    web_development[label="Web development"]
+    web_development -- client_side
     
     client_side[label="Client-side"]
     client_side -- html
@@ -139,14 +177,14 @@ graph expertise {
     developer_platform -- dot_net
     developer_platform -- java
 
-    dot_net[label=".NET"]
-    dot_net -- common_language_infrastructure
+
 
     java[label="Java"]
 
     ide[label="IDE"]
     ide -- visual_studio
     ide -- rider
+    ide -- visual_studio_code
 
     visual_studio[label="Microsoft Visual Studio"]
     visual_studio -- resharper
@@ -154,7 +192,14 @@ graph expertise {
     resharper[label="ReSharper"]
 
     rider[label="Rider"]
+    visual_studio_code[label="Visual Studio Code"]
 
+    version_control_system[label="Version control system"]
+    version_control_system -- git
+    version_control_system -- svn
+
+    git[label="Git"]
+    svn[label="SVN"]
 
     mathematics[label="Mathematics"]
     
