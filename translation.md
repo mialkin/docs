@@ -22,6 +22,7 @@
 
 ## D
 
+* **Deadlock** — взаимная блокировка
 * **Dependency injection** — внедрение зависимости
 * **Dependency inversion principle** — принцип инверсии зависимостей
 * **Design patterns** — шаблоны проектирования
@@ -48,6 +49,7 @@
 ## L
 
 * **Liskov substitution principle** — принцип подстановки Лисков
+* **Lock** — блокировка
 * **Localization** — локализация
 * **Logging** — ведение журнала
 * **Loose coupling** — слабая связь
