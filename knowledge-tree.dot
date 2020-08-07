@@ -5,15 +5,15 @@ graph expertise {
     software_development -- operating_systems
 
     software_development -- programming
-    software_development -- developer_platform
+    software_development -- developer_platforms
     software_development -- databases
-    software_development -- mathematics
 
     programming[label="Programming"]
     programming -- desinging
     programming -- web_development
     programming -- ide
     programming -- version_control_system
+    programming -- regular_expressions
 
     computer_science[label="Computer science"]
     computer_science -- algorithms
@@ -92,18 +92,48 @@ graph expertise {
 
     asp_net_mvc[label="ASP.NET MVC"]
     wpf[label="WPF"]
+    wpf -- wpf_mvvm
     wpf -- devexpress_wpf
 
-    devexpress_wpf[label="DevExpress WPF"]
+    wpf_mvvm[label="WPF MVVM"]
+    devexpress_wpf[label="DevExpress UI components"]
     winforms[label="WinForms"]
 
     entity_framework[label="Entity Framework"]
 
     databases[label="Databases"]    
+    databases -- acid
+    databases -- isolation_levels
+    databases -- transactions
+    databases -- indexes
+    databases -- triggers
+    databases -- stored_procedures
+    databases -- functions
+    databases -- execution_plans
+    databases -- sql
     databases -- relational_dbms
     databases -- nosql_databases
     databases -- column_oriented_dbms
     databases -- db_ide
+
+    acid[label="ACID"]
+    isolation_levels[label="Isolation levels"]
+    transactions[label="Transactions"]
+    triggers[label="Triggers"]
+    indexes[label="Indexes"]
+    indexes -- clustered_indexes
+    indexes -- nonclustered_indexes
+
+    clustered_indexes[label="Clustered indexes"]
+    nonclustered_indexes[label="Nonclustered indexes"]
+
+    stored_procedures[label="Stored procedures"]
+    functions[label="Functions"]
+    execution_plans[label="Execution plans"]
+    
+    sql[label="SQL"]
+    sql -- t_sql
+    t_sql[label="T-SQL"]
 
     relational_dbms[label="Relational DBMS"]
     relational_dbms -- sql_server
@@ -122,10 +152,6 @@ graph expertise {
     datagrip[label="DataGrip"]
 
     sql_server[label="Microsoft SQL Server"]
-    sql_server -- t_sql
-
-    t_sql[label="T-SQL"]
-
     oracle_database[label="Oracle Database"]
     sqlite[label="SQLite"]
 
@@ -173,9 +199,9 @@ graph expertise {
     react[label="React"]
     angular[label="Angular"]
 
-    developer_platform[label="Developer platform"]
-    developer_platform -- dot_net
-    developer_platform -- java
+    developer_platforms[label="Developer platforms"]
+    developer_platforms -- dot_net
+    developer_platforms -- java
 
 
 
@@ -198,9 +224,10 @@ graph expertise {
     version_control_system -- git
     version_control_system -- svn
 
+    regular_expressions[label="Regular expressions"]
+
     git[label="Git"]
     svn[label="SVN"]
 
-    mathematics[label="Mathematics"]
     
 }
