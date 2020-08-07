@@ -107,10 +107,12 @@ graph expertise {
     common_language_infrastructure -- common_type_system
     common_language_infrastructure -- cli_metadata
     common_language_infrastructure -- common_language_specification
+    common_language_infrastructure -- virtual_execution_system
     common_language_infrastructure -- cli_implementations
 
     common_type_system[label="Common Type System (CTS)"]
     cli_metadata[label="CLI Metadata"]
+    virtual_execution_system[label="Virtual Execution System (VES)"]
     common_language_specification[label="Common Language Specification (CLS)"]
     common_language_specification -- csharp
 
@@ -136,8 +138,10 @@ graph expertise {
     ef_core[label="Entity Framework Core"]
 
     dot_net_framework[label = ".NET Framework"]
+    dot_net_framework -- clr
     dot_net_framework -- base_class_library
 
+    clr[label="CLR"]
     base_class_library[label="Base Class Library (BCL)"]
 
     base_class_library -- asp_net_mvc
