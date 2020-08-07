@@ -1,19 +1,95 @@
 graph expertise {
 
+    software_development[label="Software development"]
+    software_development -- computer_science
+    software_development -- operating_systems
+
+    software_development -- programming
+    software_development -- developer_platform
+    software_development -- databases
+    software_development -- mathematics
+
     programming[label="Programming"]
-    programming -- computer_languages
     programming -- desing
     programming -- web_programming
-    programming -- desktop_programming
+    programming -- ide
 
-    computer_languages[label="Computer languages"]
-    computer_languages -- csharp
-    computer_languages -- t_sql
-    computer_languages -- javascript
-    computer_languages -- typescript
+    computer_science[label="Computer science"]
+    computer_science -- algorithms
+    computer_science -- analysis_of_algorithms
+    computer_science -- data_structures
 
-    javascript[label="JavaScript"]
-    typescript[label="TypeScript"]
+    algorithms[label="Algorithms"]
+    analysis_of_algorithms[label="Analysis of algorithms"]
+    data_structures[label="Data structures"]
+
+    operating_systems[label="Operating systems"]
+    operating_systems -- unix
+    operating_systems -- windows
+
+    unix[label="UNIX"]
+    unix -- macos
+    unix -- linux
+
+    macos[label="macOS"]
+    linux[label="Linux"]
+    linux -- centos
+    linux -- ubuntu
+
+    centos[label="CentOS"]
+    ubuntu[label="Ubuntu"]
+
+    windows[label="Windows"]
+
+    common_language_infrastructure[label="Common Language Infrastructure (CLI)"]
+    common_language_infrastructure -- common_type_system
+    common_language_infrastructure -- cli_metadata
+    common_language_infrastructure -- common_language_specification
+    common_language_infrastructure -- cli_implementations
+
+    common_type_system[label="Common Type System (CTS)"]
+    cli_metadata[label="CLI Metadata"]
+    common_language_specification[label="Common Language Specification (CLS)"]
+    common_language_specification -- csharp
+
+    csharp[label="C#"]
+
+    cli_implementations[label="CLI implementations"]
+    cli_implementations -- dot_net_core
+    cli_implementations -- dot_net_framework
+
+    dot_net_framework[label = ".NET Framework"]
+    dot_net_framework -- wpf
+    dot_net_framework -- winforms
+    dot_net_framework -- devexpress
+
+    wpf[label="WPF"]
+    winforms[label="WinForms"]
+    devexpress[label="DevExpress"]
+    dot_net_core    dot_net_core[label = ".NET Core"][label = ".NET Core"]
+    dot_net_core -- asp_net_core
+
+    asp_net_core[label = "ASP.NET Core 3.1"]
+
+    databases[label="Databases"]    
+    databases -- relational_dbms
+    databases -- nosql_databases
+    databases -- column_oriented_dbms
+
+    relational_dbms[label="Relational DBMS"]
+    relational_dbms -- sql_server
+    relational_dbms -- oracle_database
+   
+    nosql_databases[label="NoSQL databases"]
+
+    column_oriented_dbms[label="Column-oriented DBMS"]
+
+    sql_server[label="Microsoft SQL Server"]
+    sql_server -- t_sql
+
+    t_sql[label="T-SQL"]
+
+    oracle_database[label="Oracle Database"]
 
     desing[label="Design"]
     desing -- desing_patterns
@@ -39,49 +115,47 @@ graph expertise {
     kiss[label="KISS"]
     yagni[label="YAGNI"]
 
-    t_sql[label="T-SQL"]
-    csharp[label="C#"]
       
     web_programming[label="Web programming"]
     web_programming -- client_side
-    web_programming -- server_side
-
-    server_side[label="Server-side"]
-    server_side -- dot_net_core
-
-    dot_net_core[label = ".NET Core"]
-    dot_net_core -- asp_net_core
-
-    asp_net_core[label = "ASP.NET Core 3.1"]
-
+    
     client_side[label="Client-side"]
     client_side -- html
     client_side -- css
-    client_side -- spa;
+    client_side -- javascript
+    client_side -- typescript
+    client_side -- react;
+    client_side -- angular;
 
-    spa[label="Single-page applications"]
-    spa -- react;
-    spa -- angular;
+    html[label="HTML"]
+    css[label="CSS"]
+    javascript[label="JavaScript"]
+    typescript[label="TypeScript"]
 
     react[label="React"]
     angular[label="Angular"]
 
-    html[label="HTML"]
-    css[label="CSS"]
+    developer_platform[label="Developer platform"]
+    developer_platform -- dot_net
+    developer_platform -- java
 
-    desktop_programming[label="Desktop programming"]
-    desktop_programming -- desktop_programming_windows
-   
-    desktop_programming_windows[label="Windows"]
-    desktop_programming_windows -- dot_net_framework
-    
-    dot_net_framework[label = ".NET Framework"]
-    dot_net_framework -- wpf
-    dot_net_framework -- winforms
-    dot_net_framework -- devexpress
+    dot_net[label=".NET"]
+    dot_net -- common_language_infrastructure
 
-    wpf[label="WPF"]
-    winforms[label="WinForms"]
-    devexpress[label="DevExpress"]
+    java[label="Java"]
+
+    ide[label="IDE"]
+    ide -- visual_studio
+    ide -- rider
+
+    visual_studio[label="Microsoft Visual Studio"]
+    visual_studio -- resharper
+
+    resharper[label="ReSharper"]
+
+    rider[label="Rider"]
+
+
+    mathematics[label="Mathematics"]
     
 }
