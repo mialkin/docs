@@ -192,8 +192,14 @@ graph expertise {
     dot_net_core -- corefx
 
     core_crl[label="CoreCLR"]
-    core_crl -- gc
+    core_crl -- memory_managment
     core_crl -- jit
+
+    memory_managment[label="Memory managment"]
+    memory_managment -- gc
+    memory_managment -- idisposable
+    memory_managment -- gc_object_finalize
+    memory_managment -- gc_suppress_finalize
 
     gc[label="Garbage collector (GC)"]
     gc -- managed_heap
@@ -204,6 +210,10 @@ graph expertise {
 
     soh[label="Small object heap (SOH)"]
     loh[label="Large object heap (LOH)"]
+
+    idisposable[label="IDisposable"]
+    gc_suppress_finalize[label="GC.SuppressFinalize"]
+    gc_object_finalize[label="Object.Finalize"]
 
     jit[label="Just-in-time (JIT) compilation"]
     corefx[label="CoreFx"]

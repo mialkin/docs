@@ -83,3 +83,7 @@
 ## T
 
 * **Test-driven development** — разработка через тестирование
+
+## U
+
+* **Unmanaged resource** — неуправляемый ресурс
