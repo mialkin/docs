@@ -49,8 +49,6 @@ graph expertise {
     networking -- osi
     networking -- internet_protocol_suite
     networking -- network_protocols
-    networking -- rest
-    networking -- microservices
 
     osi[label="OSI model"]
     internet_protocol_suite[label="Internet protocol suite"]
@@ -58,6 +56,9 @@ graph expertise {
     internet_protocol_suite -- ip
     
     tcp[label="Transmission Control Protocol (TCP)"]
+    tcp -- websocket
+    websocket[label="WebSocket"]
+
     ip[label="Internet Protocol (IP)"]
     network_protocols[label="Network protocols"]
     network_protocols -- http
@@ -67,19 +68,6 @@ graph expertise {
     http[label="HTTP"]
     ftp[label="FTP"]
     ssh[label="SSH"]
-    rest[label="REST"]
-    microservices[label="Microservices"]
-    microservices -- docker
-    microservices -- grpc
-
-    docker[label="Docker"]
-    docker -- kubernetes
-
-    kubernetes[label="Kubernetes"]
-    grpc[label="gRPC"]
-    grpc -- protobuf
-
-    protobuf[label="Protobuf"]
 
     desinging[label="Designing"]
     desinging -- desing_patterns
@@ -116,6 +104,8 @@ graph expertise {
     programming -- coding
     programming -- testing
     programming -- regular_expressions
+    programming -- rest
+    programming -- microservices
     programming -- oauth
 
     developer_platforms[label="Developer platforms"]
@@ -173,6 +163,15 @@ graph expertise {
 
     common_type_system[label="Common Type System (CTS)"]
     cli_metadata[label="CLI Metadata"]
+    cli_metadata -- assembly
+
+    assembly[label="Assembly"]
+    assembly -- attributes
+    assembly -- reflection
+
+    attributes[label="Attributes"]
+    reflection[label="Reflection"]
+
     virtual_execution_system[label="Virtual Execution System (VES)"]
     common_language_specification[label="Common Language Specification (CLS)"]
     common_language_specification -- csharp
@@ -212,9 +211,32 @@ graph expertise {
     corefx -- ef_core
 
     asp_net_core[label = "ASP.NET Core"]
-    asp_net_core -- dependency_injection
+    asp_net_core -- asp_net_core_dependency_injection
+    asp_net_core -- asp_net_core_middleware
+    asp_net_core -- asp_net_core_host
+    asp_net_core -- asp_net_core_configuration
+    asp_net_core -- asp_net_core_options
+    asp_net_core -- asp_net_core_environments
+    asp_net_core -- asp_net_core_logging
+    asp_net_core -- asp_net_core_routing    
+    asp_net_core -- asp_net_core_security
+    asp_net_core -- signalr
 
-    dependency_injection[label="Dependency injection (DI)"]
+    asp_net_core_dependency_injection[label="Dependency injection"]
+    asp_net_core_middleware[label="Middleware"]
+    asp_net_core_host[label="Host"]
+    asp_net_core_configuration[label="Configuration"]
+    asp_net_core_options[label="Options"]
+    asp_net_core_environments[label="Environments"]
+    asp_net_core_logging[label="Logging"]
+    asp_net_core_routing[label="Routing"]
+    asp_net_core_security[label="Security"]
+    asp_net_core_security -- asp_net_core_authentication
+    asp_net_core_security -- asp_net_core_authorization
+
+    asp_net_core_authentication[label="Authenication"]
+    asp_net_core_authorization[label="Authorization"]
+    signalr[label="SignalR"]
 
     ef_core[label="Entity Framework Core"]
 
@@ -272,12 +294,13 @@ graph expertise {
     sourcetree[label="Sourcetree"]
     tortoisegit[label="TortoiseGit"]
 
-
     gitflows[label="Git flows"]
 
     testing[label="Testing"]
     testing -- unit_testing
     testing -- integration_testing
+    testing -- load_testing
+    testing -- stress_testing
 
     unit_testing[label="Unit testing"]
     unit_testing -- unit_testing_libs
@@ -290,9 +313,32 @@ graph expertise {
     mock_objects[label="Mock objects"]
 
     integration_testing[label="Integration testing"]
+    load_testing[label="Load testing"]
+    stress_testing[label="Stress testing"]
 
     regular_expressions[label="Regular expressions"]
-    oauth[label="OAuth"]
+    rest[label="REST"]
+    rest -- openapi
+
+    openapi[label="OpenAPI"]
+    openapi -- swaggerui
+
+    swaggerui[label="Swagger UI"]
+
+    microservices[label="Microservices"]
+    microservices -- docker
+    microservices -- grpc
+
+    docker[label="Docker"]
+    docker -- kubernetes
+
+    kubernetes[label="Kubernetes"]
+    grpc[label="gRPC"]
+    grpc -- protobuf
+
+    protobuf[label="Protobuf"]
+
+    oauth[label="OAuth 2.0"]
     
     devops[label="DevOps"]
     devops -- ci_cd
