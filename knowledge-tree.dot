@@ -3,6 +3,7 @@ graph expertise {
     software_development[label="Software development"]
     software_development -- computer_science
     software_development -- operating_systems
+    software_development -- networking
     software_development -- programming
     software_development -- devops
     software_development -- uml
@@ -25,6 +26,7 @@ graph expertise {
     unix[label="UNIX"]
     unix -- macos
     unix -- linux
+    unix -- unix_package_managers
 
     macos[label="macOS"]
     linux[label="Linux"]
@@ -33,7 +35,51 @@ graph expertise {
 
     centos[label="CentOS"]
     ubuntu[label="Ubuntu"]
+
+    unix_package_managers[label="Package managers"]
+    unix_package_managers -- apt
+    unix_package_managers -- homebrew
+
+    apt[label="APT"]
+    homebrew[label="Homebrew"]
+
     windows[label="Windows"]
+
+    networking[label="Networking"]
+    networking -- osi
+    networking -- internet_protocol_suite
+    networking -- network_protocols
+    networking -- rest
+    networking -- microservices
+
+    osi[label="OSI model"]
+    internet_protocol_suite[label="Internet protocol suite"]
+    internet_protocol_suite -- tcp
+    internet_protocol_suite -- ip
+    
+    tcp[label="Transmission Control Protocol (TCP)"]
+    ip[label="Internet Protocol (IP)"]
+    network_protocols[label="Network protocols"]
+    network_protocols -- http
+    network_protocols -- ftp
+    network_protocols -- ssh
+
+    http[label="HTTP"]
+    ftp[label="FTP"]
+    ssh[label="SSH"]
+    rest[label="REST"]
+    microservices[label="Microservices"]
+    microservices -- docker
+    microservices -- grpc
+
+    docker[label="Docker"]
+    docker -- kubernetes
+
+    kubernetes[label="Kubernetes"]
+    grpc[label="gRPC"]
+    grpc -- protobuf
+
+    protobuf[label="Protobuf"]
 
     desinging[label="Designing"]
     desinging -- desing_patterns
@@ -46,7 +92,13 @@ graph expertise {
 
     creational_patterns[label="Creational patterns"]
     structural_patterns[label="Structural patterns"]
+    structural_patterns -- adapter
+
+    adapter[label="Adapter"]
     behavioral_patterns[label="Behavioral patterns"]
+    behavioral_patterns -- strategy
+
+    strategy[label="Strategy"]
 
     desing_principles[label="Desing principles"]
     desing_principles -- solid
@@ -81,6 +133,7 @@ graph expertise {
     javascript -- typescript
     javascript -- jslibraries
     javascript -- jsframeworks
+    javascript -- jsruntime_environment
 
     jslibraries[label="Libraries"]
     jslibraries -- react
@@ -96,6 +149,13 @@ graph expertise {
 
     angular[label="Angular"]
     extjs[label="Ext JS"]
+    jsruntime_environment[label="Runtime environment"]
+    jsruntime_environment -- nodejs
+
+    nodejs[label="Node.js"]
+    nodejs -- npm
+
+    npm[label="npm"]
 
     dot_net[label=".NET"]
     dot_net -- common_language_infrastructure
@@ -107,6 +167,7 @@ graph expertise {
     common_language_infrastructure -- common_type_system
     common_language_infrastructure -- cli_metadata
     common_language_infrastructure -- common_language_specification
+    common_language_infrastructure -- common_intermediate_language
     common_language_infrastructure -- virtual_execution_system
     common_language_infrastructure -- cli_implementations
 
@@ -115,6 +176,8 @@ graph expertise {
     virtual_execution_system[label="Virtual Execution System (VES)"]
     common_language_specification[label="Common Language Specification (CLS)"]
     common_language_specification -- csharp
+
+    common_intermediate_language[label="Common Intermediate Language (CIL)"]
 
     csharp[label="C#"]
 
@@ -130,11 +193,29 @@ graph expertise {
     dot_net_core -- corefx
 
     core_crl[label="CoreCLR"]
+    core_crl -- gc
+    core_crl -- jit
+
+    gc[label="Garbage collector (GC)"]
+    gc -- managed_heap
+
+    managed_heap[label="Managed heap"]
+    managed_heap -- soh
+    managed_heap -- loh
+
+    soh[label="Small object heap (SOH)"]
+    loh[label="Large object heap (LOH)"]
+
+    jit[label="Just-in-time (JIT) compilation"]
     corefx[label="CoreFx"]
     corefx -- asp_net_core
     corefx -- ef_core
 
     asp_net_core[label = "ASP.NET Core"]
+    asp_net_core -- dependency_injection
+
+    dependency_injection[label="Dependency injection (DI)"]
+
     ef_core[label="Entity Framework Core"]
 
     dot_net_framework[label = ".NET Framework"]
@@ -145,11 +226,13 @@ graph expertise {
     base_class_library[label="Base Class Library (BCL)"]
 
     base_class_library -- asp_net_mvc
+    base_class_library -- entity_framework
     base_class_library -- wpf
     base_class_library -- winforms
-    base_class_library -- entity_framework
+    base_class_library -- wcf
 
     asp_net_mvc[label="ASP.NET MVC"]
+    entity_framework[label="Entity Framework"]
     wpf[label="WPF"]
     wpf -- wpf_mvvm
     wpf -- devexpress_wpf
@@ -157,19 +240,16 @@ graph expertise {
     wpf_mvvm[label="WPF MVVM"]
     devexpress_wpf[label="DevExpress UI components"]
     winforms[label="WinForms"]
-
-    entity_framework[label="Entity Framework"]
+    wcf[label="Windows Communication Foundation (WCF)"]
 
     coding[label="Coding"]
     coding -- ide
-    coding -- version_control_systems
+    coding -- git
 
     ide[label="IDE"]
     ide -- visual_studio
     ide -- rider
     ide -- visual_studio_code
-    ide -- ssms
-    ide -- datagrip
 
     visual_studio[label="Microsoft Visual Studio"]
     visual_studio -- resharper
@@ -178,22 +258,35 @@ graph expertise {
 
     rider[label="Rider"]
     visual_studio_code[label="Visual Studio Code"]
-    ssms[label="SSMS"]
-    datagrip[label="DataGrip"]
-
-    version_control_systems[label="Version control systems"]
-    version_control_systems -- git
-    version_control_systems -- svn
 
     git[label="Git"]
-    svn[label="SVN"]
+    git -- git_ide
+    git -- gitflows
+
+    git_ide[label="IDE"]
+    git_ide -- github_desktop
+    git_ide -- sourcetree
+    git_ide -- tortoisegit
+
+    github_desktop[label="GitHub Desktop"]
+    sourcetree[label="Sourcetree"]
+    tortoisegit[label="TortoiseGit"]
+
+
+    gitflows[label="Git flows"]
 
     testing[label="Testing"]
     testing -- unit_testing
     testing -- integration_testing
+
     unit_testing[label="Unit testing"]
+    unit_testing -- unit_testing_libs
     unit_testing -- mock_objects
 
+    unit_testing_libs[label="Unit testing libraries"]
+    unit_testing_libs -- nunit
+
+    nunit[label="NUnit"]
     mock_objects[label="Mock objects"]
 
     integration_testing[label="Integration testing"]
@@ -250,6 +343,7 @@ graph expertise {
     databases -- cursors
     databases -- sql
     databases -- relational_dbms
+    databases -- db_ide
 
     acid[label="ACID"]
     isolation_levels[label="Isolation levels"]
@@ -280,5 +374,12 @@ graph expertise {
     sql_server[label="Microsoft SQL Server"]
     oracle_database[label="Oracle Database"]
     sqlite[label="SQLite"]
+
+    db_ide[label="IDE"]
+    db_ide -- ssms
+    db_ide -- datagrip
+
+    ssms[label="SQL Server Management Studio"]
+    datagrip[label="DataGrip"]
 
 }
