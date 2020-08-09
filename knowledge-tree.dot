@@ -13,10 +13,24 @@ graph expertise {
     computer_science -- algorithms
     computer_science -- analysis_of_algorithms
     computer_science -- data_structures
+    computer_science -- cryptography
 
     algorithms[label="Algorithms"]
     analysis_of_algorithms[label="Analysis of algorithms"]
     data_structures[label="Data structures"]
+
+    cryptography[label="Cryptography"]
+    cryptography -- symmetric_cryptography
+    cryptography -- asymmetric_cryptography
+    cryptography -- tls
+
+    symmetric_cryptography[label="Symmetric cryptography"]
+    asymmetric_cryptography[label="Asymmetric cryptography"]
+    asymmetric_cryptography -- digital_certificate
+    
+    digital_certificate[label="Digital certificate"]
+
+    tls[label="Transport Layer Security (TLS)"]
 
     operating_systems[label="Operating systems"]
     operating_systems -- unix
@@ -26,6 +40,8 @@ graph expertise {
     unix -- macos
     unix -- linux
     unix -- ssh
+    unix -- shell
+    unix -- nginx
 
     macos[label="macOS"]
     macos -- zsh
@@ -39,12 +55,28 @@ graph expertise {
     linux -- ubuntu
 
     centos[label="CentOS"]
+    centos -- yum
+    yum[label="YUM"]
+
     ubuntu[label="Ubuntu"]
     ubuntu -- apt
 
     apt[label="APT"]
 
     ssh[label="SSH"]
+    shell[label="shell"]
+    shell -- sh
+    shell -- bash
+
+    sh[label="Bourne shell (sh)"]
+    bash[label="Bourne again shell (bash)"]
+
+
+
+    nginx[label="Nginx"]
+    nginx -- certbot
+
+    certbot[label="Certbot"]
 
     windows[label="Windows"]
 
@@ -86,9 +118,11 @@ graph expertise {
     licensing[label="Licensing"]
     licensing -- gpl
     licensing -- mit
+    licensing -- bsd
 
     gpl[label="GPL"]
     mit[label="MIT"]
+    bsd[label="BSD"]
 
     adapter[label="Adapter"]
     behavioral_patterns[label="Behavioral patterns"]

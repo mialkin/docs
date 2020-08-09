@@ -43,6 +43,7 @@
 
 ## I
 
+* **Identity** — личность
 * **Interface segregation principle** — принцип разделения интерфейса
 * **Inversion of control** — инверсия управления
 
