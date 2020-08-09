@@ -2,7 +2,8 @@ graph expertise {
 
     software_development[label="Software development"]
     software_development -- computer_science
-    software_development -- operating_systems
+    software_development -- unix
+    software_development -- windows
     software_development -- networking
     software_development -- programming
     software_development -- devops
@@ -31,11 +32,7 @@ graph expertise {
     digital_certificate[label="Digital certificate"]
 
     tls[label="Transport Layer Security (TLS)"]
-
-    operating_systems[label="Operating systems"]
-    operating_systems -- unix
-    operating_systems -- windows
-
+    
     unix[label="UNIX"]
     unix -- macos
     unix -- linux
@@ -65,9 +62,11 @@ graph expertise {
 
     ssh[label="SSH"]
     shell[label="shell"]
+    shell -- shell_commands
     shell -- sh
     shell -- bash
 
+    shell_commands[label="Shell commands"]
     sh[label="Bourne shell (sh)"]
     bash[label="Bourne again shell (bash)"]
 
@@ -79,7 +78,6 @@ graph expertise {
     certbot[label="Certbot"]
 
     windows[label="Windows"]
-
     networking[label="Networking"]
     networking -- osi
     networking -- internet_protocol_suite

@@ -1,0 +1,9 @@
+# Terminal
+
+Shortcut | Meaning
+-|-
+<kbd>Control</kbd> + <kbd>C</kbd> | Delete to the beginning of the line
+
+## See also
+
+[Keyboard shortcuts in Terminal on Mac](https://support.apple.com/guide/terminal/keyboard-shortcuts-trmlshtcts/mac)
