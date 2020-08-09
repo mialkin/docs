@@ -2,7 +2,7 @@
 
 Display what shell the terminal opened with:
 
-```console
+```sh
 echo $SHELL
 ```
 
