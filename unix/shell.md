@@ -14,7 +14,7 @@ echo $0
 
 To switch to a bash or different shell type its name at the terminal and then press the enter key:
 
-```console
+```sh
 bash
 ```
 
