@@ -6,7 +6,6 @@ graph expertise {
     software_development -- networking
     software_development -- programming
     software_development -- devops
-    software_development -- uml
     software_development -- developer_platforms
     software_development -- databases
 
@@ -26,22 +25,23 @@ graph expertise {
     unix[label="UNIX"]
     unix -- macos
     unix -- linux
-    unix -- unix_package_managers
 
     macos[label="macOS"]
+    macos -- zsh
+    macos -- homebrew
+
+    zsh[label="Z shell"]
+    homebrew[label="Homebrew"]
+
     linux[label="Linux"]
     linux -- centos
     linux -- ubuntu
 
     centos[label="CentOS"]
     ubuntu[label="Ubuntu"]
-
-    unix_package_managers[label="Package managers"]
-    unix_package_managers -- apt
-    unix_package_managers -- homebrew
+    ubuntu -- apt
 
     apt[label="APT"]
-    homebrew[label="Homebrew"]
 
     windows[label="Windows"]
 
@@ -62,25 +62,34 @@ graph expertise {
     ip[label="Internet Protocol (IP)"]
     network_protocols[label="Network protocols"]
     network_protocols -- http
-    network_protocols -- ftp
     network_protocols -- ssh
+    network_protocols -- ftp
 
     http[label="HTTP"]
-    ftp[label="FTP"]
     ssh[label="SSH"]
+    ftp[label="FTP"]
 
     desinging[label="Designing"]
-    desinging -- desing_patterns
     desinging -- desing_principles
+    desinging -- uml
+    desinging -- design_patterns
+    desinging -- licensing
 
-    desing_patterns[label="Design patterns"]
-    desing_patterns -- creational_patterns
-    desing_patterns -- behavioral_patterns
-    desing_patterns -- structural_patterns
+    design_patterns[label="Design patterns"]
+    design_patterns -- creational_patterns
+    design_patterns -- behavioral_patterns
+    design_patterns -- structural_patterns
 
     creational_patterns[label="Creational patterns"]
     structural_patterns[label="Structural patterns"]
     structural_patterns -- adapter
+
+    licensing[label="Licensing"]
+    licensing -- gpl
+    licensing -- mit
+
+    gpl[label="GPL"]
+    mit[label="MIT"]
 
     adapter[label="Adapter"]
     behavioral_patterns[label="Behavioral patterns"]
@@ -99,11 +108,20 @@ graph expertise {
     kiss[label="KISS"]
     yagni[label="YAGNI"]
 
+    uml[label="Unified Modeling Language (UML)"]
+    uml -- diagrams
+    
+    diagrams[label="Diagrams"]
+    diagrams -- class_diagram
+    diagrams -- sequence_diagram
+
+    class_diagram[label="Class diagram"]
+    sequence_diagram[label="Sequence diagram"]
+
     programming[label="Programming"]
     programming -- desinging
     programming -- coding
     programming -- testing
-    programming -- regular_expressions
     programming -- rest
     programming -- microservices
     programming -- oauth
@@ -277,6 +295,7 @@ graph expertise {
     coding[label="Coding"]
     coding -- ide
     coding -- git
+    coding -- regular_expressions
 
     ide[label="IDE"]
     ide -- visual_studio
@@ -299,6 +318,8 @@ graph expertise {
     git_ide -- github_desktop
     git_ide -- sourcetree
     git_ide -- tortoisegit
+
+    regular_expressions[label="Regular expressions"]
 
     github_desktop[label="GitHub Desktop"]
     sourcetree[label="Sourcetree"]
@@ -326,7 +347,6 @@ graph expertise {
     load_testing[label="Load testing"]
     stress_testing[label="Stress testing"]
 
-    regular_expressions[label="Regular expressions"]
     rest[label="REST"]
     rest -- openapi
 
@@ -375,16 +395,6 @@ graph expertise {
 
     markdown[label="Markdown"]
     confluence[label="Confluence"]
-    
-    uml[label="Unified Modeling Language (UML)"]
-    uml -- diagrams
-    
-    diagrams[label="Diagrams"]
-    diagrams -- class_diagram
-    diagrams -- sequence_diagram
-
-    class_diagram[label="Class diagram"]
-    sequence_diagram[label="Sequence diagram"]
 
     databases[label="Databases"]    
     databases -- acid
