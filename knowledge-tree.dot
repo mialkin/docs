@@ -25,6 +25,7 @@ graph expertise {
     unix[label="UNIX"]
     unix -- macos
     unix -- linux
+    unix -- ssh
 
     macos[label="macOS"]
     macos -- zsh
@@ -43,12 +44,16 @@ graph expertise {
 
     apt[label="APT"]
 
+    ssh[label="SSH"]
+
     windows[label="Windows"]
 
     networking[label="Networking"]
     networking -- osi
     networking -- internet_protocol_suite
-    networking -- network_protocols
+    networking -- http
+    networking -- websocket
+    networking -- ftp
 
     osi[label="OSI model"]
     internet_protocol_suite[label="Internet protocol suite"]
@@ -56,17 +61,11 @@ graph expertise {
     internet_protocol_suite -- ip
     
     tcp[label="Transmission Control Protocol (TCP)"]
-    tcp -- websocket
-    websocket[label="WebSocket"]
 
     ip[label="Internet Protocol (IP)"]
-    network_protocols[label="Network protocols"]
-    network_protocols -- http
-    network_protocols -- ssh
-    network_protocols -- ftp
 
     http[label="HTTP"]
-    ssh[label="SSH"]
+    websocket[label="WebSocket"]
     ftp[label="FTP"]
 
     desinging[label="Designing"]
