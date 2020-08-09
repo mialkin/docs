@@ -20,6 +20,6 @@ bash
 
 To see available shells on your system type:
 
-```console
+```sh
 cat /etc/shells
 ```
