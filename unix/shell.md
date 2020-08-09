@@ -8,7 +8,7 @@ echo $SHELL
 
 However, to find out what shell you are currently in (you may have changed it) type:
 
-```console
+```sh
 echo $0
 ```
 
