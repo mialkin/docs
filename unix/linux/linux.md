@@ -1,4 +1,22 @@
-# Commands
+# Linux
+
+Check info about OS:
+
+```sh
+hostnamectl
+```
+
+Check OS name and version:
+
+```sh
+cat /etc/*-release
+```
+
+Check kernel version:
+
+```sh
+uname -a
+```
 
 ## Disks
 
