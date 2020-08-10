@@ -9,17 +9,23 @@ apt list --upgradeable
 Update list of available packages on your computer.
 
 ```sh
-sudo apt-get update
+sudo apt update
 ```
 
 Update all installed packages.
 
 ```sh
-apt-get upgrade
+sudo apt upgrade
 ```
 
 Install specific package.
 
 ```sh
-sudo apt-get install <package>
+sudo apt install <package>
+```
+
+Search for a package.
+
+```sh
+apt-cache search <package>
 ```

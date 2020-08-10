@@ -2,6 +2,12 @@
 
 ## Installing
 
+### Ubuntu
+
+```sh
+sudo apt install nginx
+```
+
 ### CentOS
 
 Install nginx via YUM package manager.
