@@ -8,6 +8,14 @@ Check free disk space.
 df -h .
 ```
 
+## Network
+
+Find public IP addresses of your machine.
+
+```sh
+curl ident.me
+```
+
 ## Power managment
 
 ### Uptime
