@@ -4,7 +4,7 @@
 
 ### systemctl
 
-The systemctl may be used to introspect and control the state of the "systemd" system and service manager. 
+The **systemctl** is a controlling interface and inspection tool for the widely-adopted init system and service manager systemd.
 
 ### systemd
 
