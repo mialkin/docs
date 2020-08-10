@@ -25,3 +25,7 @@ Shut down and reboot the system.
 ```sh
 sudo systemctl reboot
 ```
+
+## See also
+
+[systemd](https://wiki.archlinux.org/index.php/systemd)
