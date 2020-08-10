@@ -4,7 +4,7 @@
 
 ### systemctl
 
-The **systemctl** is a controlling interface and inspection tool for the widely-adopted init system and service manager systemd.
+The **systemctl** is a controlling interface and inspection tool for service manager systemd.
 
 ### systemd
 
