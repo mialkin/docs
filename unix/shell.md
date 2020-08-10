@@ -2,24 +2,24 @@
 
 Display what shell the terminal opened with:
 
-```console
+```sh
 echo $SHELL
 ```
 
 However, to find out what shell you are currently in (you may have changed it) type:
 
-```console
+```sh
 echo $0
 ```
 
 To switch to a bash or different shell type its name at the terminal and then press the enter key:
 
-```console
+```sh
 bash
 ```
 
 To see available shells on your system type:
 
-```console
+```sh
 cat /etc/shells
 ```
