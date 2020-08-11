@@ -2,7 +2,7 @@
 
 Shortcut | Meaning
 -|-
-<kbd>Control</kbd> + <kbd>C</kbd> | Delete to the beginning of the line
+<kbd>Control</kbd> + <kbd>U</kbd> | Delete to the beginning of the line
 
 ## See also
 
