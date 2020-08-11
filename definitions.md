@@ -14,12 +14,12 @@ In Unix-like computer operating systems, a pipeline is a mechanism for inter-pro
 
 The standard shell syntax for anonymous pipes is to list multiple commands, separated by vertical bars ("pipes" in common Unix verbiage):
 
-```console
+```sh
 process1 | process2 | process3
 ```
 
 For example, to list files in the current directory (ls), retain only the lines of ls output containing the string "key" (grep), and view the result in a scrolling page (less), a user types the following into the command line of a terminal:
 
-```console
+```sh
 ls -l | grep key | less
 ```
