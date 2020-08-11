@@ -48,7 +48,7 @@ Example of a configuration file.
 
 ```text
 server  {
-  server_name sub.domain.com;
+  server_name sub.domain.ru;
   location / {
     proxy_pass http://localhost:5001;
   }
