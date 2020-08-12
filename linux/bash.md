@@ -1,37 +1,31 @@
 # Linux
 
-## OS information
+## OS
 
 Command | Meaning
 -|-
-hostnamectl | Check info about OS
-cat /etc/*-release | Check OS name and version
-uname -a | Check kernel version
+hostnamectl | Info about OS
+cat /etc/*-release | OS name and version
+uname -a | Kernel version
 
 ## Power managment
 
 Command | Meaning
 -|-
-uptime | Find out how long the system is running. <br/>This command returns set of values that involve, the current time, and the amount of time system is in running state, number of users currently logged into, and the load time for the past 1, 5 and 15 minutes respectively
+uptime | How long the system is running. <br/>This command returns set of values that involve, the current time, and the amount of time system is in running state, number of users currently logged into, and the load time for the past 1, 5 and 15 minutes respectively
 sudo&nbsp;systemctl&nbsp;reboot | Shut down and reboot the system
-
-## Disks
-
-Check free disk space.
-
-```sh
-df -h .
-```
 
 ## Network
 
-Find public IP addresses of your machine.
+Command | Meaning
+-|-
+curl ident.me | Public IP addresses of your machine
 
-```sh
-curl ident.me
-```
+## Storage
 
-
+Command | Meaning
+-|-
+df -h . | Free disk space
 
 ## See also
 
