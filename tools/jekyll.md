@@ -8,7 +8,7 @@ sudo chown -R <username> <website>
 cd <website>
 ```
 
-Run website with page refresh on change and logs output to console.
+Run website with page refresh on file change and logs output to console.
 
 ```sh
 jekyll serve --livereload --trace --port 4000
