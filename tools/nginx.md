@@ -74,3 +74,10 @@ Show contents of nginx default configuration file.
 ```sh
 cat /etc/nginx/nginx.conf
 ```
+
+## HTML files
+
+```sh
+cat /usr/share/nginx/html/index.html
+cat /var/www/html/index.nginx-debian.html
+```
