@@ -4,7 +4,7 @@
 
 Command | Description
 :-|:-
-sudo apt update | Update list of available packages on your computer
+sudo apt update | Update list of available packages
 apt list --upgradeable | List available updates but do not install them
 sudo apt upgrade| Update all installed packages
 sudo apt install <package> | Install specific package if it doesn't exist or upgrade it if it does exist
