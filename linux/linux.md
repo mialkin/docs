@@ -1,22 +1,21 @@
 # Linux
 
-Check info about OS:
+## OS information
 
-```sh
-hostnamectl
-```
+Command | Meaning
+-|-
+`hostnamectl` | Check info about OS
+`cat /etc/*-release` | Check OS name and version
+`uname -a` | Check kernel version
+|
 
-Check OS name and version:
+## Power managment
 
-```sh
-cat /etc/*-release
-```
+Command | Meaning
+-|-
+uptime | Find out how long the system is running. <br/>This command returns set of values that involve, the current time, and the amount of time system is in running state, number of users currently logged into, and the load time for the past 1, 5 and 15 minutes respectively
+sudo systemctl reboot | Shut down and reboot the system
 
-Check kernel version:
-
-```sh
-uname -a
-```
 
 ## Disks
 
@@ -34,23 +33,7 @@ Find public IP addresses of your machine.
 curl ident.me
 ```
 
-## Power managment
 
-### Uptime
-
-Find out how long the system is running. This command returns set of values that involve, the current time, and the amount of time system is in running state, number of users currently logged into, and the load time for the past 1, 5 and 15 minutes respectively.
-
-```sh
-uptime
-```
-
-### Reboot
-
-Shut down and reboot the system.
-
-```sh
-sudo systemctl reboot
-```
 
 ## See also
 
