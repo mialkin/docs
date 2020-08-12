@@ -1,5 +1,13 @@
 # Z shell (zsh)
 
-Command | Meaning
+## Settings
+
+Command | Description
 -|-
-cat example.txt \| pbcopy | Paste text from zsh to clippbord
+echo "alias ll='ls -la'" >> ~/.zshrc | Define `ll` alias
+
+## Clipboard
+
+Command | Description
+-|-
+cat example.txt \| pbcopy | Copy text to clippbord

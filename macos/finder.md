@@ -1,14 +1,8 @@
-# macOS
+# Finder
 
-Set `ll` command:
+## Shortcuts
 
-```sh
-echo "alias ll='ls -la'" >> ~/.zshrc
-```
-
-## Finder shortcuts
-
-Command|Meaning
+Command | Description
 -|-
 <kbd>⌘ Command</kbd> + <kbd>⇧ Shift</kbd> +  <kbd>G</kbd>| Go to folder dialog 
 <kbd>⌘ Command</kbd> + <kbd>⇧ Shift</kbd> +  <kbd>.</kbd>| Show hidden files and folders 
