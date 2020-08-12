@@ -1,31 +1,12 @@
-# APT
+# Advanced Package Tool (APT)
 
-List available updates but do not install them.
+## Shortcuts
 
-```sh
-apt list --upgradeable
-```
-
-Update list of available packages on your computer.
-
-```sh
-sudo apt update
-```
-
-Update all installed packages.
-
-```sh
-sudo apt upgrade
-```
-
-Install specific package.
-
-```sh
-sudo apt install <package>
-```
-
-Search for a package.
-
-```sh
-apt-cache search <package>
-```
+Command | Description
+:-|:-
+sudo apt update | Update list of available packages on your computer
+apt list --upgradeable | List available updates but do not install them
+sudo apt upgrade| Update all installed packages
+sudo apt install <package> | Install specific package if it doesn't exist or upgrade it if it does exist
+apt-get install --only-upgrade <package> | Only upgrade package and do not install it if it hasn't been installed before
+apt-cache search <package> | Search for a package
