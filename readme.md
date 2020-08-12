@@ -1,15 +1,15 @@
 # Technical documentation
 
-## Design
+## Software design
 
 * [Composition over inheritance](design/composition%20over%20inheritance.md)
 * Design patterns
   * Behavioral
-    * [Strategy](design/design%20patterns/behavioral/strategy.md)
+    * [Strategy](software%20design/design%20patterns/behavioral/strategy.md)
   * Structural
-    * [Adapter](design/design%20patterns/structural/adapter.md)
-* [Design principles](design/design%20principles.md)
-* [UML](design/uml.md)
+    * [Adapter](software%20design/design%20patterns/structural/adapter.md)
+* [Design principles](software%20design/design%20principles.md)
+* [UML](software%20design/uml.md)
 
 ## Knowledge tree
 
