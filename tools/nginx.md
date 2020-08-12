@@ -60,3 +60,17 @@ Restart nginx.
 ```sh
 sudo systemctl restart nginx
 ```
+
+## Paths
+
+Go to default nginx folder.
+
+```sh
+cd /etc/nginx
+```
+
+Show contents of nginx default configuration file.
+
+```sh
+cat /etc/nginx/nginx.conf
+```
