@@ -1,16 +1,11 @@
 # YUM
 
-To see which installed packages on your system have updates available, use the following command:
+## Shortcuts
 
-```sh
-yum check-update
-```
-
-To update all packages and their dependencies, enter yum update (without any arguments):
-
-```sh
-yum update
-```
+Command | Description
+:-|:-
+yum check-update | See which installed packages have updates available
+yum update | Update all packages and their dependencies
 
 ## See also
 
