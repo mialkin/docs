@@ -7,7 +7,6 @@ Command | Meaning
 hostnamectl | Check info about OS
 cat /etc/*-release | Check OS name and version
 uname -a | Check kernel version
-|
 
 ## Power managment
 
