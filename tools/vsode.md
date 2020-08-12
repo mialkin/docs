@@ -1,5 +1,7 @@
 # Visual Studio Code
 
+## Shortcuts
+
 Command | Description
 :-|:-
 <kbd>⇧ Shift</kbd> + <kbd>⌥ Option</kbd> + <kbd>↓</kbd> | Duplicate the line under cursor
