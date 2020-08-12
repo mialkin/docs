@@ -2,4 +2,4 @@
 
 Command | Meaning
 -|-
-`cat example.txt \| pbcopy` | Paste text from zsh to clippbord
+cat example.txt \| pbcopy | Paste text from zsh to clippbord
