@@ -1,25 +1,10 @@
 # Shell
 
-Display what shell the terminal opened with:
+## Shortcuts
 
-```sh
-echo $SHELL
-```
-
-However, to find out what shell you are currently in (you may have changed it) type:
-
-```sh
-echo $0
-```
-
-To switch to a bash or different shell type its name at the terminal and then press the enter key:
-
-```sh
-bash
-```
-
-To see available shells on your system type:
-
-```sh
-cat /etc/shells
-```
+Command | Description
+:-|:-
+cat /etc/shells | Available shells
+echo $SHELL | Display what shell the terminal opened with
+bash | Switch to a bash or different shell type its name at the terminal
+echo $0 | Currently used shell
