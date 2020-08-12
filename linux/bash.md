@@ -4,7 +4,7 @@
 
 Command | Meaning
 -|-
-hostnamectl | info
+hostnamectl | OS info
 cat /etc/*-release | OS name and version
 uname -a | Kernel version
 
