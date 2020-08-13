@@ -16,8 +16,34 @@ docker save mialkin/dictionary:3.0 \| gzip > dictionary.tar.gz | Save image as g
 
 Command | Description
 :-|:-
-|
-|
-|
-|
-|
+docker ps | List all currently running containers
+docker ps -a | List all containers, including non-running
+docker run -it --rm <image> | Runs container from image, launches shell and deletes container after its shut down
+
+## Running image
+
+Example of `run` command:
+
+```sh
+sudo docker run \
+-d \
+--restart unless-stopped \
+-it \
+-p 5001:80 \
+-v /var/app-files:/files \
+-e ADMIN_PASSWORD=yourpass \
+--name dictionary \
+mialkin/dictionary
+```
+
+Explanation of options:
+
+Option | Description
+:-|:-
+ -d | Starts container in detached mode, i.e.  your terminal’s standard input, output, and error (or any combination of the three) will not be attached to running container
+--restart unless-stopped | Always restart the container regardless of the exit status, including on daemon startup, except if the container was put into a stopped state before the Docker daemon was stopped
+-it|Instructs Docker to allocate a pseudo-TTY connected to the container’s stdin; creating an interactive bash shell in the container
+-p 5001:80|Binds TCP port 5001 on the host machine to port 80 of the container
+-v&nbsp;/var/app-files:/files| Mounts /var/app-files folder on host machine onto /files folder in container
+-e&nbsp;ADMIN_PASSWORD=yourpass|Sets value of ADMIN_PASSWORD environment variable
+--name dictionary|Assigns name to the running container
