@@ -2,6 +2,8 @@
 
 The **abstract factory** is a creational design pattern that provides an interface for creating families of related or dependent objects without specifying their concrete classes.
 
+## C# implementation
+
 ```csharp
 using System;
 
@@ -61,4 +63,10 @@ public class FactoryB : IFactory
         return new ProductB();
     }
 }
+```
+Output:
+
+```console
+A
+B
 ```
