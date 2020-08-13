@@ -26,6 +26,7 @@ class Program
     {
         IProduct product = GetProduct(new CreatorA());
         product.Method();
+        
         product = GetProduct(new CreatorB());
         product.Method();
     }
