@@ -47,6 +47,11 @@ Command | Description
 :-|:-
 docker ps | List all currently running containers
 docker ps -a | List all containers, including non-running
-docker stop \<container id\> | Stop running container
+docker start \<container\> | Start one or more stopped containers
+docker stop \<container\> | Stop one or more running containers
 docker kill $(docker ps -q) | Stop all containers
-docker stats | 
+docker stats [\<container\>] | Display a live stream of container(s) resource usage statistics
+docker exec -it \<conainer\> \<command\> | Run a command in a running container
+docker attach -f \<container\> | Attach local standard input, output, and error streams to a running container (-f — follow)
+docker rm \<container1\> \<container2\> | Remove containers
+docker rm $(docker ps -a -q) | Remove all containers
