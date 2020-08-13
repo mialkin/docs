@@ -1,6 +1,6 @@
 # Bash
 
-## Power
+## Power managment
 
 Command | Description
 :-|:-
