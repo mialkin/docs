@@ -27,6 +27,16 @@ Command | Meaning
 :-|:-
 df -h . | Free disk space
 
+## Shell
+
+Command | Description
+:-|:-
+cat /etc/shells | Available shells
+echo $SHELL | Display what shell the terminal opened with
+bash | Switch to a bash or different shell type its name at the terminal
+echo $0 | Currently used shell
+
+
 ## See also
 
 [systemd](https://wiki.archlinux.org/index.php/systemd)
