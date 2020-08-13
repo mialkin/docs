@@ -147,4 +147,4 @@ I won't appear.
 
 ## See also
 
-[Strategy pattern](design%20patterns/behavioral/strategy.md)
+[Strategy pattern](../design%20patterns/strategy.md)
