@@ -1,17 +1,19 @@
 # Abstract factory
 
-```cs
+The **abstract factory** is a creational design pattern that provides an interface for creating families of related or dependent objects without specifying their concrete classes.
+
+```csharp
 using System;
 
 class Program
 {
     static void Main()
     {
-        CallProductMethod(new FactoryA());
-        CallProductMethod(new FactoryB());
+        CallProduct(new FactoryA());
+        CallProduct(new FactoryB());
     }
 
-    private static void CallProductMethod(IFactory factory)
+    private static void CallProduct(IFactory factory)
     {
         IProduct product = factory.GetProduct();
         product.Method();

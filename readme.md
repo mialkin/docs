@@ -6,6 +6,8 @@
 * Design patterns
   * Behavioral
     * [Strategy](design%20patterns/strategy.md)
+  * Creational
+    * [Abstract factory](design%20patterns/abstract%20factory.md)
   * Structural
     * [Adapter](design%20patterns/adapter.md)
 * [Design principles](software%20design/design%20principles.md)
