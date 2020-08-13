@@ -12,14 +12,6 @@ docker rmi \<image1\> \<image2\> | Remove one or more images
 docker rmi $(docker images -a -q) | Remove all images
 docker save mialkin/dictionary:3.0 \| gzip > dictionary.tar.gz | Save image as gzip archive
 
-## Containers
-
-Command | Description
-:-|:-
-docker ps | List all currently running containers
-docker ps -a | List all containers, including non-running
-docker run -it --rm <image> | Runs container from image, launches shell and deletes container after its shut down
-
 ## Running image
 
 Example of `run` command:
@@ -36,7 +28,7 @@ sudo docker run \
 mialkin/dictionary
 ```
 
-Explanation of options:
+Running options:
 
 Option | Description
 :-|:-
@@ -47,3 +39,14 @@ Option | Description
 -v&nbsp;/var/app-files:/files| Mounts /var/app-files folder on host machine onto /files folder in container
 &#8209;e&nbsp;ADMIN_PASSWORD=yourpass|Sets value of ADMIN_PASSWORD environment variable
 --name dictionary|Assigns name to the running container
+--rm | Remove container when it exits or when the daemon exits, whichever happens first
+
+## Containers
+
+Command | Description
+:-|:-
+docker ps | List all currently running containers
+docker ps -a | List all containers, including non-running
+docker stop \<container id\> | Stop running container
+docker kill $(docker ps -q) | Stop all containers
+docker stats | 
