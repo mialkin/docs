@@ -27,11 +27,13 @@ htop | Interactive process viewer
 Command | Description
 :-|:-
 curl ident.me | Public IP addresses of machine
+scp /file/to/send username@remote:/where/to/put <br/> scp username@remote:/file/to/send /where/to/put| Secure copy
 
 ## OS
 
 Command | Description
 :-|:-
+lsb_release -a| Print certain LSB (Linux Standard Base) and distribution-specific information
 hostnamectl | OS info
 cat /etc/*-release | OS name and version
 uname -a | Kernel version
