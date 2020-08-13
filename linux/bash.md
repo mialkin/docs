@@ -13,7 +13,7 @@ Command | Description
 :-|:-
 free -m | Display amount of free and used memory in the system
 top&nbsp;&#8209;o&nbsp;%MEM | Display Linux processes sorted by memory
-htop | Interactive process viewer. It  is  similar  to  top, but allows you to scroll vertically and horizontally, so you can see all the processes running on the system, along with their full command lines, as well as viewing them as a process tree, selecting multiple processes and acting on them all at once.<br/>Tasks related to processes (killing, renicing) can be done without entering their PIDs.
+htop | Interactive process viewer. It is similar to top, but allows you to scroll vertically and horizontally, so you can see all the processes running on the system, along with their full command lines, as well as viewing them as a process tree, selecting multiple processes and acting on them all at once.<br/>Tasks related to processes (killing, renicing) can be done without entering their PIDs.
 
 ## Disk
 
