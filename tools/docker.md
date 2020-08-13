@@ -45,5 +45,5 @@ Option | Description
 -it|Instructs Docker to allocate a pseudo-TTY connected to the container’s stdin; creating an interactive bash shell in the container
 -p 5001:80|Binds TCP port 5001 on the host machine to port 80 of the container
 -v&nbsp;/var/app-files:/files| Mounts /var/app-files folder on host machine onto /files folder in container
--e&nbsp;ADMIN_PASSWORD=yourpass|Sets value of ADMIN_PASSWORD environment variable
+&#8209;e&nbsp;ADMIN_PASSWORD=yourpass|Sets value of ADMIN_PASSWORD environment variable
 --name dictionary|Assigns name to the running container
