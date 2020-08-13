@@ -69,4 +69,4 @@ Two
 
 ## See also
 
-[Composition over inheritance](../../composition%20over%20inheritance.md)
+[Composition over inheritance](/software%20design/composition%20over%20inheritance.md)
