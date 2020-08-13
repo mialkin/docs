@@ -28,11 +28,11 @@ class Program
 {
     static void Main()
     {
-        CallProduct(new FactoryA());
-        CallProduct(new FactoryB());
+        Client(new FactoryA());
+        Client(new FactoryB());
     }
 
-    private static void CallProduct(IFactory factory)
+    private static void Client(IFactory factory)
     {
         IProduct product = factory.GetProduct();
         product.Method();

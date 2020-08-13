@@ -2,6 +2,17 @@
 
 The **strategy pattern** is a behavioral software design pattern that enables selecting an algorithm at runtime. Instead of implementing a single algorithm directly, code receives run-time instructions as to which in a family of algorithms to use.
 
+## Participants
+
+* **Strategy**
+  * declares an interface common to all supported algorithms. Context uses this interface to call the algorithm defined by a ConcreteStrategy.
+* **ConcreteStrategy**
+  * implements the algorithm using the Strategy interface.
+* **Context**
+  * is configured with a ConcreteStrategy object.
+  * maintains a reference to a Strategy object.
+  * may define an interface that lets Strategy access its data.
+
 ## C# implementation
 
 ```csharp
@@ -11,51 +22,50 @@ public class Program
 {
     public static void Main()
     {
-        var user = new BehaviorUser(new BehaviorOne());
-        user.Behave();
-        user.SetBehavior(new BehaviorTwo());
-        user.Behave();
+        var context = new Context(new StrategyOne());
+        context.Act();
+        context.SetStrategy(new StrategyTwo());
+        context.Act();
     }
 }
 
-public interface IBehavior
+public interface IStrategy
 {
-    void Behave();
+    void Act();
 }
 
-public class BehaviorOne : IBehavior
+public class StrategyOne : IStrategy
 {
-    public void Behave()
+    public void Act()
     {
         Console.WriteLine("One");
     }
 }
 
-public class BehaviorTwo : IBehavior
+public class StrategyTwo : IStrategy
 {
-    public void Behave()
+    public void Act()
     {
         Console.WriteLine("Two");
     }
 }
 
-public class BehaviorUser
+public class Context
 {
-    private IBehavior _behavior;
-
-    public BehaviorUser(IBehavior behavior)
+    private IStrategy _strategy;
+    public Context(IStrategy strategy)
     {
-        _behavior = behavior;
+        _strategy = strategy;
     }
 
-    public void Behave()
+    public void Act()
     {
-        _behavior.Behave();
+        _strategy.Act();
     }
 
-    public void SetBehavior(IBehavior behavior)
+public void SetStrategy(IStrategy strategy)
     {
-        _behavior = behavior;
+        _strategy = strategy;
     }
 }
 ```

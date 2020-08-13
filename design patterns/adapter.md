@@ -2,6 +2,17 @@
 
 The **adapter** is a structural software design pattern that converts the interface of a class into another interface clients expect. An adapter lets classes work together that could not otherwise because of incompatible interfaces.
 
+## Participants
+
+* **Target**
+  * defines the domain-specific interface that Client uses.
+* **Client**
+  * collaborates with objects conforming to the Target interface.
+* **Adaptee**
+  * defines an existing interface that needs adapting.
+* **Adapter**
+  * adapts the interface of Adaptee to the Target interface.
+
 ## C# implementation
 
 ```csharp
@@ -11,22 +22,27 @@ class Program
 {
     static void Main()
     {
-        IContractB adapter = new Adapter(new A());
-        adapter.MethodB();
+        ITarget adapter = new Adapter(new A());
+        Client(adapter);
+    }
+
+    static void Client(ITarget target)
+    {
+        target.MethodB();
     }
 }
 
-interface IContractA
+interface IAdaptee
 {
     void MethodA();
 }
 
-interface IContractB
+interface ITarget
 {
     void MethodB();
 }
 
-class A : IContractA
+class A : IAdaptee
 {
     public void MethodA()
     {
@@ -34,18 +50,17 @@ class A : IContractA
     }
 }
 
-class Adapter : IContractB
+class Adapter : ITarget
 {
-    private IContractA _contractA;
-
-    public Adapter(IContractA contractA)
+    private IAdaptee _adaptee;
+    public Adapter(IAdaptee adaptee)
     {
-        _contractA = contractA;
+        _adaptee = adaptee;
     }
 
     public void MethodB()
     {
-        _contractA.MethodA();
+        _adaptee.MethodA();
     }
 }
 ```
@@ -53,5 +68,5 @@ class Adapter : IContractB
 Output:
 
 ```console
-One
+A
 ```
