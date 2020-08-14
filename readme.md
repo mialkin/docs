@@ -8,6 +8,7 @@
     * [Strategy](design%20patterns/strategy.md)
   * Creational
     * [Abstract factory](design%20patterns/abstract%20factory.md)
+    * [Builder](design%20patterns/builder.md)
     * [Factory method](design%20patterns/factory%20method.md)
   * Structural
     * [Adapter](design%20patterns/adapter.md)
