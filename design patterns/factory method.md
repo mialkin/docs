@@ -61,12 +61,12 @@ class CreatorB : Creator
     }
 }
 
-public interface IProduct
+interface IProduct
 {
     void Method();
 }
 
-public class ProductA : IProduct
+class ProductA : IProduct
 {
     public void Method()
     {
@@ -74,7 +74,7 @@ public class ProductA : IProduct
     }
 }
 
-public class ProductB : IProduct
+class ProductB : IProduct
 {
     public void Method()
     {
@@ -82,7 +82,7 @@ public class ProductB : IProduct
     }
 }
 
-public class DefaultProduct : IProduct
+class DefaultProduct : IProduct
 {
     public void Method()
     {
