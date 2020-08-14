@@ -19,6 +19,9 @@ graph expertise {
     algorithms[label="Algorithms"]
     analysis_of_algorithms[label="Analysis of algorithms"]
     data_structures[label="Data structures"]
+    data_structures -- hash_table
+    
+    hash_table[label="Hash table"]
 
     cryptography[label="Cryptography"]
     cryptography -- symmetric_cryptography
@@ -115,7 +118,7 @@ graph expertise {
     creational_patterns -- factory_method
     creational_patterns -- prototype
     creational_patterns -- singleton
-    
+
     abstract_factory[label="Abstract factory"]
     builder[label="Builder"]
     factory_method[label="Factory method"]

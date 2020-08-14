@@ -23,6 +23,7 @@
 ## D
 
 * **Deadlock** — взаимная блокировка
+* **Deep copy** — глубокая копия
 * **Dependency injection** — внедрение зависимости
 * **Dependency inversion principle** — принцип инверсии зависимостей
 * **Design patterns** — шаблоны проектирования
@@ -78,6 +79,7 @@
 
 * **Single-page application** — одностраничное приложение
 * **Single responsibility principle** — принцип единственной ответственности
+* **Shallow copy** — поверхостная копия
 * **Structural design pattern** — структурный шаблон проектирования
 * **Structure diagram** — диаграмма структуры
 
