@@ -3,7 +3,7 @@
 ## Software design
 
 * [Composition over inheritance](software%20design/composition%20over%20inheritance.md)
-* Design patterns
+* Software design patterns
   * Behavioral
     * [Strategy](design%20patterns/strategy.md)
   * Creational
