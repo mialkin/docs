@@ -22,7 +22,7 @@ class Program
 {
     static void Main()
     {
-        ITarget adapter = new Adapter(new A());
+        ITarget adapter = new Adapter(new Adaptee());
         Client(adapter);
     }
 
@@ -42,7 +42,7 @@ interface ITarget
     void MethodB();
 }
 
-class A : IAdaptee
+class Adaptee : IAdaptee
 {
     public void MethodA()
     {
