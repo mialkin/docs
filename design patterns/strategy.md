@@ -18,7 +18,7 @@ The **strategy pattern** is a behavioral software design pattern that enables se
 ```csharp
 using System;
 
-public class Program
+class Program
 {
     public static void Main()
     {
@@ -30,12 +30,12 @@ public class Program
     }
 }
 
-public interface IStrategy
+interface IStrategy
 {
     void Act();
 }
 
-public class StrategyOne : IStrategy
+class StrategyOne : IStrategy
 {
     public void Act()
     {
@@ -43,7 +43,7 @@ public class StrategyOne : IStrategy
     }
 }
 
-public class StrategyTwo : IStrategy
+class StrategyTwo : IStrategy
 {
     public void Act()
     {
@@ -51,7 +51,7 @@ public class StrategyTwo : IStrategy
     }
 }
 
-public class Context
+class Context
 {
     private IStrategy _strategy;
     
