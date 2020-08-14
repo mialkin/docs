@@ -39,12 +39,12 @@ class Program
     }
 }
 
-public interface IProduct
+interface IProduct
 {
     void Method();
 }
 
-public class ProductA : IProduct
+class ProductA : IProduct
 {
     public void Method()
     {
@@ -52,7 +52,7 @@ public class ProductA : IProduct
     }
 }
 
-public class ProductB : IProduct
+class ProductB : IProduct
 {
     public void Method()
     {
@@ -60,12 +60,12 @@ public class ProductB : IProduct
     }
 }
 
-public interface IFactory
+interface IFactory
 {
     IProduct GetProduct();
 }
 
-public class FactoryA : IFactory
+class FactoryA : IFactory
 {
     public IProduct GetProduct()
     {
@@ -73,7 +73,7 @@ public class FactoryA : IFactory
     }
 }
 
-public class FactoryB : IFactory
+class FactoryB : IFactory
 {
     public IProduct GetProduct()
     {
