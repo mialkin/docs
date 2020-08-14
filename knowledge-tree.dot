@@ -110,6 +110,18 @@ graph expertise {
     design_patterns -- structural_patterns
 
     creational_patterns[label="Creational patterns"]
+    creational_patterns -- abstract_factory
+    creational_patterns -- builder
+    creational_patterns -- factory_method
+    creational_patterns -- prototype
+    creational_patterns -- singleton
+    
+    abstract_factory[label="Abstract factory"]
+    builder[label="Builder"]
+    factory_method[label="Factory method"]
+    prototype[label="Prototype"]
+    singleton[label="Singleton"]
+
     structural_patterns[label="Structural patterns"]
     structural_patterns -- adapter
 
@@ -153,6 +165,7 @@ graph expertise {
     programming -- desinging
     programming -- coding
     programming -- testing
+    programming -- oop
     programming -- rest
     programming -- microservices
     programming -- oauth
@@ -377,6 +390,14 @@ graph expertise {
     integration_testing[label="Integration testing"]
     load_testing[label="Load testing"]
     stress_testing[label="Stress testing"]
+
+    oop[label="Object-oriented programming [OOP]"]
+    oop -- incapsulation
+    oop -- inheritance
+    oop -- polymorphism
+    incapsulation[label="Incapsulation"]
+    inheritance[label="Inheritance"]
+    polymorphism[label="Polymorphism"]
 
     rest[label="REST"]
     rest -- openapi
