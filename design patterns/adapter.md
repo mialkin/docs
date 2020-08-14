@@ -53,6 +53,7 @@ class A : IAdaptee
 class Adapter : ITarget
 {
     private IAdaptee _adaptee;
+    
     public Adapter(IAdaptee adaptee)
     {
         _adaptee = adaptee;
