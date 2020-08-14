@@ -64,7 +64,7 @@ public class Context
         _strategy.Act();
     }
 
-public void SetStrategy(IStrategy strategy)
+    public void SetStrategy(IStrategy strategy)
     {
         _strategy = strategy;
     }
