@@ -22,7 +22,7 @@ class Program
 {
     static void Main()
     {
-        ITarget adapter = new Adapter(new Adaptee());
+        ITarget adapter = new Adapter(new A());
         Client(adapter);
     }
 
@@ -50,7 +50,7 @@ class Adaptee : IAdaptee
     }
 }
 
-class Adapter : ITarget
+class A : ITarget
 {
     private IAdaptee _adaptee;
     
