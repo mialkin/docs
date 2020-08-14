@@ -50,7 +50,7 @@ class A : IAdaptee
     }
 }
 
-class A : ITarget
+class Adapter : ITarget
 {
     private IAdaptee _adaptee;
     
