@@ -1,6 +1,6 @@
 # Factory method
 
-The **factory method** is creational design pattern that defines an interface for creating an object, but lets subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
+The **factory method** is creational software design pattern that defines an interface for creating an object, but lets subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
 
 ## Participants
 
