@@ -24,6 +24,7 @@ public class Program
     {
         var context = new Context(new StrategyOne());
         context.Act();
+        
         context.SetStrategy(new StrategyTwo());
         context.Act();
     }
