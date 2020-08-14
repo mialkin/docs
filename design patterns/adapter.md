@@ -42,7 +42,7 @@ interface ITarget
     void MethodB();
 }
 
-class Adaptee : IAdaptee
+class A : IAdaptee
 {
     public void MethodA()
     {
