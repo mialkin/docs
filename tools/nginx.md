@@ -81,3 +81,6 @@ cat /etc/nginx/nginx.conf
 cat /usr/share/nginx/html/index.html
 cat /var/www/html/index.nginx-debian.html
 ```
+
+## See also
+(Beginner’s Guide)[http://nginx.org/en/docs/beginners_guide.html]
