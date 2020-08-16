@@ -82,5 +82,16 @@ cat /usr/share/nginx/html/index.html
 cat /var/www/html/index.nginx-debian.html
 ```
 
+## Mapping subdomain to folder
+
+```text
+server {
+  server_name sub.domain.ru;
+  location / {
+    root /var/www/sub.domain.folder;
+  }
+}
+```
+
 ## See also
 [Beginner’s Guide](http://nginx.org/en/docs/beginners_guide.html)
