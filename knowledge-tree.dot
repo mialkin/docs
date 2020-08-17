@@ -239,16 +239,70 @@ graph expertise {
 
     virtual_execution_system[label="Virtual Execution System (VES)"]
     common_language_specification[label="Common Language Specification (CLS)"]
-    common_language_specification -- csharp
-
     common_intermediate_language[label="Common Intermediate Language (CIL)"]
-
-    csharp[label="C#"]
 
     cli_implementations[label="CLI implementations"]
     cli_implementations -- dot_net_standard
 
     dot_net_standard[label=".NET Standard"]
+    dot_net_standard -- csharp
+
+    csharp[label="C#"]
+    csharp -- cs_types
+    csharp -- object
+
+    cs_types[label="Types"]
+    cs_types -- cs_built_in_types
+    cs_types -- boxing_unboxing
+
+    cs_built_in_types[label="Built-in types"]
+    cs_built_in_types -- value_types
+    cs_built_in_types -- reference_types
+
+    value_types[label="Value types"]
+    value_types -- integral_types
+    value_types -- floating_point_types
+    value_types -- bool
+    value_types -- char
+    value_types -- enumeration_types
+
+    integral_types[label="Integral types"]
+    integral_types -- byte
+    integral_types -- short
+    integral_types -- int
+    integral_types -- long
+
+    floating_point_types[label="Floating-point types"]
+    floating_point_types -- float
+    floating_point_types -- double
+    floating_point_types -- decimal
+
+    enumeration_types[label="Enumeration types"]
+
+    reference_types[label="Reference types"]
+    boxing_unboxing[label="Boxing and unboxing"]
+
+    object[label="Object"]
+    object -- methods
+
+    methods[label="Methods"]
+
+    methods -- equals
+    methods -- finalize
+    methods -- get_hash_code
+    methods -- get_type
+    methods -- memberwise_clone
+    methods -- reference_equals
+    methods -- to_string
+
+    equals[label="Equals"]
+    finalize[label="Finalize"]
+    get_hash_code[label="GetHashCode"]
+    get_type[label="GetType"]
+    memberwise_clone[label="MemberwiseClone"]
+    reference_equals[label="ReferenceEquals"]
+    to_string[label="ToString"]
+
     dot_net_standard -- dot_net_core
     dot_net_standard -- dot_net_framework
 
