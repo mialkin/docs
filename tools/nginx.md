@@ -93,5 +93,15 @@ server {
 }
 ```
 
+## Permanent redirect from one page to another
+
+```text
+server {
+  rewrite ^/old/url$ https://new.domain.ru/old/url permanent;
+}
+
+```
+
 ## See also
+
 [Beginner’s Guide](http://nginx.org/en/docs/beginners_guide.html)
