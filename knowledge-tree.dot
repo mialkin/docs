@@ -265,6 +265,9 @@ graph expertise {
     value_types -- bool
     value_types -- char
     value_types -- enumeration_types
+    value_types -- structure_types
+    value_types -- tuple_types
+    value_types --nullable_value_types
 
     integral_types[label="Integral types"]
     integral_types -- byte
@@ -278,6 +281,9 @@ graph expertise {
     floating_point_types -- decimal
 
     enumeration_types[label="Enumeration types"]
+    structure_types[label="Structure types"]
+    tuple_types[label="Tuple types"]
+    nullable_value_types[label="Nullable value types"]
 
     reference_types[label="Reference types"]
     boxing_unboxing[label="Boxing and unboxing"]
