@@ -93,7 +93,7 @@ class DefaultProduct : IProduct
 
 Output:
 
-```console
+```output
 A
 B
 ```
