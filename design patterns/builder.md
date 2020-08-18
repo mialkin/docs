@@ -114,7 +114,7 @@ class ProductA : IProduct
 
 Output:
 
-```console
+```output
 One
 Two
 Three

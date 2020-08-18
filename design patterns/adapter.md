@@ -68,6 +68,6 @@ class Adapter : ITarget
 
 Output:
 
-```console
+```output
 A
 ```

@@ -74,7 +74,7 @@ class Context
 
 Output:
 
-```console
+```output
 One
 Two
 ```

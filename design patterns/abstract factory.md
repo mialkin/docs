@@ -81,9 +81,10 @@ class FactoryB : IFactory
     }
 }
 ```
+
 Output:
 
-```console
+```output
 A
 B
 ```
