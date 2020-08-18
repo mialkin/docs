@@ -294,20 +294,20 @@ graph expertise {
     methods[label="Methods"]
 
     methods -- equals
-    methods -- finalize
     methods -- get_hash_code
     methods -- get_type
+    methods -- to_string
+    methods -- finalize
     methods -- memberwise_clone
     methods -- reference_equals
-    methods -- to_string
 
     equals[label="Equals"]
-    finalize[label="Finalize"]
     get_hash_code[label="GetHashCode"]
     get_type[label="GetType"]
+    to_string[label="ToString"]
+    finalize[label="Finalize"]
     memberwise_clone[label="MemberwiseClone"]
     reference_equals[label="ReferenceEquals"]
-    to_string[label="ToString"]
 
     dot_net_standard -- dot_net_core
     dot_net_standard -- dot_net_framework
