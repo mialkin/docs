@@ -22,40 +22,40 @@ using System;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         IProduct product = GetProduct(new CreatorA());
         product.Method();
-        
+
         product = GetProduct(new CreatorB());
         product.Method();
     }
 
-    static IProduct GetProduct(Creator creator)
+    static IProduct GetProduct(ICreator creator)
     {
         return creator.GetProduct();
     }
 }
 
-abstract class Creator
+interface ICreator
 {
-    public virtual IProduct GetProduct()
+    IProduct GetProduct()
     {
         return new DefaultProduct();
     }
 }
 
-class CreatorA : Creator
+class CreatorA : ICreator
 {
-    public override IProduct GetProduct()
+    public IProduct GetProduct()
     {
         return new ProductA();
     }
 }
 
-class CreatorB : Creator
+class CreatorB : ICreator
 {
-    public override IProduct GetProduct()
+    public IProduct GetProduct()
     {
         return new ProductB();
     }
