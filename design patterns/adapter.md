@@ -22,13 +22,13 @@ class Program
 {
     static void Main()
     {
-        ITarget adapter = new Adapter(new A());
+        IAdaptor adapter = new Adapter(new A());
         Client(adapter);
     }
 
-    static void Client(ITarget target)
+    static void Client(IAdaptor adaptor)
     {
-        target.MethodB();
+        adaptor.MethodB();
     }
 }
 
@@ -37,7 +37,7 @@ interface IAdaptee
     void MethodA();
 }
 
-interface ITarget
+interface IAdaptor
 {
     void MethodB();
 }
@@ -50,10 +50,10 @@ class A : IAdaptee
     }
 }
 
-class Adapter : ITarget
+class Adapter : IAdaptor
 {
     private IAdaptee _adaptee;
-    
+
     public Adapter(IAdaptee adaptee)
     {
         _adaptee = adaptee;
