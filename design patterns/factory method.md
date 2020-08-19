@@ -22,7 +22,7 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         IProduct product = GetProduct(new CreatorA());
         product.Method();
