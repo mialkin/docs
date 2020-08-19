@@ -69,3 +69,9 @@ Output:
 8, bye, 11
 7, hello, 11
 ```
+
+## See also
+
+[Object.MemberwiseClone Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.memberwiseclone)
+
+[Static Constructors](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-constructors)
