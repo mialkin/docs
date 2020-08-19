@@ -40,8 +40,8 @@ class Program
     {
         var a = new BuilderA();
         var director = new Director(a);
-        director.Build();
-        IProduct product = a.GetProduct();
+        director.Act();
+        IProduct product = a.Build();
     }
 }
 
@@ -54,7 +54,7 @@ class Director
         _builder = builder;
     }
 
-    public void Build()
+    public void Act()
     {
         _builder.BuildStepOne();
         _builder.BuildStepTwo();
@@ -70,7 +70,7 @@ interface IBuilder
 
     void BuildStepThree();
 
-    IProduct GetProduct();
+    IProduct Build();
 }
 
 class BuilderA : IBuilder
@@ -97,7 +97,7 @@ class BuilderA : IBuilder
         Console.WriteLine("Three");
     }
 
-    public IProduct GetProduct()
+    public IProduct Build()
     {
         return _product;
     }
