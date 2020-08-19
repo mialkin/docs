@@ -123,3 +123,4 @@ Three
 ## See also
 
 [IHostBuilder Interface](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.hosting.ihostbuilder)
+[HostBuilder](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/generic-host)
