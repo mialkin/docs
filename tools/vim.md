@@ -18,3 +18,7 @@ w | Go to the word end
 b | Go to the word begining
 $ | Go to end of line
 ^ | Go to begining of line
+
+## See also
+
+[Изучаем Vim, команды и макросы](https://www.youtube.com/watch?v=SHo3fAZfXMk)
