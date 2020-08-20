@@ -6,7 +6,7 @@ vim | Start Vim
 :help \<key\> | Show help explaining what \<key\> does
 :w | Write changes
 :w name.txt | Write changes to file
-:q | Quit Vim
+:q | Quit
 :q! | Quit without saving
 
 ## Navigation
@@ -14,10 +14,12 @@ vim | Start Vim
 Command | Explanation
 -|-
 hjkl | Keys for moving in command mode
-w | Go to the word end
-b | Go to the word begining
-$ | Go to end of line
+b | Go to begining of word
+w | Go to end of word
 ^ | Go to begining of line
+$ | Go to end of line
+gg | Go to begining of document
+G | Go to end of document
 
 ## See also
 
