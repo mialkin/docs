@@ -41,6 +41,7 @@ graph expertise {
     unix -- linux
     unix -- ssh
     unix -- shell
+    unix -- vim
     unix -- nginx
 
     macos[label="macOS"]
@@ -73,7 +74,7 @@ graph expertise {
     sh[label="Bourne shell (sh)"]
     bash[label="Bourne again shell (bash)"]
 
-
+    vim[label="Vim"]
 
     nginx[label="Nginx"]
     nginx -- certbot
