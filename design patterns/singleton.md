@@ -24,7 +24,7 @@ class A
 {
     private static A _instance;
 
-    A()
+    private A()
     {
     }
 
