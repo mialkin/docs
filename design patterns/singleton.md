@@ -1,5 +1,7 @@
 # Singleton
 
+## C# implementation
+
 ```csharp
 using System;
 

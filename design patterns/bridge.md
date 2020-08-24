@@ -1,5 +1,10 @@
 # Bridge
 
+The **bridge** is a structural software desing pattern that decouples an abstraction from its implementation so that the two can vary
+independently.
+
+## C# implementation
+
 ```csharp
 using System;
 
