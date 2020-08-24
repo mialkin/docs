@@ -18,6 +18,7 @@
 
 * **Callback** — функция обратного вызова
 * **Class diagram** — диаграмма классов
+* **Coupling**  — звязывание
 * **Creational design pattern** — порождающий шаблон проектирования
 
 ## D
