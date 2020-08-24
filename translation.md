@@ -18,7 +18,9 @@
 
 * **Callback** — функция обратного вызова
 * **Class diagram** — диаграмма классов
+* **Contravariance** — контравариантность
 * **Coupling**  — звязывание
+* **Covariance** — ковариантность
 * **Creational design pattern** — порождающий шаблон проектирования
 
 ## D
@@ -29,6 +31,7 @@
 * **Dependency inversion principle** — принцип инверсии зависимостей
 * **Design patterns** — шаблоны проектирования
 * **Domain-driven design** — предметно-ориентированное проектирование
+* **Derived** — производный
 * **Extreme programming** — экстремальное программирование
 
 ## F
