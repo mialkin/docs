@@ -3,6 +3,24 @@
 The **bridge** is a structural software desing pattern that decouples an abstraction from its implementation so that the two can vary
 independently.
 
+## Participants
+
+* **Abstraction**
+  * defines the abstraction's interface.
+  * maintains a reference to an object of type Implementor.
+* **RefinedAbstraction**
+  * Extends the interface defined by Abstraction.
+* **Implementor**
+  * defines the interface for implementation classes. This interface
+doesn't have to correspond exactly to Abstraction's interface; in
+fact the two interfaces can be quite different. Typically the
+Implementor interface provides only primitive operations, and
+Abstraction defines higher-level operations based on these
+primitives.
+* **ConcreteImplementor**
+  * implements the Implementor interface and defines its concrete
+implementation.
+
 ## C# implementation
 
 ```csharp
@@ -79,3 +97,10 @@ C
 A
 E
 ```
+
+## Related Patterns
+
+An Abstract Factory can create and configure a particular Bridge.
+The Adapter pattern is geared toward making unrelated classes work together.
+It is usually applied to systems after they're designed. Bridge, on the other
+hand, is used up-front in a design to let abstractions and implementations vary independently.
