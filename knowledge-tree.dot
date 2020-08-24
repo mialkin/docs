@@ -26,7 +26,6 @@ graph expertise {
     cryptography[label="Cryptography"]
     cryptography -- symmetric_cryptography
     cryptography -- asymmetric_cryptography
-    cryptography -- tls
 
     symmetric_cryptography[label="Symmetric cryptography"]
     asymmetric_cryptography[label="Asymmetric cryptography"]
@@ -34,15 +33,17 @@ graph expertise {
     
     digital_certificate[label="Digital certificate"]
 
-    tls[label="Transport Layer Security (TLS)"]
     
     unix[label="UNIX"]
     unix -- macos
     unix -- linux
-    unix -- ssh
     unix -- shell
     unix -- vim
+    unix -- gnu_nano
+    unix -- htop
     unix -- nginx
+
+    gnu_nano[label="GNU nano"]
 
     macos[label="macOS"]
     macos -- zsh
@@ -63,14 +64,26 @@ graph expertise {
     ubuntu -- apt
 
     apt[label="APT"]
+    shell_ssh[label="ssh"]
 
-    ssh[label="SSH"]
     shell[label="shell"]
-    shell -- shell_commands
     shell -- sh
     shell -- bash
+    shell -- shell_commands
 
     shell_commands[label="Shell commands"]
+
+    shell_commands -- chown
+    shell_commands -- chmod
+    shell_commands -- shell_ssh
+    shell_commands -- scp
+    shell_commands -- mkdir
+    shell_commands -- mv
+    shell_commands -- ls
+    shell_commands -- rm
+    shell_commands -- sudo
+    shell_commands -- su
+
     sh[label="Bourne shell (sh)"]
     bash[label="Bourne again shell (bash)"]
 
@@ -88,6 +101,8 @@ graph expertise {
     networking -- http
     networking -- websocket
     networking -- ftp
+    networking -- tls
+    networking -- ssh
 
     osi[label="OSI model"]
     internet_protocol_suite[label="Internet protocol suite"]
@@ -101,12 +116,14 @@ graph expertise {
     http[label="HTTP"]
     websocket[label="WebSocket"]
     ftp[label="FTP"]
+    tls[label="TLS"]
+    ssh[label="SSH"]
 
-    desinging[label="Designing"]
-    desinging -- desing_principles
-    desinging -- uml
-    desinging -- design_patterns
-    desinging -- licensing
+    designing[label="Designing"]
+    designing -- design_principles
+    designing -- uml
+    designing -- design_patterns
+    designing -- licensing
 
     design_patterns[label="Design patterns"]
     design_patterns -- creational_patterns
@@ -144,11 +161,11 @@ graph expertise {
 
     strategy[label="Strategy"]
 
-    desing_principles[label="Desing principles"]
-    desing_principles -- solid
-    desing_principles -- dry
-    desing_principles -- kiss
-    desing_principles -- yagni
+    design_principles[label="Design principles"]
+    design_principles -- solid
+    design_principles -- dry
+    design_principles -- kiss
+    design_principles -- yagni
     
     solid[label="SOLID"]
     dry[label="DRY"]
@@ -166,14 +183,12 @@ graph expertise {
     sequence_diagram[label="Sequence diagram"]
 
     programming[label="Programming"]
-    programming -- desinging
+    programming -- designing
     programming -- coding
     programming -- testing
     programming -- oop
-    programming -- rest
-    programming -- microservices
-    programming -- oauth
-
+    programming -- web_services
+    
     developer_platforms[label="Developer platforms"]
     developer_platforms -- web
     developer_platforms -- dot_net
@@ -463,13 +478,33 @@ graph expertise {
     inheritance[label="Inheritance"]
     polymorphism[label="Polymorphism"]
 
-    rest[label="REST"]
-    rest -- openapi
 
+    web_services[label="Web services"]
+    web_services -- rest
+    web_services -- soap
+    web_services -- microservices
+    rest[label="Representational State Transfer (REST)"]
+    rest -- json
+    rest -- jwt
+    rest -- openapi
+    rest -- oauth
+
+    json[label="JSON"]
+    jwt[label="JSON Web Token (JWT)"]
     openapi[label="OpenAPI"]
     openapi -- swaggerui
 
     swaggerui[label="Swagger UI"]
+
+    oauth[label="OAuth 2.0"]
+
+    soap[label="Simple Object Access Protocol (SOAP)"]
+    soap -- xml
+    soap -- wsdl
+
+    wsdl[label="WSDL"]
+
+    xml[label="XML"]
 
     microservices[label="Microservices"]
     microservices -- docker
@@ -483,8 +518,6 @@ graph expertise {
     grpc -- protobuf
 
     protobuf[label="Protobuf"]
-
-    oauth[label="OAuth 2.0"]
     
     devops[label="DevOps"]
     devops -- ci_cd
