@@ -1,6 +1,6 @@
 # Adapter
 
-The **adapter** is a structural software design pattern that converts the interface of a class into another interface clients expect. An adapter lets classes work together that could not otherwise because of incompatible interfaces.
+The **Adapter** is a structural software design pattern that converts the interface of a class into another interface clients expect. An adapter lets classes work together that could not otherwise because of incompatible interfaces.
 
 ## Participants
 

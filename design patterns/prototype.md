@@ -1,6 +1,6 @@
 # Prototype
 
-The **prototype** is a creational software design pattern that lets you copy existing objects without making your code dependent on their classes.
+The **Prototype** is a creational software design pattern that lets you copy existing objects without making your code dependent on their classes.
 
 ## C# implementation
 

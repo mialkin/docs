@@ -1,6 +1,6 @@
 # Bridge
 
-The **bridge** is a structural software desing pattern that decouples an abstraction from its implementation so that the two can vary
+The **Bridge** is a structural software desing pattern that decouples an abstraction from its implementation so that the two can vary
 independently.
 
 ## Participants
@@ -101,6 +101,7 @@ E
 ## Related Patterns
 
 An Abstract Factory can create and configure a particular Bridge.
+
 The Adapter pattern is geared toward making unrelated classes work together.
 It is usually applied to systems after they're designed. Bridge, on the other
 hand, is used up-front in a design to let abstractions and implementations vary independently.

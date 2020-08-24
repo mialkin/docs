@@ -1,6 +1,6 @@
 # Builder
 
-The **builder** is a creational software design pattern that separates the construction of a complex object from its representation so that the same construction process can create different representations.
+The **Builder** is a creational software design pattern that separates the construction of a complex object from its representation so that the same construction process can create different representations.
 
 ## Participants
 
