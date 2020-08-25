@@ -38,12 +38,7 @@ graph expertise {
     unix -- macos
     unix -- linux
     unix -- shell
-    unix -- vim
-    unix -- gnu_nano
-    unix -- htop
     unix -- nginx
-
-    gnu_nano[label="GNU nano"]
 
     macos[label="macOS"]
     macos -- zsh
@@ -64,7 +59,6 @@ graph expertise {
     ubuntu -- apt
 
     apt[label="APT"]
-    shell_ssh[label="ssh"]
 
     shell[label="shell"]
     shell -- sh
@@ -73,21 +67,55 @@ graph expertise {
 
     shell_commands[label="Shell commands"]
 
-    shell_commands -- chown
-    shell_commands -- chmod
-    shell_commands -- shell_ssh
-    shell_commands -- scp
-    shell_commands -- mkdir
-    shell_commands -- mv
-    shell_commands -- ls
-    shell_commands -- rm
-    shell_commands -- sudo
-    shell_commands -- su
+    shell_commands -- sc_system
+    shell_commands -- sc_text
+    shell_commands -- sc_files
+    shell_commands -- sc_network
+
+    sc_system[label="System"]
+
+    sc_system -- date
+    sc_system -- du
+    sc_system -- free
+    sc_system -- htop
+    sc_system -- pwd
+    sc_system -- sudo
+    sc_system -- su
+    sc_system -- kill
+    sc_system -- uptime
+    sc_system -- w
+    sc_system -- watch
+    sc_system -- who
+
+    sc_text[label="Text"]
+    sc_text -- vim
+    sc_text -- nano
+    
+    sc_files[label="Files"]
+
+    sc_files -- cat
+    sc_files -- chmod
+    sc_files -- chown
+    sc_files -- grep
+    sc_files -- ls
+    sc_files -- mkdir
+    sc_files -- mv
+    sc_files -- rg
+    sc_files -- rm
+    sc_files -- tar
+
+    sc_network[label="Network"]
+
+    sc_network -- curl
+    sc_network -- nc
+    sc_network -- scp
+    sc_network -- shell_ssh
+    sc_network -- wget
+ 
+    shell_ssh[label="ssh"]
 
     sh[label="Bourne shell (sh)"]
     bash[label="Bourne again shell (bash)"]
-
-    vim[label="Vim"]
 
     nginx[label="Nginx"]
     nginx -- certbot
@@ -120,10 +148,30 @@ graph expertise {
     ssh[label="SSH"]
 
     designing[label="Designing"]
+    designing -- oop
     designing -- design_principles
     designing -- uml
     designing -- design_patterns
     designing -- licensing
+
+    oop[label="Object-oriented programming (OOP)"]
+    oop -- incapsulation
+    oop -- inheritance
+    oop -- polymorphism
+    incapsulation[label="Incapsulation"]
+    inheritance[label="Inheritance"]
+    polymorphism[label="Polymorphism"]
+
+    design_principles[label="Design principles"]
+    design_principles -- solid
+    design_principles -- dry
+    design_principles -- kiss
+    design_principles -- yagni
+    
+    solid[label="SOLID"]
+    dry[label="DRY"]
+    kiss[label="KISS"]
+    yagni[label="YAGNI"]
 
     design_patterns[label="Design patterns"]
     design_patterns -- creational_patterns
@@ -161,17 +209,6 @@ graph expertise {
 
     strategy[label="Strategy"]
 
-    design_principles[label="Design principles"]
-    design_principles -- solid
-    design_principles -- dry
-    design_principles -- kiss
-    design_principles -- yagni
-    
-    solid[label="SOLID"]
-    dry[label="DRY"]
-    kiss[label="KISS"]
-    yagni[label="YAGNI"]
-
     uml[label="Unified Modeling Language (UML)"]
     uml -- diagrams
     
@@ -186,7 +223,6 @@ graph expertise {
     programming -- designing
     programming -- coding
     programming -- testing
-    programming -- oop
     programming -- web_services
     
     developer_platforms[label="Developer platforms"]
@@ -469,15 +505,6 @@ graph expertise {
     integration_testing[label="Integration testing"]
     load_testing[label="Load testing"]
     stress_testing[label="Stress testing"]
-
-    oop[label="Object-oriented programming [OOP]"]
-    oop -- incapsulation
-    oop -- inheritance
-    oop -- polymorphism
-    incapsulation[label="Incapsulation"]
-    inheritance[label="Inheritance"]
-    polymorphism[label="Polymorphism"]
-
 
     web_services[label="Web services"]
     web_services -- rest
