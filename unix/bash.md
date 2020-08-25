@@ -14,12 +14,6 @@ Command | Description
 free -m | Display amount of free and used memory in the system
 top&nbsp;&#8209;o&nbsp;%MEM | Display Linux processes sorted by memory
 
-## Disk
-
-Command | Description
-:-|:-
-df -h . | Free disk space
-
 ## Network
 
 Command | Description
