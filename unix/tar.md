@@ -8,9 +8,9 @@ Command | Meaning
 -|-
 tar -cfv archive.tar.gz | Create uncompressed archive file `archive.tar`
 tar -cfvz archive.tar.gz directory1 file1 | Create compressed archive file `archive.tar.gz` from `directory1` and `file1`
-tar -fvxz archive.tar.gz | Extract archive to current folder
-tar -fvxz archive.tar.gz -C /path/to/dir | Extract archive to specific folder
-tar -ftvz | List contents of `archive.tar.gz` archive file to stdout
+tar -fvxz archive.tar.gz | Extract `archive.tar.gz` archive file to current folder
+tar -fvxz archive.tar.gz -C /path/to/dir | Extract `archive.tar.gz` archive to specific folder
+tar -ftvz archive.tar.gz | List contents of `archive.tar.gz` archive file to stdout
 
 ### Options
 
