@@ -20,7 +20,6 @@ htop | Interactive process viewer. It is similar to top, but allows you to scrol
 Command | Description
 :-|:-
 df -h . | Free disk space
-htop | Interactive process viewer
 
 ## Network
 
