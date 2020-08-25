@@ -48,7 +48,7 @@ Command | Description
 docker ps | List all currently running containers
 docker ps -a | List all containers, including non-running
 docker start \<container\> | Start one or more stopped containers
-docker attach \<container\> | Attach local standard input, output, and error streams to a running container. <br>To disattach without stoping container press <kbd>Ctrl</kbd> + <kbd>P</kbd>, <kbd>Ctrl</kbd> + <kbd>Q</kbd> (works only for container started with `-it` option)
+docker attach \<container\> | Attach local standard input, output, and error streams to a running container. <br>To disattach without stoping container press <kbd>Ctrl</kbd> + <kbd>P</kbd>, <kbd>Ctrl</kbd> + <kbd>Q</kbd> (works only for containers started with `-it` option)
 docker stop \<container\> | Stop one or more running containers
 docker kill $(docker ps -q) | Stop all containers
 docker stats [\<container\>] | Display a live stream of container(s) resource usage statistics
