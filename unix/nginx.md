@@ -79,7 +79,7 @@ cat /etc/nginx/nginx.conf
 
 ```sh
 cd /var/www/
-cat /usr/share/nginx/html/
+cd /usr/share/nginx/html/
 ```
 
 ## Mapping subdomain to folder
