@@ -78,8 +78,8 @@ cat /etc/nginx/nginx.conf
 ## HTML files
 
 ```sh
-cat /usr/share/nginx/html/index.html
-cat /var/www/html/index.nginx-debian.html
+cd /var/www/
+cat /usr/share/nginx/html/
 ```
 
 ## Mapping subdomain to folder
