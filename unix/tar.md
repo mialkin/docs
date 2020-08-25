@@ -1,4 +1,4 @@
-# Tar
+# tar
 
 GNU **tar** is an archiving program designed to store multiple files in a single file (an **archive**), and to manipulate such archives.  The archive can be either a regular file or a device (e.g. a tape drive, hence the name of the program, which stands for **t**ape **ar**chiver), which can be located either on the local or on a remote machine.
 

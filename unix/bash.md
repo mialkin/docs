@@ -14,13 +14,6 @@ Command | Description
 free -m | Display amount of free and used memory in the system
 top&nbsp;&#8209;o&nbsp;%MEM | Display Linux processes sorted by memory
 
-## Network
-
-Command | Description
-:-|:-
-curl ident.me | Public IP addresses of machine
-scp /file/to/send username@remote:/where/to/put <br/> scp username@remote:/file/to/send /where/to/put| Secure copy
-
 ## OS
 
 Command | Description

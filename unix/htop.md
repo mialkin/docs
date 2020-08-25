@@ -1,4 +1,4 @@
-# Htop
+# htop
 
 Command | Description
 -|-
