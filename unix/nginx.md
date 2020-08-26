@@ -7,7 +7,7 @@ vim /etc/nginx/nginx.conf   # Default config file
 cd /etc/nginx/conf.d        # Additional config files
 ```
 
-## Reverse proxying
+## Static website
 
 Create config file for a domain.
 
@@ -16,20 +16,48 @@ cd /etc/nginx/conf.d
 sudo vim sub.domain.ru.conf
 ```
 
-Example of a configuration file.
+Example of a config file.
+
+```text
+server {
+  server_name sub.domain.ru;
+  location / {
+    root /var/www/sub.domain.folder;
+  }
+}
+```
+
+Test config files and restart Nginx.
+
+```sh
+nginx -t
+sudo systemctl restart nginx
+```
+
+## Dynamic website (reverse proxy)
+
+Create config file for a domain.
+
+```sh
+cd /etc/nginx/conf.d
+sudo vim sub.domain.ru.conf
+```
+
+Example of a config file.
 
 ```text
 server  {
   server_name sub.domain.ru;
   location / {
-    proxy_pass http://localhost:5001;
+    proxy_pass http://localhost:5000;
   }
 }
 ```
 
-Restart Nginx.
+Test config files and restart Nginx.
 
 ```sh
+nginx -t
 sudo systemctl restart nginx
 ```
 
@@ -40,16 +68,7 @@ cd /var/www/
 cd /usr/share/nginx/html/
 ```
 
-## Mapping subdomain to folder
 
-```text
-server {
-  server_name sub.domain.ru;
-  location / {
-    root /var/www/sub.domain.folder;
-  }
-}
-```
 
 ## Permanent redirect from one page to another
 
