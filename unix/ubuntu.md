@@ -1,12 +1,17 @@
 # Ubuntu
 
-## Initial steps
+## Update packages
 
 ```sh
-# Update packages
 sudo apt update
 sudo apt upgrade
-
-# Reboot
 sudo systemctl reboot
+```
+
+## Install Nginx
+
+```sh
+sudo apt install nginx
+sudo systemctl enable nginx
+sudo systemctl start nginx
 ```
