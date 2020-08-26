@@ -87,7 +87,7 @@ graph expertise {
     sc_system -- watch
     sc_system -- who
 
-    sc_text[label="Text"]
+    sc_text[label="Text editor"]
     sc_text -- vim
     sc_text -- nano
     

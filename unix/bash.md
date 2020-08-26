@@ -34,4 +34,6 @@ echo $0 | Currently used shell
 
 ## See also
 
-[systemd](https://wiki.archlinux.org/index.php/systemd)
+* [Learn bash in Y minutes](https://learnxinyminutes.com/docs/bash/)
+* [A few ways to execute commands remotely using SSH](https://zaiste.net/posts/few-ways-to-execute-commands-remotely-ssh/)
+* [systemd](https://wiki.archlinux.org/index.php/systemd)
