@@ -1,17 +1,19 @@
 # Nginx
 
+## Configuration files
+
+```sh
+vim /etc/nginx/nginx.conf   # Default config file
+cd /etc/nginx/conf.d        # Additional config files
+```
+
 ## Reverse proxying
 
-Switch to Ubuntu and CentOS folder containing configuration files.
+Create config file for a domain.
 
 ```sh
 cd /etc/nginx/conf.d
-```
-
-Create config file for domain.
-
-```sh
-sudo nano sub.domain.ru.conf
+sudo vim sub.domain.ru.conf
 ```
 
 Example of a configuration file.
@@ -25,24 +27,10 @@ server  {
 }
 ```
 
-Restart nginx.
+Restart Nginx.
 
 ```sh
 sudo systemctl restart nginx
-```
-
-## Paths
-
-Go to default nginx folder.
-
-```sh
-cd /etc/nginx
-```
-
-Show contents of nginx default configuration file.
-
-```sh
-cat /etc/nginx/nginx.conf
 ```
 
 ## HTML files
