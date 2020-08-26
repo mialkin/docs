@@ -2,7 +2,7 @@
 
 The **Secure Shell** (**SSH**) is a cryptographic network protocol for operating network services securely over an unsecured network.
 
-## Basic syntax
+## Basic Syntax
 
 ```sh
 ssh remote_host
@@ -31,3 +31,15 @@ List existing SSH keys:
 ```sh
 ls -al ~/.ssh
 ```
+
+## Known Hosts
+
+Open known_hosts file:
+
+```sh
+vim ~/.ssh/known_hosts
+```
+
+## See Also
+
+* [Что записано в файле .ssh/known_hosts](https://habr.com/ru/post/421477/)

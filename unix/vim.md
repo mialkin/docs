@@ -9,11 +9,11 @@ vim | Start Vim
 :q | Quit
 :q! | Quit without saving
 
-## Navigation
+## Cursor movements
 
 Command | Explanation
 -|-
-hjkl | Keys for moving in command mode
+hjkl | Move cursor left/bottom/up/right
 b | Go to begining of word
 w | Go to end of word
 ^ | Go to begining of line
@@ -21,6 +21,15 @@ $ | Go to end of line
 gg | Go to begining of document
 G | Go to end of document
 
+## Editing
+
+Command | Explanation
+-|-
+u | undo
+dd | delete (cut) a line
+
 ## See also
 
-[Изучаем Vim, команды и макросы](https://www.youtube.com/watch?v=SHo3fAZfXMk)
+* [Vim Cheat Sheet](https://vim.rtorr.com)
+* [Изучаем Vim, команды и макросы](https://www.youtube.com/watch?v=SHo3fAZfXMk)
+* [A Great Vim Cheat Sheet](https://vimsheet.com)

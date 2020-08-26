@@ -1,6 +1,6 @@
 # Terminal
 
-Shortcut | Meaning
+Shortcut | Explanation
 -|-
 <kbd>Control</kbd> + <kbd>U</kbd> | Delete to the beginning of the line
 

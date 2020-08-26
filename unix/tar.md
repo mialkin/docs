@@ -4,7 +4,7 @@ GNU **tar** is an archiving program designed to store multiple files in a single
 
 ## Commands
 
-Command | Meaning
+Command | Explanation
 -|-
 tar cf archive.tar | Create uncompressed archive file `archive.tar`
 tar czf archive.tar.gz directory1 file1 | Create compressed archive file `archive.tar.gz` from `directory1` and `file1`

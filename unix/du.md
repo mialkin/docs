@@ -2,6 +2,6 @@
 
 Display disk usage statistics.
 
-Command | Meaning
+Command | Explanation
 -|-
 du -h . | Dispaly disk usage statistics in human-readable form for current directory

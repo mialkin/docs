@@ -1,18 +1,6 @@
 # Bash
 
-## Power managment
-
-Command | Description
-:-|:-
-uptime | How long the system is running. <br/>This command returns set of values that involve, the current time, and the amount of time system is in running state, number of users currently logged into, and the load time for the past 1, 5 and 15 minutes respectively
-sudo&nbsp;systemctl&nbsp;reboot | Reboot the system
-
-## Memory
-
-Command | Description
-:-|:-
-free -m | Display amount of free and used memory in the system
-top&nbsp;&#8209;o&nbsp;%MEM | Display Linux processes sorted by memory
+**Bash** (GNU Bourne-Again SHell) is an **sh**-compatible command language interpreter that executes commands read from the standard input or from a file.  Bash also incorporates useful features from the Korn and C shells (ksh and csh).
 
 ## OS
 
@@ -22,15 +10,6 @@ lsb_release -a| Print certain LSB (Linux Standard Base) and distribution-specifi
 hostnamectl | OS info
 cat /etc/*-release | OS name and version
 uname -a | Kernel version
-
-## Shell
-
-Command | Description
-:-|:-
-cat /etc/shells | Available shells
-echo $SHELL | Display what shell the terminal opened with
-bash | Switch to a bash or different shell type its name at the terminal
-echo $0 | Currently used shell
 
 ## See also
 
