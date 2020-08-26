@@ -30,7 +30,7 @@ server {
 Test config files and restart Nginx.
 
 ```sh
-nginx -t
+sudo nginx -t
 sudo systemctl restart nginx
 ```
 
@@ -57,7 +57,7 @@ server  {
 Test config files and restart Nginx.
 
 ```sh
-nginx -t
+sudo nginx -t
 sudo systemctl restart nginx
 ```
 
