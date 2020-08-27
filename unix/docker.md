@@ -21,7 +21,7 @@ sudo docker run \
 -d \
 --restart unless-stopped \
 -it \
--p 5001:80 \
+-p 5000:80 \
 -v /var/app-files:/files \
 -e ADMIN_PASSWORD=yourpass \
 --name dictionary \
