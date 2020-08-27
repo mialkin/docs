@@ -22,10 +22,10 @@ class Program
 {
     public static void Main()
     {
-        var context = new Context(new StrategyOne());
+        var context = new Context(new SlowStrategy());
         context.Act();
         
-        context.SetStrategy(new StrategyTwo());
+        context.SetStrategy(new FastStrategy());
         context.Act();
     }
 }
@@ -35,19 +35,19 @@ interface IStrategy
     void Act();
 }
 
-class StrategyOne : IStrategy
+class SlowStrategy : IStrategy
 {
     public void Act()
     {
-        Console.WriteLine("One");
+        Console.WriteLine("Slow");
     }
 }
 
-class StrategyTwo : IStrategy
+class FastStrategy : IStrategy
 {
     public void Act()
     {
-        Console.WriteLine("Two");
+        Console.WriteLine("Fast");
     }
 }
 
@@ -75,8 +75,8 @@ class Context
 Output:
 
 ```output
-One
-Two
+Slow
+Fast
 ```
 
 ## See also
