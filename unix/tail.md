@@ -8,3 +8,7 @@ Command | Description
 -|-
 tail -f /var/log/syslog | `-f` — output appended data as the file grows
 tail -n 20 /var/log/syslog | `-n` — output the last n lines
+
+## See also
+
+* [Is `tail -f` more efficient than `less +F`](https://unix.stackexchange.com/questions/193620/is-tail-f-more-efficient-than-less-f)?
