@@ -83,6 +83,7 @@
 
 ## S
 
+* **Scheduler** — планировщик
 * **Single-page application** — одностраничное приложение
 * **Single responsibility principle** — принцип единственной ответственности
 * **Shallow copy** — поверхостная копия
