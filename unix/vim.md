@@ -25,8 +25,10 @@ G | Go to end of document
 
 Command | Explanation
 -|-
-u | undo
-dd | delete (cut) a line
+u | Undo
+dd | Delete (cut) a line
+o | Insert new line below
+O | Insert new line above
 
 ## See also
 
