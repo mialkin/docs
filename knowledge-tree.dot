@@ -29,10 +29,15 @@ graph expertise {
 
     symmetric_cryptography[label="Symmetric cryptography"]
     asymmetric_cryptography[label="Asymmetric cryptography"]
+    asymmetric_cryptography -- public_key
+    asymmetric_cryptography -- private_key
+    asymmetric_cryptography -- fingerprint
     asymmetric_cryptography -- digital_certificate
     
+    public_key[label="Public key"]
+    private_key[label="Private key"]
+    fingerprint[label="Fingerprint"]
     digital_certificate[label="Digital certificate"]
-
     
     unix[label="UNIX"]
     unix -- macos
@@ -61,6 +66,7 @@ graph expertise {
     apt[label="APT"]
 
     shell[label="shell"]
+    shell -- tmux
     shell -- sh
     shell -- bash
     shell -- shell_commands
@@ -74,11 +80,11 @@ graph expertise {
 
     sc_system[label="System"]
 
+    sc_system -- cron
     sc_system -- date
     sc_system -- du
     sc_system -- free
     sc_system -- htop
-    sc_system -- pwd
     sc_system -- sudo
     sc_system -- su
     sc_system -- kill
@@ -100,8 +106,10 @@ graph expertise {
     sc_files -- ls
     sc_files -- mkdir
     sc_files -- mv
+    sc_files -- pwd
     sc_files -- rg
     sc_files -- rm
+    sc_files -- tail
     sc_files -- tar
 
     sc_network[label="Network"]
