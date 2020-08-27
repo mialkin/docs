@@ -1,4 +1,4 @@
-# cron
+# crontab
 
 The **cron** is a daemon to execute scheduled commands.
 
@@ -6,8 +6,11 @@ The **crontab** (CRON TABle) is a file which contains the schedule of cron entri
 
 Command | Description
 -|-
-crontab -l | Display the current crontab on standard output
-crontab -e | Edit the current crontab using the editor specified by the VISUAL or EDITOR environment variables. After you exit from the editor, the modified crontab will be installed automatically.
+crontab -l | Display the current crontab
+crontab -r | Remove the current crontab
+crontab -e | Edit the current crontab
+crontab -u user2 -l | Show crontab for user2
+sudo crontab -l | Show crontab for root
 
 <pre>
 # ┌───────────── minute (0 - 59)
@@ -24,4 +27,3 @@ crontab -e | Edit the current crontab using the editor specified by the VISUAL o
 ## See also
 
 * [In the shell, what does “ 2>&1 ” mean?](https://stackoverflow.com/questions/818255/in-the-shell-what-does-21-mean)
-* [Difference between cron, crontab, and cronjob?](https://stackoverflow.com/questions/21615673/difference-between-cron-crontab-and-cronjob)
