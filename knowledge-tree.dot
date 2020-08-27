@@ -103,6 +103,7 @@ graph expertise {
     sc_files -- chmod
     sc_files -- chown
     sc_files -- grep
+    sc_files -- less
     sc_files -- ls
     sc_files -- mkdir
     sc_files -- mv

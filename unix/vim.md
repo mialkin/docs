@@ -30,6 +30,7 @@ dd | delete (cut) a line
 
 ## See also
 
-* [Vim Cheat Sheet](https://vim.rtorr.com)
+* [Vim Cheat Sheet 1](https://gist.github.com/glnds/11027696)
+* [Vim Cheat Sheet 2](https://vim.rtorr.com)
 * [Изучаем Vim, команды и макросы](https://www.youtube.com/watch?v=SHo3fAZfXMk)
 * [A Great Vim Cheat Sheet](https://vimsheet.com)
