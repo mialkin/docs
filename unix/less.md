@@ -1,6 +1,6 @@
 # less
 
- The **less**  is  a  program similar to `more`, but it has many more features.  Less does not have to read the entire input file before starting, so with large input files it starts up faster than text editors like `vi`. Commands are based on both `more` and `vi`.
+ The **less** is a program similar to `more`, but it has many more features. Less does not have to read the entire input file before starting, so with large input files it starts up faster than text editors like `vi`. Commands are based on both `more` and `vi`.
 
 ```sh
 sudo less /var/log/syslog

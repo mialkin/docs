@@ -80,7 +80,7 @@ graph expertise {
 
     sc_system[label="System"]
 
-    sc_system -- cron
+    sc_system -- crontab
     sc_system -- date
     sc_system -- du
     sc_system -- free
@@ -117,6 +117,7 @@ graph expertise {
 
     sc_network -- curl
     sc_network -- nc
+    sc_network -- rsync
     sc_network -- scp
     sc_network -- shell_ssh
     sc_network -- wget
