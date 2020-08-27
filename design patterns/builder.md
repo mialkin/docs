@@ -58,7 +58,7 @@ class Director
     {
         _builder.BuildStepOne();
         _builder.BuildStepTwo();
-        _builder.BuildStepThree();
+        _builder.BuildStepN();
     }
 }
 
@@ -68,7 +68,7 @@ interface IBuilder
 
     void BuildStepTwo();
 
-    void BuildStepThree();
+    void BuildStepN();
 
     IProduct Build();
 }
@@ -92,9 +92,9 @@ class BuilderA : IBuilder
         Console.WriteLine("Two");
     }
 
-    public void BuildStepThree()
+    public void BuildStepN()
     {
-        Console.WriteLine("Three");
+        Console.WriteLine("N");
     }
 
     public IProduct Build()
@@ -117,7 +117,7 @@ Output:
 ```output
 One
 Two
-Three
+N
 ```
 
 ## See also
