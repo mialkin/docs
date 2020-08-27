@@ -1,12 +1,12 @@
 # htop
 
-Command | Description
+Command | |
 -|-
-<kbd>\\</kbd> | Filter
-<kbd>/</kbd> | Search
-<kbd>Space</kbd> | Select/deselect a single record
-<kbd>u</kbd> | Filter processes by user
-<kbd>k</kbd> | Send command to process
-<kbd>U</kbd> | Deselect all records
-<kbd>M</kbd> | Sort by memory
-<kbd>P</kbd> | Sort by CPU
+<kbd>\\</kbd> | filter
+<kbd>/</kbd> | search
+<kbd>Space</kbd> | select/deselect a single record
+<kbd>u</kbd> | filter processes by user
+<kbd>k</kbd> | send command to process
+<kbd>U</kbd> | deselect all records
+<kbd>M</kbd> | sort by memory
+<kbd>P</kbd> | sort by CPU
