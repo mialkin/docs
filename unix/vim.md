@@ -27,6 +27,7 @@ Command | Explanation
 -|-
 u | Undo
 dd | Delete (cut) a line
+D | Delete to end of line
 o | Insert new line below
 O | Insert new line above
 
