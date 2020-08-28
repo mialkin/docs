@@ -1,8 +1,13 @@
 # Terminal
 
-Shortcut | Explanation
--|-
-<kbd>Control</kbd> + <kbd>U</kbd> | Delete to the beginning of the line
+Run an application. `a` is for "application" and `n` allows run another instance of the app.
+
+```sh
+open -a calculator
+ll /Applications                    # List installed apps
+open -a "Microsoft Remote Desktop"  # Run app with multiple words name
+
+```
 
 ## See also
 
