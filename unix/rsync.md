@@ -6,6 +6,8 @@ Rsync is widely used for backups and mirroring and as an improved copy command f
 
 Rsync finds files that need to be transferred using a "quick check" algorithm (by default) that looks for files that have changed in size or in last-modified time.
 
+## Commands
+
 Command | Description
 -|-
 rsync Original/* Backup/ | Copies all files inside Original directory to Backup directory
@@ -14,3 +16,7 @@ rsync -r Original Backup/ | Copies entire Original directory recursively, not ju
 rsync -av Original/ Backup/ | The same as previous. `v` stands for verbose. `a` stands for "archive"; it copies everything recursively preserving information about file permissions and other things
 rsync -av --dry-run Original/ Backup/|  Displays what files would have copied without actually doing anything
 rsync -zaP Original user@host.com:/where/to | Transfers entire Original directory to remote (write Original/ to transfer only folder's content instead) `z` stands for compress, `P` means show progress
+
+## See also
+
+* [How To Use The rsync Command - Sync Files Locally and Remotely](https://www.youtube.com/watch?v=qE77MbDnljA)
