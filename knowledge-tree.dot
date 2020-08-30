@@ -13,15 +13,67 @@ graph expertise {
     computer_science[label="Computer science"]
     computer_science -- algorithms
     computer_science -- analysis_of_algorithms
-    computer_science -- data_structures
+    computer_science -- data_types
     computer_science -- cryptography
 
     algorithms[label="Algorithms"]
+    algorithms -- search_algorithms
+    search_algorithms[label="Search algorithms"]
+
+    algorithms -- graph_traversal
+
+    graph_traversal[label="Graph traversal"]
+    graph_traversal -- tree_traversal
+    tree_traversal[label="Tree traversal"]
+
+    tree_traversal -- depth_first_search
+    tree_traversal -- breadth_first_search
+    depth_first_search[label="Depth-first search"]
+    breadth_first_search[label="Breadth-frist search"]
+
     analysis_of_algorithms[label="Analysis of algorithms"]
-    data_structures[label="Data structures"]
-    data_structures -- hash_table
+
+    data_types[label="Data types"]
+    data_types -- abstract_data_types
+
+    abstract_data_types[label="Abstract data types"]
+    abstract_data_types -- associative_array
+    abstract_data_types -- _graph
+    abstract_data_types -- list
+    abstract_data_types -- queue
+    abstract_data_types -- stack
+    abstract_data_types -- tree
+
+    associative_array[label="Associative array = map = dictionary"]
+    associative_array -- aa_implementation
+    
+    aa_implementation[label="Implementation"]
+    aa_implementation -- hash_table
+    aa_implementation -- self_balancing_binary_search_tree
     
     hash_table[label="Hash table"]
+    self_balancing_binary_search_tree[label="Self-balancing binary search tree"]
+
+    list[label="List"]
+    list -- list_implementation
+
+    list_implementation[label="Implementation"]
+    list_implementation -- list_implementation_array
+    list_implementation -- list_implementation_vla
+    list_implementation -- list_implementation_sll
+    list_implementation -- list_implementation_dll
+
+    list_implementation_array[label="Array"]
+    list_implementation_vla[label="Variable length array"]
+    list_implementation_sll[label="Singly linked list"]
+    list_implementation_dll[label="Doubly linked list"]
+
+    stack[label="Stack"]
+    queue[label="Queue"]
+    tree[label="Tree"]
+    _graph[label="Graph"]
+
+
 
     cryptography[label="Cryptography"]
     cryptography -- symmetric_cryptography
@@ -71,7 +123,7 @@ graph expertise {
     shell -- bash
     shell -- shell_commands
 
-    shell_commands[label="Shell commands"]
+    shell_commands[label="Commands"]
 
     shell_commands -- sc_system
     shell_commands -- sc_text
