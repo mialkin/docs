@@ -331,10 +331,8 @@ graph expertise {
 
     jslibraries[label="Libraries"]
     jslibraries -- react
-    jslibraries -- jquery
 
     react[label="React"]
-    jquery[label="jQuery"]    
     typescript[label="TypeScript"]
     
     jsframeworks[label="Frameworks"]
