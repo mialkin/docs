@@ -33,6 +33,14 @@ graph expertise {
     algorithms -- analysis_of_algorithms
     analysis_of_algorithms[label="Analysis of algorithms"]
 
+    analysis_of_algorithms -- time_complexity
+    analysis_of_algorithms -- space_complexity
+    analysis_of_algorithms -- big_o_notation
+
+    time_complexity[label="Time complexity"]
+    space_complexity[label="Space complexity"]
+    big_o_notation[label="Big O notation"]
+
     data_types[label="Data types"]
     data_types -- primitive_data_types
     data_types -- composite_data_types
@@ -100,8 +108,6 @@ graph expertise {
     queue[label="Queue"]
     tree[label="Tree"]
     _graph[label="Graph"]
-
-
 
     cryptography[label="Cryptography"]
     cryptography -- symmetric_cryptography
@@ -188,7 +194,6 @@ graph expertise {
     sc_files -- tail
     sc_files -- tar
     sc_files -- vim
-
 
     sc_network[label="Network"]
 
@@ -708,5 +713,4 @@ graph expertise {
 
     ssms[label="SQL Server Management Studio"]
     datagrip[label="DataGrip"]
-
 }
