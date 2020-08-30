@@ -12,7 +12,6 @@ graph expertise {
 
     computer_science[label="Computer science"]
     computer_science -- algorithms
-    computer_science -- analysis_of_algorithms
     computer_science -- data_types
     computer_science -- cryptography
 
@@ -31,10 +30,39 @@ graph expertise {
     depth_first_search[label="Depth-first search"]
     breadth_first_search[label="Breadth-frist search"]
 
+    algorithms -- analysis_of_algorithms
     analysis_of_algorithms[label="Analysis of algorithms"]
 
     data_types[label="Data types"]
+    data_types -- primitive_data_types
+    data_types -- composite_data_types
     data_types -- abstract_data_types
+
+    primitive_data_types[label="Primitive data types"]
+    primitive_data_types -- character
+    primitive_data_types -- integer
+    primitive_data_types -- primitive_data_types_flpn
+    primitive_data_types -- boolean
+    primitive_data_types -- reference
+
+    character[label="Character"]
+    integer[label="Integer"]
+    primitive_data_types_flpn[label="Fixed-point number"]
+    boolean[label="Boolean"]
+    reference[label="Reference/pointer"]
+
+    composite_data_types[label="Composite data types"]
+    composite_data_types -- array
+    composite_data_types -- object
+    composite_data_types -- record
+    composite_data_types -- set
+    composite_data_types -- union
+
+    array[label="Array"]
+    object[label="Object"]
+    record[label="Record"]
+    set[label="Set"]
+    union[label="Union"]
 
     abstract_data_types[label="Abstract data types"]
     abstract_data_types -- associative_array
@@ -44,7 +72,7 @@ graph expertise {
     abstract_data_types -- stack
     abstract_data_types -- tree
 
-    associative_array[label="Associative array = map = dictionary"]
+    associative_array[label="Associative array/map/dictionary"]
     associative_array -- aa_implementation
     
     aa_implementation[label="Implementation"]
@@ -126,7 +154,6 @@ graph expertise {
     shell_commands[label="Commands"]
 
     shell_commands -- sc_system
-    shell_commands -- sc_text
     shell_commands -- sc_files
     shell_commands -- sc_network
 
@@ -145,12 +172,7 @@ graph expertise {
     sc_system -- watch
     sc_system -- who
 
-    sc_text[label="Text editor"]
-    sc_text -- vim
-    sc_text -- nano
-    
     sc_files[label="Files"]
-
     sc_files -- cat
     sc_files -- chmod
     sc_files -- chown
@@ -159,11 +181,14 @@ graph expertise {
     sc_files -- ls
     sc_files -- mkdir
     sc_files -- mv
+    sc_files -- nano
     sc_files -- pwd
     sc_files -- rg
     sc_files -- rm
     sc_files -- tail
     sc_files -- tar
+    sc_files -- vim
+
 
     sc_network[label="Network"]
 
@@ -363,7 +388,7 @@ graph expertise {
 
     csharp[label="C#"]
     csharp -- cs_types
-    csharp -- object
+    csharp -- cs_object
 
     cs_types[label="Types"]
     cs_types -- cs_built_in_types
@@ -402,8 +427,8 @@ graph expertise {
     reference_types[label="Reference types"]
     boxing_unboxing[label="Boxing and unboxing"]
 
-    object[label="Object"]
-    object -- methods
+    cs_object[label="Object"]
+    cs_object -- methods
 
     methods[label="Methods"]
 
