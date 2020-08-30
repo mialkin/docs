@@ -30,7 +30,7 @@ graph expertise {
 
     character[label="Character"]
     integer[label="Integer"]
-    primitive_data_types_flpn[label="Fixed-point number"]
+    primitive_data_types_flpn[label="Floating-point number"]
     boolean[label="Boolean"]
     reference[label="Reference or pointer"]
 
