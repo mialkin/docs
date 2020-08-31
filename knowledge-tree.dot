@@ -539,8 +539,17 @@ graph expertise {
     memberwise_clone[label="MemberwiseClone"]
     reference_equals[label="ReferenceEquals"]
 
+    dot_net_standard -- dot_net_api 
     dot_net_standard -- dot_net_core
     dot_net_standard -- dot_net_framework
+
+    dot_net_api[label=".NET API"]
+    dot_net_api -- system_collections_generic
+
+    system_collections_generic[label="System.Collections.Generic"]
+    system_collections_generic -- i_collection_t
+
+    i_collection_t[label="ICollection<T>"]
 
     dot_net_core[label = ".NET Core"][label = ".NET Core"]
     dot_net_core -- core_crl
