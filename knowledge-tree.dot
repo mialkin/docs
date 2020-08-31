@@ -146,7 +146,7 @@ graph expertise {
     b_trees[label="B-trees"]
     heaps[label="Heaps"]
 
-        algorithms[label="Algorithms"]
+    algorithms[label="Algorithms"]
     algorithms -- recursion
     algorithms -- sorting_algorithms
     algorithms -- search_algorithms
