@@ -557,9 +557,47 @@ graph expertise {
     dot_net_api -- system_collections_generic
 
     system_collections_generic[label="System.Collections.Generic"]
-    system_collections_generic -- i_collection_t
+    system_collections_generic -- i_enumerable_t
+    i_enumerable_t -- i_collection_t
+    i_enumerable_t -- i_read_only_collection_t
 
+    i_enumerable_t[label="IEnumerable<T>"]
     i_collection_t[label="ICollection<T>"]
+    i_read_only_collection_t[label="IReadOnlyCollection<T>"]
+    i_read_only_collection_t -- i_read_only_dictionary_t
+    i_read_only_collection_t -- i_read_only_list_t
+    i_read_only_collection_t -- queue_t
+    i_read_only_collection_t -- sorted_set_t
+    i_read_only_collection_t -- stack_t
+
+    i_read_only_dictionary_t[label="IReadOnlyDictionary<TKey,TValue>"]
+    i_read_only_dictionary_t -- sorted_dictionary_t
+    i_read_only_dictionary_t -- sorted_list_t
+    sorted_dictionary_t[label="SortedDictionary<TKey,TValue>"]
+    sorted_list_t[label="SortedList<TKey,TValue>"]
+    i_read_only_list_t[label="IReadOnlyList<T>"]
+    queue_t[label="Queue<T>"]
+    sorted_set_t[label="SortedSet<T>"]
+    stack_t[label="Stack<T>"]
+
+    i_collection_t -- i_dictionary_t
+    i_collection_t -- i_list_t
+    i_collection_t -- i_set_t
+    i_collection_t -- linked_list_t
+    
+    i_dictionary_t[label="IDictionary<TKey,TValue>"]
+    i_dictionary_t -- dictionary_t
+    dictionary_t[label="Dictionary<TKey,TValue>"]
+
+    i_list_t[label="IList<T>"]
+    i_list_t -- list_t
+    list_t[label="List<T>"]
+
+    i_set_t[label="ISet<T>"]
+    i_set_t -- hash_set_t
+    hash_set_t[label="HashSet<T>"]
+
+    linked_list_t[label="LinkedList<T>"]
 
     dot_net_core[label = ".NET Core"][label = ".NET Core"]
     dot_net_core -- core_crl
