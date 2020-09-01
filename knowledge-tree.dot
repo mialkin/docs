@@ -149,42 +149,34 @@ graph expertise {
     algorithms[label="Algorithms"]
     algorithms -- recursion
     algorithms -- sorting_algorithms
-    algorithms -- search_algorithms
     recursion[label="Recursion"]
 
     sorting_algorithms[label="Sorting algorithms"]
-    sorting_algorithms -- simple_sorts
-    sorting_algorithms -- efficient_sorts
+    sorting_algorithms -- insertion_sort
+    sorting_algorithms -- selection_sort
+    sorting_algorithms -- merge_sort
+    sorting_algorithms -- quick_sort
     sorting_algorithms -- bubble_sort
-
-    simple_sorts[label="Simple sorts"]
-    simple_sorts -- insertion_sort
-    simple_sorts -- selection_sort
 
     insertion_sort[label="Insertion sort"]
     selection_sort[label="Selection sort"]
-
-    efficient_sorts[label="Efficient sorts"]
-    efficient_sorts -- merge_sort
-    efficient_sorts -- quick_sort
-
     merge_sort[label="Merge sort"]
     quick_sort[label="Quick sort"]
-
     bubble_sort[label="Bubble sort"]
-
-    search_algorithms[label="Search algorithms"]
 
     algorithms -- graph_traversal
 
     graph_traversal[label="Graph traversal"]
     graph_traversal -- tree_traversal
-    tree_traversal[label="Tree traversal"]
+    graph_traversal -- dijkstra
 
+    tree_traversal[label="Tree traversal"]
     tree_traversal -- depth_first_search
     tree_traversal -- breadth_first_search
     depth_first_search[label="Depth-first search"]
     breadth_first_search[label="Breadth-frist search"]
+
+    dijkstra[label="Dijkstra's algorithm"]
 
     algorithms -- analysis_of_algorithms
     analysis_of_algorithms[label="Analysis of algorithms"]
@@ -335,9 +327,11 @@ graph expertise {
     designing -- licensing
 
     oop[label="Object-oriented programming (OOP)"]
+    oop -- abstraction
     oop -- incapsulation
     oop -- inheritance
     oop -- polymorphism
+    abstraction[label="Abstraction"]
     incapsulation[label="Incapsulation"]
     inheritance[label="Inheritance"]
     polymorphism[label="Polymorphism"]
@@ -352,6 +346,18 @@ graph expertise {
     dry[label="DRY"]
     kiss[label="KISS"]
     yagni[label="YAGNI"]
+
+    solid -- solid_s
+    solid -- solid_o
+    solid -- solid_l
+    solid -- solid_i
+    solid -- solid_d
+
+    solid_s[label="Single responsibility principle"]
+    solid_o[label="Open–closed principle"]
+    solid_l[label="Liskov substitution principle"]
+    solid_i[label="Interface segregation principle"]
+    solid_d[label="Dependency inversion principle"]
 
     design_patterns[label="Design patterns"]
     design_patterns -- creational_patterns
@@ -373,6 +379,8 @@ graph expertise {
 
     structural_patterns[label="Structural patterns"]
     structural_patterns -- adapter
+    structural_patterns -- bridge
+    structural_patterns -- composite
 
     licensing[label="Licensing"]
     licensing -- gpl
@@ -384,6 +392,8 @@ graph expertise {
     bsd[label="BSD"]
 
     adapter[label="Adapter"]
+    bridge[label="Bridge"]
+    composite[label="Composite"]
     behavioral_patterns[label="Behavioral patterns"]
     behavioral_patterns -- strategy
 
