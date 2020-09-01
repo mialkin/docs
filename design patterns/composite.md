@@ -18,8 +18,7 @@ Composite lets clients treat individual objects and compositions of objects unif
   * stores child components.
   * implements child-related operations in the Component interface.
 * **Client**
-  * manipulates objects in the composition through the Component
-interface.
+  * manipulates objects in the composition through the Component interface.
 
 ## C# implementation
 

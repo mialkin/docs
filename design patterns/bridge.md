@@ -11,15 +11,9 @@ independently.
 * **RefinedAbstraction**
   * Extends the interface defined by Abstraction.
 * **Implementor**
-  * defines the interface for implementation classes. This interface
-doesn't have to correspond exactly to Abstraction's interface; in
-fact the two interfaces can be quite different. Typically the
-Implementor interface provides only primitive operations, and
-Abstraction defines higher-level operations based on these
-primitives.
+  * defines the interface for implementation classes. This interface doesn't have to correspond exactly to Abstraction's interface; in fact the two interfaces can be quite different. Typically the Implementor interface provides only primitive operations, and Abstraction defines higher-level operations based on these primitives.
 * **ConcreteImplementor**
-  * implements the Implementor interface and defines its concrete
-implementation.
+  * implements the Implementor interface and defines its concrete implementation.
 
 ## C# implementation
 
