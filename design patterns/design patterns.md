@@ -16,5 +16,7 @@
 * Structural
   * [Adapter](adapter.md)
   * [Bridge](bridge.md)
+  * [Composite](composite.md)
+  * [Decorator](decorator.md)
 * Behavioral
   * [Strategy](strategy.md)
