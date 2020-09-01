@@ -2,6 +2,15 @@
 
 The **Prototype** is a creational software design pattern that lets you copy existing objects without making your code dependent on their classes.
 
+## Participants
+
+* **Prototype**
+  * declares an interface for cloning itself.
+* **ConcretePrototype**
+  * implements an operation for cloning itself.
+* **Client**
+  * creates a new object by asking a prototype to clone itself.
+
 ## C# implementation
 
 ```csharp
@@ -20,7 +29,7 @@ class Program
 
         original.PropA = -1;
         original.PropB.AnotherProp = -1;
-        
+
         Print(original, shallow, deep, "after");
     }
 
@@ -62,6 +71,17 @@ class B
 {
     public int AnotherProp { get; set; }
 }
+```
+
+Output:
+
+```output
+Original before: 1, 1
+Shallow before: 1, 1
+Deep before: 1, 1
+Original after: -1, -1
+Shallow after: 1, -1
+Deep after: 1, 1
 ```
 
 ## See also
