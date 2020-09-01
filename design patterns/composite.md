@@ -146,7 +146,7 @@ class Leaf : IComponent
 
     public void Add(IComponent component)
     {
-        throw new Exception("Can't add component t* a leaf");
+        throw new Exception("Can't add component to a leaf");
     }
 
     public void Remove(IComponent component)
