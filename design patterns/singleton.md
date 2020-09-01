@@ -1,5 +1,16 @@
 # Singleton
 
+The **Singleton** is a creational software design pattern that ensures a class only has one instance, and provides a global point of access to
+it.
+
+## Participants
+
+* **Singleton**
+  * defines an Instance operation that lets clients access its unique
+instance. Instance is a class operation (that is, a class method
+in Smalltalk and a static member function in C++).
+  * may be responsible for creating its own unique instance.
+
 ## C# implementation
 
 ```csharp
@@ -16,7 +27,7 @@ class Program
         b.PrintValue();
 
         a.Value = -1;
-        
+
         a.PrintValue();
         b.PrintValue();
     }
@@ -40,7 +51,7 @@ class A
             return _instance;
         }
     }
-    
+
     public int Value { get; set; } = 1;
 
     public void PrintValue()
