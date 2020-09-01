@@ -18,8 +18,9 @@
 
 * **Callback** — функция обратного вызова
 * **Class diagram** — диаграмма классов
+* **Composite** — компоновщик
 * **Contravariance** — контравариантность
-* **Coupling**  — звязывание
+* **Coupling**  — связывание
 * **Covariance** — ковариантность
 * **Creational design pattern** — порождающий шаблон проектирования
 
