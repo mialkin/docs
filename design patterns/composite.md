@@ -31,15 +31,15 @@ class Program
 {
     public static void Main()
     {
-        var c1 = new Composite(1);
+        IComponent c1 = new Composite(1);
         c1.Add(new Leaf(2));
         c1.Add(new Leaf(3));
 
-        var c2 = new Composite(4);
+        IComponent c2 = new Composite(4);
         c2.Add(new Leaf(5));
         c2.Add(new Composite(6));
 
-        var c3 = new Composite(7);
+        IComponent c3 = new Composite(7);
         c3.Add(new Leaf(8));
 
         c2.Add(c3);
