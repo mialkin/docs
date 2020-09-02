@@ -39,6 +39,7 @@
 ## F
 
 * **Favor object composition over class inheritance** — отдавать предпочтение композиции перед наследованием
+* **Flyweight** — легковесный или «приспособленец»
 
 ## G
 
