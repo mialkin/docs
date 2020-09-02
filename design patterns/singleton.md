@@ -20,15 +20,15 @@ class Program
     static void Main()
     {
         A a = A.Instance;
-        A b = A.Instance;
+        A a2 = A.Instance;
 
         a.PrintValue();
-        b.PrintValue();
+        a2.PrintValue();
 
         a.Value = -1;
 
         a.PrintValue();
-        b.PrintValue();
+        a2.PrintValue();
     }
 }
 
