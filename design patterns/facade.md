@@ -63,17 +63,23 @@ interface IA
     void Query();
 }
 
+interface IB
+{
+    int Initialize();
+}
+
+interface IC
+{
+    void Process();
+    void Run(int num);
+}
+
 class A : IA
 {
     public void Query()
     {
         Console.WriteLine("Query");
     }
-}
-
-interface IB
-{
-    int Initialize();
 }
 
 class B : IB
@@ -83,12 +89,6 @@ class B : IB
         Console.WriteLine("Initialize");
         return 7;
     }
-}
-
-interface IC
-{
-    void Process();
-    void Run(int num);
 }
 
 class C : IC
