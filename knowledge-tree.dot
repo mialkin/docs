@@ -554,7 +554,50 @@ graph expertise {
     dot_net_standard -- dot_net_framework
 
     dot_net_api[label=".NET API"]
+    dot_net_api -- system
     dot_net_api -- system_collections_generic
+    dot_net_api -- system_io
+
+    system[label="System"]
+    system -- system_object
+
+    system_object[label="Object"]
+    system_object -- system_array
+    system_object -- system_delegate
+    system_object -- system_exception
+    system_object -- system_gc
+    system_object -- system_lazy_t
+    system_object -- system_marshal_by_ref_object
+    system_object -- system_math
+    system_object -- system_string
+    system_object -- system_tuple_t
+    system_object -- system_value_type
+
+    system_array[label="Array"]
+    system_delegate[label="Delegate"]
+    system_delegate -- system_delegate_action_t
+    system_delegate -- system_delegate_func_t
+    system_delegate_action_t[label="Action<T>"]
+    system_delegate_func_t[label="Func<TResult>"]
+
+    system_exception[label="Exception"]
+    system_exception -- system_exception_system_exception
+    system_exception_system_exception[label="SystemException"]
+
+    system_gc[label="GC"]
+
+    system_lazy_t[label="Lazy<T>"]
+    system_marshal_by_ref_object[label="MarshalByRefObject"]
+    system_math[label="Math"]
+    system_string[label="String"]
+    system_tuple_t[label="Tuple<T1>"]
+    system_value_type[label="ValueType"]
+    system_value_type -- value_type_enum
+    system_value_type -- value_type_guid
+    system_value_type -- value_type_nullable_t
+    value_type_enum[label="Enum"]    
+    value_type_guid[label="Guid"]
+    value_type_nullable_t[label="Nullable<T>"]
 
     system_collections_generic[label="System.Collections.Generic"]
     system_collections_generic -- i_enumerable_t
@@ -596,8 +639,14 @@ graph expertise {
     i_set_t[label="ISet<T>"]
     i_set_t -- hash_set_t
     hash_set_t[label="HashSet<T>"]
-
     linked_list_t[label="LinkedList<T>"]
+
+    system_io[label="System.IO"]
+    system_io -- file_stream
+    system_io -- memory_stream
+
+    file_stream[label="FileStream"]
+    memory_stream[label="MemoryStream"]
 
     dot_net_core[label = ".NET Core"][label = ".NET Core"]
     dot_net_core -- core_crl
@@ -784,14 +833,20 @@ graph expertise {
     protobuf[label="Protobuf"]
     
     devops[label="DevOps"]
-    devops -- ci_cd
+    devops -- devops_ci
+    devops -- devops_cdelivery
+    devops -- devops_cdeployment
+    devops -- ci_tools
     devops -- planning
     devops -- documenting
 
-    ci_cd[label="CI/CD"]
-    ci_cd -- teamcity
-    ci_cd -- gitlab
-    ci_cd -- jenkins
+    devops_ci[label="Continuous integration (CI)"]
+    devops_cdelivery[label="Continuous delivery (CD)"]
+    devops_cdeployment[label="Continuous deployment (CD)"]
+    ci_tools[label="Tools"]
+    ci_tools -- teamcity
+    ci_tools -- gitlab
+    ci_tools -- jenkins
 
     teamcity[label="TeamCity"]
     gitlab[label="GitLab"]
