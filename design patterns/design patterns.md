@@ -18,5 +18,6 @@
   * [Bridge](bridge.md)
   * [Composite](composite.md)
   * [Decorator](decorator.md)
+  * [Facade](facade.md)
 * Behavioral
   * [Strategy](strategy.md)
