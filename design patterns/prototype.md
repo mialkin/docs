@@ -37,7 +37,8 @@ class Program
     {
         Console.WriteLine($"Original {when}: {original.PropA}, {original.PropB.AnotherProp}");
         Console.WriteLine($"Shallow {when}: {shallow.PropA}, {shallow.PropB.AnotherProp}");
-        Console.WriteLine($"Deep {when}: {deep.PropA}, {deep.PropB.AnotherProp}");    }
+        Console.WriteLine($"Deep {when}: {deep.PropA}, {deep.PropB.AnotherProp}");    
+    }
 }
 
 interface IClone
