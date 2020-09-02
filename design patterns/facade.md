@@ -104,3 +104,13 @@ class C : IC
     }
 }
 ```
+
+Output:
+
+```output
+Doing the job inside facade
+Query
+Process
+Initialize
+7Run
+```
