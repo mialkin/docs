@@ -23,16 +23,15 @@ class Program
 {
     static void Main()
     {
-        IProduct product = GetProduct(new CreatorA());
-        product.Method();
-
-        product = GetProduct(new CreatorB());
-        product.Method();
+        Client(new CreatorA());
+        Client(new CreatorB());
+        Client(new CreatorC());
     }
 
-    static IProduct GetProduct(ICreator creator)
+    static void Client(ICreator creator)
     {
-        return creator.GetProduct();
+        IProduct product = creator.GetProduct();
+        product.Act();
     }
 }
 
@@ -46,28 +45,32 @@ interface ICreator
 
 class CreatorA : ICreator
 {
-    public IProduct GetProduct()
+    public virtual IProduct GetProduct()
     {
         return new ProductA();
     }
 }
 
-class CreatorB : ICreator
+class CreatorB : CreatorA
 {
-    public IProduct GetProduct()
+    public override IProduct GetProduct()
     {
         return new ProductB();
     }
 }
 
+class CreatorC : ICreator
+{
+}
+
 interface IProduct
 {
-    void Method();
+    void Act();
 }
 
 class ProductA : IProduct
 {
-    public void Method()
+    public void Act()
     {
         Console.WriteLine("A");
     }
@@ -75,7 +78,7 @@ class ProductA : IProduct
 
 class ProductB : IProduct
 {
-    public void Method()
+    public void Act()
     {
         Console.WriteLine("B");
     }
@@ -83,7 +86,7 @@ class ProductB : IProduct
 
 class DefaultProduct : IProduct
 {
-    public void Method()
+    public void Act()
     {
         Console.WriteLine("Default");
     }
@@ -95,4 +98,5 @@ Output:
 ```output
 A
 B
+Default
 ```
