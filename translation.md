@@ -20,6 +20,7 @@
 * **Claim** — утверждение
 * **Class diagram** — диаграмма классов
 * **Composite** — компоновщик
+* **Concurrency** — параллелизм
 * **Contravariance** — контравариантность
 * **Coupling**  — связывание или связь
 * **Covariance** — ковариантность
