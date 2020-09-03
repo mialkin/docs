@@ -3,6 +3,7 @@
 ## A
 
 * **Abstract factory** (design pattern) — абстрактная фабрика (шаблон проектирования)
+* **Accessor** — акцессор
 * **Account** — учетная запись
 * **Agile software development** — гибкая методология разработки
 * **Authentication** — проверка подлинности
