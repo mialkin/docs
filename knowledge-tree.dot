@@ -587,6 +587,14 @@ graph expertise {
     system_exception -- system_exception_system_exception
     system_exception_system_exception[label="SystemException"]
 
+    system_exception_system_exception -- argument_exception
+    argument_exception[label="ArgumentException"]
+
+    argument_exception -- argument_null_exception
+    argument_exception -- argument_out_of_range_exception
+    argument_null_exception[label="ArgumentNullException"]
+    argument_out_of_range_exception[label="ArgumentOutOfRangeException"]
+
     system_gc[label="GC"]
 
     system_lazy_t[label="Lazy<T>"]
