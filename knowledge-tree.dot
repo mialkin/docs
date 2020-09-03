@@ -562,19 +562,19 @@ graph expertise {
     dot_net_api -- system_threading_tasks
 
     system[label="System"]
-    system -- system_object
+    system -- system_classes
 
-    system_object[label="Object"]
-    system_object -- system_array
-    system_object -- system_delegate
-    system_object -- system_exception
-    system_object -- system_gc
-    system_object -- system_lazy_t
-    system_object -- system_marshal_by_ref_object
-    system_object -- system_math
-    system_object -- system_string
-    system_object -- system_tuple_t
-    system_object -- system_value_type
+    system_classes[label="Classes"]
+    system_classes -- system_array
+    system_classes -- system_delegate
+    system_classes -- system_exception
+    system_classes -- system_gc
+    system_classes -- system_lazy_t
+    system_classes -- system_marshal_by_ref_object
+    system_classes -- system_math
+    system_classes -- system_string
+    system_classes -- system_tuple_t
+    system_classes -- system_value_type
 
     system_array[label="Array"]
     system_delegate[label="Delegate"]
@@ -600,6 +600,25 @@ graph expertise {
     argument_out_of_range_exception[label="ArgumentOutOfRangeException"]
 
     system_gc[label="GC"]
+    system_gc -- system_gc_properties
+    system_gc -- system_gc_methods
+    
+    system_gc_properties[label="Properties"]
+    system_gc_properties -- max_generation
+    max_generation[label="MaxGeneration"]
+    system_gc_methods[label="Methods"]
+    system_gc_methods -- gc_collect
+    system_gc_methods -- gc_collection_count
+    system_gc_methods -- gc_get_generation
+    system_gc_methods -- gc_get_total_memory
+    system_gc_methods -- gc_suppress_finalize
+    system_gc_methods -- gc_wait_for_pending_finalizers
+    gc_collect[label="Collect(Int32)"]
+    gc_collection_count[label="CollectionCount(Int32)"]
+    gc_get_generation[label="GetGeneration(Object)"]
+    gc_get_total_memory[label="GetTotalMemory(Boolean)"]
+    gc_suppress_finalize[label="SuppressFinalize(Object)"]
+    gc_wait_for_pending_finalizers[label="WaitForPendingFinalizers()"]
 
     system_lazy_t[label="Lazy<T>"]
     system_marshal_by_ref_object[label="MarshalByRefObject"]
@@ -726,8 +745,6 @@ graph expertise {
     memory_managment[label="Memory managment"]
     memory_managment -- gc
     memory_managment -- idisposable
-    memory_managment -- gc_object_finalize
-    memory_managment -- gc_suppress_finalize
 
     gc[label="Garbage collector (GC)"]
     gc -- managed_heap
@@ -740,8 +757,6 @@ graph expertise {
     loh[label="Large object heap (LOH)"]
 
     idisposable[label="IDisposable"]
-    gc_suppress_finalize[label="GC.SuppressFinalize"]
-    gc_object_finalize[label="Object.Finalize"]
 
     jit[label="Just-in-time (JIT) compilation"]
     corefx[label="CoreFx"]
