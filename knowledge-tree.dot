@@ -555,6 +555,7 @@ graph expertise {
 
     dot_net_api[label=".NET API"]
     dot_net_api -- system
+    dot_net_api -- system_collections_concurrent
     dot_net_api -- system_collections_generic
     dot_net_api -- system_io
 
@@ -598,6 +599,14 @@ graph expertise {
     value_type_enum[label="Enum"]    
     value_type_guid[label="Guid"]
     value_type_nullable_t[label="Nullable<T>"]
+
+    system_collections_concurrent[label="System.Collections.Concurrent"]
+    system_collections_concurrent -- concurrent_dictionary
+    system_collections_concurrent -- concurrent_queue
+    system_collections_concurrent -- concurrent_stack
+    concurrent_dictionary[label="ConcurrentDictionary<T>"]
+    concurrent_queue[label="ConcurrentQueue<T>"]
+    concurrent_stack[label="ConcurrentStack<T>"]
 
     system_collections_generic[label="System.Collections.Generic"]
     system_collections_generic -- i_enumerable_t
