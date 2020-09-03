@@ -588,7 +588,9 @@ graph expertise {
     system_exception_system_exception[label="SystemException"]
 
     system_exception_system_exception -- argument_exception
+    system_exception_system_exception -- key_not_found_exception
     argument_exception[label="ArgumentException"]
+    key_not_found_exception[label="KeyNotFoundException"]
 
     argument_exception -- argument_null_exception
     argument_exception -- argument_out_of_range_exception
