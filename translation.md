@@ -34,7 +34,7 @@
 * **Deep copy** — глубокая копия
 * **Dependency injection** — внедрение зависимости
 * **Dependency inversion principle** — принцип инверсии зависимостей
-* **Design patterns** — шаблоны проектирования
+* **Design pattern** — шаблон проектирования
 * **Domain-driven design** — предметно-ориентированное проектирование
 * **Derived** — производный
 * **Extreme programming** — экстремальное программирование
