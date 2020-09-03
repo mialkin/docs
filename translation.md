@@ -21,7 +21,7 @@
 * **Class diagram** — диаграмма классов
 * **Composite** — компоновщик
 * **Contravariance** — контравариантность
-* **Coupling**  — связывание
+* **Coupling**  — связывание или связь
 * **Covariance** — ковариантность
 * **Creational design pattern** — порождающий шаблон проектирования
 
@@ -62,7 +62,7 @@
 * **Lock** — блокировка
 * **Localization** — локализация
 * **Logging** — ведение журнала
-* **Loose coupling** — слабая связь
+* **Loose coupling** — слабая связь или связывание
 
 ## M
 
