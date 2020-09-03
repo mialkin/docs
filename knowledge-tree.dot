@@ -558,6 +558,8 @@ graph expertise {
     dot_net_api -- system_collections_concurrent
     dot_net_api -- system_collections_generic
     dot_net_api -- system_io
+    dot_net_api -- system_threading
+    dot_net_api -- system_threading_tasks
 
     system[label="System"]
     system -- system_object
@@ -656,6 +658,41 @@ graph expertise {
 
     file_stream[label="FileStream"]
     memory_stream[label="MemoryStream"]
+
+    system_threading[label="System.Threading"]
+    system_threading -- system_threading_classes
+    system_threading -- system_threading_structs
+
+    system_threading_classes[label="Classes"]
+    system_threading_classes -- interlocked
+    system_threading_classes -- monitor
+    system_threading_classes -- mutex
+    system_threading_classes -- reader_writer_lock
+    system_threading_classes -- reader_writer_lock_slim
+    system_threading_classes -- semaphore	
+    system_threading_classes -- synchronizationContext	
+    system_threading_classes -- thread	
+    system_threading_classes -- thread_pool	
+
+    interlocked[label="Interlocked"]
+    monitor[label="Monitor"]
+    mutex[label="Mutex"]
+    reader_writer_lock[label="ReaderWriterLock"]
+    reader_writer_lock_slim[label="ReaderWriterLockSlim"]
+    semaphore[label="Semaphore"]
+    synchronizationContext	[label="SynchronizationContext"]
+    thread[label="Thread"]
+    thread_pool[label="ThreadPool"]
+
+    system_threading_structs[label="Structs"]
+    system_threading_structs -- threading_cancellation_token
+    system_threading_structs -- spin_lock
+    system_threading_structs -- spin_wait
+    threading_cancellation_token[label="CancellationToken"]
+    spin_lock[label="SpinLock"]
+    spin_wait[label="SpinWait"]
+
+    system_threading_tasks[label="System.Threading.Tasks"]
 
     dot_net_core[label = ".NET Core"][label = ".NET Core"]
     dot_net_core -- core_crl
