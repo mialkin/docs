@@ -693,6 +693,15 @@ graph expertise {
     spin_wait[label="SpinWait"]
 
     system_threading_tasks[label="System.Threading.Tasks"]
+    system_threading_tasks -- tasks_parallel
+    system_threading_tasks -- tasks_task
+    system_threading_tasks -- tasks_task_t
+    system_threading_tasks -- tasks_task_factory
+
+    tasks_parallel[label="Parallel"]
+    tasks_task[label="Task"]
+    tasks_task_t[label="Task<TResult>"]
+    tasks_task_factory[label="TaskFactory"]
 
     dot_net_core[label = ".NET Core"][label = ".NET Core"]
     dot_net_core -- core_crl
