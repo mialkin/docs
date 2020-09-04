@@ -484,12 +484,19 @@ graph expertise {
     csharp -- cs_types
 
     cs_types[label="Types"]
-    cs_types -- cs_built_in_types
+    cs_types -- reference_types
+    cs_types -- value_types
     cs_types -- boxing_unboxing
 
-    cs_built_in_types[label="Built-in types"]
-    cs_built_in_types -- value_types
-    cs_built_in_types -- reference_types
+    reference_types[label="Reference types"]
+    reference_types -- rt_dynamic
+    reference_types -- rt_string
+    reference_types -- rt_object
+
+    rt_dynamic[label="dynamic"]
+    rt_string[label="string"]
+    rt_object[label="object"]
+
 
     value_types[label="Value types"]
     value_types -- integral_types
@@ -503,9 +510,9 @@ graph expertise {
 
     integral_types[label="Integral types"]
     integral_types -- byte
-    integral_types -- short
     integral_types -- int
     integral_types -- long
+    integral_types -- short
 
     floating_point_types[label="Floating-point types"]
     floating_point_types -- float
@@ -517,8 +524,8 @@ graph expertise {
     tuple_types[label="Tuple types"]
     nullable_value_types[label="Nullable value types"]
 
-    reference_types[label="Reference types"]
     boxing_unboxing[label="Boxing and unboxing"]
+
     common_intermediate_language[label="Common Intermediate Language (CIL)"]
 
     cli_implementations[label="CLI implementations"]
@@ -539,6 +546,10 @@ graph expertise {
 
     system[label="System"]
     system -- system_classes
+    system -- system_delegates
+    system -- system_enums
+    system -- system_interfaces
+    system -- system_structs
 
     system_classes[label="Classes"]
     system_classes -- system_array
@@ -629,6 +640,11 @@ graph expertise {
     value_type_enum[label="Enum"]    
     value_type_guid[label="Guid"]
     value_type_nullable_t[label="Nullable<T>"]
+
+    system_enums[label="Enums"]
+    system_delegates[label="Delegates"]
+    system_interfaces[label="Interfaces"]
+    system_structs[label="Structs"]
 
     system_collections_concurrent[label="System.Collections.Concurrent"]
     system_collections_concurrent -- concurrent_dictionary
