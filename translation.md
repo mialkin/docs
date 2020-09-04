@@ -6,6 +6,7 @@
 * **Accessor** — метод доступа или акцессор
 * **Account** — учетная запись
 * **Agile software development** — гибкая методология разработки
+* **Alias** — псевдоним
 * **Authentication** — проверка подлинности
 * **Authorization** — авторизация
 
