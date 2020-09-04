@@ -479,17 +479,9 @@ graph expertise {
 
     virtual_execution_system[label="Virtual Execution System (VES)"]
     common_language_specification[label="Common Language Specification (CLS)"]
-    common_intermediate_language[label="Common Intermediate Language (CIL)"]
-
-    cli_implementations[label="CLI implementations"]
-    cli_implementations -- dot_net_standard
-
-    dot_net_standard[label=".NET Standard"]
-    dot_net_standard -- csharp
-
+    common_language_specification -- csharp
     csharp[label="C#"]
     csharp -- cs_types
-    csharp -- cs_object
 
     cs_types[label="Types"]
     cs_types -- cs_built_in_types
@@ -527,28 +519,12 @@ graph expertise {
 
     reference_types[label="Reference types"]
     boxing_unboxing[label="Boxing and unboxing"]
+    common_intermediate_language[label="Common Intermediate Language (CIL)"]
 
-    cs_object[label="Object"]
-    cs_object -- methods
+    cli_implementations[label="CLI implementations"]
+    cli_implementations -- dot_net_standard
 
-    methods[label="Methods"]
-
-    methods -- equals
-    methods -- get_hash_code
-    methods -- get_type
-    methods -- to_string
-    methods -- finalize
-    methods -- memberwise_clone
-    methods -- reference_equals
-
-    equals[label="Equals"]
-    get_hash_code[label="GetHashCode"]
-    get_type[label="GetType"]
-    to_string[label="ToString"]
-    finalize[label="Finalize"]
-    memberwise_clone[label="MemberwiseClone"]
-    reference_equals[label="ReferenceEquals"]
-
+    dot_net_standard[label=".NET Standard"]
     dot_net_standard -- dot_net_api 
     dot_net_standard -- dot_net_core
     dot_net_standard -- dot_net_framework
@@ -572,6 +548,7 @@ graph expertise {
     system_classes -- system_lazy_t
     system_classes -- system_marshal_by_ref_object
     system_classes -- system_math
+    system_classes -- system_object
     system_classes -- system_string
     system_classes -- system_tuple_t
     system_classes -- system_value_type
@@ -623,6 +600,26 @@ graph expertise {
     system_lazy_t[label="Lazy<T>"]
     system_marshal_by_ref_object[label="MarshalByRefObject"]
     system_math[label="Math"]
+    system_object[label="Object"]
+
+    system_object -- system_object_methods
+    system_object_methods[label="Methods"]
+
+    system_object_methods -- equals
+    system_object_methods -- get_hash_code
+    system_object_methods -- get_type
+    system_object_methods -- to_string
+    system_object_methods -- finalize
+    system_object_methods -- memberwise_clone
+    system_object_methods -- reference_equals
+
+    equals[label="Equals"]
+    get_hash_code[label="GetHashCode"]
+    get_type[label="GetType"]
+    to_string[label="ToString"]
+    finalize[label="Finalize"]
+    memberwise_clone[label="MemberwiseClone"]
+    reference_equals[label="ReferenceEquals"]
     system_string[label="String"]
     system_tuple_t[label="Tuple<T1>"]
     system_value_type[label="ValueType"]
