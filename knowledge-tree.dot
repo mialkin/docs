@@ -546,7 +546,6 @@ graph expertise {
 
     system[label="System"]
     system -- system_classes
-    system -- system_delegates
     system -- system_enums
     system -- system_interfaces
     system -- system_structs
@@ -642,8 +641,16 @@ graph expertise {
     value_type_nullable_t[label="Nullable<T>"]
 
     system_enums[label="Enums"]
-    system_delegates[label="Delegates"]
     system_interfaces[label="Interfaces"]
+    system_interfaces -- icomparable_t
+    system_interfaces -- icloneable
+    system_interfaces -- idisposable
+    icloneable[label="ICloneable"]
+    icomparable_t[label="IComparable<T>"]
+    idisposable[label="IDisposable"]
+
+
+
     system_structs[label="Structs"]
 
     system_collections_concurrent[label="System.Collections.Concurrent"]
@@ -757,7 +764,6 @@ graph expertise {
 
     memory_managment[label="Memory managment"]
     memory_managment -- gc
-    memory_managment -- idisposable
 
     gc[label="Garbage collector (GC)"]
     gc -- managed_heap
@@ -769,7 +775,6 @@ graph expertise {
     soh[label="Small object heap (SOH)"]
     loh[label="Large object heap (LOH)"]
 
-    idisposable[label="IDisposable"]
 
     jit[label="Just-in-time (JIT) compilation"]
     corefx[label="CoreFx"]
