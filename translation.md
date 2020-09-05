@@ -21,6 +21,7 @@
 * **Callback** — функция обратного вызова
 * **Claim** — утверждение
 * **Class diagram** — диаграмма классов
+* **Commit** — фиксация
 * **Common Language Runtime** — общеязыковая исполняющая среда
 * **Common table expression** — обобщенное табличное выражение
 * **Composite** — компоновщик
@@ -93,6 +94,7 @@
 
 * **Pipiline** — конвейер
 * **Paging** — подкачка страниц
+* **Push** — отправлять
 
 ## R
 
@@ -124,3 +126,7 @@
 ## V
 
 * **Value type** — тип значения или значимый тип
+
+## See also
+
+* [Microsoft Language Portal](https://www.microsoft.com/en-us/language)
