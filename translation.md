@@ -22,6 +22,7 @@
 * **Claim** — утверждение
 * **Class diagram** — диаграмма классов
 * **Common Language Runtime** — общеязыковая исполняющая среда
+* **Common table expression** — обобщенное табличное выражение
 * **Composite** — компоновщик
 * **Concurrency** — параллелизм
 * **Contravariance** — контравариантность
