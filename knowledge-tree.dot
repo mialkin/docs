@@ -980,7 +980,27 @@ graph expertise {
     databases -- db_ide
 
     acid[label="ACID"]
+    acid -- atomicity
+    acid -- consistency
+    acid -- isolation
+    acid -- durability
+
+    atomicity[label="Atomicity"]
+    consistency[label="Consistency"]
+    isolation[label="Isolation"]
+    durability[label="Durability"]
+    
     isolation_levels[label="Isolation levels"]
+    isolation_levels -- read_uncommitted
+    isolation_levels -- read_committed
+    isolation_levels -- repeatable_read
+    isolation_levels -- serializable
+
+    read_uncommitted[label="Read uncommmitted"]
+    read_committed[label="Read commmited"]
+    repeatable_read[label="Repeatable read"]
+    serializable[label="Serializable"]
+
     transactions[label="Transactions"]
     triggers[label="Triggers"]
     indexes[label="Indexes"]
