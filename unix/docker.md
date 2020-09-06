@@ -56,3 +56,9 @@ docker exec -it \<conainer\> \<command\> | Run a command in a running container
 docker attach -f \<container\> | Attach local standard input, output, and error streams to a running container (-f — follow)
 docker rm \<container1\> \<container2\> | Remove containers
 docker rm $(docker ps -a -q) | Remove all containers
+
+## Logs
+
+Command | Description
+:-|:-
+docker logs -f \<container\> | Fetch the logs of a container; `-f` is for "follow"
