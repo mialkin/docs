@@ -257,6 +257,7 @@ graph expertise {
     sc_system -- w
     sc_system -- watch
     sc_system -- who
+    sc_system -- whoami
 
     sc_files[label="Files"]
     sc_files -- cat
