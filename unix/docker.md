@@ -57,6 +57,7 @@ docker attach -f \<container\> | Attach local standard input, output, and error 
 docker rm \<container1\> \<container2\> | Remove containers
 docker rm $(docker ps -a -q) | Remove all containers
 docker port \<container\> | List port mappings or a specific mapping for the container
+docker cp /tmp/filename.bak \<container\>:tmp/filename.bak | Copy file from host to container
 
 ## Logs
 
