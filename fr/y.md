@@ -14,7 +14,6 @@ Tu pars en Espagne cet été? → Oui, je vais y aller au mois d'août.
 Il pense à son mariage. → Il y pense souvent!
 
 Je participe à ce projet. → J'y participe de manière intensive!
-
 ```
 
 Fais attention, le pronom Y remplace généralement pas de personnes:
