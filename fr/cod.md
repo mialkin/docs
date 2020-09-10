@@ -2,7 +2,7 @@
 
 Le complément d'objet direct, répond à la question `qui?` et `quoi?`, posée après le verbe.
 
-Examples:
+Exemples:
 
 ```text
 Karl mange des dattes.

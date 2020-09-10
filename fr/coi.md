@@ -1,4 +1,8 @@
-# Complement d'object indirect (COI)
+# Complément d'objet indirect (COI)
+
+Le complément d'objet indirect répond à l'une des questions suivantes `à qui?`, `à quoi?`, `de qui?`, `de quoi?`, etc.
+
+Exemples:
 
 ```text
 Il pensa à ses amis COI  et il rit.
