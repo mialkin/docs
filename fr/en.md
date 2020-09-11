@@ -21,3 +21,13 @@ Claudine nous parle souvent de Nicolas. → Claudine nous parle souvent de lui.
 ```text
 Je reviens de Paris. → J'en reviens.
 ```
+
+**3\.** `EN` remplace quelque chose introduit par le partitif : `du`, `de la`, `de l'` et `des`:
+
+```text
+Il mange du riz ? → Oui, il en mange tous les jours!
+
+Paul a de la chance ! → Oui, il en a tout le temps quand il joue aux cartes!
+
+Tu prendras des rillettes ? → Oh oui, j'en prendrais volontiers!
+```
