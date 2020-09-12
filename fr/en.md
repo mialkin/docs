@@ -59,8 +59,24 @@ On verra donc, en français, très souvent `EN` combiné avec ces différentes q
 J'en achète 1 kg ; j'en prends juste un peu ; j'en veux cinq ! Etc.
 ```
 
-`EN` peut aussi se combiner avec  "combien", car on dit "combien de” :
+`EN` peut aussi se combiner avec  "combien", car on dit "combien de" :
 
 ```text
 Tu en as combien ?
 ```
+
+**5\.** `EN` apparaît dans diverses expressions :
+
+Dans ces cas-là, `EN` ne remplace rien en particulier :
+
+```text
+Je m’en vais.
+```
+
+Il s'agit ici du verbe `S'EN ALLER` qui se combine toujours avec `EN` :
+
+```text
+Il en veut à ses amis.
+```
+
+Il s'agit ici de l'expression "en vouloir à quelqu'un" qui se combine toujours avec `EN`. À ne pas confondre avec le verbe "vouloir".
