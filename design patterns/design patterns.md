@@ -19,5 +19,7 @@
   * [Composite](composite.md)
   * [Decorator](decorator.md)
   * [Facade](facade.md)
+  * [Flyweight](flyweight.md)
+  * [Proxy](proxy.md)
 * Behavioral
   * [Strategy](strategy.md)
