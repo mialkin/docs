@@ -134,6 +134,7 @@
 ## W
 
 * **Web service** — веб-служба
+* **Worker thread** — рабочий поток
 
 ## See also
 
