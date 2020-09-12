@@ -1,6 +1,6 @@
 # Complément d'objet direct (COD)
 
-Le complément d'objet direct, répond à la question `qui?` et `quoi?`, posée après le verbe.
+Le complément d'objet direct, répond à la question `qui ?` et `quoi ?`, posée après le verbe.
 
 Exemples:
 
