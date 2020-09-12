@@ -2,7 +2,8 @@
 
 The **Flyweight** is a structural software design pattern that uses sharing to support large numbers of fine-grained objects efficiently.
 
-> **Flyweight** is a structural design pattern that lets you fit more objects into the available amount of RAM by sharing common parts of state between multiple objects instead of keeping all of the data in each object. –– <cite>Refactoring.guru website</cite>
+> **Flyweight** is a structural design pattern that lets you fit more objects into the available amount of RAM by sharing common parts of state between multiple objects instead of keeping all of the data in each object. 
+> –– <cite>Refactoring.guru website</cite>
 
 ## Participants
 
