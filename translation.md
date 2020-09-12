@@ -13,6 +13,7 @@
 
 ## B
 
+* **Background thread** — фоновый поток
 * **Behavior diagram** — диаграмма поведения
 * **Behavioral design pattern** — поведенческий шаблон проектирования
 * **Builder** (design pattern) — строитель (шаблон проектирования)
@@ -53,6 +54,7 @@
 * **Favor object composition over class inheritance** — отдавать предпочтение композиции перед наследованием
 * **Finalizer** — метод завершения или деструктор
 * **Flyweight** — легковесный или «приспособленец»
+* **Foreground thread** — основной поток
 
 ## G
 
