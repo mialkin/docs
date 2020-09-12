@@ -7,6 +7,7 @@
 * **Account** — учетная запись
 * **Agile software development** — гибкая методология разработки
 * **Alias** — псевдоним
+* **Application domain** — домен приложения
 * **Authentication** — проверка подлинности
 * **Authorization** — авторизация
 
