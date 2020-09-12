@@ -129,6 +129,10 @@
 * **Value type** — тип значения или значимый тип
 * **Volume** — том
 
+## W
+
+* **Web service** — веб-служба
+
 ## See also
 
 * [Microsoft Language Portal](https://www.microsoft.com/en-us/language)
