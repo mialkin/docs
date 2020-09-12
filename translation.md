@@ -111,6 +111,7 @@
 * **Single-page application** — одностраничное приложение
 * **Single responsibility principle** — принцип единственной ответственности
 * **Shallow copy** — поверхостная копия
+* **Stateless** — без запоминания/сохранения состояния
 * **Structural design pattern** — структурный шаблон проектирования
 * **Structure diagram** — диаграмма структуры
 
