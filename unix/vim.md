@@ -26,10 +26,15 @@ G | Go to end of document
 Command | Explanation
 -|-
 u | Undo
-dd | Delete (cut) a line
+dd | Delete line
 D | Delete to end of line
+i | Insert before the cursor
+I | Insert at the beginning of the line
+a | Insert after the cursor
+A | Insert at the end of the line
 o | Insert new line below
 O | Insert new line above
+cw | Change to the end of the word
 
 ## See also
 
