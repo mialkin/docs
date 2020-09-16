@@ -36,6 +36,7 @@ A | Insert at the end of the line
 o | Insert new line below
 O | Insert new line above
 cw | Change to the end of the word
+ca[ | Delete everything between brackets
 
 ## See also
 
