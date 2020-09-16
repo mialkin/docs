@@ -20,6 +20,7 @@ w | Go to end of word
 $ | Go to end of line
 gg | Go to begining of document
 G | Go to end of document
+0 | Move to beginning of line
 
 ## Editing
 
