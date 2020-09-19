@@ -35,8 +35,9 @@ a | Insert after the cursor
 A | Insert at the end of the line
 o | Insert new line below
 O | Insert new line above
-cw | Change to the end of the word
+cw | Delete everything to the end of the word
 ca[ | Delete everything between brackets
+C | Delete everything from cursor to the end of line
 
 ## See also
 
