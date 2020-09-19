@@ -1,5 +1,20 @@
 # tmux
 
+## Config
+
+Open tmux config file.
+
+```sh
+cd
+vim .tmux.config
+```
+
+Paste following line to enable mouse.
+
+```text
+set -g mouse on
+```
+
 ## Commands
 
 Command | Description
