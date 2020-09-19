@@ -75,6 +75,7 @@
 
 ## L
 
+* **Layout** — макет
 * **Liskov substitution principle** — принцип подстановки Лисков
 * **Lock** — блокировка
 * **Localization** — локализация
