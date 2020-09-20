@@ -48,6 +48,7 @@
 
 * **Expression body** — тело выражения
 * **Extreme programming** — экстремальное программирование
+* **Event loop** — цикл событий
 
 ## F
 
