@@ -40,6 +40,71 @@ that no other object can change it.
 * **RealSubject**
   * defines the real object that the proxy represents.
 
+## C# implementation
+
+```csharp
+using System;
+
+public class Program
+{
+    public static void Main()
+    {
+        IImage image = new ProxyImage("forest.png");
+        image.Display();
+    }
+}
+
+interface IImage
+{
+    void Display();
+}
+
+class RealImage : IImage
+{
+    private readonly string _filename;
+
+    public RealImage(string filename)
+    {
+        _filename = filename;
+        LoadImageFromDisk();
+    }
+
+    private void LoadImageFromDisk()
+    {
+        Console.WriteLine($"Loading {_filename}");
+    }
+
+    public void Display()
+    {
+        Console.WriteLine($"Displaying {_filename}");
+    }
+}
+
+class ProxyImage : IImage
+{
+    private readonly string _filename;
+    private RealImage _realImage;
+
+    public ProxyImage(string filename)
+    {
+        _filename = filename;
+    }
+
+    public void Display()
+    {
+        if(_realImage == null)
+            _realImage = new RealImage(_filename);
+
+        _realImage.Display();
+    }
+}
+```
+
+```output
+Loading forest.png
+Displaying forest.png
+```
+
 ## Related Patterns
 
 [Adapter](adapter.md): An adapter provides a different interface to the object it adapts.
