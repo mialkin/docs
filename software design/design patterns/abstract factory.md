@@ -36,27 +36,6 @@ class Program
     }
 }
 
-interface IProduct
-{
-    void Method();
-}
-
-class ProductA : IProduct
-{
-    public void Method()
-    {
-        Console.WriteLine("A");
-    }
-}
-
-class ProductB : IProduct
-{
-    public void Method()
-    {
-        Console.WriteLine("B");
-    }
-}
-
 interface IFactory
 {
     IProduct GetProduct();
@@ -75,6 +54,27 @@ class FactoryB : IFactory
     public IProduct GetProduct()
     {
         return new ProductB();
+    }
+}
+
+interface IProduct
+{
+    void Method();
+}
+
+class ProductA : IProduct
+{
+    public void Method()
+    {
+        Console.WriteLine("A");
+    }
+}
+
+class ProductB : IProduct
+{
+    public void Method()
+    {
+        Console.WriteLine("B");
     }
 }
 ```
