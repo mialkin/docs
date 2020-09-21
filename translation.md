@@ -37,6 +37,7 @@
 ## D
 
 * **Deadlock** — взаимная блокировка
+* **Decoupling** — уменьшение связанности системы
 * **Deep copy** — глубокая копия
 * **Dependency injection** — внедрение зависимости
 * **Dependency inversion principle** — принцип инверсии зависимостей
