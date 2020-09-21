@@ -94,7 +94,5 @@ E
 
 ## Related Patterns
 
-An [Abstract Factory](abstract%20factory.md) can create and configure a particular Bridge.
-
 The [Adapter](adapter.md) pattern is geared toward making unrelated classes work together. It is usually applied to systems after they're designed. Bridge, on the other
 hand, is used up-front in a design to let abstractions and implementations vary independently.
