@@ -32,14 +32,14 @@ class Program
     }
 }
 
-interface IAdaptee
-{
-    void MethodA();
-}
-
 interface IAdaptor
 {
     void MethodB();
+}
+
+interface IAdaptee
+{
+    void MethodA();
 }
 
 class Adaptee : IAdaptee
