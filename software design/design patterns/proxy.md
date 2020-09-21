@@ -24,3 +24,14 @@ smart pointers).
    * loading a persistent object into memory when it's first referenced.
    * checking that the real object is locked before it's accessed to ensure
 that no other object can change it.
+
+## Related Patterns
+
+[Adapter](adapter.md): An adapter provides a different interface to the object it adapts.
+
+In contrast, a proxy provides the same interface as its subject. However, a proxy used for access protection might refuse to perform an operation that the subject will perform, so its interface may be effectively a subset of the subject's.
+
+[Decorator](decorator.md): Although decorators can have similar implementations as proxies, decorators have a different purpose. A decorator adds one or more responsibilities to an object, whereas a proxy controls access to an object.
+
+Proxies vary in the degree to which they are implemented like a decorator. A protection proxy might be implemented exactly like a decorator. On the other hand, a remote proxy will not contain a direct reference to its real subject but only an indirect reference, such as "host ID and local address on host." A virtual proxy will start off with an indirect reference such as a file name but will
+eventually obtain and use a direct reference.
