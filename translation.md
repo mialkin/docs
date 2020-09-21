@@ -3,6 +3,8 @@
 ## A
 
 * **Abstract factory** (design pattern) — абстрактная фабрика (шаблон проектирования)
+* **Access modifier** — модификатор доступа
+* **Accessibility level** — уровень доступности
 * **Accessor** — метод доступа или акцессор
 * **Account** — учетная запись
 * **Agile software development** — гибкая методология разработки
