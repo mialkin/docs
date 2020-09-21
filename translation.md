@@ -14,6 +14,7 @@
 ## B
 
 * **Background thread** — фоновый поток
+* **Backup** — резервная копия
 * **Behavior diagram** — диаграмма поведения
 * **Behavioral design pattern** — поведенческий шаблон проектирования
 * **Builder** (design pattern) — строитель (шаблон проектирования)
