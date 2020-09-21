@@ -45,7 +45,7 @@ that no other object can change it.
 ```csharp
 using System;
 
-public class Program
+class Program
 {
     public static void Main()
     {
