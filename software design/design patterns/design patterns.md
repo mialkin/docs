@@ -22,4 +22,5 @@
   * [Flyweight](flyweight.md)
   * [Proxy](proxy.md)
 * Behavioral
+  * [Chain of responsibility](chain%20of%20responsibility.md)
   * [Strategy](strategy.md)

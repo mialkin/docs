@@ -1,6 +1,6 @@
 # Proxy
 
-The **proxy** is a creational software design pattern that provides a surrogate or placeholder for another object to control access to it.
+The **Proxy** is a creational software design pattern that provides a surrogate or placeholder for another object to control access to it.
 
 ## Applicability
 
