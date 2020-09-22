@@ -18,131 +18,100 @@ The **Chain of responsibility** is a behavioral software design pattern that avo
 
 ```csharp
 using System;
+using System.Collections.Generic;
 
 class Program
 {
     public static void Main()
     {
-        IHandler emailHandler = new EmailHandler(null);
-        IHandler logFileHandler = new LogFileHandler(emailHandler);
-        IHandler consoleHandler = new ConsoleHandler(logFileHandler);
+        IHandler h1 = new Handler1();
+        IHandler h2 = new Handler2();
+        IHandler h3 = new Handler3();
 
-        ILogger logger = new Logger(consoleHandler);
+        h1.SetSuccessor(h2);
+        h2.SetSuccessor(h3);
 
-        Client(logger);
-    }
+        var list = new List<int> { 2, 12, 5, 0, 15, 8, 30 };
 
-    private static void Client(ILogger logger)
-    {
-        logger.Trace("TRACE");
-        logger.Warning("WARNING");
-        logger.Critical("CRITICAL");
+        foreach (int item in list)
+        {
+            h1.Handle(item);
+        }
     }
 }
 
 interface IHandler
 {
-    void Handle(string msg, LogLevel level);
+    void SetSuccessor(IHandler successor);
+    void Handle(int num);
 }
 
-class ConsoleHandler : IHandler
+class Handler1 : IHandler
 {
-    private readonly IHandler _successor;
+    private IHandler _successor;
 
-    public ConsoleHandler(IHandler successor)
+    public void SetSuccessor(IHandler successor)
     {
         _successor = successor;
     }
 
-    public void Handle(string msg, LogLevel level)
+    public void Handle(int num)
     {
-        if (level == LogLevel.Trace)
-            Console.WriteLine($"Outputting to console: \"{msg}\".");
+        if (num > 4 && num < 10)
+        {
+            Console.WriteLine($"Handler1: {num}");
+            return;
+        }
 
-        _successor?.Handle(msg, level);
+        _successor?.Handle(num);
     }
 }
 
-class LogFileHandler : IHandler
+class Handler2 : IHandler
 {
-    private readonly IHandler _successor;
+    private IHandler _successor;
 
-    public LogFileHandler(IHandler successor)
+    public void SetSuccessor(IHandler successor)
     {
         _successor = successor;
     }
 
-    public void Handle(string msg, LogLevel level)
+    public void Handle(int num)
     {
-        if (level == LogLevel.Warning)
-            Console.WriteLine($"Writing to file: \"{msg}\".");
+        if (num > 10 && num < 20)
+        {
+            Console.WriteLine($"Handler2: {num}");
+            return;
+        }
 
-        _successor?.Handle(msg, level);
+        _successor?.Handle(num);
     }
 }
 
-class EmailHandler : IHandler
+class Handler3 : IHandler
 {
-    private readonly IHandler _successor;
+    private IHandler _successor;
 
-    public EmailHandler(IHandler successor)
+    public void SetSuccessor(IHandler successor)
     {
         _successor = successor;
     }
 
-    public void Handle(string msg, LogLevel level)
+    public void Handle(int num)
     {
-        if (level == LogLevel.Critical)
-            Console.WriteLine($"Sending email: \"{msg}\".");
-
-        _successor?.Handle(msg, level);
+        Console.WriteLine($"Handler3 (default): {num}");
     }
-}
-
-interface ILogger
-{
-    void Trace(string msg);
-    void Warning(string msg);
-    void Critical(string msg);
-}
-
-class Logger : ILogger
-{
-    private readonly IHandler _handler;
-
-    public Logger(IHandler handler)
-    {
-        _handler = handler;
-    }
-
-    public void Trace(string msg)
-    {
-        _handler.Handle(msg, LogLevel.Trace);
-    }
-
-    public void Warning(string msg)
-    {
-        _handler.Handle(msg, LogLevel.Warning);
-    }
-
-    public void Critical(string msg)
-    {
-        _handler.Handle(msg, LogLevel.Critical);
-    }
-}
-
-enum LogLevel
-{
-    Trace,
-    Warning,
-    Critical
 }
 ```
 
 Output:
 
 ```output
-Outputting to console: "TRACE".
-Writing to file: "WARNING".
-Sending email: "CRITICAL".
+Handler3 (default): 2
+Handler2: 12
+Handler1: 5
+Handler3 (default): 0
+Handler2: 15
+Handler1: 8
+Handler3 (default): 30
 ```
