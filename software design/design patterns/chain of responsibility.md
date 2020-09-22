@@ -138,3 +138,9 @@ enum LogLevel
     Critical
 }
 ```
+
+```output
+Outputting to console: "TRACE".
+Writing to file: "WARNING".
+Sending email: "CRITICAL".
+```
