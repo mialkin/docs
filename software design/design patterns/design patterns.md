@@ -23,4 +23,5 @@
   * [Proxy](proxy.md)
 * Behavioral
   * [Chain of responsibility](chain%20of%20responsibility.md)
+  * [Command](command.md)
   * [Strategy](strategy.md)
