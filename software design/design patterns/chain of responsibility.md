@@ -1,6 +1,6 @@
-# Chain of responsibility
+# Chain of Responsibility
 
-The **Chain of responsibility** is a behavioral software design pattern that avoids coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. Chain the receiving objects and pass the request along the chain until an object handles it.
+The **Chain of Responsibility** is a behavioral software design pattern that avoids coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. Chain the receiving objects and pass the request along the chain until an object handles it.
 
 ## Participants
 
