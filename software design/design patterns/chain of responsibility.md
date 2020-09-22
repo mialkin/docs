@@ -115,3 +115,7 @@ Handler2: 15
 Handler1: 8
 Handler3 (default): 30
 ```
+
+## Related Patterns
+
+Chain of Responsibility is often applied in conjunction with [Composite](composite.md). There, a component's parent can act as its successor.
