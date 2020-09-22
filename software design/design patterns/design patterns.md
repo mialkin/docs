@@ -10,7 +10,7 @@
 * Creational
   * [Abstract factory](abstract%20factory.md)
   * [Builder](builder.md)
-  * [Factory method](factory%20method.md)
+  * [Factory Method](factory%20method.md)
   * [Prototype](prototype.md)
   * [Singleton](singleton.md)
 * Structural
@@ -22,6 +22,6 @@
   * [Flyweight](flyweight.md)
   * [Proxy](proxy.md)
 * Behavioral
-  * [Chain of responsibility](chain%20of%20responsibility.md)
+  * [Chain of Responsibility](chain%20of%20responsibility.md)
   * [Command](command.md)
   * [Strategy](strategy.md)
