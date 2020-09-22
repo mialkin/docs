@@ -139,6 +139,8 @@ enum LogLevel
 }
 ```
 
+Output:
+
 ```output
 Outputting to console: "TRACE".
 Writing to file: "WARNING".
