@@ -25,13 +25,3 @@ g/re/p
 ```
 
 Ken Thompson implemented in 1968 regular expressions in `ed`, an early Unix text editor.
-
-## Modes
-
-* Standard: `/re/`
-* Global: `/re/g`
-* Case-insensitive: `/re/i`
-* Multiline: `/re/m`
-* Dot-matches-all: `/re/s`
-
-Modes go right after slashes, they are not a part of regullar expressions, they are modifiers for the way this regular expressions odd to be handled.
