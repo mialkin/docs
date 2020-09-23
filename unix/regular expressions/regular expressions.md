@@ -14,5 +14,8 @@ g/Regular Expression/p
 
 * [Notation](notation.md)
 * [Modes](modes.md)
-* [Metacharacters](metacharacters.md)
 * [Other special characters](other%20special%20characters.md)
+* [Metacharacters](metacharacters.md)
+  * [. wildcard](wildcard.md)
+  * [\ escaping](escaping.md)
+  * [ character set](character%20set.md)
