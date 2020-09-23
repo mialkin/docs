@@ -18,4 +18,4 @@ g/Regular Expression/p
 * [Metacharacters](metacharacters.md)
   * [. wildcard](wildcard.md)
   * [\ escaping](escaping.md)
-  * [ character set](character%20set.md)
+  * [[] character set](character%20set.md)
