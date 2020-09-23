@@ -19,4 +19,5 @@ g/Regular Expression/p
   * [. wildcard](wildcard.md)
   * [\ escaping](escaping.md)
   * [[] character set](character%20set.md)
-    * [- character range](character%20range.md) 
+    * [- character range](character%20range.md)
+
