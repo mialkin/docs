@@ -20,7 +20,7 @@ Global matching: all matches are found throughout the text:
 
 ## Dot-matches-all
 
-With dot-matches-all on the following text will be a match for a regular expression `/h.t/`:
+With dot-matches-all on, the following text will be a match for a regular expression `/h.t/`:
 
 ```text
 h
