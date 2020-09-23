@@ -61,6 +61,7 @@ interface IReceiver
 {
     void Act(int parameter);
 }
+
 class Receiver : IReceiver
 {
     public void Act(int parameter)
