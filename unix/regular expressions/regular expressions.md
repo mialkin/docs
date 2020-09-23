@@ -20,4 +20,4 @@ g/Regular Expression/p
   * [\ escaping](escaping.md)
   * [[] character set](character%20set.md)
     * [- character range](character%20range.md)
-
+    * [^ negative character set](negative%20set.md)
