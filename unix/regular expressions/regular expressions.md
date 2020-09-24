@@ -21,3 +21,4 @@ g/Regular Expression/p
   * [[] character set](character%20set.md)
     * [- character range](character%20range.md)
     * [^ negative character set](negative%20set.md)
+    * [Shorthand character sets](shorthand%20sets.md)

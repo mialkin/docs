@@ -13,7 +13,7 @@ The expression `\e` will match letter `e` in the word "r**e**staurant".
 
 Similary the expression `\a` will match as well: "rest**a**ur**a**nt".
 
-On the other hand expressions `\n\` and `\t` will not match because they have another meaning — new line and tab accordingly.
+On the other hand expressions `\n` and `\t` will not match because they have another meaning — new line and tab accordingly.
 
 ---
 
