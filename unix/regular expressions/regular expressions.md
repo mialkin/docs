@@ -8,7 +8,7 @@ Composition of acronym `grep`:
 g/Regular Expression/p
 ```
 
-`g` — search globally, `p` — output results, i.e. "print", so it makes it `G`lobal `R`egular `E`xpression `P`rint.
+`g` — search globally, `p` — output results, i.e. "print", so it makes it `G`lobal `R`egular `E`xpressi/ on `P`rint.
 
 ## Table of content
 
