@@ -312,7 +312,12 @@ graph expertise {
 
     ip[label="Internet Protocol (IP)"]
 
-    http[label="HTTP"]    
+    http[label="HTTP"]
+    http -- grpc
+    grpc[label="gRPC"]
+    grpc -- protobuf
+
+    protobuf[label="Protobuf"]
     websocket[label="WebSocket"]
     ftp[label="FTP"]
     tls[label="TLS"]
@@ -482,17 +487,6 @@ graph expertise {
     xml[label="XML"]
 
     microservices[label="Microservices"]
-    microservices -- docker
-    microservices -- grpc
-
-    docker[label="Docker"]
-    docker -- kubernetes
-
-    kubernetes[label="Kubernetes"]
-    grpc[label="gRPC"]
-    grpc -- protobuf
-
-    protobuf[label="Protobuf"]
 
     web_tools[label="Tools"]
     web_tools -- postman
@@ -944,32 +938,29 @@ graph expertise {
     devops -- devops_cdelivery
     devops -- devops_cdeployment
     devops -- ci_tools
-    devops -- planning
-    devops -- documenting
 
     devops_ci[label="Continuous integration (CI)"]
     devops_cdelivery[label="Continuous delivery (CD)"]
     devops_cdeployment[label="Continuous deployment (CD)"]
     ci_tools[label="Tools"]
-    ci_tools -- teamcity
+    ci_tools -- confluence
+    ci_tools -- docker
     ci_tools -- gitlab
     ci_tools -- jenkins
+    ci_tools -- jira
+    ci_tools -- markdown
+    ci_tools -- teamcity
 
-    teamcity[label="TeamCity"]
     gitlab[label="GitLab"]
-    jenkins[label="Jenkins"]
+    docker[label="Docker"]
+    docker -- kubernetes
 
-    planning[label="Planning"]
-    planning -- jira
-
-    jira[label="Jira"]
-
-    documenting[label="Documenting"]
-    documenting -- markdown
-    documenting -- confluence
-
-    markdown[label="Markdown"]
     confluence[label="Confluence"]
+    markdown[label="Markdown"]
+    jira[label="Jira"]
+    jenkins[label="Jenkins"]
+    kubernetes[label="Kubernetes"]
+    teamcity[label="TeamCity"]
 
     databases[label="Databases"]    
     databases -- acid

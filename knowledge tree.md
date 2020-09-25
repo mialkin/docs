@@ -127,7 +127,46 @@
 
 ## Developer platforms
 
+- Web
+  - HTML
+  - CSS
+  - JavaScript
+    - TypeScript
+    - Libraries
+      - React
+      - Frameworks
+        - Angular
+        - Ext JS
+    - Runtime environments
+      - Node.js
+        - npm
+  - Web services
+    - Representational State Transfer (REST)
+      - Cross-origin resourece sharing (CORS)
+      - JSON
+      - JSON Web Token (JWT)
+      - OpenAPI
+        - Swagger UI
+      - OAuth 2.0
+    - Simple Object Access Protocol (SOAP)
+      - XML
+      - WSDL
+    - Microservices
+
 ## DevOps
+
+- Continious integration (CI)
+- Continious delivery (CD)
+- Continious deployment (CD)
+- Tools
+  - Confluence
+  - Docker
+    - Kubernetes
+  - GitLab
+  - Jenkins
+  - Jira
+  - Markdown
+  - TeamCity
 
 ## Unix
 
@@ -189,6 +228,8 @@
   - Transmission Control Protocol (TCP)
   - Internet Protocol (IP)
 - HTTP
+  - gRPC
+    - Protobuf
 - WebSocket
 - FTP
 - TLS
@@ -199,3 +240,10 @@
 - Designing
 - Coding
 - Testing
+  - Unit testing
+    - Unit testing libraries
+      - NUnit
+    - Mock objects
+  - Integration testing
+  - Load testing
+  - Stress testing
