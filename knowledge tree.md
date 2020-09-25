@@ -5,13 +5,12 @@
 - [Knowledge tree of software development](#knowledge-tree-of-software-development)
   - [Table of cоntents](#table-of-cоntents)
   - [Computer science](#computer-science)
+  - [Databases](#databases)
+  - [Developer platforms](#developer-platforms)
+  - [DevOps](#devops)
   - [Unix](#unix)
-  - [Windows](#windows)
   - [Networking](#networking)
   - [Programming](#programming)
-  - [DevOps](#devops)
-  - [Developer platforms](#developer-platforms)
-  - [Databases](#databases)
 
 ## Computer science
 
@@ -92,6 +91,44 @@
     - Fingerprint
     - Digital certificate
 
+## Databases
+
+- ACID
+  - Atomicity
+  - Consistency
+  - Isolation
+  - Durability
+- Isolation levels
+  - Read uncommitted
+  - Read commmitted
+  - Repeatable read
+  - Serializable
+- Transaction
+- Indexes
+  - Clusterd indexes
+  - Nonclustered indexes
+  - Filtered indexes
+- Joins
+- Execution plan
+- Trigger
+- Stored procedure
+- Function
+- Cursor
+- SQL
+  - T-SQL
+  - PL/SQL
+- Relational DMBS
+  - Microsoft SQL Server
+  - Oracle Database
+  - SQLite
+  - PostgreSQL
+- IDE
+  - SQL Server Managment Studio
+
+## Developer platforms
+
+## DevOps
+
 ## Unix
 
 - macOS
@@ -137,15 +174,24 @@
         - tail
         - tar
         - vim
-
-## Windows
+      - Network
+        - curl
+        - nc
+        - rsync
+        - scp
+        - ssh
+        - wget
 
 ## Networking
 
+- OSI model
+- Internet protocol suite
+  - Transmission Control Protocol (TCP)
+  - Internet Protocol (IP)
+- HTTP
+- WebSocket
+- FTP
+- TLS
+- SSH
+
 ## Programming
-
-## DevOps
-
-## Developer platforms
-
-## Databases

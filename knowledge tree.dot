@@ -3,7 +3,6 @@ graph expertise {
     software_development[label="Software development"]
     software_development -- computer_science
     software_development -- unix
-    software_development -- windows
     software_development -- networking
     software_development -- programming
     software_development -- devops
@@ -295,7 +294,6 @@ graph expertise {
 
     certbot[label="Certbot"]
 
-    windows[label="Windows"]
     networking[label="Networking"]
     networking -- osi
     networking -- internet_protocol_suite
@@ -976,14 +974,14 @@ graph expertise {
     databases[label="Databases"]    
     databases -- acid
     databases -- isolation_levels
-    databases -- transactions
+    databases -- transaction
     databases -- indexes
     databases -- joins
     databases -- execution_plan
-    databases -- triggers
-    databases -- stored_procedures
-    databases -- functions
-    databases -- cursors
+    databases -- trigger
+    databases -- stored_procedure
+    databases -- function
+    databases -- cursor
     databases -- sql
     databases -- relational_dbms
     databases -- db_ide
@@ -1006,23 +1004,23 @@ graph expertise {
     isolation_levels -- serializable
 
     read_uncommitted[label="Read uncommmitted"]
-    read_committed[label="Read commmited"]
+    read_committed[label="Read commmitted"]
     repeatable_read[label="Repeatable read"]
     serializable[label="Serializable"]
 
-    transactions[label="Transactions"]
-    triggers[label="Triggers"]
+    transaction[label="Transaction"]
+    trigger[label="Trigger"]
     indexes[label="Indexes"]
     indexes -- clustered_indexes
     indexes -- nonclustered_indexes
 
     joins[label="Joins"]
-    execution_plan[label="Execution plan"]
+    execution_plans[label="Execution plans"]
     clustered_indexes[label="Clustered indexes"]
     nonclustered_indexes[label="Nonclustered indexes"]
-    stored_procedures[label="Stored procedures"]
-    functions[label="Functions"]
-    cursors[label="Cursors"]
+    stored_procedure[label="Stored procedure"]
+    function[label="Function"]
+    cursor[label="Cursor"]
     sql[label="SQL"]
     sql -- t_sql
     sql -- plsql
@@ -1033,10 +1031,12 @@ graph expertise {
     relational_dbms -- sql_server
     relational_dbms -- oracle_database
     relational_dbms -- sqlite
+    relational_dbms -- postgresql
    
     sql_server[label="Microsoft SQL Server"]
     oracle_database[label="Oracle Database"]
     sqlite[label="SQLite"]
+    postgresql[label="PostgreSQL"]
 
     db_ide[label="IDE"]
     db_ide -- ssms
