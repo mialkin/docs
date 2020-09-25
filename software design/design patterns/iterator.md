@@ -1,0 +1,4 @@
+# Iterator
+
+The **Iterator** is a behavioral software design pattern that provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation.
+

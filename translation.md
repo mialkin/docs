@@ -7,6 +7,7 @@
 * **Accessibility level** — уровень доступности
 * **Accessor** — метод доступа или акцессор
 * **Account** — учетная запись
+* **Aggregate** — собирать вместе
 * **Agile software development** — гибкая методология разработки
 * **Alias** — псевдоним
 * **Application domain** — домен приложения
