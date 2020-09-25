@@ -5,7 +5,7 @@ Table of contents
 * [Computer science](#computer-science)
 * [Unix](#unix)
 
-* **Computer science**<a href="#computer-science"></a>
+* **Computer science**<a name="computer-science"></a>
   * Data types
     * Primitive data types
       * Character
@@ -82,7 +82,7 @@ Table of contents
       * Private key
       * Fingerprint
       * Digital certificate
-* Unix<a href="#unix"></a>
+* Unix<a name="unix"></a>
   * macOS
     * Z shell
     * Homebrew
