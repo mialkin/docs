@@ -24,5 +24,5 @@
 * Behavioral
   * [Chain of Responsibility](chain%20of%20responsibility.md)
   * [Command](command.md)
-  * [Interpreter](interpreter.md)
+  * Interpreter
   * [Strategy](strategy.md)
