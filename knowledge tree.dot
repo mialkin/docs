@@ -234,7 +234,6 @@ graph expertise {
     shell[label="shell"]
     shell -- sh
     shell -- bash
-    shell -- tmux
     shell -- shell_commands
 
     shell_commands[label="Commands"]
@@ -253,6 +252,7 @@ graph expertise {
     sc_system -- sudo
     sc_system -- su
     sc_system -- kill
+    sc_system -- tmux
     sc_system -- uptime
     sc_system -- w
     sc_system -- watch
