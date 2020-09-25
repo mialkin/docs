@@ -86,6 +86,7 @@
 * **Liskov substitution principle** — принцип подстановки Лисков
 * **Lock** — блокировка
   * **Aquire lock** — создать блокировку
+  * **Enter lock** — входить в блокировку
   * **Hold lock** — держать блокировку
 * **Localization** — локализация
 * **Logging** — ведение журнала
