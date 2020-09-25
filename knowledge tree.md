@@ -195,3 +195,7 @@
 - SSH
 
 ## Programming
+
+- Designing
+- Coding
+- Testing

@@ -412,7 +412,6 @@ graph expertise {
     programming -- designing
     programming -- coding
     programming -- testing
-    programming -- web_services
     
     developer_platforms[label="Developer platforms"]
     developer_platforms -- web
@@ -422,6 +421,7 @@ graph expertise {
     web -- html
     web -- css
     web -- javascript
+    web -- web_services
     web -- web_tools
 
     html[label="HTML"]
@@ -451,6 +451,48 @@ graph expertise {
     nodejs -- npm
 
     npm[label="npm"]
+
+    web_services[label="Web services"]
+    web_services -- rest
+    web_services -- soap
+    web_services -- microservices
+    rest[label="Representational State Transfer (REST)"]
+    rest -- cors
+    rest -- json
+    rest -- jwt
+    rest -- openapi
+    rest -- oauth
+
+    cors[label="Cross-origin resource sharing (CORS)"]
+    json[label="JSON"]
+    jwt[label="JSON Web Token (JWT)"]
+    openapi[label="OpenAPI"]
+    openapi -- swaggerui
+
+    swaggerui[label="Swagger UI"]
+
+    oauth[label="OAuth 2.0"]
+
+    soap[label="Simple Object Access Protocol (SOAP)"]
+    soap -- xml
+    soap -- wsdl
+
+    wsdl[label="WSDL"]
+
+    xml[label="XML"]
+
+    microservices[label="Microservices"]
+    microservices -- docker
+    microservices -- grpc
+
+    docker[label="Docker"]
+    docker -- kubernetes
+
+    kubernetes[label="Kubernetes"]
+    grpc[label="gRPC"]
+    grpc -- protobuf
+
+    protobuf[label="Protobuf"]
 
     web_tools[label="Tools"]
     web_tools -- postman
@@ -896,48 +938,6 @@ graph expertise {
     integration_testing[label="Integration testing"]
     load_testing[label="Load testing"]
     stress_testing[label="Stress testing"]
-
-    web_services[label="Web services"]
-    web_services -- rest
-    web_services -- soap
-    web_services -- microservices
-    rest[label="Representational State Transfer (REST)"]
-    rest -- cors
-    rest -- json
-    rest -- jwt
-    rest -- openapi
-    rest -- oauth
-
-    cors[label="Cross-origin resource sharing (CORS)"]
-    json[label="JSON"]
-    jwt[label="JSON Web Token (JWT)"]
-    openapi[label="OpenAPI"]
-    openapi -- swaggerui
-
-    swaggerui[label="Swagger UI"]
-
-    oauth[label="OAuth 2.0"]
-
-    soap[label="Simple Object Access Protocol (SOAP)"]
-    soap -- xml
-    soap -- wsdl
-
-    wsdl[label="WSDL"]
-
-    xml[label="XML"]
-
-    microservices[label="Microservices"]
-    microservices -- docker
-    microservices -- grpc
-
-    docker[label="Docker"]
-    docker -- kubernetes
-
-    kubernetes[label="Kubernetes"]
-    grpc[label="gRPC"]
-    grpc -- protobuf
-
-    protobuf[label="Protobuf"]
     
     devops[label="DevOps"]
     devops -- devops_ci
@@ -1015,7 +1015,7 @@ graph expertise {
     indexes -- nonclustered_indexes
 
     joins[label="Joins"]
-    execution_plans[label="Execution plans"]
+    execution_plan[label="Execution plan"]
     clustered_indexes[label="Clustered indexes"]
     nonclustered_indexes[label="Nonclustered indexes"]
     stored_procedure[label="Stored procedure"]
