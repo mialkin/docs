@@ -20,6 +20,7 @@ set -g mouse on
 Command | Description
 -|-
 tmux | Create session without name 0, 1, 2, ...
+tmux ls | List sessions
 tmux new -s test | Create new session named `test`
 tmux attach | Attach to a single existing session or to the last created session
 tmux attach -t test | Attach to a session named `test`
