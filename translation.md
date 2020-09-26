@@ -2,7 +2,7 @@
 
 ## A
 
-* **Abstract factory** (design pattern) — абстрактная фабрика (шаблон проектирования)
+* **Abstract factory** (design pattern) — Абстрактная фабрика (шаблон проектирования)
 * **Access modifier** — модификатор доступа
 * **Accessibility level** — уровень доступности
 * **Accessor** — метод доступа или акцессор
@@ -21,7 +21,7 @@
 * **Behavior diagram** — диаграмма поведения
 * **Behavioral design pattern** — поведенческий шаблон проектирования
 * **Block** — заблокировать/-ться
-* **Builder** (design pattern) — строитель (шаблон проектирования)
+* **Builder** (design pattern) — Строитель (шаблон проектирования)
 
 ## C
 
@@ -36,7 +36,7 @@
 * **Contravariance** — контравариантность
 * **Coupling**  — связывание или связь
 * **Covariance** — ковариантность
-* **Creational design pattern** — порождающий шаблон проектирования
+* **Creational design pattern** — Порождающий (шаблон проектирования)
 
 ## D
 
@@ -76,6 +76,9 @@
 
 * **Identity** — личность
 * **Immutable** — неизменяемый
+* **In-memory** — резидентный
+  * **In-memory database** — резидентная база данных
+  * **In-memory computing** — резидентные вычисления
 * **Indexer** — индексатор
 * **Instance** — экземпляр (класса)
 * **Interface segregation principle** — принцип разделения интерфейса
@@ -131,7 +134,7 @@
 * **Single responsibility principle** — принцип единственной ответственности
 * **Shallow copy** — поверхостная копия
 * **Stateless** — без запоминания/сохранения состояния
-* **Structural design pattern** — структурный шаблон проектирования
+* **Structural design pattern** — Структурный (шаблон проектирования)
 * **Structure diagram** — диаграмма структуры
 
 ## T
