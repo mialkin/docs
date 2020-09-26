@@ -8,48 +8,50 @@ Data structures, time and space complexities
 
 Clean code
 
-[TDD](https://www.youtube.com/watch?v=a7BvGBT0gFw&list=PLOeFnOV9YBa6RxHlG61T8u0ApgPaelszF)
+* [TDD](https://www.youtube.com/watch?v=a7BvGBT0gFw)
 
-RabbitMQ
+* RabbitMQ
 
-Docker, Kubernetes, logging
+* Docker, Kubernetes, logging
 
-Kafka
+* Kafka
 
-Redis
+* Redis
 
-MS SQL Server
+* MS SQL Server
+  * [Window functions](https://docs.microsoft.com/en-us/sql/t-sql/queries/select-over-clause-transact-sql?view=sql-server-ver15)
+  * Sharding, partitioning, replication, clustering
 
-CLR
+* CLR
 
-.NET CORE
+* .NET CORE
 
-ASP.NET CORE, logging, caching
+* ASP.NET CORE, logging, caching
 
-OAuth 2.0
+* OAuth 2.0
 
-WebSocket protocol
+* WebSocket protocol
 
-gRPC
+* gRPC
 
-[CQRS](https://www.youtube.com/watch?v=xKKVW94F2bc&list=PLOeFnOV9YBa6x8xcHqi80QvR5crFojLcF)
+* [CQRS](https://www.youtube.com/watch?v=xKKVW94F2bc)
 
-JavaScript promises, async/await
+* JavaScript promises, async/await
 
-Clean architecture, DDD
+* Clean architecture, DDD
 
-GraphQL
+* GraphQL
 
-Open Systems Interconnection model
+* Open Systems Interconnection model
 
-Elasticsearch
+* Elasticsearch
 
-InfluxDb, ClickHouse
+* InfluxDb, ClickHouse
 
-Grafana, [Amixr.io](https://amixr.io), Graylog + Sentry
+* Grafana, [Amixr.io](https://amixr.io), Graylog + Sentry
 
-Managing browser history navigation with JavaScrypt
+* Managing browser history navigation with JavaScrypt
 
-IAsyncEnumerable
+* IAsyncEnumerable
 
-Functional programming
+* Functional programming
