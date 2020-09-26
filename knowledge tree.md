@@ -117,11 +117,18 @@
 - SQL
   - T-SQL
   - PL/SQL
-- Relational DMBS
+- Document DBMS
+  - CouchDB
+  - Elasticsearch
+  - MongoDB
+- Relational databases
   - Microsoft SQL Server
   - Oracle Database
   - SQLite
   - PostgreSQL
+- In-memory databases
+  - Memcached
+  - Redis
 - IDE
   - SQL Server Managment Studio
 
@@ -134,9 +141,9 @@
     - TypeScript
     - Libraries
       - React
-      - Frameworks
-        - Angular
-        - Ext JS
+    - Frameworks
+      - Angular
+      - Ext JS
     - Runtime environments
       - Node.js
         - npm
