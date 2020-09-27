@@ -25,4 +25,5 @@
   * [Chain of Responsibility](chain%20of%20responsibility.md)
   * [Command](command.md)
   * Interpreter
+  * [Iterator](iterator.md)
   * [Strategy](strategy.md)
