@@ -57,7 +57,7 @@ Output:
 200
 ```
 
-## Diagram that demonstrates dependencies of the above code
+Diagram that demonstrates dependencies of the above code:
 
 <img src="dependency inversion no.svg">
 
@@ -122,7 +122,7 @@ Output:
 200
 ```
 
-## Diagram that demonstrates dependencies of the above code
+Diagram that demonstrates dependencies of the above code:
 
 <img src="dependency inversion.svg">
 
