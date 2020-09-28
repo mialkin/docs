@@ -1,11 +1,12 @@
-# Dependency inversion principle
+# Dependency Inversion Principle
 
  The principle states<sup>1</sup>:
 
-* High-level modules should not depend on low-level modules. Both should depend on abstractions (e.g. interfaces).
-* Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.
+a. High-level modules should not depend on low-level modules. Both should depend on abstractions.
 
-## C# example with no dependency inversion
+b. Abstractions should not depend on details. Details should depend on abstractions.
+
+## C# example without dependency inversion
 
 ```csharp
 using System;
@@ -60,7 +61,7 @@ Output:
 
 <img src="dependency inversion no.svg">
 
-## C# example that uses dependency inversion principle
+## C# example that takes into account the Dependency Inversion Principle
 
 ```csharp
 using System;
