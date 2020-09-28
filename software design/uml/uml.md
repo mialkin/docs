@@ -25,7 +25,7 @@ Relationships between classifiers include generalization, association, implement
 
 ## UML types of relationships
 
-### Assosiation
+### Association
 
 ### Generalization
 
