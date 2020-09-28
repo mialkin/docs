@@ -128,5 +128,4 @@ Output:
 
 <hr>
 
-<sup>1</sup> Robert C. Martin, Agile Software Development, Principles, Patterns, and Practices
-(Upper Saddle River, NJ: Prentice Hall, 2002), pp. 127.
+<sup>1</sup> Robert C. Martin, Agile Software Development, Principles, Patterns, and Practices (Upper Saddle River, NJ: Prentice Hall, 2002), p. 127.
