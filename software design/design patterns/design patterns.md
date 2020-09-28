@@ -1,9 +1,6 @@
 # Design patterns
 
-> The design patterns in this book are descriptions of communicating objects and classes that are customized to solve a general design problem in a particular context.
-> –– <cite>[Design Patterns: Elements of Reusable Object-Oriented Software (1994)][1]</cite>
-
-[1]: https://en.wikipedia.org/wiki/Design_Patterns
+> The design patterns in this book are descriptions of communicating objects and classes that are customized to solve a general design problem in a particular context.<sup>1</sup>
 
 ## List of patterns
 
@@ -27,3 +24,7 @@
   * Interpreter
   * [Iterator](iterator.md)
   * [Strategy](strategy.md)
+
+<hr>
+
+<sup>1</sup> Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides, Design Patterns: Elements of Reusable Object-Oriented Software (Addison-Wesley, 1994), p. 12.
