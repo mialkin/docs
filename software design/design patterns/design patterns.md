@@ -25,6 +25,12 @@
   * [Iterator](iterator.md)
   * [Strategy](strategy.md)
 
+## See also
+
+[Diagram notation from GoF book](gof%20notation/gof%20notation.md)
+
+
+
 <hr>
 
 <sup>1</sup> Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides, Design Patterns: Elements of Reusable Object-Oriented Software (Addison-Wesley, 1994), p. 12.
