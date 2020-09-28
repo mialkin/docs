@@ -1,10 +1,9 @@
 # Dependency inversion principle
 
- The principle states:
+ The principle states<sup>1</sup>:
 
 * High-level modules should not depend on low-level modules. Both should depend on abstractions (e.g. interfaces).
 * Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.
-
 
 ## C# example with no dependency inversion
 
@@ -125,3 +124,8 @@ Output:
 ## Diagram that demonstrates dependencies of the above code
 
 <img src="dependency inversion.svg">
+
+<hr>
+
+<sup>1</sup> Robert C. Martin, Agile Software Development, Principles, Patterns, and Practices
+(Upper Saddle River, NJ: Prentice Hall, 2002), pp. 127.
