@@ -1,11 +1,10 @@
-# Composition over inheritance
+# Composition over inheritance principle
 
  The **composition over inheritance** is the principle that classes should achieve polymorphic behavior and code reuse by their composition rather than inheritance from a base or parent class.
 
 An implementation of composition over inheritance typically begins with the creation of various interfaces representing the behaviors that the system must exhibit. Interfaces enable polymorphic behavior. Thus, system behaviors are realized without inheritance.
 
-> Favor object composition over class inheritance.
-> –– <cite>[Design Patterns: Elements of Reusable Object-Oriented Software (1994)][1]</cite>
+> Favor object composition over class inheritance.<sup>1</sup>
 
 [1]: https://en.wikipedia.org/wiki/Design_Patterns
 
@@ -147,4 +146,6 @@ I won't appear.
 
 ## See also
 
-[Strategy pattern](../design%20patterns/strategy.md)
+[Strategy pattern](design%20patterns/strategy.md)
+
+<sup>1</sup> Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides, Design Patterns: Elements of Reusable Object-Oriented Software (Addison-Wesley, 1994), p. 32.
