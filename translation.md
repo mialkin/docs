@@ -165,6 +165,6 @@
 * **Web service** — веб-служба
 * **Worker thread** — рабочий поток
 
-## See also
+## Ссылки
 
-* [Microsoft Language Portal](https://www.microsoft.com/en-us/language)
+* [Языковой портал Микрософт](https://www.microsoft.com/en-us/language)
