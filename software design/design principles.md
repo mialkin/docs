@@ -1,12 +1,9 @@
 # Design principles
 
 - [Design principles](#design-principles)
-  - [SOLID](#solid)
   - [DRY](#dry)
   - [KISS](#kiss)
   - [YAGNI](#yagni)
-
-## SOLID
 
 ## DRY
 
