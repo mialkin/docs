@@ -82,3 +82,7 @@ Decorator acts
 Component acts
 Decorator acts again
 ```
+
+## See also
+
+[Differences between Proxy and Decorator pattern](https://stackoverflow.com/questions/18618779/differences-between-proxy-and-decorator-pattern)
