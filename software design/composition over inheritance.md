@@ -148,4 +148,6 @@ I won't appear.
 
 [Strategy pattern](design%20patterns/strategy.md)
 
+<hr>
+
 <sup>1</sup> Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides, Design Patterns: Elements of Reusable Object-Oriented Software (Addison-Wesley, 1994), p. 32.
