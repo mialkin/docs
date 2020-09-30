@@ -62,7 +62,7 @@
 
 * **Favor object composition over class inheritance** — отдавать предпочтение композиции перед наследованием
 * **Finalizer** — метод завершения или деструктор
-* **Flyweight** — легковесный или Приспособленец (шаблон проектирования)
+* **Flyweight** — Приспособленец (шаблон проектирования)
 * **Foreground thread** — основной поток
 
 ## G
@@ -82,7 +82,9 @@
   * **In-memory database** — резидентная база данных
   * **In-memory computing** — резидентные вычисления
 * **Indexer** — индексатор
-* **Instance** — экземпляр (класса)
+* **Instance** — экземпляр класса
+  * **Instantiate** — создавать экземпляр класса
+  * **Instantiation** — создание экземпляра класса
 * **Interface segregation principle** — принцип разделения интерфейса
 * **Inversion of control** — инверсия управления
 
