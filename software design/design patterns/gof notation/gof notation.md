@@ -16,10 +16,8 @@ An arrowheaded line without the diamond denotes acquaintance (e.g., a LineShape 
 
 When the circle appears at the head of a reference, it means multiple objects are being referenced or aggregated.
 
-
 ## "Creates" relationship
 
 Another useful thing to show is which classes instantiate which others. We use a dashed arrowheaded line to indicate this. We call this the "creates" relationship. The arrow points to the class that's instantiated.
 
 <img src="creates.svg">
-
