@@ -32,7 +32,7 @@
 * **Commit** — фиксация
 * **Common Language Runtime** — общеязыковая исполняющая среда
 * **Common table expression** — обобщенное табличное выражение
-* **Composite** — компоновщик
+* **Composite** — Компоновщик (шаблон проектирования)
 * **Concurrency** — параллелизм
 * **Contravariance** — контравариантность
 * **Coupling**  — связывание или связь
