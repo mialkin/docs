@@ -23,6 +23,7 @@
   * [Command](command.md)
   * Interpreter
   * [Iterator](iterator.md)
+  * [Mediator](mediator.md)
   * [Strategy](strategy.md)
 
 ## See also
