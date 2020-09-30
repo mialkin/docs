@@ -14,7 +14,7 @@
 * **Authentication** — проверка подлинности
 * **Authorization** — авторизация
 
-## B
+## B 
 
 * **Background thread** — фоновый поток
 * **Backup** — резервная копия
@@ -29,6 +29,7 @@
 * **Claim** — утверждение
 * **Class diagram** — диаграмма классов
 * **Clustering** — кластеризация
+* **Columnar database** — колоночная база данных
 * **Commit** — фиксация
 * **Common Language Runtime** — общеязыковая исполняющая среда
 * **Common table expression** — обобщенное табличное выражение
@@ -50,6 +51,8 @@
 * **Derived** — производный
 * **Derived class** — производный класс
 * **Design pattern** — шаблон проектирования
+* **Document-oriented database** — документоориентированная база данных
+* **Document store** — документное хранилище
 * **Domain-driven design** — предметно-ориентированное проектирование
 
 ## E
@@ -114,6 +117,7 @@
 ## O
 
 * **Open–closed principle** — приницип открытости/закрытости
+* **Open source** — открытый исходный код
 * **CORS (cross-origin resource sharing)** — совместное использование ресурсов между разными источниками
 * **Override** — переопределить
 
@@ -150,6 +154,8 @@
 
 * **Test-driven development** — разработка через тестирование
 * **Thread-safety** — потоковая безопасность
+* **Time series** — временной ряд
+  * **Time series database** — база данных временных рядов
 * **Time slice** — квант процессорного времени
 * **Track** — отслеживать
 * **Tuple** — кортеж
