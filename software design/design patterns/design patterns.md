@@ -28,7 +28,7 @@
 
 ## See also
 
-[Diagram notation from GoF book](gof%20notation/gof%20notation.md)
+[GoF notation for diagrams](gof%20notation/gof%20notation.md)
 
 <hr>
 
