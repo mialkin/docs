@@ -37,7 +37,7 @@
 * **Contravariance** — контравариантность
 * **Coupling**  — связывание или связь
 * **Covariance** — ковариантность
-* **Creational design pattern** — Порождающий (шаблон проектирования)
+* **Creational design pattern** — порождающий шаблон проектирования
 
 ## D
 
