@@ -1,4 +1,4 @@
-# GoF notation
+# GoF notation for diagrams
 
 Slanted type indicates that the class or operation is abstract.
 
