@@ -21,3 +21,15 @@ When the circle appears at the head of a reference, it means multiple objects ar
 Another useful thing to show is which classes instantiate which others. We use a dashed arrowheaded line to indicate this. We call this the "creates" relationship. The arrow points to the class that's instantiated.
 
 <img src="creates.svg">
+
+## Inheritance
+
+We indicate the subclass relationship with a vertical line and a triangle.
+
+<img src="inheritance.svg">
+
+## Pseudocode
+
+A diagram may include pseudocode for an operation's implementation; if so, the code will appear in a dog-eared box connected by a dashed line to the operation it implements.
+
+<img src="pseudocode.svg">
