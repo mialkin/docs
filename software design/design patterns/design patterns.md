@@ -24,6 +24,7 @@
   * Interpreter
   * [Iterator](iterator.md)
   * [Mediator](mediator.md)
+  * [Memento](memento.md)
   * [Strategy](strategy.md)
 
 ## See also
