@@ -24,7 +24,7 @@ class Program
     {
         var context = new Context(new SlowStrategy());
         context.Act();
-        
+
         context.SetStrategy(new FastStrategy());
         context.Act();
     }
@@ -54,7 +54,7 @@ class FastStrategy : IStrategy
 class Context
 {
     private IStrategy _strategy;
-    
+
     public Context(IStrategy strategy)
     {
         _strategy = strategy;
