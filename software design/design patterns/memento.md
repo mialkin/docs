@@ -13,3 +13,94 @@ The Memento is is a behavioral software design pattern that, without violating e
 * **Caretaker** (undo mechanism)
   * is responsible for the memento's safekeeping.
   * never operates on or examines the contents of a memento.
+
+## C# implementation
+
+```csharp
+using System;
+
+class Caretaker
+{
+    public static void Main()
+    {
+        IOriginator originator = new Originator(1, 5, "One");
+
+        Memento memento = originator.CreateMemento();
+
+        Console.WriteLine(
+            $"Originator before state change: X={originator.X}, Y={originator.Y}, Name={originator.Name}");
+
+        originator.UpdateState(0, 0);
+
+        Console.WriteLine(
+            $"Originator after state change: X={originator.X}, Y={originator.Y}, Name={originator.Name}");
+
+        originator.RestoreStateFromMemento(memento);
+
+        Console.WriteLine(
+            $"Originator after state restore: X={originator.X}, Y={originator.Y}, Name={originator.Name}");
+    }
+}
+
+interface IOriginator
+{
+    public int X { get; }
+    public int Y { get; }
+    public string Name { get; }
+    public void UpdateState(int x, int y);
+    Memento CreateMemento();
+    void RestoreStateFromMemento(Memento memento);
+}
+
+class Originator : IOriginator
+{
+    public int X { get; private set; }
+    public int Y { get; private set; }
+
+    public string Name { get; }
+
+    public Originator(int x, int y, string name)
+    {
+        X = x;
+        Y = y;
+        Name = name;
+    }
+
+    public void UpdateState(int x, int y)
+    {
+        X = x;
+        Y = y;
+    }
+
+    public Memento CreateMemento()
+    {
+        return new Memento(X, Y);
+    }
+
+    public void RestoreStateFromMemento(Memento memento)
+    {
+        X = memento.X;
+        Y = memento.Y;
+    }
+}
+
+class Memento
+{
+    public int X { get; }
+    public int Y { get; }
+
+    public Memento(int x, int y)
+    {
+        X = x;
+        Y = y;
+    }
+}
+```
+
+Output:
+
+```output
+Originator before state change: X=1, Y=5, Name=One
+Originator after state change: X=0, Y=0, Name=One
+Originator after state restore: X=1, Y=5, Name=One
+```
