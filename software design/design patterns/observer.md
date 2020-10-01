@@ -27,10 +27,10 @@ class Program
 {
     public static void Main()
     {
-        var observer1 = new Observer("One");
-        var observer2 = new Observer("Two");
+        IObserver observer1 = new Observer("One");
+        IObserver observer2 = new Observer("Two");
 
-        var subject = new Subject();
+        ISubject subject = new Subject();
         subject.Attach(observer1);
         subject.Notify();
 
