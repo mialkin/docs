@@ -21,11 +21,15 @@ class Program
 {
     public static void Main()
     {
+        IState stateOne = new StateOne();
+        IState stateTwo = new StateTwo();
         IState stateThree = new StateThree();
-        IState stateTwo = new StateTwo(stateThree);
-        IState stateOne = new StateOne(stateTwo);
+
+        stateOne.SetNextState(stateTwo);
+        stateTwo.SetNextState(stateThree);
 
         IContext context = new Context(stateOne);
+
         stateOne.SetContext(context);
         stateTwo.SetContext(context);
         stateThree.SetContext(context);
@@ -65,6 +69,7 @@ class Context : IContext
 
 interface IState
 {
+    void SetNextState(IState state);
     void SetContext(IContext context);
     void Handle();
 }
@@ -72,9 +77,9 @@ interface IState
 class StateOne : IState
 {
     private IContext _context;
-    private readonly IState _nextState;
+    private IState _nextState;
 
-    public StateOne(IState nextState)
+    public void SetNextState(IState nextState)
     {
         _nextState = nextState;
     }
@@ -94,9 +99,9 @@ class StateOne : IState
 class StateTwo : IState
 {
     private IContext _context;
-    private readonly IState _nextState;
+    private IState _nextState;
 
-    public StateTwo(IState nextState)
+    public void SetNextState(IState nextState)
     {
         _nextState = nextState;
     }
@@ -115,13 +120,17 @@ class StateTwo : IState
 
 class StateThree : IState
 {
-    public void Handle()
+    public void SetNextState(IState state)
     {
-        Console.WriteLine("Request was handled by state 3");
     }
 
     public void SetContext(IContext context)
     {
+    }
+
+    public void Handle()
+    {
+        Console.WriteLine("Request was handled by state 3");
     }
 }
 ```
