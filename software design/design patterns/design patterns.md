@@ -28,6 +28,7 @@
   * [Observer](observer.md)
   * [State](state.md)
   * [Strategy](strategy.md)
+  * [Template method](template%20method.md)
 
 ## See also
 
