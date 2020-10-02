@@ -67,3 +67,10 @@ class ConcreteB : Abstract
     }
 }
 ```
+
+Output:
+
+```output
+100
+5
+```
