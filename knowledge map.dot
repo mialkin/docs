@@ -257,11 +257,13 @@ graph map {
 
     sc_system -- crontab
     sc_system -- date
+    sc_system -- df
     sc_system -- du
     sc_system -- free
     sc_system -- htop
     sc_system -- sudo
     sc_system -- su
+    sc_system -- systemctl
     sc_system -- kill
     sc_system -- tmux
     sc_system -- uptime

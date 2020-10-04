@@ -148,7 +148,7 @@
 - Continious deployment (CD)
 - Tools
   - Confluence
-  - Docker
+  - [Docker](unix/docker.md)
     - Kubernetes
   - GitLab
   - Jenkins
@@ -208,23 +208,25 @@
   - Homebrew
 - Linux
   - CentOS
-    - YUM
-  - Ubuntu
+    - [YUM](unix/yum.md)
+  - [Ubuntu](unix/ubuntu.md)
     - APT
-- shell
+- [shell](unix/shell.md)
   - Bourne shell (sh)
-  - Bourne again shell (bash)
+  - [Bourne again shell (bash)](unix/bash.md)
   - Commands
     - System
-      - crontab
+      - [crontab](unix/crontab.md)
       - date
-      - du
+      - [df](unix/df.md)
+      - [du](unix/du.md)
       - free
-      - htop
+      - [htop](unix/htop.md)
       - sudo
       - su
+      - [systemctl](unix/systemctl.md)
       - kill
-      - tmux
+      - [tmux](unix/tmux.md)
       - uptime
       - w
       - watch
@@ -235,24 +237,25 @@
       - chmod
       - chown
       - grep
-      - less
+      - [less](unix/less.md)
       - ls
       - mkdir
       - mv
       - nano
       - pwd
+      - [rg](unix/rg.md)
       - rm
-      - tail
-      - tar
-      - vim
+      - [tail](unix/tail.md)
+      - [tar](unix/tar.md)
+      - [vim](unix/vim.md)
     - Network
       - curl
       - nc
-      - rsync
-      - scp
-      - ssh
+      - [rsync](unix/rsync.md)
+      - [scp](unix/scp.md)
+      - [ssh](unix/ssh.md)
       - wget
-- Nginx
+- [Nginx](unix/nginx.md)
   - Certbot
 
 ## Web
