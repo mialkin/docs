@@ -159,6 +159,10 @@
 ## dotNET
 
 - C#
+  - [Access modifiers](dotnet/csharp/access%20modifiers.md)
+  - [Constructor execution order](dotnet/csharp/constructor%20execution%20order.md)
+  - [Covariance and contravariance](dotnet/csharp/covariance%20and%20contravariance.md)
+- .NET API
 - Common Language Infrastructure (CLI)
 
 ## Miscellaneous
