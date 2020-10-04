@@ -11,7 +11,6 @@
 - [Programming](#programming)
 - [Software design](#software-design)
 - [Unix](#unix)
-- [Разное](#unix)
 
 ## Computer science
 
