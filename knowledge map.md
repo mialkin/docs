@@ -2,15 +2,13 @@
 
 ## Table of cоntents
 
-- [Knowledge map](#knowledge-map)
-  - [Table of cоntents](#table-of-cоntents)
-  - [Computer science](#computer-science)
-  - [Databases](#databases)
-  - [Developer platforms](#developer-platforms)
-  - [DevOps](#devops)
-  - [Unix](#unix)
-  - [Networking](#networking)
-  - [Programming](#programming)
+- [Computer science](#computer-science)
+- [Databases](#databases)
+- [Developer platforms](#developer-platforms)
+- [DevOps](#devops)
+- [Unix](#unix)
+- [Networking](#networking)
+- [Programming](#programming)
 
 ## Computer science
 
