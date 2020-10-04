@@ -1,4 +1,4 @@
-# Books
+# Reading list
 
 ## Computer science
 

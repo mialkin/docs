@@ -1,4 +1,4 @@
-# Study
+# Study list
 
 Parallel and asynchronous programming, async lambdas, async lock
 
