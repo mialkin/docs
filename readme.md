@@ -115,7 +115,7 @@
 - Indexes
   - Clusterd indexes
   - Nonclustered indexes
-  - Filtered indexes
+    - Filtered indexes
 - Joins
 - Execution plan
 - Trigger
@@ -125,7 +125,7 @@
 - SQL
   - T-SQL
   - PL/SQL
-- Document DBMS
+- Document databases
   - CouchDB
   - Elasticsearch
   - MongoDB
@@ -139,6 +139,7 @@
   - Redis
 - IDE
   - SQL Server Managment Studio
+  - DataGrip
 
 ## DevOps
 

@@ -971,7 +971,9 @@ graph map {
     databases -- function
     databases -- cursor
     databases -- sql
+    databases -- document_databases
     databases -- relational_dbms
+    databases -- in_memory_databases
     databases -- db_ide
 
     acid[label="ACID"]
@@ -987,7 +989,7 @@ graph map {
 
     transaction[label="Transaction"]
     transaction -- isolation_levels
-    
+
     isolation_levels[label="Isolation levels"]
     isolation_levels -- read_uncommitted
     isolation_levels -- read_committed
@@ -1019,7 +1021,16 @@ graph map {
     t_sql[label="T-SQL"]
     plsql[label="PL/SQL"]
 
-    relational_dbms[label="Relational DBMS"]
+    document_databases[label="Document databases"]
+    document_databases -- couch_db
+    document_databases -- elasticsearch
+    document_databases -- mongo_db
+
+    couch_db[label="CouchDB"]
+    elasticsearch[label="Elasticsearch"]
+    mongo_db[label="MongoDB"]
+
+    relational_dbms[label="Relational databases"]
     relational_dbms -- sql_server
     relational_dbms -- oracle_database
     relational_dbms -- sqlite
@@ -1029,6 +1040,13 @@ graph map {
     oracle_database[label="Oracle Database"]
     sqlite[label="SQLite"]
     postgresql[label="PostgreSQL"]
+
+    in_memory_databases[label="In-memory databases"]
+    in_memory_databases -- memcached
+    in_memory_databases -- redis
+
+    memcached[label="Memcached"]
+    redis[label="Redis"]
 
     db_ide[label="IDE"]
     db_ide -- ssms
