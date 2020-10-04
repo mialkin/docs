@@ -7,9 +7,9 @@
   * [Dependency Inversion Principle](software%20design/dependency%20inversion/dependency%20inversion.md)
 * [Composition over inheritance](software%20design/composition%20over%20inheritance.md)
 
-## Computer science
+## Knowledge maps
 
-* [Knowledge tree](computer%20science/knowledge%20tree.svg)
+* [Computer science](computer%20science/knowledge%20map.svg)
 
 ## Разное
 

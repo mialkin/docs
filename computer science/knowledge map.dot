@@ -1,4 +1,4 @@
-graph expertise {
+graph map {
 
     computer_science[label="Computer science"]
     computer_science -- data_types

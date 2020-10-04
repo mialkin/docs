@@ -1,8 +1,8 @@
-# Knowledge tree of software development
+# Knowledge map
 
 ## Table of cоntents
 
-- [Knowledge tree of software development](#knowledge-tree-of-software-development)
+- [Knowledge map](#knowledge-map)
   - [Table of cоntents](#table-of-cоntents)
   - [Computer science](#computer-science)
   - [Databases](#databases)

@@ -1,4 +1,4 @@
-graph expertise {
+graph map {
 
     software_development[label="Software development"]
     software_development -- unix
