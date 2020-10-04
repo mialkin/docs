@@ -211,48 +211,49 @@
     - YUM
   - Ubuntu
     - APT
-  - shell
-    - Bourne shell (sh)
-    - Bourne again shell (bash)
-    - Commands
-      - System
-        - crontab
-        - date
-        - du
-        - free
-        - htop
-        - sudo
-        - su
-        - kill
-        - tmux
-        - uptime
-        - w
-        - watch
-        - who
-        - whoami
-      - Files
-        - cat
-        - chmod
-        - chown
-        - grep
-        - less
-        - ls
-        - mkdir
-        - mv
-        - nano
-        - pwd
-        - rf
-        - rm
-        - tail
-        - tar
-        - vim
-      - Network
-        - curl
-        - nc
-        - rsync
-        - scp
-        - ssh
-        - wget
+- shell
+  - Bourne shell (sh)
+  - Bourne again shell (bash)
+  - Commands
+    - System
+      - crontab
+      - date
+      - du
+      - free
+      - htop
+      - sudo
+      - su
+      - kill
+      - tmux
+      - uptime
+      - w
+      - watch
+      - who
+      - whoami
+    - Files
+      - cat
+      - chmod
+      - chown
+      - grep
+      - less
+      - ls
+      - mkdir
+      - mv
+      - nano
+      - pwd
+      - rm
+      - tail
+      - tar
+      - vim
+    - Network
+      - curl
+      - nc
+      - rsync
+      - scp
+      - ssh
+      - wget
+  - Nginx
+    - Certbot
 
 ## Web
 
