@@ -83,6 +83,11 @@
     - Time complexity
     - Space complexity
     - Big O notation
+- Object-oriented programming (OOP)
+  - Abstraction
+  - Incapsulation
+  - Inheritance
+  - Polymorphism
 - Cryptography
   - Symmetric cryptography
   - Assymetric cryptography
