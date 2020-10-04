@@ -35,7 +35,7 @@
 >
 > We hope you think differently. Cataloging design patterns is important. It gives us standard names and definitions for the techniques we use. If we don't study design patterns in software, we won't be able to improve them, and it'll be harder to come up with new ones.
 >
-> This book is only a start. It contains some of the most common design patterns that expert object-oriented designers use, and yet peoplehear and learn about them solely by word of mouth or by studying existing systems.<sup>2</sup>
+> This book is only a start. It contains some of the most common design patterns that expert object-oriented designers use, and yet people hear and learn about them solely by word of mouth or by studying existing systems.<sup>2</sup>
 
 ## See also
 
@@ -43,4 +43,4 @@
 
 <hr>
 
-<sup>1, 2</sup> Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides, Design Patterns: Elements of Reusable Object-Oriented Software (Addison-Wesley, 1994), pages 12 and 388.
+<sup>1, 2</sup> Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides, Design Patterns: Elements of Reusable Object-Oriented Software (Addison-Wesley, 1994), pages 12 and 388 accordingly for references 1 and 2.
