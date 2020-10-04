@@ -252,8 +252,8 @@
       - scp
       - ssh
       - wget
-  - Nginx
-    - Certbot
+- Nginx
+  - Certbot
 
 ## Web
 
