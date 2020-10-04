@@ -48,7 +48,9 @@
 * **Deep copy** — глубокая копия
 * **Dependency injection** — внедрение зависимости
 * **Dependency inversion principle** — принцип инверсии зависимостей
-* **Derived** — производный
+* **Derived** — производный, конкретный
+  * **More derived** — более производный, более конкретный
+  * **Less derived** — менее производный, менее конкретный
 * **Derived class** — производный класс
 * **Design pattern** — шаблон проектирования
 * **Document-oriented database** — документоориентированная база данных
