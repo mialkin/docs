@@ -6,8 +6,9 @@ graph map {
     software_development -- networking
     software_development -- programming
     software_development -- devops
-    software_development -- developer_platforms
+    software_development -- web
     software_development -- databases
+    software_development -- dot_net
 
     computer_science[label="Computer science"]
     computer_science -- data_types
@@ -418,10 +419,6 @@ graph map {
     programming -- coding
     programming -- testing
     
-    developer_platforms[label="Developer platforms"]
-    developer_platforms -- web
-    developer_platforms -- dot_net
-
     web[label="Web"]
     web -- html
     web -- css
@@ -498,6 +495,8 @@ graph map {
     dot_net[label=".NET"]
     dot_net -- common_language_infrastructure
     dot_net -- nuget
+    dot_net -- csharp
+    dot_net -- dot_net_api
     
     nuget[label="NuGet"]
 
@@ -522,7 +521,7 @@ graph map {
 
     virtual_execution_system[label="Virtual Execution System (VES)"]
     common_language_specification[label="Common Language Specification (CLS)"]
-    common_language_specification -- csharp
+
     csharp[label="C#"]
     csharp -- cs_types
 
@@ -575,7 +574,6 @@ graph map {
     cli_implementations -- dot_net_standard
 
     dot_net_standard[label=".NET Standard"]
-    dot_net_standard -- dot_net_api 
     dot_net_standard -- dot_net_core
     dot_net_standard -- dot_net_framework
 
