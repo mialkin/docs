@@ -29,6 +29,7 @@
   * [State](state.md)
   * [Strategy](strategy.md)
   * [Template method](template%20method.md)
+  * [Visitor](visitor.md)
 
 ## See also
 
