@@ -32,7 +32,7 @@
     - Union
   - Abstract data types
     - Associative array, or map, or dictionary
-      - Implementations
+      - Implementation
         - Hash table
         - Self-balancing binary search tree
     - Graph
@@ -106,12 +106,12 @@
   - Consistency
   - Isolation
   - Durability
-- Isolation levels
-  - Read uncommitted
-  - Read commmitted
-  - Repeatable read
-  - Serializable
 - Transaction
+  - Isolation levels
+    - Read uncommitted
+    - Read commmitted
+    - Repeatable read
+    - Serializable
 - Indexes
   - Clusterd indexes
   - Nonclustered indexes

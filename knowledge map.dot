@@ -962,7 +962,6 @@ graph map {
 
     databases[label="Databases"]    
     databases -- acid
-    databases -- isolation_levels
     databases -- transaction
     databases -- indexes
     databases -- joins
@@ -985,6 +984,9 @@ graph map {
     consistency[label="Consistency"]
     isolation[label="Isolation"]
     durability[label="Durability"]
+
+    transaction[label="Transaction"]
+    transaction -- isolation_levels
     
     isolation_levels[label="Isolation levels"]
     isolation_levels -- read_uncommitted
@@ -997,7 +999,6 @@ graph map {
     repeatable_read[label="Repeatable read"]
     serializable[label="Serializable"]
 
-    transaction[label="Transaction"]
     trigger[label="Trigger"]
     indexes[label="Indexes"]
     indexes -- clustered_indexes
