@@ -1,5 +1,7 @@
 # Technical documentation
 
+[Knowledge map (SVG)](https://raw.githubusercontent.com/mialkin/documentation/master/knowledge%20map.svg)
+
 ## Table of cоntents
 
 - [Computer science](#computer-science)
@@ -158,11 +160,8 @@
 - C#
 - Common Language Infrastructure (CLI)
 
-
 ## Miscellaneous
 
-- [Knowledge map](knowledge%20map.md)
-- [Knowledge map (SVG)](https://raw.githubusercontent.com/mialkin/documentation/master/knowledge%20map.svg)
 - [Reading list](reading%20list.md)
 - [Study list](study%20list.md)
 - [Перевод технических терминов](translation.md)
