@@ -1,4 +1,4 @@
-# Constructor call & inheritance
+# Constructor execution order
 
 ```csharp
 using System;

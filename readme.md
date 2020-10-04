@@ -4,13 +4,14 @@
 
 - [Computer science](#computer-science)
 - [Databases](#databases)
-- [Developer platforms](#developer-platforms)
 - [DevOps](#devops)
+- [dotNET](#dotnet)
 - [Miscellaneous](#miscellaneous)
 - [Networking](#networking)
 - [Programming](#programming)
 - [Software design](#software-design)
 - [Unix](#unix)
+- [Web](#web)
 
 ## Computer science
 
@@ -137,34 +138,6 @@
 - IDE
   - SQL Server Managment Studio
 
-## Developer platforms
-
-- Web
-  - HTML
-  - CSS
-  - JavaScript
-    - TypeScript
-    - Libraries
-      - React
-    - Frameworks
-      - Angular
-      - Ext JS
-    - Runtime environments
-      - Node.js
-        - npm
-  - Web services
-    - Representational State Transfer (REST)
-      - Cross-origin resourece sharing (CORS)
-      - JSON
-      - JSON Web Token (JWT)
-      - OpenAPI
-        - Swagger UI
-      - OAuth 2.0
-    - Simple Object Access Protocol (SOAP)
-      - XML
-      - WSDL
-    - Microservices
-
 ## DevOps
 
 - Continious integration (CI)
@@ -179,6 +152,12 @@
   - Jira
   - Markdown
   - TeamCity
+
+## dotNET
+
+- C#
+- Common Language Infrastructure (CLI)
+
 
 ## Miscellaneous
 
@@ -274,3 +253,30 @@
         - scp
         - ssh
         - wget
+
+## Web
+
+- HTML
+- CSS
+- JavaScript
+  - TypeScript
+  - Libraries
+    - React
+  - Frameworks
+    - Angular
+    - Ext JS
+  - Runtime environments
+    - Node.js
+      - npm
+- Web services
+  - Representational State Transfer (REST)
+    - Cross-origin resourece sharing (CORS)
+    - JSON
+    - JSON Web Token (JWT)
+    - OpenAPI
+      - Swagger UI
+    - OAuth 2.0
+  - Simple Object Access Protocol (SOAP)
+    - XML
+    - WSDL
+  - Microservices
