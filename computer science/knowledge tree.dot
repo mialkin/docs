@@ -1,0 +1,199 @@
+graph expertise {
+
+    computer_science[label="Computer science"]
+    computer_science -- data_types
+    computer_science -- data_structures
+    computer_science -- algorithms
+    computer_science -- cryptography
+
+    data_types[label="Data types"]
+    data_types -- primitive_data_types
+    data_types -- composite_data_types
+    data_types -- abstract_data_types
+
+    primitive_data_types[label="Primitive data types"]
+    primitive_data_types -- character
+    primitive_data_types -- integer
+    primitive_data_types -- primitive_data_types_flpn
+    primitive_data_types -- boolean
+    primitive_data_types -- reference
+
+    character[label="Character"]
+    integer[label="Integer"]
+    primitive_data_types_flpn[label="Floating-point number"]
+    boolean[label="Boolean"]
+    reference[label="Reference or pointer"]
+
+    composite_data_types[label="Composite data types"]
+    composite_data_types -- cdt_array
+    composite_data_types -- cdt_object
+    composite_data_types -- cdt_record
+    composite_data_types -- cdt_set
+    composite_data_types -- cdt_union
+
+    cdt_array[label="Array"]
+    cdt_object[label="Object"]
+    cdt_record[label="Record"]
+    cdt_set[label="Set"]
+    cdt_union[label="Union"]
+
+    abstract_data_types[label="Abstract data types"]
+    abstract_data_types -- associative_array
+    abstract_data_types -- adt_graph
+    abstract_data_types -- adt_list
+    abstract_data_types -- adt_queue
+    abstract_data_types -- adt_stack
+    abstract_data_types -- adt_tree
+
+    associative_array[label="Associative array, or map, or dictionary"]
+    associative_array -- aa_implementation
+    
+    aa_implementation[label="Implementation"]
+    aa_implementation -- aa_implementation_hash_table
+    aa_implementation -- aa_implementation_self_balancing_binary_search_tree
+    
+    aa_implementation_hash_table[label="Hash table"]
+    aa_implementation_self_balancing_binary_search_tree[label="Self-balancing binary search tree"]
+
+    adt_list[label="List"]
+    adt_list -- adt_list_implementation
+
+    adt_list_implementation[label="Implementation"]
+    adt_list_implementation -- adt_list_implementation_array
+    adt_list_implementation -- adt_list_implementation_vla
+    adt_list_implementation -- adt_list_implementation_sll
+    adt_list_implementation -- adt_list_implementation_dll
+
+    adt_list_implementation_array[label="Array"]
+    adt_list_implementation_vla[label="Variable length array"]
+    adt_list_implementation_sll[label="Singly linked list"]
+    adt_list_implementation_dll[label="Doubly linked list"]
+
+    adt_stack[label="Stack"]
+    adt_queue[label="Queue"]
+    adt_tree[label="Tree"]
+    adt_graph[label="Graph"]
+
+    data_structures[label="Data structures"]
+    data_structures -- arrays
+    data_structures -- graphs
+    data_structures -- hash_based_structures
+    data_structures -- lists
+    data_structures -- trees
+
+    arrays[label="Arrays"]
+    arrays -- array
+    arrays -- dynamic_array
+    arrays -- circular_buffer
+    arrays -- matrix
+
+    array[label="Array"]
+    dynamic_array[label="Dynamic array"]
+    circular_buffer[label="Circular array"]
+    matrix[label="Matrix"]
+    
+    graphs[label="Graphs"]
+    graphs -- _graph
+    graphs -- adjacency_matrix
+    graphs -- directed_acyclic_graph
+
+    _graph[label="Graph"]
+    adjacency_matrix[label="Adjacency matrix"]
+    directed_acyclic_graph[label="Directed acyclic graph"]
+
+    hash_based_structures[label="Hash-based structures"]
+    hash_based_structures -- hash_table
+    hash_based_structures -- hash_tree
+
+    hash_table[label="Hash table"]
+    hash_tree[label="Hash tree"]
+
+    lists[label="Lists"]
+    lists -- singly_ll
+    lists -- doubly_ll
+
+    singly_ll[label="Singly linked list"]
+    doubly_ll[label="Doubly linked list"]
+
+    trees[label="Trees"]
+    trees -- tree
+    trees -- binary_trees
+    trees -- b_trees
+    trees -- heaps
+
+    tree[label="Tree"]
+    binary_trees[label="Binary trees"]
+    binary_trees -- binary_search_trees
+
+    binary_search_trees[label="Binary search tree"]
+
+    binary_search_trees -- red_black_tree
+    binary_search_trees -- avl_tree
+
+    red_black_tree[label="Red-black tree"]
+    avl_tree[label="AVL tree"]
+
+    b_trees[label="B-trees"]
+    heaps[label="Heaps"]
+
+    algorithms[label="Algorithms"]
+    algorithms -- recursion
+    algorithms -- sorting_algorithms
+    recursion[label="Recursion"]
+
+    sorting_algorithms[label="Sorting algorithms"]
+    sorting_algorithms -- insertion_sort
+    sorting_algorithms -- selection_sort
+    sorting_algorithms -- merge_sort
+    sorting_algorithms -- quick_sort
+    sorting_algorithms -- bubble_sort
+
+    insertion_sort[label="Insertion sort"]
+    selection_sort[label="Selection sort"]
+    merge_sort[label="Merge sort"]
+    quick_sort[label="Quick sort"]
+    bubble_sort[label="Bubble sort"]
+
+    algorithms -- graph_traversal
+
+    graph_traversal[label="Graph traversal"]
+    graph_traversal -- tree_traversal
+    graph_traversal -- dijkstra
+
+    tree_traversal[label="Tree traversal"]
+    tree_traversal -- depth_first_search
+    tree_traversal -- breadth_first_search
+    depth_first_search[label="Depth-first search"]
+    breadth_first_search[label="Breadth-frist search"]
+
+    dijkstra[label="Dijkstra's algorithm"]
+
+    algorithms -- analysis_of_algorithms
+    analysis_of_algorithms[label="Analysis of algorithms"]
+
+    analysis_of_algorithms -- time_complexity
+    analysis_of_algorithms -- space_complexity
+    analysis_of_algorithms -- big_o_notation
+
+    time_complexity[label="Time complexity"]
+    space_complexity[label="Space complexity"]
+    big_o_notation[label="Big O notation"]
+
+    cryptography[label="Cryptography"]
+    cryptography -- symmetric_cryptography
+    cryptography -- asymmetric_cryptography
+
+    symmetric_cryptography[label="Symmetric cryptography"]
+    asymmetric_cryptography[label="Asymmetric cryptography"]
+    asymmetric_cryptography -- public_key
+    asymmetric_cryptography -- private_key
+    asymmetric_cryptography -- fingerprint
+    asymmetric_cryptography -- digital_certificate
+    
+    public_key[label="Public key"]
+    private_key[label="Private key"]
+    fingerprint[label="Fingerprint"]
+    digital_certificate[label="Digital certificate"]
+    
+    
+}
