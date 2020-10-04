@@ -1009,6 +1009,8 @@ graph map {
     execution_plan[label="Execution plan"]
     clustered_indexes[label="Clustered indexes"]
     nonclustered_indexes[label="Nonclustered indexes"]
+    nonclustered_indexes -- filtered_indexes
+    filtered_indexes[label="Filtered indexes"]
     stored_procedure[label="Stored procedure"]
     function[label="Function"]
     cursor[label="Cursor"]

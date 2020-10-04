@@ -110,7 +110,7 @@
 - Indexes
   - Clusterd indexes
   - Nonclustered indexes
-  - Filtered indexes
+    - Filtered indexes
 - Joins
 - Execution plan
 - Trigger
