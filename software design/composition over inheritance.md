@@ -1,4 +1,4 @@
-# Composition over inheritance principle
+# Composition over inheritance
 
  The **composition over inheritance** is the principle that classes should achieve polymorphic behavior and code reuse by their composition rather than inheritance from a base or parent class.
 
