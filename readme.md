@@ -9,7 +9,7 @@
 
 ## Knowledge maps
 
-* [Computer science](computer%20science/knowledge%20map.svg)
+* [Computer science](https://raw.githubusercontent.com/mialkin/documentation/master/computer%20science/knowledge%20map.svg)
 
 ## Разное
 
