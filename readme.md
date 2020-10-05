@@ -45,6 +45,98 @@
   - [Constructor execution order](dotnet/csharp/constructor%20execution%20order.md)
   - [Covariance and contravariance](dotnet/csharp/covariance%20and%20contravariance.md)
 - .NET API
+  - System
+    - Classes
+      - Array
+      - Delegate
+        - Action\<T>
+        - Func\<TResult>
+      - Exception
+        - SystemException
+          - ArgumentException
+            - ArgumentNullException
+            - ArgumentOutOfRangeException
+          - IndexOutOfRangeException
+          - KeyNotFoundeException
+      - GC
+        - Properties
+          - MaxGeneration
+        - Methods
+          - Collect(Int32)
+          - CollectionCount(Int32)
+          - GetGeneration(Object)
+          - GetTotalMemeory(Boolean)
+          - SuppressFinalize(Object)
+          - WaitForPendingFinalizers()
+      - Lazy\<T>
+      - MarshalByRefObject
+      - Math
+      - Object
+        - Methods
+          - Equals
+          - GetHashCode
+          - GetType
+          - ToString
+          - Finalize
+          - MemberwiseClone
+          - ReferenceEquals
+      - String
+      - Tuple\<T1>
+      - ValueType
+        - Enum
+        - Guid
+        - Nullable\<T>
+    - Enums
+    - Interfaces
+      - IComparable\<T>
+      - ICloneable
+      - IDisposable
+    - Structs
+  - System.Collections.Concurrent
+    - ConcurrentDictionary\<T>
+    - ConcurrentQueue\<T>
+    - ConcurrentStack\<T>
+  - System.Collections.Generic
+    - IEnumerable\<T>
+      - ICollection\<T>
+        - IDictionary\<TKey,TValue>
+          - Dictionary\<TKey,TValue>
+        - IList\<T>
+          - List\<T>
+        - ISet\<T>
+          - HashSet\<T>
+        - LinkedList\<T>
+      - IReadOnlyCollection\<T>
+        - IReadOnlyDictionary\<TKey,TValue>
+          - StoredDictionary\<TKey,TValue>
+          - SortedList\<TKey,TValue>
+        - IReadOnlyList\<T>
+        - Queue\<T>
+        - SortedSet\<T>
+        - Stack\<T>
+  - System.IO
+    - FileStream
+    - MemoryStream
+  - System.Threading
+    - Classes
+      - Interlocked
+      - Monitor
+      - Mutex
+      - ReaderWriterLock
+      - ReaderWriterSlimLock
+      - Semaphore
+      - SynchronizationContext
+      - Thread
+      - ThreadPool
+    - Structs
+      - CancellationToken
+      - SpinLock
+      - SpinWait
+  - System.Threading.Tasks
+    - Parallel
+    - Task
+    - Task\<TResult>
+    - TaskFactory
 - Common Language Infrastructure (CLI)
   - Common Type System (CTS)
   - CLI Metadata
@@ -88,7 +180,6 @@
           - WinForms
           - Windows Communication Foundation (WCF)
 - NuGet
-
 
 ## Computer science
 
