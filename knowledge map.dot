@@ -943,6 +943,13 @@ graph map {
     tortoisegit[label="TortoiseGit"]
 
     gitflows[label="Git flows"]
+    gitflows -- gitflow
+    gitflows -- gitlab_flow
+    gitflows -- github_flow
+
+    gitflow[label="Gitflow"]
+    gitlab_flow[label="GitLab Flow"]
+    github_flow[label="GitHub flow"]
 
     testing[label="Testing"]
     testing -- unit_testing
