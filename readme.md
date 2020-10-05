@@ -200,10 +200,33 @@
 
 ## Software design
 
+- Design principles
+  - SOLID
+    - Single responsibility principle
+    - Open-closed principle
+    - Liskov substitution principle
+    - Interface segregation principle
+    - [Dependency Inversion Principle](software%20design/dependency%20inversion/dependency%20inversion.md)
+  - DRY
+  - KISS
+  - YAGNI
+  - [Composition over inheritance](software%20design/composition%20over%20inheritance.md)
+- Unified Modeling Language (UML)
+  - Diagrams
+    - Class diagram
+    - Sequence diagram
 - [Design patterns](software%20design/design%20patterns/design%20patterns.md)
-- SOLID
-  - [Dependency Inversion Principle](software%20design/dependency%20inversion/dependency%20inversion.md)
-- [Composition over inheritance](software%20design/composition%20over%20inheritance.md)
+  - Creational patterns
+    - Abstract factory
+    - Builder
+    - Factory method
+    - Prototype
+    - Singleton
+  - Behavioral pattern
+    - Strategy
+    - 
+  - Structural patterns
+  - Behavioral patterns
 
 ## Unix
 

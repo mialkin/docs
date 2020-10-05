@@ -4,6 +4,7 @@ graph map {
     software_development -- computer_science
     software_development -- unix
     software_development -- networking
+    software_development -- software_design
     software_development -- programming
     software_development -- devops
     software_development -- web
@@ -337,22 +338,26 @@ graph map {
     tls[label="TLS"]
     ssh[label="SSH"]
 
-    designing[label="Designing"]    
-    designing -- design_principles
-    designing -- uml
-    designing -- design_patterns
-    designing -- licensing
+
+
+    software_design[label="Software design"]    
+    software_design -- design_principles
+    software_design -- uml
+    software_design -- design_patterns
+    software_design -- licensing
 
     design_principles[label="Design principles"]
     design_principles -- solid
     design_principles -- dry
     design_principles -- kiss
     design_principles -- yagni
+    design_principles -- composition_over_inheritance
     
     solid[label="SOLID"]
     dry[label="DRY"]
     kiss[label="KISS"]
     yagni[label="YAGNI"]
+    composition_over_inheritance[label="Composition over inheritance"]
 
     solid -- solid_s
     solid -- solid_o
@@ -368,8 +373,8 @@ graph map {
 
     design_patterns[label="Design patterns"]
     design_patterns -- creational_patterns
-    design_patterns -- behavioral_patterns
     design_patterns -- structural_patterns
+    design_patterns -- behavioral_patterns
 
     creational_patterns[label="Creational patterns"]
     creational_patterns -- abstract_factory
@@ -378,9 +383,9 @@ graph map {
     creational_patterns -- prototype
     creational_patterns -- singleton
 
-    abstract_factory[label="Abstract factory"]
+    abstract_factory[label="Abstract Factory"]
     builder[label="Builder"]
-    factory_method[label="Factory method"]
+    factory_method[label="Factory Method"]
     prototype[label="Prototype"]
     singleton[label="Singleton"]
 
@@ -388,6 +393,10 @@ graph map {
     structural_patterns -- adapter
     structural_patterns -- bridge
     structural_patterns -- composite
+    structural_patterns -- decorator
+    structural_patterns -- facade
+    structural_patterns -- flyweight    
+    structural_patterns -- proxy    
 
     licensing[label="Licensing"]
     licensing -- gpl
@@ -401,10 +410,35 @@ graph map {
     adapter[label="Adapter"]
     bridge[label="Bridge"]
     composite[label="Composite"]
-    behavioral_patterns[label="Behavioral patterns"]
-    behavioral_patterns -- strategy
+    decorator[label="Decorator"]
+    facade[label="Facade"]
+    flyweight[label="Flyweight"]
+    proxy[label="Proxy"]
 
+    behavioral_patterns[label="Behavioral patterns"]
+    behavioral_patterns -- chain_of_responsibility
+    behavioral_patterns -- command
+    behavioral_patterns -- interpreter
+    behavioral_patterns -- iterator
+    behavioral_patterns -- mediator
+    behavioral_patterns -- memento
+    behavioral_patterns -- observer
+    behavioral_patterns -- state
+    behavioral_patterns -- strategy
+    behavioral_patterns -- template_method
+    behavioral_patterns -- visitor
+
+    chain_of_responsibility[label="Chain of Responsibility"]
+    command[label="Command"]
+    interpreter[label="Interpreter"]
+    iterator[label="Iterator"]
+    mediator[label="Mediator"]
+    memento[label="Memento"]
+    observer[label="Observer"]
+    state[label="State"]
     strategy[label="Strategy"]
+    template_method[label="Template Method"]
+    visitor[label="Visitor"]
 
     uml[label="Unified Modeling Language (UML)"]
     uml -- diagrams
@@ -417,8 +451,6 @@ graph map {
     sequence_diagram[label="Sequence diagram"]
 
     programming[label="Programming"]
-    programming -- designing
-    programming -- coding
     programming -- testing
     
     web[label="Web"]
@@ -878,10 +910,9 @@ graph map {
     winforms[label="WinForms"]
     wcf[label="Windows Communication Foundation (WCF)"]
 
-    coding[label="Coding"]
-    coding -- ide
-    coding -- git
-    coding -- regular_expressions
+    programming -- ide
+    programming -- git
+    programming -- regular_expressions
 
     ide[label="IDE"]
     ide -- visual_studio

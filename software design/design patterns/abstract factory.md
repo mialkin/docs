@@ -1,6 +1,6 @@
-# Abstract factory
+# Abstract Factory
 
-The **Abstract factory** is a creational software design pattern that provides an interface for creating families of related or dependent objects without specifying their concrete classes.
+The **Abstract Factory** is a creational software design pattern that provides an interface for creating families of related or dependent objects without specifying their concrete classes.
 
 ## Participants
 
