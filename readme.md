@@ -19,12 +19,76 @@
 ## .NET
 
 - C#
+  - Types
+    - Reference types
+      - dynamic
+      - string
+      - object
+    - Value types
+      - Integral types
+        - byte
+        - int
+        - long
+        - short
+      - Floating-point types
+        - float
+        - double
+        - decimal
+      - bool
+      - char
+      - Enumeration types
+      - Structure types
+      - Tuple types
+      - Nullable value types
+  - Boxing and unboxing
   - [Access modifiers](dotnet/csharp/access%20modifiers.md)
   - [Constructor execution order](dotnet/csharp/constructor%20execution%20order.md)
   - [Covariance and contravariance](dotnet/csharp/covariance%20and%20contravariance.md)
 - .NET API
 - Common Language Infrastructure (CLI)
+  - Common Type System (CTS)
+  - CLI Metadata
+    - Assembly
+      - Attributes
+      - Reflection
+  - Common Language Specification (CLS)
+  - Common Intermediate Language (CIL)
+  - Virtual Execution System (VES)
+  - CLI implementations
+    - .NET Standard
+      - .NET Core
+        - CoreCLR
+          - Memory managment
+            - Garbage collector (GC)
+            - Managed heap
+              - Small object heap (SOH)
+          - Just-in-time (JIT) compilation
+        - CoreFx
+          - ASP.NET Core
+            - Dependency injection
+            - Middleware
+            - Host
+            - Configuration
+            - Options
+            - Environments
+            - Logging
+            - Routing
+            - Security
+              - Authentication
+              - Authorization
+            - SignalR
+      - .NET Framework
+        - CLR
+        - Base Class Library (BCL)
+          - ASP.NET MVC
+          - Entity Framework
+          - WPF
+            - WPF MVVM
+            - DevExpress UI components
+          - WinForms
+          - Windows Communication Foundation (WCF)
 - NuGet
+
 
 ## Computer science
 
