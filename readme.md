@@ -4,7 +4,7 @@
 
 ## Table of cоntents
 
-- [.NET](#.net)
+- [.NET](#dotnet)
 - [Computer science](#computer-science)
 - [Databases](#databases)
 - [Miscellaneous](#miscellaneous)
@@ -14,7 +14,7 @@
 - [Unix](#unix)
 - [Web](#web)
 
-## .NET
+## .NET <a name="dotnet"></a>
 
 - C#
   - [Access modifiers](dotnet/csharp/access%20modifiers.md)
