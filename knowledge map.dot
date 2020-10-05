@@ -6,7 +6,6 @@ graph map {
     software_development -- networking
     software_development -- software_design
     software_development -- programming
-    software_development -- devops
     software_development -- web
     software_development -- databases
     software_development -- dot_net
@@ -450,8 +449,6 @@ graph map {
     class_diagram[label="Class diagram"]
     sequence_diagram[label="Sequence diagram"]
 
-    programming[label="Programming"]
-    programming -- testing
     
     web[label="Web"]
     web -- html
@@ -910,9 +907,12 @@ graph map {
     winforms[label="WinForms"]
     wcf[label="Windows Communication Foundation (WCF)"]
 
+
+    programming[label="Programming"]
     programming -- ide
     programming -- git
     programming -- regular_expressions
+    programming -- testing
 
     ide[label="IDE"]
     ide -- visual_studio
@@ -964,15 +964,14 @@ graph map {
     load_testing[label="Load testing"]
     stress_testing[label="Stress testing"]
     
-    devops[label="DevOps"]
-    devops -- devops_ci
-    devops -- devops_cdelivery
-    devops -- devops_cdeployment
-    devops -- ci_tools
+    programming -- programming_ci
+    programming -- programming_cdelivery
+    programming -- programming_cdeployment
+    programming -- ci_tools
 
-    devops_ci[label="Continuous integration (CI)"]
-    devops_cdelivery[label="Continuous delivery (CD)"]
-    devops_cdeployment[label="Continuous deployment (CD)"]
+    programming_ci[label="Continuous integration (CI)"]
+    programming_cdelivery[label="Continuous delivery (CD)"]
+    programming_cdeployment[label="Continuous deployment (CD)"]
     ci_tools[label="Tools"]
     ci_tools -- confluence
     ci_tools -- docker

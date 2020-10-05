@@ -187,8 +187,22 @@
 
 ## Programming
 
-- Designing
-- Coding
+- IDE
+  - Microsoft Visual Studio
+    - ReSharper
+  - Rider
+  - Visual Studio Code
+- Git
+  - IDE
+    - GitHub Desktop
+    - Sourcetree
+    - TrotoiseGit
+  - Git flows
+    - Gitflow
+    - GitLab Flow
+    - GitHub flow
+
+
 - Testing
   - Unit testing
     - Unit testing libraries
@@ -222,11 +236,30 @@
     - Factory method
     - Prototype
     - Singleton
-  - Behavioral pattern
-    - Strategy
-    - 
   - Structural patterns
-  - Behavioral patterns
+    - Adapter
+    - Bridge
+    - Composite
+    - Decorator
+    - Facade
+    - Flyweight
+    - Proxy
+  - Behavioral pattern
+    - Chain of Responsibility
+    - Command
+    - Interpreter
+    - Iterator
+    - Mediator
+    - Memento
+    - Observer
+    - State
+    - Strategy
+    - Template method
+    - Visitor
+- Licensing
+  - GPL
+  - MIT
+  - BSD
 
 ## Unix
 
