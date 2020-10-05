@@ -4,16 +4,25 @@
 
 ## Table of cоntents
 
+- [.NET](#.net)
 - [Computer science](#computer-science)
 - [Databases](#databases)
-- [DevOps](#devops)
-- [dotNET](#dotnet)
 - [Miscellaneous](#miscellaneous)
 - [Networking](#networking)
 - [Programming](#programming)
 - [Software design](#software-design)
 - [Unix](#unix)
 - [Web](#web)
+
+## .NET
+
+- C#
+  - [Access modifiers](dotnet/csharp/access%20modifiers.md)
+  - [Constructor execution order](dotnet/csharp/constructor%20execution%20order.md)
+  - [Covariance and contravariance](dotnet/csharp/covariance%20and%20contravariance.md)
+- .NET API
+- Common Language Infrastructure (CLI)
+- NuGet
 
 ## Computer science
 
@@ -141,30 +150,6 @@
   - SQL Server Managment Studio
   - DataGrip
 
-## DevOps
-
-- Continious integration (CI)
-- Continious delivery (CD)
-- Continious deployment (CD)
-- Tools
-  - Confluence
-  - [Docker](unix/docker.md)
-    - Kubernetes
-  - GitLab
-  - Jenkins
-  - Jira
-  - Markdown
-  - TeamCity
-
-## dotNET
-
-- C#
-  - [Access modifiers](dotnet/csharp/access%20modifiers.md)
-  - [Constructor execution order](dotnet/csharp/constructor%20execution%20order.md)
-  - [Covariance and contravariance](dotnet/csharp/covariance%20and%20contravariance.md)
-- .NET API
-- Common Language Infrastructure (CLI)
-
 ## Miscellaneous
 
 - [Reading list](reading%20list.md)
@@ -201,7 +186,27 @@
     - Gitflow
     - GitLab Flow
     - GitHub flow
-
+- Regular expressions
+- Testing
+  - Unit testing
+    - Unit testing libraries
+      - NUnit
+    - Mock objects
+  - Integration testing
+  - Load testing
+  - Stress testing
+- Continious integration (CI)
+- Continious delivery (CD)
+- Continious deployment (CD)
+- Tools
+  - Confluence
+  - Docker
+    - Kubernetes
+  - GitLab
+  - Jenkins
+  - Jira
+  - Markdown
+  - TeamCity
 
 - Testing
   - Unit testing
@@ -344,3 +349,6 @@
     - XML
     - WSDL
   - Microservices
+- Tools
+  - Postman
+  - Chrome DevTools
