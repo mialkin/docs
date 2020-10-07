@@ -17,6 +17,12 @@ rsync -av Original/ Backup/ | The same as previous. `v` stands for verbose. `a` 
 rsync -av --dry-run Original/ Backup/|  Displays what files would have copied without actually doing anything
 rsync -zaP Original user@host.com:/where/to | Transfers entire Original directory to remote (write Original/ to transfer only folder's content instead) `z` stands for compress, `P` means show progress
 
+## Example
+
+```bash
+rsync -v user@domain.ru:/var/file.db /Users/aleksei/Backups/file-`date +'%Y-%m-%d'`.db
+```
+
 ## See also
 
 * [How To Use The rsync Command - Sync Files Locally and Remotely](https://www.youtube.com/watch?v=qE77MbDnljA)
