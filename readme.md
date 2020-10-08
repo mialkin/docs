@@ -344,7 +344,7 @@
     - Gitflow
     - GitLab Flow
     - GitHub flow
-    - [Модель ветвления](programming/git/flow.md)
+    - [Релиз](programming/git/release.md)
     - [Ветки](programming/git/branches.md)
       - [Именование релизных веток](programming/git/branch%20names.md)
 - [Regular expressions](programming/regular%20expressions/regular%20expressions.md)
