@@ -6,4 +6,6 @@ Search "ssh" keyword.
 
 ```sh
 ll | rg ssh
+find . | rg .sln
+ls -R | rg .sln
 ```
