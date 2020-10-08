@@ -1,6 +1,6 @@
 # Modes
 
-Modes go right after slashes, they are not a part of regullar expressions, they are modifiers for the way this regular expressions odd to be handled:
+Modes go right after slashes, they are not a part of regullar expressions, they are modifiers for the way this regular expressions ought to be handled:
 
 * Standard: `/re/`
 * Global: `/re/g`
