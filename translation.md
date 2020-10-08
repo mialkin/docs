@@ -46,6 +46,7 @@
 * **Deadlock** — взаимная блокировка
 * **Decoupling** — уменьшение связанности системы
 * **Deep copy** — глубокая копия
+* **Delegate** — делегат
 * **Delegate type** — тип делегата
 * **Dependency injection** — внедрение зависимости
 * **Dependency inversion principle** — принцип инверсии зависимостей
@@ -73,6 +74,8 @@
 
 ## G
 
+* **Generic** — универсальный
+  * **Generic type** — универсальный тип
 * **Globalization** — глобализация
 
 ## H
