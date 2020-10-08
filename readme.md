@@ -344,7 +344,10 @@
     - Gitflow
     - GitLab Flow
     - GitHub flow
-- Regular expressions
+    - [Модель ветвления](programming/git/flow.md)
+    - [Ветки](programming/git/branches.md)
+      - [Именование релизных веток](programming/git/branch%20names.md)
+- [Regular expressions](programming/regular%20expressions/regular%20expressions.md)
 - Testing
   - Unit testing
     - Unit testing libraries
