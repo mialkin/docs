@@ -46,6 +46,7 @@
 * **Deadlock** — взаимная блокировка
 * **Decoupling** — уменьшение связанности системы
 * **Deep copy** — глубокая копия
+* **Delegate type** — тип делегата
 * **Dependency injection** — внедрение зависимости
 * **Dependency inversion principle** — принцип инверсии зависимостей
 * **Derived** — производный, конкретный
