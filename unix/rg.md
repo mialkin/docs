@@ -7,5 +7,6 @@ Search "ssh" keyword.
 ```sh
 ll | rg ssh
 find . | rg .sln
+find "$PWD" | rg .sln
 ls -R | rg .sln
 ```
