@@ -1,7 +1,7 @@
 # Shorthand character sets
 
 Shorthand | Meaning | Equivalent
-- | - | -
+-|-|-
 \d | Digit | [0-9]
 \w | Word character | [a-zA-Z0-9_]
 \s | Whitespace | [ \t\r\n]
