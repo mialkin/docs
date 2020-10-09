@@ -1,4 +1,6 @@
-# Equals
+# Object.Equals
+
+Determines whether two object instances are equal.
 
 ```csharp
 using System.Runtime.CompilerServices;
@@ -31,3 +33,7 @@ namespace System
     }
 }
 ```
+
+## Links
+
+[↑ Object.Equals Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.equals)

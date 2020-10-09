@@ -627,6 +627,7 @@ graph map {
     system_classes -- system_delegate
     system_classes -- system_exception
     system_classes -- system_gc
+    system_classes -- system_event_args
     system_classes -- system_lazy_t
     system_classes -- system_marshal_by_ref_object
     system_classes -- system_math
@@ -639,8 +640,12 @@ graph map {
     system_delegate[label="Delegate"]
     system_delegate -- system_delegate_action_t
     system_delegate -- system_delegate_func_t
+    system_delegate -- system_delegate_event_handler
+    system_delegate -- system_delegate_multicast_delegate
     system_delegate_action_t[label="Action<T>"]
     system_delegate_func_t[label="Func<TResult>"]
+    system_delegate_event_handler[label="EventHandler"]
+    system_delegate_multicast_delegate[label="MulticastDelegate"]
 
     system_exception[label="Exception"]
     system_exception -- system_exception_system_exception
@@ -657,6 +662,8 @@ graph map {
     argument_exception -- argument_out_of_range_exception
     argument_null_exception[label="ArgumentNullException"]
     argument_out_of_range_exception[label="ArgumentOutOfRangeException"]
+
+    system_event_args[label="EventArgs"]
 
     system_gc[label="GC"]
     system_gc -- system_gc_properties

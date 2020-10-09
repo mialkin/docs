@@ -20,18 +20,10 @@ Covariance for generic type argument:
 IEnumerable<object> list = new List<string>();
 ```
 
-This "covariance" does not work:
-
-```csharp
-// List<object> list = new List<string>();
-```
-
-This "contravariance" does not work too:
-
-```csharp
-// IEnumerable<string> list = new List<object>();
-```
-
 ## Delegates
 
-Covariance and contravariance support for method groups allows for matching method signatures with delegate types. This enables you to assign to delegates not only methods that have matching signatures, but also methods that return more derived types (covariance) or that accept parameters that have less derived types (contravariance) than that specified by the delegate type. 
+Covariance and contravariance support for method groups allows for matching method signatures with delegate types. This enables you to assign to delegates not only methods that have matching signatures, but also methods that return more derived types (covariance) or that accept parameters that have less derived types (contravariance) than that specified by the delegate type.
+
+## Links
+
+[Variance in Generic Interfaces (C#)](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/covariance-contravariance/variance-in-generic-interfaces)
