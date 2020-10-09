@@ -45,6 +45,8 @@
   - [Constructor execution order](csharp/constructor%20execution%20order.md)
   - [Covariance and contravariance](csharp/covariance%20and%20contravariance.md)
   - [Nullable reference types](csharp/nullable%20reference%20types.md)
+  - Operators and expressions
+    - [Equality operator](csharp/equality%20operator.md)
 - .NET API
   - System
     - Classes
