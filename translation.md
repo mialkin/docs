@@ -2,7 +2,7 @@
 
 ## A
 
-* **Abstract factory** (design pattern) — Абстрактная фабрика (шаблон проектирования)
+* **Abstract factory** (design pattern) — Абстрактная фабрика
 * **Access modifier** — модификатор доступа
 * **Accessibility level** — уровень доступности
 * **Accessor** — метод доступа или акцессор
@@ -21,7 +21,7 @@
 * **Behavior diagram** — диаграмма поведения
 * **Behavioral design pattern** — поведенческий шаблон проектирования
 * **Block** — заблокировать/-ться
-* **Builder** (design pattern) — Строитель (шаблон проектирования)
+* **Builder** (design pattern) — Строитель
 
 ## C
 
@@ -34,7 +34,7 @@
 * **Commit** — фиксация
 * **Common Language Runtime** — общеязыковая исполняющая среда
 * **Common table expression** — обобщенное табличное выражение
-* **Composite** (design pattern) — Компоновщик (шаблон проектирования)
+* **Composite** (design pattern) — Компоновщик
 * **Concurrency** — параллелизм
 * **Contravariance** — контравариантность
 * **Coupling**  — связывание или связь
@@ -70,7 +70,7 @@
 
 * **Favor object composition over class inheritance** — отдавать предпочтение композиции перед наследованием
 * **Finalizer** — метод завершения или деструктор
-* **Flyweight** (design pattern) — Приспособленец (шаблон проектирования)
+* **Flyweight** (design pattern) — Приспособленец
 * **Foreground thread** — основной поток
 
 ## G
@@ -112,9 +112,9 @@
 
 ## M
 
-* **Mediator** (design pattern) — Посредник (шаблон проектирования)
+* **Mediator** (design pattern) — Посредник
 * **Member function** — функция-член (класса) или метод (класса)
-* **Memento** (design pattern) — Хранитель (шаблон проектирования)
+* **Memento** (design pattern) — Хранитель
 * **Message broker** — брокер сообщений
 * **Middleware** — ПО промежуточного слоя
 * **Modifier** — модификатор
@@ -133,9 +133,13 @@
 * **Partitioning** — секционирование
 * **Pipiline** — конвейер
 * **Paging** — подкачка страниц
-* **Proxy** (design pattern) — Заместитель (шаблон проектирования)
+* **Proxy** (design pattern) — Заместитель
 * **Publisher** — издатель
 * **Push** — отправлять
+
+## Q
+
+* **Query operator** (LINQ) — оператор запросов
 
 ## R
 
