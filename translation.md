@@ -140,6 +140,7 @@
 ## Q
 
 * **Query operator** (LINQ) — оператор запросов
+* **Query provider** (LINQ) — поставщик запросов
 
 ## R
 
