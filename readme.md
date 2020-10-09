@@ -76,13 +76,13 @@
       - Math
       - Object
         - Methods
-          - Equals
-          - GetHashCode
-          - GetType
-          - ToString
-          - Finalize
-          - MemberwiseClone
-          - ReferenceEquals
+          - [Equals](dotnet/api/object/Equals.md)
+          - [GetHashCode](dotnet/api/object/GetHashCode.md)
+          - [GetType](dotnet/api/object/GetType.md)
+          - [ToString](dotnet/api/object/ToString.md)
+          - [Finalize](dotnet/api/object/Finalize.md)
+          - [MemberwiseClone](dotnet/api/object/MemberwiseClone.md)
+          - [ReferenceEquals](dotnet/api/object/ReferenceEquals.md)
       - String
       - Tuple\<T1>
       - ValueType
