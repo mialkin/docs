@@ -111,3 +111,36 @@ Subject notified Observer Two
 Subject notified Observer Two
 --------
 ```
+
+## .NET interfaces
+
+`public interface IObservable<out T>`:
+
+```csharp
+namespace System
+{
+    public interface IObservable<out T>
+    {
+        IDisposable Subscribe(IObserver<T> observer);
+    }
+}
+```
+
+`public interface IObserver<in T>`:
+
+```csharp
+namespace System
+{
+    public interface IObserver<in T>
+    {
+        void OnNext(T value);
+        void OnError(Exception error);
+        void OnCompleted();
+    }
+}
+```
+
+## Links
+
+* [IObservable<T> Interface](https://docs.microsoft.com/en-us/dotnet/api/system.iobservable-1)
+* [IObserver<T> Interface](https://docs.microsoft.com/en-us/dotnet/api/system.iobserver-1)
