@@ -12,6 +12,8 @@ Parallel and asynchronous programming, async lambdas, async lock, IAsyncEnumerab
 
 * [TDD](https://www.youtube.com/watch?v=a7BvGBT0gFw)
 
+* [↑ Repository and unit of work](https://www.c-sharpcorner.com/article/repository-and-unitofwork-pattern-part-2/)
+
 * RabbitMQ
 
 * Docker, Kubernetes, logging
@@ -29,6 +31,8 @@ Parallel and asynchronous programming, async lambdas, async lock, IAsyncEnumerab
 * .NET CORE
 
 * ASP.NET CORE, logging, caching
+
+* [Unit test controller logic in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/testing?view=aspnetcore-3.1)
 
 * OAuth 2.0
 
