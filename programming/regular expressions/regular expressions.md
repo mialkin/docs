@@ -22,3 +22,4 @@ g/Regular Expression/p
     * [- character range](character%20range.md)
     * [^ negative character set](negative%20set.md)
     * [Shorthand character sets](shorthand%20sets.md)
+  * [* + ? Repetition metacharacters](repetition.md)
