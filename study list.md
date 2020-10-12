@@ -1,12 +1,14 @@
 # Study list
 
-Parallel and asynchronous programming, async lambdas, async lock
+Parallel and asynchronous programming, async lambdas, async lock, IAsyncEnumerable
 
-C#, LINQ, Expression trees, extension methods, EF migrations, covariant vs contravariant
-
-Data structures, time and space complexities
-
-Clean code
+* LINQ
+* Expression trees
+* Extension methods
+* EF migrations
+* covariant vs contravariant
+* [↑ Weak reference](https://docs.microsoft.com/en-us/dotnet/api/system.weakreference?view=netcore-3.1)
+* Data structures time and space complexities
 
 * [TDD](https://www.youtube.com/watch?v=a7BvGBT0gFw)
 
@@ -38,7 +40,7 @@ Clean code
 
 * JavaScript promises, async/await
 
-* Clean architecture, DDD
+* Clean architecture, Clean code, DDD
 
 * GraphQL
 
@@ -51,7 +53,5 @@ Clean code
 * Grafana, [Amixr.io](https://amixr.io), Graylog + Sentry
 
 * Managing browser history navigation with JavaScrypt
-
-* IAsyncEnumerable
 
 * Functional programming
