@@ -262,7 +262,7 @@
   - Polymorphism
 - Cryptography
   - Symmetric cryptography
-  - Assymetric cryptography
+  - [Asymmetric cryptography](cs/asymmetric%20cryptography.md)
     - Public key
     - Private key
     - Fingerprint
