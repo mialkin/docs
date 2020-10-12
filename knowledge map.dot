@@ -210,12 +210,14 @@ graph map {
     asymmetric_cryptography -- private_key
     asymmetric_cryptography -- fingerprint
     asymmetric_cryptography -- digital_certificate
+    asymmetric_cryptography -- digital_signature
     
     public_key[label="Public key"]
     private_key[label="Private key"]
-    fingerprint[label="Fingerprint"]
-    digital_certificate[label="Digital certificate"]
-    
+    fingerprint[label="Public key fingerprint"]
+    digital_certificate[label="Public key certificate (digital certificate)"]
+    digital_signature[label="Digital signature"]
+
     unix[label="UNIX"]
     unix -- macos
     unix -- linux
