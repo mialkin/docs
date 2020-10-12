@@ -47,6 +47,8 @@ Command | Description
 :-|:-
 docker ps | List all currently running containers
 docker ps -a | List all containers, including non-running
+docker create | The `docker create` command creates a writeable container layer over the specified image and prepares it for running the specified command. The container ID is then printed to STDOUT. This is similar to `docker run -d` except the container is never started. You can then use the `docker start <container_id>` command to start the container at any point.
+docker run | Run a command in a new container.<br>The `docker run` command first creates a writeable container layer over the specified image, and then starts it using the specified command.
 docker start \<container\> | Start one or more stopped containers
 docker attach \<container\> | Attach local standard input, output, and error streams to a running container. <br>To disattach without stoping container press <kbd>Ctrl</kbd> + <kbd>P</kbd>, <kbd>Ctrl</kbd> + <kbd>Q</kbd> (works only for containers started with `-it` option)
 docker stop \<container\> | Stop one or more running containers
