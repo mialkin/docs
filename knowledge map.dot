@@ -991,6 +991,7 @@ graph map {
     ci_tools[label="Tools"]
     ci_tools -- confluence
     ci_tools -- docker
+    ci_tools -- kubernetes
     ci_tools -- gitlab
     ci_tools -- jenkins
     ci_tools -- jira
@@ -999,13 +1000,11 @@ graph map {
 
     gitlab[label="GitLab"]
     docker[label="Docker"]
-    docker -- kubernetes
-
+    kubernetes[label="Kubernetes"]
     confluence[label="Confluence"]
     markdown[label="Markdown"]
     jira[label="Jira"]
     jenkins[label="Jenkins"]
-    kubernetes[label="Kubernetes"]
     teamcity[label="TeamCity"]
 
     databases[label="Databases"]    

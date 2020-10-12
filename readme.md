@@ -364,7 +364,7 @@
 - Tools
   - Confluence
   - [Docker](unix/docker.md)
-    - Kubernetes
+  - [Kubernetes](programming/kubernetes/kubernetes.md)
   - GitLab
   - Jenkins
   - Jira
