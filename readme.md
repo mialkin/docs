@@ -209,17 +209,10 @@
 
 ## Networking
 
-- OSI model
-- Internet protocol suite
-  - Transmission Control Protocol (TCP)
-  - Internet Protocol (IP)
 - HTTP
   - gRPC
     - Protobuf
 - WebSocket
-- FTP
-- TLS
-- SSH
 
 ## Programming
 
