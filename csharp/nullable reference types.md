@@ -1,6 +1,6 @@
 # Nullable reference types
 
-## Example 
+## Example
 
 ```csharp
 using System.Diagnostics.CodeAnalysis;
