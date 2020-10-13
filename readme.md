@@ -223,20 +223,8 @@
 
 ## Programming
 
-- IDE
-  - Microsoft Visual Studio
-    - ReSharper
-  - Rider
-  - Visual Studio Code
 - Git
-  - IDE
-    - GitHub Desktop
-    - Sourcetree
-    - TrotoiseGit
   - Git flows
-    - Gitflow
-    - GitLab Flow
-    - GitHub flow
     - [Ветки](programming/git/branches.md)
       - [Релиз](programming/git/release.md)
       - [Именование релизных веток](programming/git/branch%20names.md)
@@ -249,9 +237,6 @@
   - Integration testing
   - Load testing
   - Stress testing
-- Continious integration (CI)
-- Continious delivery (CD)
-- Continious deployment (CD)
 - Tools
   - Confluence
   - [Docker](unix/docker.md)
@@ -261,15 +246,6 @@
   - Jira
   - Markdown
   - TeamCity
-
-- Testing
-  - Unit testing
-    - Unit testing libraries
-      - NUnit
-    - Mock objects
-  - Integration testing
-  - Load testing
-  - Stress testing
 
 ## Software design
 
