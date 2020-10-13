@@ -41,4 +41,4 @@ Two main properties are required. First, the authenticity of a signature generat
 ## Links
 
 * [↑ X.509](https://en.wikipedia.org/wiki/X.509)
-* [Public key fingerprint](https://en.wikipedia.org/wiki/Public_key_fingerprint)
+* [↑ Public key fingerprint](https://en.wikipedia.org/wiki/Public_key_fingerprint)
