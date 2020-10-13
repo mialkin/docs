@@ -71,24 +71,6 @@
     - ConcurrentDictionary\<T>
     - ConcurrentQueue\<T>
     - ConcurrentStack\<T>
-  - System.Collections.Generic
-    - IEnumerable\<T>
-      - ICollection\<T>
-        - IDictionary\<TKey,TValue>
-          - Dictionary\<TKey,TValue>
-        - IList\<T>
-          - List\<T>
-        - ISet\<T>
-          - HashSet\<T>
-        - LinkedList\<T>
-      - IReadOnlyCollection\<T>
-        - IReadOnlyDictionary\<TKey,TValue>
-          - StoredDictionary\<TKey,TValue>
-          - SortedList\<TKey,TValue>
-        - IReadOnlyList\<T>
-        - Queue\<T>
-        - SortedSet\<T>
-        - Stack\<T>
   - System.IO
     - FileStream
     - MemoryStream
@@ -197,9 +179,6 @@
 - In-memory databases
   - Memcached
   - Redis
-- IDE
-  - SQL Server Managment Studio
-  - DataGrip
 
 ## Miscellaneous
 
@@ -231,14 +210,9 @@
   - Load testing
   - Stress testing
 - Tools
-  - Confluence
   - [Docker](unix/docker.md)
   - [Kubernetes](programming/kubernetes/kubernetes.md)
   - GitLab
-  - Jenkins
-  - Jira
-  - Markdown
-  - TeamCity
 
 ## Software design
 
@@ -299,46 +273,24 @@
   - Commands
     - System
       - [crontab](unix/crontab.md)
-      - date
       - [df](unix/df.md)
       - [du](unix/du.md)
       - free
       - [htop](unix/htop.md)
-      - sudo
-      - su
       - [systemctl](unix/systemctl.md)
-      - kill
       - [tmux](unix/tmux.md)
-      - uptime
-      - w
-      - watch
-      - who
-      - whoami
     - Files
-      - cat
-      - chmod
-      - chown
-      - grep
       - [less](unix/less.md)
-      - ls
-      - mkdir
-      - mv
-      - nano
-      - pwd
       - [rg](unix/rg.md)
-      - rm
       - [tail](unix/tail.md)
       - [tar](unix/tar.md)
       - [vim](unix/vim.md)
     - Network
-      - curl
-      - nc
       - [rsync](unix/rsync.md)
       - [scp](unix/scp.md)
       - [ssh](unix/ssh.md)
       - wget
 - [Nginx](unix/nginx.md)
-  - Certbot
 
 ## Web
 
