@@ -27,3 +27,4 @@ g/Regular Expression/p
   * [Greedy expressions](greedy%20expressions.md)
   * [*?, +?, {min,max}?, ?? lazy expressions](lazy%20expressions.md)
   * [( ) grouping metacharacters](grouping.md)
+  * [| alternation metacharacter](alternation.md)
