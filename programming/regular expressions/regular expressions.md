@@ -26,3 +26,4 @@ g/Regular Expression/p
   * [{min,max} quantified repetition](quantified%20repetition.md)
   * [Greedy expressions](greedy%20expressions.md)
   * [Lazy expressions](lazy%20expressions.md)
+  * [( ) grouping metacharacters](grouping.md)
