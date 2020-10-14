@@ -189,7 +189,7 @@
 ## Networking
 
 - HTTP
-  - gRPC
+  - [gRPC](network/grpc.md)
     - Protobuf
 - WebSocket
 
