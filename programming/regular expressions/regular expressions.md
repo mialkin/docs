@@ -19,7 +19,7 @@ g/Regular Expression/p
   * [. wildcard](wildcard.md)
   * [\ escaping](escaping.md)
   * [[] character set](set.md)
-    * [- character range](character%20range.md)
+    * [- character range](range.md)
     * [^ negative character set](negative%20set.md)
     * [\d \w \s shorthand character sets](shorthand%20sets.md)
   * [* + ? repetition metacharacters](repetition.md)
