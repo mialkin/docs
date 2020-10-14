@@ -301,4 +301,4 @@
   - Representational State Transfer (REST)
     - JSON Web Token (JWT)
     - OpenAPI
-    - OAuth 2.0
+    - [OAuth 2.0](web/oauth.md)
