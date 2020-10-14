@@ -118,7 +118,7 @@
             - Security
               - Authentication
               - Authorization
-            - SignalR
+            - [↑ SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr)
 
 ## Computer science
 
