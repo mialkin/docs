@@ -1,6 +1,6 @@
 # OAuth 2.0
 
-OAuth 2.0 is the protocol for authorization.
+**OAuth 2.0** is the protocol for authorization.
 
 OAuth is commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords.
 
