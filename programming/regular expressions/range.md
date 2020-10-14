@@ -1,6 +1,6 @@
 # Character range
 
-`-` metacharacter that indicates a range of characters. It represents all characters between two characters.
+`-` is a metacharacter that indicates a range of characters. It represents all characters between two characters.
 
 Dash is a metacharacter only inside a character set, a literal dash otherwise.
 
