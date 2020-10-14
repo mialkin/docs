@@ -232,32 +232,6 @@
     - Class diagram
     - Sequence diagram
 - [Design patterns](software%20design/design%20patterns/design%20patterns.md)
-  - Creational patterns
-    - Abstract factory
-    - Builder
-    - Factory method
-    - Prototype
-    - Singleton
-  - Structural patterns
-    - Adapter
-    - Bridge
-    - Composite
-    - Decorator
-    - Facade
-    - Flyweight
-    - Proxy
-  - Behavioral pattern
-    - Chain of Responsibility
-    - Command
-    - Interpreter
-    - Iterator
-    - Mediator
-    - Memento
-    - Observer
-    - State
-    - Strategy
-    - Template method
-    - Visitor
 
 ## Unix
 

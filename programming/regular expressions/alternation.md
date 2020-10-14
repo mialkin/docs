@@ -4,7 +4,9 @@ Metacharacter | Meaning
 -|-
 \| | Match previous or next expression
 
-The `|` metacharacter is an `OR` operator — it means either match expression on the left or match expression on the right. The `|` metacharacter is ordered — leftmost expression gets precendece.
+The `|` metacharacter is an `OR` operator — it means either match expression on the left or match expression on the right.
+
+The `|` metacharacter is ordered — leftmost expression gets precendece.
 
 You can daisy-chain alternation metacharacters together.
 
