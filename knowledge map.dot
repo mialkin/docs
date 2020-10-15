@@ -329,11 +329,17 @@ graph map {
     ip[label="Internet Protocol (IP)"]
 
     http[label="HTTP"]
-    http -- grpc
-    grpc[label="gRPC"]
-    grpc -- protobuf
+    http -- http1
+    http -- http2
+    http -- http3
+    http1[label="HTTP/1.1"]
+    http2[label="HTTP/2"]
+    http2 -- grpc
+    grpc[label="gRPC & Protobuf"]
+    http3[label="HTTP/3"]
+    http3 -- quic
+    quic[label="QUIC"]
 
-    protobuf[label="Protobuf"]
     websocket[label="WebSocket"]
     ftp[label="FTP"]
     tls[label="TLS"]
@@ -615,6 +621,7 @@ graph map {
     dot_net_api -- system_collections_concurrent
     dot_net_api -- system_collections_generic
     dot_net_api -- system_io
+    dot_net_api -- system_linq
     dot_net_api -- system_threading
     dot_net_api -- system_threading_tasks
 
@@ -730,8 +737,6 @@ graph map {
     icomparable_t[label="IComparable<T>"]
     idisposable[label="IDisposable"]
 
-
-
     system_structs[label="Structs"]
 
     system_collections_concurrent[label="System.Collections.Concurrent"]
@@ -790,6 +795,14 @@ graph map {
 
     file_stream[label="FileStream"]
     memory_stream[label="MemoryStream"]
+
+    system_linq[label="System.Linq"]
+    system_linq -- system_linq_interfaces
+    
+    system_linq_interfaces[label="Interfaces"]
+
+    system_linq_interfaces -- iqueryable_t
+    iqueryable_t[label="IQueryable<T>"]
 
     system_threading[label="System.Threading"]
     system_threading -- system_threading_classes
