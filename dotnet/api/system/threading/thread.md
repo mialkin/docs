@@ -1,6 +1,6 @@
 # Thread class
 
-## Current thread
+## Current thread info
 
 ```csharp
 using System;
@@ -12,14 +12,14 @@ namespace csdrafts
     {
         static void Main(string[] args)
         {
-            Console.WriteLine($"Thread.Name: {Thread.CurrentThread.Name}");
-            Console.WriteLine($"Thread.ManagedThreadId: {Thread.CurrentThread.ManagedThreadId}");
-            Console.WriteLine($"Thread.Priority: {Thread.CurrentThread.Priority}");
-            Console.WriteLine($"Thread.CurrentUICulture: {Thread.CurrentThread.CurrentUICulture}");
-            Console.WriteLine($"Thread.IsBackground: {Thread.CurrentThread.IsBackground}");
-            Console.WriteLine($"Thread.ThreadState: {Thread.CurrentThread.ThreadState}");
-            Console.WriteLine($"Thread.ExecutionContext: {Thread.CurrentThread.ExecutionContext}");
-            Console.WriteLine($"Thread.IsThreadPoolThread: {Thread.CurrentThread.IsThreadPoolThread}");
+            Console.WriteLine($"CurrentThread.Name: {Thread.CurrentThread.Name}");
+            Console.WriteLine($"CurrentThread.ManagedThreadId: {Thread.CurrentThread.ManagedThreadId}");
+            Console.WriteLine($"CurrentThread.Priority: {Thread.CurrentThread.Priority}");
+            Console.WriteLine($"CurrentThread.CurrentUICulture: {Thread.CurrentThread.CurrentUICulture}");
+            Console.WriteLine($"CurrentThread.IsBackground: {Thread.CurrentThread.IsBackground}");
+            Console.WriteLine($"CurrentThread.ThreadState: {Thread.CurrentThread.ThreadState}");
+            Console.WriteLine($"CurrentThread.ExecutionContext: {Thread.CurrentThread.ExecutionContext}");
+            Console.WriteLine($"CurrentThread.IsThreadPoolThread: {Thread.CurrentThread.IsThreadPoolThread}");
         }
     }
 }
@@ -28,12 +28,12 @@ namespace csdrafts
 Ouput:
 
 ```output
-Thread.Name: 
-Thread.ManagedThreadId: 1
-Thread.Priority: Normal
-Thread.CurrentUICulture: 
-Thread.IsBackground: False
-Thread.ThreadState: Running
-Thread.ExecutionContext: System.Threading.ExecutionContext
-Thread.IsThreadPoolThread: False
+CurrentThread.Name:
+CurrentThread.ManagedThreadId: 1
+CurrentThread.Priority: Normal
+CurrentThread.CurrentUICulture:
+CurrentThread.IsBackground: False
+CurrentThread.ThreadState: Running
+CurrentThread.ExecutionContext: System.Threading.ExecutionContext
+CurrentThread.IsThreadPoolThread: False
 ```
