@@ -20,12 +20,12 @@
 
 - C#
   - Boxing and unboxing
-  - [Access modifiers](csharp/access%20modifiers.md)
-  - [Constructor execution order](csharp/constructor%20execution%20order.md)
-  - [Covariance and contravariance](csharp/covariance%20and%20contravariance.md)
-  - [Nullable reference types](csharp/nullable%20reference%20types.md)
+  - [Access modifiers](dotnet/csharp/access%20modifiers.md)
+  - [Constructor execution order](dotnet/csharp/constructor%20execution%20order.md)
+  - [Covariance and contravariance](dotnet/csharp/covariance%20and%20contravariance.md)
+  - [Nullable reference types](dotnet/csharp/nullable%20reference%20types.md)
   - Operators and expressions
-    - [Equality operator](csharp/equality%20operator.md)
+    - [Equality operator](dotnet/csharp/equality%20operator.md)
 - .NET API
   - System
     - Classes
@@ -73,6 +73,9 @@
   - System.IO
     - FileStream
     - MemoryStream
+  - System.Linq
+    - Interfaces
+      - [IQueryable\<T>](dotnet/api/system/linq/iqueryable.md)
   - System.Threading
     - [Task Parallel Library (TPL)](dotnet/api/system/threading/tpl.md)
     - Classes
@@ -83,17 +86,17 @@
       - ReaderWriterSlimLock
       - Semaphore
       - SynchronizationContext
-      - Thread
+      - [Thread](dotnet/api/system/threading/thread.md)
       - ThreadPool
     - Structs
       - CancellationToken
       - SpinLock
       - SpinWait
   - System.Threading.Tasks
-    - Parallel
-    - Task
-    - Task\<TResult>
-    - TaskFactory
+    - Classes
+      - Parallel
+      - [Task & Task\<T>](dotnet/api/system/threading/tasks/task.md)
+      - TaskFactory
 - Common Language Infrastructure (CLI)
   - Common Intermediate Language (CIL)
   - CLI implementations
@@ -189,8 +192,8 @@
 ## Networking
 
 - HTTP
-  - [gRPC](network/grpc.md)
-    - Protobuf
+  - HTTP/2
+    - [gRPC & Protobuf](network/grpc.md)
 - WebSocket
 
 ## Programming
@@ -210,7 +213,7 @@
   - Load testing
   - Stress testing
 - Tools
-  - [Docker](unix/docker.md)
+  - [Docker](programming/docker/docker.md)
   - [Kubernetes](programming/kubernetes/kubernetes.md)
   - GitLab
 
@@ -240,16 +243,14 @@
   - CentOS
     - [YUM](unix/yum.md)
   - [Ubuntu](unix/ubuntu.md)
-    - APT
+    - [APT](unix/apt.md)
 - [shell](unix/shell.md)
-  - Bourne shell (sh)
   - [Bourne again shell (bash)](unix/bash.md)
   - Commands
     - System
       - [crontab](unix/crontab.md)
       - [df](unix/df.md)
       - [du](unix/du.md)
-      - free
       - [htop](unix/htop.md)
       - [systemctl](unix/systemctl.md)
       - [tmux](unix/tmux.md)
@@ -263,7 +264,6 @@
       - [rsync](unix/rsync.md)
       - [scp](unix/scp.md)
       - [ssh](unix/ssh.md)
-      - wget
 - [Nginx](unix/nginx.md)
 
 ## Web

@@ -1,4 +1,4 @@
-# Task\<T> class
+# Task & Task\<T> class
 
 By default, tasks execute on the current thread and delegate work to the operating system, as appropriate. Optionally, tasks can be explicitly requested to run on a separate thread via the `Task.Run` API.
 
