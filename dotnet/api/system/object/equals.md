@@ -1,4 +1,4 @@
-# Object.Equals
+# Object.Equals method
 
 Determines whether two object instances are equal.
 

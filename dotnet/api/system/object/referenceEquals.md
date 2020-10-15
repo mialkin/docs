@@ -1,4 +1,4 @@
-# Object.ReferenceEquals(Object, Object)
+# Object.ReferenceEquals(Object, Object) method
 
 Determines whether the specified Object instances are the same instance.
 

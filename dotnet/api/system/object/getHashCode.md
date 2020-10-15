@@ -1,4 +1,4 @@
-# GetHashCode
+# GetHashCode method
 
 ```csharp
 using System.Runtime.CompilerServices;

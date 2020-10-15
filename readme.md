@@ -48,13 +48,12 @@
       - MarshalByRefObject
       - Object
         - Methods
-          - [Equals](dotnet/api/object/Equals.md)
-          - [GetHashCode](dotnet/api/object/GetHashCode.md)
-          - [GetType](dotnet/api/object/GetType.md)
-          - [ToString](dotnet/api/object/ToString.md)
-          - [Finalize](dotnet/api/object/Finalize.md)
-          - [MemberwiseClone](dotnet/api/object/MemberwiseClone.md)
-          - [ReferenceEquals](dotnet/api/object/ReferenceEquals.md)
+          - [Equals](dotnet/api/system/object/equals.md)
+          - [GetType](dotnet/api/system//object/getType.md)
+          - [ToString](dotnet/api/system/object/toString.md)
+          - [Finalize](dotnet/api/system/object/finalize.md)
+          - [MemberwiseClone](dotnet/api/system/object/memberwiseClone.md)
+          - [ReferenceEquals](dotnet/api/system/object/referenceEquals.md)
       - String
       - Tuple\<T1>
       - ValueType
@@ -75,6 +74,7 @@
     - FileStream
     - MemoryStream
   - System.Threading
+    - [Task Parallel Library (TPL)](dotnet/api/system/threading/tpl.md)
     - Classes
       - Interlocked
       - Monitor

@@ -1,4 +1,4 @@
-# ToString
+# ToString method
 
 ```csharp
 namespace System

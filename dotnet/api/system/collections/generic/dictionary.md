@@ -1,6 +1,4 @@
-# Collections
-
-## Dictionary<TKey,TValue> Class
+# Dictionary<TKey,TValue> Class
 
 Each addition to the dictionary consists of a value and its associated key. Retrieving a value by using its key is very fast, close to O(1), because the `Dictionary<TKey,TValue>` class is implemented as a hash table.
 
