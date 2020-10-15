@@ -74,7 +74,7 @@
       - Semaphore
       - SynchronizationContext
       - [Thread](dotnet/api/system/threading/thread.md)
-      - ThreadPool
+      - [ThreadPool](dotnet/api/system/threading/threadpool.md)
     - Structs
       - CancellationToken
       - SpinLock
