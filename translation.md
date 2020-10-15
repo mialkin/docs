@@ -110,6 +110,7 @@
   * **Hold lock** — держать блокировку
 * **Localization** — локализация
 * **Logging** — ведение журнала
+* **Long polling** — длительный опрос
 * **Loose coupling** — слабая связь
 
 ## M
@@ -135,6 +136,7 @@
 * **Partitioning** — секционирование
 * **Pipiline** — конвейер
 * **Paging** — подкачка страниц
+* **Poll** — опрос, опрашивать
 * **Proxy** (design pattern) — Заместитель
 * **Publisher** — издатель
 * **Push** — отправлять
