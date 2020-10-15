@@ -2,20 +2,6 @@
 
 [Knowledge map (SVG)](https://raw.githubusercontent.com/mialkin/documentation/master/knowledge%20map.svg)
 
-## Table of cоntents
-
-- [.NET](#dotnet)
-- [Computer science](#computer-science)
-- [Databases](#databases)
-- [Miscellaneous](#miscellaneous)
-- [Networking](#networking)
-- [Programming](#programming)
-- [Software design](#software-design)
-- [Unix](#unix)
-- [Web](#web)
-
-<a name="dotnet"></a>
-
 ## .NET
 
 - C#
