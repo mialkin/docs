@@ -1,5 +1,7 @@
 # Thread class
 
+## Current thread
+
 ```csharp
 using System;
 using System.Threading;
@@ -10,14 +12,14 @@ namespace csdrafts
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Thread.Name: " + Thread.CurrentThread.Name);
-            Console.WriteLine("Thread.ManagedThreadId: " + Thread.CurrentThread.ManagedThreadId);
-            Console.WriteLine("Thread.Priority: " + Thread.CurrentThread.Priority);
-            Console.WriteLine("Thread.CurrentUICulture: " + Thread.CurrentThread.CurrentUICulture);
-            Console.WriteLine("Thread.IsBackground: " + Thread.CurrentThread.IsBackground);
-            Console.WriteLine("Thread.ThreadState: " + Thread.CurrentThread.ThreadState);
-            Console.WriteLine("Thread.ExecutionContext: " + Thread.CurrentThread.ExecutionContext);
-            Console.WriteLine("Thread.IsThreadPoolThread: " + Thread.CurrentThread.IsThreadPoolThread);
+            Console.WriteLine($"Thread.Name: {Thread.CurrentThread.Name}");
+            Console.WriteLine($"Thread.ManagedThreadId: {Thread.CurrentThread.ManagedThreadId}");
+            Console.WriteLine($"Thread.Priority: {Thread.CurrentThread.Priority}");
+            Console.WriteLine($"Thread.CurrentUICulture: {Thread.CurrentThread.CurrentUICulture}");
+            Console.WriteLine($"Thread.IsBackground: {Thread.CurrentThread.IsBackground}");
+            Console.WriteLine($"Thread.ThreadState: {Thread.CurrentThread.ThreadState}");
+            Console.WriteLine($"Thread.ExecutionContext: {Thread.CurrentThread.ExecutionContext}");
+            Console.WriteLine($"Thread.IsThreadPoolThread: {Thread.CurrentThread.IsThreadPoolThread}");
         }
     }
 }
