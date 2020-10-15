@@ -9,6 +9,7 @@
   - [Access modifiers](dotnet/csharp/access%20modifiers.md)
   - [Constructor execution order](dotnet/csharp/constructor%20execution%20order.md)
   - [Covariance and contravariance](dotnet/csharp/covariance%20and%20contravariance.md)
+  - [Lambda expression](dotnet/csharp/lambda%20expression.md)
   - [Nullable reference types](dotnet/csharp/nullable%20reference%20types.md)
   - [↑ Asynchronous programming patterns](https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/)
   - Operators and expressions
@@ -17,9 +18,10 @@
   - System
     - Classes
       - Array
-      - Delegate
+      - [Delegate](dotnet/api/system/delegate/delegate.md)
         - Action\<T>
         - Func\<TResult>
+        - [Event](dotnet/api/system/delegate/event.md)
       - Exception
       - GC
         - Properties
@@ -61,6 +63,7 @@
     - FileStream
     - MemoryStream
   - System.Linq
+    - [Expression tree](dotnet/api/system/linq/expression%20tree.md)
     - Interfaces
       - [IQueryable\<T>](dotnet/api/system/linq/iqueryable.md)
   - System.Threading

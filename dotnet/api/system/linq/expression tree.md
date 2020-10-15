@@ -2,6 +2,8 @@
 
 Expression trees represent code in a tree-like data structure, where each node is an expression, for example, a method call or a binary operation such as x < y.
 
+To create expression trees by using the API, use the [↑ Expression](https://docs.microsoft.com/en-us/dotnet/api/system.linq.expressions.expression?) class. This class contains static factory methods that create expression tree nodes of specific types.
+
 You can compile and run code represented by expression trees. This enables dynamic modification of executable code, the execution of LINQ queries in various databases, and the creation of dynamic queries.
 
 ## Creating expression trees from lambda expressions
@@ -14,18 +16,12 @@ The C# compiler can generate expression trees only from expression lambdas (or s
 Expression<Func<int, bool>> lambda = num => num < 5;
 ```
 
-## Creating expression trees by using the API
-
-To create expression trees by using the API, use the `Expression` class. This class contains static factory methods that create expression tree nodes of specific types.
-
 ## Immutability of Expression Trees
 
 Expression trees should be immutable. This means that if you want to modify an expression tree, you must construct a new expression tree by copying the existing one and replacing nodes in it.
 
-## Compiling expression trees
-
-The Expression<TDelegate> type provides the Compile method that compiles the code represented by an expression tree into an executable delegate.
-
 ## Links
+
+[↑ Expression Class](https://docs.microsoft.com/en-us/dotnet/api/system.linq.expressions.expression?)
 
 [↑ Expression Trees (C#)](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/expression-trees/)
