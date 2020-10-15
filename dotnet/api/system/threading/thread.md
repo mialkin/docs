@@ -16,15 +16,17 @@ class Program
 {
     static void Main(string[] args)
     {
+        Thread t = Thread.CurrentThread;
         Console.WriteLine("Current thread information:\n");
-        Console.WriteLine($"Name: {Thread.CurrentThread.Name}");
-        Console.WriteLine($"ManagedThreadId: {Thread.CurrentThread.ManagedThreadId}");
-        Console.WriteLine($"Priority: {Thread.CurrentThread.Priority}");
-        Console.WriteLine($"CurrentUICulture: {Thread.CurrentThread.CurrentUICulture}");
-        Console.WriteLine($"IsBackground: {Thread.CurrentThread.IsBackground}");
-        Console.WriteLine($"ThreadState: {Thread.CurrentThread.ThreadState}");
-        Console.WriteLine($"ExecutionContext: {Thread.CurrentThread.ExecutionContext}");
-        Console.WriteLine($"IsThreadPoolThread: {Thread.CurrentThread.IsThreadPoolThread}");
+
+        Console.WriteLine($"Name: {t.Name}");
+        Console.WriteLine($"ManagedThreadId: {t.ManagedThreadId}");
+        Console.WriteLine($"Priority: {t.Priority}");
+        Console.WriteLine($"CurrentUICulture: {t.CurrentUICulture}");
+        Console.WriteLine($"IsBackground: {t.IsBackground}");
+        Console.WriteLine($"ThreadState: {t.ThreadState}");
+        Console.WriteLine($"ExecutionContext: {t.ExecutionContext}");
+        Console.WriteLine($"IsThreadPoolThread: {t.IsThreadPoolThread}");
     }
 }
 ```
