@@ -183,7 +183,7 @@
 
 - HTTP
   - HTTP/2
-    - [gRPC & Protobuf](network/grpc.md)
+    - [gRPC](network/grpc.md)
 - WebSocket
 
 ## Programming
@@ -205,6 +205,7 @@
 - Tools
   - [Docker](programming/docker/docker.md)
   - [Kubernetes](programming/kubernetes/kubernetes.md)
+    - [kubectl](programming/kubernetes/kubectl.md)
   - GitLab
 
 ## Software design

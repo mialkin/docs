@@ -16,8 +16,14 @@ A **pod** is a set of running containers in your cluster.
 
 ## Control plane
 
-The control plane manages the worker nodes and the Pods in the cluster. In production environments, the control plane usually runs across multiple computers and a cluster usually runs multiple nodes, providing fault-tolerance and high availability.
-
 The **control plane** is a container orchestration layer that exposes the API and interfaces to define, deploy and manage the lifecycle of containers
 
+The control plane manages the worker nodes and the Pods in the cluster. In production environments, the control plane usually runs across multiple computers and a cluster usually runs multiple nodes, providing fault-tolerance and high availability.
+
 Control plane components can be run on any machine in the cluster. However, for simplicity, set up scripts typically start all control plane components on the same machine, and do not run user containers on this machine.
+
+## kubelet
+
+The **kubelet** is the primary "node agent" that runs on each node.
+
+The kubelet takes a set of PodSpecs that are provided through various mechanisms (primarily through the apiserver) and ensures that the containers described in those PodSpecs are running and healthy.
