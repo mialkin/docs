@@ -146,32 +146,33 @@
   - Consistency
   - Isolation
   - Durability
+- Cursor
+- Document databases
+  - CouchDB
+  - Elasticsearch
+  - MongoDB
+- Execution plan
+- Function
+- In-memory databases
+  - Memcached
+  - Redis
+- Relational databases
+  - Microsoft SQL Server
+  - Oracle Database
+  - SQLite
+  - PostgreSQL
+- Stored procedure
+- SQL
+  - T-SQL
+  - [PL/SQL](db/oracle/plsql.md)
+- [Terminology](db/terminology.md)
 - Transaction
   - Isolation levels
     - Read uncommitted
     - Read commmitted
     - Repeatable read
     - Serializable
-- Execution plan
 - Trigger
-- Stored procedure
-- Function
-- Cursor
-- SQL
-  - T-SQL
-  - PL/SQL
-- Document databases
-  - CouchDB
-  - Elasticsearch
-  - MongoDB
-- Relational databases
-  - Microsoft SQL Server
-  - Oracle Database
-  - SQLite
-  - PostgreSQL
-- In-memory databases
-  - Memcached
-  - Redis
 
 ## Miscellaneous
 
