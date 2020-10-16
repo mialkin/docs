@@ -230,6 +230,7 @@
   - [Kubernetes](programming/kubernetes/kubernetes.md)
     - [kubectl](programming/kubernetes/kubectl.md)
   - GitLab
+  - Apache Kafka
 
 ## Unix
 
