@@ -87,31 +87,27 @@
       - Parallel
       - [Task & Task\<T>](dotnet/api/system/threading/tasks/task.md)
       - TaskFactory
-- Common Language Infrastructure (CLI)
-  - Common Intermediate Language (CIL)
-  - CLI implementations
-    - .NET Standard
-      - .NET Core
-        - CoreCLR
-          - Memory managment
-            - Garbage collector (GC)
-            - Managed heap
-              - Small object heap (SOH)
-          - Just-in-time (JIT) compilation
-        - CoreFx
-          - ASP.NET Core
-            - Dependency injection
-            - Middleware
-            - Host
-            - Configuration
-            - Options
-            - Environments
-            - Logging
-            - Routing
-            - Security
-              - Authentication
-              - Authorization
-            - [↑ SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr)
+- .NET Core
+  - CoreCLR
+    - Memory managment
+      - Garbage collector (GC)
+      - Managed heap
+        - Small object heap (SOH)
+    - Just-in-time (JIT) compilation
+  - CoreFx
+    - [ASP.NET Core](dotnet/asp.net/asp.net%20core.md)
+      - Dependency injection
+      - Middleware
+      - Host
+      - Configuration
+      - Options
+      - Environments
+      - [Logging](dotnet/asp.net/logging.md)
+      - Routing
+      - Security
+        - Authentication
+        - Authorization
+      - [↑ SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr)
 
 ## Computer science
 
