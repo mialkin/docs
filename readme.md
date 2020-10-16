@@ -137,7 +137,7 @@
   - Polymorphism
 - Cryptography
   - Symmetric cryptography
-  - [Asymmetric cryptography](cs/asymmetric%20cryptography.md)
+  - [Asymmetric cryptography](computer%20science/asymmetric%20cryptography.md)
 
 ## Databases
 
@@ -233,7 +233,11 @@
 
 ## Unix
 
-- macOS
+- [macOS](unix/macos/macos.md)
+  - [Environment variables](unix/macos/environment%20variables.md)
+  - [Finder](unix/macos/finder.md)
+  - [Jekyll](unix/macos/jekyll.md)
+  - [Terminal](unix/macos/terminal.md)
 - Linux
   - CentOS
     - [YUM](unix/yum.md)
