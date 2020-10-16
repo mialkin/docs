@@ -254,6 +254,7 @@
       - [systemctl](unix/systemctl.md)
       - [tmux](unix/tmux.md)
     - Files
+      - [chmod](unix/chmod.md)
       - [less](unix/less.md)
       - [rg](unix/rg.md)
       - [tail](unix/tail.md)
