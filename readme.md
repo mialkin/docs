@@ -204,6 +204,7 @@
   - Stress testing
 - Tools
   - [Docker](programming/docker/docker.md)
+    - [Docker Compose](programming/docker/compose.md)
   - [Kubernetes](programming/kubernetes/kubernetes.md)
     - [kubectl](programming/kubernetes/kubectl.md)
   - GitLab
