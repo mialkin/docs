@@ -173,6 +173,7 @@
     - Repeatable read
     - Serializable
 - Trigger
+- Window function
 
 ## Miscellaneous
 
