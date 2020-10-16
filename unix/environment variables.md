@@ -1,17 +1,10 @@
 # Environment variables
 
-File with variables set by user.
+Global **environment variables** are available to all processes and they are named in uppercase, with words joined by underscore (_), e.g., JAVA_HOME.
 
-```sh
-cd
-vim .zprofile
-```
+## Locals
 
-After modifying .zprofile run `source .zprofile` to load new values immediately without having to reboot.
-
-## Environment variables vs locals
-
-Global environment variables (available to all processes) are named in uppercase, with words joined with underscore (_), e.g., JAVA_HOME. Local variables (available to the current process only) are in lowercase.
+Local variables aka **locals** are available to the current process only and they are in lowercase.
 
 ## Commands
 
@@ -23,3 +16,14 @@ a=1 | Set local variable `a`
 unset a | Unset local variable `a`
 export a=1 | Set environment variable `a`
 echo $varname | Print value of `varname` environment variable
+
+## Variables set by user
+
+To open file with variables set by user on macOS run:
+
+```sh
+cd
+vim .zprofile
+```
+
+After modifying .zprofile run `source .zprofile` to load new values immediately without having to reboot.

@@ -233,8 +233,8 @@
 
 ## Unix
 
+- [Environment variables](unix/environment%20variables.md)
 - [macOS](unix/macos/macos.md)
-  - [Environment variables](unix/macos/environment%20variables.md)
   - [Finder](unix/macos/finder.md)
   - [Jekyll](unix/macos/jekyll.md)
   - [Terminal](unix/macos/terminal.md)
