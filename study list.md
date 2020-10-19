@@ -66,3 +66,7 @@ Parallel and asynchronous programming, async lambdas, async lock, IAsyncEnumerab
 * Managing browser history navigation with JavaScrypt
 
 * Functional programming
+
+* OpenTracing
+
+* blue-green deployment
