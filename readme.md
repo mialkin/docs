@@ -270,5 +270,5 @@
 - Web services
   - Representational State Transfer (REST)
     - JSON Web Token (JWT)
-    - OpenAPI
+    - OpenAPI 3.0
     - [OAuth 2.0](web/oauth.md)
