@@ -116,6 +116,7 @@
 
 ## M
 
+* **Manual** — руководство, справочник
 * **Mediator** (design pattern) — Посредник
 * **Member function** — функция-член (класса) или метод (класса)
 * **Memento** (design pattern) — Хранитель
