@@ -273,3 +273,6 @@
     - JSON Web Token (JWT)
     - OpenAPI 3.0
     - [OAuth 2.0](web/oauth.md)
+- HTTP cookies
+  - Secure
+  - HttpOnly
