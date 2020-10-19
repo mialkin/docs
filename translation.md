@@ -60,6 +60,7 @@
 * **Document-oriented database** — документоориентированная база данных
 * **Document store** — документное хранилище
 * **Domain-driven design** — предметно-ориентированное проектирование
+* **Durability** — долговечность
 
 ## E
 
