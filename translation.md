@@ -60,6 +60,7 @@
 * **Document-oriented database** — документоориентированная база данных
 * **Document store** — документное хранилище
 * **Domain-driven design** — предметно-ориентированное проектирование
+* **Durability** — стойкость, долговечность
 
 ## E
 
@@ -115,6 +116,7 @@
 
 ## M
 
+* **Manual** — руководство, справочник
 * **Mediator** (design pattern) — Посредник
 * **Member function** — функция-член (класса) или метод (класса)
 * **Memento** (design pattern) — Хранитель
@@ -126,6 +128,7 @@
 
 ## O
 
+* **Offset** — сдвиг, смещение
 * **Open–closed principle** — приницип открытости/закрытости
 * **Open source** — открытый исходный код
 * **CORS (cross-origin resource sharing)** — совместное использование ресурсов между разными источниками
