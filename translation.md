@@ -52,6 +52,7 @@
 * **Delegate type** — тип делегата
 * **Dependency injection** — внедрение зависимости
 * **Dependency inversion principle** — принцип инверсии зависимостей
+* **Deployment** — развёртывание
 * **Derived** — производный, конкретный
   * **More derived** — более производный, более конкретный
   * **Less derived** — менее производный, менее конкретный
