@@ -17,7 +17,7 @@ Parallel and asynchronous programming, async lambdas, async lock, IAsyncEnumerab
 
 * RabbitMQ
 
-* Docker, Kubernetes, logging
+* Logging, Filebeat
 
 * Kafka
 
