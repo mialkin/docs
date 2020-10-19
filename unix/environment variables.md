@@ -17,9 +17,9 @@ unset a | Unset local variable `a`
 export a=1 | Set environment variable `a`
 echo $varname | Print value of `varname` environment variable
 
-## Variables set by user
+## macOS variables set by user
 
-To open file with variables set by user on macOS run:
+Environment variables set like this are only stored temporally. When you exit the running instance of bash by exiting the terminal, they get discarded. To save them permanentally, open the file:
 
 ```sh
 cd
@@ -27,3 +27,24 @@ vim .zprofile
 ```
 
 After modifying .zprofile run `source .zprofile` to load new values immediately without having to reboot.
+
+## Ubuntu global variables
+
+```sh
+cd
+sudo vim /etc/environment
+```
+
+Example of environment file:
+
+```text
+export ADMIN_USERNAME=admin
+export ADMIN_PASSWORD=password123
+```
+
+Load new values without having ot reboot:
+
+```bash
+source /etc/environment
+env
+```
