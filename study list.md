@@ -49,7 +49,7 @@ Parallel and asynchronous programming, async lambdas, async lock, IAsyncEnumerab
 
 * [↑ CQRS](https://www.youtube.com/watch?v=xKKVW94F2bc)
 
-* [Event sourcing](https://microservices.io/patterns/data/event-sourcing.html)
+* [↑ Event sourcing](https://microservices.io/patterns/data/event-sourcing.html)
 
 * JavaScript promises, async/await
 
