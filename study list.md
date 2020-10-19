@@ -70,3 +70,5 @@ Parallel and asynchronous programming, async lambdas, async lock, IAsyncEnumerab
 * OpenTracing
 
 * blue-green deployment
+
+* MapReduce
