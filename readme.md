@@ -143,6 +143,7 @@
   - Isolation
   - Durability
 - Cursor
+- Database normalization
 - Document databases
   - CouchDB
   - Elasticsearch
