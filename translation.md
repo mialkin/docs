@@ -38,7 +38,7 @@
 * **Composite** (design pattern) — Компоновщик
 * **Concurrency** — параллелизм
 * **Contravariance** — контравариантность
-* **Coupling**  — связывание или связь
+* **Coupling**  — связывание, зацепление
 * **Covariance** — ковариантность
 * **Creational design pattern** — порождающий шаблон проектирования
 
@@ -46,7 +46,7 @@
 
 * **Dataset** — набор данных
 * **Deadlock** — взаимная блокировка
-* **Decoupling** — уменьшение связанности системы
+* **Decoupling** — уменьшение связанности/зацепления
 * **Deep copy** — глубокая копия
 * **Delegate** — делегат
 * **Delegate type** — тип делегата
