@@ -76,3 +76,5 @@ Parallel and asynchronous programming, async lambdas, async lock, IAsyncEnumerab
 * MapReduce
 
 * [↑ Lighthouse](https://developers.google.com/web/tools/lighthouse)
+
+* XSS, CSRF
