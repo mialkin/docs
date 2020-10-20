@@ -32,7 +32,7 @@ List existing SSH keys:
 ls -al ~/.ssh
 ```
 
-## Setting alias in macOS
+## Alias in macOS
 
 ```bash
 alias mlkn='ssh website.abcd'
