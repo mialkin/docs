@@ -35,7 +35,7 @@ ls -al ~/.ssh
 ## Alias in macOS
 
 ```bash
-alias mlkn='ssh website.abcd'
+echo "alias mysite='ssh mywebsite.abcd'" >> ~/.zshrc
 ```
 
 
