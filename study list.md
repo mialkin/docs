@@ -17,7 +17,7 @@ Parallel and asynchronous programming, async lambdas, async lock, IAsyncEnumerab
 
 * RabbitMQ
 
-* Docker, Kubernetes, logging
+* Logging, Filebeat
 
 * Kafka
 
@@ -49,6 +49,8 @@ Parallel and asynchronous programming, async lambdas, async lock, IAsyncEnumerab
 
 * [↑ CQRS](https://www.youtube.com/watch?v=xKKVW94F2bc)
 
+* [↑ Event sourcing](https://microservices.io/patterns/data/event-sourcing.html)
+
 * JavaScript promises, async/await
 
 * Clean architecture, Clean code, DDD
@@ -66,3 +68,13 @@ Parallel and asynchronous programming, async lambdas, async lock, IAsyncEnumerab
 * Managing browser history navigation with JavaScrypt
 
 * Functional programming
+
+* OpenTracing
+
+* blue-green deployment
+
+* MapReduce
+
+* [↑ Lighthouse](https://developers.google.com/web/tools/lighthouse)
+
+* XSS, CSRF

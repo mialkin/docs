@@ -143,6 +143,7 @@
   - Isolation
   - Durability
 - Cursor
+- Database normalization
 - Document databases
   - CouchDB
   - Elasticsearch
@@ -184,6 +185,7 @@
   - KISS
   - YAGNI
   - [Composition over inheritance](software%20design/composition%20over%20inheritance.md)
+  - Idempotence
 - Unified Modeling Language (UML)
   - Diagrams
     - Class diagram
@@ -270,5 +272,8 @@
 - Web services
   - Representational State Transfer (REST)
     - JSON Web Token (JWT)
-    - OpenAPI
+    - OpenAPI 3.0
     - [OAuth 2.0](web/oauth.md)
+- HTTP cookies
+  - Secure
+  - HttpOnly

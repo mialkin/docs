@@ -4,7 +4,7 @@ The **Secure Shell** (**SSH**) is a cryptographic network protocol for operating
 
 ## Basic Syntax
 
-```sh
+```bash
 ssh remote_host
 ```
 
@@ -14,13 +14,13 @@ This command assumes that your username on the remote system is the same as your
 
 If your username is different on the remote system, you can specify it by using this syntax:
 
-```sh
+```bash
 ssh remote_username@remote_host
 ```
 
 To exit back into your local session, simply type:
 
-```sh
+```bash
 exit
 ```
 
@@ -28,15 +28,22 @@ exit
 
 List existing SSH keys:
 
-```sh
+```bash
 ls -al ~/.ssh
 ```
+
+## Alias in macOS
+
+```bash
+echo "alias mysite='ssh mywebsite.abcd'" >> ~/.zshrc
+```
+
 
 ## Known Hosts
 
 Open known_hosts file:
 
-```sh
+```bash
 vim ~/.ssh/known_hosts
 ```
 
