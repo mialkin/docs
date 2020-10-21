@@ -2,6 +2,8 @@
 
 [Knowledge map (SVG)](https://raw.githubusercontent.com/mialkin/documentation/master/knowledge%20map.svg)
 
+[Перевод технических терминов](translation.md)
+
 ## .NET
 
 - C#
@@ -192,19 +194,6 @@
     - Sequence diagram
 - [Design patterns](software%20design/design%20patterns/design%20patterns.md)
 
-## Miscellaneous
-
-- [Reading list](reading%20list.md)
-- [Study list](study%20list.md)
-- [Перевод технических терминов](translation.md)
-
-## Networking
-
-- HTTP
-  - HTTP/2
-    - [gRPC](network/grpc.md)
-- WebSocket
-
 ## Programming
 
 - Git
@@ -266,19 +255,24 @@
 
 ## Web
 
-- HTML
-  - [Viewport](web/html/viewport.md)
+- Cookies
+  - Secure
+  - HttpOnly
 - [CSS](web/css/css.md)
   - [Grid](web/css/grid.md)
   - [Media queries](web/css/media%20queries.md)
+  - Properties
+    - [line-height](web/css/properties/line-height.md)
   - [Selectors](web/css/selectors.md)
   - [Units](web/css/units.md)
-- JavaScript
-- Web services
-  - Representational State Transfer (REST)
-    - JSON Web Token (JWT)
-    - OpenAPI 3.0
-    - [OAuth 2.0](web/oauth.md)
-- HTTP cookies
-  - Secure
-  - HttpOnly
+- [gRPC](grpc.md)
+- [JavaScript](web/javascript/javascript.md)
+  - [Standard built-in objects](web/javascript/biltnobj/built-in%20objects.md)
+    - [Promise](web/javascript/biltnobj/promise.md)
+- HTML
+  - [Viewport](web/html/viewport.md)
+- Representational State Transfer (REST)
+  - JSON Web Token (JWT)
+  - OpenAPI 3.0
+  - [OAuth 2.0](web/oauth.md)
+- WebSocket
