@@ -4,9 +4,9 @@
 
 ## Commands
 
-Command | Description
--|-
-docker-compose up |
+| Command           | Description |
+|-------------------|-------------|
+| docker-compose up |
 
 ## Links
 
