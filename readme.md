@@ -268,7 +268,7 @@
 
 - HTML
   - [Viewport](web/html/viewport.md)
-- CSS
+- [CSS](web/css/css.md)
   - [Grid](web/css/grid.md)
   - [Media queries](web/css/media%20queries.md)
   - [Selectors](web/css/selectors.md)
