@@ -2,7 +2,7 @@
 
 ## Fr
 
-With CSS Grid Layout, we get a new flexible unit: the Fr unit. Fr is a fractional unit and `1fr` is for 1 part of the available space.
+With [CSS Grid](grid.md) layout, we get a new flexible unit: the Fr unit. Fr is a fractional unit and `1fr` is for 1 part of the available space.
 
 ```css
 .container {
