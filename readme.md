@@ -267,10 +267,11 @@
 ## Web
 
 - HTML
+  - [Viewport](web/html/viewport.md)
 - CSS
-  - [CSS Grid](web/css%20grid.md)
-  - [CSS Media Queries](web/css%20media%20queries.md)
-  - [Viewport](web/viewport.md)
+  - [CSS Grid](web/css/grid.md)
+  - [CSS Media Queries](web/css/media%20queries.md)
+  - [CSS units](web/css/units.md)
 - JavaScript
 - Web services
   - Representational State Transfer (REST)
