@@ -255,10 +255,15 @@
 
 ## Web
 
+- APIs
+  - [Fetch API](web/api/fetch.md)
+  - [History API](web/api/history.md)
 - Cookies
   - Secure
   - HttpOnly
 - [CSS](web/css/css.md)
+  - Elements
+    - [Replaced elements](web/css/elements/replaced%20elements.md)
   - [Grid](web/css/grid.md)
   - [Media queries](web/css/media%20queries.md)
   - Properties
