@@ -32,7 +32,7 @@
           - Collect(Int32)
           - CollectionCount(Int32)
           - GetGeneration(Object)
-          - GetTotalMemeory(Boolean)
+          - GetTotalMemory(Boolean)
           - SuppressFinalize(Object)
           - WaitForPendingFinalizers()
       - Lazy\<T>
