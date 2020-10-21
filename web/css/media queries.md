@@ -1,4 +1,4 @@
-# CSS Media Queries
+# CSS media queries
 
 Задает ширину viewport, плотность пикселей, поддержку каких-то технологий, в том числе технологий доступности (accessibility)
 
