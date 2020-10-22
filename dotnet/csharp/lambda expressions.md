@@ -14,7 +14,7 @@ A lambda expression is an expression of any of the following two forms:
 (input-parameters) => { <sequence-of-statements> }
 ```
 
-Any lambda expression can be converted to a [delegate](delegate.md) type. The delegate type to which a lambda expression can be converted is defined by the types of its parameters and return value. If a lambda expression doesn't return a value, it can be converted to one of the `Action` delegate types; otherwise, it can be converted to one of the `Func` delegate types.
+Any lambda expression can be converted to a [delegate](../api/system/delegate/delegate.md) type. The delegate type to which a lambda expression can be converted is defined by the types of its parameters and return value. If a lambda expression doesn't return a value, it can be converted to one of the `Action` delegate types; otherwise, it can be converted to one of the `Func` delegate types.
 
 ```csharp
 using System;
