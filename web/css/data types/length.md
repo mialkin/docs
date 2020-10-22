@@ -20,6 +20,10 @@ Font-relative lengths define the <length> value in terms of the size of a partic
 
 `em` represents the calculated font-size of the element. If used on the font-size property itself, it represents the inherited font-size of the element.
 
+#### **rem**
+
+Represents the `font-size` of the root element (typically `<html>`). When used within the root element `font-size`, it represents its initial value (a common browser default is `16px`, but user-defined preferences may modify this).
+
 ## Absolute length units
 
 #### **px**
