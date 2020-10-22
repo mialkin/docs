@@ -11,7 +11,7 @@
   - [Access modifiers](dotnet/csharp/access%20modifiers.md)
   - [Constructor execution order](dotnet/csharp/constructor%20execution%20order.md)
   - [Covariance and contravariance](dotnet/csharp/covariance%20and%20contravariance.md)
-  - [Lambda expression](dotnet/csharp/lambda%20expression.md)
+  - [Lambda expressions](dotnet/csharp/lambda%20expressions.md)
   - [Nullable reference types](dotnet/csharp/nullable%20reference%20types.md)
   - [↑ Asynchronous programming patterns](https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/)
   - Operators and expressions

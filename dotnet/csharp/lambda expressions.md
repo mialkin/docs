@@ -1,4 +1,4 @@
-# Lambda expression
+# Lambda expressions
 
 A lambda expression is an expression of any of the following two forms:
 
