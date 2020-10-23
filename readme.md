@@ -159,7 +159,7 @@
   - Microsoft SQL Server
   - Oracle Database
   - SQLite
-  - PostgreSQL
+  - [PostgreSQL](db/postgres/postgres.md)
 - Stored procedure
 - SQL
   - T-SQL
