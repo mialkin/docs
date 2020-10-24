@@ -10,12 +10,22 @@ g/Regular Expression/p
 
 `g` — search globally, `p` — output results, i.e. "print", so it makes it `G`lobal `R`egular `E`xpressi/ on `P`rint.
 
+## Metacharacters
+
+A **metacharacter** is a character that has special meaning. Metacharacters transform literal characters into powerful expressions:
+
+```text
+\ . * + - {} [] ^ $ | ? () : ! =
+```
+
+Metacharacters can have more than one meaning which depends on how they are used in context. Metacharacters have variations between different regex engines.
+
 ## Table of content
 
 * [Notation](notation.md)
 * [Modes](modes.md)
 * [Other special characters](other%20special%20characters.md)
-* [Metacharacters](metacharacters.md)
+* Metacharacters
   * [. wildcard](wildcard.md)
   * [\ escaping](escaping.md)
   * [[] character set](set.md)
@@ -28,3 +38,4 @@ g/Regular Expression/p
   * [*?, +?, {min,max}?, ?? lazy expressions](lazy%20expressions.md)
   * [( ) grouping metacharacters](grouping.md)
   * [| alternation metacharacter](alternation.md)
+  * [^ $ start and end anchors](start%20and%20end%20anchors.md)
