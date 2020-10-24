@@ -1,6 +1,6 @@
 # PostregSQL
 
-Starting a postgresql instance with the default `postgres` user and database are created in the entrypoint with `initdb`:
+Starting a postgresql instance. The default `postgres` user and database are created in the entrypoint with [↑ initdb](https://www.postgresql.org/docs/13/app-initdb.html):
 
 ```bash
 docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
@@ -14,15 +14,15 @@ docker exec -it some-postgres psql -U postgres
 
 ## Shortcuts
 
-| Shortcut | Description  |
-|----------|--------------|
-| CTRL + L | Clear screen. As an alternative use `\! clear` or `\! cls` commands |
+Shortcut | Description  
+---------|--------------
+CTRL + L | Clear screen. As an alternative use `\! clear` or `\! cls` commands
 
 ## Commands
 
-| Command     | Description        |
-|-------------|--------------------|
-| \l or \list | List all databases |
+Command     | Description
+------------|-------------
+\l or \list | List all databases
 
 ## Links
 
