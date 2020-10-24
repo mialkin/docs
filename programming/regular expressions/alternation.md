@@ -21,3 +21,17 @@ You can also use [grouping metacharacters](grouping.md) to group our alternation
 `/apple(juice|sauce)/` matches "applejuice" and "applesauce"
 
 `/w(ei|ie)rd/` matches "weird" and "wierd"
+
+## Repeating alternations
+
+You can repeat an alternation becuase it's just simply a [group](grouping.md), and group can be repeated:
+
+`/(AA|BB|CC){6}/` matches "AABBAACCAABB".
+
+## Nesting alternations
+
+We can nest alternations as well:
+
+`/(\d{2}([A-Z]{2}|-\d\w\d\w)|\d{4}(-\d{2}-[A-Z]{2,8}|_x[A-F]))/`
+
+ With nesting it becomes a trade-off between precision, readbility, and efficiency.
