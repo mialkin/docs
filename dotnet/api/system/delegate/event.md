@@ -41,4 +41,5 @@ To pass an object that does not contain any data, use the `Empty` field.
 
 ## Links
 
+[↑ event (C# reference)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/event)
 [↑ EventArgs Class](https://docs.microsoft.com/en-us/dotnet/api/system.eventargs)
