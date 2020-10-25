@@ -1,6 +1,14 @@
 # Delegate
 
-A delegate is a type that represents references to methods with a particular parameter list and return type.
+A delegate is a type that represents references to methods with a particular parameter list and return type. When you instantiate a delegate, you can associate its instance with any method with a compatible signature and return type. You can invoke (or call) the method through the delegate instance.
+
+Delegates are used to pass methods as arguments to other methods. Event handlers are nothing more than methods that are invoked through delegates. You create a custom method, and a class such as a windows control can call your method when a certain event occurs.
+
+Delegates are similar to C++ function pointers, but delegates are fully object-oriented, and unlike C++ pointers to member functions, delegates encapsulate both an object instance and a method.
+
+Delegates can be chained together; for example, multiple methods can be called on a single event.
+
+Methods do not have to match the delegate type exactly. For more information, see Using Variance in Delegates.
 
 The declaration of a delegate type is similar to a method signature. It has a return value and any number of parameters of any type:
 
