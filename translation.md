@@ -22,6 +22,7 @@
 * **Behavioral design pattern** — поведенческий шаблон проектирования
 * **Block** — заблокировать/-ться
 * **Builder** (design pattern) — Строитель
+* **Bus** — шина
 
 ## C
 
