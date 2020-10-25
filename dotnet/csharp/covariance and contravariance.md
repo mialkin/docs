@@ -4,15 +4,33 @@ Covariance enables implicit conversion of an array/delegate/generic argument of 
 
 ## Arrays
 
-Covariance for array:
+**Covariance**
+
+Covariance for arrays:
 
 ```csharp
-object[] array = new string[] { "one", "two", "three" };
+class Program
+{
+    static void Main(string[] args)
+    {
+        Rectangle[] array = { new Square() };
+    }
+}
+
+class Rectangle
+{
+}
+
+class Square : Rectangle
+{
+}
 ```
 
 Object `array` is not type safe and should not be used. It is used here just for demonstration of covariance.
 
 ## Generic type arguments
+
+**Covariance**
 
 A covariant interface allows its methods to return more derived types than those specified in the interface:
 
@@ -20,7 +38,79 @@ A covariant interface allows its methods to return more derived types than those
 IEnumerable<object> list = new List<string>();
 ```
 
+Another example which would not work without `out` keyword:
+
+```csharp
+class Program
+{
+    private delegate int Whatever(int value);
+
+    static void Main(string[] args)
+    {
+        IA<Rectangle> a = new A<Square>();
+    }
+}
+
+interface IA<out T>
+{
+    T Act();
+}
+
+class A<T> : IA<T>
+{
+    public T Act()
+    {
+        return default;
+    }
+}
+
+class Rectangle
+{
+}
+
+class Square : Rectangle
+{
+}
+```
+
+**Contravariance**
+
 A contravariant interface allows its methods to accept parameters of less derived types than those specified in the interface.
+
+Here is an example which would not work without `in` keyword:
+
+```csharp
+class Program
+{
+    private delegate int Whatever(int value);
+
+    static void Main(string[] args)
+    {
+        IA<Square> a = new A<Rectangle>();
+    }
+}
+
+interface IA<in T>
+{
+    void Act(T t);
+}
+
+class A<T> : IA<T>
+{
+    public void Act(T t)
+    {
+        
+    }
+}
+
+class Rectangle
+{
+}
+
+class Square : Rectangle
+{
+}
+```
 
 Variance in generic interfaces is supported for reference types only. Value types do not support variance. For example, `IEnumerable<int>` cannot be implicitly converted to `IEnumerable<object>`, because integers are represented by a value type:
 
