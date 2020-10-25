@@ -39,10 +39,60 @@ To create a custom event data class, create a class that derives from the `Event
 
 To pass an object that does not contain any data, use the `Empty` field.
 
+## Example
+
+```csharp
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        var a = new A();
+        a.MyEvent += OnMyEvent;
+
+        a.Act();
+    }
+
+    private static void OnMyEvent(object? sender, MyArg arg)
+    {
+        if (sender != null)
+            Console.WriteLine($"Sender: {sender.GetType()}");
+
+        Console.WriteLine($"Number: {arg.Number}");
+    }
+}
+
+class MyArg : EventArgs
+{
+    public int Number { get; set; }
+
+    public MyArg(int number)
+    {
+        Number = number;
+    }
+}
+
+class A
+{
+    public event EventHandler<MyArg> MyEvent;
+
+    public void Act()
+    {
+        MyEvent?.Invoke(this, new MyArg(70));
+    }
+}
+```
+
+Output:
+
+```output
+Sender: A
+Number: 70
+```
+
 ## Links
 
 [↑ event (C# reference)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/event)
-
-[↑ EventArgs Class](https://docs.microsoft.com/en-us/dotnet/api/system.eventargs)
 
 [↑ How to: Raise and Consume Events](https://docs.microsoft.com/en-us/dotnet/standard/events/how-to-raise-and-consume-events)
