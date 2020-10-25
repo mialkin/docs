@@ -45,11 +45,9 @@ Represents a multicast delegate; that is, a delegate that can have more than one
 public abstract class MulticastDelegate : Delegate
 ```
 
-## Remarks
+A useful property of delegate objects is that multiple objects can be assigned to one delegate instance by using the `+` operator. The multicast delegate contains a list of the assigned delegates. When the multicast delegate is called, it invokes the delegates in the list, in order. Only delegates of the same type can be combined.
 
-The `Delegate` class is the base class for delegate types. However, only the system and compilers can derive explicitly from the `Delegate` class or from the `MulticastDelegate` class. It is also not permissible to derive a new type from a delegate type. The `Delegate` class is not considered a delegate type; it is a class used to derive delegate types.
-
-## Example
+The `-` operator can be used to remove a component delegate from a multicast delegate:
 
 ```csharp
 using System;
@@ -103,6 +101,10 @@ x * 2 called with x = 5
 6
 10
 ```
+
+## Remarks
+
+The `Delegate` class is the base class for delegate types. However, only the system and compilers can derive explicitly from the `Delegate` class or from the `MulticastDelegate` class. It is also not permissible to derive a new type from a delegate type. The `Delegate` class is not considered a delegate type; it is a class used to derive delegate types.
 
 ## Links
 

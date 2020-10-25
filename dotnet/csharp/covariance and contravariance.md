@@ -30,6 +30,8 @@ Object `array` is not type safe and should not be used. It is used here just for
 
 ## Generic type arguments
 
+Generic type variance is restricted to generic interfaces and generic delegates.
+
 **Covariance**
 
 A covariant interface allows its methods to return more derived types than those specified in the interface:
