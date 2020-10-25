@@ -24,4 +24,4 @@ Expression trees should be immutable. This means that if you want to modify an e
 
 [↑ Expression Class](https://docs.microsoft.com/en-us/dotnet/api/system.linq.expressions.expression?)
 
-[↑ Expression Trees (C#)](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/expression-trees/)
+[↑ Expression Trees](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/expression-trees/)
