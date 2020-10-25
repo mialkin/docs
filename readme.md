@@ -113,10 +113,6 @@
 
 ## Computer science
 
-- Data structures
-  - Hash-based structures
-    - Hash table
-    - Hash tree
 - Algorithms
   - Sorting algorithms
     - Insertion sort
@@ -128,14 +124,16 @@
     - Time complexity
     - Space complexity
     - Big O notation
+- [Asymmetric cryptography](computer%20science/asymmetric%20cryptography.md)
+- Data structures
+  - Hash-based structures
+    - Hash table
+    - Hash tree
 - Object-oriented programming (OOP)
   - Abstraction
   - Incapsulation
   - Inheritance
   - Polymorphism
-- Cryptography
-  - Symmetric cryptography
-  - [Asymmetric cryptography](computer%20science/asymmetric%20cryptography.md)
 
 ## Databases
 
@@ -174,7 +172,7 @@
 - Trigger
 - Window function
 
-## Designing
+## Design
 
 - Design principles
   - SOLID
