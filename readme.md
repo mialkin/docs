@@ -9,15 +9,16 @@
 - C#
   - Boxing and unboxing
   - [Access modifiers](dotnet/csharp/access%20modifiers.md)
-  - [Asynchronous programming]()
+  - [Asynchronous programming](dotnet/csharp/asynchronous%20programming.md)
   - [Constructor execution order](dotnet/csharp/constructor%20execution%20order.md)
   - [Covariance and contravariance](dotnet/csharp/covariance%20and%20contravariance.md)
   - [Lambda expressions](dotnet/csharp/lambda%20expressions.md)
   - [Nullable reference types](dotnet/csharp/nullable%20reference%20types.md)
-  - [↑ Asynchronous programming patterns](https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/)
-  - [↑ Document your code with XML comments](https://docs.microsoft.com/en-us/dotnet/csharp/codedoc)
   - Operators and expressions
     - [Equality operator](dotnet/csharp/equality%20operator.md)
+  - [↑ Asynchronous programming patterns](https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/)
+  - [↑ Document your code with XML comments](https://docs.microsoft.com/en-us/dotnet/csharp/codedoc)
+  - [↑ Local functions](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/local-functions)
 - .NET API
   - System
     - Classes
