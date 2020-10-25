@@ -9,11 +9,13 @@
 - C#
   - Boxing and unboxing
   - [Access modifiers](dotnet/csharp/access%20modifiers.md)
+  - [Asynchronous programming]()
   - [Constructor execution order](dotnet/csharp/constructor%20execution%20order.md)
   - [Covariance and contravariance](dotnet/csharp/covariance%20and%20contravariance.md)
   - [Lambda expressions](dotnet/csharp/lambda%20expressions.md)
   - [Nullable reference types](dotnet/csharp/nullable%20reference%20types.md)
   - [↑ Asynchronous programming patterns](https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/)
+  - [↑ Document your code with XML comments](https://docs.microsoft.com/en-us/dotnet/csharp/codedoc)
   - Operators and expressions
     - [Equality operator](dotnet/csharp/equality%20operator.md)
 - .NET API
@@ -87,7 +89,9 @@
   - System.Threading.Tasks
     - Classes
       - Parallel
-      - [Task & Task\<T>](dotnet/api/system/threading/tasks/task.md)
+      - [Task](dotnet/api/system/threading/tasks/task/task.md)
+        - [Properties](dotnet/api/system/threading/tasks/task/properties.md)
+      - [Task\<TResult>](dotnet/api/system/threading/tasks/task_t/task.md)
       - TaskFactory
 - .NET Core
   - CoreCLR
@@ -186,7 +190,7 @@
   - YAGNI
   - [Composition over inheritance](software%20design/composition%20over%20inheritance.md)
   - Idempotence
-- Unified Modeling Language (UML)
+- Unified Modeling Language (UML) 
   - Diagrams
     - Class diagram
     - Sequence diagram
