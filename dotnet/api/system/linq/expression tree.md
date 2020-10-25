@@ -1,6 +1,6 @@
 # Expression tree
 
-Expression trees represent code in a tree-like data structure, where each node is an expression, for example, a method call or a binary operation such as x < y.
+Expression trees represent code in a tree-like data structure, where each node is an expression, for example, a method call or a binary operation such as `x < y`.
 
 To create expression trees by using the API, use the [↑ Expression](https://docs.microsoft.com/en-us/dotnet/api/system.linq.expressions.expression?) class. This class contains static factory methods that create expression tree nodes of specific types.
 
