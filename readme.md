@@ -11,6 +11,7 @@
   - [Access modifiers](dotnet/csharp/access%20modifiers.md)
   - [Asynchronous programming](dotnet/csharp/asynchronous%20programming.md)
   - [Attributes](dotnet/csharp/attributes.md)
+    - [Nullable static analysis attributes](dotnet/csharp/nullable%20static%20analysis%20attributes.md)
   - [Constructor execution order](dotnet/csharp/constructor%20execution%20order.md)
   - [Covariance and contravariance](dotnet/csharp/covariance%20and%20contravariance.md)
   - [Lambda expressions](dotnet/csharp/lambda%20expressions.md)
