@@ -276,7 +276,7 @@
     - [line-height](web/css/properties/line-height.md)
   - [Selectors](web/css/selectors.md)
   - [Units](web/css/units.md)
-- [gRPC](grpc.md)
+- [gRPC](web/grpc.md)
 - [JavaScript](web/javascript/javascript.md)
   - [Standard built-in objects](web/javascript/biltnobj/built-in%20objects.md)
     - [Promise](web/javascript/biltnobj/promise.md)
