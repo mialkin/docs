@@ -82,8 +82,6 @@ Here is an example which would not work without `in` keyword:
 ```csharp
 class Program
 {
-    private delegate int Whatever(int value);
-
     static void Main(string[] args)
     {
         IA<Square> a = new A<Rectangle>();
@@ -133,7 +131,46 @@ IEnumerable<Object> listObjects = new List<String>();
 
 ## Delegates
 
+**Covarinace and contravariance**
+
 Covariance and contravariance support for method groups allows for matching method signatures with [delegate](../api/system/delegate/delegate.md) types. This enables you to assign to delegates not only methods that have matching signatures, but also methods that return more derived types (covariance) or that accept parameters that have less derived types (contravariance) than that specified by the delegate type.
+
+```csharp
+using System;
+
+class Program
+{
+    private delegate Rectangle MyDelegate(Square square);
+
+    static void Main(string[] args)
+    {
+        MyDelegate d = D;
+        Type output = d.Invoke(new Square()).GetType();
+        Console.WriteLine($"Output type: {output}");
+    }
+
+    private static Square D(Rectangle rectangle)
+    {
+        Console.WriteLine($"Passed type: {rectangle.GetType()}");
+        return new Square();
+    }
+}
+
+class Rectangle
+{
+}
+
+class Square : Rectangle
+{
+}
+```
+
+Output:
+
+```output
+Passed type: Square
+Output type: Square
+```
 
 ## Links
 
