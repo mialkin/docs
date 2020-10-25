@@ -41,7 +41,7 @@ Output:
 15
 ```
 
-You can use lambda expressions in any code that requires instances of delegate types or [expression trees](expression%20tree.md), for example as an argument to the `Task.Run(Action)` method to pass the code that should be executed in the background.
+You can use lambda expressions in any code that requires instances of delegate types or [expression trees](../api/system/linq/expression%20tree.md), for example as an argument to the `Task.Run(Action)` method to pass the code that should be executed in the background.
 
 ## Links
 
