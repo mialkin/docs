@@ -43,3 +43,4 @@ To pass an object that does not contain any data, use the `Empty` field.
 
 [↑ event (C# reference)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/event)
 [↑ EventArgs Class](https://docs.microsoft.com/en-us/dotnet/api/system.eventargs)
+[↑ How to: Raise and Consume Events](https://docs.microsoft.com/en-us/dotnet/standard/events/how-to-raise-and-consume-events)
