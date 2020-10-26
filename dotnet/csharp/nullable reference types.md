@@ -1,11 +1,9 @@
 # Nullable reference types
 
-C# 8.0 introduces **nullable reference types** and **non-nullable reference types** that enable you to make important statements about the properties for reference type variables:
+All code you wrote before C# 8 introduced nullable reference types was *null oblivious*. That means any reference type variable may be `null`, but null checks aren't required. Once your code is *nullable aware*, those rules change. Reference types should never be the `null` value, and nullable reference types must be checked against `null` before being dereferenced.
 
-* A reference isn't supposed to be null
-* A reference may be null
-
-A nullable reference type is noted using the same syntax as nullable value types: a `?` is appended to the type of the variable. For example, the following variable declaration represents a nullable string variable, name:
+C# 8.0 introduces **nullable reference types** and **non-nullable reference types**.
+A nullable reference type is noted using the same syntax as nullable value types: a `?` is appended to the type of the variable:
 
 ```csharp
 string? name;
