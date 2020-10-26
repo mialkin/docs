@@ -93,6 +93,8 @@ Number: 70
 
 ## Links
 
+[↑ C# in Depth — Delegates and Events](https://csharpindepth.com/Articles/Events)
+
 [↑ event (C# reference)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/event)
 
 [↑ How to: Raise and Consume Events](https://docs.microsoft.com/en-us/dotnet/standard/events/how-to-raise-and-consume-events)

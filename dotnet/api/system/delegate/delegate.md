@@ -108,4 +108,6 @@ The `Delegate` class is the base class for delegate types. However, only the sys
 
 ## Links
 
+[↑ C# in Depth — Delegates and Events](https://csharpindepth.com/Articles/Events)
+
 [↑ Delegate Class](https://docs.microsoft.com/en-us/dotnet/api/system.delegate)
