@@ -8,7 +8,11 @@ All the examples assume C# 8.0 or newer, and the code is in a [↑ nullable cont
 
 [DisallowNull](#disallownull)
 
+[MaybeNull](#maybenull)
 
+[NotNull](#notnull)
+
+[DoesNotReturn](#doesnotreturn)
 
 Imagine your library has the following API to retrieve a resource string:
 
@@ -151,12 +155,12 @@ class Example
     static void Main()
     {
         A<B> a = new A<B>();
-        
+
         B? b = a.Act();
     }
 }
 
-class A<T> where T : class 
+class A<T> where T : class
 {
     public T? Act()
     {
@@ -166,6 +170,68 @@ class A<T> where T : class
 
 class B
 {
+}
+```
+
+## NotNull
+
+Specifies that an output is not `null` even if the corresponding type allows it. Specifies that an input argument was not `null` when the call returns.
+
+The `NotNull` attribute is most useful for `ref` and `out` arguments where `null` may be passed as an argument, but that argument is guaranteed to be not `null` when the method returns.
+
+In the following example compiler generates an error "Program.cs(22, 5): [CS8777] Parameter 'b' must have a non-null value when exiting":
+
+```csharp
+using System;
+using System.Diagnostics.CodeAnalysis;
+
+class Example
+{
+    static void Main()
+    {
+        A a = new A();
+        B b = new B();
+
+        a.Act(ref b);
+    }
+}
+
+class A
+{
+    public void Act([NotNull] ref B? b)
+    {
+        // b = new B();
+        Console.WriteLine(".");
+    }
+}
+
+class B
+{
+}
+```
+
+## DoesNotReturn
+
+Specifies that a method that will never return under any circumstance.
+
+Some methods, typically exception helpers or other utility methods, always exit by throwing an exception. In this case, you can add the `DoesNotReturn` attribute to the method declaration. The compiler helps you in three ways. First, the compiler issues a warning if there is a path where the method can exit without throwing an exception. Second, the compiler marks any code after a call to that method as unreachable, until an appropriate catch clause is encountered:
+
+```csharp
+[DoesNotReturn]
+private void FailFast()
+{
+    throw new InvalidOperationException();
+}
+
+public void SetState(object containedField)
+{
+    if (!isInitialized)
+    {
+        FailFast();
+    }
+
+    // unreachable code:
+    _field = containedField;
 }
 ```
 
