@@ -19,6 +19,7 @@
   - Operators and expressions
     - [Equality operator](dotnet/csharp/equality%20operator.md)
   - [Reflection](dotnet/csharp/reflection.md)
+  - [Triks](dotnet/csharp/tricks.md)
   - [↑ Asynchronous programming patterns](https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/)
   - [↑ Document your code with XML comments](https://docs.microsoft.com/en-us/dotnet/csharp/codedoc)
   - [↑ Local functions](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/local-functions)
