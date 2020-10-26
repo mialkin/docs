@@ -2,6 +2,8 @@
 
 ## `ref` vs `out`
 
+`ref` tells the compiler that the object is initialized before entering the function, while `out` tells the compiler that the object will be initialized inside the function.
+
 The `ref` modifier means that:
 
 - The value is already set
