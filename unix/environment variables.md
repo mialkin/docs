@@ -24,13 +24,10 @@ Environment variables set like this are only stored temporally. When you exit th
 ```bash
 cd
 vim .zprofile
-```
-
-To load new values immediately without having to reboot run:
-
-```bash
 source .zprofile
 ```
+
+The `source .zprofile` command loads new values immediately without having to reboot system.
 
 ## Ubuntu global variables
 
