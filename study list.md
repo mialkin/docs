@@ -4,7 +4,6 @@ Parallel and asynchronous programming, async lambdas, async lock, IAsyncEnumerab
 * [↑ Dissecting the async methods in C#](https://devblogs.microsoft.com/premier-developer/dissecting-the-async-methods-in-c/)
 
 * LINQ
-* Expression trees
 * Extension methods
 * EF migrations
 * covariant vs contravariant
@@ -27,11 +26,8 @@ Parallel and asynchronous programming, async lambdas, async lock, IAsyncEnumerab
   * [↑ Window functions](https://docs.microsoft.com/en-us/sql/t-sql/queries/select-over-clause-transact-sql?view=sql-server-ver15)
   * Sharding, partitioning, replication, clustering
 
-* CLR
 
-* .NET CORE
-
-* ASP.NET CORE, logging, caching
+* ASP.NET CORE caching
 
 * [↑ Unit test controller logic in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/testing?view=aspnetcore-3.1)
 
@@ -40,8 +36,6 @@ Parallel and asynchronous programming, async lambdas, async lock, IAsyncEnumerab
 * [↑ Integration tests in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests)
 
 * [↑ Coveralls](https://devblogs.microsoft.com/premier-developer/dissecting-the-async-methods-in-c/)
-
-* OAuth 2.0
 
 * WebSocket protocol
 
@@ -78,3 +72,5 @@ Parallel and asynchronous programming, async lambdas, async lock, IAsyncEnumerab
 * [↑ Lighthouse](https://developers.google.com/web/tools/lighthouse)
 
 * XSS, CSRF
+
+* [Яндекс.Танк](https://yandex.ru/dev/tank/)
