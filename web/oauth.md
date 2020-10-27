@@ -34,4 +34,9 @@ https://example.abcd/my_redirect_uri#access_token=AgAAAAALzs92AAaMUcdTBr8wZExbk3
 
 где значение `AgAAAAALzs92AAaMUcdTBr8wZExbk3Yj-vs-_lP` — это токен доступа.
 
-3\. Используя полученный токен можно попорбовать отправить запросы, например, на [↑ Полигоне](https://yandex.ru/dev/disk/poligon/) Яндекс.Диска.
+3\. Используя полученный токен можно попорбовать отправить запросы, например, на [↑ Полигоне](https://yandex.ru/dev/disk/poligon/) Яндекс.Диска:
+
+```bash
+curl -X GET --header 'Accept: application/json' --header 'Authorization: OAuth AgAAAAALzs92AAaMUcdTBr8wZExbk3Yj-vs-_lP' 'https://cloud-api.yandex.net/v1/disk'
+
+```
