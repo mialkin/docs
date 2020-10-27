@@ -21,16 +21,17 @@ echo $varname | Print value of `varname` environment variable
 
 Environment variables set like this are only stored temporally. When you exit the running instance of bash by exiting the terminal, they get discarded. To save them permanentally, open the file:
 
-```sh
+```bash
 cd
 vim .zprofile
+source .zprofile
 ```
 
-After modifying .zprofile run `source .zprofile` to load new values immediately without having to reboot.
+The `source .zprofile` command loads new values immediately without having to reboot system.
 
 ## Ubuntu global variables
 
-```sh
+```bash
 cd
 sudo vim /etc/environment
 ```
