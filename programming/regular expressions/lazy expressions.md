@@ -16,7 +16,7 @@ Metacharacter | Meaning
 
 ## Greedines
 
-Regular expression engines are eager. 
+Regular expression engines are eager.
 
 Greedines makes regular expression engines match as much characters as possible before giving control to the next expression part:
 
