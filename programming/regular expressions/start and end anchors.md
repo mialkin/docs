@@ -53,11 +53,11 @@ milkshake
 sweet potatoes
 ```
 
-## Languages support of multiline
+## Language support of multiline
 
 Most languages offer a multiline option:
 
-**.NET**:
+**C#**:
   
 ```csharp
 Regex.Match("string" , "^regex$", RegexOptions.Multiline)
