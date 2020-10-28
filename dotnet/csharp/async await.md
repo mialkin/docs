@@ -2,9 +2,9 @@
 
 ## Practical advices
 
-- Avoid `.Result()` and `.Wait()`. Use `await` for *asynchronous* code and `.GetAwaiter().GetResult()` for *synchronous* code
+- Avoid `.Result()` and `.Wait()`. Use `await` for *asynchronous* code and `.GetAwaiter().GetResult()` for *synchronous* code.
 
-- Use `.ConfigureAwait(false)` when the calling thread isn't needed. Most business logic does not need to return to the calling thread
+- Use `.ConfigureAwait(false)` when the calling thread isn't needed. Most business logic does not need to return to the calling thread.
 
 - Avoid `return await`. When `await` is only used in the `return` statement, return the `Task` instead, but don't do this inside of `try/catch` or `using()` blocks.
 
