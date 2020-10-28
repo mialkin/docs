@@ -40,7 +40,3 @@ https://example.abcd/my_redirect_uri#access_token=AgAAAAALzs92AAaMUcdTBr8wZExbk3
 curl -X GET --header 'Accept: application/json' --header 'Authorization: OAuth AgAAAAALzs92AAaMUcdTBr8wZExbk3Yj-vs-_lP' 'https://cloud-api.yandex.net/v1/disk'
 
 ```
-
-## Ссылки
-
-[↑ Документация методов API Яндекс.Диска](https://yandex.ru/dev/disk/doc/dg/concepts/about.html)
