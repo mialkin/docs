@@ -16,17 +16,19 @@ Metacharacter | Meaning
 
 ## Greedines
 
-Greedy strategy matches as much characters as possible before giving control to the next expression part:
+Regular expression engines are eager. 
+
+Greedines makes regular expression engines match as much characters as possible before giving control to the next expression part:
 
 `/peanut(butter)?/` will match **peanutbutter**.
 
-## Lazyness
+Regular expression engines are lazy:
 
-The `?` instructs quantifier to use a "lazy strategy" for making choices. Lazy strategy matches as little as possible before giving control to the next:
+`/(peanut|peanutbutter)/` will match **peanut**butter, not **peanutbutter**.
 
-`/(peanut|peanutbutter)` will match **peanut**butter, not **peanutbutter**.
+## Lazy strategy
 
-## Examples
+The `?` instructs quantifier to use a "lazy strategy" for making choices:
 
 `/\w*?\d{3}/`
 
