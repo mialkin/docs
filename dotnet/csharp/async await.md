@@ -38,4 +38,14 @@ private async void downloadBtn_Click(object sender, RoutedEventArgs e)
 
 bad behavior will result. The same would go for code in a classic ASP.NET app reliant on `HttpContext.Current`; using ConfigureAwait(false) and then trying to use `HttpContext.Current` is likely going to result in problems.
 
+## Does ConfigureAwait(false) guarantee the callback won’t be run in the original context?
+
+No. It guarantees it won’t be queued back to the original context, but that doesn’t mean the code after an `await task.ConfigureAwait(false)` won’t still run in the original context. That’s because awaits on already-completed awaitables just keep running past the `await` synchronously rather than forcing anything to be queued back. So, if you `await` a task that’s already completed by the time it’s awaited, regardless of whether you used `ConfigureAwait(false)`, the code immediately after this will continue to execute on the current thread in whatever context is still current.
+
+## Is it ok to use ConfigureAwait(false) only on the first await in my method and not on the rest?
+
+In general, no. If the `await task.ConfigureAwait(false)` involves a task that’s already completed by the time it’s awaited (which is actually incredibly common), then the `ConfigureAwait(false)` will be meaningless, as the thread continues to execute code in the method after this and still in the same context that was there previously.
+
+One notable exception to this is if you know that the first await will always complete asynchronously and the thing being awaited will invoke its callback in an environment free of a custom `SynchronizationContext` or a `TaskScheduler`.
+
 [↑ ConfigureAwait FAQ](https://devblogs.microsoft.com/dotnet/configureawait-faq/)
