@@ -6,7 +6,6 @@ Parallel and asynchronous programming, async lambdas, async lock, IAsyncEnumerab
 * LINQ
 * Extension methods
 * EF migrations
-* covariant vs contravariant
 * [↑ Weak reference](https://docs.microsoft.com/en-us/dotnet/api/system.weakreference?view=netcore-3.1)
 * Data structures time and space complexities
 

@@ -2,7 +2,7 @@
 
 ## Practical advices
 
-- Avoid `.Result()` and `.Wait()`. Use `await` for *asynchronous* code and `.GetAwaiter().GetResult()` for *synchronous* code.
+- Avoid `.Result()` and `.Wait()`. Use `await` for *asynchronous* code and `.GetAwaiter().GetResult()` for *synchronous* code. `.GetAwaiter().GetResult()` is effectively the same as `.Wait()`, it's going to block, but it will unwrap the exception, if the exception is thrown inside running method.
 
 - Use `.ConfigureAwait(false)` when the calling thread isn't needed. Most business logic does not need to return to the calling thread.
 
