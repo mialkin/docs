@@ -40,3 +40,4 @@ Metacharacters can have more than one meaning which depends on how they are used
   * [| alternation metacharacter](alternation.md)
   * [^ $ start and end anchors](start%20and%20end%20anchors.md)
   * [\b \B word boundaries](word%20boundaries.md)
+  * [\1 through \9 backreferences](backreferences.md)

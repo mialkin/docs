@@ -5,7 +5,7 @@ Meatacharacter | Meaning
 ( | Start grouped expression
 ) | End grouped expression
 
-We put parentheses around things that we want to group together. Putting this metacharacters around either a couple of different characters or couple of different [character sets](set.md) allow us applying repetition to that group.
+We put parentheses around things that we want to group together. Putting this metacharacters around either a couple of different characters or couple of different [character sets](set.md) allow us [applying repetition](backreferences.md) to that group.
 
 Grouping metacharacters make reading regular expression easier to read in some cases.
 
