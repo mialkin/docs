@@ -22,3 +22,8 @@ Some regex engines support `\1` through `\99`.
 
 ## Examples
 
+`/(apples) to \1/` matches "apples to apples"
+
+`/(ab)(cd)(ef)\3\2\1/` matches "abcdefefcdab"
+
+`/(<i|em>).+?</\1>/` matches "\<i>Hello\</i>" and "\<em>Hello\</em>", does not match "\<i>Hello\</em>" and "\<em>Hello\</i>"
