@@ -53,3 +53,19 @@ Let's take a look at two special cases when backreferences refer to optional exp
 `/(A?)B/` matches "B" and does not capture anything
 
 `/(A)?B\1/` matches "ABA" but not "B" — that's true in every regex engine except JavaScript.
+
+## Find and replace using backreferences
+
+In order to do find and replace we will either need a programming language or a text editor.
+
+Steps:
+
+1. Create a regular expression that matches target data
+2. Add capturing groups
+3. Write the replacement string. Use all captures; may need to use $1 instead of \1.
+
+### Example
+
+Find: `/^(\d{1,2}),([\w .]+?)([\w]+?),(\d{4})`
+
+Replace: $1,$3,$2,$4
