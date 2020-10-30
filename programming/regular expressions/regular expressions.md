@@ -42,3 +42,5 @@ Metacharacters can have more than one meaning which depends on how they are used
   * [\b \B word boundaries](word%20boundaries.md)
   * [\1 through \9 backreferences](backreferences.md)
   * [?: non-capturing group expressions](non-capturing.md)
+  * Lookaround assertions
+    * [?= positive lookahead assertions](positive%20lookahead%20assertions.md)
