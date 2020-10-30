@@ -73,6 +73,3 @@ class Example
     }
 }
 ```
-
-## Example 2
-
