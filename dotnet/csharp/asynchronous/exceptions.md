@@ -1,6 +1,8 @@
 # Exceptions in Tasks
 
-The following code exists program succesfully without catching exception:
+## Example 1
+
+The following program exits succesfully without catching exception:
 
 ```csharp
 using System;
@@ -71,3 +73,6 @@ class Example
     }
 }
 ```
+
+## Example 2
+
