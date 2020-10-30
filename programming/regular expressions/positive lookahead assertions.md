@@ -38,6 +38,6 @@ In the above we are talking about what *gets matched*, not what *gets captured*
 
 Here we want to find all words that are followed by a comma:
 
-`\b[A-Za-z']\b+(?=,)`
+`/\b[A-Za-z']\b+(?=,)/`
 
 So it will match words only, not comma.
