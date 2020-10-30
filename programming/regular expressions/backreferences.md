@@ -27,3 +27,29 @@ Some regex engines support `\1` through `\99`.
 `/(ab)(cd)(ef)\3\2\1/` matches "abcdefefcdab"
 
 `/(<i|em>).+?</\1>/` matches "\<i>Hello\</i>" and "\<em>Hello\</em>", does not match "\<i>Hello\</em>" and "\<em>Hello\</i>"
+
+## Backreferences to optional expressions
+
+Let's take a look at two special cases when backreferences refer to optional expressions.
+
+### 1. Element is optional, but group/capture is not optional
+
+`/A?B/` matches "AB" and "B"
+
+`/(A?)B/` matches "AB" and captures "A"
+
+`/(A?)B/` matches "B" and captures "", i.e. nothing, empty string
+
+`/(A?)B\1/` matches "ABA" and "B"
+
+`/(A?)B\1C/` matches "ABAC" and "BC"
+
+### 2. Element is not optional, but group/capture is optional
+
+`/A?B/` matches "AB" and "B"
+
+`/(A?)B/` matches "AB" and captures "A"
+
+`/(A?)B/` matches "B" and does not capture anything
+
+`/(A)?B\1/` matches "ABA" but not "B" — that's true in every regex engine except JavaScript.
