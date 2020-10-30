@@ -1,8 +1,6 @@
-# Tricks
+# Exceptions in Tasks
 
-## Exceptions
-
-Exists program succesfully without catching exception:
+The following code exists program succesfully without catching exception:
 
 ```csharp
 using System;
