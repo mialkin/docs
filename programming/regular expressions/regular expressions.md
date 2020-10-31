@@ -44,3 +44,4 @@ Metacharacters can have more than one meaning which depends on how they are used
   * [?: non-capturing group expressions](non-capturing.md)
   * Lookaround assertions
     * [?= positive lookahead assertions](positive%20lookahead%20assertions.md)
+    * [?! negative lookahead assertions](negative%20lookahead%20assertions.md)
