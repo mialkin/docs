@@ -39,6 +39,7 @@
 * **Composite** (design pattern) — Компоновщик
 * **Concurrency** — параллелизм
 * **Contravariance** — контравариантность
+* **CORS (cross-origin resource sharing)** — совместное использование ресурсов между разными источниками
 * **Coupling**  — связывание, зацепление
 * **Covariance** — ковариантность
 * **Creational design pattern** — порождающий шаблон проектирования
@@ -135,7 +136,7 @@
 * **Offset** — сдвиг, смещение
 * **Open–closed principle** — приницип открытости/закрытости
 * **Open source** — открытый исходный код
-* **CORS (cross-origin resource sharing)** — совместное использование ресурсов между разными источниками
+* **Origin** (git) — источник
 * **Override** — переопределить
 
 ## P
