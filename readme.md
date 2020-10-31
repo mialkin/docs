@@ -208,12 +208,18 @@
 
 ## Programming
 
+- Apache Kafka
+- [Docker](programming/docker/docker.md)
+  - [Docker Compose](programming/docker/compose.md)
 - Git
   - Git flows
     - [Ветки](programming/git/branches.md)
       - [Релиз](programming/git/release.md)
       - [Именование релизных веток](programming/git/branch%20names.md)
 - [Regular expressions](programming/regular%20expressions/regular%20expressions.md)
+- [Kubernetes](programming/kubernetes/kubernetes.md)
+  - [kubectl](programming/kubernetes/kubectl.md)
+- [Telegram bot](programming/telegram/telegram%20bot.md)
 - Testing
   - Unit testing
     - Unit testing libraries
@@ -222,13 +228,6 @@
   - Integration testing
   - Load testing
   - Stress testing
-- Tools
-  - [Docker](programming/docker/docker.md)
-    - [Docker Compose](programming/docker/compose.md)
-  - [Kubernetes](programming/kubernetes/kubernetes.md)
-    - [kubectl](programming/kubernetes/kubectl.md)
-  - GitLab
-  - Apache Kafka
 
 ## Unix
 
