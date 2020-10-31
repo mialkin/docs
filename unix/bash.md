@@ -4,12 +4,14 @@
 
 ## OS
 
-Command | Description
-:-|:-
-lsb_release -a| Print certain LSB (Linux Standard Base) and distribution-specific information
-hostnamectl | OS info
+Command            | Description
+-------------------|----------------------------------------------
+lsb_release -a     | Print certain LSB (Linux Standard Base) and distribution-specific information
+hostnamectl        | OS info
 cat /etc/*-release | OS name and version
-uname -a | Kernel version
+uname -a           | Kernel version
+first \|\| second  | If the exit status of the first command is not 0, then execute the second command (exit 2).
+echo $?            | Print exit status of previously executed command
 
 ## See also
 
