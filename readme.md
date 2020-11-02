@@ -26,6 +26,7 @@
   - [Reflection](dotnet/csharp/reflection.md)
   - TPL
     - [↑ Task-based asynchronous pattern](https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap)
+    - [Reporting task progress](dotnet/csharp/asynchronous/reporting%20progress.md)
   - [Tricks](dotnet/csharp/tricks.md)
   - [↑ Document your code with XML comments](https://docs.microsoft.com/en-us/dotnet/csharp/codedoc)
   - [↑ Local functions](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/local-functions)
