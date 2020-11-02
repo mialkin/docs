@@ -222,9 +222,7 @@
 - [Telegram bot](programming/telegram/telegram%20bot.md)
 - Testing
   - Unit testing
-    - Unit testing libraries
-      - NUnit
-    - Mock objects
+    - [Unit testing best practices](programming/testing/unit%20testing%20best%20practices.md)
   - Integration testing
   - Load testing
   - Stress testing
