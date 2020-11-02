@@ -48,4 +48,8 @@ In general, no. If the `await task.ConfigureAwait(false)` involves a task that�
 
 One notable exception to this is if you know that the first await will always complete asynchronously and the thing being awaited will invoke its callback in an environment free of a custom `SynchronizationContext` or a `TaskScheduler`.
 
+## Links
+
 [↑ ConfigureAwait FAQ](https://devblogs.microsoft.com/dotnet/configureawait-faq/)
+
+[↑ Дмитрий Иванов — Async programming in .NET: Best practices](https://www.youtube.com/watch?v=wM-h6P1BJRk)
