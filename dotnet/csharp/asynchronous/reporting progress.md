@@ -1,4 +1,4 @@
-# Reporting progress
+# Reporting task progress
 
 Example:
 
