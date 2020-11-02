@@ -195,6 +195,7 @@
     - Liskov substitution principle
     - Interface segregation principle
     - [Dependency Inversion Principle](software%20design/dependency%20inversion/dependency%20inversion.md)
+    - [Explicit Dependencies Principle](software%20design/explicit%20dependencies%20principle.md)
   - DRY
   - KISS
   - YAGNI
