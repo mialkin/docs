@@ -2,9 +2,7 @@
 
 The Explicit Dependencies Principle states:
 
-```text
-Methods and classes should explicitly require (typically through method parameters or constructor parameters) any collaborating objects they need in order to function correctly.
-```
+> Methods and classes should explicitly require (typically through method parameters or constructor parameters) any collaborating objects they need in order to function correctly.
 
 If your classes require other classes to perform their operations, these other classes are dependencies.  These dependencies are implicit if they exist only in the code within your class, and not in its public interface.  Explicit dependencies appear most often in an object’s constructor, for class-level dependencies, or in a particular method’s parameter list, for more local dependencies.
 
