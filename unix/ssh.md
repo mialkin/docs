@@ -49,4 +49,5 @@ vim ~/.ssh/known_hosts
 
 ## See Also
 
-* [Что записано в файле .ssh/known_hosts](https://habr.com/ru/post/421477/)
+* [↑ Best way to use multiple SSH private keys on one client](https://stackoverflow.com/questions/2419566/best-way-to-use-multiple-ssh-private-keys-on-one-client)
+* [↑ Что записано в файле .ssh/known_hosts](https://habr.com/ru/post/421477/)
