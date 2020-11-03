@@ -38,7 +38,6 @@ ls -al ~/.ssh
 echo "alias mysite='ssh mywebsite.abcd'" >> ~/.zshrc
 ```
 
-
 ## Known Hosts
 
 Open known_hosts file:
