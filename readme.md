@@ -290,6 +290,7 @@
     - [Promise](web/javascript/biltnobj/promise.md)
 - HTML
   - [Viewport](web/html/viewport.md)
+- [React](web/react/react.md)
 - Representational State Transfer (REST)
   - JSON Web Token (JWT)
   - OpenAPI 3.0
