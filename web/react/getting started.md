@@ -33,5 +33,3 @@ npm run build
 [↑ Introducing npx: an npm package runner tool](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b)
 
 [↑ Gatsby is the best way to create static websites with React](https://www.gatsbyjs.com/docs/)
-
-[↑ Philip Walton's articles on web.dev](https://web.dev/authors/philipwalton/)
