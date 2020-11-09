@@ -3,6 +3,7 @@
 ## Table of content
 
 * [Getting started](getting%20started.md)
+* [Public Folder ↑](https://create-react-app.dev/docs/using-the-public-folder/)
 
 ## Links
 

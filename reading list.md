@@ -27,3 +27,9 @@ Clean Architecture: A Craftsman's Guide to Software Structure and Design, 2017
 ### David Thomas (1956), Andy Hunt (1964)
 
 The Pragmatic Programmer: Your Journey To Mastery, 20th Anniversary Edition (2nd Edition) 2nd Edition, 2019
+
+### Martin Abbott, Michael Fisher
+
+Art of Scalability, The: Scalable Web Architecture, Processes, and Organizations for the Modern Enterprise.
+
+This book is mentioned in [↑ Introduction to Microservices](https://www.nginx.com/blog/introduction-to-microservices/) article.
