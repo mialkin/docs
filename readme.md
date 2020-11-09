@@ -269,13 +269,11 @@
 
 ## Web
 
-- Cookies
-  - Secure
-  - HttpOnly
 - [CSS](web/css/css.md)
 - [gRPC](web/grpc.md)
 - [JavaScript](web/javascript/javascript.md)
 - [HTML](web/html/html.md)
+- [HTTP on MDN web docs ↑](https://developer.mozilla.org/en-US/docs/Web/HTTP)
 - [React](web/react/react.md)
 - Representational State Transfer (REST)
   - JSON Web Token (JWT)
