@@ -269,30 +269,17 @@
 
 ## Web
 
-- APIs
-  - [Fetch API](web/api/fetch.md)
-  - [History API](web/api/history.md)
 - Cookies
   - Secure
   - HttpOnly
 - [CSS](web/css/css.md)
-  - Elements
-    - [Replaced elements](web/css/elements/replaced%20elements.md)
-  - [Grid](web/css/grid.md)
-  - [Media queries](web/css/media%20queries.md)
-  - Properties
-    - [line-height](web/css/properties/line-height.md)
-  - [Selectors](web/css/selectors.md)
-  - [Units](web/css/units.md)
 - [gRPC](web/grpc.md)
 - [JavaScript](web/javascript/javascript.md)
-  - [Standard built-in objects](web/javascript/biltnobj/built-in%20objects.md)
-    - [Promise](web/javascript/biltnobj/promise.md)
-- HTML
-  - [Viewport](web/html/viewport.md)
+- [HTML](web/html/html.md)
 - [React](web/react/react.md)
 - Representational State Transfer (REST)
   - JSON Web Token (JWT)
   - OpenAPI 3.0
   - [OAuth 2.0](web/oauth.md)
+- [Web APIs](web/api/api.md)
 - WebSocket
