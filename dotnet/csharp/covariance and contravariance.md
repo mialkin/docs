@@ -4,7 +4,7 @@ Covariance enables implicit conversion of an array/delegate/generic argument of 
 
 ## Arrays
 
-**Covariance**
+### **Covariance**
 
 Covariance for arrays:
 
@@ -32,7 +32,7 @@ Object `array` is not type safe and should not be used. It is used here just for
 
 Generic type variance is restricted to generic interfaces and generic delegates.
 
-**Covariance**
+### **Covariance**
 
 A covariant interface allows its methods to return more derived types than those specified in the interface:
 
@@ -75,7 +75,7 @@ class Square : Rectangle
 }
 ```
 
-**Contravariance**
+### **Contravariance**
 
 A contravariant interface allows its methods to accept parameters of less derived types than those specified in the interface.
 
@@ -99,7 +99,7 @@ class A<T> : IA<T>
 {
     public void Act(T t)
     {
-        
+
     }
 }
 
@@ -133,7 +133,7 @@ IEnumerable<Object> listObjects = new List<String>();
 
 ## Delegates
 
-**Covarinace and contravariance**
+### **Covarinace and contravariance**
 
 Covariance and contravariance support for method groups allows for matching method signatures with [delegate](../api/system/delegate/delegate.md) types. This enables you to assign to delegates not only methods that have matching signatures, but also methods that return more derived types (covariance) or that accept parameters that have less derived types (contravariance) than that specified by the delegate type.
 

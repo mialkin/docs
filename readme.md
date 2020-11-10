@@ -271,13 +271,13 @@
 
 - [CSS](web/css/css.md)
 - [gRPC](web/grpc.md)
-- [JavaScript](web/javascript/javascript.md)
 - [HTML](web/html/html.md)
-- [HTTP on MDN web docs ↑](https://developer.mozilla.org/en-US/docs/Web/HTTP)
+- [↑ HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP)
+- [JavaScript](web/javascript/javascript.md)
+- [JSON Web Token (JWT)](web/jwt.md)
+- [OAuth 2.0](web/oauth.md)
+- [↑ OpenAPI 3.0](https://swagger.io/blog/news/whats-new-in-openapi-3-0)
 - [React](web/react/react.md)
-- Representational State Transfer (REST)
-  - JSON Web Token (JWT)
-  - OpenAPI 3.0
-  - [OAuth 2.0](web/oauth.md)
+- [Representational State Transfer (REST)](rest.md)
 - [Web APIs](web/api/api.md)
-- WebSocket
+- [WebSocket](websocket.md)
