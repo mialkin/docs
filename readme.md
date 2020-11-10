@@ -221,6 +221,7 @@
 - [Kubernetes](programming/kubernetes/kubernetes.md)
   - [kubectl](programming/kubernetes/kubectl.md)
 - [Microservices](programming/microservices.md)
+  - [↑ API Gateway](https://www.nginx.com/blog/building-microservices-using-an-api-gateway)
 - [Regular expressions](programming/regular%20expressions/regular%20expressions.md)
 - [Telegram bot](programming/telegram/telegram%20bot.md)
 - Testing
