@@ -61,6 +61,8 @@ sudo nginx -t
 sudo systemctl restart nginx
 ```
 
+[↑ NGINX Reverse Proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
+
 ## HTML files
 
 ```sh
@@ -68,7 +70,11 @@ cd /var/www/
 cd /usr/share/nginx/html/
 ```
 
+## Load balancing
 
+[↑ NGINX as a load balancer](https://www.youtube.com/watch?v=v81CzSeiQjo)
+
+[↑ HTTP Load Balancing](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/)
 
 ## Permanent redirect from one page to another
 
