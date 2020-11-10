@@ -278,6 +278,6 @@
 - [OAuth 2.0](web/oauth.md)
 - [↑ OpenAPI 3.0](https://swagger.io/blog/news/whats-new-in-openapi-3-0)
 - [React](web/react/react.md)
-- [Representational State Transfer (REST)](rest.md)
+- [REST](web/rest.md)
 - [Web APIs](web/api/api.md)
 - [WebSocket](websocket.md)
