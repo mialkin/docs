@@ -190,28 +190,27 @@
 
 ## Design
 
+- [Design patterns](software%20design/design%20patterns/design%20patterns.md)
 - Design principles
+  - [Composition over inheritance](software%20design/composition%20over%20inheritance.md)
+  - DRY
+  - [Explicit Dependencies Principle](software%20design/explicit%20dependencies%20principle.md)
+  - Idempotence
+  - KISS
   - SOLID
     - Single responsibility principle
     - Open-closed principle
     - Liskov substitution principle
     - Interface segregation principle
     - [Dependency Inversion Principle](software%20design/dependency%20inversion/dependency%20inversion.md)
-    - [Explicit Dependencies Principle](software%20design/explicit%20dependencies%20principle.md)
-  - DRY
-  - KISS
   - YAGNI
-  - [Composition over inheritance](software%20design/composition%20over%20inheritance.md)
-  - Idempotence
 - Unified Modeling Language (UML)
   - Diagrams
     - Class diagram
     - Sequence diagram
-- [Design patterns](software%20design/design%20patterns/design%20patterns.md)
 
 ## Programming
 
-- Apache Kafka
 - [Docker](programming/docker/docker.md)
   - [Docker Compose](programming/docker/compose.md)
 - Git
@@ -219,10 +218,10 @@
     - [Ветки](programming/git/branches.md)
       - [Релиз](programming/git/release.md)
       - [Именование релизных веток](programming/git/branch%20names.md)
-- [Regular expressions](programming/regular%20expressions/regular%20expressions.md)
 - [Kubernetes](programming/kubernetes/kubernetes.md)
   - [kubectl](programming/kubernetes/kubectl.md)
 - [Microservices](programming/microservices.md)
+- [Regular expressions](programming/regular%20expressions/regular%20expressions.md)
 - [Telegram bot](programming/telegram/telegram%20bot.md)
 - Testing
   - Unit testing
