@@ -256,6 +256,7 @@
       - [tmux](unix/tmux.md)
     - Files
       - [chmod](unix/chmod.md)
+      - [chown](unix/chown.md)
       - [less](unix/less.md)
       - [rg](unix/rg.md)
       - [tail](unix/tail.md)
