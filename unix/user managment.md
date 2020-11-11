@@ -10,6 +10,20 @@ sudo adduser bob --disabled-password
 
 The `--disabled-password` option will not set a password, meaning no password is legal, but login is still possible (for example with SSH RSA keys).
 
+## Switching
+
+To switch to a user `bob` that was created without password, run:
+
+```bash
+sudo -u bob -s
+```
+
+To exit run:
+
+```bash
+exit
+```
+
 ## Listing
 
 To find out if a user with name `bob` exists run:
