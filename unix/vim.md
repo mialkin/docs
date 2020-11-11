@@ -25,19 +25,22 @@ G | Go to end of document
 ## Editing
 
 Command | Explanation
--|-
-u | Undo
-dd | Delete line
-D | Delete to end of line
-i | Insert before the cursor
-I | Insert at the beginning of the line
-a | Insert after the cursor
-A | Insert at the end of the line
-o | Insert new line below
-O | Insert new line above
-cw | Delete everything to the end of the word
-ca[ | Delete everything between brackets
-C | Delete everything from cursor to the end of line
+-----|---------------------
+u    | Undo
+dd   | Delete line
+D    | Delete to end of line
+i    | Insert before the cursor
+I    | Insert at the beginning of the line
+a    | Insert after the cursor
+A    | Insert at the end of the line
+o    | Insert new line below
+O    | Insert new line above
+cw   | Delete everything to the end of the word
+ca\[ | Delete everything between brackets
+C    | Delete everything from cursor to the end of line
+yy   | Copy to clipboard the current line
+p    | Paste the copied or deleted text after the current line
+P    | Paste the copied or deleted text before the current line
 
 ## See also
 
