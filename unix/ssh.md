@@ -32,6 +32,12 @@ List existing SSH keys:
 ls -al ~/.ssh
 ```
 
+Generate a new key pair:
+
+```bash
+ssh-keygen -t ed25519
+```
+
 ## Alias in macOS
 
 ```bash
