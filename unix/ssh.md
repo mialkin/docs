@@ -56,3 +56,4 @@ vim ~/.ssh/known_hosts
 
 * [↑ Best way to use multiple SSH private keys on one client](https://stackoverflow.com/questions/2419566/best-way-to-use-multiple-ssh-private-keys-on-one-client)
 * [↑ Что записано в файле .ssh/known_hosts](https://habr.com/ru/post/421477/)
+* [↑ How to Set Up SSH Keys on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)
