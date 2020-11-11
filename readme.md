@@ -279,5 +279,8 @@
 - [↑ OpenAPI 3.0](https://swagger.io/blog/news/whats-new-in-openapi-3-0)
 - [React](web/react/react.md)
 - [REST](web/rest.md)
+- Security
+  - CSRF
+  - XSS
 - [Web APIs](web/api/api.md)
 - [WebSocket](websocket.md)
