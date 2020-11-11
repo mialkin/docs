@@ -32,7 +32,7 @@ echo -e "alias ll='ls -la'\nalias cls='clear'" >> ~/.bashrc
 ## Install Nginx
 
 ```sh
-sudo apt install nginx
+sudo apt install -y nginx
 sudo systemctl enable nginx
 sudo systemctl start nginx
 ```
