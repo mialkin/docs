@@ -243,6 +243,7 @@
     - [YUM](unix/yum.md)
   - [Ubuntu](unix/ubuntu.md)
     - [APT](unix/apt.md)
+- [Nginx](unix/nginx.md)
 - [shell](unix/shell.md)
   - [Bourne again shell (bash)](unix/bash.md)
   - Tools
@@ -265,7 +266,7 @@
       - [rsync](unix/rsync.md)
       - [scp](unix/scp.md)
       - [ssh](unix/ssh.md)
-- [Nginx](unix/nginx.md)
+- [User management](unix/user%20managment.md)
 
 ## Web
 
