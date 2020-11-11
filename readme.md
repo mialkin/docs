@@ -270,9 +270,11 @@
 ## Web
 
 - [CSS](web/css/css.md)
+- [CORS](web/cors.md)
 - [gRPC](web/grpc.md)
 - [HTML](web/html/html.md)
 - [↑ HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP)
+  - [HTTP headers](web/http%20headers.md)
 - [JavaScript](web/javascript/javascript.md)
 - [JSON Web Token (JWT)](web/jwt.md)
 - [OAuth 2.0](web/oauth.md)
