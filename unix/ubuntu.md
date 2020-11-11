@@ -37,4 +37,4 @@ sudo systemctl enable nginx
 sudo systemctl start nginx
 ```
 
-
+[Configure](nginx.md) Nginx once installation is finished.
