@@ -8,12 +8,10 @@ sudo apt upgrade
 sudo systemctl reboot
 ```
 
-## Install Nginx
+## Disable welcome message after SSH login
 
 ```sh
-sudo apt install nginx
-sudo systemctl enable nginx
-sudo systemctl start nginx
+sudo chmod -x /etc/update-motd.d/*
 ```
 
 ## Set time zone
@@ -25,8 +23,18 @@ sudo timedatectl set-timezone Europe/Moscow
 date
 ```
 
-## Disable welcome message after SSH login
+## Set up aliases
+
+```bash
+echo -e "alias ll='ls -la'\nalias cls='clear'" >> ~/.bashrc
+```
+
+## Install Nginx
 
 ```sh
-sudo chmod -x /etc/update-motd.d/*
+sudo apt install nginx
+sudo systemctl enable nginx
+sudo systemctl start nginx
 ```
+
+
