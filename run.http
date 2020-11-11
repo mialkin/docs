@@ -1,0 +1,36 @@
+http://dict.mialkin.ru
+
+###
+
+https://dict.mialkin.ru/api/word/list?l=2
+
+### 
+
+curl 'https://dict.mialkin.ru/api/word/search?l=2&q=d' \
+-X 'GET' \
+-H 'Cookie: Cookies=CfDJ8DShKJpLd8V_OrXeR1YPiwZ1xLzNwD7ZyDecUYp_Fn9dvRMhVA63f5e87ySwvVbrqBceQsSALm70t2IXaJvwc_871lQmjGIs3HmumsSCCyBQyopJK8Y1Pp-zJS2-ZkUEvb6AByRq4cn2X2wVbENTbPMWcmtFG7tjvxfPkkhxoH03uSAKAN69YTiR7DLtJGZQ4oEJUDOz14md9nkJYaObWyhsOfuJjUwOpvMiJ605ZqHTMSZxo3fBiH_zNnz9WVAMCLOCxtYZdhZd5GkIl31fzTRsZvooj0auO4tLv3XjLmieegEAu3L-s4eBL84qIIlPxxP62_t9Ek3q4tUAhyZLOgyHCnvXoZ_Ss8ijMEsZVZgqgNl-9DP0BqMKUE9ikjsOlAQ' \
+-H 'Accept: */*' \
+-H 'Accept-Encoding: gzip, deflate, br' \
+-H 'Host: dict.mialkin.ru' \
+-H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Safari/605.1.15' \
+-H 'Accept-Language: en-us' \
+-H 'Referer: https://dict.mialkin.ru/' \
+-H 'Connection: keep-alive'
+
+
+###
+
+curl 'https://dict.mialkin.ru/api/word/create' \
+-X 'POST' \
+-H 'Accept: application/json' \
+-H 'Content-Type: application/json' \
+-H 'Origin: https://dict.mialkin.ru' \
+-H 'Cookie: Cookies=CfDJ8DShKJpLd8V_OrXeR1YPiwZ1xLzNwD7ZyDecUYp_Fn9dvRMhVA63f5e87ySwvVbrqBceQsSALm70t2IXaJvwc_871lQmjGIs3HmumsSCCyBQyopJK8Y1Pp-zJS2-ZkUEvb6AByRq4cn2X2wVbENTbPMWcmtFG7tjvxfPkkhxoH03uSAKAN69YTiR7DLtJGZQ4oEJUDOz14md9nkJYaObWyhsOfuJjUwOpvMiJ605ZqHTMSZxo3fBiH_zNnz9WVAMCLOCxtYZdhZd5GkIl31fzTRsZvooj0auO4tLv3XjLmieegEAu3L-s4eBL84qIIlPxxP62_t9Ek3q4tUAhyZLOgyHCnvXoZ_Ss8ijMEsZVZgqgNl-9DP0BqMKUE9ikjsOlAQ' \
+-H 'Content-Length: 95' \
+-H 'Accept-Language: en-us' \
+-H 'Host: dict.mialkin.ru' \
+-H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Safari/605.1.15' \
+-H 'Referer: https://dict.mialkin.ru/' \
+-H 'Accept-Encoding: gzip, deflate, br' \
+-H 'Connection: keep-alive' \
+--data-binary '{"LanguageId":2,"Name":"thisv","Transcription":"","GenderId":0,"Translation":"the translation"}'
