@@ -2,20 +2,20 @@
 
 ## Creating
 
-Create a new user `bob`:
+Create a new user `sammy`:
 
 ```bash
-sudo adduser bob --disabled-password
+sudo adduser sammy --disabled-password
 ```
 
 The `--disabled-password` option will not set a password, meaning no password is legal, but login is still possible (for example with SSH RSA keys).
 
 ## Switching
 
-To switch to a user `bob` that was created without password, run:
+To switch to a user `sammy` that was created without password, run:
 
 ```bash
-sudo -u bob -s
+sudo -u sammy -s
 ```
 
 To exit run:
@@ -26,10 +26,10 @@ exit
 
 ## Listing
 
-To find out if a user with name `bob` exists run:
+To find out if a user with name `sammy` exists run:
 
 ```bash
-getent passwd | grep bob
+getent passwd | grep sammy
 ```
 
 Local user information is stored in the `/etc/passwd` file. Each line in this file represents login information for one user:
@@ -52,10 +52,10 @@ If you want to find out how many users accounts you have on your system, pipe th
 
 ## Deleting
 
-Delete user with its data including `/home/bob` folder:
+Delete user with its data including `/home/sammy` folder:
 
 ```bash
-sudo userdel -r bob
+sudo userdel -r sammy
 ```
 
 ## Elevate permissions
@@ -71,4 +71,30 @@ Execute command and then run `exit` to log out to become an ordinary user:
 ```bash
 cd /root
 exit
+```
+
+## Allowing to connect via SSH
+
+Being logged in as a new user create new `.ssh` directory:
+
+```bash
+mkdir ~/.ssh
+```
+
+Copy your public key to `authorized_keys` file:
+
+```bash
+echo public_key_string >> ~/.ssh/authorized_keys
+```
+
+Recursively remove all "group" and "other" permissions for the ~/.ssh/ directory:
+
+```bash
+chmod -R go= ~/.ssh
+```
+
+If you're using the root account to set up keys for a user account, it's also important that the ~/.ssh directory belongs to the user and not to root:
+
+```bash
+chown -R sammy:sammy ~/.ssh
 ```
