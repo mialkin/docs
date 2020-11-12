@@ -213,7 +213,7 @@
 
 - [Docker](programming/docker/docker.md)
   - [Docker Compose](programming/docker/compose.md)
-- Git
+- [Git](programming/git/git.md)
   - Git flows
     - [Ветки](programming/git/branches.md)
       - [Релиз](programming/git/release.md)
