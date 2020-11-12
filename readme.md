@@ -222,8 +222,10 @@
   - [Kubernetes components](programming/kubernetes/components.md)
   - [kubectl](programming/kubernetes/kubectl.md)
   - [Minikube](programming/kubernetes/minikube.md)
-  - [Create a Kubernetes cluster](programming/kubernetes/create%20cluster.md)
-  - [Deploy an app](programming/kubernetes/deply%20app.md)
+    - Learning basics
+      - [Create a Kubernetes cluster](programming/kubernetes/create%20cluster.md)
+      - [Deploy an app](programming/kubernetes/deply%20app.md)
+      - [Viewing pods and nods](programming/kubernetes/viewing%20pods%20and%20nods.md)
 - [Microservices](programming/microservices.md)
   - [↑ API Gateway](https://www.nginx.com/blog/building-microservices-using-an-api-gateway)
 - [Regular expressions](programming/regular%20expressions/regular%20expressions.md)
