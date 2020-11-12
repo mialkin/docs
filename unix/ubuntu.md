@@ -26,7 +26,7 @@ date
 ## Set up aliases
 
 ```bash
-echo -e "alias ll='ls -la'\nalias cls='clear'" >> ~/.bashrc
+echo -e "alias ll='ls -laF'\nalias cls='clear'" >> ~/.bashrc
 ```
 
 ## Install Nginx
