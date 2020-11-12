@@ -20,6 +20,7 @@ tmux new -s test               | Create new session named `test`
 tmux new-session -t testing -d | Start new session if `no server running on /private/tmp/tmux-501/default` message
 tmux attach                    | Attach to a single existing session or to the last created session
 tmux attach -t test            | Attach to a session named `test`
+tmux -V                        | Show version of the program
 
 ## Hotkeys
 
