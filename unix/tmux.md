@@ -26,15 +26,15 @@ tmux -V                        | Show version of the program
 
 Hotkey                                              | Description
 ----------------------------------------------------|----------------------------------
-<kbd>Ctrl</kbd>+<kbd>B</kbd>+<kbd>D</kbd>           | Detach from session
+<kbd>Ctrl</kbd>+<kbd>B</kbd>, <kbd>D</kbd>           | Detach from session
 <kbd>Ctrl</kbd>+<kbd>B</kbd>, <kbd>C</kbd>          | Create new window
-<kbd>Ctrl</kbd>+<kbd>B</kbd> + <kbd>1</kbd>         | Go to window number 1
-<kbd>Ctrl</kbd>+<kbd>B</kbd> + <kbd>,</kbd>         | Rename current window
-<kbd>Ctrl</kbd>+<kbd>B</kbd> + <kbd>X</kbd>         | Close current pane/window
+<kbd>Ctrl</kbd>+<kbd>B</kbd>, <kbd>1</kbd>         | Go to window number 1
+<kbd>Ctrl</kbd>+<kbd>B</kbd>, <kbd>,</kbd>         | Rename current window
+<kbd>Ctrl</kbd>+<kbd>B</kbd>, <kbd>X</kbd>         | Close current pane/window
 <kbd>Ctrl</kbd>+<kbd>B</kbd>, <kbd>%</kbd>          | Split window vertically
 <kbd>Ctrl</kbd>+<kbd>B</kbd>, <kbd>"</kbd>          | Split window horizontally
 <kbd>Ctrl</kbd>+<kbd>B</kbd>, <kbd>Arrow keys</kbd> | Jump between panels inside window
-<kbd>Ctrl</kbd>+<kbd>B</kbd>+<kbd>S</kbd>           | Select session
+<kbd>Ctrl</kbd>+<kbd>B</kbd>, <kbd>S</kbd>           | Select session
 
 
 ## Configuration file
