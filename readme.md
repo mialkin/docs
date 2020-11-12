@@ -218,7 +218,8 @@
     - [Ветки](programming/git/branches.md)
       - [Релиз](programming/git/release.md)
       - [Именование релизных веток](programming/git/branch%20names.md)
-- [Kubernetes](programming/kubernetes/kubernetes.md)
+- Kubernetes
+  - [Kubernetes components](programming/kubernetes/components.md)
   - [kubectl](programming/kubernetes/kubectl.md)
 - [Microservices](programming/microservices.md)
   - [↑ API Gateway](https://www.nginx.com/blog/building-microservices-using-an-api-gateway)
