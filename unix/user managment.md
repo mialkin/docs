@@ -73,6 +73,14 @@ cd /root
 exit
 ```
 
+## Showing groups
+
+Under current user run:
+
+```bash
+groups
+```
+
 ## Allowing to connect via SSH
 
 Being logged in as a new user create new `.ssh` directory:
@@ -97,4 +105,10 @@ If you're using the root account to set up keys for a user account, it's also im
 
 ```bash
 chown -R sammy:sammy ~/.ssh
+```
+
+Test connection by running:
+
+```bash
+ssh sammy@yoursite.xyz
 ```
