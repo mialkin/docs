@@ -260,3 +260,31 @@ kubernetes-bootcamp-765bf4c7b4-xsrfp   1/1     Running   0          13m
 ```
 
 And we see the Pod.
+
+## Deleting a service
+
+To delete Services you can use the delete service command. Labels can be used also here:
+
+```bash
+kubectl delete service -l run=kubernetes-bootcamp
+```
+
+Confirm that the service is gone:
+
+```bash
+kubectl get services
+```
+
+This confirms that our Service was removed. To confirm that route is not exposed anymore you can curl the previously exposed IP and port:
+
+```bash
+curl $(minikube ip):$NODE_PORT
+```
+
+This proves that the app is not reachable anymore from outside of the cluster. You can confirm that the app is still running with a curl inside the pod:
+
+```bash
+kubectl exec -ti $POD_NAME curl localhost:8080
+```
+
+We see here that the application is up. This is because the Deployment is managing the application. To shut down the application, you would need to delete the Deployment as well.
