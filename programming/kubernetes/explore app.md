@@ -1,4 +1,4 @@
-# Viewing pods and nods
+# Explore your app
 
 ## Kubernetes Pods
 
