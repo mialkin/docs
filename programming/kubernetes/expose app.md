@@ -92,3 +92,171 @@ Hello Kubernetes bootcamp! | Running on: kubernetes-bootcamp-765bf4c7b4-lfg94 | 
 ```
 
 And we get a response from the server. The Service is exposed.
+
+## Using labels
+
+The Deployment created automatically a label for our Pod. With `describe deployment` command you can see the name of the label:
+
+```bash
+kubectl describe deployment
+```
+
+Output:
+
+```text
+Name:                   kubernetes-bootcamp
+Namespace:              default
+CreationTimestamp:      Fri, 13 Nov 2020 15:22:32 +0000
+Labels:                 run=kubernetes-bootcamp
+Annotations:            deployment.kubernetes.io/revision: 1
+Selector:               run=kubernetes-bootcamp
+Replicas:               1 desired | 1 updated | 1 total | 1 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  run=kubernetes-bootcamp
+  Containers:
+   kubernetes-bootcamp:
+    Image:        gcr.io/google-samples/kubernetes-bootcamp:v1
+    Port:         8080/TCP
+    Host Port:    0/TCP
+    Environment:  <none>
+    Mounts:       <none>
+  Volumes:        <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+  Progressing    True    NewReplicaSetAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   kubernetes-bootcamp-765bf4c7b4 (1/1 replicas created)
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  30m   deployment-controller  Scaled up replica set kubernetes-bootcamp-765bf4c7b4 to 1
+```
+
+Let’s use this label to query our list of Pods. We’ll use the `kubectl get pods` command with `-l` as a parameter, followed by the label values:
+
+```bash
+kubectl get pods -l run=kubernetes-bootcamp
+```
+
+Output:
+
+```text
+NAME                                   READY   STATUS    RESTARTS   AGE
+kubernetes-bootcamp-765bf4c7b4-xsrfp   1/1     Running   0          5m16s
+```
+
+You can do the same to list the existing services:
+
+```bash
+kubectl get services -l run=kubernetes-bootcamp
+```
+
+Output:
+
+```text
+NAME                  TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+kubernetes-bootcamp   NodePort   10.106.37.32   <none>        8080:30657/TCP   3m16s
+```
+
+You can do the same to list the existing services:
+
+```bash
+kubectl get services -l run=kubernetes-bootcamp
+```
+
+Get the name of the Pod and store it in the POD_NAME environment variable:
+
+```bash
+export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
+echo Name of the Pod: $POD_NAME
+```
+
+To apply a new label we use the label command followed by the object type, object name and the new label:
+
+```bash
+kubectl label pod $POD_NAME app=v1
+```
+
+Output:
+
+```text
+pod/kubernetes-bootcamp-765bf4c7b4-xsrfp labeled
+```
+
+This will apply a new label to our Pod (we pinned the application version to the Pod), and we can check it with the describe pod command:
+
+```bash
+kubectl describe pods $POD_NAME
+```
+
+Output:
+
+```text
+Name:         kubernetes-bootcamp-765bf4c7b4-xsrfp
+Namespace:    default
+Priority:     0
+Node:         minikube/172.17.0.50
+Start Time:   Fri, 13 Nov 2020 20:34:39 +0000
+Labels:       app=v1
+              pod-template-hash=765bf4c7b4
+              run=kubernetes-bootcamp
+Annotations:  <none>
+Status:       Running
+IP:           172.18.0.3
+IPs:  IP:           172.18.0.3
+Controlled By:  ReplicaSet/kubernetes-bootcamp-765bf4c7b4Containers:
+  kubernetes-bootcamp:    Container ID:   docker://1545c6e436cbca3cd54e3fe1124a2551be76a8b127e3c6e0ec04595ca366e784    Image:          gcr.io/google-samples/kubernetes-bootcamp:v1
+    Image ID:       docker-pullable://jocatalin/kubernetes-bootcamp@sha256:0d6b8ee63bb57c5f5b6156f446b3bc3b3c143d233037f3a2f00e279c8fcc64af
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Fri, 13 Nov 2020 20:34:41 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-67x6p (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             True
+  ContainersReady   True
+  PodScheduled      True
+Volumes:
+  default-token-67x6p:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-67x6p
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type     Reason            Age                From               Message
+  ----     ------            ----               ----               -------
+  Warning  FailedScheduling  12m (x2 over 12m)  default-scheduler  0/1 nodes are available: 1 node(s) had taints that the pod didn't tolerate.
+  Normal   Scheduled         12m                default-scheduler  Successfully assigned default/kubernetes-bootcamp-765bf4c7b4-xsrfp to minikube
+  Normal   Pulled            12m                kubelet, minikube  Container image "gcr.io/google-samples/kubernetes-bootcamp:v1" already present on machine
+  Normal   Created           12m                kubelet, minikube  Created container kubernetes-bootcamp
+  Normal   Started           12m                kubelet, minikube  Started container kubernetes-bootcamp
+```
+
+We see here that the label is attached now to our Pod. And we can query now the list of pods using the new label:
+
+```bash
+kubectl get pods -l app=v1
+```
+
+Output:
+
+```text
+NAME                                   READY   STATUS    RESTARTS   AGE
+kubernetes-bootcamp-765bf4c7b4-xsrfp   1/1     Running   0          13m
+```
+
+And we see the Pod.
