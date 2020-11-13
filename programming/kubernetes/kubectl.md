@@ -8,13 +8,14 @@ The **kubectl** command line tool lets you control Kubernetes clusters.
 kubectl [command] [TYPE] [NAME] [flags]
 ```
 
-## Example
+## Commands
 
-```bash
-kubectl get pod pod1
-kubectl get pods pod1
-kubectl get po pod1
-```
+Command          | Description
+-----------------|-----------------------
+kubectl get      | List resources
+kubectl describe | Show detailed information about a resource
+kubectl logs     | Print the logs from a container in a pod
+kubectl exec     | Execute a command on a container in a pod
 
 ## Links
 
