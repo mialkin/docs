@@ -228,7 +228,7 @@
       - [Explore your app](programming/kubernetes/explore%20app.md)
       - [Expose your app publicly](programming/kubernetes/expose%20app.md)
       - [Scale your app](programming/kubernetes/scale.md)
-      - Update your app
+      - [Update your app](programming/kubernetes/update.md)
 - [Microservices](programming/microservices.md)
   - [↑ API Gateway](https://www.nginx.com/blog/building-microservices-using-an-api-gateway)
 - [Regular expressions](programming/regular%20expressions/regular%20expressions.md)
