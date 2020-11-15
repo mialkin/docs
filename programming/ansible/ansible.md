@@ -25,7 +25,14 @@ python -m pip install --user paramiko
 
 ## Usage
 
-1\. Create `hosts` inventory file; the name of the file can be arbitrary. Example of file contents:
+1\. If `/etc/ansible/hosts` file doesn't already exist, create it:
+
+```bash
+sudo mkdir /etc/ansible
+sudo vim /etc/ansible/hosts
+```
+
+Example of file contents:
 
 ```text
 [nodes]
@@ -34,6 +41,17 @@ node2 ansible_ssh_host=node2.slova.io ansible_ssh_user=aleksei
 
 [masters]
 mialkin ansible_ssh_host=mialkin.ru ansible_ssh_user=aleksei
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
+```
+
+The `all:vars` subgroup sets the `ansible_python_interpreter` host parameter that will be valid for all hosts included in this inventory. This parameter makes sure the remote server uses the `/usr/bin/python3` Python 3 executable instead of `/usr/bin/python` (Python 2.7), which is not present on recent Ubuntu versions.
+
+Whenever you want to check your inventory, you can run:
+
+```bash
+ansible-inventory --list -y
 ```
 
 Make sure that you have [↑ set up your ssh keys](https://stackoverflow.com/questions/2419566/best-way-to-use-multiple-ssh-private-keys-on-one-client) for different hosts propery.
