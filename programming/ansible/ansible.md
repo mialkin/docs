@@ -32,7 +32,7 @@ sudo mkdir /etc/ansible
 sudo vim /etc/ansible/hosts
 ```
 
-Example of file contents:
+Example of `hosts` file contents:
 
 ```text
 [nodes]
@@ -59,27 +59,7 @@ Make sure that you have [↑ set up your ssh keys](https://stackoverflow.com/que
 2\. To check that everything works fine run Ansible's `ping` module:
 
 ```bash
-cd <path to folder with inventory file>
-ansible -m ping nodes -i hosts
-```
-
-You should get this response back:
-
-```text
-node1 | SUCCESS => {
-    "ansible_facts": {
-        "discovered_interpreter_python": "/usr/bin/python3"
-    },
-    "changed": false,
-    "ping": "pong"
-}
-node2 | SUCCESS => {
-    "ansible_facts": {
-        "discovered_interpreter_python": "/usr/bin/python3"
-    },
-    "changed": false,
-    "ping": "pong"
-}
+ansible -m ping nodes
 ```
 
 3\. Run [povisioning.yml](provisioning.yaml) playbook:
