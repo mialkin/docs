@@ -23,8 +23,47 @@ python -m pip install --user paramiko
 * **Inventories** — list of things you want to automate from. In order to run a task or an ansible commmand we need a list of targets on which to automate.
 * **Playbooks**. Playbooks contain **plays**. Plays contain **tasks**. Tasks call **modules**. Tasks run sequentially. **Handlers** are griggered by tasks, and are run once, at the end of plays.
 
+## Usage
+
+1\. Create `hosts` inventory file; the name of the file can be arbitrary. Example of file contents:
+
+```text
+node1 ansible_ssh_host=node1.slova.io ansible_ssh_user=aleksei
+node2 ansible_ssh_host=node2.slova.io ansible_ssh_user=aleksei
+```
+
+Make sure that you have [↑ set up your ssh keys](https://stackoverflow.com/questions/2419566/best-way-to-use-multiple-ssh-private-keys-on-one-client) for different hosts propery.
+
+2\. To check that everything works fine run Ansible's `ping` module:
+
+```bash
+cd <path to folder with inventory file>
+ansible -m ping all -i hosts
+```
+
+You should get this response back:
+
+```text
+node1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+node2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+```
+
 ## Links
 
 * [↑ How to Install and Configure Ansible on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-ubuntu-18-04)
 
 * [↑ Configuration Management 101: Writing Ansible Playbooks](https://www.digitalocean.com/community/tutorials/configuration-management-101-writing-ansible-playbooks)
+
+* [↑ Specifying ssh key in ansible playbook file](https://stackoverflow.com/questions/44734179/specifying-ssh-key-in-ansible-playbook-file)
