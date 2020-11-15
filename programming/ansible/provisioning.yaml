@@ -8,7 +8,16 @@
         state: directory
         recurse: yes
         mode: -x
-    - name: Set time zone
+    - name: Set Moscow time zone
       command: timedatectl set-timezone Europe/Moscow
-    #- name: Update apt repo and cache on all Debian/Ubuntu boxes
-    #  apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+    - name: Set up "cls" alias
+      become: false
+      blockinfile:
+        path: ~/.bashrc
+        block: alias cls='clear'
+    - name: Update and upgrade apt packages
+      apt:
+        upgrade: yes
+        update_cache: yes
+    - name: Unconditionally reboot the machine with all defaults
+      reboot:
