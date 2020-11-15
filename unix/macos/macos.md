@@ -26,7 +26,7 @@ Open `.zshrc` file:
 vim ~/.zshrc
 ```
 
-At the end of the file add line:
+Add line at the end of the file:
 
 ```text
 export PATH="/Users/aleksei/Library/Python/3.8/bin:${PATH}"
