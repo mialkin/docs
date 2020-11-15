@@ -18,7 +18,7 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 
 Next, restart your computer and you should now be able to repeat all characters.
 
-## PATH environment variable
+## Adding new path to PATH environment variable
 
 Open `.zshrc` file:
 
@@ -26,13 +26,13 @@ Open `.zshrc` file:
 vim ~/.zshrc
 ```
 
-Add anywhere in the file the following line:
+At the end of the file add line:
 
 ```text
 export PATH="/Users/aleksei/Library/Python/3.8/bin:${PATH}"
 ```
 
-Source file:
+Save file and source it:
 
 ```bash
 source .zshrc
