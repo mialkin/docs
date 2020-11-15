@@ -85,7 +85,7 @@ node2 | SUCCESS => {
 3\. Run [povisioning.yml](provisioning.yaml) playbook:
 
 ```bash
-ansible-playbook -i hosts provisioning.yml
+ansible-playbook -l nodes provisioning.yaml
 ```
 
 ## Links
