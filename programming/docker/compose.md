@@ -4,10 +4,11 @@
 
 ## Commands
 
-| Command           | Description |
-|-------------------|-------------|
-| docker-compose up |
+| Command              | Description                                                  |
+|----------------------|--------------------------------------------------------------|
+| docker-compose up -d | Run containers in the background, print new container names. |
 
 ## Links
 
-[↑ Install Docker Compose](https://docs.docker.com/compose/install/)
+* [↑ Install Docker Compose](https://docs.docker.com/compose/install/)
+* [↑ Overview of docker-compose CLI](https://docs.docker.com/compose/reference/overview/)
