@@ -28,8 +28,12 @@ python -m pip install --user paramiko
 1\. Create `hosts` inventory file; the name of the file can be arbitrary. Example of file contents:
 
 ```text
+[nodes]
 node1 ansible_ssh_host=node1.slova.io ansible_ssh_user=aleksei
 node2 ansible_ssh_host=node2.slova.io ansible_ssh_user=aleksei
+
+[masters]
+mialkin ansible_ssh_host=mialkin.ru ansible_ssh_user=aleksei
 ```
 
 Make sure that you have [↑ set up your ssh keys](https://stackoverflow.com/questions/2419566/best-way-to-use-multiple-ssh-private-keys-on-one-client) for different hosts propery.
