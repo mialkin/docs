@@ -1,17 +1,23 @@
 # Ubuntu
 
-## Update packages
+## Set up aliases
 
-```sh
-sudo apt update
-sudo apt upgrade
-sudo systemctl reboot
+```bash
+echo -e "alias ll='ls -laF'\nalias cls='clear'" >> ~/.bashrc
 ```
 
 ## Disable welcome message after SSH login
 
 ```sh
 sudo chmod -x /etc/update-motd.d/*
+```
+
+## Update packages
+
+```sh
+sudo apt update
+sudo apt upgrade
+sudo systemctl reboot
 ```
 
 ## Set time zone
@@ -23,10 +29,11 @@ sudo timedatectl set-timezone Europe/Moscow
 date
 ```
 
-## Set up aliases
+## Set hostname
 
 ```bash
-echo -e "alias ll='ls -laF'\nalias cls='clear'" >> ~/.bashrc
+sudo hostnamectl set-hostname YOUR_HOSTNAME
+hostnamectl
 ```
 
 ## Install Nginx
