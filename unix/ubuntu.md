@@ -3,7 +3,7 @@
 ## Set up aliases
 
 ```bash
-echo -e "alias ll='ls -laF'\nalias cls='clear'" >> ~/.bashrc
+echo "alias cls='clear'" >> ~/.bashrc
 ```
 
 ## Disable welcome message after SSH login
