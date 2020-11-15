@@ -43,7 +43,7 @@ export ADMIN_USERNAME=admin
 export ADMIN_PASSWORD=password123
 ```
 
-Load new values without having ot reboot:
+Load new values without having to reboot:
 
 ```bash
 source /etc/environment
