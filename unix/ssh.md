@@ -18,6 +18,12 @@ If your username is different on the remote system, you can specify it by using 
 ssh remote_username@remote_host
 ```
 
+If you have multiple privates keys, specify the one to use:
+
+```bash
+ssh -i path_to_private_key_file remote_username@remote_host
+```
+
 To exit back into your local session, simply type:
 
 ```bash
