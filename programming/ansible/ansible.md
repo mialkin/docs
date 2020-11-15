@@ -42,7 +42,7 @@ Make sure that you have [↑ set up your ssh keys](https://stackoverflow.com/que
 
 ```bash
 cd <path to folder with inventory file>
-ansible -m ping all -i hosts
+ansible -m ping nodes -i hosts
 ```
 
 You should get this response back:
@@ -62,6 +62,12 @@ node2 | SUCCESS => {
     "changed": false,
     "ping": "pong"
 }
+```
+
+3\. Run [povisioning.yml](provisioning.yaml) playbook:
+
+```bash
+ansible-playbook -i hosts provisioning.yml
 ```
 
 ## Links

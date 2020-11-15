@@ -1,0 +1,10 @@
+- hosts: all
+  become: true
+  become_user: root
+  tasks:
+    - name: Disable welcome message after SSH login
+      command: chmod -x /etc/update-motd.d/*
+    - name: Set time zone
+      command: timedatectl set-timezone Europe/Moscow
+    #- name: Update apt repo and cache on all Debian/Ubuntu boxes
+    #  apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
