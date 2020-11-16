@@ -70,11 +70,7 @@ ansible-playbook -l nodes provisioning.yaml
 
 ## Restarting machines
 
-To restart machines from `nodes` group run:
-
-```bash
-ansible -m shell --become-method su --become-user root -a 'systemctl reboot' nodes
-```
+See [reboot.yaml](reboot.yaml) file.
 
 ## Links
 
