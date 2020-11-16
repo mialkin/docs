@@ -73,9 +73,15 @@ cd /root
 exit
 ```
 
-## Showing groups
+## Groups
 
-Under current user run:
+Show all existing groups:
+
+```bash
+cat /etc/group
+```
+
+Show group to which current user belongs:
 
 ```bash
 groups
