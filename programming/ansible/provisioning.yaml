@@ -16,13 +16,13 @@
       blockinfile:
         path: ~/.bashrc
         block: alias cls='clear'
-    - name: Update cache and upgrade apt packages
-      apt:
-        upgrade: 'yes'
-        update_cache: yes
-    #- name: Unconditionally reboot the machine with all defaults
-    #  reboot:
     - name: Update cache and install "htop" package
       apt:
         name: htop
         update_cache: yes
+    - name: Update cache and upgrade all apt packages
+      apt:
+        upgrade: 'yes'
+        update_cache: yes
+    - name: Unconditionally reboot the machine with all defaults
+      reboot:
