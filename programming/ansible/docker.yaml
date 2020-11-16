@@ -33,3 +33,8 @@
     - name: Install containerd.io
       apt:
         name: containerd.io
+    - name: Add user to the docker group to avoid running all docker commands with sudo
+      user:
+        name: aleksei
+        groups: docker
+        append: yes
