@@ -68,6 +68,14 @@ ansible -m ping nodes
 ansible-playbook -l nodes provisioning.yaml
 ```
 
+## Restarting machines
+
+To restart machines from `nodes` group run:
+
+```bash
+ansible -m shell --become-method su --become-user root -a 'systemctl reboot' nodes
+```
+
 ## Links
 
 * [↑ How to Install and Configure Ansible on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-ubuntu-18-04)
