@@ -40,7 +40,7 @@ node1 ansible_ssh_host=node1.slova.io ansible_ssh_user=aleksei
 node2 ansible_ssh_host=node2.slova.io ansible_ssh_user=aleksei
 
 [masters]
-mialkin ansible_ssh_host=mialkin.ru ansible_ssh_user=aleksei
+master1 ansible_ssh_host=178.154.235.126 ansible_ssh_user=aleksei
 
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3
