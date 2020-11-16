@@ -1,0 +1,75 @@
+- hosts: all
+  become: yes
+  tasks:
+    - name: Disable SWAP since Kubernetes can't work with swap enabled (1/2)
+      shell: |
+        swapoff -a
+
+    - name: Disable SWAP in fstab since Kubernetes can't work with swap enabled (2/2)
+      replace:
+        path: /etc/fstab
+        regexp: '^([^#].*?\sswap\s+sw\s+.*)$'
+        replace: '# \1'
+
+    - name: Copy docker daemon to remote
+      shell: |
+        cat > /etc/docker/daemon.json <<EOF
+        {
+          "exec-opts": ["native.cgroupdriver=systemd"],
+          "log-driver": "json-file",
+          "log-opts": {
+            "max-size": "100m"
+          },
+          "storage-driver": "overlay2"
+        }
+        EOF
+
+    - name: Create systemd directory for daemon
+      file:
+        path: /etc/systemd/system/docker.service.d
+        state: directory
+
+    - name: Just force systemd to reread configs
+      systemd:
+        daemon_reload: yes
+
+    - name: Restart Docker
+      systemd:
+        name: docker
+        state: restarted
+
+- hosts: master1
+  become: yes
+  tasks:
+    - name: Initialize the cluster
+      shell: sudo kubeadm init --pod-network-cidr=10.244.0.0/16 >> cluster_initialized.txt
+      become: yes
+      become_user: root
+      args:
+        chdir: $HOME
+        creates: cluster_initialized.txt
+
+    - name: Create .kube directory
+      become: yes
+      become_user: aleksei
+      file:
+        path: $HOME/.kube
+        state: directory
+        mode: 0755
+
+    - name: Copy admin.conf to user's kube config
+      become: yes
+      become_user: root
+      copy:
+        src: /etc/kubernetes/admin.conf
+        dest: /home/aleksei/.kube/config
+        remote_src: yes
+        owner: aleksei
+
+    - name: Install Pod network
+      become: yes
+      become_user: aleksei
+      shell: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/a70459be0084506e4ec919aa1c114638878db11b/Documentation/kube-flannel.yml >> pod_network_setup.txt
+      args:
+        chdir: $HOME
+        creates: pod_network_setup.txt
