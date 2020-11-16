@@ -8,16 +8,21 @@
         state: directory
         recurse: yes
         mode: -x
-    - name: Set Moscow time zone
-      command: timedatectl set-timezone Europe/Moscow
+    - name: Set timezone to Europe/Moscow
+      timezone:
+        name: Europe/Moscow
     - name: Set up "cls" alias
       become: false
       blockinfile:
         path: ~/.bashrc
         block: alias cls='clear'
-    - name: Update and upgrade apt packages
+    - name: Update cache and upgrade apt packages
       apt:
-        upgrade: yes
+        upgrade: 'yes'
         update_cache: yes
-    - name: Unconditionally reboot the machine with all defaults
-      reboot:
+    #- name: Unconditionally reboot the machine with all defaults
+    #  reboot:
+    - name: Update cache and install "htop" package
+      apt:
+        name: htop
+        update_cache: yes
