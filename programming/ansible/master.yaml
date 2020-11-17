@@ -38,11 +38,13 @@
         name: docker
         state: restarted
 
-- hosts: master1
+- hosts: masters
   become: yes
+  vars:
+    master_ip: 178.154.232.118
   tasks:
     - name: Initialize the cluster
-      shell: kubeadm init --pod-network-cidr=10.244.0.0/16 --control-plane-endpoint "178.154.235.126:6443" >> cluster_initialized.txt
+      shell: kubeadm init --pod-network-cidr=10.244.0.0/16 --control-plane-endpoint "{{ master_ip }}:6443" >> cluster_initialized.txt
       become: yes
       become_user: root
       args:
