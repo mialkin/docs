@@ -220,6 +220,7 @@
       - [Релиз](programming/git/release.md)
       - [Именование релизных веток](programming/git/branch%20names.md)
 - Kubernetes
+  - [Creating cluster steps](programming/kubernetes/creating%20cluster.md)
   - [Kubernetes components](programming/kubernetes/components.md)
   - [kubectl](programming/kubernetes/kubectl.md)
   - [Minikube](programming/kubernetes/minikube.md)
