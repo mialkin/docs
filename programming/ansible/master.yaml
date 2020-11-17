@@ -42,7 +42,7 @@
   become: yes
   tasks:
     - name: Initialize the cluster
-      shell: kubeadm init --pod-network-cidr=10.244.0.0/16 >> cluster_initialized.txt
+      shell: kubeadm init --pod-network-cidr=10.244.0.0/16 --control-plane-endpoint "178.154.235.126:6443" >> cluster_initialized.txt
       become: yes
       become_user: root
       args:
