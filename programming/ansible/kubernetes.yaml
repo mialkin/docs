@@ -28,7 +28,7 @@
        name: kubeadm
        state: present
 
-- hosts: master1
+- hosts: masters
   become: yes
   tasks:
    - name: Install kubectl
