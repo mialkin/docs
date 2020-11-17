@@ -15,7 +15,7 @@ sudo vim /etc/ansible/hosts
 
 Here we assume that you will have 2 worker nodes and 1 master node all runing Ubuntu 20.04.
 
-Put your nodes inside `hosts` file mentioned above:
+Put your nodes inside `hosts` inventory file mentioned above:
 
 ```text
 [nodes]
@@ -39,13 +39,13 @@ Make sure that Ansible can read your `hosts` inventory file:
 ansible-inventory --list -y
 ```
 
-4\. Do initial Ubuntu setup of all of your nodes, i.e. 2 worker nodes and master.
-
-On your computer, inside the folder with [provisioning.yaml](../ansible/provisioning.yaml) file run:
+4\. Do initial Ubuntu setup of all of your nodes, i.e. 2 worker nodes and master:
 
 ```bash
 ansible-playbook provisioning.yaml
 ```
+
+Here is the [provisioning.yaml](../ansible/provisioning.yaml) file. Download it to your computer and run the above command iside the folder with this file.
 
 5\. Install Docker tools on all of your nodes:
 
@@ -95,18 +95,6 @@ sudo cat /root/cluster_initialized.txt
 You will see at the end of the output instructions of how to join your worker nodes to your master node:
 
 ```text
-Your Kubernetes control-plane has initialized successfully!
-
-To start using your cluster, you need to run the following as a regular user:
-
-  mkdir -p $HOME/.kube
-  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-  sudo chown $(id -u):$(id -g) $HOME/.kube/config
-
-You should now deploy a pod network to the cluster.
-Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
-  https://kubernetes.io/docs/concepts/cluster-administration/addons/
-
 You can now join any number of control-plane nodes by copying certificate authorities
 and service account keys on each node and then running the following as root:
 
