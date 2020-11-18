@@ -11,4 +11,5 @@
 ## Links
 
 * [↑ Install Docker Compose](https://docs.docker.com/compose/install/)
+* [↑ Compose file version 3 reference](https://docs.docker.com/compose/compose-file/)
 * [↑ Overview of docker-compose CLI](https://docs.docker.com/compose/reference/overview/)
