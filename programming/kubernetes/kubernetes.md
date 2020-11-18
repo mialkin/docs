@@ -4,20 +4,39 @@
 
 The **kubectl** command line tool lets you control Kubernetes clusters.
 
-### Syntax
+### Cluster
 
-```text
-kubectl [command] [TYPE] [NAME] [flags]
-```
+Command                          | Description
+---------------------------------|-----------------------
+kubectl get nodes                | Show nodes in the cluster
 
-### Commands
+### Deployments
 
-Command          | Description
------------------|-----------------------
-kubectl get      | List resources
-kubectl describe | Show detailed information about a resource
-kubectl logs     | Print the logs from a container in a pod
-kubectl exec     | Execute a command on a container in a pod
+Command                                       | Description
+----------------------------------------------|-------------
+kubectl get deployments                       | Display deployments
+kubectl apply -f deployment.yaml              | Create deployment from yaml file
+kubectl describe deployments                  | Get details of deployment
+kubectl delete deployment \<deployment name>  | Delete deployment
+
+### Services
+
+Command                                | Description
+---------------------------------------|------------------
+kubectl get services                   |
+kubectl delete service \<service name> | Delete service
+
+### Pods
+
+Command                          | Description
+---------------------------------|-----------------------
+kubectl get pods                 |
+
+### ReplicaSet
+
+Command                          | Description
+---------------------------------|-----------------------
+kubectl get rs                   | 
 
 ## kubeadm
 
