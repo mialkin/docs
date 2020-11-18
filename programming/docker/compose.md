@@ -7,7 +7,7 @@
 Command                          | Description
 ---------------------------------|----------------------
 docker-compose up -d             | Run containers in the background, print new container names. |
-docker-compose down --rmi all -v | Stops containers and removes containers, networks, volumes, and images created by `up`. The `-v` flag removes named volumes; `--rmi all` removes all images.
+docker-compose down --rmi all -v | Stops containers and removes containers, networks, volumes, and images created by `up`. The `--rmi all` removes all images; the `-v` removes named volumes.
 
 ## Links
 
