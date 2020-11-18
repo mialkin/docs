@@ -4,12 +4,13 @@
 
 ## Commands
 
-| Command              | Description                                                  |
-|----------------------|--------------------------------------------------------------|
-| docker-compose up -d | Run containers in the background, print new container names. |
+Command                          | Description
+---------------------------------|----------------------
+docker-compose up -d             | Run containers in the background, print new container names. |
+docker-compose down --rmi all -v | Stops containers and removes containers, networks, volumes, and images created by `up`. The `-v` flag removes named volumes; `--rmi all` removes all images.
 
 ## Links
 
 * [↑ Install Docker Compose](https://docs.docker.com/compose/install/)
-* [↑ Compose file version 3 reference](https://docs.docker.com/compose/compose-file/)
 * [↑ Overview of docker-compose CLI](https://docs.docker.com/compose/reference/overview/)
+* [↑ Compose file version 3 reference](https://docs.docker.com/compose/compose-file/)
