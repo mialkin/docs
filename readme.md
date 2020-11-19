@@ -113,14 +113,14 @@
         - Small object heap (SOH)
     - Just-in-time (JIT) compilation
   - CoreFx
-    - [ASP.NET Core](dotnet/asp.net/asp.net%20core.md)
+    - [ASP.NET](asp.net/asp.net.md)
       - Dependency injection
       - Middleware
       - Host
       - Configuration
       - Options
       - Environments
-      - [Logging](dotnet/asp.net/logging.md)
+      - [Logging](asp.net/logging.md)
       - Routing
       - Security
         - Authentication
