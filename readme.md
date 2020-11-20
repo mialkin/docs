@@ -42,10 +42,10 @@
   - System
     - Classes
       - Array
-      - [Delegate](dotnet/api/system/delegate/delegate.md)
+      - [Delegate](dotnet/system/delegate/delegate.md)
         - Action\<T>
         - Func\<TResult>
-        - [Event](dotnet/api/system/delegate/event.md)
+        - [Event](dotnet/system/delegate/event.md)
       - Exception
       - GC
         - Properties
@@ -61,12 +61,12 @@
       - MarshalByRefObject
       - Object
         - Methods
-          - [Equals](dotnet/api/system/object/equals.md)
-          - [GetType](dotnet/api/system//object/getType.md)
-          - [ToString](dotnet/api/system/object/toString.md)
-          - [Finalize](dotnet/api/system/object/finalize.md)
-          - [MemberwiseClone](dotnet/api/system/object/memberwiseClone.md)
-          - [ReferenceEquals](dotnet/api/system/object/referenceEquals.md)
+          - [Equals](dotnet/system/object/equals.md)
+          - [GetType](dotnet/system//object/getType.md)
+          - [ToString](dotnet/system/object/toString.md)
+          - [Finalize](dotnet/system/object/finalize.md)
+          - [MemberwiseClone](dotnet/system/object/memberwiseClone.md)
+          - [ReferenceEquals](dotnet/system/object/referenceEquals.md)
       - String
       - Tuple\<T1>
       - ValueType
@@ -85,18 +85,18 @@
     - ConcurrentStack\<T>
   - System.Collections.Generic
     - Classes
-      - [Dictionary](dotnet/api/system/collections/generic/dictionary.md)
+      - [Dictionary](dotnet/system/collections/generic/dictionary.md)
     - Interfaces
       - [IAsyncEnumerable\<T>]
   - System.IO
     - FileStream
     - MemoryStream
   - System.Linq
-    - [Expression tree](dotnet/api/system/linq/expression%20tree.md)
+    - [Expression tree](dotnet/system/linq/expression%20tree.md)
     - Interfaces
-      - [IQueryable\<T>](dotnet/api/system/linq/iqueryable.md)
+      - [IQueryable\<T>](dotnet/system/linq/iqueryable.md)
   - System.Threading
-    - [Task Parallel Library (TPL)](dotnet/api/system/threading/tpl.md)
+    - [Task Parallel Library (TPL)](dotnet/system/threading/tpl.md)
     - Classes
       - Interlocked
       - Monitor
@@ -105,8 +105,8 @@
       - ReaderWriterSlimLock
       - Semaphore
       - SynchronizationContext
-      - [Thread](dotnet/api/system/threading/thread.md)
-      - [ThreadPool](dotnet/api/system/threading/threadpool.md)
+      - [Thread](dotnet/system/threading/thread.md)
+      - [ThreadPool](dotnet/system/threading/threadpool.md)
     - Structs
       - CancellationToken
       - SpinLock
@@ -114,9 +114,9 @@
   - System.Threading.Tasks
     - Classes
       - Parallel
-      - [Task](dotnet/api/system/threading/tasks/task/task.md)
-        - [Properties](dotnet/api/system/threading/tasks/task/properties.md)
-      - [Task\<TResult>](dotnet/api/system/threading/tasks/task_t/task.md)
+      - [Task](dotnet/system/threading/tasks/task/task.md)
+        - [Properties](dotnet/system/threading/tasks/task/properties.md)
+      - [Task\<TResult>](dotnet/system/threading/tasks/task_t/task.md)
       - TaskFactory
 
 ## Computer science
