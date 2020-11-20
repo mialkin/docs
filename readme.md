@@ -83,6 +83,11 @@
     - ConcurrentDictionary\<T>
     - ConcurrentQueue\<T>
     - ConcurrentStack\<T>
+  - System.Collections.Generic
+    - Classes
+      - [Dictionary](dotnet/api/system/collections/generic/dictionary.md)
+    - Interfaces
+      - [IAsyncEnumerable\<T>]
   - System.IO
     - FileStream
     - MemoryStream
