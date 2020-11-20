@@ -2,7 +2,7 @@
 
 ## Example
 
-```charp
+```csharp
 using System;
 using System.Collections.Generic;
 
