@@ -28,3 +28,13 @@ class Program
     }
 }
 ```
+
+Output:
+
+```output
+une
+deux
+trois
+quatre
+cinq
+```
