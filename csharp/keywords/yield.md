@@ -25,6 +25,8 @@ class Program
         yield return "trois";
         yield return "quatre";
         yield return "cinq";
+        yield break;
+        yield return "six";
     }
 }
 ```
@@ -38,3 +40,7 @@ trois
 quatre
 cinq
 ```
+
+## Links
+
+[↑ Proper use of 'yield return'](https://stackoverflow.com/questions/410026/proper-use-of-yield-return)
