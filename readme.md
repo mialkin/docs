@@ -6,6 +6,14 @@
 
 ## .NET
 
+- CLR
+  - Memory managment
+    - Garbage collector (GC)
+    - Managed heap
+      - Small object heap (SOH)
+  - Just-in-time (JIT) compilation
+- [ASP.NET](asp.net/asp.net.md)
+  - [SignalR](asp.net/signalr.md)
 - C#
   - Boxing and unboxing
   - [Access modifiers](/csharp/access%20modifiers.md)
@@ -105,27 +113,6 @@
         - [Properties](dotnet/api/system/threading/tasks/task/properties.md)
       - [Task\<TResult>](dotnet/api/system/threading/tasks/task_t/task.md)
       - TaskFactory
-- .NET Core
-  - CoreCLR
-    - Memory managment
-      - Garbage collector (GC)
-      - Managed heap
-        - Small object heap (SOH)
-    - Just-in-time (JIT) compilation
-  - CoreFx
-    - [ASP.NET](asp.net/asp.net.md)
-      - Dependency injection
-      - Middleware
-      - Host
-      - Configuration
-      - Options
-      - Environments
-      - [Logging](asp.net/logging.md)
-      - Routing
-      - Security
-        - Authentication
-        - Authorization
-      - [↑ SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr)
 
 ## Computer science
 

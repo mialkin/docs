@@ -1,11 +1,14 @@
 # ASP.NET
 
-* [↑ Dependency injection](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection)
-* [↑ Middleware](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware)
-* [↑ Host](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/generic-host)
-* [↑ Servers](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers)
+*  Authentication
+*  Authorization
 * [↑ Configuration](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration)
-* [↑ Options](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options)
+* [↑ Dependency injection](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection)
 * [↑ Environments](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/environments)
-* [↑ Logging](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging)
+* [Host](host.md)
+* [Logging](asp.net/logging.md)
+* [↑ Middleware](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware)
+* [↑ Options](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options)
 * [↑ Routing](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing)
+* Security
+* [↑ Servers](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers)
