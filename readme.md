@@ -1,17 +1,7 @@
 # Technical documentation
 
-[Knowledge map (SVG)](https://raw.githubusercontent.com/mialkin/documentation/master/knowledge%20map.svg)
-
-[Перевод технических терминов](translation.md)
-
 ## .NET
 
-- CLR
-  - Memory managment
-    - Garbage collector (GC)
-    - Managed heap
-      - Small object heap (SOH)
-  - Just-in-time (JIT) compilation
 - [ASP.NET](asp.net/asp.net.md)
   - [SignalR](asp.net/signalr.md)
 - C#
@@ -27,6 +17,9 @@
     - [Nullable static analysis attributes](/csharp/nullable%20static%20analysis%20attributes.md)
   - [Constructor execution order](/csharp/constructor%20execution%20order.md)
   - [Covariance and contravariance](/csharp/covariance%20and%20contravariance.md)
+  - [Keywords](csharp/keywords/keywords.md)
+    - Contextual keywords
+      - [yield](csharp/keywords/yield.md)
   - [Lambda expressions](/csharp/lambda%20expressions.md)
   - [Nullable reference types](/csharp/nullable%20reference%20types.md)
   - Operators and expressions
@@ -87,7 +80,7 @@
     - Classes
       - [Dictionary](dotnet/system/collections/generic/dictionary.md)
     - Interfaces
-      - [IAsyncEnumerable\<T>]
+      - [IAsyncEnumerable\<T>](dotnet/system/collections/generic/iasyncenumerable.md)
   - System.IO
     - FileStream
     - MemoryStream
@@ -118,6 +111,12 @@
         - [Properties](dotnet/system/threading/tasks/task/properties.md)
       - [Task\<TResult>](dotnet/system/threading/tasks/task_t/task.md)
       - TaskFactory
+- CLR
+  - Memory managment
+    - Garbage collector (GC)
+    - Managed heap
+      - Small object heap (SOH)
+  - Just-in-time (JIT) compilation
 
 ## Computer science
 
