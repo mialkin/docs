@@ -5,7 +5,6 @@ Parallel and asynchronous programming, async lambdas, async lock, IAsyncEnumerab
 
 * LINQ
 * Extension methods
-* EF migrations
 * [↑ Weak reference](https://docs.microsoft.com/en-us/dotnet/api/system.weakreference?view=netcore-3.1)
 * Data structures time and space complexities
 
@@ -24,7 +23,6 @@ Parallel and asynchronous programming, async lambdas, async lock, IAsyncEnumerab
 * MS SQL Server
   * [↑ Window functions](https://docs.microsoft.com/en-us/sql/t-sql/queries/select-over-clause-transact-sql?view=sql-server-ver15)
   * Sharding, partitioning, replication, clustering
-
 
 * ASP.NET CORE caching
 
@@ -50,8 +48,6 @@ Parallel and asynchronous programming, async lambdas, async lock, IAsyncEnumerab
 
 * GraphQL
 
-* Open Systems Interconnection model
-
 * Elasticsearch
 
 * InfluxDb, ClickHouse
@@ -69,7 +65,5 @@ Parallel and asynchronous programming, async lambdas, async lock, IAsyncEnumerab
 * MapReduce
 
 * [↑ Lighthouse](https://developers.google.com/web/tools/lighthouse)
-
-* XSS, CSRF
 
 * [Яндекс.Танк](https://yandex.ru/dev/tank/)
