@@ -43,4 +43,6 @@ cinq
 
 ## Links
 
-[↑ Proper use of 'yield return'](https://stackoverflow.com/questions/410026/proper-use-of-yield-return)
+* [↑ Proper use of 'yield return'](https://stackoverflow.com/questions/410026/proper-use-of-yield-return)
+
+* [↑ yield (C# Reference)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/yield)
