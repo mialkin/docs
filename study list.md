@@ -1,6 +1,7 @@
 # Study list
 
-Parallel and asynchronous programming, async lambdas, async lock, IAsyncEnumerable
+Parallel and asynchronous programming, async lambdas, async lock
+
 * [↑ Dissecting the async methods in C#](https://devblogs.microsoft.com/premier-developer/dissecting-the-async-methods-in-c/)
 
 * LINQ
@@ -33,8 +34,6 @@ Parallel and asynchronous programming, async lambdas, async lock, IAsyncEnumerab
 * [↑ Integration tests in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests)
 
 * [↑ Coveralls](https://devblogs.microsoft.com/premier-developer/dissecting-the-async-methods-in-c/)
-
-* WebSocket protocol
 
 * gRPC
 
