@@ -59,7 +59,7 @@ Output:
 
 Diagram that demonstrates dependencies of the above code:
 
-<img src="dependency inversion no.svg">
+<img src="dip no.svg">
 
 ## C# example that takes into account the Dependency Inversion Principle
 
@@ -124,7 +124,7 @@ Output:
 
 Diagram that demonstrates dependencies of the above code:
 
-<img src="dependency inversion.svg">
+<img src="dip.svg">
 
 <hr>
 

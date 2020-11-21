@@ -184,12 +184,12 @@
   - [Explicit Dependencies Principle](software%20design/explicit%20dependencies%20principle.md)
   - Idempotence
   - KISS
-  - SOLID
+  - [SOLID](software%20design/solid/solid.md)
     - Single responsibility principle
     - Open-closed principle
     - Liskov substitution principle
     - Interface segregation principle
-    - [Dependency Inversion Principle](software%20design/dependency%20inversion/dependency%20inversion.md)
+    - [Dependency Inversion Principle](software%20design/solid/dip/dip.md)
   - YAGNI
 - [Unified Modeling Language (UML)](software%20design/uml.md)
 
@@ -279,7 +279,7 @@
 - [React](web/react/react.md)
 - [REST](web/rest.md)
 - Security
-  - CSRF
-  - XSS
+  - [↑ CSRF](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
+  - [↑ XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
 - [Web APIs](web/api/api.md)
 - [WebSocket](websocket.md)
