@@ -185,7 +185,7 @@
   - Idempotence
   - KISS
   - [SOLID](software%20design/solid/solid.md)
-    - Single responsibility principle
+    - [Single responsibility principle](software%20design/solid/srp.md)
     - Open-closed principle
     - Liskov substitution principle
     - Interface segregation principle
