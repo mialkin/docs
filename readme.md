@@ -17,6 +17,7 @@
     - [Nullable static analysis attributes](/csharp/nullable%20static%20analysis%20attributes.md)
   - [Constructor execution order](/csharp/constructor%20execution%20order.md)
   - [Covariance and contravariance](/csharp/covariance%20and%20contravariance.md)
+  - [Extension methods](csharp/extension%20methods.md)
   - [Keywords](csharp/keywords/keywords.md)
     - Contextual keywords
       - [yield](csharp/keywords/yield.md)
