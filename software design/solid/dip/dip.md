@@ -126,6 +126,11 @@ Diagram that demonstrates dependencies of the above code:
 
 <img src="svg/dip.svg">
 
+
+The direction of dependency within the application should be in the direction of abstraction, not implementation details. Most applications are written such that compile-time dependency flows in the direction of runtime execution, producing a direct dependency graph.
+
+Dependency inversion is a key part of building loosely coupled applications, since implementation details can be written to depend on and implement higher-level abstractions, rather than the other way around. The resulting applications are more testable, modular, and maintainable as a result.
+
 <hr>
 
 <sup>1</sup> Robert C. Martin, Agile Software Development, Principles, Patterns, and Practices (Upper Saddle River, NJ: Prentice Hall, 2002), p. 127.

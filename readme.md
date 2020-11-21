@@ -193,6 +193,7 @@
     - [Dependency Inversion Principle](software%20design/solid/dip/dip.md)
   - [YAGNI](software%20design/yagni.md)
 - [Unified Modeling Language (UML)](software%20design/uml.md)
+- [↑ Java Desing Principles](https://java-design-patterns.com/principles/)
 
 ## Programming
 

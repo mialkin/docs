@@ -41,6 +41,10 @@
 
 [GoF notation for diagrams](gof%20notation/gof%20notation.md)
 
+## Links
+
+[↑ Java Design Patterns](https://java-design-patterns.com)
+
 <hr>
 
 <sup>1, 2</sup> Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides, Design Patterns: Elements of Reusable Object-Oriented Software (Addison-Wesley, 1994), pages 12 and 388 accordingly for references 1 and 2.
