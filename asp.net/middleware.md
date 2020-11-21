@@ -17,6 +17,8 @@ Request delegates are configured using [↑ Run](https://docs.microsoft.com/en-u
 
 An individual request delegate can be specified in-line as an anonymous method (called in-line middleware), or it can be defined in a reusable class. These reusable classes and in-line anonymous methods are **middleware**, also called **middleware components**. Each middleware component in the request pipeline is responsible for invoking the next component in the pipeline or short-circuiting the pipeline. When a middleware short-circuits, it's called a **terminal middleware** because it prevents further middleware from processing the request.
 
+The order that middleware components are added in the Startup.Configure method defines the order in which the middleware components are invoked on requests and the reverse order for the response. The order is **critical** for security, performance, and functionality.
+
 ## Links
 
 * [↑ Middleware](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware)

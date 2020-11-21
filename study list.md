@@ -5,7 +5,6 @@ Parallel and asynchronous programming, async lambdas, async lock
 * [↑ Dissecting the async methods in C#](https://devblogs.microsoft.com/premier-developer/dissecting-the-async-methods-in-c/)
 
 * LINQ
-* Extension methods
 * [↑ Weak reference](https://docs.microsoft.com/en-us/dotnet/api/system.weakreference?view=netcore-3.1)
 * Data structures time and space complexities
 

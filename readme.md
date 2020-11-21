@@ -137,10 +137,6 @@
     - Hash table
     - Hash tree
 - Object-oriented programming (OOP)
-  - Abstraction
-  - Incapsulation
-  - Inheritance
-  - Polymorphism
 
 ## Databases
 
