@@ -1,6 +1,6 @@
 # Dependency Inversion Principle
 
- The principle states<sup>1</sup>:
+The principle states<sup>1</sup>:
 
 * A. High-level modules should not depend on low-level modules. Both should depend on abstractions.
 
@@ -59,7 +59,7 @@ Output:
 
 Diagram that demonstrates dependencies of the above code:
 
-<img src="dip no.svg">
+<img src="svg/dip no.svg">
 
 ## C# example that takes into account the Dependency Inversion Principle
 
@@ -124,7 +124,7 @@ Output:
 
 Diagram that demonstrates dependencies of the above code:
 
-<img src="dip.svg">
+<img src="svg/dip.svg">
 
 <hr>
 
