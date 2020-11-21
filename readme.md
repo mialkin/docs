@@ -183,7 +183,7 @@
   - [Composition over inheritance](software%20design/composition%20over%20inheritance.md)
   - [DRY](software%20design/dry.md)
   - [Explicit Dependencies Principle](software%20design/explicit%20dependencies%20principle.md)
-  - Idempotency
+  - [Idempotency](software%20design/idempotency.md)
   - [KISS](software%20design/kiss.md)
   - [SOLID](software%20design/solid/solid.md)
     - [Single responsibility principle](software%20design/solid/srp.md)
