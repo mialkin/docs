@@ -136,7 +136,7 @@
   - Hash-based structures
     - Hash table
     - Hash tree
-- Object-oriented programming (OOP)
+- [Object-oriented programming (OOP)](computer%20science/oop.md)
 
 ## Databases
 
