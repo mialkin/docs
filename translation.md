@@ -12,6 +12,7 @@
 * **Alias** — псевдоним
 * **Application domain** — домен приложения
 * **Authentication** — проверка подлинности
+* **Authority** — центр
 * **Authorization** — авторизация
 
 ## B
@@ -213,4 +214,4 @@
 
 ## Ссылки
 
-* [Языковой портал Микрософт](https://www.microsoft.com/en-us/language)
+* [↑ Языковой портал Микрософт](https://www.microsoft.com/en-us/language)
