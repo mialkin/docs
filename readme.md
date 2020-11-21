@@ -191,10 +191,7 @@
     - Interface segregation principle
     - [Dependency Inversion Principle](software%20design/dependency%20inversion/dependency%20inversion.md)
   - YAGNI
-- Unified Modeling Language (UML)
-  - Diagrams
-    - Class diagram
-    - Sequence diagram
+- [Unified Modeling Language (UML)](software%20design/uml.md)
 
 ## Programming
 
