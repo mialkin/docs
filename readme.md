@@ -178,6 +178,13 @@
 
 ## Design
 
+- Architectural patterns
+  - [↑ API gateway](https://www.nginx.com/blog/building-microservices-using-an-api-gateway)
+  - CQRS
+  - Event sourcing
+  - MVC
+  - Repository
+  - Unit of work
 - [Design patterns](software%20design/design%20patterns/design%20patterns.md)
 - Design principles
   - [Composition over inheritance](software%20design/composition%20over%20inheritance.md)
@@ -193,6 +200,10 @@
     - [Dependency Inversion Principle](software%20design/solid/dip/dip.md)
   - [YAGNI](software%20design/yagni.md)
 - [Unified Modeling Language (UML)](software%20design/uml.md)
+
+### Design links
+
+- [↑ Anti-pattern](https://en.wikipedia.org/wiki/Anti-pattern)
 - [↑ Java Desing Principles](https://java-design-patterns.com/principles/)
 
 ## Programming
@@ -218,7 +229,6 @@
       - [Scale your app](programming/kubernetes/scale.md)
       - [Update your app](programming/kubernetes/update.md)
 - [Microservices](programming/microservices.md)
-  - [↑ API Gateway](https://www.nginx.com/blog/building-microservices-using-an-api-gateway)
 - [Regular expressions](programming/regular%20expressions/regular%20expressions.md)
 - [Telegram bot](programming/telegram/telegram%20bot.md)
 - Testing
