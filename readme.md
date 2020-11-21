@@ -183,14 +183,14 @@
   - DRY
   - [Explicit Dependencies Principle](software%20design/explicit%20dependencies%20principle.md)
   - Idempotence
-  - KISS
+  - [KISS](software%20design/kiss.md)
   - [SOLID](software%20design/solid/solid.md)
     - [Single responsibility principle](software%20design/solid/srp.md)
     - Open-closed principle
     - Liskov substitution principle
     - Interface segregation principle
     - [Dependency Inversion Principle](software%20design/solid/dip/dip.md)
-  - YAGNI
+  - [YAGNI](software%20design/yagni.md)
 - [Unified Modeling Language (UML)](software%20design/uml.md)
 
 ## Programming
