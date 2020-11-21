@@ -181,9 +181,9 @@
 - [Design patterns](software%20design/design%20patterns/design%20patterns.md)
 - Design principles
   - [Composition over inheritance](software%20design/composition%20over%20inheritance.md)
-  - DRY
+  - [DRY](software%20design/dry.md)
   - [Explicit Dependencies Principle](software%20design/explicit%20dependencies%20principle.md)
-  - Idempotence
+  - Idempotency
   - [KISS](software%20design/kiss.md)
   - [SOLID](software%20design/solid/solid.md)
     - [Single responsibility principle](software%20design/solid/srp.md)
