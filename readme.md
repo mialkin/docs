@@ -182,8 +182,9 @@
   - [↑ API gateway](https://www.nginx.com/blog/building-microservices-using-an-api-gateway)
   - CQRS
   - Event sourcing
-  - MVC
+  - [↑ MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?)
   - Repository
+  - Service locator
   - Unit of work
 - [Design patterns](software%20design/design%20patterns/design%20patterns.md)
 - Design principles
