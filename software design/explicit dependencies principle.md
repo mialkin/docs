@@ -19,71 +19,65 @@ Consider the `PersonalizedResponse` class, which can be constructed without any 
 ```csharp
 using System;
 using System.IO;
-using System.Linq;
 
-namespace ImplicitDependencies
+class Program
 {
-    class Program
+    static void Main()
     {
-        static void Main(string[] args)
+        var customer = new Customer
         {
-            var customer = new Customer()
-            {
-                FavoriteColor = "Blue",
-                Title = "Mr.",
-                Fullname = "Steve Smith"
-            };
-            Context.CurrentCustomer = customer;
+            FavoriteColor = "Blue",
+            Title = "Mr.",
+            Fullname = "Steve Smith"
+        };
+        Context.CurrentCustomer = customer;
 
-            var response = new PersonalizedResponse();
+        var response = new PersonalizedResponse();
 
-            Console.WriteLine(response.GetResponse());
-            Console.ReadLine();
-        }
+        Console.WriteLine(response.GetResponse());
     }
+}
 
-    public static class Context
+public static class Context
+{
+    public static Customer CurrentCustomer { get; set; }
+
+    public static void Log(string message)
     {
-        public static Customer CurrentCustomer { get; set; }
+        string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "logfile.txt");
+        using StreamWriter logFile = new StreamWriter(path);
+        logFile.WriteLine(message);
+    }
+}
 
-        public static void Log(string message)
+public class Customer
+{
+    public string FavoriteColor { get; set; }
+    public string Title { get; set; }
+    public string Fullname { get; set; }
+}
+
+public class PersonalizedResponse
+{
+    public string GetResponse()
+    {
+        Context.Log("Generating personalized response.");
+
+        string formatString = "Good {0}, {1} {2}! Would you like a {3} widget today?";
+        string timeOfDay = "afternoon";
+
+        if (DateTime.Now.Hour < 12)
         {
-            using (StreamWriter logFile = new StreamWriter(
-                Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-                    "logfile.txt")))
-            {
-                logFile.WriteLine(message);
-            }
+            timeOfDay = "morning";
         }
-    }
 
-    public class Customer
-    {
-        public string FavoriteColor { get; set; }
-        public string Title { get; set; }
-        public string Fullname { get; set; }
-    }
-
-    public class PersonalizedResponse
-    {
-        public string GetResponse()
+        if (DateTime.Now.Hour > 17)
         {
-            Context.Log("Generating personalized response.");
-            string formatString = "Good {0}, {1} {2}! Would you like a {3} widget today?";
-            string timeOfDay = "afternoon";
-            if (DateTime.Now.Hour < 12)
-            {
-                timeOfDay = "morning";
-            }
-            if (DateTime.Now.Hour > 17)
-            {
-                timeOfDay = "evening";
-            }
-            return String.Format(formatString, timeOfDay, 
-                Context.CurrentCustomer.Title, 
-                Context.CurrentCustomer.Fullname, 
-                Context.CurrentCustomer.FavoriteColor);
+            timeOfDay = "evening";
         }
+
+        return string.Format(formatString, timeOfDay, Context.CurrentCustomer.Title, Context.CurrentCustomer.Fullname,
+            Context.CurrentCustomer.FavoriteColor);
     }
 }
 ```
@@ -95,100 +89,89 @@ This class is clearly tightly coupled to the file system and the system clock, a
 ```csharp
 using System;
 using System.IO;
-using System.Linq;
 
-namespace ExplicitDependencies
+class Program
 {
-    class Program
+    static void Main()
     {
-        static void Main(string[] args)
+        var customer = new Customer
         {
-            var customer = new Customer()
-            {
-                FavoriteColor = "Blue",
-                Title = "Mr.",
-                Fullname = "Steve Smith"
-            };
+            FavoriteColor = "Blue",
+            Title = "Mr.",
+            Fullname = "Steve Smith"
+        };
 
-            var response = new PersonalizedResponse(new SimpleFileLogger(), new SystemDateTime());
+        var logger = new SimpleFileLogger();
+        var dateTime = new SystemDateTime();
+        var response = new PersonalizedResponse(logger, dateTime);
 
-            Console.WriteLine(response.GetResponse(customer));
-            Console.ReadLine();
-        }
+        Console.WriteLine(response.GetResponse(customer));
+    }
+}
+
+public interface ILogger
+{
+    void Log(string message);
+}
+
+public class SimpleFileLogger : ILogger
+{
+    public void Log(string message)
+    {
+        string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "logfile.txt");
+        using StreamWriter file = new StreamWriter(path);
+        file.WriteLine(message);
+    }
+}
+
+public interface IDateTime
+{
+    DateTime Now { get; }
+}
+
+public class SystemDateTime : IDateTime
+{
+    public DateTime Now => DateTime.Now;
+}
+
+public class Customer
+{
+    public string FavoriteColor { get; set; }
+    public string Title { get; set; }
+    public string Fullname { get; set; }
+}
+
+public class PersonalizedResponse
+{
+    private readonly ILogger _logger;
+
+    private readonly IDateTime _dateTime;
+
+    public PersonalizedResponse(ILogger logger, IDateTime dateTime)
+    {
+        _dateTime = dateTime;
+        _logger = logger;
     }
 
-    public interface ILogger
+    public string GetResponse(Customer customer)
     {
-        void Log(string message);
-    }
+        _logger.Log("Generating personalized response.");
 
-    public class SimpleFileLogger : ILogger
-    {
-        public void Log(string message)
+        string formatString = "Good {0}, {1} {2}! Would you like a {3} widget today?";
+        string timeOfDay = "afternoon";
+
+        if (_dateTime.Now.Hour < 12)
         {
-            using (StreamWriter logFile = new StreamWriter(
-                Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-                    "logfile.txt")))
-            {
-                logFile.WriteLine(message);
-            }
+            timeOfDay = "morning";
         }
-    }
 
-    public interface IDateTime
-    {
-        DateTime Now { get; }
-    }
-
-    public class SystemDateTime : IDateTime
-    {
-        public DateTime Now
+        if (_dateTime.Now.Hour > 17)
         {
-            get
-            {
-                return DateTime.Now;
-            }
-        }
-    }
-
-    public class Customer
-    {
-        public string FavoriteColor { get; set; }
-        public string Title { get; set; }
-        public string Fullname { get; set; }
-    }
-
-    public class PersonalizedResponse
-    {
-        private readonly ILogger _logger;
-
-        private readonly IDateTime _dateTime;
-
-        public PersonalizedResponse(ILogger logger,
-            IDateTime dateTime)
-        {
-            this._dateTime = dateTime;
-            this._logger = logger;
+            timeOfDay = "evening";
         }
 
-        public string GetResponse(Customer customer)
-        {
-            _logger.Log("Generating personalized response.");
-            string formatString = "Good {0}, {1} {2}! Would you like a {3} widget today?";
-            string timeOfDay = "afternoon";
-            if (_dateTime.Now.Hour < 12)
-            {
-                timeOfDay = "morning";
-            }
-            if (_dateTime.Now.Hour > 17)
-            {
-                timeOfDay = "evening";
-            }
-            return String.Format(formatString, timeOfDay,
-                customer.Title,
-                customer.Fullname,
-                customer.FavoriteColor);
-        }
+        return string.Format(formatString, timeOfDay, Context.CurrentCustomer.Title, Context.CurrentCustomer.Fullname,
+            Context.CurrentCustomer.FavoriteColor);
     }
 }
 ```
