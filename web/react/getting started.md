@@ -15,7 +15,7 @@ npx create-react-app dictionary-react && cd dictionary-react && npm start
 To run the app in development mode, run:
 
 ```bash
-nmp start
+npm start
 ```
 
 The page will automatically reload if you make changes to the code. You will see the build errors and lint warnings in the console.
