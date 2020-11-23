@@ -64,4 +64,6 @@ Parallel and asynchronous programming, async lock
 
 * [↑ Lighthouse](https://developers.google.com/web/tools/lighthouse)
 
-* [Яндекс.Танк](https://yandex.ru/dev/tank/)
+* [↑ Яндекс.Танк](https://yandex.ru/dev/tank/)
+
+* See IL of `yiled` [↑ What concrete type does 'yield return' return?](https://stackoverflow.com/questions/3454395/what-concrete-type-does-yield-return-return)
