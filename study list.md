@@ -66,4 +66,4 @@ Parallel and asynchronous programming, async lock
 
 * [↑ Яндекс.Танк](https://yandex.ru/dev/tank/)
 
-* See IL of `yiled` [↑ What concrete type does 'yield return' return?](https://stackoverflow.com/questions/3454395/what-concrete-type-does-yield-return-return)
+* See IL of `yield` [↑ What concrete type does 'yield return' return?](https://stackoverflow.com/questions/3454395/what-concrete-type-does-yield-return-return)
