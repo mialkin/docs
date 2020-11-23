@@ -1,6 +1,6 @@
 # Study list
 
-Parallel and asynchronous programming, async lambdas, async lock
+Parallel and asynchronous programming, async lock
 
 * [↑ Dissecting the async methods in C#](https://devblogs.microsoft.com/premier-developer/dissecting-the-async-methods-in-c/)
 
