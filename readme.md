@@ -153,12 +153,12 @@
     * Time complexity
     * Space complexity
     * Big O notation
-* [Asymmetric cryptography](computer%20science/asymmetric%20cryptography.md)
+* [Asymmetric cryptography](cs/asymmetric%20cryptography.md)
 * Data structures
   * Hash-based structures
     * Hash table
     * Hash tree
-* [Object-oriented programming (OOP)](computer%20science/oop.md)
+* [Object-oriented programming (OOP)](cs/oop.md)
 
 ## Databases
 
