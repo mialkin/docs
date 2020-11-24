@@ -207,21 +207,21 @@
   * Repository
   * Service locator
   * Unit of work
-* [Design patterns](software%20design/design%20patterns/design%20patterns.md)
+* [Design patterns](design/design%20patterns/design%20patterns.md)
 * Design principles
-  * [Composition over inheritance](software%20design/composition%20over%20inheritance.md)
-  * [DRY](software%20design/dry.md)
-  * [Explicit Dependencies Principle](software%20design/explicit%20dependencies%20principle.md)
-  * [Idempotency](software%20design/idempotency.md)
-  * [KISS](software%20design/kiss.md)
-  * [SOLID](software%20design/solid/solid.md)
-    * [Single responsibility principle](software%20design/solid/srp.md)
+  * [Composition over inheritance](design/composition%20over%20inheritance.md)
+  * [DRY](design/dry.md)
+  * [Explicit Dependencies Principle](design/explicit%20dependencies%20principle.md)
+  * [Idempotency](design/idempotency.md)
+  * [KISS](design/kiss.md)
+  * [SOLID](design/solid/solid.md)
+    * [Single responsibility principle](design/solid/srp.md)
     * Open-closed principle
     * Liskov substitution principle
     * Interface segregation principle
-    * [Dependency Inversion Principle](software%20design/solid/dip/dip.md)
-  * [YAGNI](software%20design/yagni.md)
-* [Unified Modeling Language (UML)](software%20design/uml.md)
+    * [Dependency Inversion Principle](design/solid/dip/dip.md)
+  * [YAGNI](design/yagni.md)
+* [Unified Modeling Language (UML)](design/uml.md)
 
 ### Design links
 

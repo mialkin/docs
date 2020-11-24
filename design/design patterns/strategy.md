@@ -81,4 +81,4 @@ Fast
 
 ## See also
 
-[Composition over inheritance](/software%20design/composition%20over%20inheritance.md)
+[Composition over inheritance](/design/composition%20over%20inheritance.md)
