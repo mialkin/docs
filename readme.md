@@ -13,6 +13,7 @@
 * [Middleware](asp.net/middleware.md)
 * [Model validation](asp.net/model%20validation.md)
 * [↑ Options](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options)
+* [↑ Performance](https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices)
 * [↑ Routing](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing)
 * Security
 * [↑ Servers](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers)
@@ -132,6 +133,7 @@
     * TaskFactory
 * CLR
 * Memory managment
+  * [↑ Garbage collection](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection)
   * Garbage collector (GC)
   * Managed heap
     * Small object heap (SOH)
