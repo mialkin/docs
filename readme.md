@@ -9,6 +9,7 @@
 * [↑ Dependency injection](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection)
 * [↑ Environments](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/environments)
 * [Host](asp.net/host.md)
+* [↑ Hosted service](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services)
 * [Logging](asp.net/logging.md)
 * [Middleware](asp.net/middleware.md)
 * [Model validation](asp.net/model%20validation.md)
