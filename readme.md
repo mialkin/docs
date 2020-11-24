@@ -176,7 +176,6 @@
 * Execution plan
 * Function
 * In-memory databases
-  * Memcached
   * Redis
 * Relational databases
   * Microsoft SQL Server
