@@ -288,6 +288,7 @@
   - [HTTP headers](web/http%20headers.md)
     - [↑ Accept](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept)
     - [↑ Accept-Encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding)
+    - [↑ Strict-Transport-Security](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security)
 - [JavaScript](web/javascript/javascript.md)
 - [JSON Web Token (JWT)](web/jwt.md)
 - [OAuth 2.0](web/oauth.md)
