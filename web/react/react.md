@@ -4,6 +4,8 @@
 
 * [Getting started](getting%20started.md)
 * [Public Folder ↑](https://create-react-app.dev/docs/using-the-public-folder/)
+* [↑ Component](https://reactjs.org/docs/react-component.html)
+* [↑ Component State](https://reactjs.org/docs/faq-state.html)
 
 ## Links
 

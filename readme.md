@@ -180,7 +180,7 @@
 * Relational databases
   * Microsoft SQL Server
   * Oracle Database
-  * SQLite
+  * [SQLite](db/sqlite.md)
   * [PostgreSQL](db/postgres/postgres.md)
 * Stored procedure
 * SQL
