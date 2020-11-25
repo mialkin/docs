@@ -334,6 +334,8 @@
     * [↑ Accept](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept)
     * [↑ Accept-Encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding)
     * [↑ Strict-Transport-Security](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security)
+  * [↑ HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+    * [↑ 401 Unauthorized](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401)
 * [JavaScript](web/javascript/javascript.md)
 * [JSON Web Token (JWT)](web/jwt.md)
 * [OAuth 2.0](web/oauth.md)
