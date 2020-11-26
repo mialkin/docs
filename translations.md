@@ -44,6 +44,8 @@
 * **Coupling**  — связывание, зацепление
 * **Covariance** — ковариантность
 * **Creational design pattern** — порождающий шаблон проектирования
+* **Cross-site request forgery** — межсайтовая подделка запроса
+* **Cross-site scripting** — межсайтовый скриптинг
 
 ## D
 
