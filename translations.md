@@ -39,11 +39,12 @@
 * **Common table expression** — обобщенное табличное выражение
 * **Composite** (design pattern) — Компоновщик
 * **Concurrency** — параллелизм
+* **Content delivery/distribution network** — сеть доставки/распределения содержимого
 * **Contravariance** — контравариантность
-* **CORS (cross-origin resource sharing)** — совместное использование ресурсов между разными источниками
 * **Coupling**  — связывание, зацепление
 * **Covariance** — ковариантность
 * **Creational design pattern** — порождающий шаблон проектирования
+* **Cross-origin resource sharing** — совместное использование ресурсов между разными источниками
 * **Cross-site request forgery** — межсайтовая подделка запроса
 * **Cross-site scripting** — межсайтовый скриптинг
 
