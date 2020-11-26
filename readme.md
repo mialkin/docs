@@ -8,6 +8,7 @@
 * [↑ Configuration](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration)
 * [↑ Dependency injection](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection)
 * [↑ Environments](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/environments)
+* [↑ Filters](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters)
 * [Host](asp.net/host.md)
 * [↑ Hosted service](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services)
 * [Logging](asp.net/logging.md)
@@ -19,6 +20,7 @@
 * Security
 * [↑ Servers](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers)
 * [SignalR](asp.net/signalr.md)
+* [↑ Upload files](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads)
 
 ## C#
 
