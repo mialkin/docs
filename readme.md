@@ -13,6 +13,7 @@
 * [↑ Hosted service](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services)
 * [Logging](asp.net/logging.md)
 * [Middleware](asp.net/middleware.md)
+* [↑ Model Binding](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/model-binding)
 * [Model validation](asp.net/model%20validation.md)
 * [↑ Options](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options)
 * [↑ Performance](https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices)
