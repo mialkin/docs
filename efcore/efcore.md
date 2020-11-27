@@ -34,5 +34,5 @@ dotnet ef dbcontext scaffold | Generates code for a DbContext and entity types f
 
 ## Links
 
-[↑ Entity Framework Core tools reference - .NET Core CLI
+[↑ .NET Core CLI
 ](https://docs.microsoft.com/en-us/ef/core/cli/dotnet)
