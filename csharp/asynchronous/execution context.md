@@ -2,7 +2,7 @@
 
 One may wonder: what is the execution context and why we need all that complexity?
 
-In the synchronous world, each thread keeps ambient information in a thread-local storage. It can be security-related information, culture-specific data, or something else. When 3 methods are called sequentially in one thread this information flows naturally between all of them. But this is no longer true for asynchronous methods. Each “section” of an asynchronous method can be executed in different threads that makes thread-local information unusable.
+In the synchronous world, each thread keeps ambient information in a thread-local storage. It can be security-related information, culture-specific data, or something else. When 3 methods are called sequentially in one thread this information flows naturally between all of them. But this is no longer true for asynchronous methods. Each "section" of an asynchronous method can be executed in different threads that makes thread-local information unusable.
 
 Execution context keeps the information for one logical flow of control even when it spans multiple threads.
 
