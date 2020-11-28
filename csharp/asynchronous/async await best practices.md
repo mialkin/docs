@@ -2,11 +2,11 @@
 
 ## Practical advices
 
-- Avoid `.Result()` and `.Wait()`. Use `await` for *asynchronous* code and `.GetAwaiter().GetResult()` for *synchronous* code. `.GetAwaiter().GetResult()` is effectively the same as `.Wait()`, it's going to block, but it will unwrap the exception, if the exception is thrown inside running method.
+* Avoid `.Result()` and `.Wait()`. Use `await` for *asynchronous* code and `.GetAwaiter().GetResult()` for *synchronous* code. `.GetAwaiter().GetResult()` is effectively the same as `.Wait()`, it's going to block, but it will unwrap the exception, if the exception is thrown inside running method.
 
-- Use `.ConfigureAwait(false)` when the calling thread isn't needed. Most business logic does not need to return to the calling thread.
+* Use `.ConfigureAwait(false)` when the calling thread isn't needed. Most business logic does not need to return to the calling thread.
 
-- Avoid `return await`. When `await` is only used in the `return` statement, return the `Task` instead, but don't do this inside of `try/catch` or `using()` blocks.
+* Avoid `return await`. When `await` is only used in the `return` statement, return the `Task` instead, but don't do this inside of `try/catch` or `using()` blocks.
 
 ## When should I use ConfigureAwait(false)?
 
@@ -50,6 +50,6 @@ One notable exception to this is if you know that the first await will always co
 
 ## Links
 
-[↑ ConfigureAwait FAQ](https://devblogs.microsoft.com/dotnet/configureawait-faq/)
-
-[↑ Дмитрий Иванов — Async programming in .NET: Best practices](https://www.youtube.com/watch?v=wM-h6P1BJRk)
+* [↑ ConfigureAwait FAQ](https://devblogs.microsoft.com/dotnet/configureawait-faq/)
+* [↑ Long Story Short: Async/Await Best Practices in .NET](https://medium.com/@deep_blue_day/long-story-short-async-await-best-practices-in-net-1f39d7d84050)
+* [↑ Дмитрий Иванов — Async programming in .NET: Best practices](https://www.youtube.com/watch?v=wM-h6P1BJRk)
