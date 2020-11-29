@@ -38,12 +38,19 @@
   * [Nullable static analysis attributes](/csharp/nullable%20static%20analysis%20attributes.md)
 * [Constructor execution order](/csharp/constructor%20execution%20order.md)
 * [Covariance and contravariance](/csharp/covariance%20and%20contravariance.md)
+* CLR
 * [Extension methods](csharp/extension%20methods.md)
+* Just-in-time (JIT) compilation
 * [Keywords](csharp/keywords/keywords.md)
   * Contextual keywords
     * [yield](csharp/keywords/yield.md)
 * [Lambda expressions](/csharp/lambda%20expressions.md)
 * [Nullable reference types](/csharp/nullable%20reference%20types.md)
+* Memory managment
+  * [↑ Garbage collection](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection)
+  * Garbage collector (GC)
+  * Managed heap
+    * Small object heap (SOH)
 * Operators and expressions
   * [Equality operator](/csharp/equality%20operator.md)
 * [Reflection](/csharp/reflection.md)
@@ -139,13 +146,8 @@
       * [Properties](dotnet/system/threading/tasks/task/properties.md)
     * [Task\<TResult>](dotnet/system/threading/tasks/task_t/task.md)
     * TaskFactory
-* CLR
-* Memory managment
-  * [↑ Garbage collection](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection)
-  * Garbage collector (GC)
-  * Managed heap
-    * Small object heap (SOH)
-* Just-in-time (JIT) compilation
+  * Structs
+    * [ValueTask\<TResult>](dotnet/system/threading/tasks/valuetask_t.md)
 
 ## Computer science
 
