@@ -187,6 +187,7 @@
 * **Single responsibility principle** — принцип единственной ответственности
 * **Shallow copy** — поверхостная копия
 * **Sharding** — сегментирование
+* **Spinlock** — спин-блокировка
 * **Stateless** — без запоминания/сохранения состояния
 * **Structural design pattern** — Структурный шаблон проектирования
 * **Structure diagram** — диаграмма структуры
