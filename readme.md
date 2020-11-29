@@ -54,7 +54,7 @@
 * Operators and expressions
   * [Equality operator](/csharp/equality%20operator.md)
 * [Reflection](/csharp/reflection.md)
-* TPL
+* [Task Parallel Library (TPL)](csharp/tpl.md)
   * [↑ Task-based asynchronous pattern](https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap)
   * [Reporting task progress](/csharp/asynchronous/reporting%20progress.md)
 * [Tricks](/csharp/tricks.md)
@@ -124,14 +124,13 @@
   * Interfaces
     * [IQueryable\<T>](dotnet/system/linq/iqueryable.md)
 * System.Threading
-  * [Task Parallel Library (TPL)](dotnet/system/threading/tpl.md)
   * Classes
     * Interlocked
     * Monitor
     * Mutex
     * ReaderWriterLock
     * ReaderWriterSlimLock
-    * Semaphore
+    * [Semaphore]
     * SynchronizationContext
     * [Thread](dotnet/system/threading/thread.md)
     * [ThreadPool](dotnet/system/threading/threadpool.md)
