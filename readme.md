@@ -32,7 +32,6 @@
   * [Async lambdas](csharp/asynchronous/async%20lambdas.md)
   * [Exceptions](/csharp/asynchronous/exceptions.md)
   * [Execution Context](/csharp/asynchronous/execution%20context.md)
-  * [Synchronization context](/csharp/asynchronous/synchronization%20context.md)
   * [Task scheduler](/csharp/asynchronous/task%20scheduler.md)
 * [Attributes](/csharp/attributes.md)
   * [Nullable static analysis attributes](/csharp/nullable%20static%20analysis%20attributes.md)
@@ -48,7 +47,6 @@
 * [Nullable reference types](/csharp/nullable%20reference%20types.md)
 * Memory managment
   * [↑ Garbage collection](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection)
-  * Garbage collector (GC)
   * Managed heap
     * Small object heap (SOH)
 * Operators and expressions
@@ -130,8 +128,9 @@
     * Mutex
     * ReaderWriterLock
     * ReaderWriterSlimLock
-    * [Semaphore]
-    * SynchronizationContext
+    * [Semaphore](dotnet/system/threading/semaphore.md)
+    * [SemaphoreSlim](dotnet/system/threading/semaphoreslim.md)
+    * [↑ Synchronization context](https://docs.microsoft.com/en-us/dotnet/api/system.threading.synchronizationcontext)
     * [Thread](dotnet/system/threading/thread.md)
     * [ThreadPool](dotnet/system/threading/threadpool.md)
   * Structs
