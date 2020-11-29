@@ -344,6 +344,7 @@
   * [↑ HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
     * [↑ 401 Unauthorized](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401)
     * [↑ 405 Method Not Allowed](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405)
+    * [↑ 429 Too Many Requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429)
 * [JavaScript](web/javascript/javascript.md)
 * [JSON Web Token (JWT)](web/jwt.md)
 * [OAuth 2.0](web/oauth.md)
