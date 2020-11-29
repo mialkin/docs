@@ -10,6 +10,11 @@ Semaphores which allow an arbitrary resource count are called **counting semapho
 
 The semaphore concept was invented by Dutch computer scientist Edsger Dijkstra in 1962 or 1963, when Dijkstra and his team were developing an operating system for the Electrologica X8.
 
+## Remarks
+
+Semaphores are of two types: local semaphores and named system semaphores. If you create a `Semaphore` object using a constructor that accepts a name, it is associated with an operating-system semaphore of that name. Named system semaphores are visible throughout the operating system, and can be used to synchronize the activities of processes. You can create multiple Semaphore objects that represent the same named system semaphore, and you can use the `OpenExisting` method to open an existing named system semaphore.
+A local semaphore exists only within your process. It can be used by any thread in your process that has a reference to the local `Semaphore` object. Each `Semaphore` object is a separate local semaphore.
+
 ## Links
 
 * [SemaphoreSlim](semaphoreslim.md)
