@@ -30,7 +30,7 @@
 * [Asynchronous programming](/csharp/asynchronous%20programming.md)
   * [Async/await best practices](/csharp/asynchronous/async%20await%20best%20practices.md)
   * [Async lambdas](csharp/asynchronous/async%20lambdas.md)
-  * [Exceptions](/csharp/asynchronous/exceptions.md)
+  * [Exceptions in Tasks](/csharp/asynchronous/exceptions.md)
   * [Execution Context](/csharp/asynchronous/execution%20context.md)
   * [Task scheduler](/csharp/asynchronous/task%20scheduler.md)
 * [Attributes](/csharp/attributes.md)
