@@ -26,6 +26,7 @@ Kubernetes supports multiple virtual clusters backed by the same physical cluste
 Command                                       | Description
 ----------------------------------------------|-------------
 kubectl get namespaces                        | List the current namespaces in a cluster
+kubectl create ns \<namespace name>           | Create a new namespace
 
 **Services**
 
