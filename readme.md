@@ -127,7 +127,7 @@
     * Monitor
     * Mutex
     * ReaderWriterLock
-    * ReaderWriterSlimLock
+    * ReaderWriterLockSlim
     * [Semaphore](dotnet/system/threading/semaphore.md)
     * [SemaphoreSlim](dotnet/system/threading/semaphoreslim.md)
     * [↑ Synchronization context](https://docs.microsoft.com/en-us/dotnet/api/system.threading.synchronizationcontext)
