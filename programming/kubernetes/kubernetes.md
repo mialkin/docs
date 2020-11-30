@@ -10,7 +10,7 @@ Command                          | Description
 ---------------------------------|-----------------------
 kubectl get nodes                | Show nodes in the cluster
 
-****Deployments**
+**Deployments**
 
 Command                                       | Description
 ----------------------------------------------|-------------
