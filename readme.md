@@ -270,10 +270,9 @@
     * [Ветки](programming/git/branches.md)
       * [Релиз](programming/git/release.md)
       * [Именование релизных веток](programming/git/branch%20names.md)
-* Kubernetes
+* [Kubernetes](programming/kubernetes/kubernetes.md)
   * [Creating custom Kubernetes cluster using Ansible](programming/kubernetes/creating%20cluster.md)
   * [Kubernetes components](programming/kubernetes/components.md)
-  * [kubectl](programming/kubernetes/kubectl.md)
   * [Minikube](programming/kubernetes/minikube.md)
     * Learning basics
       * [Create a Kubernetes cluster](programming/kubernetes/create%20cluster.md)

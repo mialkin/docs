@@ -4,13 +4,13 @@
 
 The **kubectl** command line tool lets you control Kubernetes clusters.
 
-### Cluster
+**Cluster**
 
 Command                          | Description
 ---------------------------------|-----------------------
 kubectl get nodes                | Show nodes in the cluster
 
-### Deployments
+****Deployments**
 
 Command                                       | Description
 ----------------------------------------------|-------------
@@ -19,7 +19,7 @@ kubectl apply -f deployment.yaml              | Create deployment from yaml file
 kubectl describe deployments                  | Get details of deployment
 kubectl delete deployment \<deployment name>  | Delete deployment
 
-### Namespaces
+**Namespaces**
 
 Kubernetes supports multiple virtual clusters backed by the same physical cluster. These virtual clusters are called namespaces.
 
@@ -27,20 +27,20 @@ Command                                       | Description
 ----------------------------------------------|-------------
 kubectl get namespaces                        | List the current namespaces in a cluster
 
-### Services
+**Services**
 
 Command                                | Description
 ---------------------------------------|------------------
 kubectl get services                   |
 kubectl delete service \<service name> | Delete service
 
-### Pods
+**Pods**
 
 Command                          | Description
 ---------------------------------|-----------------------
 kubectl get pods                 |
 
-### ReplicaSet
+**ReplicaSet**
 
 Command                          | Description
 ---------------------------------|-----------------------
@@ -48,7 +48,7 @@ kubectl get rs                   |
 
 ## kubeadm
 
-### Commands
+**Commands**
 
 Command                                        | Description
 -----------------------------------------------|-----------------------
