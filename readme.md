@@ -282,6 +282,7 @@
       * [Expose your app publicly](programming/kubernetes/expose%20app.md)
       * [Scale your app](programming/kubernetes/scale.md)
       * [Update your app](programming/kubernetes/update.md)
+* [↑ GitOps](programming/git/gitops.md)
 * [Microservices](programming/microservices.md)
 * [Regular expressions](programming/regular%20expressions/regular%20expressions.md)
 * [Telegram bot](programming/telegram/telegram%20bot.md)
