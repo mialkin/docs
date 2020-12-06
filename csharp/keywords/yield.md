@@ -6,27 +6,26 @@
 using System;
 using System.Collections.Generic;
 
-class Program
+class Example
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        IEnumerable<string> result = A();
-
-        foreach (string word in result)
+        foreach (int value in CreateSimpleIterator())
         {
-            Console.WriteLine(word);
+            Console.WriteLine(value);
         }
     }
 
-    static IEnumerable<string> A()
+    static IEnumerable<int> CreateSimpleIterator()
     {
-        yield return "une";
-        yield return "deux";
-        yield return "trois";
-        yield return "quatre";
-        yield return "cinq";
-        yield break;
-        yield return "six";
+        yield return 10;
+
+        for (int i = 0; i < 3; i++)
+        {
+            yield return i;
+        }
+
+        yield return 20;
     }
 }
 ```
@@ -34,12 +33,14 @@ class Program
 Output:
 
 ```output
-une
-deux
-trois
-quatre
-cinq
+10
+0
+1
+2
+20
 ```
+
+So far, this isn’t terribly exciting. You could change the method to create a `List<int>`, replace each yield return statement with a call to `Add()`, and then return the list at the end of the method. The loop output would be exactly the same, but it wouldn’t execute in the same way at all. The huge difference is that iterators are executed **lazily**.
 
 ## Links
 
