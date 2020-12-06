@@ -114,6 +114,7 @@
     * [Dictionary](dotnet/system/collections/generic/dictionary.md)
   * Interfaces
     * [IAsyncEnumerable\<T>](dotnet/system/collections/generic/iasyncenumerable.md)
+    * [IEnumerable](dotnet/system/collections/generic/ienumerable.md)
 * System.IO
   * FileStream
   * MemoryStream
