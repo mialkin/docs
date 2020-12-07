@@ -41,6 +41,7 @@
 * **Concurrency** — параллелизм
 * **Content delivery/distribution network** — сеть доставки/распределения содержимого
 * **Contravariance** — контравариантность
+* **Control** — элемент управления
 * **Coupling**  — связывание, зацепление
 * **Covariance** — ковариантность
 * **Creational design pattern** — порождающий шаблон проектирования
