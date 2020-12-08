@@ -64,6 +64,8 @@ Parallel and asynchronous programming, async lock
 
 * [↑ Lighthouse](https://developers.google.com/web/tools/lighthouse)
 
-* [↑ Яндекс.Танк](https://yandex.ru/dev/tank/)
+* [↑ Yandex Tank](https://github.com/yandex/yandex-tank)
 
 * See IL of `yield` [↑ What concrete type does 'yield return' return?](https://stackoverflow.com/questions/3454395/what-concrete-type-does-yield-return-return)
+
+[↑ Indices and ranges](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-8#indices-and-ranges)
