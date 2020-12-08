@@ -7,6 +7,7 @@
 * [↑ Caching](https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices)
 * [↑ Configuration](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration)
 * [↑ Dependency injection](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection)
+  * [↑ Use dependency injection](https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection-usage)
 * [↑ Environments](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/environments)
 * [↑ Filters](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters)
 * [Host](asp.net/host.md)
