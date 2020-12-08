@@ -291,6 +291,7 @@
   * Unit testing
     * [Unit testing best practices](programming/testing/unit%20testing%20best%20practices.md)
   * Integration testing
+    * [↑ xUnit documentation](https://xunit.net/#documentation)
   * Load testing
   * [↑ Moq4 quickstart](https://github.com/Moq/moq4/wiki/Quickstart)
   * [↑ Selenium](https://www.selenium.dev)
