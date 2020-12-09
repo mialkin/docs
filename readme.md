@@ -248,6 +248,7 @@
   * [Explicit Dependencies Principle](design/explicit%20dependencies%20principle.md)
   * [Idempotency](design/idempotency.md)
   * [KISS](design/kiss.md)
+  * [Separation of concerns](design/separation%20of%20concerns.md)
   * [SOLID](design/solid/solid.md)
     * [Single responsibility principle](design/solid/srp.md)
     * Open-closed principle
