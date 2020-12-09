@@ -1,29 +1,5 @@
 # Technical documentation
 
-## ASP.NET
-
-* Authentication
-* Authorization
-* [↑ Caching](https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices)
-* [↑ Configuration](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration)
-* [↑ Dependency injection](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection)
-  * [↑ Use dependency injection](https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection-usage)
-* [↑ Environments](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/environments)
-* [↑ Filters](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters)
-* [Host](asp.net/host.md)
-* [↑ Hosted service](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services)
-* [Logging](asp.net/logging.md)
-* [Middleware](asp.net/middleware.md)
-* [↑ Model Binding](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/model-binding)
-* [Model validation](asp.net/model%20validation.md)
-* [↑ Options](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options)
-* [↑ Performance](https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices)
-* [↑ Routing](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing)
-* Security
-* [↑ Servers](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers)
-* [SignalR](asp.net/signalr.md)
-* [↑ Upload files](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads)
-
 ## C#
 
 * Boxing and unboxing
@@ -364,3 +340,27 @@
   * [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
 * [Web APIs](web/api/api.md)
 * [WebSocket](websocket.md)
+
+## ASP.NET
+
+* Authentication
+* Authorization
+* [↑ Caching](https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices)
+* [↑ Configuration](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration)
+* [↑ Dependency injection](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection)
+  * [↑ Use dependency injection](https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection-usage)
+* [↑ Environments](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/environments)
+* [↑ Filters](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters)
+* [Host](asp.net/host.md)
+* [↑ Hosted service](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services)
+* [Logging](asp.net/logging.md)
+* [Middleware](asp.net/middleware.md)
+* [↑ Model Binding](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/model-binding)
+* [Model validation](asp.net/model%20validation.md)
+* [↑ Options](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options)
+* [↑ Performance](https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices)
+* [↑ Routing](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing)
+* Security
+* [↑ Servers](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers)
+* [SignalR](asp.net/signalr.md)
+* [↑ Upload files](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads)
