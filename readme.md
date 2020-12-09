@@ -345,22 +345,26 @@
 
 * Authentication
 * Authorization
+* [Host](asp.net/host.md)
+* [Logging](asp.net/logging.md)
+* [Middleware](asp.net/middleware.md)
+* [Model validation](asp.net/model%20validation.md)
+* [SignalR](asp.net/signalr.md)
+* Security
+
+### External links
+
 * [↑ Caching](https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices)
 * [↑ Configuration](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration)
 * [↑ Dependency injection](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection)
   * [↑ Use dependency injection](https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection-usage)
 * [↑ Environments](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/environments)
 * [↑ Filters](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters)
-* [Host](asp.net/host.md)
 * [↑ Hosted service](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services)
-* [Logging](asp.net/logging.md)
-* [Middleware](asp.net/middleware.md)
 * [↑ Model Binding](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/model-binding)
-* [Model validation](asp.net/model%20validation.md)
 * [↑ Options](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options)
 * [↑ Performance](https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices)
 * [↑ Routing](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing)
-* Security
 * [↑ Servers](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers)
-* [SignalR](asp.net/signalr.md)
+* [↑ ASP.NET Core SynchronizationContext](https://blog.stephencleary.com/2017/03/aspnetcore-synchronization-context.html)
 * [↑ Upload files](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads)
