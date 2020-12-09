@@ -184,6 +184,7 @@
 * **Scheduler** — планировщик
 * **Scope** — область видимости или область действия
 * **Semaphore** — семафор
+* **Separation of concerns** — разделение ответственностей
 * **Service worker** — служебный сценарий, a browser script that runs in the background separately from a web page, intercepting network requests, caching or retrieving resources from the cache, and delivering push messages.
 * **Single-page application** — одностраничное приложение
 * **Single responsibility principle** — принцип единственной ответственности
