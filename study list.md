@@ -62,4 +62,6 @@ async lock
 
 * Data structures time and space complexities
 
-[↑ Byte Order (Endianness)](https://www.youtube.com/watch?v=_wk_nZVuY0Q)
+* [↑ Byte Order (Endianness)](https://www.youtube.com/watch?v=_wk_nZVuY0Q)
+
+* [↑ ASP.NET Core Series: Performance Testing Techniques](https://www.youtube.com/watch?v=jn54CjePzs0)
