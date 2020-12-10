@@ -367,5 +367,7 @@
 * [↑ Performance](https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices)
 * [↑ Routing](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing)
 * [↑ Servers](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers)
-* [↑ ASP.NET Core SynchronizationContext](https://blog.stephencleary.com/2017/03/aspnetcore-synchronization-context.html)
 * [↑ Upload files](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads)
+* Misc
+  * [↑ Should you unit-test API/MVC controllers in ASP.NET Core?](https://andrewlock.net/should-you-unit-test-controllers-in-aspnetcore/)
+  * [↑ ASP.NET Core SynchronizationContext](https://blog.stephencleary.com/2017/03/aspnetcore-synchronization-context.html)
