@@ -61,3 +61,5 @@ async lock
 * InfluxDb, ClickHouse
 
 * Data structures time and space complexities
+
+[↑ Byte Order (Endianness)](https://www.youtube.com/watch?v=_wk_nZVuY0Q)
