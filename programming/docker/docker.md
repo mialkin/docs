@@ -70,9 +70,4 @@ docker rm \<container1\> \<container2\> | Remove containers
 docker rm $(docker ps -a -q) | Remove all containers
 docker port \<container\> | List port mappings or a specific mapping for the container
 docker cp /tmp/filename.bak \<container\>:tmp/filename.bak | Copy file from host to container
-
-## Logs
-
-Command | Description
-:-|:-
 docker logs -f \<container\> | Fetch the logs of a container; `-f` is for "follow"
