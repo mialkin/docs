@@ -1,0 +1,15 @@
+{
+    "first_name": "Sergei",
+    "last_name": "Petrov",
+    "age": 24,
+    "about": "The dude",
+    "cities": ["Tver", "Moscow"]
+}
+
+{
+    first_name": "John",
+    "last_name": "Sharp",
+    "age": 25,
+    "about": "The man",
+    "cities": ["New York", "Philadelphia"]
+}
