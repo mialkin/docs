@@ -246,6 +246,7 @@
   * [Docker Compose](programming/docker/compose.md)
 * ELK Stack
   * [Beats](programming/elk/beats.md)
+  * [Elasticsearch](programming/elk/elastic.md)
   * [↑ Metricbeat](https://www.elastic.co/guide/en/beats/metricbeat/7.10/metricbeat-installation-configuration.html)
 * [Git](programming/git/git.md)
   * Git flows
