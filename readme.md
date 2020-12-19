@@ -247,7 +247,7 @@
 * ELK Stack
   * [Beats](programming/elk/beats.md)
   * [Elasticsearch](programming/elk/elastic.md)
-  * [↑ Metricbeat](https://www.elastic.co/guide/en/beats/metricbeat/7.10/metricbeat-installation-configuration.html)
+  * [Metricbeat](programming/elk/metricbeat.md)
 * [Git](programming/git/git.md)
   * Git flows
     * [Ветки](programming/git/branches.md)
