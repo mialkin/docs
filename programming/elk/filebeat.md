@@ -2,7 +2,7 @@
 
 ## Installation using Docker
 
-Create a `filebeat.docker.yml` file:
+Create a `filebeat.yml` file:
 
 ```yml
 filebeat.config:
@@ -13,8 +13,7 @@ filebeat.config:
 filebeat.inputs:
 - type: log
   paths:
-    - /slova/logs/backuper/*.log
-
+    - /slova/backuper/logs/*.log
 
 filebeat.autodiscover:
   providers:
@@ -32,17 +31,35 @@ output.elasticsearch:
 setup.kibana.host: "http://35.228.164.3:5601"
 ```
 
+Change files' owner:
+
+```bash
+chown root filebeat.yml
+```
+
+`docker-compose.yml` file:
+
+```yml
+version: "3.8"
+services:
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:7.10.1
+    user: root
+    volumes:
+      - ./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /slova/backuper/logs:/slova/backuper/logs:ro
+    restart: unless-stopped
+    environment:
+      - strict.perms=false
+    container_name: filebeat
+```
+
 Run container:
 
 ```bash
-docker run -d \
-  --name=filebeat \
-  --user=root \
-  --volume="$(pwd)/filebeat.docker.yml:/usr/share/filebeat/filebeat.yml:ro" \
-  --volume="/var/lib/docker/containers:/var/lib/docker/containers:ro" \
-  --volume="/var/run/docker.sock:/var/run/docker.sock:ro" \
-  --volume="/Users/aleksei/repositories/slova.io/Slova.Backuper/src/Slova.Backuper/bin/Debug/net5.0/logs:/slova/logs/backuper:ro" \
-  docker.elastic.co/beats/filebeat:7.10.1 filebeat -e -strict.perms=false
+docker-compose up -d 
 ```
 
 List available modules:
