@@ -1,6 +1,6 @@
-# Beats
+# Filebeat
 
-## macOS installation using Docker
+## Installation using Docker
 
 Create a `filebeat.docker.yml` file:
 

@@ -245,9 +245,11 @@
 * [Docker](programming/docker/docker.md)
   * [Docker Compose](programming/docker/compose.md)
 * ELK Stack
-  * [Beats](programming/elk/beats.md)
   * [Elasticsearch](programming/elk/elastic.md)
-  * [Metricbeat](programming/elk/metricbeat.md)
+  * Beats
+    * [Filebeat](programming/elk/filebeat.md)
+    * [Heartbeat](programming/elk/heartbeat.md)
+    * [Metricbeat](programming/elk/metricbeat.md)
 * [Git](programming/git/git.md)
   * Git flows
     * [Ветки](programming/git/branches.md)
