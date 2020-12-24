@@ -16,7 +16,8 @@ Command                                       | Description
 ----------------------------------------------|-------------
 kubectl get deployments                       | Display deployments
 kubectl apply -f deployment.yaml              | Create deployment from yaml file
-kubectl describe deployments                  | Get details of deployment
+kubectl describe deployment \<deployment name>| Get datails of deployment
+kubectl describe deployments                  | Get details of all deployment
 kubectl delete deployment \<deployment name>  | Delete deployment
 
 **Namespaces**
