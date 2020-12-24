@@ -202,6 +202,7 @@
   * **Task Parallel Library** (TPL) — библиотека параллельных задач
 * **Test-driven development** — разработка через тестирование
 * **Thread-safety** — потоковая безопасность
+* **Threshold** — порог, граница
 * **Throttling** — регулирование
 * **Time series** — временной ряд
   * **Time series database** — база данных временных рядов
