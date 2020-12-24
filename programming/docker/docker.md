@@ -70,3 +70,4 @@ docker rm $(docker ps -a -q) | Remove all containers
 docker port \<container\> | List port mappings or a specific mapping for the container
 docker cp /tmp/filename.bak \<container\>:tmp/filename.bak | Copy file from host to container
 docker logs -f \<container\> | Fetch the logs of a container; `-f` is for "follow"
+docker update --restart=always \<container> | Restart an existing Docker container in restart="always" mode
