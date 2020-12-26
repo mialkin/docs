@@ -9,6 +9,11 @@ The **kubectl** command line tool lets you control Kubernetes clusters.
 Command                          | Description
 ---------------------------------|-----------------------
 kubectl get nodes                | Show nodes in the cluster
+kubectl get gateway              | Show gateways
+kubectl get virtualservice       | Show virtual services
+kubectl delete -f aspnetcore-gateway.yaml        | Delete gateway
+Kubectl delete -f aspnetcore-virtualservice.yaml | Delete virtual service
+kubectl delete -f aspnetcore.yaml                | Delete deployment and service
 
 **Deployments**
 

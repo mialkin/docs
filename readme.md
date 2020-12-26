@@ -250,6 +250,8 @@
     * [Filebeat](programming/elk/filebeat.md)
     * [Heartbeat](programming/elk/heartbeat.md)
     * [Metricbeat](programming/elk/metricbeat.md)
+* GCP
+  * [Google Cloud Shell](programming/gcp/gcshell.md)
 * [Git](programming/git/git.md)
   * Git flows
     * [Ветки](programming/git/branches.md)
