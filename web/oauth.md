@@ -9,5 +9,5 @@ Generally, OAuth provides clients a "secure delegated access" to server resource
 YouTube video:
 
 <div align="center">
-  <a href="https://www.youtube.com/CPbvxxslDTU"><img src="https://img.youtube.com/vi/CPbvxxslDTU/0.jpg"></a>
+  <a href="https://www.youtube.com/watch?v=CPbvxxslDTU"><img src="https://img.youtube.com/vi/CPbvxxslDTU/0.jpg"></a>
 </div>
