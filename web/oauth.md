@@ -6,12 +6,8 @@ OAuth is commonly used as a way for Internet users to grant websites or applicat
 
 Generally, OAuth provides clients a "secure delegated access" to server resources on behalf of a resource owner. It specifies a process for resource owners to authorize third-party access to their server resources without sharing their credentials. Designed specifically to work with Hypertext Transfer Protocol (HTTP), OAuth essentially allows access tokens to be issued to third-party clients by an authorization server, with the approval of the resource owner. The third party then uses the access token to access the protected resources hosted by the resource server.
 
-With iFrame:
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CPbvxxslDTU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-With div:
+YouTube video:
 
 <div align="center">
-  <a href="https://www.youtube.com/embed/CPbvxxslDTU"><img src="https://img.youtube.com/vi/CPbvxxslDTU/0.jpg"></a>
+  <a href="https://www.youtube.com/CPbvxxslDTU"><img src="https://img.youtube.com/vi/CPbvxxslDTU/0.jpg"></a>
 </div>
