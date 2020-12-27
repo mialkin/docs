@@ -19,6 +19,7 @@
 
 * **Background thread** — фоновый поток
 * **Backup** — резервная копия
+* **Bearer** — носитель
 * **Behavior diagram** — диаграмма поведения
 * **Behavioral design pattern** — поведенческий шаблон проектирования
 * **Block** — заблокировать/-ться
