@@ -24,7 +24,7 @@
 
 * JavaScript promises, async/await
 
-* Clean architecture, Clean code, DDD
+* DDD
 
 * GraphQL
 
@@ -65,3 +65,5 @@ async lock
 * [↑ Byte Order (Endianness)](https://www.youtube.com/watch?v=_wk_nZVuY0Q)
 
 * [↑ ASP.NET Core Series: Performance Testing Techniques](https://www.youtube.com/watch?v=jn54CjePzs0)
+
+* Clean architecture, Clean code
