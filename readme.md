@@ -324,7 +324,6 @@
 ## Web
 
 * [CSS](web/css/css.md)
-* [CORS](web/cors.md)
 * [gRPC](web/grpc.md)
 * [HTML](web/html/html.md)
 * [↑ HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP)
@@ -338,14 +337,14 @@
     * [↑ 405 Method Not Allowed](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405)
     * [↑ 429 Too Many Requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429)
 * [JavaScript](web/javascript/javascript.md)
-* [JSON Web Token (JWT)](web/jwt.md)
-* [OAuth 2.0](web/oauth.md)
 * [↑ OpenAPI 3.0](https://swagger.io/blog/news/whats-new-in-openapi-3-0)
 * [React](web/react/react.md)
 * [REST](web/rest.md)
 * Security
   * [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
   * [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
+  * [JSON Web Token (JWT)](web/security/jwt.md)  
+  * [OAuth 2.0](web/security/oauth.md)
 * [Web APIs](web/api/api.md)
 * [WebSocket](websocket.md)
 
