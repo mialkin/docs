@@ -279,6 +279,7 @@
   * Integration testing
     * [↑ xUnit documentation](https://xunit.net/#documentation)
   * Load testing
+    * [↑ Locust](https://locust.iohttps://locust.io)
   * [↑ Moq4 quickstart](https://github.com/Moq/moq4/wiki/Quickstart)
   * [↑ Selenium](https://www.selenium.dev)
   * Stress testing
