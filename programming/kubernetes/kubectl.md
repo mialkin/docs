@@ -8,6 +8,7 @@ Command                                          | Description
 -------------------------------------------------|-----------------------
 kubeadm token create --print-join-command        | Print out the join command
 kubectl apply -f deployment.yaml                 | Create deployment
+kubectl cluster-info                             | Display addresses of the master and services
 kubectl config current-context                   | Display the current context
 kubectl config delete-context CONTEXT_NAME       | Delete context
 kubectl config get-contexts                      | List all contexts (i.e. clusters)
@@ -25,13 +26,12 @@ kubectl get deployments                          | Display deployments
 kubectl get gateway                              | Show gateways
 kubectl get namespaces                           | List the current namespaces in a cluster
 kubectl get nodes                                | List nodes in the cluster
-kubectl get pods                                 | List pods in the cluster
-kubectl get rs                                   | Get replica sets
+kubectl get pods                                 | List pods in the namespace
+kubectl get pods --all-namespaces                | List all pods in all namespaces
+kubectl get rs                                   | Get replicasets
 kubectl get services                             | List all services in the namespace
 kubectl get virtualservice                       | Show virtual services
 
 ## Links
 
 * [↑ kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
-* [↑ How To Create a Kubernetes Cluster Using Kubeadm on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-create-a-kubernetes-cluster-using-kubeadm-on-ubuntu-18-04)
-* [↑ Container runtimes](https://kubernetes.io/docs/setup/production-environment/container-runtimes/)
