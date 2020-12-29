@@ -12,6 +12,7 @@ kubectl config current-context                   | Display the current context
 kubectl config delete-context CONTEXT_NAME       | Delete context
 kubectl config get-contexts                      | List all contexts (i.e. clusters)
 kubectl config use-context CONTEXT_NAME          | Switch to context
+kubectl config view                              | Show merged kubeconfig settings
 kubectl create ns NAMESPACE_NAME                 | Create a new namespace
 kubectl delete -f gateway.yaml                   | Delete gateway
 kubectl delete -f virtual-service.yaml           | Delete virtual service
