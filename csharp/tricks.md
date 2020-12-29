@@ -6,10 +6,14 @@
 
 The `ref` modifier means that:
 
-- The value is already set
-- The method can read and modify it
+* The value is already set
+* The method can read and modify it
 
 The `out` modifier means that:
 
-- The value isn't set and can't be read by the method *until* it is set
-- The method *must* set it before returning
+* The value isn't set and can't be read by the method *until* it is set
+* The method *must* set it before returning
+
+## Links
+
+* [↑ Сложные задачи на языке C#](https://www.youtube.com/watch?v=imONgstP1Lg)
