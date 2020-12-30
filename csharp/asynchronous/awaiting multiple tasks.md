@@ -52,3 +52,12 @@ class B
     }
 }
 ```
+
+Output:
+
+```output
+3
+5009
+ResultA = 4
+ResultB = 5
+```
