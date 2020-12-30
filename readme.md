@@ -7,6 +7,7 @@
 * [Asynchronous programming](/csharp/asynchronous%20programming.md)
   * [Async/await best practices](/csharp/asynchronous/async%20await%20best%20practices.md)
   * [Async lambdas](csharp/asynchronous/async%20lambdas.md)
+  * [Awaiting multiple tasks](csharp/asynchronous/awaiting%20multiple%20tasks.md)
   * [↑ Don't Block on Async Code](https://blog.stephencleary.com/2012/07/dont-block-on-async-code.html)
   * [Exceptions in Tasks](/csharp/asynchronous/exceptions.md)
   * [Execution Context](/csharp/asynchronous/execution%20context.md)
