@@ -361,6 +361,7 @@
 * [Model validation](asp.net/model%20validation.md)
 * [SignalR](asp.net/signalr.md)
 * Security
+  * [Generate self-signed certificate](asp.net/generate%20certificate.md)
 
 ### External links
 
