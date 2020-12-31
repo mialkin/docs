@@ -185,7 +185,6 @@
 ## Design
 
 * Architectural patterns
-  * [↑ API gateway](https://www.nginx.com/blog/building-microservices-using-an-api-gateway)
   * CQRS
   * Event sourcing
   * [↑ MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?)
@@ -272,7 +271,6 @@
       * [Scale your app](programming/kubernetes/scale.md)
       * [Update your app](programming/kubernetes/update.md)
 * [↑ GitOps](programming/git/gitops.md)
-* [Microservices](programming/microservices.md)
 * [Regular expressions](programming/regular%20expressions/regular%20expressions.md)
 * [Telegram bot](programming/telegram/telegram%20bot.md)
 * Testing
