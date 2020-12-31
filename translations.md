@@ -123,6 +123,7 @@
 
 * **Layout** — макет
 * **Liskov substitution principle** — принцип подстановки Лисков
+* **Listener** — прослушиватель
 * **Lock** — блокировка
   * **Aquire lock** — создать блокировку
   * **Enter lock** — входить в блокировку
