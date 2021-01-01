@@ -118,6 +118,7 @@
   * **Instantiation** — создание экземпляра класса
 * **Interface segregation principle** — принцип разделения интерфейса
 * **Inversion of control** — инверсия управления
+* **Issuer** — издатель, эмитент
 
 ## L
 
