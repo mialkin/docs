@@ -5,7 +5,7 @@
 * [Asymmetric cryptography](cs/asymmetric%20cryptography.md)
 * [Generating self-signed certificate with .NET CLI](cs/generating%20certificate%20with%20dotnet%20cli.md)
 
-## Design
+## Software design
 
 * [Design patterns](design/design%20patterns/design%20patterns.md)
   * Creational
@@ -231,9 +231,9 @@
 * [JavaScript](web/javascript/javascript.md)
 * [React](web/react/react.md)
 * [REST](web/rest.md)
+* [OAuth 2.0 & OpenID Connect](web/oauth.md)
 * Security
   * [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
   * [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
-  * [OAuth 2.0](web/oauth.md)
 * [Web APIs](web/api/api.md)
 * [WebSocket](websocket.md)
