@@ -20,7 +20,7 @@
   * [yield](csharp/keywords/yield.md)
 * [Lambda expressions](/csharp/lambda%20expressions.md)
 * [Nullable reference types](/csharp/nullable%20reference%20types.md)
-* [ref vs out](csharp/ref%20vs%20out.md)
+* [Ref vs out](csharp/ref%20vs%20out.md)
   
 ## Entity Framework Core
 
@@ -307,27 +307,4 @@
 
 ## ASP.NET
 
-* Authentication
-* Authorization
 * [Host](asp.net/host.md)
-* [Logging](asp.net/logging.md)
-* [SignalR](asp.net/signalr.md)
-
-### External links
-
-* [↑ Caching](https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices)
-* [↑ Configuration](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration)
-* [↑ Dependency injection](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection)
-  * [↑ Use dependency injection](https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection-usage)
-* [↑ Environments](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/environments)
-* [↑ Filters](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters)
-* [↑ Hosted service](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services)
-* [↑ Model Binding](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/model-binding)
-* [↑ Options](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options)
-* [↑ Performance](https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices)
-* [↑ Routing](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing)
-* [↑ Servers](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers)
-* [↑ Upload files](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads)
-* Misc
-  * [↑ Should you unit-test API/MVC controllers in ASP.NET Core?](https://andrewlock.net/should-you-unit-test-controllers-in-aspnetcore/)
-  * [↑ ASP.NET Core SynchronizationContext](https://blog.stephencleary.com/2017/03/aspnetcore-synchronization-context.html)
