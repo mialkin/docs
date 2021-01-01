@@ -1,8 +1,9 @@
-# Technical documentation
+# Documenting notes
 
 ## C#
 
-* [Access modifiers](/csharp/access%20modifiers.md)
+* [Attributes](/csharp/attributes.md)
+  * [Nullable static analysis attributes](/csharp/nullable%20static%20analysis%20attributes.md)
 * Concurrency
   * [Async/await best practices](/csharp/asynchronous/async%20await%20best%20practices.md)
   * [Async lambdas](csharp/asynchronous/async%20lambdas.md)
@@ -11,8 +12,6 @@
   * [Execution context](/csharp/asynchronous/execution%20context.md)
   * [Reporting task progress](/csharp/asynchronous/reporting%20progress.md)
   * [Task scheduler](/csharp/asynchronous/task%20scheduler.md)
-* [Attributes](/csharp/attributes.md)
-  * [Nullable static analysis attributes](/csharp/nullable%20static%20analysis%20attributes.md)
 * [Constructor execution order](/csharp/constructor%20execution%20order.md)
 * [Covariance and contravariance](/csharp/covariance%20and%20contravariance.md)
 * [Equality operator](/csharp/equality%20operator.md)
