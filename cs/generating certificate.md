@@ -22,13 +22,25 @@ commonName             = "localhost"
 [ v3_req ]
 subjectAltName      = DNS:localhost
 keyUsage            = critical, digitalSignature, keyEncipherment
-extendedKeyUsage    = critical, 1.3.6.1.5.5.7.3.1, 1.3.6.1.5.5.7.3.2 
+extendedKeyUsage    = critical, 1.3.6.1.5.5.7.3.1, 1.3.6.1.5.5.7.3.2
 ```
 
-Generate **csr.pem** file containing private key:
+Make sure that openssl is installed:
+
+```bash
+openssl version
+```
+
+Inside the folder containing **https.config** file run the following command which will generate **key.pem** file containing private key and **csr.pem** file containing certificate request:
 
 ```bash
 openssl req -config https.config -new -out csr.pem
+```
+
+To generate **https.crt** file containing certificate run the following command:
+
+```bash
+openssl x509 -req -days 365 -extfile https.config -extensions v3_req -in csr.pem -signkey key.pem -out https.crt
 ```
 
 ## Using .NET CLI
