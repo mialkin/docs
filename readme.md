@@ -38,9 +38,8 @@
 
 ## Entity Framework Core
 
-[Installation](efcore/installation.md)
-
-[Commands](efcore/commands.md)
+* [Installation](efcore/installation.md)
+* [Commands](efcore/commands.md)
 
 ## .NET API
 
