@@ -129,7 +129,7 @@
 ## Computer science
 
 * [Asymmetric cryptography](cs/asymmetric%20cryptography.md)
-* [Generating self-signed certificate with .NET CLI](cs/generating%20dotnet%20certificate.md)
+* [Generating self-signed certificate with .NET CLI](cs/generating%20certificate%20with%20dotnet%20cli.md)
 
 ## Databases
 
