@@ -33,7 +33,7 @@ openssl req -config https.config -new -out csr.pem
 
 ## Using .NET CLI
 
-Create a new self-signed certificate:
+Create a new self-signed certificate file:
 
 ```bash
 dotnet dev-certs https -ep ${HOME}/.aspnet/https/aspnetapp.pfx -p YOUR_PASSWORD
