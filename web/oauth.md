@@ -10,7 +10,7 @@ Generally, OAuth provides clients a "secure delegated access" to server resource
 
 YouTube video:
 
-   <a href="https://www.youtube.com/watch?v=CPbvxxslDTU"><img src="https://img.youtube.com/vi/CPbvxxslDTU/0.jpg"></a>
+<a href="https://www.youtube.com/watch?v=CPbvxxslDTU"><img src="https://img.youtube.com/vi/CPbvxxslDTU/0.jpg"></a>
 </div>
 
 ## OpenID Connect
