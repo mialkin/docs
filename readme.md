@@ -16,9 +16,7 @@
   * [Nullable static analysis attributes](/csharp/nullable%20static%20analysis%20attributes.md)
 * [Constructor execution order](/csharp/constructor%20execution%20order.md)
 * [Covariance and contravariance](/csharp/covariance%20and%20contravariance.md)
-* CLR
 * [Extension methods](csharp/extension%20methods.md)
-* Just-in-time (JIT) compilation
 * [Keywords](csharp/keywords/keywords.md)
   * Contextual keywords
     * [yield](csharp/keywords/yield.md)
@@ -40,7 +38,9 @@
 
 ## EF Core
 
-[EF Core](efcore/efcore.md)
+[Installation](efcore/installation.md)
+
+[Commands](efcore/commands.md)
 
 ## .NET API
 
@@ -217,12 +217,6 @@
     * Interface segregation principle
     * [Dependency Inversion Principle](design/solid/dip/dip.md)
   * [YAGNI](design/yagni.md)
-* [Unified Modeling Language (UML)](design/uml.md)
-
-### Design links
-
-* [↑ Anti-pattern](https://en.wikipedia.org/wiki/Anti-pattern)
-* [↑ Java Desing Principles](https://java-design-patterns.com/principles/)
 
 ## Programming
 
