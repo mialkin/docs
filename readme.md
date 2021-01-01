@@ -130,6 +130,7 @@
 ## Computer science
 
 * [Asymmetric cryptography](cs/asymmetric%20cryptography.md)
+* [Generating self-signed certificate with .NET CLI](cs/generating%20dotnet%20certificate.md)
 
 ## Databases
 
@@ -338,11 +339,7 @@
 * Authorization
 * [Host](asp.net/host.md)
 * [Logging](asp.net/logging.md)
-* [Middleware](asp.net/middleware.md)
-* [Model validation](asp.net/model%20validation.md)
 * [SignalR](asp.net/signalr.md)
-* Security
-  * [Generate self-signed certificate](asp.net/generate%20certificate.md)
 
 ### External links
 

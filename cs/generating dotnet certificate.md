@@ -1,4 +1,4 @@
-# Generate self-signed certificate
+# Generating self-signed certificate with .NET CLI
 
 On macOS:
 
