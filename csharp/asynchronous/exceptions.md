@@ -1,4 +1,4 @@
-# Exceptions in Tasks
+# Exceptions in tasks
 
 ## Example 1
 

@@ -1,6 +1,4 @@
-# Tricks
-
-## `ref` vs `out`
+# `ref` vs `out`
 
 `ref` tells the compiler that the object is initialized before entering the function, while `out` tells the compiler that the object will be initialized inside the function.
 
@@ -13,7 +11,3 @@ The `out` modifier means that:
 
 * The value isn't set and can't be read by the method *until* it is set
 * The method *must* set it before returning
-
-## Links
-
-* [↑ Сложные задачи на языке C#](https://www.youtube.com/watch?v=imONgstP1Lg)

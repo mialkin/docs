@@ -2,40 +2,27 @@
 
 ## C#
 
-* Boxing and unboxing
 * [Access modifiers](/csharp/access%20modifiers.md)
-* [Asynchronous programming](/csharp/asynchronous%20programming.md)
+* Concurrency
   * [Async/await best practices](/csharp/asynchronous/async%20await%20best%20practices.md)
   * [Async lambdas](csharp/asynchronous/async%20lambdas.md)
   * [Awaiting multiple tasks](csharp/asynchronous/awaiting%20multiple%20tasks.md)
-  * [↑ Don't Block on Async Code](https://blog.stephencleary.com/2012/07/dont-block-on-async-code.html)
-  * [Exceptions in Tasks](/csharp/asynchronous/exceptions.md)
-  * [Execution Context](/csharp/asynchronous/execution%20context.md)
+  * [Exceptions in tasks](/csharp/asynchronous/exceptions.md)
+  * [Execution context](/csharp/asynchronous/execution%20context.md)
+  * [Reporting task progress](/csharp/asynchronous/reporting%20progress.md)
   * [Task scheduler](/csharp/asynchronous/task%20scheduler.md)
 * [Attributes](/csharp/attributes.md)
   * [Nullable static analysis attributes](/csharp/nullable%20static%20analysis%20attributes.md)
 * [Constructor execution order](/csharp/constructor%20execution%20order.md)
 * [Covariance and contravariance](/csharp/covariance%20and%20contravariance.md)
+* [Equality operator](/csharp/equality%20operator.md)
 * [Extension methods](csharp/extension%20methods.md)
 * [Keywords](csharp/keywords/keywords.md)
-  * Contextual keywords
-    * [yield](csharp/keywords/yield.md)
+  * [yield](csharp/keywords/yield.md)
 * [Lambda expressions](/csharp/lambda%20expressions.md)
 * [Nullable reference types](/csharp/nullable%20reference%20types.md)
-* Memory managment
-  * [↑ Garbage collection](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection)
-  * Managed heap
-    * Small object heap (SOH)
-* Operators and expressions
-  * [Equality operator](/csharp/equality%20operator.md)
-* [Reflection](/csharp/reflection.md)
-* [Task Parallel Library (TPL)](csharp/tpl.md)
-  * [↑ Task-based asynchronous pattern](https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap)
-  * [Reporting task progress](/csharp/asynchronous/reporting%20progress.md)
-* [Tricks](/csharp/tricks.md)
-* [↑ Document your code with XML comments](https://docs.microsoft.com/en-us/dotnet/csharp/codedoc)
-* [↑ Local functions](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/local-functions)
-
+* [ref vs out](csharp/ref%20vs%20out.md)
+  
 ## Entity Framework Core
 
 * [Installation](efcore/installation.md)
@@ -171,10 +158,6 @@
 * Architectural patterns
   * CQRS
   * Event sourcing
-  * [↑ MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?)
-  * Repository
-  * Service locator
-  * Unit of work
 * [Design patterns](design/design%20patterns/design%20patterns.md)
   * Creational
     * [Abstract Factory](design/design%20patterns/abstract%20factory.md)
