@@ -36,7 +36,7 @@
 * [↑ Document your code with XML comments](https://docs.microsoft.com/en-us/dotnet/csharp/codedoc)
 * [↑ Local functions](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/local-functions)
 
-## EF Core
+## Entity Framework Core
 
 [Installation](efcore/installation.md)
 
