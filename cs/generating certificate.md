@@ -2,6 +2,12 @@
 
 ## Using OpenSSL
 
+Make sure that openssl is installed:
+
+```bash
+openssl version
+```
+
 Create **https.config** file:
 
 ```text
@@ -23,12 +29,6 @@ commonName             = "localhost"
 subjectAltName      = DNS:localhost
 keyUsage            = critical, digitalSignature, keyEncipherment
 extendedKeyUsage    = critical, 1.3.6.1.5.5.7.3.1, 1.3.6.1.5.5.7.3.2
-```
-
-Make sure that openssl is installed:
-
-```bash
-openssl version
 ```
 
 Inside the folder containing **https.config** file run the following command which will generate **key.pem** file containing private key and **csr.pem** file containing certificate request:
