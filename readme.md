@@ -72,18 +72,6 @@
       * [Expose your app publicly](programming/kubernetes/expose%20app.md)
       * [Scale your app](programming/kubernetes/scale.md)
       * [Update your app](programming/kubernetes/update.md)
-* [Regular expressions](programming/regular%20expressions/regular%20expressions.md)
-* [Telegram bot](programming/telegram/telegram%20bot.md)
-* Testing
-  * Unit testing
-    * [Unit testing best practices](programming/testing/unit%20testing%20best%20practices.md)
-  * Integration testing
-    * [↑ xUnit documentation](https://xunit.net/#documentation)
-  * Load testing
-    * [↑ Locust](https://locust.iohttps://locust.io)
-  * [↑ Moq4 quickstart](https://github.com/Moq/moq4/wiki/Quickstart)
-  * [↑ Selenium](https://www.selenium.dev)
-  * Stress testing
 
 ## Unix
 
@@ -116,33 +104,6 @@
   * [vim](unix/vim.md)
 * [User management](unix/user%20managment.md)
 
-## Web
-
-* [CSS](web/css/css.md)
-* [gRPC](web/grpc.md)
-* [HTML](web/html/html.md)
-* [↑ HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP)
-  * [HTTP headers](web/http%20headers.md)
-    * [↑ Accept](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept)
-    * [↑ Accept-Encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding)
-    * [↑ Strict-Transport-Security](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security)
-  * [↑ HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
-    * [↑ 400 Bad Request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400)
-    * [↑ 401 Unauthorized](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401)
-    * [↑ 405 Method Not Allowed](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405)
-    * [↑ 429 Too Many Requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429)
-* [JavaScript](web/javascript/javascript.md)
-* [↑ OpenAPI 3.0](https://swagger.io/blog/news/whats-new-in-openapi-3-0)
-* [React](web/react/react.md)
-* [REST](web/rest.md)
-* Security
-  * [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
-  * [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
-  * [JSON Web Token (JWT)](web/security/jwt.md)  
-  * [OAuth 2.0](web/security/oauth.md)
-* [Web APIs](web/api/api.md)
-* [WebSocket](websocket.md)
-
 ## C#
 
 * [Attributes](/csharp/attributes.md)
@@ -165,15 +126,6 @@
 * [Nullable reference types](/csharp/nullable%20reference%20types.md)
 * [Ref vs out](csharp/ref%20vs%20out.md)
   
-## Entity Framework Core
-
-* [Installation](efcore/installation.md)
-* [Commands](efcore/commands.md)
-
-## ASP.NET
-
-* [Host](asp.net/host.md)
-
 ## .NET API
 
 * System
@@ -259,7 +211,40 @@
   * Structs
     * [ValueTask\<TResult>](dotnet/system/threading/tasks/valuetask_t.md)
 
-## Databases
+## Miscellaneous
 
-* [PostgreSQL](db/postgres/postgres.md)
-* [PL/SQL](db/oracle/plsql.md)
+* ASP.NET
+  * [Host](asp.net/host.md)
+* Databases
+  * [PostgreSQL](db/postgres/postgres.md)
+  * [PL/SQL](db/oracle/plsql.md)
+* Entity Framework Core
+  * [Installation](efcore/installation.md)
+  * [Commands](efcore/commands.md)
+* [Regular expressions](programming/regular%20expressions/regular%20expressions.md)
+* [Unit testing best practices](programming/testing/unit%20testing%20best%20practices.md)
+
+## Web
+
+* [CSS](web/css/css.md)
+* [gRPC](web/grpc.md)
+* [HTML](web/html/html.md)
+* [↑ HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP)
+  * [HTTP headers](web/http%20headers.md)
+    * [↑ Accept](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept)
+    * [↑ Accept-Encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding)
+    * [↑ Strict-Transport-Security](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security)
+  * [↑ HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+    * [↑ 400 Bad Request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400)
+    * [↑ 401 Unauthorized](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401)
+    * [↑ 405 Method Not Allowed](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405)
+    * [↑ 429 Too Many Requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429)
+* [JavaScript](web/javascript/javascript.md)
+* [React](web/react/react.md)
+* [REST](web/rest.md)
+* Security
+  * [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
+  * [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
+  * [OAuth 2.0](web/oauth.md)
+* [Web APIs](web/api/api.md)
+* [WebSocket](websocket.md)

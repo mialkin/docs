@@ -110,3 +110,18 @@
     * Serializable
 * Trigger
 * Window function
+
+## Testing
+
+* Unit testing
+* Integration testing
+  * [↑ xUnit documentation](https://xunit.net/#documentation)
+* Load testing
+  * [↑ Locust](https://locust.iohttps://locust.io)
+* [↑ Moq4 quickstart](https://github.com/Moq/moq4/wiki/Quickstart)
+* [↑ Selenium](https://www.selenium.dev)
+* Stress testing
+
+## Misc
+
+* [↑ OpenAPI 3.0](https://swagger.io/blog/news/whats-new-in-openapi-3-0)
