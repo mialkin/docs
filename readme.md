@@ -1,162 +1,12 @@
 # Documenting notes
 
-## C#
-
-* [Attributes](/csharp/attributes.md)
-  * [Nullable static analysis attributes](/csharp/nullable%20static%20analysis%20attributes.md)
-* Concurrency
-  * [Async/await best practices](/csharp/asynchronous/async%20await%20best%20practices.md)
-  * [Async lambdas](csharp/asynchronous/async%20lambdas.md)
-  * [Awaiting multiple tasks](csharp/asynchronous/awaiting%20multiple%20tasks.md)
-  * [Exceptions in tasks](/csharp/asynchronous/exceptions.md)
-  * [Execution context](/csharp/asynchronous/execution%20context.md)
-  * [Reporting task progress](/csharp/asynchronous/reporting%20progress.md)
-  * [Task scheduler](/csharp/asynchronous/task%20scheduler.md)
-* [Constructor execution order](/csharp/constructor%20execution%20order.md)
-* [Covariance and contravariance](/csharp/covariance%20and%20contravariance.md)
-* [Equality operator](/csharp/equality%20operator.md)
-* [Extension methods](csharp/extension%20methods.md)
-* [Keywords](csharp/keywords/keywords.md)
-  * [yield](csharp/keywords/yield.md)
-* [Lambda expressions](/csharp/lambda%20expressions.md)
-* [Nullable reference types](/csharp/nullable%20reference%20types.md)
-* [Ref vs out](csharp/ref%20vs%20out.md)
-  
-## Entity Framework Core
-
-* [Installation](efcore/installation.md)
-* [Commands](efcore/commands.md)
-
-## .NET API
-
-* System
-  * Classes
-    * Array
-    * [Delegate](dotnet/system/delegate/delegate.md)
-      * Action\<T>
-      * Func\<TResult>
-      * [Event](dotnet/system/delegate/event.md)
-    * Exception
-    * GC
-      * Properties
-        * MaxGeneration
-      * Methods
-        * Collect(Int32)
-        * CollectionCount(Int32)
-        * GetGeneration(Object)
-        * GetTotalMemory(Boolean)
-        * SuppressFinalize(Object)
-        * WaitForPendingFinalizers()
-    * Lazy\<T>
-    * MarshalByRefObject
-    * Object
-      * Methods
-        * [Equals](dotnet/system/object/equals.md)
-        * [GetType](dotnet/system//object/getType.md)
-        * [ToString](dotnet/system/object/toString.md)
-        * [Finalize](dotnet/system/object/finalize.md)
-        * [MemberwiseClone](dotnet/system/object/memberwiseClone.md)
-        * [ReferenceEquals](dotnet/system/object/referenceEquals.md)
-    * String
-    * Tuple\<T1>
-    * ValueType
-      * Enum
-      * Guid
-      * Nullable\<T>
-  * Enums
-  * Interfaces
-    * IComparable\<T>
-    * ICloneable
-    * IDisposable
-  * Structs
-* System.Collections.Concurrent
-  * ConcurrentDictionary\<T>
-  * ConcurrentQueue\<T>
-  * ConcurrentStack\<T>
-* System.Collections.Generic
-  * Classes
-    * [Dictionary](dotnet/system/collections/generic/dictionary.md)
-  * Interfaces
-    * [IAsyncEnumerable\<T>](dotnet/system/collections/generic/iasyncenumerable.md)
-    * [IEnumerable](dotnet/system/collections/generic/ienumerable.md)
-* System.IO
-  * FileStream
-  * MemoryStream
-* System.Linq
-  * [Expression tree](dotnet/system/linq/expression%20tree.md)
-  * Interfaces
-    * [IQueryable\<T>](dotnet/system/linq/iqueryable.md)
-* System.Threading
-  * Classes
-    * Interlocked
-    * Monitor
-    * Mutex
-    * ReaderWriterLock
-    * ReaderWriterLockSlim
-    * [Semaphore](dotnet/system/threading/semaphore.md)
-    * [SemaphoreSlim](dotnet/system/threading/semaphoreslim.md)
-    * [↑ Synchronization context](https://docs.microsoft.com/en-us/dotnet/api/system.threading.synchronizationcontext)
-    * [Thread](dotnet/system/threading/thread.md)
-    * [ThreadPool](dotnet/system/threading/threadpool.md)
-  * Structs
-    * CancellationToken
-    * SpinLock
-    * SpinWait
-* System.Threading.Tasks
-  * Classes
-    * Parallel
-    * [Task](dotnet/system/threading/tasks/task/task.md)
-      * [Properties](dotnet/system/threading/tasks/task/properties.md)
-    * [Task\<TResult>](dotnet/system/threading/tasks/task_t/task.md)
-    * TaskFactory
-  * Structs
-    * [ValueTask\<TResult>](dotnet/system/threading/tasks/valuetask_t.md)
-
 ## Computer science
 
 * [Asymmetric cryptography](cs/asymmetric%20cryptography.md)
 * [Generating self-signed certificate with .NET CLI](cs/generating%20certificate%20with%20dotnet%20cli.md)
 
-## Databases
-
-* ACID
-  * Atomicity
-  * Consistency
-  * Isolation
-  * Durability
-* Cursor
-* Database normalization
-* Document databases
-  * CouchDB
-  * MongoDB
-* Execution plan
-* Function
-* In-memory databases
-  * Redis
-* Relational databases
-  * Microsoft SQL Server
-  * Oracle Database
-  * [SQLite](db/sqlite.md)
-  * [PostgreSQL](db/postgres/postgres.md)
-* Stored procedure
-* SQL
-  * T-SQL
-  * [PL/SQL](db/oracle/plsql.md)
-* [Terminology](db/terminology.md)
-* Transaction
-  * Isolation levels
-    * Read uncommitted
-    * Read commmitted
-    * Repeatable read
-    * Serializable
-* Trigger
-* Window function
-
 ## Design
 
-* Architectural patterns
-  * CQRS
-  * Event sourcing
 * [Design patterns](design/design%20patterns/design%20patterns.md)
   * Creational
     * [Abstract Factory](design/design%20patterns/abstract%20factory.md)
@@ -199,17 +49,16 @@
     * [Dependency Inversion Principle](design/solid/dip/dip.md)
   * [YAGNI](design/yagni.md)
 
-## Programming
+## Programming tools
 
 * [Ansible](programming/ansible/ansible.md)
+* Beats
+  * [Filebeat](programming/elk/filebeat.md)
+  * [Heartbeat](programming/elk/heartbeat.md)
+  * [Metricbeat](programming/elk/metricbeat.md)
 * [Docker](programming/docker/docker.md)
-  * [Docker Compose](programming/docker/compose.md)
-* ELK Stack
-  * [Elasticsearch](programming/elk/elastic.md)
-  * Beats
-    * [Filebeat](programming/elk/filebeat.md)
-    * [Heartbeat](programming/elk/heartbeat.md)
-    * [Metricbeat](programming/elk/metricbeat.md)
+  * [docker-compose](programming/docker/compose.md)
+* [Elasticsearch](programming/elk/elastic.md)
 * GCP
   * [Google Cloud Shell](programming/gcp/gcshell.md)
 * [Git](programming/git/git.md)
@@ -302,6 +151,123 @@
 * [Web APIs](web/api/api.md)
 * [WebSocket](websocket.md)
 
+## C#
+
+* [Attributes](/csharp/attributes.md)
+  * [Nullable static analysis attributes](/csharp/nullable%20static%20analysis%20attributes.md)
+* Concurrency
+  * [Async/await best practices](/csharp/asynchronous/async%20await%20best%20practices.md)
+  * [Async lambdas](csharp/asynchronous/async%20lambdas.md)
+  * [Awaiting multiple tasks](csharp/asynchronous/awaiting%20multiple%20tasks.md)
+  * [Exceptions in tasks](/csharp/asynchronous/exceptions.md)
+  * [Execution context](/csharp/asynchronous/execution%20context.md)
+  * [Reporting task progress](/csharp/asynchronous/reporting%20progress.md)
+  * [Task scheduler](/csharp/asynchronous/task%20scheduler.md)
+* [Constructor execution order](/csharp/constructor%20execution%20order.md)
+* [Covariance and contravariance](/csharp/covariance%20and%20contravariance.md)
+* [Equality operator](/csharp/equality%20operator.md)
+* [Extension methods](csharp/extension%20methods.md)
+* [Keywords](csharp/keywords/keywords.md)
+  * [yield](csharp/keywords/yield.md)
+* [Lambda expressions](/csharp/lambda%20expressions.md)
+* [Nullable reference types](/csharp/nullable%20reference%20types.md)
+* [Ref vs out](csharp/ref%20vs%20out.md)
+  
+## Entity Framework Core
+
+* [Installation](efcore/installation.md)
+* [Commands](efcore/commands.md)
+
 ## ASP.NET
 
 * [Host](asp.net/host.md)
+
+## .NET API
+
+* System
+  * Classes
+    * Array
+    * [Delegate](dotnet/system/delegate/delegate.md)
+      * Action\<T>
+      * Func\<TResult>
+      * [Event](dotnet/system/delegate/event.md)
+    * Exception
+    * GC
+      * Properties
+        * MaxGeneration
+      * Methods
+        * Collect(Int32)
+        * CollectionCount(Int32)
+        * GetGeneration(Object)
+        * GetTotalMemory(Boolean)
+        * SuppressFinalize(Object)
+        * WaitForPendingFinalizers()
+    * Lazy\<T>
+    * MarshalByRefObject
+    * Object
+      * Methods
+        * [Equals](dotnet/system/object/equals.md)
+        * [GetType](dotnet/system//object/getType.md)
+        * [ToString](dotnet/system/object/toString.md)
+        * [Finalize](dotnet/system/object/finalize.md)
+        * [MemberwiseClone](dotnet/system/object/memberwiseClone.md)
+        * [ReferenceEquals](dotnet/system/object/referenceEquals.md)
+    * String
+    * Tuple\<T1>
+    * ValueType
+      * Enum
+      * Guid
+      * Nullable\<T>
+  * Enums
+  * Interfaces
+    * IComparable\<T>
+    * ICloneable
+    * IDisposable
+  * Structs
+* System.Collections.Concurrent
+  * ConcurrentDictionary\<T>
+  * ConcurrentQueue\<T>
+  * ConcurrentStack\<T>
+* System.Collections.Generic
+  * Classes
+    * [Dictionary](dotnet/system/collections/generic/dictionary.md)
+  * Interfaces
+    * [IAsyncEnumerable\<T>](dotnet/system/collections/generic/iasyncenumerable.md)
+    * [IEnumerable](dotnet/system/collections/generic/ienumerable.md)
+* System.IO
+  * FileStream
+  * MemoryStream
+* System.Linq
+  * [Expression tree](dotnet/system/linq/expression%20tree.md)
+  * Interfaces
+    * [IQueryable\<T>](dotnet/system/linq/iqueryable.md)
+* System.Threading
+  * Classes
+    * Interlocked
+    * Monitor
+    * Mutex
+    * ReaderWriterLock
+    * ReaderWriterLockSlim
+    * [Semaphore](dotnet/system/threading/semaphore.md)
+    * [SemaphoreSlim](dotnet/system/threading/semaphoreslim.md)
+    * [↑ Synchronization context](https://docs.microsoft.com/en-us/dotnet/api/system.threading.synchronizationcontext)
+    * [Thread](dotnet/system/threading/thread.md)
+    * [ThreadPool](dotnet/system/threading/threadpool.md)
+  * Structs
+    * CancellationToken
+    * SpinLock
+    * SpinWait
+* System.Threading.Tasks
+  * Classes
+    * Parallel
+    * [Task](dotnet/system/threading/tasks/task/task.md)
+      * [Properties](dotnet/system/threading/tasks/task/properties.md)
+    * [Task\<TResult>](dotnet/system/threading/tasks/task_t/task.md)
+    * TaskFactory
+  * Structs
+    * [ValueTask\<TResult>](dotnet/system/threading/tasks/valuetask_t.md)
+
+## Databases
+
+* [PostgreSQL](db/postgres/postgres.md)
+* [PL/SQL](db/oracle/plsql.md)

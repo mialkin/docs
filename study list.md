@@ -82,3 +82,31 @@
 * Misc
   * [↑ Should you unit-test API/MVC controllers in ASP.NET Core?](https://andrewlock.net/should-you-unit-test-controllers-in-aspnetcore/)
   * [↑ ASP.NET Core SynchronizationContext](https://blog.stephencleary.com/2017/03/aspnetcore-synchronization-context.html)
+
+## Design
+
+* Architectural patterns
+  * CQRS
+  * Event sourcing
+
+## Databases
+
+* ACID
+  * Atomicity
+  * Consistency
+  * Isolation
+  * Durability
+* Cursor
+* Document databases
+  * MongoDB
+* Execution plan
+* In-memory databases
+  * Redis
+* Transaction
+  * Isolation levels
+    * Read uncommitted
+    * Read commmitted
+    * Repeatable read
+    * Serializable
+* Trigger
+* Window function
