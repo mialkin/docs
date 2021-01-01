@@ -1,8 +1,6 @@
-# Git
+# Git commands
 
-## Commands
-
-Command    | Meaning
------------|----------
-git remote | Display list of remotes
-git rm -fr --cached .idea/. | Removes caches of .idea folder
+| Command                     | Meaning                              |
+| --------------------------- | ------------------------------------ |
+| git remote -v               | Display list of remotes with origins |
+| git rm -fr --cached .idea/. | Removes caches of .idea folder       |

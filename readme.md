@@ -61,11 +61,7 @@
 * [Elasticsearch](programming/elk/elastic.md)
 * GCP
   * [Google Cloud Shell](programming/gcp/gcshell.md)
-* [Git](programming/git/git.md)
-  * Git flows
-    * [Ветки](programming/git/branches.md)
-      * [Релиз](programming/git/release.md)
-      * [Именование релизных веток](programming/git/branch%20names.md)
+* [Git commands](programming/git/git.md)
 * Kubernetes
   * [kubectl](programming/kubernetes/kubectl.md)
   * [Creating custom Kubernetes cluster using Ansible](programming/kubernetes/creating%20cluster.md)
@@ -79,7 +75,6 @@
       * [Expose your app publicly](programming/kubernetes/expose%20app.md)
       * [Scale your app](programming/kubernetes/scale.md)
       * [Update your app](programming/kubernetes/update.md)
-* [↑ GitOps](programming/git/gitops.md)
 * [Regular expressions](programming/regular%20expressions/regular%20expressions.md)
 * [Telegram bot](programming/telegram/telegram%20bot.md)
 * Testing
