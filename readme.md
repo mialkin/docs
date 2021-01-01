@@ -268,11 +268,8 @@
 * [macOS](unix/macos/macos.md)
   * [Finder](unix/macos/finder.md)
   * [Terminal](unix/macos/terminal.md)
-* Linux
-  * CentOS
-    * [YUM](unix/yum.md)
-  * [Ubuntu](unix/ubuntu.md)
-    * [APT](unix/apt.md)
+* [Ubuntu](unix/ubuntu.md)
+  * [APT](unix/apt.md)
 * [Nginx](unix/nginx.md)
 * [shell](unix/shell.md)
   * [Bourne again shell (bash)](unix/bash.md)
