@@ -42,3 +42,6 @@ A digital signature scheme typically consists of three algorithms:
 
 Two main properties are required. First, the authenticity of a signature generated from a fixed message and fixed private key can be verified by using the corresponding public key. Secondly, it should be computationally infeasible to generate a valid signature for a party without knowing that party's private key.
 
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=stsWa9A3sOM"><img src="digital%20signature.png" alt="IMAGE ALT TEXT"></a>
+</div>
