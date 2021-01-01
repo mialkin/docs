@@ -8,9 +8,11 @@ In a typical public-key infrastructure (PKI) scheme, the certificate issuer is a
 
 The most common format for public key certificates is defined by X.509.
 
+[↑ X.509](https://en.wikipedia.org/wiki/X.509)
+
 ## Public key fingerprint
 
-In public-key cryptography, a public key fingerprint is a short sequence of bytes used to identify a longer public key. Fingerprints are created by applying a cryptographic hash function to a public key. Since fingerprints are shorter than the keys they refer to, they can be used to simplify certain key management tasks.
+In public-key cryptography, a **public key fingerprint** is a short sequence of bytes used to identify a longer public key. Fingerprints are created by applying a cryptographic hash function to a public key. Since fingerprints are shorter than the keys they refer to, they can be used to simplify certain key management tasks.
 
 A public key fingerprint is typically created through the following steps:
 
@@ -21,6 +23,8 @@ A public key fingerprint is typically created through the following steps:
 * This process produces a short fingerprint which can be used to authenticate a much larger public key. For example, whereas a typical RSA public key will be 1024 bits in length or longer, typical MD5 or SHA-1 fingerprints are only 128 or 160 bits in length.
 
 When displayed for human inspection, fingerprints are usually encoded into hexadecimal strings.
+
+[↑ Public key fingerprint](https://en.wikipedia.org/wiki/Public_key_fingerprint)
 
 ## Digital signature
 
@@ -38,7 +42,3 @@ A digital signature scheme typically consists of three algorithms:
 
 Two main properties are required. First, the authenticity of a signature generated from a fixed message and fixed private key can be verified by using the corresponding public key. Secondly, it should be computationally infeasible to generate a valid signature for a party without knowing that party's private key.
 
-## Links
-
-* [↑ X.509](https://en.wikipedia.org/wiki/X.509)
-* [↑ Public key fingerprint](https://en.wikipedia.org/wiki/Public_key_fingerprint)
