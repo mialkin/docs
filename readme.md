@@ -52,13 +52,10 @@
 ## Programming tools
 
 * [Ansible](programming/ansible/ansible.md)
-* Beats
-  * [Filebeat](programming/elk/filebeat.md)
-  * [Heartbeat](programming/elk/heartbeat.md)
-  * [Metricbeat](programming/elk/metricbeat.md)
 * [Docker](programming/docker/docker.md)
   * [docker-compose](programming/docker/compose.md)
 * [Elasticsearch](programming/elk/elastic.md)
+* [Filebeat](programming/elk/filebeat.md)
 * GCP
   * [Google Cloud Shell](programming/gcp/gcshell.md)
 * [Git commands](programming/git/git.md)
