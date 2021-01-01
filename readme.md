@@ -129,23 +129,7 @@
 
 ## Computer science
 
-* Algorithms
-  * Sorting algorithms
-    * Insertion sort
-    * Selection sort
-    * Merge sort
-    * Quick sort
-    * Bubble sort
-  * Analysis of algorithm
-    * Time complexity
-    * Space complexity
-    * Big O notation
 * [Asymmetric cryptography](cs/asymmetric%20cryptography.md)
-* Data structures
-  * Hash-based structures
-    * Hash table
-    * Hash tree
-* [Object-oriented programming (OOP)](cs/oop.md)
 
 ## Databases
 
