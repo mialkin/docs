@@ -6,7 +6,7 @@ TLS connection sits over TCP and is encrypting HTTP before it gets sent over.
 
 Take a look at the certificate of the https://www.nottingham.ac.uk website inside Firefox browser:
 
-<img src="cipher%20suite.png" alt="drawing" width="600"/>
+<img src="cipher suite.png" alt="drawing" width="700"/>
 
  You'll find there following string:
 
@@ -14,4 +14,11 @@ Take a look at the certificate of the https://www.nottingham.ac.uk website insid
 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, 128 bit keys, TLS 1.2
 ```
 
-Above is a [↑ cipher suite](https://en.wikipedia.org/wiki/Cipher_suite), i.e. a string representation of all the things we are going to do during handshake.
+Above is a [↑ cipher suite](https://en.wikipedia.org/wiki/Cipher_suite), i.e. a string representation of all the things we are going to do during handshake:
+
+* TLS — [↑ Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security)
+* ECDHE — [↑ Elliptic-curve Diffie–Hellman](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie–Hellman) key exchange
+
+Here is an example of another cipher suite:
+
+<img src="another cipher suite.png" alt="drawing" width="700"/>
