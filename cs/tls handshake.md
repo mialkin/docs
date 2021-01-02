@@ -6,7 +6,7 @@ TLS connection sits over TCP and is encrypting HTTP before it gets sent over.
 
 Take a look at the certificate of the https://www.nottingham.ac.uk website inside Firefox browser:
 
-![Page info](cipher%20suite.png)
+<img src="cipher%20suite.png" alt="drawing" width="600"/>
 
  You'll find there following string:
 
