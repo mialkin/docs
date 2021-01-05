@@ -230,7 +230,6 @@
 * [HTML](web/html/html.md)
 * [HTTP](web/http/http.md)
 * [JavaScript](web/javascript/javascript.md)
-* [React](web/react/react.md)
 * [REST](web/rest.md)
 * [OAuth 2.0 & OpenID Connect](web/oauth.md)
 * Security
