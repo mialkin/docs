@@ -107,7 +107,7 @@
 
 * [Attributes](/csharp/attributes.md)
   * [Nullable static analysis attributes](/csharp/nullable%20static%20analysis%20attributes.md)
-* Concurrency
+* Asynchronous programming (old)
   * [Async/await best practices](/csharp/asynchronous/async%20await%20best%20practices.md)
   * [Async lambdas](csharp/asynchronous/async%20lambdas.md)
   * [Awaiting multiple tasks](csharp/asynchronous/awaiting%20multiple%20tasks.md)
@@ -115,6 +115,7 @@
   * [Execution context](/csharp/asynchronous/execution%20context.md)
   * [Reporting task progress](/csharp/asynchronous/reporting%20progress.md)
   * [Task scheduler](/csharp/asynchronous/task%20scheduler.md)
+* [Concurrency](csharp/concurrency/concurrency.md)
 * [Constructor execution order](/csharp/constructor%20execution%20order.md)
 * [Covariance and contravariance](/csharp/covariance%20and%20contravariance.md)
 * [Equality operator](/csharp/equality%20operator.md)
