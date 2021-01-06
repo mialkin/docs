@@ -4,9 +4,16 @@ The **kubectl** command line tool lets you control Kubernetes clusters.
 
 Kubernetes supports multiple virtual clusters backed by the same physical cluster. These virtual clusters are called namespaces.
 
+## Aliases
+
+Set up aliases:
+
+```sh
+echo "alias k='kubectl'" >> ~/.zshrc
+```
+
 | Command                                     | Description                                  |
 | ------------------------------------------- | -------------------------------------------- |
-| kubeadm token create --print-join-command   | Print out the join command                   |
 | kubectl apply -f deployment.yaml            | Create deployment                            |
 | kubectl cluster-info                        | Display addresses of the master and services |
 | kubectl config current-context              | Display the current context                  |
@@ -25,7 +32,7 @@ Kubernetes supports multiple virtual clusters backed by the same physical cluste
 | kubectl get deployments                     | Display deployments                          |
 | kubectl get gateway                         | Show gateways                                |
 | kubectl get namespaces                      | List the current namespaces in a cluster     |
-| kubectl get nodes                           | List nodes in the cluster                    |
+| kubectl get nodes --output wide             | List nodes in the cluster; `--output wide` is optional                    |
 | kubectl get pods                            | List pods in the namespace                   |
 | kubectl get pods --all-namespaces           | List all pods in all namespaces              |
 | kubectl get rs                              | Get replicasets                              |
@@ -34,4 +41,4 @@ Kubernetes supports multiple virtual clusters backed by the same physical cluste
 
 ## Links
 
-- [↑ kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+-   [↑ kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
