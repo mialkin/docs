@@ -1,46 +1,5 @@
 # Async lamdas
 
-This program will exit before the response from example.com is received:
-
-```csharp
-using System;
-using System.Net.Http;
-
-class Program
-{
-    static readonly HttpClient Client = new HttpClient();
-
-    static void Main()
-    {
-        M(async x =>
-        {
-            HttpResponseMessage response = await Client.GetAsync(x);
-
-            string text = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(text);
-        });
-
-        //Thread.Sleep(3000);
-        Console.WriteLine("The end");
-    }
-
-    static void M(Action<string> action)
-    {
-        action("http://example.com");
-    }
-}
-```
-
-Output:
-
-```text
-The end
-```
-
-To make above code work you can uncomment line with `Tread.Sleep`.
-
-The the right way of doing things would be:
-
 ```csharp
 using System;
 using System.Net.Http;
