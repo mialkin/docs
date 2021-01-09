@@ -30,6 +30,8 @@
 
 * OpenTracing
 
+* WebSocket
+
 * blue-green deployment
 
 * MapReduce

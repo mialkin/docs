@@ -238,4 +238,3 @@
   * [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
   * [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
 * [Web APIs](web/api/api.md)
-* [WebSocket](websocket.md)
