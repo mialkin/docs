@@ -6,7 +6,7 @@ In cryptography, a **public key certificate**, also known as a **digital certifi
 
 In a typical public-key infrastructure (PKI) scheme, the certificate issuer is a certificate authority (CA), usually a company that charges customers to issue certificates for them.
 
-The most common format for public key certificates is defined by X.509.
+The most common format for public key certificates is defined by X.509 standard.
 
 [↑ X.509](https://en.wikipedia.org/wiki/X.509)
 
