@@ -89,6 +89,7 @@
   * [crontab](unix/crontab.md)
   * [df](unix/df.md)
   * [du](unix/du.md)
+  * [find](unix/find.md)
   * [htop](unix/htop.md)
   * [iproute2](unix/iproute2.md)
   * [less](unix/less.md)
