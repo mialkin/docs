@@ -15,4 +15,4 @@
 
 ## Links
 
-- [↑Learn bash in Y minutes](https://learnxinyminutes.com/docs/bash/)
+- [↑ Learn bash in Y minutes](https://learnxinyminutes.com/docs/bash/)
