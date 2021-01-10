@@ -200,6 +200,7 @@
 * **Stateless** — без запоминания/сохранения состояния
 * **Structural design pattern** — Структурный шаблон проектирования
 * **Structure diagram** — диаграмма структуры
+* **Substitution-permutation network** — подстановочно-перестановочная сеть
 
 ## T
 
