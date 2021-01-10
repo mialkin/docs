@@ -70,6 +70,7 @@
   * **Less derived** — менее производный, менее конкретный
 * **Derived class** — производный класс
 * **Design pattern** — шаблон проектирования
+* **Diffie–Hellman key exchange** — протокол Диффи — Хеллмана
 * **Document-oriented database** — документоориентированная база данных
 * **Document store** — документное хранилище
 * **Domain-driven design** — предметно-ориентированное проектирование
