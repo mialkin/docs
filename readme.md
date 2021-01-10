@@ -3,6 +3,7 @@
 ## Computer science
 
 * [Asymmetric cryptography](cs/asymmetric%20cryptography.md)
+* [Advanced Encryption Standard (AES)](cs/aes.md)
 * [Generating self-signed certificate](cs/generating%20certificate.md)
 * [TLS handshake](cs/tls%20handshake.md)
 
