@@ -23,6 +23,7 @@
 * **Behavior diagram** — диаграмма поведения
 * **Behavioral design pattern** — поведенческий шаблон проектирования
 * **Block** — заблокировать/-ться
+* **Block cipher** — блочный шифр
 * **Builder** (design pattern) — Строитель
 * **Bus** — шина
 
