@@ -79,6 +79,7 @@
 
 * **Encode** — кодировать
 * **Encrypt** — шифровать
+* **End-to-end encryption** — сквозное шифрование
 * **Endpoint** — конечная точка
 * **Expression body** — тело выражения
 * **Extreme programming** — экстремальное программирование
