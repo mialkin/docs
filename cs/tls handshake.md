@@ -23,6 +23,8 @@ Above is a [↑ cipher suite](https://en.wikipedia.org/wiki/Cipher_suite), i.e. 
 * **GCM** — [↑ Galois/Counter Mode (GCM)](https://ru.wikipedia.org/wiki/Galois/Counter_Mode) mode of operation.
 * **SHA256** — [↑ SHA-2 (Secure Hash Algorithm 2)](https://en.wikipedia.org/wiki/SHA-2) building block to perform hash functions where they are needed.
 
+The handshake is **TLS_ECDHE_RSA**. When we are done with handshake part, then the actual ecryption is going to be with AES.
+
 Here is an example of another cipher suite:
 
 <img src="another cipher suite.png" alt="drawing" width="600"/>
