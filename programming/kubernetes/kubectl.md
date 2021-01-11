@@ -36,7 +36,7 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl get pods                            | List pods in the namespace                             |
 | kubectl get pods --all-namespaces           | List all pods in all namespaces                        |
 | kubectl get rs                              | Get replicasets                                        |
-| kubectl get services                        | List all services in the namespace                     |
+| kubectl get services --watch                | List all services in the namespace                     |
 | kubectl get virtualservice                  | Show virtual services                                  |
 
 ## Links
