@@ -33,7 +33,7 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl get gateway                         | Show gateways                                          |
 | kubectl get namespaces                      | List the current namespaces in a cluster               |
 | kubectl get nodes --output wide             | List nodes in the cluster; `--output wide` is optional |
-| kubectl get pods                            | List pods in the namespace                             |
+| kubectl get pods --output wide              | List pods in the namespace                             |
 | kubectl get pods --all-namespaces           | List all pods in all namespaces                        |
 | kubectl get rs                              | Get replicasets                                        |
 | kubectl get services --watch                | List all services in the namespace                     |
