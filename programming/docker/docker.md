@@ -49,7 +49,7 @@ sudo docker run \
 -p 5000:80 \
 -v /var/app-files:/files \
 -e ADMIN_PASSWORD=yourpass \
---name CONTAINER \
+--name CONTAINER_NAME \
 IMAGE
 ```
 
@@ -63,5 +63,5 @@ IMAGE
 | -p 5001:80                            | Binds TCP port 5001 on the host machine to port 80 of the container                                                                                                                |
 | -v /var/app-files:/files              | Mounts /var/app-files folder on host machine onto /files folder in container                                                                                                       |
 | &#8209;e&nbsp;ADMIN_PASSWORD=yourpass | Sets value of ADMIN_PASSWORD environment variable                                                                                                                                  |
-| --name CONTAINER                      | Assigns name to the running container                                                                                                                                              |
+| --name CONTAINER_NAME                 | Assigns name to the running container                                                                                                                                              |
 | --rm                                  | Remove container when it exits or when the daemon exits, whichever happens first                                                                                                   |
