@@ -58,13 +58,12 @@
   * [docker-compose](programming/docker/compose.md)
 * [Elasticsearch](programming/elk/elastic.md)
 * [Filebeat](programming/elk/filebeat.md)
-* GCP
-  * [Google Cloud Shell](programming/gcp/gcshell.md)
+* [Google Cloud Shell](programming/gcshell.md)
 * [Git commands](programming/git/git.md)
 * Kubernetes
+  * [Flux](programming/kubernetes/flux.md)
+  * [Helm](programming/kubernetes/helm.md)
   * [kubectl](programming/kubernetes/kubectl.md)
-  * [Creating custom Kubernetes cluster using Ansible](programming/kubernetes/creating%20cluster.md)
-  * [Flux](programming/flux.md)
   * [Kubernetes components](programming/kubernetes/components.md)
     * [Create a Kubernetes cluster](programming/kubernetes/create%20cluster.md)
     * [Deploy an app](programming/kubernetes/deply%20app.md)
@@ -72,6 +71,7 @@
     * [Expose your app publicly](programming/kubernetes/expose%20app.md)
     * [Scale your app](programming/kubernetes/scale.md)
     * [Update your app](programming/kubernetes/update.md)
+* [Creating custom Kubernetes cluster using Ansible](programming/kubernetes/creating%20cluster.md)
 
 ## Unix
 
