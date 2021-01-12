@@ -37,6 +37,7 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl get namespaces                                                    | List the current namespaces in a cluster                                          |
 | kubectl get pods POD_NAME -o=jsonpath='{@}'                               | Display pod information in JSON format                                            |
 | kubectl get pods POD_NAME -o jsonpath='{.spec.containers[*].name}'        | Display container names running in the pod                                        |
+| kubectl get pods -l LABEL_KEY=LABEL_VALUE                                 | Display pods filtered by label's key and value                                    |
 | kubectl get pods --output wide                                            | List pods in the namespace                                                        |
 | kubectl get pods --all-namespaces                                         | List all pods in all namespaces                                                   |
 | kubectl get rs                                                            | Get replicasets                                                                   |
@@ -47,4 +48,4 @@ echo "alias k='kubectl'" >> ~/.zshrc
 
 ## Links
 
-- [↑ kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+-   [↑ kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
