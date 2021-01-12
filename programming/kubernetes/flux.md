@@ -1,5 +1,7 @@
 # Flux
 
+Flux is a tool for keeping Kubernetes clusters in sync with sources of configuration (like git repositories), and automating updates to configuration when there is new code to deploy.
+
 In our example we are going to use [flux-get-started](https://github.com/fluxcd/flux-get-started). If you want to use that too, be sure to create a fork of it on GitHub.
 
 Installing fluxctl on macOS:
