@@ -42,7 +42,7 @@ Log out and log back in, so the changes will take effect.
 Example of `run` command:
 
 ```sh
-sudo docker run \
+docker run \
 -d \
 --restart unless-stopped \
 -it \
