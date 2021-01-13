@@ -48,6 +48,7 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl get pods --output wide                                            | List pods in the namespace                                                        |
 | kubectl get pods --all-namespaces                                         | List all pods in all namespaces                                                   |
 | kubectl get rs                                                            | Get replicasets                                                                   |
+| kubectl get secret SECRET_NAME -o=yaml                                    | Show secret in yaml format                                                                                  |
 | kubectl get services --watch                                              | List all services in the namespace                                                |
 | kubectl get virtualservice                                                | Show virtual services                                                             |
 | kubectl logs -f deployment/DEPLOYMENT_NAME                                | Show logs for deployment, `-f` means "follow"                                     |
@@ -70,4 +71,4 @@ Other object types support `selector`.
 
 ## Links
 
-- [↑ kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+-   [↑ kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
