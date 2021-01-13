@@ -1,19 +1,27 @@
 # Terminal
 
-Run an application. `a` is for "application" and `n` allows run another instance of the app.
+## Shortcuts
+
+| Shortcut | Meaning                     |
+| -------- | --------------------------- |
+| Ctrl + F | Move forward one character  |
+| Ctrl + B | Move backward one character |
+| Ctrl + W | Remove word backward        |
+| Ctrl + K | Delete to end of line       |
+| Ctrl + Y | Paste                            |
+
+## Other
+
+Run an application:
 
 ```sh
-open -a calculator
+open -a calculator                  # -a is for "application"   
 ll /Applications                    # List installed apps
-open -a "Microsoft Remote Desktop"  # Run app with multiple words name
+open -a "Microsoft Remote Desktop"  
 ```
 
-Copy text to clippbord
+Copy text to clippbord:
 
 ```sh
 cat example.txt \| pbcopy
 ```
-
-## See also
-
-[Keyboard shortcuts in Terminal on Mac](https://support.apple.com/guide/terminal/keyboard-shortcuts-trmlshtcts/mac)
