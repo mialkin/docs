@@ -50,6 +50,7 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl get rs                                                            | Get replicasets                                                                   |
 | kubectl get services --watch                                              | List all services in the namespace                                                |
 | kubectl get virtualservice                                                | Show virtual services                                                             |
+| kubectl logs -f deployment/DEPLOYMENT_NAME                                | Show logs for deployment, `-f` means "follow"                                     |
 | kubectl run -it --rm --restart=Never CONTAINER_NAME --image=IMAGE_NAME sh | Run container from image in interactive pod                                       |
 | kubectl scale deployment DEPLOYMENT_NAME --replicas=3                     | Scale the deployment to 3 replicas                                                |
 | kubectl top nodes                                                         | Show luster resource usage                                                        |
@@ -69,4 +70,4 @@ Other object types support `selector`.
 
 ## Links
 
--   [↑ kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+- [↑ kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
