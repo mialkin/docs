@@ -38,6 +38,7 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl get deployments                                                   | Display deployments                                                               |
 | kubectl get gateway                                                       | Show gateways                                                                     |
 | kubectl get ingress                                                       | Show ingresses                                                                    |
+| kubectl get ingress -n NAMESPACE_NAME                                     | Show ingresses in namespace                                                       |
 | kubectl get nodes --output wide                                           | Get nodes                                                                         |
 | kubectl get ns                                                            | Display namespaces in a cluster                                                   |
 | kubectl get pods POD_NAME -o=jsonpath='{@}'                               | Display pod information in JSON format                                            |
@@ -67,4 +68,4 @@ Other object types support `selector`.
 
 ## Links
 
-- [↑ kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+-   [↑ kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
