@@ -16,7 +16,8 @@ echo "alias k='kubectl'" >> ~/.zshrc
 
 | Command                                                                   | Description                                                                       |
 | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| kubectl apply -f deployment.yaml                                          | Create deployment                                                                 |
+| kubectl apply -f FILE_NAME.yaml                                           | Create objects from file                                                          |
+| cat <<EOF \| kubectl apply -f - <br>MANIFEST_TEXT<br>EOF                  | Create objects from stdin                                                         |
 | kubectl cluster-info                                                      | Display addresses of the master and services                                      |
 | kubectl config current-context                                            | Display the current context                                                       |
 | kubectl config delete-context CONTEXT_NAME                                | Delete context                                                                    |
@@ -24,7 +25,7 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl config use-context CONTEXT_NAME                                   | Switch to context                                                                 |
 | kubectl config view                                                       | Show merged kubeconfig settings                                                   |
 | kubectl create ns NAMESPACE_NAME                                          | Create a new namespace                                                            |
-| kubectl delete -f FILENAME.yaml                                          | Delete objects described in file                                                  |
+| kubectl delete -f FILENAME.yaml                                           | Delete objects described in file                                                  |
 | kubectl delete deployment DEPLOYMENT_NAME                                 | Delete deployment                                                                 |
 | kubectl delete service SERVICE_NAME                                       | Delete service                                                                    |
 | kubectl describe deployment DEPLOYMENT_NAME                               | Get datails of deployment                                                         |
@@ -63,4 +64,4 @@ Other object types support `selector`.
 
 ## Links
 
--   [↑ kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+- [↑ kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
