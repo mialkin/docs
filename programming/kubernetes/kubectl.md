@@ -36,8 +36,9 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl exec -it POD_NAME --container CONTAINER_NAME -- /bin/bash         | Run shell inside container inside pod if pod has several containers               |
 | kubectl get deployments                                                   | Display deployments                                                               |
 | kubectl get gateway                                                       | Show gateways                                                                     |
-| kubectl get ns                                                            | Display namespaces in a cluster                                                   |
+| kubectl get ingress                                                       | Show ingresses                                                                    |
 | kubectl get nodes --output wide                                           | Get nodes                                                                         |
+| kubectl get ns                                                            | Display namespaces in a cluster                                                   |
 | kubectl get pods POD_NAME -o=jsonpath='{@}'                               | Display pod information in JSON format                                            |
 | kubectl get pods POD_NAME -o jsonpath='{.spec.containers[*].name}'        | Display container names running in the pod                                        |
 | kubectl get pods -l LABEL_KEY=LABEL_VALUE                                 | Display pods filtered by label's key and value                                    |
