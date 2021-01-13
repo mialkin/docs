@@ -24,9 +24,7 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl config use-context CONTEXT_NAME                                   | Switch to context                                                                 |
 | kubectl config view                                                       | Show merged kubeconfig settings                                                   |
 | kubectl create ns NAMESPACE_NAME                                          | Create a new namespace                                                            |
-| kubectl delete -f gateway.yaml                                            | Delete gateway                                                                    |
-| kubectl delete -f virtual-service.yaml                                    | Delete virtual service                                                            |
-| kubectl delete -f deployment-service.yaml                                 | Delete deployment and service                                                     |
+| kubectl delete -f FILENAME.yaml                                          | Delete objects described in file                                                  |
 | kubectl delete deployment DEPLOYMENT_NAME                                 | Delete deployment                                                                 |
 | kubectl delete service SERVICE_NAME                                       | Delete service                                                                    |
 | kubectl describe deployment DEPLOYMENT_NAME                               | Get datails of deployment                                                         |
@@ -65,4 +63,4 @@ Other object types support `selector`.
 
 ## Links
 
-- [↑ kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+-   [↑ kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
