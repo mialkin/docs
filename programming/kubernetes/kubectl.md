@@ -46,9 +46,10 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl run -it --rm --restart=Never CONTAINER_NAME --image=IMAGE_NAME sh | Run container from image in interactive pod                                       |
 | kubectl scale deployment DEPLOYMENT_NAME --replicas=3                     | Scale the deployment to 3 replicas                                                |
 
-## matchLabels, labels, and selectors
+## matchLabels and selectors
 
-Sometimes it’s `matchLabels`, and somtimes it’s just `selector` with a map. Only `Job`, `Deployment`, `Replica Set`, and `Daemon Set` support `matchLabels`.
+Only `Job`, `Deployment`, `Replica Set`, and `Daemon Set` support `matchLabels`. 
+Other object types support `selector`.
 
 ## Links
 
