@@ -37,6 +37,7 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl get deployments                                                   | Display deployments                                                               |
 | kubectl get gateway                                                       | Show gateways                                                                     |
 | kubectl get namespaces                                                    | List the current namespaces in a cluster                                          |
+| kubectl get nodes --output wide                                           | Get nodes                                                                         |
 | kubectl get pods POD_NAME -o=jsonpath='{@}'                               | Display pod information in JSON format                                            |
 | kubectl get pods POD_NAME -o jsonpath='{.spec.containers[*].name}'        | Display container names running in the pod                                        |
 | kubectl get pods -l LABEL_KEY=LABEL_VALUE                                 | Display pods filtered by label's key and value                                    |
@@ -47,6 +48,7 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl get virtualservice                                                | Show virtual services                                                             |
 | kubectl run -it --rm --restart=Never CONTAINER_NAME --image=IMAGE_NAME sh | Run container from image in interactive pod                                       |
 | kubectl scale deployment DEPLOYMENT_NAME --replicas=3                     | Scale the deployment to 3 replicas                                                |
+| kubectl top nodes                                                         | Show luster resource usage                                                        |
 
 ## Multiple clusters
 
@@ -58,7 +60,7 @@ echo $KUBECONFIG
 
 ## matchLabels and selectors
 
-Only `Job`, `Deployment`, `Replica Set`, and `Daemon Set` support `matchLabels`. 
+Only `Job`, `Deployment`, `Replica Set`, and `Daemon Set` support `matchLabels`.
 Other object types support `selector`.
 
 ## Links
