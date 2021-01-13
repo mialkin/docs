@@ -30,13 +30,13 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl delete service SERVICE_NAME                                       | Delete service                                                                    |
 | kubectl describe deployment DEPLOYMENT_NAME                               | Get datails of deployment                                                         |
 | kubectl describe deployments                                              | Get details of all deployment                                                     |
-| kubectl describe nodes                                                    | Get details of all nodes                                                                                  |
+| kubectl describe nodes                                                    | Get details of all nodes                                                          |
 | kubectl exec -it POD_NAME -- /bin/bash                                    | Run shell inside container inside pod if pod has a single container               |
 | kubectl exec -it POD_NAME -- env                                          | Print environment variables of container inside pod if pod has a single container |
 | kubectl exec -it POD_NAME --container CONTAINER_NAME -- /bin/bash         | Run shell inside container inside pod if pod has several containers               |
 | kubectl get deployments                                                   | Display deployments                                                               |
 | kubectl get gateway                                                       | Show gateways                                                                     |
-| kubectl get namespaces                                                    | List the current namespaces in a cluster                                          |
+| kubectl get ns                                                            | Display namespaces in a cluster                                                   |
 | kubectl get nodes --output wide                                           | Get nodes                                                                         |
 | kubectl get pods POD_NAME -o=jsonpath='{@}'                               | Display pod information in JSON format                                            |
 | kubectl get pods POD_NAME -o jsonpath='{.spec.containers[*].name}'        | Display container names running in the pod                                        |
@@ -65,4 +65,4 @@ Other object types support `selector`.
 
 ## Links
 
-- [↑ kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+-   [↑ kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
