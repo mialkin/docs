@@ -12,6 +12,8 @@ Set up aliases:
 echo "alias k='kubectl'" >> ~/.zshrc
 ```
 
+## Commands
+
 | Command                                                                   | Description                                                                       |
 | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | kubectl apply -f deployment.yaml                                          | Create deployment                                                                 |
@@ -45,6 +47,14 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl get virtualservice                                                | Show virtual services                                                             |
 | kubectl run -it --rm --restart=Never CONTAINER_NAME --image=IMAGE_NAME sh | Run container from image in interactive pod                                       |
 | kubectl scale deployment DEPLOYMENT_NAME --replicas=3                     | Scale the deployment to 3 replicas                                                |
+
+## Multiple clusters
+
+```bash
+echo "export KUBECONFIG=~/.kube/config:~/.kube/config-aks:~/.kube/config-gke" >> ~/.zprofile
+source ~/.zshrc
+echo $KUBECONFIG
+```
 
 ## matchLabels and selectors
 
