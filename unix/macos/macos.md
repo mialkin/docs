@@ -37,3 +37,9 @@ Save file and source it:
 ```bash
 source .zshrc
 ```
+
+## Hosts
+
+```bash
+vim /etc/hosts
+```
