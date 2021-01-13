@@ -59,12 +59,11 @@
 * [Elasticsearch](programming/elk/elastic.md)
 * [Filebeat](programming/elk/filebeat.md)
 * [Google Cloud Shell](programming/gcshell.md)
-* [Git commands](programming/git/git.md)
+* [Git](programming/git/git.md)
 * Kubernetes
   * [Flux](programming/kubernetes/flux.md)
   * [Helm](programming/kubernetes/helm.md)
   * [kubectl](programming/kubernetes/kubectl.md)
-  * [Create a Kubernetes cluster](programming/kubernetes/create%20cluster.md)
   * [Deploy an app](programming/kubernetes/deply%20app.md)
   * [Explore your app](programming/kubernetes/explore%20app.md)
   * [Expose your app publicly](programming/kubernetes/expose%20app.md)
