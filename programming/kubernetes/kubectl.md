@@ -30,6 +30,7 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl delete service SERVICE_NAME                                       | Delete service                                                                    |
 | kubectl describe deployment DEPLOYMENT_NAME                               | Get datails of deployment                                                         |
 | kubectl describe deployments                                              | Get details of all deployment                                                     |
+| kubectl describe nodes                                                    | Get details of all nodes                                                                                  |
 | kubectl exec -it POD_NAME -- /bin/bash                                    | Run shell inside container inside pod if pod has a single container               |
 | kubectl exec -it POD_NAME -- env                                          | Print environment variables of container inside pod if pod has a single container |
 | kubectl exec -it POD_NAME --container CONTAINER_NAME -- /bin/bash         | Run shell inside container inside pod if pod has several containers               |
