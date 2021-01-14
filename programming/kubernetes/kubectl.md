@@ -51,6 +51,7 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl get rs                                                                                   | Get replicasets                                                                   |
 | kubectl get secret SECRET_NAME -o=yaml                                                           | Show secret in yaml format                                                        |
 | kubectl get secret SECRET_NAME --output="jsonpath={.data.\.dockerconfigjson}" \| base64 --decode | Show secret data in a readable format                                             |
+| kubectl get secrets                                                                              | Display all secrets                                                               |
 | kubectl get services --watch                                                                     | List all services in the namespace                                                |
 | kubectl get virtualservice                                                                       | Show virtual services                                                             |
 | kubectl logs -f deployment/DEPLOYMENT_NAME                                                       | Show logs for deployment, `-f` means "follow"                                     |
