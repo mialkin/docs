@@ -40,16 +40,16 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl get gateway                                                                              | Show gateways                                                                     |
 | kubectl get ingress                                                                              | Show ingresses                                                                    |
 | kubectl get ingress -n NAMESPACE_NAME                                                            | Show ingresses in namespace                                                       |
-| kubectl get nodes --output wide                                                                  | Get nodes                                                                         |
+| kubectl get nodes -o wide                                                                        | Get nodes                                                                         |
 | kubectl get ns                                                                                   | Display namespaces in a cluster                                                   |
 | kubectl get pods POD_NAME -o=jsonpath='{@}'                                                      | Display pod information in JSON format                                            |
 | kubectl get pods POD_NAME -o jsonpath='{.spec.containers[*].name}'                               | Display container names running in the pod                                        |
 | kubectl get pods -l LABEL_KEY=LABEL_VALUE                                                        | Display pods filtered by label's key and value                                    |
-| kubectl get pods --output wide                                                                   | List pods in the namespace                                                        |
+| kubectl get pods -o wide                                                                         | List pods in the namespace                                                        |
 | kubectl get pods --all-namespaces                                                                | List all pods in all namespaces                                                   |
 | kubectl get rs                                                                                   | Get replicasets                                                                   |
 | kubectl get secret SECRET_NAME -o=yaml                                                           | Show secret in yaml format                                                        |
-| kubectl get secret SECRET_NAME --output="jsonpath={.data.\.dockerconfigjson}" \| base64 --decode | Show secret data in a readable format                                                                                |
+| kubectl get secret SECRET_NAME --output="jsonpath={.data.\.dockerconfigjson}" \| base64 --decode | Show secret data in a readable format                                             |
 | kubectl get services --watch                                                                     | List all services in the namespace                                                |
 | kubectl get virtualservice                                                                       | Show virtual services                                                             |
 | kubectl logs -f deployment/DEPLOYMENT_NAME                                                       | Show logs for deployment, `-f` means "follow"                                     |
