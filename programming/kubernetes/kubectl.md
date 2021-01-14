@@ -54,11 +54,12 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl get secret SECRET_NAME --output="jsonpath={.data.\.dockerconfigjson}" \| base64 --decode | Show secret data in a readable format                                             |
 | kubectl get secrets                                                                              | Display all secrets                                                               |
 | kubectl get services --watch                                                                     | List all services in the namespace                                                |
+| kubectl get services --all-namespaces                                                            | List services from all namespaces                                                 |
 | kubectl get virtualservice                                                                       | Show virtual services                                                             |
 | kubectl logs -f deployment/DEPLOYMENT_NAME                                                       | Show logs for deployment, `-f` means "follow"                                     |
 | kubectl run -it --rm --restart=Never CONTAINER_NAME --image=IMAGE_NAME sh                        | Run container from image in interactive pod                                       |
-| kubectl scale deployment DEPLOYMENT_NAME --replicas=3                                            | Scale the deployment to 3 replicas                                                |
-| kubectl top nodes                                                                                | Show luster resource usage                                                        |
+| kubectl scale deployment DEPLOYMENT_NAME --replicas=0                                            | Scale the deployment down to 0 replicas                                           |
+| kubectl top nodes                                                                                | Show cluster resource usage                                                       |
 
 ## Multiple clusters
 
