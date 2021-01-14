@@ -57,6 +57,7 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl get services --all-namespaces                                                            | List services from all namespaces                                                 |
 | kubectl get virtualservice                                                                       | Show virtual services                                                             |
 | kubectl logs -f deployment/DEPLOYMENT_NAME                                                       | Show logs for deployment, `-f` means "follow"                                     |
+| kubectl logs -f POD_NAME                                                                         | Show logs for pod                                                                 |
 | kubectl run -it --rm --restart=Never CONTAINER_NAME --image=IMAGE_NAME sh                        | Run container from image in interactive pod                                       |
 | kubectl scale deployment DEPLOYMENT_NAME --replicas=0                                            | Scale the deployment down to 0 replicas                                           |
 | kubectl top nodes                                                                                | Show cluster resource usage                                                       |
