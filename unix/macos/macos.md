@@ -1,10 +1,19 @@
 # macOS
 
+## Always show hidden files in Terminal
+
+```zsh
+defaults write com.apple.Finder AppleShowAllFiles true
+killall Finder
+```
+
+Replace `true` with `false` to revert changes back.
+
 ## Aliases
 
 Set up aliases:
 
-```sh
+```zsh
 echo "alias ll='ls -la'\nalias cls='clear'" >> ~/.zshrc
 ```
 
@@ -12,7 +21,7 @@ echo "alias ll='ls -la'\nalias cls='clear'" >> ~/.zshrc
 
 Enable key repeating:
 
-```bash
+```zsh
 defaults write -g ApplePressAndHoldEnabled -bool false
 ```
 
@@ -22,7 +31,7 @@ Next, restart your computer and you should now be able to repeat all characters.
 
 Open `.zshrc` file:
 
-```bash
+```zsh
 vim ~/.zshrc
 ```
 
@@ -34,12 +43,12 @@ export PATH="/Users/aleksei/Library/Python/3.8/bin:${PATH}"
 
 Save file and source it:
 
-```bash
+```zsh
 source .zshrc
 ```
 
 ## Hosts
 
-```bash
+```zsh
 vim /etc/hosts
 ```
