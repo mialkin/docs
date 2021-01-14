@@ -39,6 +39,7 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl get all --all-namespaces                                                                 | Display all object from all namespaces                                            |
 | kubectl get deployments                                                                          | Display deployments                                                               |
 | kubectl get gateway                                                                              | Show gateways                                                                     |
+| kubectl get ep                                                                                   | List endpoints                                                                    |
 | kubectl get ingress                                                                              | Show ingresses                                                                    |
 | kubectl get ingress -n NAMESPACE_NAME                                                            | Show ingresses in namespace                                                       |
 | kubectl get nodes -o wide                                                                        | Get nodes                                                                         |
