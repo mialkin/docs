@@ -65,6 +65,23 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl scale deployment DEPLOYMENT_NAME --replicas=0                                            | Scale the deployment down to 0 replicas                                                                                                    |
 | kubectl top nodes                                                                                | Show cluster resource usage                                                                                                                |
 
+## kubectx & kubens
+
+Installation:
+
+```zsh
+brew install kubectx
+```
+
+Commands:
+
+| Command   | Description                      |
+| --------- | -------------------------------- |
+| kubectx   | List contexts                    |
+| kubectx - | Switch to the previous context   |
+| kubens    | List namespaces                  |
+| kubens -  | Switch to the previous namespace |
+
 ## Multiple clusters
 
 ```bash
@@ -90,4 +107,4 @@ Other object types support `selector`.
 
 ## Links
 
--   [↑ kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+- [↑ kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
