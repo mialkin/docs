@@ -31,12 +31,13 @@ Parallel processing is one type of multithreading, and multithreading is one typ
 
 ## Asynchronous programming
 
+> "Asynchronous" means not waiting for something to complete (e.g., sending data over the network to another node), and not making any assumptions about how long it is going to take.<sup>5</sup>
+
 **Asynchronous programming** is a form of concurrency that uses *futures* or callbacks to avoid unnecessary threads.
 
 A **future** (or **promise**) is a type that represents some operation that will complete in the future.
 
-Some modern future types in .NET are `Task` and `Task<TResult>`
-. Older asynchronous APIs use callbacks or events instead of futures.
+Some modern future types in .NET are `Task` and `Task<TResult>`. Older asynchronous APIs use callbacks or events instead of futures.
 
 **Asynchronous operation** is some operation that is started that will complete some time later. While the operation is in progress, it doesn't block the original thread; the thread that starts the operation is free to do other work.
 
@@ -46,10 +47,12 @@ Another form of concurrency is *reactive programming*. Asynchronous programming 
 
 **Reactive programming** is a declarative style of programming where the application reacts to events.
 
-> Reactive programming isn't necessarily concurrent, but it is closely related to concurrency, so this book covers the basics.<sup>5</sup>
+> Reactive programming isn't necessarily concurrent, but it is closely related to concurrency, so this book covers the basics.<sup>6</sup>
 
 Usually, a mixture of techniques is used when writing a concurrent program. Most applications at least use multithreading (via the thread pool) and asynchronous programming.
 
 <hr>
 
-<sup>1,2,3,4,5</sup> Stephen Cleary, Concurrency in C# Cookbook: Asynchronous, Parallel, and Multithreaded Programming, Second edition (O'Reilly Media, 2019).
+<sup>1,2,3,4,6</sup> Stephen Cleary, Concurrency in C# Cookbook: Asynchronous, Parallel, and Multithreaded Programming, Second edition (O'Reilly Media, 2019).
+
+<sup>5</sup>Designing Data-Intensive Applications by Martin Kleppmann (2017), p. 553.
