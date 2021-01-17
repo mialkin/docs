@@ -24,6 +24,7 @@
 * **Behavioral design pattern** — поведенческий шаблон проектирования
 * **Block** — заблокировать/-ться
 * **Block cipher** — блочный шифр
+* **Bounded** — ограниченный
 * **Builder** (design pattern) — Строитель
 * **Bus** — шина
 
