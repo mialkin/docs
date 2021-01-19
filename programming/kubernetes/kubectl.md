@@ -38,6 +38,7 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl exec -it POD_NAME --container CONTAINER_NAME -- /bin/bash                                | Run shell inside container inside pod if pod has several containers                                                                        |
 | kubectl get all -n NAMESPACE_NAME                                                                | Show all objects inside namespace                                                                                                          |
 | kubectl get all --all-namespaces                                                                 | Display all object from all namespaces                                                                                                     |
+| kubectl get clusterissuer --all-namespaces -o wide                                               | Display cluster issuers                                                                                                                                           |
 | kubectl get configmaps --all-namespaces                                                          | List configmaps                                                                                                                            |
 | kubectl get deployments                                                                          | Display deployments                                                                                                                        |
 | kubectl get gateway                                                                              | Show gateways                                                                                                                              |
@@ -109,4 +110,4 @@ Other object types support `selector`.
 
 ## Links
 
-- [↑ kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+-   [↑ kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
