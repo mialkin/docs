@@ -41,7 +41,7 @@
 * **Common Language Runtime** — общеязыковая исполняющая среда
 * **Common table expression** — обобщенное табличное выражение
 * **Composite** (design pattern) — Компоновщик
-* **Concurrency** — параллелизм
+* **Concurrency** — единовременность, одновременность
 * **Content delivery/distribution network** — сеть доставки/распределения содержимого
 * **Contravariance** — контравариантность
 * **Control** — элемент управления
@@ -54,6 +54,7 @@
 
 ## D
 
+* **Dataflow programming** — программирование потоков данных
 * **Dataset** — набор данных
 * **Deadlock** — взаимная блокировка
 * **Debounce** — ложное срабатывание
@@ -162,6 +163,7 @@
 ## P
 
 * **Payload** — полезная нагрузка
+* **Parallelism** — параллелизм
 * **Partitioning** — секционирование
 * **Pipiline** — 1. конвейер 2. канал связи или коммуникации
 * **Paging** — подкачка страниц
