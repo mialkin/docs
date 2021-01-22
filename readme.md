@@ -116,8 +116,10 @@
   * [Reporting task progress](/csharp/asynchronous/reporting%20progress.md)
   * [Task scheduler](/csharp/asynchronous/task%20scheduler.md)
 * [Concurrency](csharp/concurrency/concurrency.md)
+  * [Asynchronous programming](csharp/concurrency/asynchronous%20programming.md)
+  * [Parallel programming](csharp/concurrency/parallel%20programming.md)
+  * [Reactive programming
   * [Collections](csharp/concurrency/collections.md)
-  * [Parallelism](csharp/concurrency/parallelism.md)
   * [Synchronization](csharp/concurrency/synchronization.md)
 * [Constructor execution order](/csharp/constructor%20execution%20order.md)
 * [Covariance and contravariance](/csharp/covariance%20and%20contravariance.md)

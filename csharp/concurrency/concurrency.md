@@ -4,10 +4,10 @@
 
 There are several kinds of concurrency:
 
-* parallel
-* asynchronous
-* reactive
-* dataflow
+* Parallel programming
+* Asynchronous programming
+* Reactive programming
+* Dataflow programming
 
 **Multithreading** is a form of concurrency that uses multiple threads of execution.
 
@@ -18,6 +18,8 @@ techniques. None of the multithreading recipes in this book use the
 > **WARNING:** As soon as you type `new Thread()`, it's over; your project already has legacy code.<sup>3</sup>
 
 > But don't get the idea that multithreading is dead! Multithreading lives on in the *thread pool*, a useful place to queue work that automatically adjusts itself according to demand. In turn, the thread pool enables another important form of concurrency: *parallel processing*.<sup>4</sup>
+
+Usually, a mixture of techniques is used when writing a concurrent program. Most applications at least use multithreading (via the thread pool) and asynchronous programming. Feel free to mix and match all the various forms of concurrency, using the appropriate tool for each part of the application.
 
 ## Parallel programming
 
