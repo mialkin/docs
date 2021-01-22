@@ -8,30 +8,12 @@
 
 There are several kinds of concurrency:
 
-* Parallel programming
-* Asynchronous programming
-* Reactive programming
-* Dataflow programming
-
-**Multithreading** is a form of concurrency that uses multiple threads of execution.
-
-> Multithreading refers to literally using multiple threads. As demonstrated in many recipes in this book, multithreading is *one* form of concurrency, but certainly not the only one. In fact, direct use of low-level threading types has almost no purpose in a modern application; higher-level abstractions are more powerful and more efficient than old-school multithreading. For that reason, I'll minimize my coverage of outdated
-techniques. None of the multithreading recipes in this book use the
-`Thread` or `BackgroundWorker` types; they have been replaced with superior alternatives.<sup>3</sup>
-
-> **WARNING:** As soon as you type `new Thread()`, it's over; your project already has legacy code.<sup>4</sup>
-
-> But don't get the idea that multithreading is dead! Multithreading lives on in the *thread pool*, a useful place to queue work that automatically adjusts itself according to demand. In turn, the thread pool enables another important form of concurrency: *parallel processing*.<sup>5</sup>
+* [Asynchronous programming](asynchronous%20programming.md)
+* [Parallel programming](parallel%20programming.md)
+* [Reactive programming](reactive%20programming.md)
+* [Dataflow programming](dataflow%20programming.md)
 
 Usually, a mixture of techniques is used when writing a concurrent program. Most applications at least use multithreading (via the thread pool) and asynchronous programming. Feel free to mix and match all the various forms of concurrency, using the appropriate tool for each part of the application.
-
-## Parallel programming
-
-**Parallel programming** or **parallel processing** is doing lots of work by dividing it up among multiple threads that run concurrently.
-
-Parallel processing uses multithreading to maximize the use of multiple processor cores. Parallel processing splits the work among multiple threads, which can each run independently on a different core.
-
-Parallel processing is one type of multithreading, and multithreading is one type of concurrency.
 
 ## Asynchronous programming
 
@@ -44,6 +26,24 @@ A **future** (or **promise**) is a type that represents some operation that will
 **Asynchronous operation** is some operation that is started that will complete some time later. While the operation is in progress, it doesn't block the original thread; the thread that starts the operation is free to do other work.
 
 Some modern future types in .NET are `Task` and `Task<TResult>`. Older asynchronous APIs use callbacks or events instead of futures. When the operation completes, it notifies its future or invokes its callback or event to let the application know the operation is finished.
+
+## Parallel programming
+
+**Parallel programming** or **parallel processing** is doing lots of work by dividing it up among multiple threads that run concurrently.
+
+Parallel processing uses *multithreading* to maximize the use of multiple processor cores. Parallel processing splits the work among multiple threads, which can each run independently on a different core.
+
+**Multithreading** is a form of concurrency that uses multiple threads of execution.
+
+> Multithreading refers to literally using multiple threads. As demonstrated in many recipes in this book, multithreading is *one* form of concurrency, but certainly not the only one. In fact, direct use of low-level threading types has almost no purpose in a modern application; higher-level abstractions are more powerful and more efficient than old-school multithreading. For that reason, I'll minimize my coverage of outdated
+techniques. None of the multithreading recipes in this book use the
+`Thread` or `BackgroundWorker` types; they have been replaced with superior alternatives.<sup>3</sup>
+
+> **WARNING:** As soon as you type `new Thread()`, it's over; your project already has legacy code.<sup>4</sup>
+
+> But don't get the idea that multithreading is dead! Multithreading lives on in the *thread pool*, a useful place to queue work that automatically adjusts itself according to demand. In turn, the thread pool enables another important form of concurrency: *parallel processing*.<sup>5</sup>
+
+Parallel processing is one type of multithreading, and multithreading is one type of concurrency.
 
 ## Reactive programming
 
