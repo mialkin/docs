@@ -37,7 +37,7 @@ Parallel processing is one type of multithreading, and multithreading is one typ
 
 > "Asynchronous" means not waiting for something to complete (e.g., sending data over the network to another node), and not making any assumptions about how long it is going to take.<sup>6</sup>
 
-**Asynchronous programming** is a form of concurrency that uses *futures* or callbacks to avoid unnecessary threads.
+**Asynchronous programming** is a form of concurrency that uses *futures* or *callbacks* to avoid unnecessary threads.
 
 A **future** (or **promise**) is a type that represents some operation that will complete in the future.
 
