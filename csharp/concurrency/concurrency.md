@@ -17,7 +17,7 @@ Usually, a mixture of techniques is used when writing a concurrent program. Most
 
 ## Asynchronous programming
 
-> "Asynchronous" means not waiting for something to complete (e.g., sending data over the network to another node), and not making any assumptions about how long it is going to take.<sup>6</sup>
+> "Asynchronous" means not waiting for something to complete (e.g., sending data over the network to another node), and not making any assumptions about how long it is going to take.<sup>3</sup>
 
 **Asynchronous programming** is a form of concurrency that uses *futures* or *callbacks* to avoid unnecessary threads.
 
@@ -35,13 +35,12 @@ Parallel processing uses *multithreading* to maximize the use of multiple proces
 
 **Multithreading** is a form of concurrency that uses multiple threads of execution.
 
-> Multithreading refers to literally using multiple threads. As demonstrated in many recipes in this book, multithreading is *one* form of concurrency, but certainly not the only one. In fact, direct use of low-level threading types has almost no purpose in a modern application; higher-level abstractions are more powerful and more efficient than old-school multithreading. For that reason, I'll minimize my coverage of outdated
-techniques. None of the multithreading recipes in this book use the
-`Thread` or `BackgroundWorker` types; they have been replaced with superior alternatives.<sup>3</sup>
+> Multithreading refers to literally using multiple threads. As demonstrated in many recipes in this book, multithreading is *one* form of concurrency, but certainly not the only one. In fact, direct use of low-level threading types has almost no purpose in a modern application; higher-level abstractions are more powerful and more efficient than old-school multithreading. For that reason, I'll minimize my coverage of outdated techniques. None of the multithreading recipes in this book use the
+`Thread` or `BackgroundWorker` types; they have been replaced with superior alternatives.<sup>4</sup>
 
-> **WARNING:** As soon as you type `new Thread()`, it's over; your project already has legacy code.<sup>4</sup>
+> **WARNING:** As soon as you type `new Thread()`, it's over; your project already has legacy code.<sup>5</sup>
 
-> But don't get the idea that multithreading is dead! Multithreading lives on in the *thread pool*, a useful place to queue work that automatically adjusts itself according to demand. In turn, the thread pool enables another important form of concurrency: *parallel processing*.<sup>5</sup>
+> But don't get the idea that multithreading is dead! Multithreading lives on in the *thread pool*, a useful place to queue work that automatically adjusts itself according to demand. In turn, the thread pool enables another important form of concurrency: *parallel processing*.<sup>6</sup>
 
 Parallel processing is one type of multithreading, and multithreading is one type of concurrency.
 
@@ -57,8 +56,8 @@ Usually, a mixture of techniques is used when writing a concurrent program. Most
 
 <hr>
 
-<sup>1, 3, 4, 5, 7</sup> Stephen Cleary, Concurrency in C# Cookbook: Asynchronous, Parallel, and Multithreaded Programming, Second edition (O'Reilly Media, 2019).
+<sup>1, 4, 5, 6, 7</sup> Stephen Cleary, Concurrency in C# Cookbook: Asynchronous, Parallel, and Multithreaded Programming, Second edition (O'Reilly Media, 2019).
 
 <sup>2</sup> Rob Pike, Concurrency Is Not Parallelism, [↑ talk at Heroku conference](https://vimeo.com/49718712), 2003.
 
-<sup>6</sup> Designing Data-Intensive Applications by Martin Kleppmann (2017), p. 553.
+<sup>3</sup> Designing Data-Intensive Applications by Martin Kleppmann (2017), p. 553.
