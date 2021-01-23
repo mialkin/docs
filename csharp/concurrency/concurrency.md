@@ -36,6 +36,53 @@ Modern asynchronous .NET applications use two keywords: `async` and `await`. The
 
 An `async` method may return `Task<TResult>` if it returns a value, `Task` if it doesn't return a value, or any other "task-like" type, such as `ValueTask`. In addition, an `async` method may return `IAsyncEnumerable<T>` or `IAsyncEnumerator<T>` if it returns multiple values in an enumeration. The task-like types represent futures; they can notify the calling code when the `async` method completes. Older asynchronous APIs use callbacks or events instead of futures. When the operation completes, it notifies its future or invokes its callback or event to let the application know the operation is finished.
 
+### Synchronization context
+
+Let's take a quick look at an example:
+
+```csharp
+async Task DoSomethingAsync()
+{
+    int value = 13;
+    // Asynchronously wait 1 second.
+    await Task.Delay(TimeSpan.FromSeconds(1));
+    
+    value *= 2;
+    
+    // Asynchronously wait 1 second.
+    await Task.Delay(TimeSpan.FromSeconds(1));
+    
+    Trace.WriteLine(value);
+}
+```
+
+An `async` method begins executing synchronously, just like any other method. Within an `async` method, the `await` keyword performs an `asynchronous wait` on its argument. First, it checks whether the operation is already complete; if it is, it continues executing (synchronously). Otherwise, it will pause the `async` method and return an incomplete task. When that operation completes some time later, the `async` method will resume executing.
+
+You can think of an `async` method as having several synchronous portions, broken up by `await` statements. The first synchronous portion executes on whatever thread calls the method, but where do the other synchronous portions execute? The answer is a bit complicated.
+
+When you `await` a task (the most common scenario), a *context* is captured when the `await` decides to pause the method. This is the current `SynchronizationContext` unless it’s `null`, in which case the context is the current `TaskScheduler`. The method resumes executing within that captured context. Usually, this context is the UI context (if you’re on the UI thread) or the threadpool context (most other situations). If you have an ASP.NET Classic (pre-Core) application, then the context could also be an ASP.NET request context. ASP.NET Core uses the threadpool context rather than a special request context.
+
+So, in the preceding code, all the synchronous portions will attempt to resume on the original context. If you call `DoSomethingAsync` from a UI thread, each of its synchronous portions will run on that UI thread; but if you call it from a threadpool thread, each of its synchronous portions will run on any threadpool thread.
+
+You can avoid this default behavior by awaiting the result of the `ConfigureAwait` extension method and passing `false` for the `continueOnCapturedContext` parameter. The following code will start on the calling thread, and after it is paused by an `await`, it’ll resume on a threadpool thread:
+
+```csharp
+async Task DoSomethingAsync()
+{
+    int value = 13;
+    
+    // Asynchronously wait 1 second.
+    await Task.Delay(TimeSpan.FromSeconds(1)).ConfigureAwait(false);
+    
+    value *= 2;
+    
+    // Asynchronously wait 1 second.
+    await Task.Delay(TimeSpan.FromSeconds(1)).ConfigureAwait(false);
+    
+    Trace.WriteLine(value);
+}
+```
+
 ## Parallel programming
 
 **Parallel programming** or **parallel processing** is doing lots of work by dividing it up among multiple threads that run concurrently.
