@@ -129,6 +129,7 @@
 * [Keywords](csharp/keywords/keywords.md)
   * [yield](csharp/keywords/yield.md)
 * [Lambda expressions](/csharp/lambda%20expressions.md)
+* [Memory managment](csharp/memory%20managment.md)
 * [Nullable reference types](/csharp/nullable%20reference%20types.md)
 * [Ref vs out](csharp/ref%20vs%20out.md)
   
