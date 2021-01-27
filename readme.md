@@ -64,11 +64,6 @@
   * [Flux](tools/kubernetes/flux.md)
   * [Helm](tools/kubernetes/helm.md)
   * [kubectl](tools/kubernetes/kubectl.md)
-  * [Deploy an app](tools/kubernetes/deply%20app.md)
-  * [Explore your app](tools/kubernetes/explore%20app.md)
-  * [Expose your app publicly](tools/kubernetes/expose%20app.md)
-  * [Scale your app](tools/kubernetes/scale.md)
-  * [Update your app](tools/kubernetes/update.md)
   * [Creating custom Kubernetes cluster using Ansible](tools/kubernetes/creating%20cluster.md)
 * [Redis](tools/redis.md)
 
