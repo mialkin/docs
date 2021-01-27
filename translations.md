@@ -91,6 +91,7 @@
 
 ## F
 
+* **Fault-tolerance** — отказоустойчивость
 * **Favor object composition over class inheritance** — отдавать предпочтение композиции перед наследованием
 * **Finalizer** — метод завершения или деструктор
 * **Flyweight** (design pattern) — Приспособленец
