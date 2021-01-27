@@ -51,26 +51,26 @@
     * [Dependency Inversion Principle](design/solid/dip/dip.md)
   * [YAGNI](design/yagni.md)
 
-## Programming tools
+## Tools
 
-* [Ansible](programming/ansible/ansible.md)
-* [Docker](programming/docker/docker.md)
-  * [docker-compose](programming/docker/compose.md)
-* [Elasticsearch](programming/elk/elastic.md)
-* [Filebeat](programming/elk/filebeat.md)
-* [Google Cloud Shell](programming/gcshell.md)
-* [Git](programming/git/git.md)
+* [Ansible](tools/ansible/ansible.md)
+* [Docker](tools/docker/docker.md)
+  * [docker-compose](tools/docker/compose.md)
+* [Elasticsearch](tools/elk/elastic.md)
+* [Filebeat](tools/elk/filebeat.md)
+* [Google Cloud Shell](tools/gcshell.md)
+* [Git](tools/git/git.md)
 * Kubernetes
-  * [Flux](programming/kubernetes/flux.md)
-  * [Helm](programming/kubernetes/helm.md)
-  * [kubectl](programming/kubernetes/kubectl.md)
-  * [Deploy an app](programming/kubernetes/deply%20app.md)
-  * [Explore your app](programming/kubernetes/explore%20app.md)
-  * [Expose your app publicly](programming/kubernetes/expose%20app.md)
-  * [Scale your app](programming/kubernetes/scale.md)
-  * [Update your app](programming/kubernetes/update.md)
-  * [Creating custom Kubernetes cluster using Ansible](programming/kubernetes/creating%20cluster.md)
-* [Redis](programming/redis.md)
+  * [Flux](tools/kubernetes/flux.md)
+  * [Helm](tools/kubernetes/helm.md)
+  * [kubectl](tools/kubernetes/kubectl.md)
+  * [Deploy an app](tools/kubernetes/deply%20app.md)
+  * [Explore your app](tools/kubernetes/explore%20app.md)
+  * [Expose your app publicly](tools/kubernetes/expose%20app.md)
+  * [Scale your app](tools/kubernetes/scale.md)
+  * [Update your app](tools/kubernetes/update.md)
+  * [Creating custom Kubernetes cluster using Ansible](tools/kubernetes/creating%20cluster.md)
+* [Redis](tools/redis.md)
 
 ## Unix
 
@@ -229,8 +229,8 @@
 * Entity Framework Core
   * [Installation](efcore/installation.md)
   * [Commands](efcore/commands.md)
-* [Regular expressions](programming/regular%20expressions/regular%20expressions.md)
-* [Unit testing best practices](programming/testing/unit%20testing%20best%20practices.md)
+* [Regular expressions](tools/regular%20expressions/regular%20expressions.md)
+* [Unit testing best practices](tools/testing/unit%20testing%20best%20practices.md)
 
 ## Web
 
