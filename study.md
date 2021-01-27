@@ -1,9 +1,5 @@
 # Study list
 
-* RabbitMQ
-
-* Redis
-
 * Kafka
 
 * [↑ TDD](https://www.youtube.com/watch?v=a7BvGBT0gFw)
@@ -47,8 +43,6 @@
 * [↑ Dissecting the async methods in C#](https://devblogs.microsoft.com/premier-developer/dissecting-the-async-methods-in-c/)
 
 * [↑ Weak reference](https://docs.microsoft.com/en-us/dotnet/api/system.weakreference?view=netcore-3.1)
-
-* InfluxDb, ClickHouse
 
 * Data structures time and space complexities
 

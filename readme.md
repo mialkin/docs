@@ -69,7 +69,8 @@
   * [Expose your app publicly](programming/kubernetes/expose%20app.md)
   * [Scale your app](programming/kubernetes/scale.md)
   * [Update your app](programming/kubernetes/update.md)
-* [Creating custom Kubernetes cluster using Ansible](programming/kubernetes/creating%20cluster.md)
+  * [Creating custom Kubernetes cluster using Ansible](programming/kubernetes/creating%20cluster.md)
+* [Redis](programming/redis.md)
 
 ## Unix
 
