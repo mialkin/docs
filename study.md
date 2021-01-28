@@ -10,8 +10,6 @@
   * [↑ Window functions](https://docs.microsoft.com/en-us/sql/t-sql/queries/select-over-clause-transact-sql?view=sql-server-ver15)
   * Sharding, partitioning, replication, clustering
 
-* [↑ CQRS](https://www.youtube.com/watch?v=xKKVW94F2bc)
-
 * [↑ Event sourcing](https://microservices.io/patterns/data/event-sourcing.html)
 
 * JavaScript promises, async/await
@@ -82,7 +80,7 @@
 ## Design
 
 * Architectural patterns
-  * CQRS
+  * [↑ CQRS](https://www.youtube.com/watch?v=xKKVW94F2bc)
   * Event sourcing
 
 ## Databases
@@ -91,14 +89,6 @@
 * Document databases
   * MongoDB
 * Execution plan
-* In-memory databases
-  * Redis
-* Transaction
-  * Isolation levels
-    * Read uncommitted
-    * Read commmitted
-    * Repeatable read
-    * Serializable
 * Trigger
 * Window function
 

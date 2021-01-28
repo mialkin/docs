@@ -47,3 +47,23 @@ See 1995 article: [A Critique of ANSI SQL Isolation Levels](tr-95-51.pdf).
 | Serializable (3)     | -             | -                    | -           |
 
 Although higher isolation levels provide better data consistency, this consistency can be costly in terms of the parallel access provided to users. As isolation level increases, so does the chance that the locking strategy used will create problems with parallel access of data.
+
+## Examine
+
+Read uncommitted (0)
+
+Locks are obtained on modifications to the database and held until end of transaction (EOT). Reading from the database does not involve any locking.
+
+Read committed (1)
+
+Locks are acquired for reading and modifying the database. Locks are released after reading but locks on modified objects are held until EOT.
+
+Repeatable read (2)
+
+Locks are obtained for reading and modifying the database. Locks on all modified objects are held until EOT. Locks obtained for reading data are held until EOT. Locks on non-modified access structures (such as indexes and hashing structures) are released after reading.
+
+Serializable (3)
+
+All data read or modified is locked until EOT. All access structures that are modified are locked until EOT. Access structures used by the query are locked until EOT.
+
+https://media.datadirect.com/download/docs/odbc/allodbc/index.html#page/odbc/isolation-levels.html
