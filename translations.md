@@ -11,6 +11,7 @@
 * **Agile software development** — гибкая методология разработки
 * **Alias** — псевдоним
 * **Application domain** — домен приложения
+* **Atomicity** — атомарность
 * **Authentication** — проверка подлинности
 * **Authority** — центр
 * **Authorization** — авторизация
@@ -43,6 +44,7 @@
 * **Common table expression** — обобщенное табличное выражение
 * **Composite** (design pattern) — Компоновщик
 * **Concurrency** — единовременность, одновременность
+* **Consistency** — согласованность (данных)
 * **Content delivery/distribution network** — сеть доставки/распределения содержимого
 * **Contravariance** — контравариантность
 * **Control** — элемент управления
@@ -126,6 +128,7 @@
   * **Instantiation** — создание экземпляра класса
 * **Interface segregation principle** — принцип разделения интерфейса
 * **Inversion of control** — инверсия управления
+* **Isolation** — изолированность
 * **Issuer** — издатель, эмитент
 
 ## L
