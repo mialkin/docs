@@ -44,7 +44,7 @@
 * **Common table expression** — обобщенное табличное выражение
 * **Composite** (design pattern) — Компоновщик
 * **Concurrency** — единовременность, одновременность
-* **Consistency** — согласованность (данных)
+* **Consistency** — согласованность
 * **Content delivery/distribution network** — сеть доставки/распределения содержимого
 * **Contravariance** — контравариантность
 * **Control** — элемент управления
