@@ -186,6 +186,7 @@
 ## R
 
 * **Read-only** — доступный только для чтения
+* **Read phenomena** — феномены чтения
 * **Reference** — ссылка
   * **Reference type** — ссылочный тип
   * **Dereference** — разыменовывать
