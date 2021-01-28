@@ -1,6 +1,6 @@
 # Isolation levels
 
-An **isolation level** represents a particular locking strategy employed in the database system to avoid _read phenomena_. The higher the isolation level, the more complex the locking strategy behind it.
+An **isolation level** represents a particular locking strategy employed in the database system to avoid _read phenomena_.
 
 ## Read phenomena
 
@@ -9,7 +9,7 @@ An **isolation level** represents a particular locking strategy employed in the 
 A **dirty read** is a phenomenon that occurs when a transaction is allowed to read data from a row that has been modified by another running transaction and not yet committed.
 
 ```text
-User 1 modifies a row. User 2 reads the same row before User 1 commits. User 1 performs a rollback. User 2 has read row's values that have never really existed in the database.
+User 1 modifies a row. User 2 reads the same row before User 1 commits. User 1 performs a rollback.User 2 has read row's values that have never really existed in the database.
 ```
 
 ### Non-repeatable reads
@@ -19,6 +19,8 @@ A **non-repeatable read** is a phenomenon that occurs when, during the course of
 ```text
 User 1 reads a row, but does not commit. User 2 modifies or deletes the same row and then commits. User 1 rereads the row and finds it has been changed/deleted.
 ```
+
+## List of isolation levels
 
 Isolation levels represent the database system's ability to prevent these read phenomena. The American National Standards Institute (ANSI) defines four isolation levels:
 
