@@ -6,7 +6,7 @@
 * **Access modifier** — модификатор доступа
 * **Accessibility level** — уровень доступности
 * **Accessor** — метод доступа или акцессор
-* **Account** — учетная запись
+* **Account** — учетная запись§
 * **Aggregate** — собирать вместе
 * **Agile software development** — гибкая методология разработки
 * **Alias** — псевдоним
@@ -126,6 +126,7 @@
 * **Instance** — экземпляр класса
   * **Instantiate** — создавать экземпляр класса
   * **Instantiation** — создание экземпляра класса
+* **Integrity** — целостность
 * **Interface segregation principle** — принцип разделения интерфейса
 * **Inversion of control** — инверсия управления
 * **Isolation** — изолированность
