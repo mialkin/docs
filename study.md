@@ -87,11 +87,6 @@
 
 ## Databases
 
-* ACID
-  * Atomicity
-  * Consistency
-  * Isolation
-  * Durability
 * Cursor
 * Document databases
   * MongoDB
