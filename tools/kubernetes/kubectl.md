@@ -106,6 +106,8 @@ kubectl create secret docker-registry SECRET_NAME \
 --docker-username="admin" \
 --docker-password="abc123" \
 --docker-email="admin@example.com"
+
+kubectl get secret regcred -o=yaml
 ```
 
 ## matchLabels and selectors
