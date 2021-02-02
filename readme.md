@@ -113,10 +113,17 @@
   * [Task scheduler](/csharp/asynchronous/task%20scheduler.md)
 * [Concurrency](csharp/concurrency/concurrency.md)
   * [Asynchronous programming](csharp/concurrency/asynchronous%20programming.md)
+    * System.Collections.Generic
+      * Interfaces
+        * [IAsyncEnumerable\<T>](dotnet/system/collections/generic/iasyncenumerable.md)
   * [Parallel programming](csharp/concurrency/parallel%20programming.md)
   * [Reactive programming](csharp/concurrency/reactive%20programming.md)
   * [Dataflow programming](csharp/concurrency/dataflow%20programming.md)
   * [Collections](csharp/concurrency/collections.md)
+    * System.Collections.Concurrent
+      * ConcurrentDictionary\<T>
+      * ConcurrentQueue\<T>
+      * ConcurrentStack\<T>
   * [Synchronization](csharp/concurrency/synchronization.md)
 * [Constructor execution order](/csharp/constructor%20execution%20order.md)
 * [Covariance and contravariance](/csharp/covariance%20and%20contravariance.md)
@@ -171,15 +178,10 @@
     * ICloneable
     * IDisposable
   * Structs
-* System.Collections.Concurrent
-  * ConcurrentDictionary\<T>
-  * ConcurrentQueue\<T>
-  * ConcurrentStack\<T>
 * System.Collections.Generic
   * Classes
     * [Dictionary](dotnet/system/collections/generic/dictionary.md)
   * Interfaces
-    * [IAsyncEnumerable\<T>](dotnet/system/collections/generic/iasyncenumerable.md)
     * [IEnumerable](dotnet/system/collections/generic/ienumerable.md)
 * System.IO
   * FileStream
