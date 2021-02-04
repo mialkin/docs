@@ -3,13 +3,34 @@
 Starting a postgresql instance. The default `postgres` user and database are created in the entrypoint with [↑ initdb](https://www.postgresql.org/docs/13/app-initdb.html):
 
 ```bash
-docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:5432 postgres
+docker run --name CONTAINER_NAME -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:5432 postgres
+```
+
+Using docker-compose:
+
+```yaml
+version: "3.8"
+services:
+  db:
+    image: postgres
+    container_name: CONTAINER_NAME
+    restart: unless-stopped
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+
+  adminer:
+    image: adminer
+    restart: unless-stopped
+    ports:
+      - 8080:8080
 ```
 
 Start executing commands:
 
 ```bash
-docker exec -it some-postgres psql -U postgres
+docker exec -it CONTAINER_NAME psql -U postgres
 ```
 
 ## Shortcuts
