@@ -43,7 +43,7 @@ docker exec -it CONTAINER_NAME psql -U postgres
 
 | Command       | Description                             |
 | ------------- | --------------------------------------- |
-| \?            | Show available commands                 |
+| \\?           | Show available commands                 |
 | \c DB_NAME    | Switch connection to the database       |
 | \d TABLE_NAME | Describe table                          |
 | \dt           | List all tables in the current database |
