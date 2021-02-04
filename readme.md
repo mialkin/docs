@@ -113,6 +113,7 @@
   * [Task scheduler](/csharp/asynchronous/task%20scheduler.md)
 * [Concurrency](csharp/concurrency/concurrency.md)
   * [Asynchronous programming](csharp/concurrency/asynchronous%20programming.md)
+    * [Returning from task](csharp/concurrency/returning%20from%20task.md)
     * System.Collections.Generic
       * Interfaces
         * [IAsyncEnumerable\<T>](dotnet/system/collections/generic/iasyncenumerable.md)
