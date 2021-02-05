@@ -226,7 +226,7 @@
   * [Isolation levels](db/transactions/isolation%20levels.md)
   * [PostgreSQL](db/postgres/postgres.md)
   * [PL/SQL](db/oracle/plsql.md)
-* Entity Framework Core
+* EF Core
   * [Installation](efcore/installation.md)
   * [Commands](efcore/commands.md)
 * [Regular expressions](tools/regular%20expressions/regular%20expressions.md)

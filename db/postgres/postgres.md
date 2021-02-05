@@ -50,6 +50,12 @@ docker exec -it CONTAINER_NAME psql -U postgres
 | \l or \list   | List all databases                      |
 | \q            | Quit psql                               |
 
+## SQL syntax
+
+| SQL                                      | Description   |
+| ---------------------------------------- | ------------- |
+| DROP DATABASE [IF EXISTS] DATABASE_NAME; | Drop database |
+
 ## Links
 
 [↑ Quick reference](https://github.com/docker-library/docs/blob/master/postgres/README.md)
