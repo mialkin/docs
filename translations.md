@@ -97,6 +97,7 @@
 
 * **Fault-tolerance** — отказоустойчивость
 * **Favor object composition over class inheritance** — отдавать предпочтение композиции перед наследованием
+* **First-class citizen/object/entity/value** — объект первого класса
 * **Finalizer** — метод завершения или деструктор
 * **Flyweight** (design pattern) — Приспособленец
 * **Foreground thread** — основной поток
@@ -113,6 +114,7 @@
 
 * **Handshake** — подтверждение связи
 * **High(er)-level** — высокоуровневый
+* **Higher-order function** — функция высшего порядка
 * **Host** — узел
 
 ## I

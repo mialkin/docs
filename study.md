@@ -20,7 +20,7 @@
 
 * Grafana, [↑ Amixr.io](https://amixr.io), Graylog + Sentry
 
-* Functional programming
+* [↑ Introduction to Functional Programming in F#](https://docs.microsoft.com/en-us/dotnet/fsharp/introduction-to-functional-programming/)
 
 * OpenTracing
 
@@ -38,13 +38,13 @@
 
 * async lock
 
-* [↑ Dissecting the async methods in C#](https://devblogs.microsoft.com/premier-developer/dissecting-the-async-methods-in-c/)
-
 * [↑ Weak reference](https://docs.microsoft.com/en-us/dotnet/api/system.weakreference?view=netcore-3.1)
 
 * Data structures time and space complexities
 
 * [↑ ASP.NET Core Series: Performance Testing Techniques](https://www.youtube.com/watch?v=jn54CjePzs0)
+* [↑ Higher-order function](https://en.wikipedia.org/wiki/Higher-order_function)
+* [↑ First-class citizen](https://en.wikipedia.org/wiki/First-class_citizen)
 
 ## C#
 
