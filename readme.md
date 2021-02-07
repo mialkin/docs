@@ -235,6 +235,7 @@
 ## Web
 
 * [CSS](web/css/css.md)
+* [GraphQL](web/graphql.md)
 * [gRPC](web/grpc.md)
 * [HTML](web/html/html.md)
 * [HTTP](web/http/http.md)
