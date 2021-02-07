@@ -241,7 +241,8 @@
 * [HTTP](web/http/http.md)
 * [JavaScript](web/javascript/javascript.md)
 * [REST](web/rest.md)
-* [OAuth 2.0 & OpenID Connect](web/oauth.md)
+* [OAuth](web/oauth.md)
+* [OpenID Connect](web/oidc.md)
 * Security
   * [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
   * [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
