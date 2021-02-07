@@ -1,5 +1,12 @@
 # Execution context
 
+## Links
+
+* [↑ Dissecting the async methods in C#](https://devblogs.microsoft.com/premier-developer/dissecting-the-async-methods-in-c/)
+* [↑ ExecutionContext Class](https://docs.microsoft.com/en-us/dotnet/api/system.threading.executioncontext)
+
+## Content
+
 In the synchronous world, each thread keeps ambient information in a *thread-local storage*<sup>1</sup>. It can be security-related information, culture-specific data, or something else. When 3 methods are called sequentially in one thread this information flows naturally between all of them. But this is no longer true for asynchronous methods. Each "section" of an asynchronous method can be executed in different threads that makes thread-local information unusable.
 
 Execution context keeps the information for one logical *flow of control*<sup>3</sup> even when it spans multiple threads.
@@ -91,13 +98,8 @@ Inside UnsafeOnCompleted: 0
 After second await: 42
 ```
 
-## Notes
+## Footnotes
 
 1. The **thread-local storage** is a mechanism by which each thread in a given multithreaded process allocates storage for thread-specific data.
 
 2. The **flow of control** is the order in which individual statements, instructions or function calls are executed or evaluated.
-
-## Links
-
-* [↑ Dissecting the async methods in C#](https://devblogs.microsoft.com/premier-developer/dissecting-the-async-methods-in-c/)
-* [↑ ExecutionContext Class](https://docs.microsoft.com/en-us/dotnet/api/system.threading.executioncontext)
