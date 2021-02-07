@@ -77,10 +77,7 @@
 * [Nginx](unix/nginx.md)
 * [shell](unix/shell.md)
   * [Bourne again shell (bash)](unix/bash.md)
-* Tools
-  * [apt](unix/apt.md)
-  * [chmod](unix/chmod.md)
-  * [chown](unix/chown.md)
+* [Tools](unix/tools.md)
   * [crontab](unix/crontab.md)
   * [df](unix/df.md)
   * [du](unix/du.md)
