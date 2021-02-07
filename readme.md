@@ -99,6 +99,37 @@
   * [vim](unix/vim.md)
 * [User management](unix/user%20managment.md)
 
+## Web
+
+* [CSS](web/css/css.md)
+* [GraphQL](web/graphql.md)
+* [gRPC](web/grpc.md)
+* [HTML](web/html/html.md)
+* [HTTP](web/http/http.md)
+* [JavaScript](web/javascript/javascript.md)
+* [REST](web/rest.md)
+* [OAuth](web/oauth.md)
+* [OpenID Connect](web/oidc.md)
+* Security
+  * [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
+  * [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
+* [Web APIs](web/api/api.md)
+
+## Miscellaneous
+
+* ASP.NET
+  * [Host](asp.net/host.md)
+* Databases
+  * [ACID](db/transactions/acid.md)
+  * [Isolation levels](db/transactions/isolation%20levels.md)
+  * [PostgreSQL](db/postgres/postgres.md)
+  * [PL/SQL](db/oracle/plsql.md)
+* EF Core
+  * [Installation](efcore/installation.md)
+  * [Commands](efcore/commands.md)
+* [Regular expressions](tools/regular%20expressions/regular%20expressions.md)
+* [Unit testing best practices](tools/testing/unit%20testing%20best%20practices.md)
+
 ## C#
 
 * [Attributes](/csharp/attributes.md)
@@ -216,34 +247,3 @@
     * TaskFactory
   * Structs
     * [ValueTask\<TResult>](dotnet/system/threading/tasks/valuetask_t.md)
-
-## Miscellaneous
-
-* ASP.NET
-  * [Host](asp.net/host.md)
-* Databases
-  * [ACID](db/transactions/acid.md)
-  * [Isolation levels](db/transactions/isolation%20levels.md)
-  * [PostgreSQL](db/postgres/postgres.md)
-  * [PL/SQL](db/oracle/plsql.md)
-* EF Core
-  * [Installation](efcore/installation.md)
-  * [Commands](efcore/commands.md)
-* [Regular expressions](tools/regular%20expressions/regular%20expressions.md)
-* [Unit testing best practices](tools/testing/unit%20testing%20best%20practices.md)
-
-## Web
-
-* [CSS](web/css/css.md)
-* [GraphQL](web/graphql.md)
-* [gRPC](web/grpc.md)
-* [HTML](web/html/html.md)
-* [HTTP](web/http/http.md)
-* [JavaScript](web/javascript/javascript.md)
-* [REST](web/rest.md)
-* [OAuth](web/oauth.md)
-* [OpenID Connect](web/oidc.md)
-* Security
-  * [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
-  * [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
-* [Web APIs](web/api/api.md)
