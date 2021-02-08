@@ -8,7 +8,9 @@
 * **Types** can be anything in GraphQL: *query*, *mutation*, *subscription*, *object*, *enumeration*, *scalar* (id, int, string, boolean, float).
 * **Resolvers** is a way to get a data for a given field. They can resolve to anything (e.g. database, microservice, REST API).
 
-## GraphQL vs REST
+## GraphQL vs REST APIs
+
+> From a *developing* perspective GraphQL APIs are *much* harder to create than REST APIs, but, as a consequence, from *consuming* perspective, GraphQL is much better.
 
 There is *nothing wrong* with REST, but:
 
