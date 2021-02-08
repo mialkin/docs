@@ -59,8 +59,7 @@
   * [PostgreSQL](db/postgres/postgres.md)
   * [PL/SQL](db/oracle/plsql.md)
 * EF Core
-  * [Installation](efcore/installation.md)
-  * [Commands](efcore/commands.md)
+  * [EF Core tools](efcore/tools.md)
 * [Regular expressions](tools/regular%20expressions/regular%20expressions.md)
 * [Unit testing best practices](tools/testing/unit%20testing%20best%20practices.md)
 
