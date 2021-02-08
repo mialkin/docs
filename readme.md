@@ -1,56 +1,5 @@
 # Documenting notes
 
-## Computer science
-
-* [Asymmetric cryptography](cs/asymmetric%20cryptography.md)
-* [Advanced Encryption Standard (AES)](cs/aes.md)
-* [Generating self-signed certificate](cs/generating%20certificate.md)
-* [TLS handshake](cs/tls%20handshake.md)
-
-## Software design
-
-* [Design patterns](design/design%20patterns/design%20patterns.md)
-  * Creational
-    * [Abstract Factory](design/design%20patterns/abstract%20factory.md)
-    * [Builder](design/design%20patterns/builder.md)
-    * [Factory Method](design/design%20patterns/factory%20method.md)
-    * [Prototype](design/design%20patterns/prototype.md)
-    * [Singleton](design/design%20patterns/singleton.md)
-  * Structural
-    * [Adapter](design/design%20patterns/adapter.md)
-    * [Bridge](design/design%20patterns/bridge.md)
-    * [Composite](design/design%20patterns/composite.md)
-    * [Decorator](design/design%20patterns/decorator.md)
-    * [Facade](design/design%20patterns/facade.md)
-    * [Flyweight](design/design%20patterns/flyweight.md)
-    * [Proxy](design/design%20patterns/proxy.md)
-  * Behavioral
-    * [Chain of Responsibility](design/design%20patterns/chain%20of%20responsibility.md)
-    * [Command](design/design%20patterns/command.md)
-    * Interpreter
-    * [Iterator](design/design%20patterns/iterator.md)
-    * [Mediator](design/design%20patterns/mediator.md)
-    * [Memento](design/design%20patterns/memento.md)
-    * [Observer](design/design%20patterns/observer.md)
-    * [State](design/design%20patterns/state.md)
-    * [Strategy](design/design%20patterns/strategy.md)
-    * [Template Method](design/design%20patterns/template%20method.md)
-    * [Visitor](design/design%20patterns/visitor.md)
-* Design principles
-  * [Composition over inheritance](design/composition%20over%20inheritance.md)
-  * [DRY](design/dry.md)
-  * [Explicit Dependencies Principle](design/explicit%20dependencies%20principle.md)
-  * [Idempotency](design/idempotency.md)
-  * [KISS](design/kiss.md)
-  * [Separation of concerns](design/separation%20of%20concerns.md)
-  * [SOLID](design/solid/solid.md)
-    * [Single responsibility principle](design/solid/srp.md)
-    * Open-closed principle
-    * Liskov substitution principle
-    * Interface segregation principle
-    * [Dependency Inversion Principle](design/solid/dip/dip.md)
-  * [YAGNI](design/yagni.md)
-
 ## Tools
 
 * [Ansible](tools/ansible/ansible.md)
@@ -232,3 +181,54 @@
     * TaskFactory
   * Structs
     * [ValueTask\<TResult>](dotnet/system/threading/tasks/valuetask_t.md)
+
+## Computer science
+
+* [Asymmetric cryptography](cs/asymmetric%20cryptography.md)
+* [Advanced Encryption Standard (AES)](cs/aes.md)
+* [Generating self-signed certificate](cs/generating%20certificate.md)
+* [TLS handshake](cs/tls%20handshake.md)
+
+## Software design
+
+* [Design patterns](design/design%20patterns/design%20patterns.md)
+  * Creational
+    * [Abstract Factory](design/design%20patterns/abstract%20factory.md)
+    * [Builder](design/design%20patterns/builder.md)
+    * [Factory Method](design/design%20patterns/factory%20method.md)
+    * [Prototype](design/design%20patterns/prototype.md)
+    * [Singleton](design/design%20patterns/singleton.md)
+  * Structural
+    * [Adapter](design/design%20patterns/adapter.md)
+    * [Bridge](design/design%20patterns/bridge.md)
+    * [Composite](design/design%20patterns/composite.md)
+    * [Decorator](design/design%20patterns/decorator.md)
+    * [Facade](design/design%20patterns/facade.md)
+    * [Flyweight](design/design%20patterns/flyweight.md)
+    * [Proxy](design/design%20patterns/proxy.md)
+  * Behavioral
+    * [Chain of Responsibility](design/design%20patterns/chain%20of%20responsibility.md)
+    * [Command](design/design%20patterns/command.md)
+    * Interpreter
+    * [Iterator](design/design%20patterns/iterator.md)
+    * [Mediator](design/design%20patterns/mediator.md)
+    * [Memento](design/design%20patterns/memento.md)
+    * [Observer](design/design%20patterns/observer.md)
+    * [State](design/design%20patterns/state.md)
+    * [Strategy](design/design%20patterns/strategy.md)
+    * [Template Method](design/design%20patterns/template%20method.md)
+    * [Visitor](design/design%20patterns/visitor.md)
+* Design principles
+  * [Composition over inheritance](design/composition%20over%20inheritance.md)
+  * [DRY](design/dry.md)
+  * [Explicit Dependencies Principle](design/explicit%20dependencies%20principle.md)
+  * [Idempotency](design/idempotency.md)
+  * [KISS](design/kiss.md)
+  * [Separation of concerns](design/separation%20of%20concerns.md)
+  * [SOLID](design/solid/solid.md)
+    * [Single responsibility principle](design/solid/srp.md)
+    * Open-closed principle
+    * Liskov substitution principle
+    * Interface segregation principle
+    * [Dependency Inversion Principle](design/solid/dip/dip.md)
+  * [YAGNI](design/yagni.md)
