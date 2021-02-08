@@ -12,5 +12,19 @@
 
 There is *nothing wrong* with REST, but:
 
-* REST over-fetches: returning more data than you need.
-* 
+* REST over-fetches: returning more data than you need
+* REST under-fetches: you need to make multiple requests
+
+When to use GraphQL:
+
+* Interactive/real-time
+* Mobile apps
+* Complex object hierarchy
+* Complex queries
+
+When to use REST:
+
+* Non-interactive (system to syste)
+* Microservices
+* Simple object hierarchy
+* Repeated, simple queries
