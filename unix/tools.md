@@ -1,9 +1,13 @@
 # Tools
 
-## Table of contents
-
-* [apt](#apt)
-* [chmod](#chmod)
+- [Tools](#tools)
+  - [apt](#apt)
+  - [chmod](#chmod)
+  - [chown](#chown)
+  - [df](#df)
+  - [du](#du)
+  - [find](#find)
+  - [htop](#htop)
 
 ## apt
 
@@ -32,3 +36,40 @@ The **apt** provides a high-level commandline interface for the package manageme
 | Command                        | Description                    |
 | ------------------------------ | ------------------------------ |
 | chown -R USER_NAME FOLDER_NAME | Change the owner of the folder |
+
+## df
+
+Display free disk space.
+
+| Command | Description                                                          |
+| ------- | -------------------------------------------------------------------- |
+| df -h . | Dispaly free disk space in human-readable form for current directory |
+
+## du
+
+Display disk usage statistics.
+
+| Command | Description                                                                |
+| ------- | -------------------------------------------------------------------------- |
+| du -h . | Dispaly disk usage statistics in human-readable form for current directory |
+
+## find
+
+Find is a command-line utility that locates files based on some user-specified criteria and then applies some requested action on each matched object.
+
+| Command                | Description                                                                 |
+| ---------------------- | --------------------------------------------------------------------------- |
+| find . -name YOUR_NAME | Find inside current directory all files/folders that match `YOUR_NAME` name |
+
+## htop
+
+| Command          | Description                     |
+| ---------------- | ------------------------------- |
+| <kbd>\\</kbd>    | filter                          |
+| <kbd>/</kbd>     | search                          |
+| <kbd>Space</kbd> | select/deselect a single record |
+| <kbd>u</kbd>     | filter processes by user        |
+| <kbd>k</kbd>     | send command to process         |
+| <kbd>U</kbd>     | deselect all records            |
+| <kbd>M</kbd>     | sort by memory                  |
+| <kbd>P</kbd>     | sort by CPU                     |
