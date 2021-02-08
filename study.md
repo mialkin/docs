@@ -44,6 +44,8 @@
 
 * [↑ Weak reference](https://docs.microsoft.com/en-us/dotnet/api/system.weakreference?view=netcore-3.1)
 
+* [↑ Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
+
 * Data structures time and space complexities
 
 * [↑ ASP.NET Core Series: Performance Testing Techniques](https://www.youtube.com/watch?v=jn54CjePzs0)
