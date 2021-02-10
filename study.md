@@ -42,6 +42,8 @@
 
 * [↑ volatile (C# Reference)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/volatile)
 
+* [↑ record type](https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/exploration/records)
+
 * [↑ Weak reference](https://docs.microsoft.com/en-us/dotnet/api/system.weakreference?view=netcore-3.1)
 
 * [↑ Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
