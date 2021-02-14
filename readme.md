@@ -5,11 +5,9 @@
 * [Ansible](tools/ansible/ansible.md)
 * [Docker](tools/docker/docker.md)
   * [docker-compose](tools/docker/compose.md)
-* [Elasticsearch](tools/elastic.md)
 * [Git](tools/git/git.md)
 * Kubernetes
   * [Flux](tools/kubernetes/flux.md)
-  * [Helm](tools/kubernetes/helm.md)
   * [kubectl](tools/kubernetes/kubectl.md)
   * [Creating custom Kubernetes cluster using Ansible](tools/kubernetes/creating%20cluster.md)
 * [Redis](tools/redis.md)
