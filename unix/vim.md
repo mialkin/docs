@@ -1,5 +1,12 @@
 # Vim
 
+Show line numbers by default:
+
+```bash
+echo "set number" >> ~/.vimrc
+source ~/.vimrc
+```
+
 ## Commands
 
 | Command       | Explanation                  |
