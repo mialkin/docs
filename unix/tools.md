@@ -33,9 +33,33 @@ The **apt** provides a high-level commandline interface for the package manageme
 
 **chmod** is the command and system call which is used to change the access permissions of file system objects (files and directories). The name is an abbreviation of _change mode_.
 
-| Command               | Description                     |
-| --------------------- | ------------------------------- |
-| chmod 777 FOLDER_NAME | Change folder access permission |
+**Modes** are the filesystem permissions given to *user* (i.e. the file owner), *group* (i.e. the group owning the file) and *others* (users who are not the owner of the file and who are not members of the group) classes to access files under Unix.
+
+References:
+
+* u — user, file owner
+* g — group, members of the file's group
+* o — others, users who are neither the file's owner nor memebers of the file's group
+* a — all, all three of the aboce, same as `ugo`
+
+Operators:
+
+* \+ — adds the specified modes to the specified classes
+* \- — removes the specified modes from the specified classes
+* = — the modes specified are to be made the exact modes for the specified classes
+
+Modes:
+
+* r — read, read a file or list a directory's contents
+* w — write, write to a file or directory
+* x — execute, execute a file or recurse a directory tree
+
+| Command                 | Description                        |
+| ------------------------| ---------------------------------- |
+| chmod a-rwx SAMPLE      | Removes all modes from all classes |
+| chmod 100 SAMPLE        | Adds *only* execute mode to user   |
+| chmod 200 SAMPLE        | Adds *only* write mode to user     |
+| chmod 400 SAMPLE        | Adds *only* read mode to user     |
 
 [↑ chmod on Wikipedia](https://en.wikipedia.org/wiki/Chmod)
 
