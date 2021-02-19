@@ -1,6 +1,6 @@
 # Vim
 
-Show line numbers by default:
+Display line numbers by default:
 
 ```bash
 echo "set number" >> ~/.vimrc
@@ -50,10 +50,3 @@ source ~/.vimrc
 | yy   | Copy to clipboard the current line                       |
 | p    | Paste the copied or deleted text after the current line  |
 | P    | Paste the copied or deleted text before the current line |
-
-## Links
-
-- [↑ Vim Cheat Sheet 1](https://gist.github.com/glnds/11027696)
-- [↑ Vim Cheat Sheet 2](https://vim.rtorr.com)
-- [↑ Изучаем Vim, команды и макросы](https://www.youtube.com/watch?v=SHo3fAZfXMk)
-- [↑ A Great Vim Cheat Sheet](https://vimsheet.com)
