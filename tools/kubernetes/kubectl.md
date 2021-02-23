@@ -93,7 +93,7 @@ Commands:
 ## Multiple clusters
 
 ```bash
-echo "export KUBECONFIG=~/.kube/config:~/.kube/config-aks:~/.kube/config-gke" >> ~/.zprofile
+echo "export KUBECONFIG=~/.kube/config:~/.kube/config-aks" >> ~/.zshrc
 source ~/.zshrc
 echo $KUBECONFIG
 ```
