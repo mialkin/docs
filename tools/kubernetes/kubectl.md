@@ -98,7 +98,7 @@ source ~/.zshrc
 echo $KUBECONFIG
 ```
 
-## Private repository's secret
+## Extract secret to YAML
 
 ```bash
 kubectl create secret docker-registry SECRET_NAME \
