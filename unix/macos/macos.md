@@ -47,13 +47,13 @@ Save file and source it:
 source .zshrc
 ```
 
-## Hosts
+## Flush DNS cache
 
 ```zsh
-vim /etc/hosts
+sudo killall -HUP mDNSResponder
 ```
 
-## Rider
+## Launch Rider from terminal
 
 Create file:
 
@@ -74,4 +74,10 @@ Change access mode:
 
 ```bash
 chmod 775 rider
+```
+
+## Hosts
+
+```zsh
+vim /etc/hosts
 ```
