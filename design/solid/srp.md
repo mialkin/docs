@@ -1,4 +1,4 @@
-# Single Responsibility Principle (CRP)
+# The Single Responsibility Principle (CRP)
 
 The principle states:
 
