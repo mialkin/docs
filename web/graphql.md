@@ -26,7 +26,7 @@ When to use GraphQL:
 
 When to use REST:
 
-* Non-interactive (system to syste)
+* Non-interactive (system to system)
 * Microservices
 * Simple object hierarchy
 * Repeated, simple queries
