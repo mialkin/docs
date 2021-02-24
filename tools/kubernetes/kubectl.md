@@ -93,12 +93,12 @@ Commands:
 ## Multiple clusters
 
 ```bash
-echo "export KUBECONFIG=~/.kube/config:~/.kube/config-aks:~/.kube/config-gke" >> ~/.zprofile
+echo "export KUBECONFIG=~/.kube/config:~/.kube/config-aks" >> ~/.zshrc
 source ~/.zshrc
 echo $KUBECONFIG
 ```
 
-## Private repository's secret
+## Extract secret to YAML
 
 ```bash
 kubectl create secret docker-registry SECRET_NAME \
