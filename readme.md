@@ -215,15 +215,11 @@
     * [Visitor](design/design%20patterns/visitor.md)
 * Design principles
   * [Composition over inheritance](design/composition%20over%20inheritance.md)
-  * [DRY](design/dry.md)
+  * [DRY, idempotency, KISS, separation of concerns, YAGNI](design/main%20principles.md)
   * [Explicit Dependencies Principle](design/explicit%20dependencies%20principle.md)
-  * [Idempotency](design/idempotency.md)
-  * [KISS](design/kiss.md)
-  * [Separation of concerns](design/separation%20of%20concerns.md)
   * [SOLID](design/solid/solid.md)
     * [Single responsibility principle](design/solid/srp.md)
     * Open-closed principle
     * Liskov substitution principle
     * Interface segregation principle
     * [Dependency Inversion Principle](design/solid/dip/dip.md)
-  * [YAGNI](design/yagni.md)
