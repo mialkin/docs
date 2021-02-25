@@ -218,8 +218,8 @@
   * [DRY, idempotency, KISS, separation of concerns, YAGNI](design/main%20principles.md)
   * [Explicit Dependencies Principle](design/explicit%20dependencies%20principle.md)
   * [SOLID](design/solid/solid.md)
-    * [Single Responsibility Principle](design/solid/srp.md)
-    * [Open-Closed Principle](design/solid/ocp.md)
-    * [Liskov Substitution Principle](design/solid/lsp.md)
-    * Interface Segregation Principle
-    * [Dependency Inversion Principle](design/solid/dip/dip.md)
+    * [The Single Responsibility Principle](design/solid/srp.md)
+    * [The Open-Closed Principle](design/solid/ocp.md)
+    * [The Liskov Substitution Principle](design/solid/lsp.md)
+    * [The Interface Segregation Principle](design/solid/isp.md)
+    * [The Dependency Inversion Principle](design/solid/dip/dip.md)
