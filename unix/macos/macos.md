@@ -1,15 +1,21 @@
 # macOS
 
-## Always show hidden files in Terminal
+## Finder
+
+Always show hidden files in Finder:
 
 ```zsh
 defaults write com.apple.Finder AppleShowAllFiles true
 killall Finder
 ```
 
+Set `Downloads` as default folder:
+
+<img src="macosFinder.png" width="400px">
+
 Replace `true` with `false` to revert changes back.
 
-## Aliases
+## Terminal aliases
 
 Set up aliases:
 
