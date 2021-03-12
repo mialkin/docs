@@ -17,10 +17,13 @@ Replace `true` with `false` to revert changes back.
 
 ## Terminal aliases
 
-Set up aliases:
+Set up aliases in `~/.zshrc` file:
 
 ```zsh
-echo "alias ll='ls -la'\nalias cls='clear'" >> ~/.zshrc
+alias ll='ls -la'
+alias cls='clear'
+alias python='python3'
+alias k='kubectl'
 ```
 
 ## Key repeating
