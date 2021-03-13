@@ -4,6 +4,9 @@
   - [apt](#apt)
   - [chmod](#chmod)
   - [chown](#chown)
+  - [curl](#curl)
+    - [Download a file](#download-a-file)
+    - [POST (HTTP)](#post-http)
   - [df](#df)
   - [du](#du)
   - [find](#find)
@@ -33,33 +36,33 @@ The **apt** provides a high-level commandline interface for the package manageme
 
 **chmod** is the command and system call which is used to change the access permissions of file system objects (files and directories). The name is an abbreviation of _change mode_.
 
-**Modes** are the filesystem permissions given to *user* (i.e. the file owner), *group* (i.e. the group owning the file) and *others* (users who are not the owner of the file and who are not members of the group) classes to access files under Unix.
+**Modes** are the filesystem permissions given to _user_ (i.e. the file owner), _group_ (i.e. the group owning the file) and _others_ (users who are not the owner of the file and who are not members of the group) classes to access files under Unix.
 
 References:
 
-* u — user, file owner
-* g — group, members of the file's group
-* o — others, users who are neither the file's owner nor memebers of the file's group
-* a — all, all three of the aboce, same as `ugo`
+-   u — user, file owner
+-   g — group, members of the file's group
+-   o — others, users who are neither the file's owner nor memebers of the file's group
+-   a — all, all three of the aboce, same as `ugo`
 
 Operators:
 
-* \+ — adds the specified modes to the specified classes
-* \- — removes the specified modes from the specified classes
-* = — the modes specified are to be made the exact modes for the specified classes
+-   \+ — adds the specified modes to the specified classes
+-   \- — removes the specified modes from the specified classes
+-   = — the modes specified are to be made the exact modes for the specified classes
 
 Modes:
 
-* r — read, read a file or list a directory's contents
-* w — write, write to a file or directory
-* x — execute, execute a file or recurse a directory tree
+-   r — read, read a file or list a directory's contents
+-   w — write, write to a file or directory
+-   x — execute, execute a file or recurse a directory tree
 
-| Command                 | Description                        |
-| ------------------------| ---------------------------------- |
-| chmod a-rwx SAMPLE      | Removes all modes from all classes |
-| chmod 100 SAMPLE        | Adds *only* execute mode to user   |
-| chmod 200 SAMPLE        | Adds *only* write mode to user     |
-| chmod 400 SAMPLE        | Adds *only* read mode to user     |
+| Command            | Description                        |
+| ------------------ | ---------------------------------- |
+| chmod a-rwx SAMPLE | Removes all modes from all classes |
+| chmod 100 SAMPLE   | Adds _only_ execute mode to user   |
+| chmod 200 SAMPLE   | Adds _only_ write mode to user     |
+| chmod 400 SAMPLE   | Adds _only_ read mode to user      |
 
 [↑ chmod on Wikipedia](https://en.wikipedia.org/wiki/Chmod)
 
@@ -68,6 +71,36 @@ Modes:
 | Command                        | Description                    |
 | ------------------------------ | ------------------------------ |
 | chown -R USER_NAME FOLDER_NAME | Change the owner of the folder |
+
+## curl
+
+| Command                                   | Description                         |
+| ----------------------------------------- | ----------------------------------- |
+| curl `https://www.example.com`            | Get the main page from a web-server |
+| curl -H "Host: sub.domain.com" 120.7.3.15 | Passing header value                |
+| curl -v `https://www.example.com`         | Get verbose fetching                |
+
+### Download a file
+
+Get a web page and store in a local file with a specific name:
+
+```bash
+curl -o thatpage.html `http://www.example.com`
+```
+
+Get a web page and store in a local file, make the local file get the name of the remote document (if no file name part is specified in the URL, this will fail):
+
+```bash
+curl -O http://www.example.com/index.html
+```
+
+### POST (HTTP)
+
+Post a simple "name" and "phone" guestbook (the post data must be urlencoded):
+
+```bash
+curl -d "name=Rafael%20Sagula&phone=3320780" http://www.where.com/guest.cgi
+```
 
 ## df
 
