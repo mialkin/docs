@@ -19,6 +19,7 @@ Log out and log back in, so the changes will take effect.
 | docker cp /tmp/filename.bak CONTAINER:tmp/filename.bak | Copy file from host to container                                                                                                                                                                                                                                    |
 | docker create IMAGE                                    | Create a new container from image without running it. <br>To start container run `docker start CONTAINER`.                                                                                                                                                          |
 | docker exec -it CONTAINER COMMAND                      | Run a command in a running container                                                                                                                                                                                                                                |
+| docker image prune -f                                  | Removes unused images                                                                                                                                                                                                                                               |
 | docker images                                          | Display images                                                                                                                                                                                                                                                      |
 | docker kill $(docker ps -q)                            | Stop all containers                                                                                                                                                                                                                                                 |
 | docker login                                           | Log in to a Docker registry                                                                                                                                                                                                                                         |
@@ -40,7 +41,18 @@ Log out and log back in, so the changes will take effect.
 | docker stop CONTAINER                                  | Stop one or more running containers                                                                                                                                                                                                                                 |
 | docker update --restart=always CONTAINER               | Update configuration of one or more containers setting restart policy to apply when a container exits                                                                                                                                                               |
 
-## Running image
+## Options
+
+| Option                   | Description                                                                                                                                                                        |
+| :----------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -d                       | Starts container in detached mode, i.e. your terminal’s standard input, output, and error (or any combination of the three) will not be attached to running container              |
+| -e KEY=VALUE             | Sets environment variable                                                                                                                                                          |
+| -it                      | Instructs Docker to allocate a pseudo-TTY connected to the container’s stdin; creating an interactive bash shell in the container                                                  |
+| -p 5001:80               | Binds TCP port 5001 on the host machine to port 80 of the container                                                                                                                |
+| -v /var/app-files:/files | Mounts /var/app-files folder on host machine onto /files folder in container                                                                                                       |
+| --name CONTAINER_NAME    | Assigns name to the running container                                                                                                                                              |
+| --restart unless-stopped | Always restart the container regardless of the exit status, including on daemon startup, except if the container was put into a stopped state before the Docker daemon was stopped |
+| --rm                     | Remove container when it exits or when the daemon exits, whichever happens first                                                                                                   |
 
 Example of `run` command:
 
@@ -53,18 +65,5 @@ docker run \
 -v /var/app-files:/files \
 -e ADMIN_PASSWORD=yourpass \
 --name CONTAINER_NAME \
-IMAGE
+IMAGE_NAME
 ```
-
-### Options explanation
-
-| Option                                | Description                                                                                                                                                                        |
-| :------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| -d                                    | Starts container in detached mode, i.e. your terminal’s standard input, output, and error (or any combination of the three) will not be attached to running container              |
-| --restart unless-stopped              | Always restart the container regardless of the exit status, including on daemon startup, except if the container was put into a stopped state before the Docker daemon was stopped |
-| -it                                   | Instructs Docker to allocate a pseudo-TTY connected to the container’s stdin; creating an interactive bash shell in the container                                                  |
-| -p 5001:80                            | Binds TCP port 5001 on the host machine to port 80 of the container                                                                                                                |
-| -v /var/app-files:/files              | Mounts /var/app-files folder on host machine onto /files folder in container                                                                                                       |
-| &#8209;e&nbsp;ADMIN_PASSWORD=yourpass | Sets value of ADMIN_PASSWORD environment variable                                                                                                                                  |
-| --name CONTAINER_NAME                 | Assigns name to the running container                                                                                                                                              |
-| --rm                                  | Remove container when it exits or when the daemon exits, whichever happens first                                                                                                   |
