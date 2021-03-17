@@ -12,5 +12,12 @@
 | git remote remove REMOTE_NAME             | Remove remote                                                                 |
 | git remote set-url REMOTE_NAME REMOTE_URL | Replace old remote URL with new one                                           |
 | git remote -v                             | Display list of remotes with origins                                          |
+| git rm --cached FILENAME                  | Remove a file from cache                                                      |
 | git rm -fr --cached FOLDER_NAME           | Removes caches of FOLDER_NAME folder. You can use dot (`.`) instead of folder |
 | vim .git/config                           | Edit upstreams                                                                |
+
+## .gitignore
+
+| Line           | Description      |
+| -------------- | ---------------- |
+| dir_to_ignore/ | Ignore directory |
