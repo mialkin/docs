@@ -38,6 +38,7 @@
 * [HTML](web/html/html.md)
 * [HTTP](web/http/http.md)
 * [JavaScript](web/javascript/javascript.md)
+* [IP](web/ip.md)
 * [REST](web/rest.md)
 * [OAuth](web/oauth.md)
 * [OpenID Connect](web/oidc.md)
