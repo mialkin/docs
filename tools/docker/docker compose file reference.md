@@ -1,6 +1,6 @@
-# docker-compose file reference
+# Docker Compose file reference
 
-- [docker-compose file reference](#docker-compose-file-reference)
+- [Docker Compose file reference](#docker-compose-file-reference)
   - [build](#build)
   - [depends_on](#depends_on)
   - [image](#image)

@@ -4,8 +4,8 @@
 
 * [Ansible](tools/ansible/ansible.md)
 * [Docker](tools/docker/docker.md)
-  * [docker-compose](tools/docker/docker-compose.md)
-  * [docker-compose file reference](tools/docker/docker-compose%20file%20reference.md)
+  * [Docker Compose](tools/docker/docker%20compose.md)
+  * [Docker Compose file reference](tools/docker/docker%20compose%20file%20reference.md)
 * [Git](tools/git/git.md)
 * Kubernetes
   * [Flux](tools/kubernetes/flux.md)

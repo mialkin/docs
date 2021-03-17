@@ -40,6 +40,7 @@ Log out and log back in, so the changes will take effect.
 | docker stats CONTAINER                                 | Display a live stream of container(s) resource usage statistics                                                                                                                                                                                                     |
 | docker stop CONTAINER                                  | Stop one or more running containers                                                                                                                                                                                                                                 |
 | docker update --restart=always CONTAINER               | Update configuration of one or more containers setting restart policy to apply when a container exits                                                                                                                                                               |
+| docker volume ls|List all the volumes known to Docker. |
 
 ## Options
 

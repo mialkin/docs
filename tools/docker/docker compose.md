@@ -1,8 +1,10 @@
-# docker-compose
+# Docker Compose
 
-**docker-compose** is a tool for defining and running multi-container Docker applications.
+**Docker Compose** is a tool for defining and running multi-container Docker applications.
 
-With docker-compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration.
+With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration.
+
+By default, Compose reads two files, a docker-compose.yml and an optional docker-compose.override.yml file. By convention, the docker-compose.yml contains your base configuration.
 
 ## Commands
 
@@ -22,3 +24,10 @@ With docker-compose, you use a YAML file to configure your application’s servi
 | --build          | Build images before starting containers                                    |
 | --force-recreate | Recreate containers even if their configuration and image haven't changed  |
 | --rmi all -v     | The `--rmi all` removes all images; the `-v` removes named volumes         |
+
+## Useful links
+
+- [↑ Environment variables](https://docs.docker.com/compose/environment-variables/)
+- [↑ Variable substitution](https://docs.docker.com/compose/compose-file/compose-file-v3/#variable-substitution)
+- [↑ Multiple Compose files](https://docs.docker.com/compose/extends/#multiple-compose-files)
+- [↑ Volume configuration reference](https://docs.docker.com/compose/compose-file/compose-file-v3/#volume-configuration-reference)
