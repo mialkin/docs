@@ -4,7 +4,8 @@
 
 * [Ansible](tools/ansible/ansible.md)
 * [Docker](tools/docker/docker.md)
-  * [docker-compose](tools/docker/compose.md)
+  * [docker-compose](tools/docker/docker-compose.md)
+  * [docker-compose file reference](tools/docker/docker-compose%20file%20reference.md)
 * [Git](tools/git/git.md)
 * Kubernetes
   * [Flux](tools/kubernetes/flux.md)
@@ -43,6 +44,7 @@
 * Security
   * [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
   * [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
+* [TCP](web/tcp.md)
 * [Web APIs](web/api/api.md)
 
 ## Miscellaneous
