@@ -20,8 +20,9 @@
   * [Terminal](unix/macos/terminal.md)
 * [Ubuntu](unix/ubuntu.md)
 * [Nginx](unix/nginx.md)
-* [shell](unix/shell.md)
-  * [bash](unix/bash.md)
+* [Shell](unix/shell/shell.md)
+  * [bash](unix/shell/bash.md)
+  * [Shell scripting](unix/shell/shell%20scripting.md)
 * [Tools](unix/tools.md)
   * [crontab](unix/crontab.md)
   * [ssh](unix/ssh.md)
@@ -60,6 +61,53 @@
   * [EF Core tools](efcore/tools.md)
 * [Regular expressions](tools/regular%20expressions/regular%20expressions.md)
 * [Unit testing best practices](tools/testing/unit%20testing%20best%20practices.md)
+
+## Computer science
+
+* [Asymmetric cryptography](cs/asymmetric%20cryptography.md)
+* [Advanced Encryption Standard (AES)](cs/aes.md)
+* [Generating self-signed certificate](cs/generating%20certificate.md)
+* [TLS handshake](cs/tls%20handshake.md)
+
+## Software design
+
+* [Design patterns](design/design%20patterns/design%20patterns.md)
+  * Creational
+    * [Abstract Factory](design/design%20patterns/abstract%20factory.md)
+    * [Builder](design/design%20patterns/builder.md)
+    * [Factory Method](design/design%20patterns/factory%20method.md)
+    * [Prototype](design/design%20patterns/prototype.md)
+    * [Singleton](design/design%20patterns/singleton.md)
+  * Structural
+    * [Adapter](design/design%20patterns/adapter.md)
+    * [Bridge](design/design%20patterns/bridge.md)
+    * [Composite](design/design%20patterns/composite.md)
+    * [Decorator](design/design%20patterns/decorator.md)
+    * [Facade](design/design%20patterns/facade.md)
+    * [Flyweight](design/design%20patterns/flyweight.md)
+    * [Proxy](design/design%20patterns/proxy.md)
+  * Behavioral
+    * [Chain of Responsibility](design/design%20patterns/chain%20of%20responsibility.md)
+    * [Command](design/design%20patterns/command.md)
+    * Interpreter
+    * [Iterator](design/design%20patterns/iterator.md)
+    * [Mediator](design/design%20patterns/mediator.md)
+    * [Memento](design/design%20patterns/memento.md)
+    * [Observer](design/design%20patterns/observer.md)
+    * [State](design/design%20patterns/state.md)
+    * [Strategy](design/design%20patterns/strategy.md)
+    * [Template Method](design/design%20patterns/template%20method.md)
+    * [Visitor](design/design%20patterns/visitor.md)
+* Design principles
+  * [Composition over inheritance](design/composition%20over%20inheritance.md)
+  * [DRY, idempotency, KISS, separation of concerns, YAGNI](design/main%20principles.md)
+  * [Explicit Dependencies Principle](design/explicit%20dependencies%20principle.md)
+  * [SOLID](design/solid/solid.md)
+    * [The Single Responsibility Principle](design/solid/srp.md)
+    * [The Open-Closed Principle](design/solid/ocp.md)
+    * [The Liskov Substitution Principle](design/solid/lsp.md)
+    * [The Interface Segregation Principle](design/solid/isp.md)
+    * [The Dependency Inversion Principle](design/solid/dip/dip.md)
 
 ## C#
 
@@ -179,49 +227,6 @@
   * Structs
     * [ValueTask\<TResult>](dotnet/system/threading/tasks/valuetask_t.md)
 
-## Computer science
+## Windows
 
-* [Asymmetric cryptography](cs/asymmetric%20cryptography.md)
-* [Advanced Encryption Standard (AES)](cs/aes.md)
-* [Generating self-signed certificate](cs/generating%20certificate.md)
-* [TLS handshake](cs/tls%20handshake.md)
-
-## Software design
-
-* [Design patterns](design/design%20patterns/design%20patterns.md)
-  * Creational
-    * [Abstract Factory](design/design%20patterns/abstract%20factory.md)
-    * [Builder](design/design%20patterns/builder.md)
-    * [Factory Method](design/design%20patterns/factory%20method.md)
-    * [Prototype](design/design%20patterns/prototype.md)
-    * [Singleton](design/design%20patterns/singleton.md)
-  * Structural
-    * [Adapter](design/design%20patterns/adapter.md)
-    * [Bridge](design/design%20patterns/bridge.md)
-    * [Composite](design/design%20patterns/composite.md)
-    * [Decorator](design/design%20patterns/decorator.md)
-    * [Facade](design/design%20patterns/facade.md)
-    * [Flyweight](design/design%20patterns/flyweight.md)
-    * [Proxy](design/design%20patterns/proxy.md)
-  * Behavioral
-    * [Chain of Responsibility](design/design%20patterns/chain%20of%20responsibility.md)
-    * [Command](design/design%20patterns/command.md)
-    * Interpreter
-    * [Iterator](design/design%20patterns/iterator.md)
-    * [Mediator](design/design%20patterns/mediator.md)
-    * [Memento](design/design%20patterns/memento.md)
-    * [Observer](design/design%20patterns/observer.md)
-    * [State](design/design%20patterns/state.md)
-    * [Strategy](design/design%20patterns/strategy.md)
-    * [Template Method](design/design%20patterns/template%20method.md)
-    * [Visitor](design/design%20patterns/visitor.md)
-* Design principles
-  * [Composition over inheritance](design/composition%20over%20inheritance.md)
-  * [DRY, idempotency, KISS, separation of concerns, YAGNI](design/main%20principles.md)
-  * [Explicit Dependencies Principle](design/explicit%20dependencies%20principle.md)
-  * [SOLID](design/solid/solid.md)
-    * [The Single Responsibility Principle](design/solid/srp.md)
-    * [The Open-Closed Principle](design/solid/ocp.md)
-    * [The Liskov Substitution Principle](design/solid/lsp.md)
-    * [The Interface Segregation Principle](design/solid/isp.md)
-    * [The Dependency Inversion Principle](design/solid/dip/dip.md)
+* [PowerShell](windows/powershell.md)
