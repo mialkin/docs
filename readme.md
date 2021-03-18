@@ -4,6 +4,7 @@
 
 * [Ansible](tools/ansible/ansible.md)
 * [Docker](tools/docker/docker.md)
+  * [Dockerfile](tools/docker/dockerfiles.md)
   * [Docker Compose](tools/docker/docker%20compose.md)
 * [Git](tools/git/git.md)
 * Kubernetes

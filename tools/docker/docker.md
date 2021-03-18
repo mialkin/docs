@@ -69,6 +69,3 @@ docker run \
 --name CONTAINER_NAME \
 IMAGE_NAME
 ```
-
-## Best practices for writing Dockerfiles
-
