@@ -1,5 +1,14 @@
 # Docker Compose
 
+- [Docker Compose](#docker-compose)
+  - [Commands](#commands)
+  - [Options](#options)
+  - [Useful links](#useful-links)
+  - [Docker Compose file reference](#docker-compose-file-reference)
+    - [build](#build)
+    - [depends_on](#depends_on)
+    - [image](#image)
+
 **Docker Compose** is a tool for defining and running multi-container Docker applications.
 
 With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration.
@@ -35,17 +44,7 @@ By default, Compose reads two files, a docker-compose.yml and an optional docker
 - [↑ Multiple Compose files](https://docs.docker.com/compose/extends/#multiple-compose-files)
 - [↑ Volume configuration reference](https://docs.docker.com/compose/compose-file/compose-file-v3/#volume-configuration-reference)
 
-
 ## Docker Compose file reference
-
-- [Docker Compose](#docker-compose)
-  - [Commands](#commands)
-  - [Options](#options)
-  - [Useful links](#useful-links)
-  - [Docker Compose file reference](#docker-compose-file-reference)
-    - [build](#build)
-    - [depends_on](#depends_on)
-    - [image](#image)
 
 ### build
 
