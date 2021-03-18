@@ -112,6 +112,7 @@
 
 ## C#
 
+* [.NET API](cs/dotnet.md)
 * [Attributes](/csharp/attributes.md)
   * [Nullable static analysis attributes](/csharp/nullable%20static%20analysis%20attributes.md)
 * Asynchronous programming (old)
@@ -147,86 +148,6 @@
 * [Memory managment](csharp/memory%20managment.md)
 * [Nullable reference types](/csharp/nullable%20reference%20types.md)
 * [Ref vs out](csharp/ref%20vs%20out.md)
-  
-## .NET API
-
-* System
-  * Classes
-    * Array
-    * [Delegate](dotnet/system/delegate/delegate.md)
-      * Action\<T>
-      * Func\<TResult>
-      * [Event](dotnet/system/delegate/event.md)
-    * Exception
-    * GC
-      * Properties
-        * MaxGeneration
-      * Methods
-        * Collect(Int32)
-        * CollectionCount(Int32)
-        * GetGeneration(Object)
-        * GetTotalMemory(Boolean)
-        * SuppressFinalize(Object)
-        * WaitForPendingFinalizers()
-    * Lazy\<T>
-    * MarshalByRefObject
-    * Object
-      * Methods
-        * [Equals](dotnet/system/object/equals.md)
-        * [GetType](dotnet/system//object/getType.md)
-        * [ToString](dotnet/system/object/toString.md)
-        * [Finalize](dotnet/system/object/finalize.md)
-        * [MemberwiseClone](dotnet/system/object/memberwiseClone.md)
-        * [ReferenceEquals](dotnet/system/object/referenceEquals.md)
-    * String
-    * Tuple\<T1>
-    * ValueType
-      * Enum
-      * Guid
-      * Nullable\<T>
-  * Enums
-  * Interfaces
-    * IComparable\<T>
-    * ICloneable
-    * IDisposable
-  * Structs
-* System.Collections.Generic
-  * Classes
-    * [Dictionary](dotnet/system/collections/generic/dictionary.md)
-  * Interfaces
-    * [IEnumerable](dotnet/system/collections/generic/ienumerable.md)
-* System.IO
-  * FileStream
-  * MemoryStream
-* System.Linq
-  * [Expression tree](dotnet/system/linq/expression%20tree.md)
-  * Interfaces
-    * [IQueryable\<T>](dotnet/system/linq/iqueryable.md)
-* System.Threading
-  * Classes
-    * Interlocked
-    * Monitor
-    * Mutex
-    * ReaderWriterLock
-    * ReaderWriterLockSlim
-    * [Semaphore](dotnet/system/threading/semaphore.md)
-    * [SemaphoreSlim](dotnet/system/threading/semaphoreslim.md)
-    * [↑ Synchronization context](https://docs.microsoft.com/en-us/dotnet/api/system.threading.synchronizationcontext)
-    * [Thread](dotnet/system/threading/thread.md)
-    * [ThreadPool](dotnet/system/threading/threadpool.md)
-  * Structs
-    * CancellationToken
-    * SpinLock
-    * SpinWait
-* System.Threading.Tasks
-  * Classes
-    * Parallel
-    * [Task](dotnet/system/threading/tasks/task/task.md)
-      * [Properties](dotnet/system/threading/tasks/task/properties.md)
-    * [Task\<TResult>](dotnet/system/threading/tasks/task_t/task.md)
-    * TaskFactory
-  * Structs
-    * [ValueTask\<TResult>](dotnet/system/threading/tasks/valuetask_t.md)
 
 ## Windows
 
