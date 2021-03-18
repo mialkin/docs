@@ -43,10 +43,28 @@ If you do not want to use the cache at all, you can use the `--no-cache=true` op
 
 Once the cache is invalidated, all subsequent Dockerfile commands generate new images and the cache is not used.
 
-## Minimize the number of layers
+### Minimize the number of layers
 
 In older versions of Docker, it was important that you minimized the number of layers in your images to ensure they were performant. The following features were added to reduce this limitation:
 
-Only the instructions RUN, COPY, ADD create layers. Other instructions create temporary intermediate images, and do not increase the size of the build.
+- Only the instructions `RUN`, `COPY`, `ADD` create layers. Other instructions create temporary intermediate images, and do not increase the size of the build.
 
-Where possible, use multi-stage builds, and only copy the artifacts you need into the final image. This allows you to include tools and debug information in your intermediate build stages without increasing the size of the final image.
+- Where possible, use [multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/), and only copy the artifacts you need into the final image. This allows you to include tools and debug information in your intermediate build stages without increasing the size of the final image.
+
+### Sort multi-line arguments
+
+Whenever possible, ease later changes by sorting multi-line arguments alphanumerically. This helps to avoid duplication of packages and make the list much easier to update. This also makes PRs a lot easier to read and review. Adding a space before a backslash `\` helps as well:
+
+```dockerfile
+RUN apt-get update && apt-get install -y \
+  bzr \
+  cvs \
+  git \
+  mercurial \
+  subversion \
+  && rm -rf /var/lib/apt/lists/*
+```
+
+### Dockerfile instructions
+
+These [recommendations](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#dockerfile-instructions) are designed to help you create an efficient and maintainable Dockerfile.
