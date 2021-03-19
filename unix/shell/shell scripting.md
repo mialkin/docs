@@ -1,8 +1,6 @@
 # Shell scripting
 
-See where bash is by typing `which bash`.
-
-`#` is for "sharp" and `!` is for "bang" and `#!` is called "shebang". The form of a shebang interpreter directive is as follows:
+See where bash is by typing `which bash`. `#` is for "sharp" and `!` is for "bang" and `#!` is called "shebang". The form of a shebang interpreter directive is as follows:
 
 ```bash
 #!interpreter [optional-arg]
@@ -13,6 +11,13 @@ in which interpreter is an absolute path to an executable program. The optional 
 ```bash
 #! /bin/bash
 ```
+
+## TOC
+
+- [Shell scripting](#shell-scripting)
+  - [TOC](#toc)
+  - [Output text](#output-text)
+  - [Debug](#debug)
 
 ## Output text
 
@@ -126,7 +131,7 @@ Either run entire script with `-x`:
 bash -x ./script.sh
 ```
 
-or wrap areas that you want to see what's happening with them with `set -x` and `set +x` to turn verbosity up/down
+or wrap areas that you want to see what's happening with them with `set -x` and `set +x` to turn verbosity up/down:
 
 ```bash
 #!/bin/bash
