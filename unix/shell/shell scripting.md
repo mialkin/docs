@@ -17,6 +17,8 @@ in which interpreter is an absolute path to an executable program. The optional 
 - [Shell scripting](#shell-scripting)
   - [TOC](#toc)
   - [Output text](#output-text)
+  - [Variables](#variables)
+    - [Default value](#default-value)
   - [Debug](#debug)
 
 ## Output text
@@ -51,20 +53,42 @@ you can use
 double quotes as well"
 ```
 
-```bash
+## Variables
 
+Variables by convention should be uppercase (only letters, numbers and undersore is allowed in the name of a variable):
+
+```bash
+NAME="Aleksei"
 ```
 
-```bash
+To use a variable you need to put a `$` in front of it:
 
+```bash
+echo $NAME
+echo "My name is $NAME"
 ```
 
-```bash
+Curly braces work too
 
+```bash
+echo "My name is ${NAME}"
 ```
 
-```bash
+### Default value
 
+If variable is not set or null, use default:
+
+```bash
+#NAME=John
+NAME=
+echo ${NAME:-Default value is Aleksei}
+```
+
+Assign default value:
+
+```bash
+echo ${NAME:=Default value is Aleksei}
+echo $NAME
 ```
 
 ```bash
