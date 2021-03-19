@@ -43,7 +43,7 @@ References:
 -   u — user, file owner
 -   g — group, members of the file's group
 -   o — others, users who are neither the file's owner nor memebers of the file's group
--   a — all, all three of the aboce, same as `ugo`
+-   a — all, all three of the above, same as `ugo`
 
 Operators:
 
@@ -57,12 +57,13 @@ Modes:
 -   w — write, write to a file or directory
 -   x — execute, execute a file or recurse a directory tree
 
-| Command            | Description                        |
-| ------------------ | ---------------------------------- |
-| chmod a-rwx SAMPLE | Removes all modes from all classes |
-| chmod 100 SAMPLE   | Adds _only_ execute mode to user   |
-| chmod 200 SAMPLE   | Adds _only_ write mode to user     |
-| chmod 400 SAMPLE   | Adds _only_ read mode to user      |
+| Command               | Description                        |
+| --------------------- | ---------------------------------- |
+| chmod +x FILE_NAME    | Add execute mode to all classes    |
+| chmod a-rwx FILE_NAME | Removes all modes from all classes |
+| chmod 100 FILE_NAME   | Adds _only_ execute mode to user   |
+| chmod 200 FILE_NAME   | Adds _only_ write mode to user     |
+| chmod 400 FILE_NAME   | Adds _only_ read mode to user      |
 
 [↑ chmod on Wikipedia](https://en.wikipedia.org/wiki/Chmod)
 
