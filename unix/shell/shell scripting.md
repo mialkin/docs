@@ -19,6 +19,8 @@ in which interpreter is an absolute path to an executable program. The optional 
   - [Output text](#output-text)
   - [Variables](#variables)
     - [Default value](#default-value)
+  - [User input](#user-input)
+  - [Conditions](#conditions)
   - [Debug](#debug)
 
 ## Output text
@@ -55,7 +57,7 @@ double quotes as well"
 
 ## Variables
 
-Variables by convention should be uppercase (only letters, numbers and undersore is allowed in the name of a variable):
+Variables by convention should be uppercase. Only letters, numbers and undersore is allowed in the name of the variable:
 
 ```bash
 NAME="Aleksei"
@@ -91,20 +93,54 @@ echo ${NAME:=Default value is Aleksei}
 echo $NAME
 ```
 
+## User input
+
+Reading user intput into a variable:
+
 ```bash
+read -p "Enter your name: " NAME
+echo Hello $NAME, nice to meet you!
+```
+
+## Conditions
+
+Simple `if` statement:
+
+```bash
+NAME=Aleksei
+
+if [ $NAME == Aleksei ]
+then
+    echo "Your name is Aleksei"
+fi
 
 ```
 
-```bash
+`if-else`:
 
+```bash
+NAME=John
+
+if [ $NAME == Aleksei ]
+then
+    echo "Your name is Aleksei"
+else
+    echo "Your name is not Aleksei"
+fi
 ```
 
-```bash
-
-```
+`else-if`:
 
 ```bash
-
+if [ $NAME == Aleksei ]
+then
+    echo "Your name is Aleksei"
+elif [ $NAME == John ]
+then
+    echo "Your name is John"
+else
+    echo "Your name is not Aleksei"
+fi
 ```
 
 ```bash
