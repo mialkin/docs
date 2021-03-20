@@ -18,10 +18,17 @@ PowerShell is a cross-platform task automation and configuration management fram
 
 ## Commands
 
-| Command  | Description                       |
-| -------- | --------------------------------- |
-| gci env: | Display all environment variables |
+| Command                                                | Alias   | Description                                                                                                                                                                   |
+| ------------------------------------------------------ | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Get-Location                                           | pwd, gl | Get an object that represents the current directory, much like the print working directory (pwd) command                                                                      |
+| gci env:                                               |         | Display all environment variables                                                                                                                                             |
+| Get-Command                                            | gcm     | Get all commands that are installed on the computer, including cmdlets, aliases, functions, filters, scripts, and applications                                                |
+| Get-Command -noun SEARCH_TERM                          |         | Get commands that have SEARCH_TERM in their names                                                                                                                             |
+| Get-Help COMMAND_NAME                                  | None    | Display information about PowerShell concepts and commands, including cmdlets, functions, Common Information Model (CIM) commands, workflows, providers, aliases, and scripts |
+| Get-Service "s\*"                                      | gsv     | Get objects, whose name starts with "s", that represent the services on a computer                                                                                            |
+| Get-Service \| Where-Object {$\_.Status -eq "Running"} |         |                                                                                                                                                                               |
+| Start-Transcript                                       | None    | Create a record of all or part of a PowerShell session to a text file                                                                                                         |
 
 ## Links
 
-- [↑ Learn PowerShell in Y minutes](https://learnxinyminutes.com/docs/powershell/)
+-   [↑ Learn PowerShell in Y minutes](https://learnxinyminutes.com/docs/powershell/)
