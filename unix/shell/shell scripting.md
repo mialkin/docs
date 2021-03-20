@@ -27,6 +27,7 @@ in which interpreter is an absolute path to an executable program. The optional 
   - [`case` statement](#case-statement)
   - [`for` loop](#for-loop)
   - [`while` loop](#while-loop)
+  - [Functions](#functions)
   - [Debug](#debug)
 
 ## Links
@@ -262,16 +263,26 @@ while read -r CURRENT_LINE; do
 done <"./new-1.txt"
 ```
 
-```bash
+## Functions
 
+Simple function:
+
+```bash
+function sayHello() {
+    echo "Hello World"
+}
+
+sayHello
 ```
 
-```bash
-
-```
+Function with params:
 
 ```bash
+function greet() {
+  echo "Hello, I am $1 and I am $2"
+}
 
+greet "John" "36"
 ```
 
 ## Debug
