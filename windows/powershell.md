@@ -20,14 +20,31 @@ PowerShell is a cross-platform task automation and configuration management fram
 
 | Command                                                | Alias   | Description                                                                                                                                                                   |
 | ------------------------------------------------------ | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Clear-Host                                             | cls     | Clear display in the host program                                                                                                                                             |
+| Copy-Item FILE_PATH -Destination FOLDER_PATH           | cp      |
+| Get-Alias                                              | None    | Get aliases in the current session                                                                                                                                            |
+| Get-Alias ALIAS_NAME                                   | None    | Get description of the alias                                                                                                                                                  |
 | Get-Location                                           | pwd, gl | Get an object that represents the current directory, much like the print working directory (pwd) command                                                                      |
 | gci env:                                               |         | Display all environment variables                                                                                                                                             |
+| Get-ChildItem                                          | ls      |
 | Get-Command                                            | gcm     | Get all commands that are installed on the computer, including cmdlets, aliases, functions, filters, scripts, and applications                                                |
 | Get-Command -noun SEARCH_TERM                          |         | Get commands that have SEARCH_TERM in their names                                                                                                                             |
 | Get-Help COMMAND_NAME                                  | None    | Display information about PowerShell concepts and commands, including cmdlets, functions, Common Information Model (CIM) commands, workflows, providers, aliases, and scripts |
+| Get-Process -Name chrome \| Get-Member                 |         | Get returned object properties                                                                                                                                                |
 | Get-Service "s\*"                                      | gsv     | Get objects, whose name starts with "s", that represent the services on a computer                                                                                            |
-| Get-Service \| Where-Object {$\_.Status -eq "Running"} |         |                                                                                                                                                                               |
+| Get-Service \| Where-Object {$\_.Status -eq "Running"} | gsv     |                                                                                                                                                                               |
+| Get-Help COMMAND_NAME -Online                          | None    | Open documentation page in a web browser                                                                                                                                      |
+| Set-Location                                           | cd, sl  |
 | Start-Transcript                                       | None    | Create a record of all or part of a PowerShell session to a text file                                                                                                         |
+| Write-Host YOUR_TEXT                                   | None    | Writes customized output to a host                                                                                                                                            |
+
+## Variables
+
+Set variable:
+
+```ps1
+$zebra = Get-Process chrome
+```
 
 ## Links
 

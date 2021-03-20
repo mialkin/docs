@@ -72,6 +72,7 @@
 
 ## Software design
 
+* CAP theorem
 * [Design patterns](design/design%20patterns/design%20patterns.md)
   * Creational
     * [Abstract Factory](design/design%20patterns/abstract%20factory.md)
