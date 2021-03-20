@@ -16,12 +16,18 @@ in which interpreter is an absolute path to an executable program. The optional 
 
 - [Shell scripting](#shell-scripting)
   - [TOC](#toc)
+  - [Links](#links)
   - [Output text](#output-text)
   - [Variables](#variables)
     - [Default value](#default-value)
   - [User input](#user-input)
   - [Conditions](#conditions)
+  - [Integer comparison](#integer-comparison)
   - [Debug](#debug)
+
+## Links
+
+[Advanced Bash-Scripting Guide ↑](https://tldp.org/LDP/abs/html/index.html)
 
 ## Output text
 
@@ -143,12 +149,34 @@ else
 fi
 ```
 
-```bash
+## Integer comparison
 
+You can use `-eq`, `-ne`, `-gt`, `-ge`, `-lt`, `-le` for comparison:
+
+```bash
+NUM1=3
+NUM2=5
+
+if [ "$NUM1" -gt "$NUM2" ]
+then
+    echo "NUM1 is greater than NUM2"
+else
+    echo "NUM1 is less than NUM2"
+fi
 ```
 
-```bash
+You can also use `==`, `!=`, `>`, `>=`, `<`, `<=`:
 
+```bash
+NUM1=3
+NUM2=5
+
+if (("$NUM1" > "$NUM2"))
+then
+    echo "NUM1 is greater than NUM2"
+else
+    echo "NUM1 is less than NUM2"
+fi
 ```
 
 ```bash
