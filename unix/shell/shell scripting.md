@@ -24,6 +24,9 @@ in which interpreter is an absolute path to an executable program. The optional 
   - [Conditions](#conditions)
   - [Integer comparison](#integer-comparison)
   - [File conditions](#file-conditions)
+  - [`case` statement](#case-statement)
+  - [`for` loop](#for-loop)
+  - [`while` loop](#while-loop)
   - [Debug](#debug)
 
 ## Links
@@ -204,20 +207,59 @@ fi
 | -w   | True if the file is writable                                                                      |
 | -x   | True if the file is an executable                                                                 |
 
-```bash
+## `case` statement
 
+```bash
+read -p "Are you 21 or over? Y/N " ANSWER
+case "$ANSWER" in
+[yY] | [yY][eE][sS])
+    echo "You can have a beer :)"
+    ;;
+[nN] | [nN][oO])
+    echo "Sorry, no drinking"
+    ;;
+*)
+    echo "Please enter y/yes or n/no"
+    ;;
+esac
 ```
 
-```bash
+## `for` loop
 
+Simple `for` loop:
+
+```bash
+NAMES="Brad Kevin Alice Mark"
+for NAME in $NAMES; do
+    echo "Hello $NAME"
+done
 ```
 
-```bash
+`for` loop to rename files:
 
+```bash
+touch 1.txt 2.txt 3.txt
+
+FILES=$(ls *.txt)
+NEW="new"
+for FILE in $FILES; do
+    echo "Renaming $FILE to $NEW-$FILE"
+    mv $FILE $NEW-$FILE
+done
+
+rm new-1.txt new-2.txt new-3.txt
 ```
 
-```bash
+## `while` loop
 
+Read through a file line by line:
+
+```bash
+LINE=1
+while read -r CURRENT_LINE; do
+    echo "$LINE: $CURRENT_LINE"
+    ((LINE++))
+done <"./new-1.txt"
 ```
 
 ```bash
