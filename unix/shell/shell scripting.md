@@ -23,6 +23,7 @@ in which interpreter is an absolute path to an executable program. The optional 
   - [User input](#user-input)
   - [Conditions](#conditions)
   - [Integer comparison](#integer-comparison)
+  - [File conditions](#file-conditions)
   - [Debug](#debug)
 
 ## Links
@@ -55,7 +56,7 @@ EOF
 Using double quotes:
 
 ```bash
-echo "But 
+echo "But
 you can use
 
 double quotes as well"
@@ -179,9 +180,29 @@ else
 fi
 ```
 
-```bash
+## File conditions
 
+```bash
+FILE="test.txt"
+if [ -e "$FILE" ]
+then
+  echo "$FILE exists"
+else
+  echo "$FILE does NOT exist"
+fi
 ```
+
+| Flag | Description                                                                                       |
+| ---- | ------------------------------------------------------------------------------------------------- |
+| -d   | True if the file is a directory                                                                   |
+| -e   | True if the file exists. Note that this is not particularly portable, thus `-f` is generally used |
+| -f   | True if the provided string is a file                                                             |
+| -g   | True if the group id is set on a file                                                             |
+| -r   | True if the file is readable                                                                      |
+| -s   | True if the file has a non-zero size                                                              |
+| -u   | True if the user id is set on a file                                                              |
+| -w   | True if the file is writable                                                                      |
+| -x   | True if the file is an executable                                                                 |
 
 ```bash
 
