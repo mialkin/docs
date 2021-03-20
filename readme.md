@@ -111,7 +111,7 @@
     - [The Interface Segregation Principle](design/solid/isp.md)
     - [The Dependency Inversion Principle](design/solid/dip/dip.md)
 
-## C #
+## C#
 
 - [.NET API](cs/dotnet.md)
 - [Attributes](/csharp/attributes.md)
@@ -153,8 +153,6 @@
 ## Python
 
 - [Python](python/python.md)
-- [Virtualenv](python/virtualenv.md)
-- [Webserver](python/webserver.md)
 
 ## Windows
 

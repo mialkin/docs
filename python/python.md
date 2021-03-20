@@ -10,11 +10,10 @@
 ## Comments
 
 ```python
-# Single line comments start with a number symbol.
+# Single line comments
 
-""" Multiline strings can be written
-    using three "s, and are often used
-    as documentation.
+""" Multiline strings
+    comment
 """
 ```
 
@@ -52,13 +51,8 @@ False  # => False
 Negation is done with `not`:
 
 ```python
-not True   # => False
-not False  # => True
-```
-
-Note that `and` and `or` operators are case-sensitive:
-
-```python
+not True        # => False
+not False       # => True
 True and False  # => False
 False or True   # => True
 ```
@@ -84,7 +78,7 @@ Comparison operators examine numerical values of `True` and `False`:
 
 ```python
 "This is a string"
-'This is also a string'
+'This is a string too'
 ```
 
 String concatenation:
