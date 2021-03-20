@@ -1,12 +1,4 @@
-# Web server
-
-Start new web server.
-
-```console
-python3 -m http.server
-```
-
-## Misc
+# Misc
 
 Make an alias for python3.
 
@@ -20,4 +12,18 @@ Print paths where Python is looking for modules.
 import sys
 
 print(sys.path)
+```
+
+## virtualenv
+
+```sh
+pip install virtualenv
+```
+
+## Web server
+
+Start new web server.
+
+```console
+python3 -m http.server
 ```
