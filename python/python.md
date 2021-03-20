@@ -1,15 +1,113 @@
 # Python
 
-Make an alias for python3.
+- [Python](#python)
+  - [Comments](#comments)
+  - [Division](#division)
+  - [Exponentiation](#exponentiation)
+  - [Boolean values](#boolean-values)
+  - [Strings](#strings)
 
-```sh
-echo "alias python=python3" >> ~/.zshrc
+## Comments
+
+```python
+# Single line comments start with a number symbol.
+
+""" Multiline strings can be written
+    using three "s, and are often used
+    as documentation.
+"""
 ```
 
-Print paths where Python is looking for modules.
+## Division
 
-```sh
-import sys
+The result of division is always a floating-point number:
 
-print(sys.path)
+```python
+10.0 / 3  # => 3.3333333333333335
+1 / 1     # => 1.0
+```
+
+Integer division `//` rounds down for both positive and negative numbers:
+
+```python
+5 // 3       # => 1
+-5 // 3      # => -2
+5.0 // 3.0   # => 1.0 # works on floats too
+-5.0 // 3.0  # => -2.0
+```
+
+## Exponentiation
+
+```python
+2**3  # => 8
+```
+
+## Boolean values
+
+```python
+True   # => True
+False  # => False
+```
+
+Negation is done with `not`:
+
+```python
+not True   # => False
+not False  # => True
+```
+
+Note that `and` and `or` operators are case-sensitive:
+
+```python
+True and False  # => False
+False or True   # => True
+```
+
+`True` and `False` are actually `1` and `0`:
+
+```python
+True + True # => 2
+True * 8    # => 8
+False - 5   # => -5
+```
+
+Comparison operators examine numerical values of `True` and `False`:
+
+```python
+0 == False  # => True
+1 == True   # => True
+2 == True   # => False
+-5 != False # => True
+```
+
+## Strings
+
+```python
+"This is a string"
+'This is also a string'
+```
+
+String concatenation:
+
+```python
+"Hello " + "world!"  # => "Hello world!"
+"Hello " "world!"    # => "Hello world!"
+```
+
+A string can be treated like a list of characters:
+
+```python
+"Hello world!"[0]  # => 'H'
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
 ```
