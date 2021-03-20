@@ -1,12 +1,12 @@
 # Miscellaneous
 
-Make an alias for python3.
+Make an alias for python3:
 
 ```sh
 echo "alias python=python3" >> ~/.zshrc
 ```
 
-Print paths where Python is looking for modules.
+Print paths where Python is looking for modules:
 
 ```sh
 import sys
@@ -22,7 +22,7 @@ pip install virtualenv
 
 ## Web server
 
-Start new web server.
+Start a new web server:
 
 ```console
 python3 -m http.server
