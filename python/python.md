@@ -10,6 +10,7 @@
   - [Strings](#strings)
   - [Environment variables](#environment-variables)
   - [Lists](#lists)
+  - [Tuples](#tuples)
   - [None](#none)
   - [Print](#print)
   - [User input](#user-input)
@@ -165,9 +166,17 @@ my_list = [4, 5, 6] # Quick list initialization
 li = []
 li.append(1)    # Append new element
 
-li[0]       # Get element by index
-li[-1]      # Get last element
-li.pop()    # Remove last element
+li[0]           # Get element by index
+li[-1]          # Get last element
+li.pop()        # Remove last element
+del li[2]       # Remove element at index
+li.remove(2)    # Remove first occurence of element 2
+li.insert(1, 2) # Insert 2 at index 1
+li.index(2)     # Get index of the first element 2
+li + li2        # Concatenate li with li2 => [1, 2, 3, 4, 5, 6]
+li.extend(li2)  # Concatenate li with li2
+1 in li         # Check if element exists in list => True
+len(li)         # Get length of list
 ```
 
 Ranges:
@@ -178,6 +187,57 @@ li[2:]    # Return list starting from index 2
 li[:3]    # Return list from beginning until index 3
 li[::2]   # Return list selecting every second entry
 li[::-1]  # Return list in reverse order => [3, 4, 2, 1]
+```
+
+## Tuples
+
+Tuples are like lists but are immutable:
+
+```py
+tup = (1, 2, 3)
+tup[0]      # => 1
+tup[0] = 3  # Raises a TypeError
+```
+
+Note that a tuple of length one has to have a comma after the last element but tuples of other lengths, even zero, do not.
+
+```py
+type((1))   # => <class 'int'>
+type((1,))  # => <class 'tuple'>
+type(())    # => <class 'tuple'>
+```
+
+You can do most of the list operations on tuples too
+
+```py
+len(tup)         # => 3
+tup + (4, 5, 6)  # => (1, 2, 3, 4, 5, 6)
+tup[:2]          # => (1, 2)
+2 in tup         # => True
+```
+
+You can unpack tuples (or lists) into variables:
+
+```py
+a, b, c = (1, 2, 3)  # a is now 1, b is now 2 and c is now 3
+```
+
+You can also do extended unpacking
+
+```py
+a, *b, c = (1, 2, 3, 4)  # a is now 1, b is now [2, 3] and c is now 4
+```
+
+Tuples are created by default if you leave out the parentheses
+
+```py
+d, e, f = 4, 5, 6  # tuple 4, 5, 6 is unpacked into variables d, e and f
+```
+
+respectively such that d = 4, e = 5 and f = 6. Now look how easy it is to swap two values
+
+```py
+e, d = d, e  # d is now 5 and e is now 4
 ```
 
 ## None
