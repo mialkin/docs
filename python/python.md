@@ -3,12 +3,17 @@
 - [Python](#python)
   - [Comments](#comments)
   - [Division](#division)
+  - [Comparison](#comparison)
   - [Exponentiation](#exponentiation)
   - [`is` vs `==`](#is-vs-)
   - [Booleans](#booleans)
   - [Strings](#strings)
   - [Environment variables](#environment-variables)
   - [Lists](#lists)
+  - [None](#none)
+  - [Print](#print)
+  - [User input](#user-input)
+  - [Ternary operator](#ternary-operator)
 
 ## Comments
 
@@ -36,6 +41,15 @@ Integer division `//` rounds down for both positive and negative numbers:
 -5 // 3      # => -2
 5.0 // 3.0   # => 1.0 # works on floats too
 -5.0 // 3.0  # => -2.0
+```
+
+## Comparison
+
+Chaining makes this look nicer:
+
+```py
+1 < 2 < 3  # => True
+2 < 3 < 2  # => False
 ```
 
 ## Exponentiation
@@ -92,6 +106,16 @@ Comparison operators examine numerical values of `True` and `False`:
 -5 != False # => True
 ```
 
+`None`, `0`, and empty strings/lists/dicts/tuples all evaluate to `False`. All other values are `True`
+
+```py
+bool(0)   # => False
+bool("")  # => False
+bool([])  # => False
+bool({})  # => False
+bool(())  # => False
+```
+
 ## Strings
 
 ```py
@@ -133,7 +157,6 @@ import os
     print(os.environ['HOME'])
 ```
 
-
 ## Lists
 
 ```py
@@ -155,6 +178,85 @@ li[2:]    # Return list starting from index 2
 li[:3]    # Return list from beginning until index 3
 li[::2]   # Return list selecting every second entry
 li[::-1]  # Return list in reverse order => [3, 4, 2, 1]
+```
+
+## None
+
+None is an object:
+
+```py
+None  # => None
+```
+
+Don't use the equality `==` symbol to compare objects to None
+ Use `is` instead. This checks for equality of object identity.
+
+```py
+"etc" is None  # => False
+None is None   # => True
+```
+
+## Print
+
+Python has a `print` function:
+
+```py
+print("I'm Python. Nice to meet you!")  # => I'm Python. Nice to meet you!
+```
+
+By default the `print` function also prints out a newline at the end. Use the optional argument end to change the end string:
+
+```py
+print("Hello, World", end="!")  # => Hello, World!
+```
+
+## User input
+
+Get input data from console:
+
+```py
+input_string_var = input("Enter some data: ") # Returns the data as a string
+```
+
+## Ternary operator
+
+If can be used as an expression. Equivalent of C's '?:' ternary operator
+
+```py
+result = "yay!" if 0 > 1 else "nay!"  
+print (result) # => "nay!"
+```
+
+```py
+
+```
+
+```py
+
+```
+
+```py
+
+```
+
+```py
+
+```
+
+```py
+
+```
+
+```py
+
+```
+
+```py
+
+```
+
+```py
+
 ```
 
 ```py
