@@ -7,6 +7,7 @@
   - [`is` vs `==`](#is-vs-)
   - [Booleans](#booleans)
   - [Strings](#strings)
+  - [Environment variables](#environment-variables)
   - [Lists](#lists)
 
 ## Comments
@@ -124,6 +125,14 @@ A string can be treated like a list of characters:
 ```py
 "Hello world!"[0]  # => 'H'
 ```
+
+## Environment variables
+
+```py
+import os
+    print(os.environ['HOME'])
+```
+
 
 ## Lists
 

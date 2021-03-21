@@ -20,6 +20,7 @@ in which interpreter is an absolute path to an executable program. The optional 
   - [Output text](#output-text)
   - [Variables](#variables)
     - [Default value](#default-value)
+    - [Variable interpolation](#variable-interpolation)
   - [User input](#user-input)
   - [Conditions](#conditions)
   - [Integer comparison](#integer-comparison)
@@ -102,6 +103,14 @@ Assign default value:
 ```bash
 echo ${NAME:=Default value is Aleksei}
 echo $NAME
+```
+
+### Variable interpolation
+
+```bash
+FILE_NAME="logs"
+echo "$HOME/${FILE_NAME}_2021.txt"  # /Users/aleksei/logs_2021.txt
+echo "$HOME/$FILE_NAME_2021.txt"    # /Users/aleksei/.txt
 ```
 
 ## User input

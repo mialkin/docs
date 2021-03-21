@@ -22,7 +22,6 @@
 - [Ubuntu](unix/ubuntu.md)
 - [Nginx](unix/nginx.md)
 - [Shell](unix/shell/shell.md)
-  - [bash](unix/shell/bash.md)
   - [Shell scripting](unix/shell/shell%20scripting.md)
 - [Tools](unix/tools.md)
   - [crontab](unix/crontab.md)
