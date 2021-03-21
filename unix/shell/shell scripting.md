@@ -34,6 +34,7 @@ in which interpreter is an absolute path to an executable program. The optional 
   - [`for` loop](#for-loop)
   - [`while` loop](#while-loop)
   - [Functions](#functions)
+  - [Pass arguments to script](#pass-arguments-to-script)
   - [Debug](#debug)
 
 ## Output text
@@ -293,6 +294,19 @@ function greet() {
 }
 
 greet "John" "36"
+```
+
+## Pass arguments to script
+
+```bash
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+    echo $0: usage: myscript name
+    exit 1
+fi
+
+echo $1
 ```
 
 ## Debug

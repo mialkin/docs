@@ -10,16 +10,17 @@ Command-line shells require the user to be familiar with commands and their call
 
 ## Bash commands
 
-| Command             | Description                                                                                |
-| ------------------- | ------------------------------------------------------------------------------------------ |
-| bash                | Switch to a bash or different shell type its name at the terminal                          |
-| cat /etc/shells     | Available shells                                                                           |
-| cat /etc/\*-release | Display OS name and version                                                                |
-| echo $?             | Print exit status of previously executed command                                           |
-| echo $0             | Print the name of currently used shell                                                     |
-| echo $SHELL         | Display what shell the terminal opened with                                                |
-| export VAR=VAL      | Mark a shell variable for export to child processes                                        |
-| first \|\| second   | If the exit status of the first command is not 0, then execute the second command (exit 2) |
-| hostnamectl         | OS info                                                                                    |
-| lsb_release -a      | Print certain LSB (Linux Standard Base) and distribution-specific information              |
-| uname -a            | Kernel version                                                                             |
+| Command             | Description                                                                                                                                  |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| bash                | Switch to a bash or different shell type its name at the terminal                                                                            |
+| cat /etc/shells     | Available shells                                                                                                                             |
+| cat /etc/\*-release | Display OS name and version                                                                                                                  |
+| echo $#             | `$#` is a special variable in bash, that expands to the number of arguments (positional parameters) i.e. `$1`, `$2` ... passed to the script |
+| echo $?             | Print exit status of previously executed command                                                                                             |
+| echo $0             | Print the name of currently used shell                                                                                                       |
+| echo $SHELL         | Display what shell the terminal opened with                                                                                                  |
+| export VAR=VAL      | Mark a shell variable for export to child processes                                                                                          |
+| first \|\| second   | If the exit status of the first command is not 0, then execute the second command (exit 2)                                                   |
+| hostnamectl         | OS info                                                                                                                                      |
+| lsb_release -a      | Print certain LSB (Linux Standard Base) and distribution-specific information                                                                |
+| uname -a            | Kernel version                                                                                                                               |
