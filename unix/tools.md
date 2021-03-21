@@ -7,6 +7,7 @@
   - [curl](#curl)
     - [Download a file](#download-a-file)
     - [POST (HTTP)](#post-http)
+  - [dd](#dd)
   - [df](#df)
   - [du](#du)
   - [find](#find)
@@ -19,6 +20,7 @@
   - [systemctl](#systemctl)
   - [tail](#tail)
   - [tar](#tar)
+  - [xxd](#xxd)
 
 ## apt
 
@@ -101,6 +103,18 @@ Post a simple "name" and "phone" guestbook (the post data must be urlencoded):
 
 ```bash
 curl -d "name=Rafael%20Sagula&phone=3320780" http://www.where.com/guest.cgi
+```
+
+## dd
+
+Copies the standard input to the standard output.
+
+Input data is read and written in 512-byte blocks. If input reads are short, input from multiple reads are aggregated to form the output block. When finished, `dd` displays the number of complete and partial input and output blocks and truncated input records to the standard error output.
+
+Generate a file exactly 24MB in size:
+
+```bash
+dd if=/dev/zero of=output.dat bs=1m count=24
 ```
 
 ## df
@@ -282,3 +296,11 @@ GNU **tar** is an archiving program designed to store multiple files in a single
 -   `z` — filter the archive through gzip
 -   `-C` — changes the directory
 -   `--exclude <pattern>` — do not process files or directories that match the specified pattern
+
+## xxd
+
+Creates a hex dump of a given file or standard input.  It can also convert a hex dump back to its original binary form.
+
+```bash
+xxd filename | less
+```

@@ -12,11 +12,16 @@ in which interpreter is an absolute path to an executable program. The optional 
 #! /bin/bash
 ```
 
+## Links
+
+- [Learn bash in Y minutes ↑](https://learnxinyminutes.com/docs/bash/)
+- [Bash scripting cheatsheet ↑](https://devhints.io/bash)
+
 ## TOC
 
 - [Shell scripting](#shell-scripting)
-  - [TOC](#toc)
   - [Links](#links)
+  - [TOC](#toc)
   - [Output text](#output-text)
   - [Variables](#variables)
     - [Default value](#default-value)
@@ -30,10 +35,6 @@ in which interpreter is an absolute path to an executable program. The optional 
   - [`while` loop](#while-loop)
   - [Functions](#functions)
   - [Debug](#debug)
-
-## Links
-
-[Advanced Bash-Scripting Guide ↑](https://tldp.org/LDP/abs/html/index.html)
 
 ## Output text
 

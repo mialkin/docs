@@ -23,7 +23,3 @@ Command-line shells require the user to be familiar with commands and their call
 | hostnamectl         | OS info                                                                                    |
 | lsb_release -a      | Print certain LSB (Linux Standard Base) and distribution-specific information              |
 | uname -a            | Kernel version                                                                             |
-
-## Links
-
-- [↑ Learn bash in Y minutes](https://learnxinyminutes.com/docs/bash/)
