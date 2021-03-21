@@ -329,6 +329,13 @@ Remove keys from a dictionary with `del`:
 del filled_dict["one"]  # Removes the key "one" from filled dict
 ```
 
+From Python 3.5 you can also use the additional unpacking options:
+
+```py
+{'a': 1, **{'b': 2}}  # => {'a': 1, 'b': 2}
+{'a': 1, **{'a': 2}}  # => {'a': 2}
+```
+
 ## None
 
 `None` is an object:
