@@ -4,12 +4,14 @@
   - [Comments](#comments)
   - [Division](#division)
   - [Exponentiation](#exponentiation)
-  - [Boolean values](#boolean-values)
+  - [`is` vs `==`](#is-vs-)
+  - [Booleans](#booleans)
   - [Strings](#strings)
+  - [Lists](#lists)
 
 ## Comments
 
-```python
+```py
 # Single line comments
 
 """ Multiline strings
@@ -21,14 +23,14 @@
 
 The result of division is always a floating-point number:
 
-```python
+```py
 10.0 / 3  # => 3.3333333333333335
 1 / 1     # => 1.0
 ```
 
 Integer division `//` rounds down for both positive and negative numbers:
 
-```python
+```py
 5 // 3       # => 1
 -5 // 3      # => -2
 5.0 // 3.0   # => 1.0 # works on floats too
@@ -37,20 +39,35 @@ Integer division `//` rounds down for both positive and negative numbers:
 
 ## Exponentiation
 
-```python
+```py
 2**3  # => 8
 ```
 
-## Boolean values
+## `is` vs `==`
 
-```python
+`is` checks if two variables refer to the same object, whereas `==` checks
+if the pointed objects have the same values:
+
+```py
+a = [1, 2, 3, 4]  # Point a at a new list, [1, 2, 3, 4]
+b = a             # Point b at what a is pointing to
+b is a            # => True, a and b refer to the same object
+b == a            # => True, a's and b's objects are equal
+b = [1, 2, 3, 4]  # Point b at a new list, [1, 2, 3, 4]
+b is a            # => False, a and b do not refer to the same object
+b == a            # => True, a's and b's objects are equal
+```
+
+## Booleans
+
+```py
 True   # => True
 False  # => False
 ```
 
 Negation is done with `not`:
 
-```python
+```py
 not True        # => False
 not False       # => True
 True and False  # => False
@@ -59,7 +76,7 @@ False or True   # => True
 
 `True` and `False` are actually `1` and `0`:
 
-```python
+```py
 True + True # => 2
 True * 8    # => 8
 False - 5   # => -5
@@ -67,7 +84,7 @@ False - 5   # => -5
 
 Comparison operators examine numerical values of `True` and `False`:
 
-```python
+```py
 0 == False  # => True
 1 == True   # => True
 2 == True   # => False
@@ -76,32 +93,61 @@ Comparison operators examine numerical values of `True` and `False`:
 
 ## Strings
 
-```python
+```py
 "This is a string"
 'This is a string too'
 ```
 
-String concatenation:
+Length:
 
-```python
+```py
+len("summer")   # => 6
+```
+
+Concatenation:
+
+```py
 "Hello " + "world!"  # => "Hello world!"
 "Hello " "world!"    # => "Hello world!"
 ```
 
+Interpolation:
+
+```py
+name = "Aleksei"
+f"My name is {name}"                       # => "My name is Aleksei"
+f"{name} is {len(name)} characters long"   # => "Aleksei is 7 characters long"
+```
+
 A string can be treated like a list of characters:
 
-```python
+```py
 "Hello world!"[0]  # => 'H'
 ```
 
-```python
+## Lists
 
+```py
+my_list = [4, 5, 6] # Quick list initialization
+
+li = []
+li.append(1)    # Append new element
+
+li[0]       # Get element by index
+li[-1]      # Get last element
+li.pop()    # Remove last element
 ```
 
-```python
+Ranges:
 
+```py
+li[1:3]   # Return list from index 1 to 3
+li[2:]    # Return list starting from index 2
+li[:3]    # Return list from beginning until index 3
+li[::2]   # Return list selecting every second entry
+li[::-1]  # Return list in reverse order => [3, 4, 2, 1]
 ```
 
-```python
+```py
 
 ```
