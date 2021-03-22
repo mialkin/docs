@@ -14,7 +14,7 @@ echo "alias k='kubectl'" >> ~/.zshrc
 
 ## Commands
 
-| <div style="width:500px">Command</div>                                                           | Description                                                                                                                                |
+| <div width=500>Command</div>                                                           | Description                                                                                                                                |
 | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | kubectl apply -f FILE_NAME.yaml                                                                  | Create objects from file                                                                                                                   |
 | cat <<EOF \| kubectl apply -f - <br>MANIFEST_TEXT<br>EOF                                         | Create objects from stdin                                                                                                                  |
