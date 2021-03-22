@@ -77,6 +77,8 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl scale deployment DEPLOYMENT_NAME --replicas=0                                            | Scale the deployment down to 0 replicas                                                                                                         |
 | kubectl top nodes                                                                                | Show cluster resource usage                                                                                                                     |
 
+[Kubectl cheat sheet ↑](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+
 ## k9s
 
 Installation:
@@ -123,7 +125,3 @@ kubectl create secret docker-registry SECRET_NAME \
 
 kubectl get secret SECRET_NAME -o=yaml
 ```
-
-## Links
-
--   [↑ kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
