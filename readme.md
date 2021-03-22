@@ -1,6 +1,9 @@
 # Documenting notes
 
+## TOC
+
 - [Documenting notes](#documenting-notes)
+  - [TOC](#toc)
   - [Tools](#tools)
   - [Unix](#unix)
   - [Databases](#databases)
