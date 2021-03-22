@@ -126,6 +126,7 @@
 * **In-memory** — резидентный
   * **In-memory database** — резидентная база данных
   * **In-memory computing** — резидентные вычисления
+* **Indentation** — абзацный отступ
 * **Indexer** — индексатор
 * **Instance** — экземпляр класса
   * **Instantiate** — создавать экземпляр класса
