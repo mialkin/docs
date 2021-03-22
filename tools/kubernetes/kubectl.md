@@ -77,6 +77,16 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl scale deployment DEPLOYMENT_NAME --replicas=0                                            | Scale the deployment down to 0 replicas                                                                                                         |
 | kubectl top nodes                                                                                | Show cluster resource usage                                                                                                                     |
 
+## k9s
+
+Installation:
+
+```zsh
+brew install k9s
+```
+
+Project on GitHub: https://github.com/derailed/k9s.
+
 ## kubectx & kubens
 
 Installation:
@@ -113,11 +123,6 @@ kubectl create secret docker-registry SECRET_NAME \
 
 kubectl get secret SECRET_NAME -o=yaml
 ```
-
-## matchLabels and selectors
-
-Only `Job`, `Deployment`, `Replica Set`, and `Daemon Set` support `matchLabels`.
-Other object types support `selector`.
 
 ## Links
 
