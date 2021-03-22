@@ -16,6 +16,8 @@
   - [Print](#print)
   - [User input](#user-input)
   - [Ternary operator](#ternary-operator)
+  - [Sets](#sets)
+  - [Control flow](#control-flow)
 
 ## Comments
 
@@ -383,9 +385,13 @@ result = "yay!" if 0 > 1 else "nay!"
 print (result) # => "nay!"
 ```
 
+## Sets
+
 ```py
 
 ```
+
+## Control flow
 
 ```py
 
