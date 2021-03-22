@@ -4,10 +4,11 @@
   - [Tools](#tools)
   - [Unix](#unix)
   - [Databases](#databases)
-  - [Software design](#software-design)
+  - [Software architecture and design](#software-architecture-and-design)
+  - [Computer science](#computer-science)
   - [Web](#web)
   - [Networking](#networking)
-  - [Computer science](#computer-science)
+  - [Security](#security)
   - [Microsoft](#microsoft)
   - [Python](#python)
 
@@ -51,8 +52,23 @@
 - [PL/SQL](db/oracle/plsql.md)
 - [EF Core tools](db/efcore/tools.md)
 
-## Software design
+## Software architecture and design
 
+- Architectural patterns
+  - CQRS
+  - Event Sourcing
+  - MVC
+  - [Repository ↑](https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application)
+  - Microservices related patterns
+    - Aggregator
+    - [Ambassador ↑](https://docs.microsoft.com/en-us/azure/architecture/patterns/ambassador)
+    - API Gateway
+    - Circuit Breaker
+    - Retry
+    - Service Layer
+    - Service Locator
+    - Sidecar
+  - Unit of Work
 - CAP theorem
 - [Design patterns](design/design%20patterns/design%20patterns.md)
   - Creational
@@ -92,6 +108,21 @@
     - [The Interface Segregation Principle](design/solid/isp.md)
     - [The Dependency Inversion Principle](design/solid/dip/dip.md)
 
+## Computer science
+
+- First-class function
+- Higher-order function
+- Idempotence
+- Programming paradigms
+  - Imperative
+    - procedural
+    - object-oriented
+  - Declarative
+    - functional
+    - logic
+    - mathematical
+    - reactive
+
 ## Web
 
 - [CSS](web/css/css.md)
@@ -103,9 +134,6 @@
 - [REST](web/rest.md)
 - [OAuth](web/oauth.md)
 - [OpenID Connect](web/oidc.md)
-- Security
-  - [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
-  - [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
 - [Web APIs](web/api/api.md)
 
 ## Networking
@@ -113,12 +141,15 @@
 - [IP](web/ip.md)
 - [TCP](web/tcp.md)
 
-## Computer science
+## Security
 
 - [Asymmetric cryptography](cs/asymmetric%20cryptography.md)
 - [Advanced Encryption Standard (AES)](cs/aes.md)
 - [Generating self-signed certificate](cs/generating%20certificate.md)
 - [TLS handshake](cs/tls%20handshake.md)
+- Web
+  - [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
+  - [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
 
 ## Microsoft
 
