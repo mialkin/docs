@@ -146,10 +146,10 @@
 
 ## Security
 
-- [Asymmetric cryptography](cs/asymmetric%20cryptography.md)
-- [Advanced Encryption Standard (AES)](cs/aes.md)
-- [Generating self-signed certificate](cs/generating%20certificate.md)
-- [TLS handshake](cs/tls%20handshake.md)
+- [Asymmetric cryptography](security/asymmetric%20cryptography.md)
+- [Advanced Encryption Standard (AES)](security/aes.md)
+- [Generating self-signed certificate](security/generating%20certificate.md)
+- [TLS handshake](security/tls%20handshake.md)
 - Web
   - [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
   - [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
@@ -162,7 +162,7 @@
   - [Host](asp.net/host.md)
 - [C&#35;](csharp/csharp.md)
 - Windows
-  - [PowerShell](windows/powershell.md)
+  - [PowerShell](dotnet/powershell.md)
 
 ## Python
 
