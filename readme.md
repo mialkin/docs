@@ -141,8 +141,8 @@
 
 ## Networking
 
-- [IP](web/ip.md)
-- [TCP](web/tcp.md)
+- [IP](networking/ip.md)
+- [TCP](networking/tcp.md)
 
 ## Security
 
@@ -157,6 +157,7 @@
 ## Microsoft
 
 - [.NET APIs](dotnet/api.md)
+- [.NET CLI](dotnet/cli.md)
 - ASP&#46;NET
   - [Host](asp.net/host.md)
 - [C&#35;](csharp/csharp.md)

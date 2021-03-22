@@ -2,7 +2,7 @@
 
 ## Installing
 
-Once Docker is installed, you need to add your user to the docker group (otherwise you’d have to run all docker commands with sudo, which could lead to security issues):
+Once Docker is installed, you need to add your user to the docker group (otherwise you’d have to run all docker commands with `sudo`, which could lead to security issues):
 
 ```bash
 sudo usermod -aG docker $USER
