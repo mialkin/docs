@@ -1,5 +1,16 @@
 # Documenting notes
 
+- [Documenting notes](#documenting-notes)
+  - [Tools](#tools)
+  - [Unix](#unix)
+  - [Databases](#databases)
+  - [Software design](#software-design)
+  - [Web](#web)
+  - [Networking](#networking)
+  - [Computer science](#computer-science)
+  - [Microsoft](#microsoft)
+  - [Python](#python)
+
 ## Tools
 
 - [Ansible](tools/ansible/ansible.md)
@@ -12,6 +23,8 @@
   - [kubectl](tools/kubernetes/kubectl.md)
   - [Creating custom Kubernetes cluster using Ansible](tools/kubernetes/creating%20cluster.md)
 - [Redis](tools/redis.md)
+- [Regular expressions](tools/regular%20expressions/regular%20expressions.md)
+- [Unit testing best practices](tools/testing/unit%20testing%20best%20practices.md)
 
 ## Unix
 
@@ -30,44 +43,13 @@
   - [vim](unix/vim.md)
 - [User management](unix/user%20managment.md)
 
-## Web
+## Databases
 
-- [CSS](web/css/css.md)
-- [GraphQL](web/graphql.md)
-- [gRPC](web/grpc.md)
-- [HTML](web/html/html.md)
-- [HTTP](web/http/http.md)
-- [JavaScript](web/javascript/javascript.md)
-- [IP](web/ip.md)
-- [REST](web/rest.md)
-- [OAuth](web/oauth.md)
-- [OpenID Connect](web/oidc.md)
-- Security
-  - [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
-  - [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
-- [TCP](web/tcp.md)
-- [Web APIs](web/api/api.md)
-
-## Miscellaneous
-
-- ASP.NET
-  - [Host](asp.net/host.md)
-- Databases
-  - [ACID](db/transactions/acid.md)
-  - [Isolation levels](db/transactions/isolation%20levels.md)
-  - [PostgreSQL](db/postgres/postgres.md)
-  - [PL/SQL](db/oracle/plsql.md)
-- EF Core
-  - [EF Core tools](efcore/tools.md)
-- [Regular expressions](tools/regular%20expressions/regular%20expressions.md)
-- [Unit testing best practices](tools/testing/unit%20testing%20best%20practices.md)
-
-## Computer science
-
-- [Asymmetric cryptography](cs/asymmetric%20cryptography.md)
-- [Advanced Encryption Standard (AES)](cs/aes.md)
-- [Generating self-signed certificate](cs/generating%20certificate.md)
-- [TLS handshake](cs/tls%20handshake.md)
+- [ACID](db/transactions/acid.md)
+- [Isolation levels](db/transactions/isolation%20levels.md)
+- [PostgreSQL](db/postgres/postgres.md)
+- [PL/SQL](db/oracle/plsql.md)
+- [EF Core tools](db/efcore/tools.md)
 
 ## Software design
 
@@ -110,49 +92,43 @@
     - [The Interface Segregation Principle](design/solid/isp.md)
     - [The Dependency Inversion Principle](design/solid/dip/dip.md)
 
-## C#
+## Web
 
-- [.NET API](cs/dotnet.md)
-- [Attributes](/csharp/attributes.md)
-  - [Nullable static analysis attributes](/csharp/nullable%20static%20analysis%20attributes.md)
-- Asynchronous programming (old)
-  - [Async/await best practices](/csharp/asynchronous/async%20await%20best%20practices.md)
-  - [Async lambdas](csharp/asynchronous/async%20lambdas.md)
-  - [Awaiting multiple tasks](csharp/asynchronous/awaiting%20multiple%20tasks.md)
-  - [Exceptions in tasks](/csharp/asynchronous/exceptions.md)
-  - [Execution context](/csharp/asynchronous/execution%20context.md)
-  - [Reporting task progress](/csharp/asynchronous/reporting%20progress.md)
-  - [Task scheduler](/csharp/asynchronous/task%20scheduler.md)
-- [Concurrency](csharp/concurrency/concurrency.md)
-  - [Asynchronous programming](csharp/concurrency/asynchronous%20programming.md)
-    - [Returning from task](csharp/concurrency/returning%20from%20task.md)
-    - System.Collections.Generic
-      - Interfaces
-        - [IAsyncEnumerable\<T>](dotnet/system/collections/generic/iasyncenumerable.md)
-  - [Parallel programming](csharp/concurrency/parallel%20programming.md)
-  - [Reactive programming](csharp/concurrency/reactive%20programming.md)
-  - [Dataflow programming](csharp/concurrency/dataflow%20programming.md)
-  - [Collections](csharp/concurrency/collections.md)
-    - System.Collections.Concurrent
-      - ConcurrentDictionary\<T>
-      - ConcurrentQueue\<T>
-      - ConcurrentStack\<T>
-  - [Synchronization](csharp/concurrency/synchronization.md)
-- [Constructor execution order](/csharp/constructor%20execution%20order.md)
-- [Covariance and contravariance](/csharp/covariance%20and%20contravariance.md)
-- [Equality operator](/csharp/equality%20operator.md)
-- [Extension methods](csharp/extension%20methods.md)
-- [Keywords](csharp/keywords/keywords.md)
-  - [yield](csharp/keywords/yield.md)
-- [Lambda expressions](/csharp/lambda%20expressions.md)
-- [Memory managment](csharp/memory%20managment.md)
-- [Nullable reference types](/csharp/nullable%20reference%20types.md)
-- [Ref vs out](csharp/ref%20vs%20out.md)
+- [CSS](web/css/css.md)
+- [GraphQL](web/graphql.md)
+- [gRPC](web/grpc.md)
+- [HTML](web/html/html.md)
+- [HTTP](web/http/http.md)
+- [JavaScript](web/javascript/javascript.md)
+- [REST](web/rest.md)
+- [OAuth](web/oauth.md)
+- [OpenID Connect](web/oidc.md)
+- Security
+  - [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
+  - [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
+- [Web APIs](web/api/api.md)
+
+## Networking
+
+- [IP](web/ip.md)
+- [TCP](web/tcp.md)
+
+## Computer science
+
+- [Asymmetric cryptography](cs/asymmetric%20cryptography.md)
+- [Advanced Encryption Standard (AES)](cs/aes.md)
+- [Generating self-signed certificate](cs/generating%20certificate.md)
+- [TLS handshake](cs/tls%20handshake.md)
+
+## Microsoft
+
+- [.NET APIs](dotnet/api.md)
+- ASP&#46;NET
+  - [Host](asp.net/host.md)
+- [C&#35;](csharp/csharp.md)
+- Windows
+  - [PowerShell](windows/powershell.md)
 
 ## Python
 
 - [Python](python/python.md)
-
-## Windows
-
-- [PowerShell](windows/powershell.md)
