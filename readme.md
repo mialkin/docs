@@ -169,3 +169,4 @@
 ## Python
 
 - [Python](python/python.md)
+  - [Syntax](python/syntax.md)
