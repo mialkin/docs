@@ -2,7 +2,7 @@
 
 ## Installing
 
-Once Docker is installed, you need to add your user to the docker group (otherwise you’d have to run all docker commands with `sudo`, which could lead to security issues):
+On Linux, once Docker is installed, you need to add your user to the docker group (otherwise you’d have to run all docker commands with `sudo`, which could lead to security issues):
 
 ```bash
 sudo usermod -aG docker $USER
@@ -29,8 +29,8 @@ Log out and log back in, so the changes will take effect.
 | docker logs -f CONTAINER                               | Fetch the logs of a container; `-f` is for "follow"                                                                                                                                                                                                                 |
 | docker port CONTAINER                                  | List port mappings or a specific mapping for the container                                                                                                                                                                                                          |
 | docker ps -a                                           | List all containers, including non-running                                                                                                                                                                                                                          |
-| docker pull IMAGE                                      | Pull image                                                                                                                                                                                                                                                          |
-| docker push IMAGE                                      | Push an image to a registry                                                                                                                                                                                                                                         |
+| docker pull HOSTNAME/PROJECT-ID/IMAGE:TAG              | Pull image from registry                                                                                                                                                                                                                                            |
+| docker push HOSTNAME/PROJECT-ID/IMAGE:TAG              | Push image to a registry                                                                                                                                                                                                                                            |
 | docker rm CONTAINER                                    | Remove one or more containers                                                                                                                                                                                                                                       |
 | docker rm $(docker ps -a -q)                           | Remove all containers                                                                                                                                                                                                                                               |
 | docker rmi IMAGE                                       | Remove one or more images                                                                                                                                                                                                                                           |

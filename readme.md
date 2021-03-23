@@ -23,12 +23,14 @@
   - [Docker Compose](tools/docker/docker%20compose.md)
 - [Git](tools/git/git.md)
 - Kubernetes
+  - [gcloud](tools/kubernetes/gcloud.md)
   - [Flux](tools/kubernetes/flux.md)
   - [kubectl](tools/kubernetes/kubectl.md)
   - [Creating custom Kubernetes cluster using Ansible](tools/kubernetes/creating%20cluster.md)
 - [Redis](tools/redis.md)
 - [Regular expressions](tools/regular%20expressions/regular%20expressions.md)
 - [Unit testing best practices](tools/testing/unit%20testing%20best%20practices.md)
+- [Wireshark](tools/wireshark/wireshark.md)
 
 ## Unix
 
