@@ -6,8 +6,9 @@ Create and activate new virtual environment:
 
 ```bash
 # python3 -m venv ENVIRONMENT_NAME
+# source ENVIRONMENT_NAME/bin/activate
 python3 -m venv venv
-source ENVIRONMENT_NAME/bin/activate
+source venv/bin/activate
 ```
 
 To deactivate environment type:
