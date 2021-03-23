@@ -1,5 +1,19 @@
 # Git
 
+## Config
+
+Edit `.gitconfig` file:
+
+```bash
+vim ~/.gitconfig # or use: git config --global --edit
+```
+
+Set default branch name:
+
+```bash
+git config --global init.defaultBranch BRANCH_NAME
+```
+
 ## Commands
 
 | Command                                   | Description                                                                   |
