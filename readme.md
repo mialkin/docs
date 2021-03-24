@@ -142,7 +142,7 @@
 
 ## Networking
 
-- [Commands](commands.md)
+- [Commands](networking/commands.md)
 - [IP](networking/ip.md)
 - [Ports](networking/ports.md)
 - [Sockets](networking/sockets.md)
