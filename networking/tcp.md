@@ -44,3 +44,9 @@ TCP handshake is done via sending 3 packets:
 The absolute limitation on TCP packet size is 64K (65535 bytes), but in practicality this is far larger than the size of any packet you will see, because the lower layers (e.g. ethernet) have lower packet sizes.
 
 The MTU (Maximum Transmission Unit) for Ethernet, for instance, is 1500 bytes. Some types of networks (like Token Ring) have larger MTUs, and some types have smaller MTUs, but the values are fixed for each physical technology.
+
+## MSS
+
+The maximum segment size (**MSS**) is a parameter of the options field of the TCP header that specifies the largest amount of data, specified in bytes, that a computer or communications device can receive in a single TCP segment. It does not count the TCP header or the IP header (unlike, for example, the MTU for IP datagrams).
+
+The default TCP Maximum Segment Size is 536.
