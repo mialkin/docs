@@ -144,6 +144,8 @@
 
 - [Commands](commands.md)
 - [IP](networking/ip.md)
+- [Ports](networking/ports.md)
+- [Sockets](networking/sockets.md)
 - [TCP](networking/tcp.md)
 - [Wireshark](networking/wireshark/wireshark.md)
 

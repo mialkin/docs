@@ -30,6 +30,10 @@ SACKs work by appending to a duplicate acknowledgment packet a TCP option contai
 
 Support for SACK is negotiated at the beginning of a TCP connection; if both hosts support it, it may be used.
 
+## MSS
+
+
+
 ## Filters
 
 ```text
