@@ -24,8 +24,20 @@ The place where you are laying ground rules for a "relationship".
 
 TCP Header in terms of bytes is always a multiple of 4.
 
+`SACK` — selective acknowledgment TCP option.
+
+SACKs work by appending to a duplicate acknowledgment packet a TCP option containing a range of noncontiguous data received. In other words, it allows the client to say "I only have up to packet #1 in order, but I also have received packets #3 and #4". This allows the server to retransmit only the packet(s) that were not received by the client.
+
+Support for SACK is negotiated at the beginning of a TCP connection; if both hosts support it, it may be used.
+
 ## Filters
 
 ```text
 ip.addr == 35.246.105.145
 ```
+
+## IP time to live
+
+Every time when packet faces router the TTL number decrements by 1.
+
+If you see that packet has TTL equal 127 and you, as a server, know that client started at 128, that means that client is 1 hop away from you.

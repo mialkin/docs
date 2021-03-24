@@ -30,7 +30,6 @@
 - [Redis](tools/redis.md)
 - [Regular expressions](tools/regular%20expressions/regular%20expressions.md)
 - [Unit testing best practices](tools/testing/unit%20testing%20best%20practices.md)
-- [Wireshark](tools/wireshark/wireshark.md)
 
 ## Unix
 
@@ -143,8 +142,10 @@
 
 ## Networking
 
+- [Commands](commands.md)
 - [IP](networking/ip.md)
 - [TCP](networking/tcp.md)
+- [Wireshark](networking/wireshark/wireshark.md)
 
 ## Security
 
