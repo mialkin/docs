@@ -17,6 +17,9 @@
   - [Tuples](#tuples)
   - [Dictionaries](#dictionaries)
   - [Sets](#sets)
+  - [Control flow](#control-flow)
+  - [Exceptions handling](#exceptions-handling)
+  - [Files](#files)
 
 ## Comments
 
@@ -459,4 +462,146 @@ Create a deep copy of a set:
 ```py
 filled_set = some_set.copy()  # filled_set is {1, 2, 3, 4, 5}
 filled_set is some_set        # => False
+```
+
+## Control flow
+
+Let's just make a variable:
+
+```py
+some_var = 5
+```
+
+Here is an if statement. Indentation is significant in Python! Convention is to use four spaces, not tabs.
+
+```py
+if some_var > 10:
+    print("some_var is totally bigger than 10.")
+elif some_var < 10:    # This elif clause is optional.
+    print("some_var is smaller than 10.")
+else:                  # This is optional too.
+    print("some_var is indeed 10.")
+
+"""
+For loops iterate over lists
+prints:
+    dog is a mammal
+    cat is a mammal
+    mouse is a mammal
+"""
+for animal in ["dog", "cat", "mouse"]:
+    # You can use format() to interpolate formatted strings
+    print("{} is a mammal".format(animal))
+
+"""
+"range(number)" returns an iterable of numbers
+from zero to the given number
+prints:
+    0
+    1
+    2
+    3
+"""
+for i in range(4):
+    print(i)
+
+"""
+"range(lower, upper)" returns an iterable of numbers
+from the lower number to the upper number
+prints:
+    4
+    5
+    6
+    7
+"""
+for i in range(4, 8):
+    print(i)
+
+"""
+"range(lower, upper, step)" returns an iterable of numbers
+from the lower number to the upper number, while incrementing
+by step. If step is not indicated, the default value is 1.
+prints:
+    4
+    6
+"""
+for i in range(4, 8, 2):
+    print(i)
+
+"""
+To loop over a list, and retrieve both the index and the value of each item in the list
+prints:
+    0 dog
+    1 cat
+    2 mouse
+"""
+animals = ["dog", "cat", "mouse"]
+for i, value in enumerate(animals):
+    print(i, value)
+
+"""
+While loops go until a condition is no longer met.
+prints:
+    0
+    1
+    2
+    3
+"""
+x = 0
+while x < 4:
+    print(x)
+    x += 1  # Shorthand for x = x + 1
+```
+
+## Exceptions handling
+
+Handle exceptions with a `try/except` block:
+
+```py
+try:
+    # Use "raise" to raise an error
+    raise IndexError("This is an index error")
+except IndexError as e:
+    pass                 # Pass is just a no-op. Usually you would do recovery here.
+except (TypeError, NameError):
+    pass                 # Multiple exceptions can be handled together, if required.
+else:                    # Optional clause to the try/except block. Must follow all except blocks
+    print("All good!")   # Runs only if the code in try raises no exceptions
+finally:                 # Execute under all circumstances
+    print("We can clean up resources here")
+```
+
+## Files
+
+Instead of try/finally to cleanup resources you can use a with statement
+
+```py
+with open("myfile.txt") as f:
+    for line in f:
+        print(line)
+```
+
+Writing to a file:
+
+```py
+contents = {"aa": 12, "bb": 21}
+with open("myfile1.txt", "w+") as file:
+    file.write(str(contents))        # Writes a string to a file
+
+with open("myfile2.txt", "w+") as file:
+    file.write(json.dumps(contents)) # Writes an object to a file
+```
+
+Reading from a file:
+
+```py
+with open('myfile1.txt', "r+") as file:
+    contents = file.read()           # Reads a string from a file
+print(contents)
+# print: {"aa": 12, "bb": 21}
+
+with open('myfile2.txt', "r+") as file:
+    contents = json.load(file)       # Reads a json object from a file
+print(contents)
+# print: {"aa": 12, "bb": 21}
 ```
