@@ -9,15 +9,14 @@
   - [Booleans](#booleans)
   - [Strings](#strings)
   - [Environment variables](#environment-variables)
-  - [Lists](#lists)
-  - [Tuples](#tuples)
-  - [Dictionaries](#dictionaries)
   - [None](#none)
   - [Print](#print)
   - [User input](#user-input)
   - [Ternary operator](#ternary-operator)
+  - [Lists](#lists)
+  - [Tuples](#tuples)
+  - [Dictionaries](#dictionaries)
   - [Sets](#sets)
-  - [Control flow](#control-flow)
 
 ## Comments
 
@@ -161,6 +160,51 @@ import os
     print(os.environ['HOME'])
 ```
 
+## None
+
+`None` is an object:
+
+```py
+None  # => None
+```
+
+Don't use the equality `==` symbol to compare objects to None
+Use `is` instead. This checks for equality of object identity.
+
+```py
+"etc" is None  # => False
+None is None   # => True
+```
+
+## Print
+
+Python has a `print` function:
+
+```py
+print("I'm Python. Nice to meet you!")  # => I'm Python. Nice to meet you!
+```
+
+By default the `print` function also prints out a newline at the end. Use the optional argument end to change the end string:
+
+```py
+print("Hello, World", end="!")  # => Hello, World!
+```
+
+## User input
+
+Get input data from console:
+
+```py
+input_string_var = input("Enter some data: ") # Returns the data as a string
+```
+
+## Ternary operator
+
+```py
+result = "yay!" if 0 > 1 else "nay!"
+print (result)  # => "nay!"
+```
+
 ## Lists
 
 ```py
@@ -194,15 +238,15 @@ li[::-1]  # Return list in reverse order => [3, 4, 2, 1]
 
 ## Tuples
 
-Tuples are like lists but are immutable:
+Tuples are immutable:
 
 ```py
 tup = (1, 2, 3)
-tup[0]      # => 1
-tup[0] = 3  # Raises a TypeError
+tup[0]            # => 1
+tup[0] = 3        # Raises a TypeError
 ```
 
-Note that a tuple of length one has to have a comma after the last element but tuples of other lengths, even zero, do not:
+Note, that a tuple made of a single element has to have a comma after that element, but tuples of other lengths, including zero, don't:
 
 ```py
 type((1))   # => <class 'int'>
@@ -338,89 +382,81 @@ From Python 3.5 you can also use the additional unpacking options:
 {'a': 1, **{'a': 2}}  # => {'a': 2}
 ```
 
-## None
-
-`None` is an object:
-
-```py
-None  # => None
-```
-
-Don't use the equality `==` symbol to compare objects to None
-Use `is` instead. This checks for equality of object identity.
-
-```py
-"etc" is None  # => False
-None is None   # => True
-```
-
-## Print
-
-Python has a `print` function:
-
-```py
-print("I'm Python. Nice to meet you!")  # => I'm Python. Nice to meet you!
-```
-
-By default the `print` function also prints out a newline at the end. Use the optional argument end to change the end string:
-
-```py
-print("Hello, World", end="!")  # => Hello, World!
-```
-
-## User input
-
-Get input data from console:
-
-```py
-input_string_var = input("Enter some data: ") # Returns the data as a string
-```
-
-## Ternary operator
-
-If can be used as an expression. Equivalent of C's '?:' ternary operator
-
-```py
-result = "yay!" if 0 > 1 else "nay!"
-print (result) # => "nay!"
-```
-
 ## Sets
 
 ```py
-
+empty_set = set()
 ```
 
-## Control flow
+Initialize a set with a bunch of values:
 
 ```py
-
+some_set = {1, 1, 2, 2, 3, 4}
 ```
 
-```py
+Similar to keys of a dictionary, elements of a set have to be immutable:
 
+```py
+invalid_set = {[1], 1}  # => Raises a TypeError: unhashable type: 'list'
+valid_set = {(1,), 1}
 ```
 
-```py
+Add element to the set:
 
+```py
+filled_set = some_set
+filled_set.add(5)  # Filled_set is now {1, 2, 3, 4, 5}
+# Sets don't have duplicate elements,
+filled_set.add(5)  # so it remains as before {1, 2, 3, 4, 5}
 ```
 
-```py
+Intersection is done with `&`:
 
+```py
+other_set = {3, 4, 5, 6}
+filled_set & other_set  # => {3, 4, 5}
 ```
 
-```py
+Union is done with `|`:
 
+```py
+filled_set | other_set  # => {1, 2, 3, 4, 5, 6}
 ```
 
-```py
+Difference is done with `-`:
 
+```py
+{1, 2, 3, 4} - {2, 3, 5}  # => {1, 4}
 ```
 
-```py
+Symmetric difference is done with `^`:
 
+```py
+{1, 2, 3, 4} ^ {2, 3, 5}  # => {1, 4, 5}
 ```
 
-```py
+Check if the set on the left is a superset of the set on the right:
 
+```py
+{1, 2} >= {1, 2, 3} # => False
+```
+
+ Check if the set on the left is a subset of the set on the right:
+
+ ```py
+ {1, 2} <= {1, 2, 3} # => True
+ ```
+
+Check if element is in the set:
+
+```py
+2 in filled_set   # => True
+10 in filled_set  # => False
+```
+
+Create a deep copy of a set:
+
+```py
+filled_set = some_set.copy()  # filled_set is {1, 2, 3, 4, 5}
+filled_set is some_set        # => False
 ```
