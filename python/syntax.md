@@ -22,6 +22,7 @@
   - [Files](#files)
   - [Iterables](#iterables)
   - [Functions](#functions)
+  - [Modules](#modules)
 
 ## Comments
 
@@ -755,3 +756,44 @@ You can construct set and dict comprehensions as well:
 {x for x in 'abcddeef' if x not in 'abc'}  # => {'d', 'e', 'f'}
 {x: x**2 for x in range(5)}  # => {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
 ```
+
+## Modules
+
+You can import modules:
+
+```py
+import math
+print(math.sqrt(16))  # => 4.0
+```
+
+You can get specific functions from a module:
+
+```py
+from math import ceil, floor
+print(ceil(3.7))   # => 4.0
+print(floor(3.7))  # => 3.0
+```
+
+You can import all functions from a module. Warning: this is not recommended:
+
+```py
+from math import *
+```
+
+You can shorten module names:
+
+```py
+import math as m
+math.sqrt(16) == m.sqrt(16)  # => True
+```
+
+Python modules are just ordinary Python files. You can write your own, and import them. The name of the module is the same as the name of the file.
+
+You can find out which functions and attributes are defined in a module:
+
+```py
+import math
+dir(math)
+```
+
+If you have a Python script named `math.py` in the same folder as your current script, the file `math.py` will be loaded instead of the built-in Python module. This happens because the local folder has priority over Python's built-in libraries.
