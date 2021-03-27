@@ -1,6 +1,7 @@
 # PowerShell scripting
 
 - [PowerShell scripting](#powershell-scripting)
+  - [Comments](#comments)
   - [Variables](#variables)
   - [Run commands](#run-commands)
   - [Functions](#functions)
@@ -9,6 +10,17 @@
   - [Loops](#loops)
     - [foreach](#foreach)
   - [Exceptions](#exceptions)
+
+## Comments
+
+```ps1
+# Single line comment
+
+<# 
+  Multi line
+  comment
+#> 
+```
 
 ## Variables
 
