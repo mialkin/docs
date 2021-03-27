@@ -1,0 +1,95 @@
+# PowerShell scripting
+
+- [PowerShell scripting](#powershell-scripting)
+  - [Run commands](#run-commands)
+  - [Functions](#functions)
+  - [Folders](#folders)
+  - [Scopes](#scopes)
+  - [Loops](#loops)
+    - [foreach](#foreach)
+  - [Exceptions](#exceptions)
+
+## Run commands
+
+Run commands or expressions on the local computer:
+
+```ps1
+Invoke-Expression "git --version"
+```
+
+## Functions
+
+Defining and calling function that accepts 1 parameter:
+
+```ps1
+function Failure($msg) {
+    Write-Host $msg -ForegroundColor Red
+}
+
+Failure("Failure message")
+```
+
+## Folders
+
+Check if folder exists:
+
+```ps1
+if (Test-Path -Path "path/to/folder") {
+    
+}
+```
+
+Create new directory supressing output:
+
+```ps1
+New-Item -ItemType Directory -Force -Path src
+```
+
+## Scopes
+
+Use `$script scope` if you want your counter to reset each time you execute the same script:
+
+```ps1
+$counter = 1;
+
+function Next() {
+    Write-Host $script:counter
+
+    $script:counter++
+}
+
+Next # 1
+Next # 2
+Next # 3
+```
+
+With `$global` scope you will get `4 5 6` on the second script run, not `1 2 3`.
+
+## Loops
+
+### foreach
+
+Break from `foreach` loop using `return` statement, not `continue` as you might expect:
+
+```ps1
+foreach ($item in $items) {
+    if (Test-Path -Path "src/${item}") {
+        return
+    }
+    else {    
+        DoWork()
+    }
+}
+```
+
+## Exceptions
+
+```ps1
+try {
+    Invoke-Expression "git --version"
+}
+catch {
+    Failure("Git command not found. Make sure that git is in your PATH variable")
+}
+
+```

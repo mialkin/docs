@@ -168,6 +168,7 @@
 - [C&#35;](csharp/csharp.md)
 - Windows
   - [PowerShell](dotnet/powershell.md)
+    - [PowerShell scripting](dotnet/powershell%20scripting.md)
 
 ## Python
 
