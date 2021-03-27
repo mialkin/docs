@@ -40,14 +40,6 @@ PowerShell is a cross-platform task automation and configuration management fram
 | Start-Transcript                                       | None     | Create a record of all or part of a PowerShell session to a text file                                                                                                         |
 | Write-Host YOUR_TEXT                                   | None     | Writes customized output to a host                                                                                                                                            |
 
-## Variables
-
-Set variable:
-
-```ps1
-$zebra = Get-Process chrome
-```
-
 ## Links
 
 -   [↑ Learn PowerShell in Y minutes](https://learnxinyminutes.com/docs/powershell/)

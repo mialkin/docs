@@ -1,6 +1,7 @@
 # PowerShell scripting
 
 - [PowerShell scripting](#powershell-scripting)
+  - [Variables](#variables)
   - [Run commands](#run-commands)
   - [Functions](#functions)
   - [Folders](#folders)
@@ -8,6 +9,14 @@
   - [Loops](#loops)
     - [foreach](#foreach)
   - [Exceptions](#exceptions)
+
+## Variables
+
+Set variable:
+
+```ps1
+$var1 = Get-Process chrome
+```
 
 ## Run commands
 
