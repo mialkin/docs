@@ -78,12 +78,12 @@ With `$global` scope you will get `4 5 6` on the second script run, not `1 2 3`.
 
 ### foreach
 
-Break from `foreach` loop using `return` statement, not `continue` as you might expect:
+Example of a simple `foreach` loop:
 
 ```ps1
 foreach ($item in $items) {
     if (Test-Path -Path "src/${item}") {
-        return
+        continue
     }
     else {    
         DoWork()
