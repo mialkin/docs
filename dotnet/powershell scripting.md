@@ -1,25 +1,27 @@
 # PowerShell scripting
 
-- [PowerShell scripting](#powershell-scripting)
-  - [Comments](#comments)
-  - [Variables](#variables)
-  - [Run commands](#run-commands)
-  - [Functions](#functions)
-  - [Folders](#folders)
-  - [Scopes](#scopes)
-  - [Loops](#loops)
-    - [foreach](#foreach)
-  - [Exceptions](#exceptions)
+-   [PowerShell scripting](#powershell-scripting)
+    -   [Comments](#comments)
+    -   [Variables](#variables)
+    -   [Run commands](#run-commands)
+    -   [Functions](#functions)
+    -   [Folders](#folders)
+    -   [Scopes](#scopes)
+    -   [Loops](#loops)
+        -   [foreach](#foreach)
+    -   [Exceptions](#exceptions)
+    -   [Arrays](#arrays)
+    -   [Parentheses](#parentheses)
 
 ## Comments
 
 ```ps1
 # Single line comment
 
-<# 
+<#
   Multi line
   comment
-#> 
+#>
 ```
 
 ## Variables
@@ -28,6 +30,12 @@ Set variable:
 
 ```ps1
 $var1 = Get-Process chrome
+```
+
+Get variable's type:
+
+```ps1
+$var1.GetType()
 ```
 
 ## Run commands
@@ -56,7 +64,7 @@ Check if folder exists:
 
 ```ps1
 if (Test-Path -Path "path/to/folder") {
-    
+
 }
 ```
 
@@ -97,7 +105,7 @@ foreach ($item in $items) {
     if (Test-Path -Path "src/${item}") {
         continue
     }
-    else {    
+    else {
         DoWork()
     }
 }
@@ -113,4 +121,18 @@ catch {
     Failure("Git command not found. Make sure that git is in your PATH variable")
 }
 
+```
+
+## Arrays
+
+```ps1
+$items = "one", "two", "three", "four"
+$status.Length
+$status[2] # Get element with index 2
+```
+
+## Parentheses
+
+```ps1
+Write-Host "pwd:" (Get-Location)
 ```
