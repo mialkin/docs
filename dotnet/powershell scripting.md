@@ -1,17 +1,39 @@
 # PowerShell scripting
 
--   [PowerShell scripting](#powershell-scripting)
-    -   [Comments](#comments)
-    -   [Variables](#variables)
-    -   [Run commands](#run-commands)
-    -   [Functions](#functions)
-    -   [Folders](#folders)
-    -   [Scopes](#scopes)
-    -   [Loops](#loops)
-        -   [foreach](#foreach)
-    -   [Exceptions](#exceptions)
-    -   [Arrays](#arrays)
-    -   [Parentheses](#parentheses)
+- [PowerShell scripting](#powershell-scripting)
+  - [Executing script](#executing-script)
+  - [macOS installation](#macos-installation)
+  - [Comments](#comments)
+  - [Variables](#variables)
+  - [Run commands](#run-commands)
+  - [Functions](#functions)
+  - [Folders](#folders)
+  - [Scopes](#scopes)
+  - [Loops](#loops)
+    - [foreach](#foreach)
+  - [Exceptions](#exceptions)
+  - [Arrays](#arrays)
+  - [Parentheses](#parentheses)
+
+## Executing script
+
+To execute PowerShell scripts you may need to bypass execution polices set on your computer:
+
+```ps1
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+.\script.ps1
+Set-ExecutionPolicy Restricted -Scope CurrentUser
+```
+
+## macOS installation
+
+```bash
+brew install --cask powershell
+pwsh --version
+
+brew update
+brew upgrade powershell --cask
+```
 
 ## Comments
 

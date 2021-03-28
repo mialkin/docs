@@ -6,10 +6,12 @@ See where bash is by typing `which bash`. `#` is for "sharp" and `!` is for "ban
 #!interpreter [optional-arg]
 ```
 
-in which interpreter is an absolute path to an executable program. The optional argument is a string representing a single argument. White space after `#!` is optional.
+in which interpreter is an absolute path to an executable program. The optional argument is a string representing a single argument.
+
+White space after `#!` is optional:
 
 ```bash
-#! /bin/bash
+#!/bin/bash
 ```
 
 ## Links
@@ -22,6 +24,7 @@ in which interpreter is an absolute path to an executable program. The optional 
 - [Shell scripting](#shell-scripting)
   - [Links](#links)
   - [TOC](#toc)
+  - [Executing script](#executing-script)
   - [Output text](#output-text)
   - [Variables](#variables)
     - [Default value](#default-value)
@@ -36,6 +39,18 @@ in which interpreter is an absolute path to an executable program. The optional 
   - [Functions](#functions)
   - [Pass arguments to script](#pass-arguments-to-script)
   - [Debug](#debug)
+
+## Executing script
+
+```bash
+# Add execution permission to user:
+chmod 100 script.sh
+
+# Execute script:
+./script.sh
+
+# You can also use bash script.sh or sh script.sh
+```
 
 ## Output text
 
