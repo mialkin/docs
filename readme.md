@@ -68,6 +68,7 @@
     - [Ambassador ↑](https://docs.microsoft.com/en-us/azure/architecture/patterns/ambassador)
     - API Gateway
     - Circuit Breaker
+    - [Backends for Frontends ↑](https://microservices.io/patterns/apigateway.html)
     - Retry
     - Service Layer
     - Service Locator
