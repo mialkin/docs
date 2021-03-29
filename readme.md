@@ -23,8 +23,9 @@
   - [Docker Compose](tools/docker/docker%20compose.md)
 - [Git](tools/git/git.md)
 - Kubernetes
-  - [gcloud](tools/kubernetes/gcloud.md)
   - [Flux](tools/kubernetes/flux.md)
+  - [gcloud](tools/kubernetes/gcloud.md)
+  - [helm](tools/kubernetes/helm.md)
   - [kubectl](tools/kubernetes/kubectl.md)
   - [Creating custom Kubernetes cluster using Ansible](tools/kubernetes/creating%20cluster.md)
 - [Redis](tools/redis.md)
