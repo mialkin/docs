@@ -5,6 +5,7 @@
   - [macOS installation](#macos-installation)
   - [Comments](#comments)
   - [Variables](#variables)
+  - [Booleans](#booleans)
   - [Run commands](#run-commands)
   - [Functions](#functions)
   - [Folders](#folders)
@@ -58,6 +59,18 @@ Get variable's type:
 
 ```ps1
 $var1.GetType()
+```
+
+## Booleans
+
+`$true` and `$false` are two variables that represent logical `true` and `false`:
+
+```ps1
+$var1 = $false
+
+if($var1 -eq $true){
+    "var1 is true"
+}
 ```
 
 ## Run commands
