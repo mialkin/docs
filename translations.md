@@ -92,7 +92,7 @@
 * **Expression body** — тело выражения
 * **Extreme programming** — экстремальное программирование
 * **Event loop** — цикл событий
-* **Eventual consistency** — итоговая согласованность
+* **Eventual consistency** — конечная/итоговая согласованность
 
 ## F
 
