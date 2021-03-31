@@ -26,6 +26,10 @@ During the 1990s, the open–closed principle became popularly redefined to refe
 
 In contrast to Meyer's usage, this definition advocates inheritance from abstract base classes. Interface specifications can be reused through inheritance but implementation need not be. The existing interface is closed to modifications and new implementations must, at a minimum, implement that interface.
 
+## Real life example
+
+Using RabbitMQ's publish/subscribe mechanism makes your communication from the sender sender microservice to be available to additional subscriber microservices or to external applications. Thus, it helps to follow the *open-closed principle* in the sending service. That way, additional subscribers can be added in the future without the need to modify the sender service.
+
 <hr>
 
 <sup>1</sup> Meyer, Bertrand. Object-Oriented Software Construction, 2d ed. Upper Saddle River, NJ: Prentice Hall, 1997.
