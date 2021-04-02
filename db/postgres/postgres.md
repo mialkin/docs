@@ -27,6 +27,10 @@ services:
             - 8080:8080
 ```
 
+## psql
+
+**psql** is a terminal-based front-end to PostgreSQL. It enables you to type in queries interactively, issue them to PostgreSQL, and see the query results. Alternatively, input can be from a file. In addition, it provides a number of meta-commands and various shell-like features to facilitate writing scripts and automating a wide variety of tasks.
+
 Start executing commands:
 
 ```bash
@@ -41,14 +45,15 @@ docker exec -it CONTAINER_NAME psql -U postgres
 
 ## Commands
 
-| Command       | Description                             |
-| ------------- | --------------------------------------- |
-| \\?           | Show available commands                 |
-| \c DB_NAME    | Switch connection to the database       |
-| \d TABLE_NAME | Describe table                          |
-| \dt           | List all tables in the current database |
-| \l or \list   | List all databases                      |
-| \q            | Quit psql                               |
+| Command          | Description                             |
+| ---------------- | --------------------------------------- |
+| \\?              | Show available commands                 |
+| \c DATABASE_NAME | Switch connection to the database       |
+| \d TABLE_NAME    | Describe table                          |
+| \dn              | List schemas                            |
+| \dt              | List all tables in the current database |
+| \l or \list      | List all databases                      |
+| \q               | Quit psql                               |
 
 ## SQL syntax
 
