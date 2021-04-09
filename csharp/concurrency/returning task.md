@@ -1,4 +1,4 @@
-# Returning from Task
+# Returning Task
 
 With `async`:
 
