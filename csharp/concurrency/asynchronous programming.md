@@ -3,6 +3,7 @@
 - [Asynchronous programming](#asynchronous-programming)
   - [Synchronization context](#synchronization-context)
   - [Deadlock](#deadlock)
+  - [Exceptions](#exceptions)
 
 **Asynchronous programming** is a form of concurrency that uses *futures* or *callbacks* to avoid unnecessary threads.
 
@@ -47,11 +48,11 @@ An `async` method begins executing synchronously, just like any other method. Wi
 
 You can think of an `async` method as having several synchronous portions, broken up by `await` statements. The first synchronous portion executes on whatever thread calls the method, but where do the other synchronous portions execute? The answer is a bit complicated.
 
-When you `await` a task (the most common scenario), a *context* is captured when the `await` decides to pause the method. This is the current `SynchronizationContext` unless it’s `null`, in which case the context is the current `TaskScheduler`. The method resumes executing within that captured context. Usually, this context is the UI context (if you’re on the UI thread) or the threadpool context (most other situations). If you have an ASP.NET Classic (pre-Core) application, then the context could also be an ASP.NET request context. ASP.NET Core uses the threadpool context rather than a special request context.
+When you `await` a task (the most common scenario), a *context* is captured when the `await` decides to pause the method. This is the current `SynchronizationContext` unless it's `null`, in which case the context is the current `TaskScheduler`. The method resumes executing within that captured context. Usually, this context is the UI context (if you're on the UI thread) or the threadpool context (most other situations). If you have an ASP.NET Classic (pre-Core) application, then the context could also be an ASP.NET request context. ASP.NET Core uses the threadpool context rather than a special request context.
 
 So, in the preceding code, all the synchronous portions will attempt to resume on the original context. If you call `DoSomethingAsync` from a UI thread, each of its synchronous portions will run on that UI thread; but if you call it from a threadpool thread, each of its synchronous portions will run on any threadpool thread.
 
-You can avoid this default behavior by awaiting the result of the `ConfigureAwait` extension method and passing `false` for the `continueOnCapturedContext` parameter. The following code will start on the calling thread, and after it is paused by an `await`, it’ll resume on a threadpool thread:
+You can avoid this default behavior by awaiting the result of the `ConfigureAwait` extension method and passing `false` for the `continueOnCapturedContext` parameter. The following code will start on the calling thread, and after it is paused by an `await`, it'll resume on a threadpool thread:
 
 ```csharp
 async Task DoSomethingAsync()
@@ -69,9 +70,13 @@ async Task DoSomethingAsync()
 }
 ```
 
+The `await` keyword is not limited to working with tasks; it can work with any kind of awaitable that follows a certain pattern. As an example, the Base Class Library includes the `ValueTask<T>` type, which reduces memory allocations if the result is commonly synchronous; for example, if the result can be read from an in-memory cache. `ValueTask<T>` is not directly convertible to `Task<T>`, but it does follow the awaitable pattern, so you can directly `await` it. There are other examples, and you can build your own, but most of the time `await` will take a Task or `Task<TResult>`.
+
+There are two basic ways to create a `Task` instance. Some tasks represent actual code that a CPU has to execute; these computational tasks should be created by calling `Task.Run` (or `TaskFactory.StartNew` if you need them to run on a particular scheduler). Other tasks represent a notification; these kinds of event-based tasks are created by `TaskCompletionSource<TResult>` (or one of its shortcuts). Most I/O tasks use `TaskCompletionSource<TResult>`.
+
 ## Deadlock
 
-There’s one other important guideline when it comes to methods: once you start using `async`, it’s best to allow it to grow through your code. If you call an `async` method, you should (eventually) the task it returns. Resist the temptation to call `Task.Wait`, `Task<TResult>.Result`, or `GetAwaiter().GetResult()`; doing so could cause a deadlock. Consider the following method:
+There's one other important guideline when it comes to methods: once you start using `async`, it's best to allow it to grow through your code. If you call an `async` method, you should (eventually) the task it returns. Resist the temptation to call `Task.Wait`, `Task<TResult>.Result`, or `GetAwaiter().GetResult()`; doing so could cause a deadlock. Consider the following method:
 
 ```csharp
 async Task WaitAsync()
@@ -90,7 +95,47 @@ void Deadlock()
 }
 ```
 
-The code in this example will deadlock if called from a UI or ASP.NET Classic context because both of those contexts only allow one thread in at a time. `Deadlock` will call `WaitAsync`, which begins the delay. `Deadlock` then (synchronously) waits for that method to complete, blocking the context thread. When the delay completes, `await` attempts to resume `WaitAsync` within the captured context, but it cannot because there’s already a thread blocked in the context, and the context only allows one thread at a time. Deadlock can be prevented two ways: you can use `ConfigureAwait(false)` within `WaitAsync` (which causes await to ignore its context), or you can `await` the call to `WaitAsync` (making Deadlock into an `async` method).
+The code in this example will deadlock if called from a UI or ASP.NET Classic context because both of those contexts only allow one thread in at a time. `Deadlock` will call `WaitAsync`, which begins the delay. `Deadlock` then (synchronously) waits for that method to complete, blocking the context thread. When the delay completes, `await` attempts to resume `WaitAsync` within the captured context, but it cannot because there's already a thread blocked in the context, and the context only allows one thread at a time. Deadlock can be prevented two ways: you can use `ConfigureAwait(false)` within `WaitAsync` (which causes await to ignore its context), or you can `await` the call to `WaitAsync` (making Deadlock into an `async` method).
+
+## Exceptions
+
+Error handling is natural with `async` and `await`. In the code snippet that follows, `PossibleExceptionAsync` may throw a `NotSupportedException`, but `TrySomethingAsync` can catch the exception naturally. The caught exception has its stack trace properly preserved and isn’t artificially wrapped in a `TargetInvocationException` or `AggregateException`:
+
+```csharp
+async Task TrySomethingAsync()
+{
+    try
+    {
+        await PossibleExceptionAsync();
+    }
+    catch (NotSupportedException ex)
+    {
+        LogException(ex);
+        throw;
+    }
+}
+```
+
+When an `async` method throws (or propagates) an exception, the exception is placed on its returned `Task` and the `Task` is completed. When that `Task` is awaited, the await operator will retrieve that exception and (re)throw it in a way such that its original stack trace is preserved. Thus, code such as the following example would work as expected if `PossibleExceptionAsync` was an `async` method:
+
+```csharp
+async Task TrySomethingAsync()
+{
+    // The exception will end up on the Task, not thrown directly.
+    Task task = PossibleExceptionAsync();
+
+    try
+    {
+        // The Task's exception will be raised here, at the await.
+        await task;
+    }
+    catch (NotSupportedException ex)
+    {
+        LogException(ex);
+        throw;
+    }
+}
+```
 
 <hr>
 
