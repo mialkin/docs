@@ -12,8 +12,9 @@
   - [Web](#web)
   - [Networking](#networking)
   - [Security](#security)
-  - [Microsoft](#microsoft)
   - [Python](#python)
+  - [dotNET](#dotnet)
+  - [C&#35;](#c)
 
 ## Tools
 
@@ -113,6 +114,7 @@
     - [Liskov Substitution Principle](design/solid/lsp.md)
     - [Interface Segregation Principle](design/solid/isp.md)
     - [Dependency Inversion Principle](design/solid/dip/dip.md)
+- [OOP](design/oop.md)
 
 ## Computer science
 
@@ -161,18 +163,54 @@
   - [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
   - [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
 
-## Microsoft
-
-- [.NET APIs](dotnet/api.md)
-- [.NET CLI](dotnet/cli.md)
-- ASP&#46;NET
-  - [Host](asp.net/host.md)
-- [C&#35;](csharp/csharp.md)
-- Windows
-  - [PowerShell](dotnet/powershell.md)
-    - [PowerShell scripting](dotnet/powershell%20scripting.md)
-
 ## Python
 
 - [Python](python/python.md)
   - [Syntax](python/syntax.md)
+
+## dotNET
+
+- [.NET API browser ↑](https://docs.microsoft.com/en-us/dotnet/api)
+- [.NET CLI](dotnet/cli.md)
+- ASP&#46;NET
+  - [Host](dotnet/asp.net/host.md)
+- [PowerShell](dotnet/powershell.md)
+  - [PowerShell scripting](dotnet/powershell%20scripting.md)
+
+## [C&#35;](csharp/csharp.md)
+
+- [Attributes](csharp/attributes.md)
+  - [Nullable static analysis attributes](csharp/nullable%20static%20analysis%20attributes.md)
+- Asynchronous programming (old)
+  - [Async/await best practices](csharp/asynchronous/async%20await%20best%20practices.md)
+  - [Async lambdas](csharp/asynchronous/async%20lambdas.md)
+  - [Awaiting multiple tasks](csharp/asynchronous/awaiting%20multiple%20tasks.md)
+  - [Exceptions in tasks](csharp/asynchronous/exceptions.md)
+  - [Execution context](csharp/asynchronous/execution%20context.md)
+  - [Reporting task progress](csharp/asynchronous/reporting%20progress.md)
+  - [Task scheduler](csharp/asynchronous/task%20scheduler.md)
+- [Collections](collections.md)
+  - System.Collections.Concurrent
+    - ConcurrentDictionary\<T>
+    - ConcurrentQueue\<T>
+    - ConcurrentStack\<T>
+- [Concurrency](csharp/concurrency/concurrency.md)
+  - [Asynchronous programming](csharp/concurrency/asynchronous%20programming.md)
+    - [Returning from task](csharp/concurrency/returning%20from%20task.md)
+    - System.Collections.Generic
+      - Interfaces
+        - [IAsyncEnumerable\<T>](dotnet/system/collections/generic/iasyncenumerable.md)
+  - [Parallel programming](csharp/concurrency/parallel%20programming.md)
+  - [Reactive programming](csharp/concurrency/reactive%20programming.md)
+  - [Dataflow programming](csharp/concurrency/dataflow%20programming.md)
+  - [Synchronization](concurrency/synchronization.md)
+- [Constructor execution order](constructor%20execution%20order.md)
+- [Covariance and contravariance](covariance%20and%20contravariance.md)
+- [Equality operator](equality%20operator.md)
+- [Extension methods](extension%20methods.md)
+- [Keywords](csharp/keywords/keywords.md)
+  - [yield](csharp/keywords/yield.md)
+- [Lambda expressions](lambda%20expressions.md)
+- [Memory managment](memory%20managment.md)
+- [Nullable reference types](nullable%20reference%20types.md)
+- [Ref vs out](ref%20vs%20out.md)

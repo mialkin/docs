@@ -10,4 +10,4 @@ Contextual keywords have special meaning only in a limited program context and c
 
 ## Links
 
-[↑ C# Keywords](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/#contextual-keywords)
+[C# Keywords ↑](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/#contextual-keywords)

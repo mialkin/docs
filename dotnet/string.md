@@ -34,7 +34,7 @@ public class Example
 {
    public static void Main()
    {
-      string result = String.Empty;
+      string result = String.Empty;`
       for (int ctr = 0x10107; ctr <= 0x10110; ctr++)  // Range of Aegean numbers.
          result += Char.ConvertFromUtf32(ctr);
 
