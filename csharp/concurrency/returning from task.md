@@ -62,3 +62,38 @@ static Task<int> B()
     return Task.FromResult(10);
 }
 ```
+
+## Explanation
+
+The `async` methods are different from normal methods. Whatever you return from an `async` method is wrapped by compiler in a `Task`.
+
+If you return no value, i.e. `void`, the "result" will be wrapped in a `Task`. If you return `int` the result will be wrapped in a `Task<int>`, and so on.
+
+If your `async` method needs to return `int`, you'd mark the return type of the method as `Task<int>`, and you'll return plain `int` not `Task<int>`. Compiler will convert `int` to `Task<int>` for you:
+
+```csharp
+private async Task<int> MethodName()
+{
+    await SomethingAsync();
+    return 42; // Note that we return int, not Task<int>, and that compiles.
+}
+```
+
+In the same way, when you return `Task<object>` your method's return type should be `Task<Task<object>>`:
+
+```csharp
+public async Task<Task<object>> MethodName()
+{
+    return Task.FromResult<object>(null); // This will compile.
+}
+```
+
+Since your method is returning `Task`, it shouldn't return any value. Otherwise it won't compile:
+
+```csharp
+public async Task MethodName()
+{
+    await SomethingAsync();
+    return; // This will compile, but return is redundant.
+}
+```
