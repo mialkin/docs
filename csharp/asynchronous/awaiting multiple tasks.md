@@ -1,5 +1,7 @@
 # Awaiting multiple tasks
 
+"Naive" approach when A's task is known to finish quicker:
+
 ```csharp
 using System;
 using System.Diagnostics;

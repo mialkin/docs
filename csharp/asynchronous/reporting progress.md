@@ -1,4 +1,4 @@
-# Reporting task progress
+# Reporting task's progress
 
 Example:
 
@@ -30,4 +30,4 @@ public partial class MainWindow : Window
 
 ## Links
 
-[↑ IProgress\<T> Interface](https://docs.microsoft.com/en-us/dotnet/api/system.iprogress-1)
+[IProgress\<T> Interface ↑](https://docs.microsoft.com/en-us/dotnet/api/system.iprogress-1)

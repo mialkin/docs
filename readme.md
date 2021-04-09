@@ -185,7 +185,6 @@
   - [Awaiting multiple tasks](csharp/asynchronous/awaiting%20multiple%20tasks.md)
   - [Exceptions in tasks](csharp/asynchronous/exceptions.md)
   - [Execution context](csharp/asynchronous/execution%20context.md)
-  - [Reporting task progress](csharp/asynchronous/reporting%20progress.md)
   - [Task scheduler](csharp/asynchronous/task%20scheduler.md)
 - [Collections](collections.md)
   - System.Collections.Concurrent
@@ -196,6 +195,7 @@
   - [Asynchronous programming](csharp/concurrency/asynchronous%20programming.md)
     - [Async/await best practices](csharp/asynchronous/async%20await%20best%20practices.md)
     - [Async lambdas](csharp/asynchronous/async%20lambdas.md)
+    - [Reporting task's progress](csharp/asynchronous/reporting%20progress.md)
     - [Returning Task](csharp/concurrency/returning%20task.md)
     - System.Collections.Generic
       - Interfaces
