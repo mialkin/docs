@@ -114,13 +114,13 @@
     - [Liskov Substitution Principle](design/solid/lsp.md)
     - [Interface Segregation Principle](design/solid/isp.md)
     - [Dependency Inversion Principle](design/solid/dip/dip.md)
-- [OOP](design/oop.md)
 
 ## Computer science
 
 - First-class function
 - Higher-order function
 - [Idempotence](cs/idempotence.md)
+- [OOP](design/oop.md)
 - Programming paradigms
   - Imperative
     - procedural
@@ -170,15 +170,15 @@
 
 ## dotNET
 
-- [.NET API browser ↑](https://docs.microsoft.com/en-us/dotnet/api)
 - [.NET CLI](dotnet/cli.md)
 - ASP&#46;NET
   - [Host](dotnet/asp.net/host.md)
 - [PowerShell](dotnet/powershell.md)
   - [PowerShell scripting](dotnet/powershell%20scripting.md)
 
-## [C&#35;](csharp/csharp.md)
+## C&#35;
 
+- [.NET API browser ↑](https://docs.microsoft.com/en-us/dotnet/api)
 - [Attributes](csharp/attributes.md)
   - [Nullable static analysis attributes](csharp/nullable%20static%20analysis%20attributes.md)
 - Asynchronous programming (old)
@@ -208,9 +208,10 @@
 - [Covariance and contravariance](covariance%20and%20contravariance.md)
 - [Equality operator](equality%20operator.md)
 - [Extension methods](extension%20methods.md)
+- [Garbage collector](csharp/gc.md)
 - [Keywords](csharp/keywords/keywords.md)
+  - [ref, out, in](csharp/keywords/ref%20out%20in.md)
   - [yield](csharp/keywords/yield.md)
 - [Lambda expressions](lambda%20expressions.md)
 - [Memory managment](memory%20managment.md)
 - [Nullable reference types](nullable%20reference%20types.md)
-- [Ref vs out](ref%20vs%20out.md)
