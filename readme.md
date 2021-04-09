@@ -182,8 +182,6 @@
 - [Attributes](csharp/attributes.md)
   - [Nullable static analysis attributes](csharp/nullable%20static%20analysis%20attributes.md)
 - Asynchronous programming (old)
-  - [Async/await best practices](csharp/asynchronous/async%20await%20best%20practices.md)
-  - [Async lambdas](csharp/asynchronous/async%20lambdas.md)
   - [Awaiting multiple tasks](csharp/asynchronous/awaiting%20multiple%20tasks.md)
   - [Exceptions in tasks](csharp/asynchronous/exceptions.md)
   - [Execution context](csharp/asynchronous/execution%20context.md)
@@ -196,6 +194,8 @@
     - ConcurrentStack\<T>
 - [Concurrency](csharp/concurrency/concurrency.md)
   - [Asynchronous programming](csharp/concurrency/asynchronous%20programming.md)
+    - [Async/await best practices](csharp/asynchronous/async%20await%20best%20practices.md)
+    - [Async lambdas](csharp/asynchronous/async%20lambdas.md)
     - [Returning from task](csharp/concurrency/returning%20from%20task.md)
     - System.Collections.Generic
       - Interfaces
