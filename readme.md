@@ -12,8 +12,8 @@
   - [Web](#web)
   - [Networking](#networking)
   - [Security](#security)
-  - [Microsoft](#microsoft)
   - [Python](#python)
+  - [dotNET](#dotnet)
 
 ## Tools
 
@@ -162,7 +162,12 @@
   - [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
   - [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
 
-## Microsoft
+## Python
+
+- [Python](python/python.md)
+  - [Syntax](python/syntax.md)
+
+## dotNET
 
 - [.NET APIs](dotnet/api.md)
 - [.NET CLI](dotnet/cli.md)
@@ -172,8 +177,3 @@
 - Windows
   - [PowerShell](dotnet/powershell.md)
     - [PowerShell scripting](dotnet/powershell%20scripting.md)
-
-## Python
-
-- [Python](python/python.md)
-  - [Syntax](python/syntax.md)
