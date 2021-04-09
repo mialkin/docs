@@ -113,6 +113,7 @@
     - [Liskov Substitution Principle](design/solid/lsp.md)
     - [Interface Segregation Principle](design/solid/isp.md)
     - [Dependency Inversion Principle](design/solid/dip/dip.md)
+- [OOP](design/oop.md)
 
 ## Computer science
 
