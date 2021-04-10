@@ -181,10 +181,6 @@
 - [.NET API browser ↑](https://docs.microsoft.com/en-us/dotnet/api)
 - [Attributes](csharp/attributes.md)
   - [Nullable static analysis attributes](csharp/nullable%20static%20analysis%20attributes.md)
-- Asynchronous programming (old)
-  - [Exceptions in tasks](csharp/asynchronous/exceptions.md)
-  - [Execution context](csharp/asynchronous/execution%20context.md)
-  - [Task scheduler](csharp/asynchronous/task%20scheduler.md)
 - [Collections](collections.md)
   - System.Collections.Concurrent
     - ConcurrentDictionary\<T>
@@ -195,12 +191,12 @@
     - [Async/await best practices](csharp/asynchronous/async%20await%20best%20practices.md)
     - [Async lambdas](csharp/asynchronous/async%20lambdas.md)
     - [Awaiting multiple tasks](csharp/asynchronous/awaiting%20multiple%20tasks.md)
+    - [Exceptions in tasks](csharp/asynchronous/exceptions.md)
+    - [Execution context](csharp/asynchronous/execution%20context.md)
     - [IAsyncEnumerable\<T> interface](csharp/asynchronous/iasyncenumerable.md)
     - [Reporting task's progress](csharp/asynchronous/reporting%20progress.md)
     - [Returning variable of Task type](csharp/concurrency/returning%20task.md)
-    - System.Collections.Generic
-      - Interfaces
-        - [IAsyncEnumerable\<T>](dotnet/system/collections/generic/iasyncenumerable.md)
+    - [Task scheduler](csharp/asynchronous/task%20scheduler.md)
   - [Parallel programming](csharp/concurrency/parallel%20programming.md)
   - [Reactive programming](csharp/concurrency/reactive%20programming.md)
   - [Dataflow programming](csharp/concurrency/dataflow%20programming.md)
