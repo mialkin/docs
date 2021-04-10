@@ -64,7 +64,9 @@ class Example
     {
         try
         {
-            Task.Run(() => throw new Exception()).GetAwaiter().GetResult();
+            Task.Run(() => throw new Exception())
+                .GetAwaiter()
+                .GetResult();
         }
         catch (Exception ex)
         {
