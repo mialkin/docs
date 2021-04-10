@@ -197,7 +197,7 @@
     - [Async lambdas](csharp/asynchronous/async%20lambdas.md)
     - [IAsyncEnumerable\<T> interface](csharp/asynchronous/iasyncenumerable.md)
     - [Reporting task's progress](csharp/asynchronous/reporting%20progress.md)
-    - [Returning Task](csharp/concurrency/returning%20task.md)
+    - [Returning variable of Task type](csharp/concurrency/returning%20task.md)
     - System.Collections.Generic
       - Interfaces
         - [IAsyncEnumerable\<T>](dotnet/system/collections/generic/iasyncenumerable.md)
