@@ -65,7 +65,7 @@ static Task<int> B()
 
 ## Explanation
 
-The `async` methods are different from normal methods. Whatever you return from an `async` method is wrapped by compiler in a `Task`.
+The `async` methods are different from normal methods. Whatever you return from an `async` method the result is wrapped by the compiler in a `Task`.
 
 If you return no value, i.e. `void`, the "result" will be wrapped in a `Task`. If you return `int` the result will be wrapped in a `Task<int>`, and so on.
 
