@@ -195,6 +195,7 @@
   - [Asynchronous programming](csharp/concurrency/asynchronous%20programming.md)
     - [Async/await best practices](csharp/asynchronous/async%20await%20best%20practices.md)
     - [Async lambdas](csharp/asynchronous/async%20lambdas.md)
+    - [IAsyncEnumerable\<T> interface](csharp/asynchronous/iasyncenumerable.md)
     - [Reporting task's progress](csharp/asynchronous/reporting%20progress.md)
     - [Returning Task](csharp/concurrency/returning%20task.md)
     - System.Collections.Generic
