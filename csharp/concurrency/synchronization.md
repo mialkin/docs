@@ -1,8 +1,9 @@
 # Synchronization
 
-There are two major types of synchronization: *communication* and *data protection*.
+When your application makes use of concurrency (as practically all .NET applications do), then you need to watch out for situations in which one piece of code needs to update data while other code needs to access the same data. Whenever this happens, you need to *synchronize* access to the
+data.
 
-## Using synchronization for data protection
+There are two major types of synchronization: *communication* and *data protection*.
 
 You need to use synchronization to protect shared data when all three of these conditions are true:
 
@@ -10,10 +11,84 @@ You need to use synchronization to protect shared data when all three of these c
 * These pieces are accessing (reading or writing) the same data.
 * At least one piece of code is updating (writing) the data.
 
+In other words, only data that is both *shared* and *updated* needs synchronization.
+
+Does this code need synchronization? :
+
+```csharp
+async Task MyMethodAsync()
+{
+    int value = 10;
+    await Task.Delay(TimeSpan.FromSeconds(1));
+
+    value = value + 1;
+    await Task.Delay(TimeSpan.FromSeconds(1));
+
+    value = value - 1;
+    await Task.Delay(TimeSpan.FromSeconds(1));
+
+    Trace.WriteLine(value);
+}
+```
+
+The anser is NO: each thread has it's own value of `value` in its stack and the method is asynchronous, but it's also sequential. Each thread has its own independent stack but shares the same memory with all the other threads in a process.
+
+Does this code need synchronization? :
+
+```csharp
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+
+int result = await new A().ModifyValueConcurrentlyAsync();
+Console.WriteLine(result);
+
+class A
+{
+    private int value;
+
+    async Task ModifyValueAsync()
+    {
+        Console.WriteLine("Before ThreadId: " + Thread.CurrentThread.ManagedThreadId);
+        await Task.Delay(TimeSpan.FromSeconds(5));
+        Console.WriteLine("After ThreadId: " + Thread.CurrentThread.ManagedThreadId);
+        value = value + 1;
+    }
+
+    // WARNING: may require synchronization; see discussion below.
+    public async Task<int> ModifyValueConcurrentlyAsync()
+    {
+        // Start three concurrent modifications.
+        Task task1 = ModifyValueAsync();
+        Task task2 = ModifyValueAsync();
+        Task task3 = ModifyValueAsync();
+        
+        await Task.WhenAll(task1, task2, task3);
+        
+        return value;
+    }
+}
+```
+
+The answer is: it tepends. If you know that the method is called from a GUI or ASP.NET context (or any context that only allows one piece of code to run at a time), synchronization won’t be necessary because when the actual `data` modification code runs, it runs at a different time than the other two `data` modifications. For example, if the preceding code is run in a GUI context, there’s only one UI thread that will execute each of the `data` modifications, so it *must* do them one at a time. So, if you know the context is a one-at-a-time context, then there’s no synchronization needed. However, if that same method is called from a threadpool thread (e.g., from `Task.Run`), then synchronization *would* be necessary. In that case, the three `data` modifications could run on separate threadpool threads and update `data.Value` simultaneously, so you would need to synchronize access to `data.Value`.
+
+Result from .NET 5 console application:
+
+```terminal
+Before ThreadId: 1
+Before ThreadId: 1
+Before ThreadId: 1
+After ThreadId: 7
+After ThreadId: 8
+After ThreadId: 9
+3
+```
+
+
 ### Immutable collections
 
 Immutable types are naturally threadsafe because they cannot change; it’s not possible to update an immutable collection, so no synchronization is necessary.
 
 ### Threadsafe collections
 
-Threadsafe collections (e.g., `ConcurrentDictionary`) are quite different. Unlike immutable collections, threadsafe collections can be updated. But they have all the synchronization they need built in, so you don’t have to worry about synchronizing collection changes.
+Threadsafe collections (e.g. `ConcurrentDictionary`) are quite different. Unlike immutable collections, threadsafe collections can be updated. But they have all the synchronization they need built in, so you don’t have to worry about synchronizing collection changes.

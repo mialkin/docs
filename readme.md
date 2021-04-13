@@ -197,7 +197,7 @@
   - [Multithreaded programming](csharp/concurrency/multithreaded%20programming.md)
   - [Parallel programming](csharp/concurrency/parallel%20programming.md)
   - [Reactive programming](csharp/concurrency/reactive%20programming.md)
-  - [Synchronization](concurrency/synchronization.md)
+  - [Synchronization](csharp/concurrency/synchronization.md)
 - [Constructor execution order](constructor%20execution%20order.md)
 - [Covariance and contravariance](covariance%20and%20contravariance.md)
 - [Equality operator](equality%20operator.md)
