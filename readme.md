@@ -179,6 +179,7 @@
 ## C&#35;
 
 - [.NET API browser ↑](https://docs.microsoft.com/en-us/dotnet/api)
+- [.NET Framework 4.8 Reference Source ↑](https://referencesource.microsoft.com)
 - [Attributes](csharp/attributes.md)
   - [Nullable static analysis attributes](csharp/nullable%20static%20analysis%20attributes.md)
 - [Concurrency](csharp/concurrency/concurrency.md)
