@@ -197,6 +197,7 @@
     - [Reporting task's progress](csharp/asynchronous/reporting%20progress.md)
     - [Returning variable of Task type](csharp/concurrency/returning%20task.md)
     - [Task scheduler](csharp/asynchronous/task%20scheduler.md)
+  - [Multithreaded programming](csharp/concurrency/multithreaded%20programming.md)
   - [Parallel programming](csharp/concurrency/parallel%20programming.md)
   - [Reactive programming](csharp/concurrency/reactive%20programming.md)
   - [Dataflow programming](csharp/concurrency/dataflow%20programming.md)
