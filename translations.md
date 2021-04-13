@@ -44,7 +44,7 @@
 * **Common Language Runtime** — общеязыковая исполняющая среда
 * **Common table expression** — обобщенное табличное выражение
 * **Composite** (design pattern) — Компоновщик
-* **Concurrency** — единовременность, одновременность
+* **Concurrency** — единовременность, одновременность, параллелизм
 * **Consistency** — согласованность
 * **Content delivery/distribution network** — сеть доставки/распределения содержимого
 * **Contravariance** — контравариантность

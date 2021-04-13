@@ -1,5 +1,9 @@
 # Collections
 
+There are a couple of collection categories that are useful for concurrent programming: *concurrent collections* and *immutable collections*. Concurrent collections allow multiple threads to update them simultaneously in a safe way. Most concurrent collections use *snapshots* to enable one thread to enumerate the values while another thread may be adding or removing values. Concurrent collections are usually more efficient than just protecting a regular collection with a lock.
+
+Immutable collections are a bit different. An immutable collection cannot actually be modified; instead, to modify an immutable collection, you create a new collection that represents the modified collection. This sounds horribly inefficient, but immutable collections share as much memory as possible between collection instances, so it’s not as bad as it sounds. The nice thing about immutable collections is that all operations are pure, so they work very well with functional code
+
 ## Immutable collections
 
 **Immutable collections** are collection instances that can never change; since they cannot change, they are threadsafe.
