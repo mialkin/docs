@@ -181,11 +181,6 @@
 - [.NET API browser ↑](https://docs.microsoft.com/en-us/dotnet/api)
 - [Attributes](csharp/attributes.md)
   - [Nullable static analysis attributes](csharp/nullable%20static%20analysis%20attributes.md)
-- [Collections](collections.md)
-  - System.Collections.Concurrent
-    - ConcurrentDictionary\<T>
-    - ConcurrentQueue\<T>
-    - ConcurrentStack\<T>
 - [Concurrency](csharp/concurrency/concurrency.md)
   - [Asynchronous programming](csharp/concurrency/asynchronous%20programming.md)
     - [Async/await best practices](csharp/asynchronous/async%20await%20best%20practices.md)
@@ -197,10 +192,11 @@
     - [Reporting task's progress](csharp/asynchronous/reporting%20progress.md)
     - [Returning variable of Task type](csharp/concurrency/returning%20task.md)
     - [Task scheduler](csharp/asynchronous/task%20scheduler.md)
+  - [Collections](csharp/concurrency/collections.md)
+  - [Dataflow programming](csharp/concurrency/dataflow%20programming.md)
   - [Multithreaded programming](csharp/concurrency/multithreaded%20programming.md)
   - [Parallel programming](csharp/concurrency/parallel%20programming.md)
   - [Reactive programming](csharp/concurrency/reactive%20programming.md)
-  - [Dataflow programming](csharp/concurrency/dataflow%20programming.md)
   - [Synchronization](concurrency/synchronization.md)
 - [Constructor execution order](constructor%20execution%20order.md)
 - [Covariance and contravariance](covariance%20and%20contravariance.md)
