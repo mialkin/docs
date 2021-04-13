@@ -2,7 +2,7 @@
 
 ## A
 
-* **Abstract factory** (design pattern) — Абстрактная фабрика
+* **Abstract factory** — Абстрактная фабрика (шаблон проектирования)
 * **Access modifier** — модификатор доступа
 * **Accessibility level** — уровень доступности
 * **Accessor** — метод доступа или акцессор
@@ -26,7 +26,7 @@
 * **Block** — заблокировать/-ться
 * **Block cipher** — блочный шифр
 * **Bounded** — ограниченный
-* **Builder** (design pattern) — Строитель
+* **Builder** — Строитель (шаблон проектирования)
 * **Bus** — шина
 
 ## C
@@ -43,7 +43,7 @@
 * **Commit** — фиксация
 * **Common Language Runtime** — общеязыковая исполняющая среда
 * **Common table expression** — обобщенное табличное выражение
-* **Composite** (design pattern) — Компоновщик
+* **Composite** — Компоновщик (шаблон проектирования)
 * **Concurrency** — единовременность, одновременность, параллелизм
 * **Consistency** — согласованность
 * **Content delivery/distribution network** — сеть доставки/распределения содержимого
@@ -100,7 +100,7 @@
 * **Favor object composition over class inheritance** — отдавать предпочтение композиции перед наследованием
 * **First-class citizen/object/entity/value** — объект первого класса
 * **Finalizer** — метод завершения или деструктор
-* **Flyweight** (design pattern) — Приспособленец
+* **Flyweight** — Приспособленец (шаблон проектирования)
 * **Foreground thread** — основной поток
 * **Full-duplex** — дуплексный, одновременный двусторонний
 
@@ -154,9 +154,9 @@
 ## M
 
 * **Manual** — руководство, справочник
-* **Mediator** (design pattern) — Посредник
+* **Mediator** — Посредник (шаблон проектирования)
 * **Member function** — функция-член (класса) или метод (класса)
-* **Memento** (design pattern) — Хранитель
+* **Memento**  — Хранитель (шаблон проектирования)
 * **Message broker** — брокер сообщений
 * **Middleware** — ПО промежуточного слоя
 * **Modifier** — модификатор
@@ -169,6 +169,7 @@
 
 ## O
 
+* **Observer** — Наблюдатель (шаблон проектирования)
 * **Offset** — сдвиг, смещение
 * **Open–closed principle** — приницип открытости/закрытости
 * **Open source** — открытый исходный код
@@ -183,7 +184,7 @@
 * **Pipiline** — 1. конвейер 2. канал связи или коммуникации
 * **Paging** — подкачка страниц
 * **Poll** — опрос, опрашивать
-* **Proxy** (design pattern) — Заместитель
+* **Proxy** — Заместитель (шаблон проектирования)
 * **Publisher** — издатель
 * **Push** — отправлять
 
