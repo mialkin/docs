@@ -72,7 +72,7 @@ class A
 
 The answer is: it tepends. If you know that the method is called from a GUI or ASP.NET context (or any context that only allows one piece of code to run at a time), synchronization won’t be necessary because when the actual `data` modification code runs, it runs at a different time than the other two `data` modifications. For example, if the preceding code is run in a GUI context, there’s only one UI thread that will execute each of the `data` modifications, so it *must* do them one at a time. So, if you know the context is a one-at-a-time context, then there’s no synchronization needed. However, if that same method is called from a threadpool thread (e.g., from `Task.Run`), then synchronization *would* be necessary. In that case, the three `data` modifications could run on separate threadpool threads and update `data.Value` simultaneously, so you would need to synchronize access to `data.Value`.
 
-Result from .NET 5 console application:
+Result for .NET 5 console application:
 
 ```terminal
 Before ThreadId: 1
@@ -84,6 +84,19 @@ After ThreadId: 9
 3
 ```
 
+Result for .NET 5 WPF application:
+
+```terminal
+Before ThreadId: 1
+Before ThreadId: 1
+Before ThreadId: 1
+After ThreadId: 1
+After ThreadId: 1
+After ThreadId: 1
+3
+```
+
+In both cases the execution times stays the same — 5 seconds.
 
 ### Immutable collections
 
