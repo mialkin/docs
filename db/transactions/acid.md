@@ -16,4 +16,4 @@
 
 ## Durability
 
-**Durability** is a property that guarantees that  guarantees that once a transaction has been committed, it will remain committed even in the case of a system failure (e.g., power outage or system crash). This usually means that completed transactions are recorded in non-volatile memory.
+**Durability** is a property that  guarantees that once a transaction has been committed, it will remain committed even in the case of a system failure (e.g., power outage or system crash). This usually means that completed transactions are recorded in non-volatile memory.
