@@ -15,7 +15,7 @@ postgres-postgresql.default.svc.cluster.local
 To get the password for "postgres" run:
 
 ```bash
-export POSTGRES_PASSWORD=$(kubectl get secret --namespace default postgres-postgresql -o jsonpath="{.data.postgresql-password}" | base64 --decode)
+kubectl get secret --namespace default postgres-postgresql -o jsonpath="{.data.postgresql-password}" | base64 --decode
 ```
 
 To connect to your database from outside the cluster execute the following commands:
