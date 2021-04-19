@@ -11,17 +11,7 @@ There are several kinds of concurrency:
 
 Usually, a mixture of techniques is used when writing a concurrent program. Most applications at least use multithreading (via the thread pool) and asynchronous programming. Feel free to mix and match all the various forms of concurrency, using the appropriate tool for each part of the application.
 
-## Reactive programming
-
-Another form of concurrency is *reactive programming*. Asynchronous programming implies that the application will start an operation that will complete once at a later time. Reactive programming is closely related to asynchronous programming but is built on *asynchronous events* instead of *asynchronous operations*. Asynchronous events may not have an actual "start", may happen at any time, and may be raised multiple times. One example is user input.
-
-**Reactive programming** is a declarative style of programming where the application reacts to events.
-
-> Reactive programming isn't necessarily concurrent, but it is closely related to concurrency, so this book covers the basics.<sup>7</sup>
-
-Usually, a mixture of techniques is used when writing a concurrent program. Most applications at least use multithreading (via the thread pool) and asynchronous programming.
-
-## P.S. Concurrency vs parallelism
+## Concurrency vs parallelism
 
 *Concurrency* and *parallelism* are not the same thing. **Concurrency** is a way to build things — it's a composition of independently executing things, called *procesees*, typically functions, but they don't have to be. **Parallelism** is, on the other hand, is *simultaneous* execution of multiple things, possibly related, possibly not.
 
@@ -31,6 +21,6 @@ In order to make concurrency work, you have to add this idea of *communication*.
 
 <hr>
 
-<sup>1, 7</sup> Stephen Cleary, Concurrency in C# Cookbook: Asynchronous, Parallel, and Multithreaded Programming, Second edition (O'Reilly Media, 2019).
+<sup>1</sup> Stephen Cleary, Concurrency in C# Cookbook: Asynchronous, Parallel, and Multithreaded Programming, Second edition (O'Reilly Media, 2019).
 
-<sup>2</sup> Rob Pike, Concurrency Is Not Parallelism, [↑ talk at Heroku conference](https://vimeo.com/49718712), 2003.
+<sup>2</sup> Rob Pike, Concurrency Is Not Parallelism, [talk at Heroku conference ↑](https://vimeo.com/49718712), 2003.
