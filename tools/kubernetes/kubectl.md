@@ -120,7 +120,7 @@ source ~/.zshrc
 echo $KUBECONFIG
 ```
 
-## Extract secret to YAML
+## Create Docker registry secret
 
 ```bash
 kubectl create secret docker-registry SECRET_NAME \
@@ -128,6 +128,19 @@ kubectl create secret docker-registry SECRET_NAME \
 --docker-username="admin" \
 --docker-password="abc123" \
 #--docker-email="admin@example.com"
+```
 
+## Create secret from literals
+
+```bash
+kubectl create secret generic SECRET_NAME \
+--namespace="YOUR_NAMESPACE" \
+--from-literal="username=admin" \
+--from-literal="password=123"
+```
+
+## Extract secret to YAML
+
+```bash
 kubectl get secret SECRET_NAME -o=yaml
 ```
