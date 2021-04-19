@@ -204,6 +204,7 @@
 - [Equality operator](csharp/equality%20operator.md)
 - [Extension methods](csharp/extension%20methods.md)
 - [Garbage collector](csharp/gc.md)
+- [Indexers](csharp/indexers.md)
 - [Keywords](csharp/keywords/keywords.md)
   - [ref, out, in](csharp/keywords/ref%20out%20in.md)
   - [yield](csharp/keywords/yield.md)
