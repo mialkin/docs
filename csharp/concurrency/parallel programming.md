@@ -64,6 +64,9 @@ If your tasks are too short, then the overhead of breaking up the data into task
 
 ## Parallel basics
 
+This chapter covers patterns for parallel programming. Parallel programming is used to split up CPU-bound pieces of work and divide them among multiple threads. These parallel processing recipes only consider CPU-bound work. If you have naturally asynchronous operations (such as I/O-bound work) that you want to execute in parallel, then see Chapter 2, and Recipe 2.4 in particular.
+
+The parallel processing abstractions covered in this chapter are part of the Task Parallel Library (TPL). The TPL is built into the .NET framework.
 
 <hr>
 
