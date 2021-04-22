@@ -119,6 +119,7 @@
 
 ## Computer science
 
+- [Arguments vs parameters](design/argument%20vs%20parameter.md)
 - First-class function
 - Higher-order function
 - [Idempotence](cs/idempotence.md)

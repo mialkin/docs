@@ -7,6 +7,8 @@ xUnit.net includes support for two different major types of unit tests — *fact
 - **Facts** are tests which are always true. They test invariant conditions.
 - **Theories** are tests which are only true for a particular set of data.
 
+Theory example #1:
+
 ```csharp
 [Theory]
 [InlineData(3)]
@@ -20,6 +22,26 @@ public void MyFirstTheory(int value)
 bool IsOdd(int value)
 {
     return value % 2 == 1;
+}
+```
+
+Example #2:
+
+```csharp
+public class BirthdayControllerUnitTests
+{
+    [Theory, MemberData(nameof(ActiveBirthdays))]
+    public async Task List_HasActiveBirthdays(DateTime machineUtcDate, DateTime birthdayDate)
+    {
+        // Do the test using machineUtcDate and birthdayDate parameters
+    }
+
+    public static readonly object[][] ActiveBirthdays =
+    {
+        new object[] {new DateTime(2010, 1, 10, 20, 30, 0), new DateTime(1990, 10, 9)},
+        new object[] {new DateTime(2010, 1, 10), new DateTime(1990, 1, 10)},
+        new object[] {new DateTime(2010, 12, 31, 21, 30, 0), new DateTime(1990, 1, 1)},
+    };
 }
 ```
 
