@@ -134,9 +134,10 @@ kubectl create secret docker-registry SECRET_NAME \
 
 ```bash
 kubectl create secret generic SECRET_NAME \
---namespace="YOUR_NAMESPACE" \
---from-literal="username=admin" \
+--namespace=YOUR_NAMESPACE \
+--from-literal=username=admin \
 --from-literal="password=123"
+--from-literal=connectionstring='host=localhost;user=admin;password=secret'
 ```
 
 ## Extract secret to YAML
