@@ -18,6 +18,7 @@
 
 ## B
 
+* **Background task** — фоновая задача
 * **Background thread** — фоновый поток
 * **Backup** — резервная копия
 * **Bearer** — носитель
@@ -118,6 +119,7 @@
 * **High(er)-level** — высокоуровневый
 * **Higher-order function** — функция высшего порядка
 * **Host** — узел
+* **Hosted service** — размещенная служба
 
 ## I
 
