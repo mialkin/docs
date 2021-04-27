@@ -1,6 +1,6 @@
 # Returning variable of Task type
 
-With `async`:
+## With `async`
 
 ```csharp
 using System.Collections.Generic;
@@ -35,7 +35,7 @@ static async IAsyncEnumerable<int> Four()
 }
 ```
 
-Without `async`:
+## Without `async`
 
 ```csharp
 static Task A()
@@ -60,6 +60,31 @@ static Task<int> B()
     // return 10;
 
     return Task.FromResult(10);
+}
+```
+
+## Getting results back
+
+Both `async` and non-`async` methods return `Task` types and both can be awaited:
+
+```csharp
+using System.Threading.Tasks;
+
+Task<int> b = B();
+int b1 = await B();
+
+Task<int> c = C();
+int c1 = await C();
+
+static Task<int> B()
+{
+    return Task.FromResult(10);
+}
+
+static async Task<int> C()
+{
+    int result = await Task.FromResult(10);
+    return result;
 }
 ```
 
