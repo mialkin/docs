@@ -5,6 +5,7 @@
   - [Deadlock](#deadlock)
   - [Exceptions](#exceptions)
   - [Task.Yield()](#taskyield)
+  - [async void](#async-void)
 
 **Asynchronous programming** is a form of concurrency that uses _futures_ or _callbacks_ to avoid unnecessary threads.
 
@@ -168,6 +169,66 @@ Output:
 7
 7
 ```
+
+## async void
+
+The problem with calling async void is that you don’t even get the task back. You have no way of knowing when the function’s task has completed. You can't `await` an`async void` function too.
+
+```csharp
+try
+{
+    A();
+}
+catch (Exception e)
+{
+    Console.WriteLine("This will never be caught");
+}
+Thread.Sleep(10);
+Console.WriteLine("I may get executed too if Thread.Sleep from above won't take too long");
+
+static async void A()
+{
+    // await Task.Yield();
+    throw new Exception("Ooops");
+}
+```
+
+```output
+Unhandled exception. I may get executed too if Thread.Sleep above won't take too long
+System.Exception: Ooops
+   at <Program>$.<<<Main>$>g__A|0_0>d.MoveNext() in /Users/aleksei/repositories/examples/ConsoleApp1/Program.cs:line 18
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.<>c.<ThrowAsync>b__140_1(Object state)
+   at System.Threading.QueueUserWorkItemCallbackDefaultContext.Execute()
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+   at System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+
+Process finished with exit code 134.
+```
+
+The `async void` function is a "fire and forget": you start the task chain, but you don't care about when it's finished.
+
+When the function returns, all you know is that everything up to the first `await` has executed. Everything after the first `await` will run at some unspecified point in the future that you have no access to.
+
+The bottom line is that an `async void` can crash the system and usually should be used only on the UI side event handlers.
+
+The code below will will work, because raised exception will just:
+
+```csharp
+M();
+
+Thread.Sleep(2000);
+
+Console.WriteLine("Still works");
+
+async Task M()
+{
+    await Task.Delay(1000);
+    throw new Exception("Boom!");
+}
+```
+
+But it you replace `Task` with `void` it won't — the process will crash because of the unhandled exception.
 
 <hr>
 
