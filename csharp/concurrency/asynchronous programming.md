@@ -4,6 +4,7 @@
   - [Synchronization context](#synchronization-context)
   - [Deadlock](#deadlock)
   - [Exceptions](#exceptions)
+  - [Task.Yield()](#taskyield)
 
 **Asynchronous programming** is a form of concurrency that uses _futures_ or _callbacks_ to avoid unnecessary threads.
 
@@ -135,6 +136,37 @@ async Task TrySomethingAsync()
         throw;
     }
 }
+```
+
+## Task.Yield()
+
+You can use `await Task.Yield();`; in an asynchronous method to force the method to complete asynchronously. If there is a current synchronization context, this will post the remainder of the method's execution back to that context.
+
+```csharp
+Print();
+await A();
+Print();
+
+static async Task A()
+{
+    Print();
+    await Task.Yield(); // Calling here Task.Delay(1) has almost the same effect.
+    Print();
+}
+
+static void Print()
+{
+    Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
+}
+```
+
+Output:
+
+```console
+1
+1
+7
+7
 ```
 
 <hr>
