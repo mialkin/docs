@@ -1,5 +1,0 @@
-# GetType method
-
-```csharp
-
-```

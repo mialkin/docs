@@ -217,5 +217,5 @@
 - [Lambda expressions](lambda%20expressions.md)
 - [Memory managment](memory%20managment.md)
 - [Nullable reference types](nullable%20reference%20types.md)
-- [Object](csharp/object/object.md)
+- [Object](csharp/object.md)
 - [Stopwatch](csharp/stopwatch.md)
