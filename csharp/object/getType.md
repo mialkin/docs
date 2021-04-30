@@ -1,1 +1,5 @@
 # GetType method
+
+```csharp
+
+```
