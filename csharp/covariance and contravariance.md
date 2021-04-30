@@ -1,5 +1,15 @@
 # Covariance and contravariance
 
+- [Covariance and contravariance](#covariance-and-contravariance)
+  - [Arrays](#arrays)
+    - [**Covariance**](#covariance)
+  - [Generic type arguments](#generic-type-arguments)
+    - [**Covariance**](#covariance-1)
+    - [**Contravariance**](#contravariance)
+  - [Delegates](#delegates)
+    - [**Covarinace and contravariance**](#covarinace-and-contravariance)
+  - [Links](#links)
+
 Covariance enables implicit conversion of an array/delegate/generic argument of a more derived type to an array/delegate/generic argument of a less derived type.
 
 ## Arrays
@@ -135,7 +145,7 @@ IEnumerable<Object> listObjects = new List<String>();
 
 ### **Covarinace and contravariance**
 
-Covariance and contravariance support for method groups allows for matching method signatures with [delegate](../api/system/delegate/delegate.md) types. This enables you to assign to delegates not only methods that have matching signatures, but also methods that return more derived types (covariance) or that accept parameters that have less derived types (contravariance) than that specified by the delegate type.
+Covariance and contravariance support for *method groups* <sup>1</sup> allows for matching method signatures with [delegate](../api/system/delegate/delegate.md) types. This enables you to assign to delegates not only methods that have matching signatures, but also methods that return more derived types (covariance) or that accept parameters that have less derived types (contravariance) than that specified by the delegate type:
 
 ```csharp
 using System;
@@ -179,3 +189,9 @@ Output type: Square
 [↑ Variance in Generic Interfaces](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/covariance-contravariance/variance-in-generic-interfaces)
 
 [↑ Variance in Delegates](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/covariance-contravariance/variance-in-delegates)
+
+<hr>
+
+<sup>1</sup> A **method group** is the name for a set of methods (that might be just one) — i.e. in theory the `ToString` method may have multiple overloads (plus any extension methods): `ToString()`,` ToString(string format)`, etc — hence `ToString` by itself is a "method group".
+
+It is purely a compiler term for "I know what the method name is, but I don't know the signature"; it has no existence at runtime. AFAIK, the only use of a method-group by itself (no brackets etc) is during delegate construction.
