@@ -119,11 +119,11 @@
 
 ## Computer science
 
-- [Arguments vs parameters](design/argument%20vs%20parameter.md)
+- [Arguments vs parameters](cs/argument%20vs%20parameter.md)
 - First-class function
 - Higher-order function
 - [Idempotence](cs/idempotence.md)
-- [OOP](design/oop.md)
+- [OOP](cs/oop.md)
 - Programming paradigms
   - Imperative
     - procedural
