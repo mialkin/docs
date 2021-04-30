@@ -12,6 +12,40 @@ Two:
 >
 > This book is only a start. It contains some of the most common design patterns that expert object-oriented designers use, and yet people hear and learn about them solely by word of mouth or by studying existing systems.<sup>2</sup>
 
+## List of patterns
+
+Creational
+
+- [Abstract Factory](abstract%20factory.md)
+- [Builder](builder.md)
+- [Factory Method](factory%20method.md)
+- [Prototype](prototype.md)
+- [Singleton](singleton.md)
+
+Structural
+
+- [Adapter](adapter.md)
+- [Bridge](bridge.md)
+- [Composite](composite.md)
+- [Decorator](decorator.md)
+- [Facade](facade.md)
+- [Flyweight](flyweight.md)
+- [Proxy](proxy.md)
+
+Behavioral
+
+- [Chain of Responsibility](chain%20of%20responsibility.md)
+- [Command](command.md)
+- Interpreter
+- [Iterator](iterator.md)
+- [Mediator](mediator.md)
+- [Memento](memento.md)
+- [Observer](observer.md)
+- [State](state.md)
+- [Strategy](strategy.md)
+- [Template Method](template%20method.md)
+- [Visitor](visitor.md)
+
 ## See also
 
 [GoF notation for diagrams](gof%20notation/gof%20notation.md)
