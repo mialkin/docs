@@ -90,3 +90,9 @@ chmod 775 rider
 ```zsh
 vim /etc/hosts
 ```
+
+## Installing app from developers
+
+1. Just move app into `/Applications` folder and open it.
+2. If you see `"YOUR_APP" cannot be opened because the developer cannot be verified.`, please open up System Preferences -> Security & Privacy -> General -> Open Anyway.
+3. If you see the error `The application YOUR_APP can't be opened` error on launch, you could chmod +x "/Applications/YOUR_APP.app/Contents/MacOS/YOUR_APP"
