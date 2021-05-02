@@ -11,49 +11,16 @@ class Program
 
     static async Task Main()
     {
-        string x = "https://example.com";
+        string url = "https://example.com";
 
         await Task.Run(async () =>
         {
-            HttpResponseMessage response = await Client.GetAsync(x);
+            HttpResponseMessage response = await Client.GetAsync(url);
 
             string text = await response.Content.ReadAsStringAsync();
             Console.WriteLine(text);
         });
 
-        Console.WriteLine("The end");
     }
 }
 ```
-
-Output:
-
-```csharp
-<!doctype html>
-<html>
-<head>
-    <title>Example Domain</title>
-
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-</head>
-
-<body>
-<div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
-</div>
-</body>
-</html>
-
-The end
-
-```
-
-## Links
-
-* [↑ Async lambdas](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions#async-lambdas)
-* [↑ Potential pitfalls to avoid when passing around async lambdas](https://devblogs.microsoft.com/pfxteam/potential-pitfalls-to-avoid-when-passing-around-async-lambdas/)

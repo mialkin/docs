@@ -18,15 +18,12 @@ Stopwatch sw = Stopwatch.StartNew();
 Task<int> taskA = a.Do();
 Task<int> taskB = b.Do();
 
-Console.WriteLine(sw.ElapsedMilliseconds);
+Console.WriteLine(sw.ElapsedMilliseconds + " milliseconds");
 
 int resultA = await taskA;
 int resultB = await taskB;
 
 Console.WriteLine(sw.ElapsedMilliseconds);
-
-Console.WriteLine($"ResultA = {resultA}");
-Console.WriteLine($"ResultB = {resultB}");
 
 class A
 {
@@ -52,6 +49,4 @@ Output:
 ```output
 3
 5009
-ResultA = 4
-ResultB = 5
 ```

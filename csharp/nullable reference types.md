@@ -11,7 +11,7 @@ string? name;
 
 Any variable where the `?` isn't appended to the type name is a non-nullable reference type. That includes all reference type variables in existing code when you've enabled this feature.
 
-The compiler uses static analysis to determine if a nullable reference is known to be non-null. The compiler warns you if you dereference a nullable reference when it may be null. You can override this behavior by using the [↑ null-forgiving operator](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-forgiving) `!` following a variable name. For example, if you know the name variable isn't null but the compiler issues a warning, you can write the following code to override the compiler's analysis:
+The compiler uses static analysis to determine if a nullable reference is known to be non-null. The compiler warns you if you dereference a nullable reference when it may be null. You can override this behavior by using the [null-forgiving operator ↑](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-forgiving) `!` following a variable name. For example, if you know the name variable isn't null but the compiler issues a warning, you can write the following code to override the compiler's analysis:
 
 ```csharp
 name!.Length;
