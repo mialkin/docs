@@ -1,4 +1,4 @@
-# Returning variable of Task type
+# Returning variable from Task
 
 ## With `async`
 

@@ -1,4 +1,4 @@
-# Async/await
+# Async/await best practices
 
 ## Practical advices
 

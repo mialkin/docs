@@ -1,10 +1,5 @@
 # Execution context
 
-## Links
-
-* [↑ Dissecting the async methods in C#](https://devblogs.microsoft.com/premier-developer/dissecting-the-async-methods-in-c/)
-* [↑ ExecutionContext Class](https://docs.microsoft.com/en-us/dotnet/api/system.threading.executioncontext)
-
 ## Content
 
 In the synchronous world, each thread keeps ambient information in a *thread-local storage*<sup>1</sup>. It can be security-related information, culture-specific data, or something else. When 3 methods are called sequentially in one thread this information flows naturally between all of them. But this is no longer true for asynchronous methods. Each "section" of an asynchronous method can be executed in different threads that makes thread-local information unusable.
@@ -51,7 +46,7 @@ In Task.Run: 42
 In Task.ContinueWith: 42
 ```
 
-But not all methods in the BCL will automatically capture and restore the execution context. Two exceptions are `TaskAwaiter<T>.UnsafeOnComplete` and `AsyncMethodBuilder<T>.AwaitUnsafeOnComplete`. It looks weird that the language authors decided to add "unsafe" methods to flow the execution context manually using `AsyncMethodBuilder<T>` and `MoveNextRunner` instead of relying on a built-in facilities like `AwaitTaskContinuation`. I suspect there were some performance reasons or anther restrictions on the existing implementation.
+But not all methods in the BCL will automatically capture and restore the execution context. Two exceptions are `TaskAwaiter<T>.UnsafeOnComplete` and `AsyncMethodBuilder<T>.AwaitUnsafeOnComplete`. It looks weird that the language authors decided to add "unsafe" methods to flow the execution context manually using `AsyncMethodBuilder<T>` and `MoveNextRunner` instead of relying on a built-in facilities like `AwaitTaskContinuation`. I suspect there were some performance reasons or another restrictions on the existing implementation.
 
 Here is an example that demonstrates the difference:
 
@@ -103,3 +98,8 @@ After second await: 42
 1. The **thread-local storage** is a mechanism by which each thread in a given multithreaded process allocates storage for thread-specific data.
 
 2. The **flow of control** is the order in which individual statements, instructions or function calls are executed or evaluated.
+
+## Links
+
+* [↑ Dissecting the async methods in C#](https://devblogs.microsoft.com/premier-developer/dissecting-the-async-methods-in-c/)
+* [↑ ExecutionContext Class](https://docs.microsoft.com/en-us/dotnet/api/system.threading.executioncontext)
