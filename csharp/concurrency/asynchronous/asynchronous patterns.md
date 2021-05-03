@@ -2,11 +2,12 @@
 
 - [Asynchronous patterns](#asynchronous-patterns)
   - [Task-Based Asynchronous Pattern (TAP)](#task-based-asynchronous-pattern-tap)
-  - [Asynchronous programming model (APM)](#asynchronous-programming-model-apm)
+  - [Asynchronous Programming Model (APM)](#asynchronous-programming-model-apm)
   - [Event-Based asynchronous programming (EAP)](#event-based-asynchronous-programming-eap)
   - [Continuation Passing Style (CPS)](#continuation-passing-style-cps)
   - [Custom async patterns](#custom-async-patterns)
   - [ISynchronizeInvoke](#isynchronizeinvoke)
+  - [More](#more)
 
 ## Task-Based Asynchronous Pattern (TAP)
 
@@ -28,7 +29,7 @@ Here’s an example of a type with a TAP API:
 class ExampleHttpClient
 {
     public Task<string> GetStringAsync(Uri requestUri);
-    
+
     // Synchronous equivalent, for comparison
     public string GetString(Uri requestUri);
 }
@@ -36,7 +37,42 @@ class ExampleHttpClient
 
 Consuming the Task-Based Asynchronous Pattern is done using `await`.
 
-## Asynchronous programming model (APM)
+## Asynchronous Programming Model (APM)
+
+After TAP, the **Asynchronous Programming Model** (**APM**) pattern is probably the next most-common pattern you'll encounter. It was the first pattern where asynchronous operations had first-class object representations. The telltale sign of this pattern is the `IAsyncResult` objects in conjunction with a pair of methods that manage the operation, one starting with `Begin` and the other starting with `End`.
+
+The APM pattern allows consuming code to behave either synchronously or asynchronously. The consuming code can choose from these options:
+
+- Block for the operation to complete. This is done by calling the `End` method.
+- Poll for the operation to complete while doing something else.
+- Supply a callback delegate to invoke when the operation completes.
+
+In all cases, the consuming code must eventually call the `End` method to retrieve the results of the asynchronous operation. If the operation is not completed when `End` is called, it'll block the calling thread until the operation completes.
+
+The `Begin` method takes an `AsyncCallback` parameter and an object parameter (usually called `state`) as its last two parameters. These are used by consuming code to provide a callback delegate to invoke when the operation completes. The `object` parameter can be whatever you want; this is a holdover from the very early days of .NET, before lambda methods or even anonymous methods existed. It is just used to provide context to the `AsyncCallback` parameter.
+
+The APM is fairly widespread among Microsoft libraries, but is not as common in the wider .NET ecosystem. This is because there were never any `IAsyncResult` implementations made available for reuse, and implementing that interface correctly is fairly complex. In addition, it is difficult to compose APM-based systems. I’ve seen only a few custom `IAsyncResult` implementations in the wild.
+
+The Asynchronous Programming Model pattern can be recognized by these characteristics:
+
+1. The operation is represented by a pair of methods, one starting with `Begin` and the other starting with `End`.
+2. The `Begin` method returns an `IAsyncResult`, and takes all normal input parameters, along with an extra `AsyncCallback` parameter and an extra object parameter.
+3. `The` End method only takes an `IAsyncResult`, and returns the result value, if any.
+
+Here’s an example of a type with an APM API:
+
+```csharp
+class MyHttpClient
+{
+    public IAsyncResult BeginGetString(Uri requestUri, AsyncCallback callback, object state);
+    public string EndGetString(IAsyncResult asyncResult);
+    
+    // Synchronous equivalent, for comparison
+    public string GetString(Uri requestUri);
+}
+```
+
+Consume the APM by converting it to TAP using `Task.Factory.FromAsync`.
 
 ## Event-Based asynchronous programming (EAP)
 
@@ -44,8 +80,7 @@ Consuming the Task-Based Asynchronous Pattern is done using `await`.
 
 ## Custom async patterns
 
-Very specialized types will sometimes define their own custom asynchronous patterns. Custom patterns do not have any common characteristics and are therefore the hardest to recognize. Thankfully, custom asynchronous patterns are
-rare.
+Very specialized types will sometimes define their own custom asynchronous patterns. Custom patterns do not have any common characteristics and are therefore the hardest to recognize. Thankfully, custom asynchronous patterns are rare.
 
 Here’s an example of a type with a custom asynchronous API:
 
@@ -53,7 +88,7 @@ Here’s an example of a type with a custom asynchronous API:
 class MyHttpClient
 {
     public void GetString(Uri requestUri, MyHttpClientAsynchronousOperation operation);
-    
+
     // Synchronous equivalent, for comparison
     public string GetString(Uri requestUri);
 }
@@ -84,3 +119,7 @@ class MyHttpClient
 ```
 
 Since `ISynchronizeInvoke` implies multiple events in a subscription model, the proper way to consume these components is to translate those events to an observable stream, either using `FromEvent` or `Observable.Create`.
+
+## More
+
+Take a look at Microsoft documentation: [Asynchronous programming patterns ↑](https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/), it has many interesting information covered.
