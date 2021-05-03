@@ -48,4 +48,4 @@ class A
 
 ## Links
 
--   [↑ Nullable reference types](https://docs.microsoft.com/en-us/dotnet/csharp/nullable-references)
+- [↑ Nullable reference types](https://docs.microsoft.com/en-us/dotnet/csharp/nullable-references)

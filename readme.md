@@ -218,6 +218,6 @@
 - [`Object`](csharp/object.md)
 - [Stopwatch](csharp/stopwatch.md)
 - Types
-  - Value types
+  - [Value types](csharp/types/value%20types.md)
   - Reference types
     - [Nullable reference types](csharp/types/nullable%20reference%20types.md)
