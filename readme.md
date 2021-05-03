@@ -215,6 +215,9 @@
     - [`yield`](csharp/keywords/yield.md)
   - [`ref`, `out`, `in` (parameter modifiers)](csharp/keywords/ref%20out%20in.md)
 - [Lambda expressions](csharp/lambda%20expressions.md)
-- [Nullable reference types](csharp/nullable%20reference%20types.md)
 - [`Object`](csharp/object.md)
 - [Stopwatch](csharp/stopwatch.md)
+- Types
+  - Value types
+  - Reference types
+    - [Nullable reference types](csharp/types/nullable%20reference%20types.md)
