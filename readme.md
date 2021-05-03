@@ -133,7 +133,7 @@
     - logic
     - mathematical
     - reactive
-- [Sorting algorithms](cs/sorting/sorting%20algorithms.md)
+- [Sorting algorithms](cs/sorting%20algorithms.md)
 
 ## Web
 
