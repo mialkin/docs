@@ -192,7 +192,7 @@
     - [Async/await best practices](csharp/concurrency/asynchronous/async%20await%20best%20practices.md)
     - [Async lambdas](csharp/concurrency/asynchronous/async%20lambdas.md)
     - [Awaiting multiple tasks](csharp/concurrency/asynchronous/awaiting%20multiple%20tasks.md)
-    - [Exceptions in tasks](csharp/concurrency/asynchronous/exceptions.md)
+    - [Exceptions handling with `async` and `await`](csharp/concurrency/asynchronous/exceptions.md)
     - [Execution context](csharp/concurrency/asynchronous/execution%20context.md)
     - [IAsyncEnumerable\<T> interface](csharp/concurrency/asynchronous/iasyncenumerable.md)
     - [Reporting task's progress](csharp/concurrency/asynchronous/reporting%20progress.md)
