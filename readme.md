@@ -211,6 +211,8 @@
 - [`IEnumerable<T>`](csharp/ienumerable.md)
 - [Indexers](csharp/indexers.md)
 - [Keywords](csharp/keywords/keywords.md)
+  - Modifiers
+    - [event](csharp/keywords/event.md)
   - Contextual keywords
     - [`yield`](csharp/keywords/yield.md)
   - [`ref`, `out`, `in` (parameter modifiers)](csharp/keywords/ref%20out%20in.md)
@@ -219,5 +221,7 @@
 - [Stopwatch](csharp/stopwatch.md)
 - Types
   - [Value types](csharp/types/value%20types.md)
-  - Reference types
+  - [Reference types](csharp/types/reference%20types.md)
+    - Built-in reference types
+      - [delegate](csharp/types/delegate.md)
     - [Nullable reference types](csharp/types/nullable%20reference%20types.md)
