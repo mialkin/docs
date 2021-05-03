@@ -17,7 +17,7 @@ public partial class MainWindow : Window
         for (int i = 0; i < 10; i++)
         {
             // Reporting using Dispatcher.Invoke
-            Dispatcher.Invoke( () => MyLabel.Content = i * 10);
+            // Dispatcher.Invoke(() => MyLabel.Content = i * 10);
 
             // Reporting using progress.Report
             progress.Report(i * 10);
@@ -27,6 +27,10 @@ public partial class MainWindow : Window
     }
 }
 ```
+
+## More information
+
+For more information, if needed, check out recipe "2.3 Reporting Progress" from "Concurrency in C#" by Steven Cleary.
 
 ## Links
 
