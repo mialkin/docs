@@ -112,6 +112,29 @@ Consume the EAP by converting it to TAP using `TaskCompletionSource<T>`.
 
 ## Continuation Passing Style (CPS)
 
+This is a pattern that is much more common in other languages, particularly JavaScript and TypeScript as used by Node.js developers. In this pattern, each asynchronous operation takes a callback delegate that is invoked when the operation completes, either successfully or with error. A variant of this pattern uses *two* callback delegates, one for success and one for error. This kind of callback is called a “continuation,” and the continuation is passed as a parameter, hence the name “continuation passing style.” This pattern was never common in the .NET world, but there are a few older open source libraries that used it.
+
+The Continuation Passing Style pattern can be recognized by these characteristics:
+
+1. The operation is represented by a single method.
+2. The method takes an extra parameter which is a callback delegate; the callback delegate takes two arguments, one for errors and the other for results.
+3. Alternatively, the operation method takes two extra parameters, both callback delegates; one callback delegate is only for errors, and the other callback delegate is only for results.
+4. The callback delegates are commonly named `done` or `next`.
+
+Here’s an example of a type with a continuation-passing style API:
+
+```csharp
+class MyHttpClient
+{
+    public void GetString(Uri requestUri, Action<Exception, string> done);
+    
+    // Synchronous equivalent, for comparison
+    public string GetString(Uri requestUri);
+}
+```
+
+Consume CPS by converting it to TAP using `TaskCompletionSource<T>`, passing callback delegates that just complete the `TaskCompletionSource<T>`.
+
 ## Custom async patterns
 
 Very specialized types will sometimes define their own custom asynchronous patterns. Custom patterns do not have any common characteristics and are therefore the hardest to recognize. Thankfully, custom asynchronous patterns are rare.
