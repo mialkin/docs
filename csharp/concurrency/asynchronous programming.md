@@ -172,7 +172,7 @@ Output:
 
 ## async void
 
-The problem with calling async void is that you don’t even get the task back. You have no way of knowing when the function’s task has completed. You can't `await` an`async void` function too.
+The problem with calling async void is that you don’t even get the task back. You have no way of knowing when the function’s task has completed. You can't `await` an `async void` function too.
 
 ```csharp
 try
@@ -183,6 +183,7 @@ catch (Exception e)
 {
     Console.WriteLine("This will never be caught");
 }
+
 Thread.Sleep(10);
 Console.WriteLine("I may get executed too if Thread.Sleep from above won't take too long");
 
