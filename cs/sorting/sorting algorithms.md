@@ -1,9 +1,9 @@
 # Sorting algorithms
 
 - [Sorting algorithms](#sorting-algorithms)
-  - [Naive sort](#naive-sort)
-  - [Bubble sort](#bubble-sort)
-  - [Selection sort](#selection-sort)
+  - [Naive sort (19 sec)](#naive-sort-19-sec)
+  - [Bubble sort (15 sec)](#bubble-sort-15-sec)
+  - [Selection sort (4 sec)](#selection-sort-4-sec)
 
 Array size: **100 000 elements**.
 
@@ -37,9 +37,7 @@ public interface ISorter
 }
 ```
 
-## Naive sort
-
-Sort time: **19s**.
+## Naive sort (19 sec)
 
 Swaps two elements if the second is smaller than the first. Does so until there are no swaps anymore.
 
@@ -70,9 +68,7 @@ public class NaiveSorter : ISorter
 }
 ```
 
-## Bubble sort
-
-Sort time: **15s**.
+## Bubble sort (15 sec)
 
 ```csharp
 public class BubbleSorter : ISorter
@@ -97,9 +93,7 @@ public class BubbleSorter : ISorter
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Bubble-sort-example-300px.gif">
 
-## Selection sort
-
-Sort time: **4s**
+## Selection sort (4 sec)
 
 ```csharp
 public class SelectionSorter : ISorter
