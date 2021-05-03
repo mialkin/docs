@@ -1,4 +1,4 @@
-# IAsyncEnumerable\<T> interface
+# `IAsyncEnumerable\<T>` interface
 
 Exposes an enumerator that provides asynchronous iteration over values of a specified type.
 

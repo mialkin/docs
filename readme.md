@@ -212,9 +212,9 @@
 - [Indexers](csharp/indexers.md)
 - [Keywords](csharp/keywords/keywords.md)
   - Contextual keywords
-    - [yield](csharp/keywords/yield.md)
-  - [ref, out, in (parameter modifiers)](csharp/keywords/ref%20out%20in.md)
+    - [`yield`](csharp/keywords/yield.md)
+  - [`ref`, `out`, `in` (parameter modifiers)](csharp/keywords/ref%20out%20in.md)
 - [Lambda expressions](csharp/lambda%20expressions.md)
 - [Nullable reference types](csharp/nullable%20reference%20types.md)
-- [Object](csharp/object.md)
+- [`Object`](csharp/object.md)
 - [Stopwatch](csharp/stopwatch.md)
