@@ -217,11 +217,11 @@
     - [`yield`](csharp/keywords/yield.md)
   - [`ref`, `out`, `in` (parameter modifiers)](csharp/keywords/ref%20out%20in.md)
 - [Lambda expressions](csharp/lambda%20expressions.md)
-- [`Object`](csharp/object.md)
 - [Stopwatch](csharp/stopwatch.md)
 - Types
   - [Value types](csharp/types/value%20types.md)
   - [Reference types](csharp/types/reference%20types.md)
     - Built-in reference types
-      - [delegate](csharp/types/delegate.md)
+      - [`delegate`](csharp/types/delegate.md)
+      - [`object`](csharp/types/object.md)
     - [Nullable reference types](csharp/types/nullable%20reference%20types.md)

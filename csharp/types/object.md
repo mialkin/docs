@@ -1,36 +1,41 @@
 # Object
 
 - [Object](#object)
-  - [Equals](#equals)
-  - [Finalize](#finalize)
-  - [GetHashCode](#gethashcode)
-  - [GetType](#gettype)
-  - [MemberwiseClone](#memberwiseclone)
-  - [ReferenceEquals](#referenceequals)
-  - [ToString](#tostring)
+  - [Equals(Object)](#equalsobject)
+  - [Equals(Object, Object)](#equalsobject-object)
+  - [Finalize()](#finalize)
+  - [GetHashCode()](#gethashcode)
+  - [GetType()](#gettype)
+  - [MemberwiseClone()](#memberwiseclone)
+  - [ReferenceEquals(Object, Object)](#referenceequalsobject-object)
+  - [ToString()](#tostring)
 
-## Equals
+The `object` type is an alias for `System.Object` in .NET. In the unified type system of C#, all types, predefined and user-defined, reference types and value types, inherit directly or indirectly from `System.Object`.
+
+## Equals(Object)
 
 Determines whether two object instances are equal.
 
 https://docs.microsoft.com/en-us/dotnet/api/system.object.equals
 https://stackoverflow.com/questions/814878/c-sharp-difference-between-and-equals
 
-## Finalize
+## Equals(Object, Object)
+
+## Finalize()
 
 https://docs.microsoft.com/en-us/dotnet/api/system.object.finalize
 
-## GetHashCode
+## GetHashCode()
 
 https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode
 
-## GetType
+## GetType()
 
 https://docs.microsoft.com/en-us/dotnet/api/system.object.gettype
 
-## MemberwiseClone
+## MemberwiseClone()
 
-The `MemberwiseClone` method creates a shallow copy by creating a new object, and then copying the nonstatic fields of the current object to the new object. If a field is a value type, a bit-by-bit copy of the field is performed. If a field is a reference type, the reference is copied but the referred object is not; therefore, the original object and its clone refer to the same object.
+Creates a shallow copy of the current `Object`.
 
 ```csharp
 protected object MemberwiseClone ();
@@ -98,9 +103,9 @@ Output:
 
 [Object.MemberwiseClone Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.memberwiseclone)
 
-## ReferenceEquals
+## ReferenceEquals(Object, Object)
 
-Determines whether the specified Object instances are the same instance.
+Determines whether the specified `Object` instances are the same instance.
 
 ```csharp
 public static bool ReferenceEquals (object objA, object objB);
@@ -125,9 +130,11 @@ namespace System
 
 Unlike the [Equals](Equals.md) method and the equality operator, the `ReferenceEquals` method cannot be overridden. Because of this, if you want to test two object references for equality and you are unsure about the implementation of the Equals method, you can call the `ReferenceEquals` method.
 
-[↑ Object.ReferenceEquals(Object, Object) Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.referenceequals)
+[Object.ReferenceEquals(Object, Object) Method ↑](https://docs.microsoft.com/en-us/dotnet/api/system.object.referenceequals)
 
-## ToString
+## ToString()
+
+Returns a string that represents the current object.
 
 ```csharp
 namespace System
@@ -143,4 +150,3 @@ namespace System
     }
 }
 ```
-
