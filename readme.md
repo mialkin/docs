@@ -133,6 +133,7 @@
     - logic
     - mathematical
     - reactive
+- [Serialization](cs/serialization.md)
 - [Sorting algorithms](cs/sorting%20algorithms.md)
 
 ## Web
