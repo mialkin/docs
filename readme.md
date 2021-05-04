@@ -165,8 +165,8 @@
 - [Generating self-signed certificate](security/generating%20certificate.md)
 - [TLS handshake](security/tls%20handshake.md)
 - Web
-  - [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
-  - [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
+  - [Cross-site request forgery (XSRF or CSRF) ↑](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
+  - [Cross-site scripting XSS ↑](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
 
 ## Python
 
