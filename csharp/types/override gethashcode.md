@@ -43,6 +43,4 @@ string str1 = dict[a1];
 
 first it will call `GetHashcode` on `a1` key to figure out bucket's index. Then it will call `Equals` on `a1`'s and `a2`'s keys that are already in the bucket. Since `Equals` returns always `false`, then it will raise "The given key 'A' was not present in the dictionary" exception.
 
-## Override guidance
-
-From https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/equality-operators
+Override guidelines: https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/equality-operators
