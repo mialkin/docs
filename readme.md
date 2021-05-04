@@ -224,4 +224,5 @@
     - Built-in reference types
       - [`delegate`](csharp/types/delegate.md)
       - [`object`](csharp/types/object.md)
+        - [Why override `GetHashCode` when `Equals` is overriden](csharp/types/override%20gethashcode.md)
     - [Nullable reference types](csharp/types/nullable%20reference%20types.md)
