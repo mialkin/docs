@@ -46,62 +46,54 @@ Example of usage:
 ```csharp
 using System;
 
-class Program
+A original = new A
 {
-    static void Main()
+    Code = 1,
+    B = new B
     {
-        var a = new A { Num = 7, Str = "hello", B = new B { Sum = 10 } };
-        var b = (A) a.Clone();
-
-        Print(a);
-        Print(b);
-
-        a.Num = 8;
-        a.Str = "bye";
-        a.B.Sum = 11;
-
-        Console.WriteLine("----------------");
-        Print(a);
-        Print(b);
+        Code = 1,
+        C = new C
+        {
+            Code = 1
+        }
     }
+};
 
-    private static void Print(A a)
-    {
-        Console.WriteLine($"{a.Num}, {a.Str}, {a.B.Sum}");
-    }
-}
+Console.WriteLine($"{original.Code}, {original.B.Code}, {original.B.C.Code}"); // 1, 1, 1
 
-class A : ICloneable
+A copy = original.Clone();
+Console.WriteLine($"{copy.Code}, {copy.B.Code}, {copy.B.C.Code}"); // 1, 1, 1
+
+copy.Code = 2;
+copy.B.Code = 3;
+Console.WriteLine($"{original.Code}, {copy.Code}, {original.B.Code}, {copy.B.Code}"); // 1, 2, 3, 3
+
+copy.B.C.Code = 4;
+Console.WriteLine($"{original.B.C.Code}, {copy.B.C.Code}"); // 4, 4
+
+class A
 {
-    public int Num;
-
-    public string Str { get; set; }
+    public int Code { get; set; }
 
     public B B { get; set; }
 
-    public object Clone()
+    public A Clone()
     {
-        return MemberwiseClone();
+        return (A) MemberwiseClone();
     }
 }
 
 class B
 {
-    public int Sum { get; set; }
+    public int Code { get; set; }
+    public C C { get; set; }
+}
+
+class C
+{
+    public int Code { get; set; }
 }
 ```
-
-Output:
-
-```output
-7, hello, 10
-7, hello, 10
-----------------
-8, bye, 11
-7, hello, 11
-```
-
-[Object.MemberwiseClone Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.memberwiseclone)
 
 ## ReferenceEquals(Object, Object)
 
