@@ -221,9 +221,11 @@
 - [Stopwatch](csharp/stopwatch.md)
 - Types
   - [Value types](csharp/types/value%20types.md)
+    - [Structure types](csharp/types/struct.md)
   - [Reference types](csharp/types/reference%20types.md)
     - Built-in reference types
       - [`delegate`](csharp/types/delegate.md)
       - [`object`](csharp/types/object.md)
         - [Why override `GetHashCode` when `Equals` is overriden](csharp/types/override%20gethashcode.md)
+      - [`string`](csharp/types/string.md)
     - [Nullable reference types](csharp/types/nullable%20reference%20types.md)

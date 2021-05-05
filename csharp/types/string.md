@@ -49,6 +49,6 @@ public class Example
 
 ## See also
 
-[Character encoding in .NET](https://docs.microsoft.com/en-us/dotnet/standard/base-types/character-encoding-introduction)
+[Character encoding in .NET ↑](https://docs.microsoft.com/en-us/dotnet/standard/base-types/character-encoding-introduction)
 
-[Char Struct](https://docs.microsoft.com/en-us/dotnet/api/system.char)
+[Char Struct ↑](https://docs.microsoft.com/en-us/dotnet/api/system.char)
