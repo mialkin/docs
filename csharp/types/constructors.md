@@ -1,10 +1,21 @@
-# Constructor execution order
+# Constructors
 
-A static constructor is used to initialize any static data, or to perform a particular action that needs to be performed only once. It is called automatically before the first instance is created or any static members are referenced.
+- [Constructors](#constructors)
+  - [Private constructors](#private-constructors)
+  - [Static constructors](#static-constructors)
+  - [Constructor execution order](#constructor-execution-order)
 
-Check out [Remarks ↑](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-constructors#remarks) for more details on static constructors.
+## Private constructors
 
-## Static constructor
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/private-constructors
+
+## Static constructors
+
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-constructors
+
+## Constructor execution order
+
+Static constructor:
 
 ```csharp
 using System;
@@ -38,7 +49,7 @@ class A
 }
 ```
 
-Outputs:
+Output:
 
 ```output
 B static
@@ -47,7 +58,7 @@ A
 B
 ```
 
-## Non-static constructor
+Non-static constructor:
 
 ```csharp
 using System;
@@ -71,7 +82,7 @@ class A
 }
 ```
 
-Outputs:
+Output:
 
 ```output
 A

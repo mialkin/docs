@@ -231,7 +231,7 @@
     - Built-in reference types
       - [`delegate`](csharp/types/delegate.md)
       - [`object`](csharp/types/object.md)
-        - [Constructor execution order](csharp/constructor%20execution%20order.md)
+        - [Constructors](csharp/types/constructors.md)
         - [Why override `GetHashCode` when `Equals` is overriden](csharp/types/override%20gethashcode.md)
       - [`record`](csharp/types/record.md)
       - [`string`](csharp/types/string.md)
