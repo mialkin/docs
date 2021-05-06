@@ -8,23 +8,19 @@
 
 ## Reference types equality
 
-By default, two reference-type operands are equal if they refer to the same object.
+By default, two reference-type operands are equal if they refer to the same object of if both of them are `null`:
 
 ```csharp
-using System;
+A a = new A(5);
+A a2 = new A(5);
 
-class Program
-{
-    public static void Main()
-    {
-        A a = new A(5);
-        A a2 = new A(5);
+Console.WriteLine($"{a == a2}, {a.Equals(a2)}"); // False, False
+a2 = a;
+Console.WriteLine($"{a == a2}, {a.Equals(a2)}"); // True, True
 
-        Console.WriteLine(a == a2);
-        a2 = a;
-        Console.WriteLine(a == a2);
-    }
-}
+A a3 = null;
+A a4 = null;
+Console.WriteLine($"{a3 == a4}, {object.Equals(a3, a4)}"); // True, True
 
 class A
 {
@@ -37,36 +33,7 @@ class A
 }
 ```
 
-Output:
-
-```output
-False
-True
-```
-
-Two objects are equal when both of them are `null`:
-
-```csharp
-
-using System;
-
-class Program
-{
-    public static void Main()
-    {
-        object o = null;
-        object o2 = null;
-
-        Console.WriteLine(o == o2);
-    }
-}
-```
-
-Output:
-
-```output
-True
-```
+If a reference type overloads the `==` operator, use the `Object.ReferenceEquals` method to check if two references of that type refer to the same object.
 
 ## String equality
 
