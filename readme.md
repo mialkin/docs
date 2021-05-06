@@ -222,6 +222,7 @@
 - Types
   - [Value types](csharp/types/value%20types.md)
     - [Structure types](csharp/types/struct.md)
+    - [`ValueType` class](csharp/types/value%20type%20class.md)
   - [Reference types](csharp/types/reference%20types.md)
     - Built-in reference types
       - [`delegate`](csharp/types/delegate.md)
