@@ -1,5 +1,11 @@
 # Equality operator ==
 
+- [Equality operator ==](#equality-operator-)
+  - [Reference types equality](#reference-types-equality)
+  - [String equality](#string-equality)
+  - [`struct` type equality](#struct-type-equality)
+  - [Links](#links)
+
 ## Reference types equality
 
 By default, two reference-type operands are equal if they refer to the same object.
@@ -91,6 +97,29 @@ True
 True
 ```
 
+## `struct` type equality
+
+This code will not compile:
+
+```csharp
+Point p1 = new Point(1, 1);
+Point p2 = new Point(1, 1);
+
+Console.WriteLine(p1 == p2); // Compile-time error: Cannot apply operator '==' to operands of type 'Point' and 'Point'
+
+struct Point
+{
+    public int X;
+    public int Y;
+
+    public Point(int x, int y)
+    {
+        X = x;
+        Y = y;
+    }
+}
+```
+
 ## Links
 
-[↑ Equality operators](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/equality-operators)
+[Equality operators ↑](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/equality-operators)
