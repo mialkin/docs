@@ -204,9 +204,7 @@
   - [Reactive programming](csharp/concurrency/reactive%20programming.md)
   - [Collections](csharp/concurrency/collections.md)
   - [Synchronization](csharp/concurrency/synchronization.md)
-- [Constructor execution order](csharp/constructor%20execution%20order.md)
 - [Covariance and contravariance](csharp/covariance%20and%20contravariance.md)
-- [Equality operator](csharp/equality%20operator.md)
 - [Extension methods](csharp/extension%20methods.md)
 - [Garbage collector](csharp/gc.md)
 - [`IEnumerable<T>`](csharp/ienumerable.md)
@@ -217,7 +215,9 @@
   - Contextual keywords
     - [`yield`](csharp/keywords/yield.md)
   - [`ref`, `out`, `in` (parameter modifiers)](csharp/keywords/ref%20out%20in.md)
-- [Lambda expressions](csharp/lambda%20expressions.md)
+- Operators and expressions
+  - [Equality operator](csharp/operators/equality%20operator.md)
+  - [Lambda expressions](csharp/operators/lambda%20expressions.md)
 - [Stopwatch](csharp/stopwatch.md)
 - Types
   - [Value types](csharp/types/value%20types.md)
@@ -226,6 +226,7 @@
     - Built-in reference types
       - [`delegate`](csharp/types/delegate.md)
       - [`object`](csharp/types/object.md)
+        - [Constructor execution order](csharp/constructor%20execution%20order.md)
         - [Why override `GetHashCode` when `Equals` is overriden](csharp/types/override%20gethashcode.md)
       - [`string`](csharp/types/string.md)
     - [Nullable reference types](csharp/types/nullable%20reference%20types.md)

@@ -78,4 +78,4 @@ A
 B
 ```
 
-[↑ C# constructor execution order](https://stackoverflow.com/questions/1882692/c-sharp-constructor-execution-order)
+[C# constructor execution order ↑](https://stackoverflow.com/questions/1882692/c-sharp-constructor-execution-order)
