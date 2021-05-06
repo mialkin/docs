@@ -75,7 +75,7 @@ UML notations for different kinds of dependencies between two objects:
 
 From the book "Head First Object-Oriented Analysis & Design": <sup>1</sup>
 
-<img src="cheat%20sheet.png">
+<img src="cheat%20sheet.png" height="350">
 
 [Link ↑](https://softwareengineering.stackexchange.com/questions/61376/aggregation-vs-composition)
 
