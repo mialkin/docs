@@ -99,7 +99,7 @@ True
 
 ## `struct` type equality
 
-This code will not compile:
+This code will not compile because user-defined `struct` types don't support the `==` operator by default:
 
 ```csharp
 Point p1 = new Point(1, 1);
@@ -120,6 +120,10 @@ struct Point
 }
 ```
 
+To support the `==` operator, a user-defined `struct` must overload it:
+
+
 ## Links
 
-[Equality operators ↑](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/equality-operators)
+- [Equality operators ↑](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/equality-operators)
+- [How to define value equality for a class or struct ↑](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/how-to-define-value-equality-for-a-type)

@@ -110,5 +110,5 @@ This practice often improves performance for readonly value types that are large
 
 ## Links
 
-* [out parameter modifier (C# Reference) ↑](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/out-parameter-modifier)
+* [out parameter modifier ↑](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/out-parameter-modifier)
 * [Write safe and efficient C# code ↑](https://docs.microsoft.com/en-us/dotnet/csharp/write-safe-efficient-code)

@@ -45,6 +45,8 @@ string str1 = dict[a1];
 
 first it will call `GetHashcode` on `a1` key to figure out bucket's index. Then it will call `Equals` on `a1`'s and `a2`'s keys that are already in the bucket. Since `Equals` returns always `false`, then it will raise "The given key 'A' was not present in the dictionary" exception.
 
+Also take a look at [`HashCode.Combine` ↑](https://docs.microsoft.com/en-us/dotnet/api/system.hashcode.combine) method that combines several values into a single hash code.
+
 ## Links
 
 - [Equality Operators ↑](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/equality-operators)
