@@ -1,5 +1,7 @@
 # Why override `GetHashCode` when `Equals` is overriden
 
+If two objects considered to be equal they *must* return the same hash code, but reverse is not neccessary: two object may return the same hash code, but they can be not equal. If you override `Equals` method you must also override `GetHashCode` method, because if you don't than two objects which are in fact equal will likely end up residing in different buckets inside of dictionary of `HashSet<T>`. Therefore you will have multiple equal keys in your dicitonary/hashset.
+
 Below `GetHashCode` will be called twice: right before `a1` and `a2` are added into the dictionary; and `Equals` will be called once: before `a2` is added:
 
 ```csharp
@@ -43,4 +45,7 @@ string str1 = dict[a1];
 
 first it will call `GetHashcode` on `a1` key to figure out bucket's index. Then it will call `Equals` on `a1`'s and `a2`'s keys that are already in the bucket. Since `Equals` returns always `false`, then it will raise "The given key 'A' was not present in the dictionary" exception.
 
-Override guidelines: https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/equality-operators
+## Links
+
+- [Equality Operators ↑](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/equality-operators)
+- [How to define value equality for a class or struct ↑](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/how-to-define-value-equality-for-a-type)
