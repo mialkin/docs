@@ -2,8 +2,8 @@
 
 - [Equality operator ==](#equality-operator-)
   - [Reference types equality](#reference-types-equality)
-  - [String equality](#string-equality)
-  - [`struct` type equality](#struct-type-equality)
+    - [string](#string)
+    - [struct](#struct)
   - [Links](#links)
 
 ## Reference types equality
@@ -35,36 +35,21 @@ class A
 
 If a reference type overloads the `==` operator, use the `Object.ReferenceEquals` method to check if two references of that type refer to the same object.
 
-## String equality
+### string
 
 ```csharp
-using System;
+string str = "spring";
+string str2 = "spring";
 
-class Program
-{
-    public static void Main()
-    {
-        string str = "spring";
-        string str2 = "spring";
+Console.WriteLine(str == str2); // True
 
-        Console.WriteLine(str == str2);
+str = null;
+str2 = null;
 
-        str = null;
-        str2 = null;
-
-        Console.WriteLine(str == str2);
-    }
-}
+Console.WriteLine(str == str2); // True
 ```
 
-Output:
-
-```output
-True
-True
-```
-
-## `struct` type equality
+### struct
 
 This code will not compile because user-defined `struct` types don't support the `==` operator by default:
 

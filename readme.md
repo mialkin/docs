@@ -222,7 +222,10 @@
 - [Stopwatch](csharp/stopwatch.md)
 - Types
   - [Value types](csharp/types/value%20types.md)
+    - [Boxing and unboxing](csharp/types/boxing%20and%20unboxing.md)
+    - [Enumeration types](csharp/types/enum.md)
     - [Structure types](csharp/types/struct.md)
+    - [Tuple types](csharp/types/tuple.md)
     - [`ValueType` class](csharp/types/value%20type%20class.md)
   - [Reference types](csharp/types/reference%20types.md)
     - Built-in reference types
@@ -230,5 +233,6 @@
       - [`object`](csharp/types/object.md)
         - [Constructor execution order](csharp/constructor%20execution%20order.md)
         - [Why override `GetHashCode` when `Equals` is overriden](csharp/types/override%20gethashcode.md)
+      - [`record`](csharp/types/record.md)
       - [`string`](csharp/types/string.md)
     - [Nullable reference types](csharp/types/nullable%20reference%20types.md)

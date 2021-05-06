@@ -5,7 +5,7 @@
   - [1 Copy of field/parameter of reference type](#1-copy-of-fieldparameter-of-reference-type)
   - [Instantiation without `new`](#instantiation-without-new)
 
-A **structure type** is a value type that can encapsulate data and related functionality. You use the `struct` keyword to define a structure type:
+A **structure type** (or **struct type**) is a value type that can encapsulate data and related functionality. You use the `struct` keyword to define a structure type:
 
 ```csharp
 struct A
