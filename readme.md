@@ -119,6 +119,7 @@
 
 ## Computer science
 
+- [Aggregation and composition](cs/aggregation%20and%20composition/aggregation%20and%20composition.md)
 - [Arguments vs parameters](cs/argument%20vs%20parameter.md)
 - First-class function
 - Higher-order function
