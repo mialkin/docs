@@ -6,6 +6,7 @@
     - [Answer 1](#answer-1)
     - [Answer 2](#answer-2)
     - [Answer 3](#answer-3)
+  - [UML cheat sheet](#uml-cheat-sheet)
 
 ## Wikipedia
 
@@ -70,4 +71,14 @@ UML notations for different kinds of dependencies between two objects:
 
 <img src="notations.jpg">
 
+## UML cheat sheet
+
+From the book "Head First Object-Oriented Analysis & Design": <sup>1</sup>
+
+<img src="cheat%20sheet.png">
+
 [Link ↑](https://softwareengineering.stackexchange.com/questions/61376/aggregation-vs-composition)
+
+<hr>
+
+<sup>1</sup> Head First Object-Oriented Analysis & Design, O'Reilly Media; 1st edition (December 19, 2006), page 400
