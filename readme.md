@@ -29,6 +29,7 @@
   - [helm](tools/kubernetes/helm.md)
   - [kubectl](tools/kubernetes/kubectl.md)
   - [Creating custom Kubernetes cluster using Ansible](tools/kubernetes/creating%20cluster.md)
+- [RabbitMQ](tools/rabbitmq.md)
 - [Redis](tools/redis.md)
 - [Regular expressions](tools/regular%20expressions/regular%20expressions.md)
 - Testing
