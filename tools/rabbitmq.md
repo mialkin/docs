@@ -16,6 +16,23 @@ Install [cluster operator ↑](https://www.rabbitmq.com/kubernetes/operator/oper
 kubectl rabbitmq install-cluster-operator
 ```
 
+## Running cluster
+
+```bash
+kubectl rabbitmq -n YOUR_NAMESPACE create CLUSTER_NAME --replicas 1
+kubectl rabbitmq -n YOUR_NAMESPACE secrets CLUSTER_NAME
+kubectl rabbitmq -n YOUR_NAMESPACE manage CLUSTER_NAME
+```
+
+Running/stopping performance test:
+
+```bash
+kubectl rabbitmq -n YOUR_NAMESPACE perf-test CLUSTER_NAME
+
+kubectl delete pod perf-test -n YOUR_NAMESPACE
+kubectl delete service perf-test -n YOUR_NAMESPACE
+```
+
 ## Commands
 
 | Command                                                             | Description                                   |
