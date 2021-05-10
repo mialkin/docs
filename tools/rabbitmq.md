@@ -16,12 +16,15 @@ Install [cluster operator ↑](https://www.rabbitmq.com/kubernetes/operator/oper
 kubectl rabbitmq install-cluster-operator
 ```
 
-## Running cluster
+## Running RabbitMQ in Kubernetes cluster
 
 ```bash
-kubectl rabbitmq -n YOUR_NAMESPACE create CLUSTER_NAME --replicas 1
-kubectl rabbitmq -n YOUR_NAMESPACE secrets CLUSTER_NAME
-kubectl rabbitmq -n YOUR_NAMESPACE manage CLUSTER_NAME
+YOUR_NAMESPACE=mialkin
+CLUSTER_NAME=mialkin-rabbitmq
+kubectl rabbitmq -n $YOUR_NAMESPACE create $CLUSTER_NAME --replicas 1
+# Above Requests 1 CPU and 2.15 GB of RAM:
+kubectl rabbitmq -n $YOUR_NAMESPACE secrets $CLUSTER_NAME
+kubectl rabbitmq -n $YOUR_NAMESPACE manage $CLUSTER_NAME
 ```
 
 ## Performance test
