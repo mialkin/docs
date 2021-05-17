@@ -87,6 +87,7 @@
 
 * Architectural patterns
   * [↑ CQRS](https://www.youtube.com/watch?v=xKKVW94F2bc)
+  * MediatR
   * Event sourcing
 
 ## Databases
