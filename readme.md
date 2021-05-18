@@ -205,11 +205,18 @@
   - [Cancellation](csharp/concurrency/cancellation.md)
   - [Collections](csharp/concurrency/collections.md)
   - [Synchronization](csharp/concurrency/synchronization.md)
-  - Threading
-    - [Semaphore](csharp/threading/semaphore.md)
-    - [SemaphoreSlim](csharp/threading/semaphoreslim.md)
-    - [Thread](csharp/threading/thread.md)
-    - [ThreadPool](csharp/threading/threadpool.md)
+  - Synchronization primitives
+    - `Interlocked`
+    - `Mutex`
+    - `ReaderWriterLockSlim`
+    - [`Semaphore`](csharp/synchronization%20primitives/semaphore.md)
+    - [`SemaphoreSlim`](csharp/synchronization%20primitives/semaphoreslim.md)
+    - `SpinLock`
+    - `SpinWait`
+    - Thread interaction, or signaling
+      - `Barrier`
+      - `CountdownEvent`
+      - `EventWaitHandle`, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`
 - [Covariance and contravariance](csharp/covariance%20and%20contravariance.md)
 - [Extension methods](csharp/extension%20methods.md)
 - [Garbage collector](csharp/gc.md)

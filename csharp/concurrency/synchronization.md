@@ -2,22 +2,22 @@
 
 - [Synchronization](#synchronization)
   - [Using `lock` statement](#using-lock-statement)
-  - [Additional stufff](#additional-stufff)
+  - [Additional stuff](#additional-stuff)
   - [Immutable collections](#immutable-collections)
   - [Threadsafe collections](#threadsafe-collections)
 
-When your application makes use of concurrency (as practically all .NET applications do), then you need to watch out for situations in which one piece of code needs to update data while other code needs to access the same data. Whenever this happens, you need to *synchronize* access to the
+When your application makes use of concurrency (as practically all .NET applications do), then you need to watch out for situations in which one piece of code needs to update data while other code needs to access the same data. Whenever this happens, you need to _synchronize_ access to the
 data.
 
-There are two major types of synchronization: *communication* and *data protection*.
+There are two major types of synchronization: _communication_ and _data protection_.
 
 You need to use synchronization to protect shared data when all three of these conditions are true:
 
-* Multiple pieces of code are running concurrently.
-* These pieces are accessing (reading or writing) the same data.
-* At least one piece of code is updating (writing) the data.
+- Multiple pieces of code are running concurrently.
+- These pieces are accessing (reading or writing) the same data.
+- At least one piece of code is updating (writing) the data.
 
-In other words, only data that is both *shared* and *updated* needs synchronization.
+In other words, only data that is both _shared_ and _updated_ needs synchronization.
 
 ## Using `lock` statement
 
@@ -25,12 +25,12 @@ There are many other kinds of locks in the .NET framework except `lock` statemen
 
 There are four important guidelines when using locks:
 
-* Restrict lock visibility.
-* Document what the lock protects.
-* Minimize code under lock.
-* Never execute arbitrary code while holding a lock.
+- Restrict lock visibility.
+- Document what the lock protects.
+- Minimize code under lock.
+- Never execute arbitrary code while holding a lock.
 
-## Additional stufff
+## Additional stuff
 
 Does this code need synchronization? :
 
@@ -81,15 +81,15 @@ class A
         Task task1 = ModifyValueAsync();
         Task task2 = ModifyValueAsync();
         Task task3 = ModifyValueAsync();
-        
+
         await Task.WhenAll(task1, task2, task3);
-        
+
         return value;
     }
 }
 ```
 
-The answer is: it tepends. If you know that the method is called from a GUI or ASP.NET context (or any context that only allows one piece of code to run at a time), synchronization won’t be necessary because when the actual `data` modification code runs, it runs at a different time than the other two `data` modifications. For example, if the preceding code is run in a GUI context, there’s only one UI thread that will execute each of the `data` modifications, so it *must* do them one at a time. So, if you know the context is a one-at-a-time context, then there’s no synchronization needed. However, if that same method is called from a threadpool thread (e.g., from `Task.Run`), then synchronization *would* be necessary. In that case, the three `data` modifications could run on separate threadpool threads and update `data.Value` simultaneously, so you would need to synchronize access to `data.Value`.
+The answer is: it tepends. If you know that the method is called from a GUI or ASP.NET context (or any context that only allows one piece of code to run at a time), synchronization won’t be necessary because when the actual `data` modification code runs, it runs at a different time than the other two `data` modifications. For example, if the preceding code is run in a GUI context, there’s only one UI thread that will execute each of the `data` modifications, so it _must_ do them one at a time. So, if you know the context is a one-at-a-time context, then there’s no synchronization needed. However, if that same method is called from a threadpool thread (e.g., from `Task.Run`), then synchronization _would_ be necessary. In that case, the three `data` modifications could run on separate threadpool threads and update `data.Value` simultaneously, so you would need to synchronize access to `data.Value`.
 
 Result for .NET 5 console application:
 
