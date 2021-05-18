@@ -219,7 +219,6 @@
       - `EventWaitHandle`, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`
 - [Covariance and contravariance](csharp/covariance%20and%20contravariance.md)
 - [Extension methods](csharp/extension%20methods.md)
-- [Garbage collector](csharp/gc.md)
 - [`IEnumerable<T>`](csharp/ienumerable.md)
 - [Indexers](csharp/indexers.md)
 - [Keywords](csharp/keywords/keywords.md)
@@ -228,6 +227,18 @@
   - Contextual keywords
     - [`yield`](csharp/keywords/yield.md)
   - [`ref`, `out`, `in` (parameter modifiers)](csharp/keywords/ref%20out%20in.md)
+- Memory
+  - [Garbage collector](csharp/memory/gc.md)
+  - `GC`
+    - Properties
+      - MaxGeneration
+    - Methods
+      - Collect(Int32)
+      - CollectionCount(Int32)
+      - GetGeneration(Object)
+      - GetTotalMemory(Boolean)
+      - SuppressFinalize(Object)
+      - WaitForPendingFinalizers()
 - Operators and expressions
   - [Equality operator](csharp/operators/equality%20operator.md)
   - [Lambda expressions](csharp/operators/lambda%20expressions.md)
