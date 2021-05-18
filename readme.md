@@ -28,7 +28,6 @@
   - [gcloud](tools/kubernetes/gcloud.md)
   - [helm](tools/kubernetes/helm.md)
   - [kubectl](tools/kubernetes/kubectl.md)
-  - [Creating custom Kubernetes cluster using Ansible](tools/kubernetes/creating%20cluster.md)
 - [RabbitMQ](tools/rabbitmq.md)
 - [Redis](tools/redis.md)
 - [Regular expressions](tools/regular%20expressions/regular%20expressions.md)
@@ -178,8 +177,6 @@
 ## dotNET
 
 - [.NET CLI](dotnet/cli.md)
-- ASP&#46;NET
-  - [Host](dotnet/asp.net/host.md)
 - [PowerShell](dotnet/powershell.md)
   - [PowerShell scripting](dotnet/powershell%20scripting.md)
 
@@ -208,6 +205,11 @@
   - [Cancellation](csharp/concurrency/cancellation.md)
   - [Collections](csharp/concurrency/collections.md)
   - [Synchronization](csharp/concurrency/synchronization.md)
+  - Threading
+    - [Semaphore](csharp/threading/semaphore.md)
+    - [SemaphoreSlim](csharp/threading/semaphoreslim.md)
+    - [Thread](csharp/threading/thread.md)
+    - [ThreadPool](csharp/threading/threadpool.md)
 - [Covariance and contravariance](csharp/covariance%20and%20contravariance.md)
 - [Extension methods](csharp/extension%20methods.md)
 - [Garbage collector](csharp/gc.md)

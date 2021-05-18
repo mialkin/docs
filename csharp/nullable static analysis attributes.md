@@ -1,18 +1,16 @@
 # Nullable static analysis attributes
 
+- [Nullable static analysis attributes](#nullable-static-analysis-attributes)
+  - [AllowNull](#allownull)
+  - [DisallowNull](#disallownull)
+  - [MaybeNull](#maybenull)
+  - [NotNull](#notnull)
+  - [DoesNotReturn](#doesnotreturn)
+  - [Links](#links)
+
 You can apply a number of attributes that provide information to the compiler about the semantics of your APIs. That information helps the compiler perform static analysis and determine when a variable is not `null`.
 
 All the examples assume C# 8.0 or newer, and the code is in a [↑ nullable context](https://docs.microsoft.com/en-us/dotnet/csharp/nullable-references#nullable-contexts).
-
-[AllowNull](#allownull)
-
-[DisallowNull](#disallownull)
-
-[MaybeNull](#maybenull)
-
-[NotNull](#notnull)
-
-[DoesNotReturn](#doesnotreturn)
 
 Imagine your library has the following API to retrieve a resource string:
 
