@@ -1,5 +1,11 @@
 # Synchronization
 
+- [Synchronization](#synchronization)
+  - [Using `lock` statement](#using-lock-statement)
+  - [Additional stufff](#additional-stufff)
+  - [Immutable collections](#immutable-collections)
+  - [Threadsafe collections](#threadsafe-collections)
+
 When your application makes use of concurrency (as practically all .NET applications do), then you need to watch out for situations in which one piece of code needs to update data while other code needs to access the same data. Whenever this happens, you need to *synchronize* access to the
 data.
 
@@ -12,6 +18,19 @@ You need to use synchronization to protect shared data when all three of these c
 * At least one piece of code is updating (writing) the data.
 
 In other words, only data that is both *shared* and *updated* needs synchronization.
+
+## Using `lock` statement
+
+There are many other kinds of locks in the .NET framework except `lock` statement, such as `Monitor`, `SpinLock`, and `ReaderWriterLockSlim`. In most applications, these lock types should almost never be used directly. In particular, it’s natural for developers to jump to `ReaderWriterLockSlim` when there is no need for that level of complexity. The basic lock statement handles 99% of cases quite well.
+
+There are four important guidelines when using locks:
+
+* Restrict lock visibility.
+* Document what the lock protects.
+* Minimize code under lock.
+* Never execute arbitrary code while holding a lock.
+
+## Additional stufff
 
 Does this code need synchronization? :
 
@@ -98,10 +117,10 @@ After ThreadId: 1
 
 In both cases the execution times stays the same — 5 seconds.
 
-### Immutable collections
+## Immutable collections
 
 Immutable types are naturally threadsafe because they cannot change; it’s not possible to update an immutable collection, so no synchronization is necessary.
 
-### Threadsafe collections
+## Threadsafe collections
 
 Threadsafe collections (e.g. `ConcurrentDictionary`) are quite different. Unlike immutable collections, threadsafe collections can be updated. But they have all the synchronization they need built in, so you don’t have to worry about synchronizing collection changes.
