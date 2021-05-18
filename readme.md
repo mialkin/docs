@@ -204,6 +204,7 @@
   - [Parallel programming](csharp/concurrency/parallel%20programming.md)
   - [Dataflow programming](csharp/concurrency/dataflow%20programming.md)
   - [Reactive programming](csharp/concurrency/reactive%20programming.md)
+  - [Cancellation](csharp/concurrency/cancellation.md)
   - [Collections](csharp/concurrency/collections.md)
   - [Synchronization](csharp/concurrency/synchronization.md)
 - [Covariance and contravariance](csharp/covariance%20and%20contravariance.md)
