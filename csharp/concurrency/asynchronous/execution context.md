@@ -101,5 +101,6 @@ After second await: 42
 
 ## Links
 
+* [↑ ExecutionContext vs SynchronizationContext](https://devblogs.microsoft.com/pfxteam/executioncontext-vs-synchronizationcontext/)
 * [↑ Dissecting the async methods in C#](https://devblogs.microsoft.com/premier-developer/dissecting-the-async-methods-in-c/)
 * [↑ ExecutionContext Class](https://docs.microsoft.com/en-us/dotnet/api/system.threading.executioncontext)

@@ -90,9 +90,7 @@ static async Task<int> C()
 
 ## Explanation
 
-The `async` methods are different from normal methods. Whatever you return from an `async` method the result is wrapped by the compiler in a `Task`.
-
-If you return no value, i.e. `void`, the "result" will be wrapped in a `Task`. If you return `int` the result will be wrapped in a `Task<int>`, and so on.
+The `async` methods are different from normal methods. Whatever you return from an `async Task<TResult>` method the result is wrapped by the compiler in a `Task`.
 
 If your `async` method needs to return `int`, you'd mark the return type of the method as `Task<int>`, and you'll return plain `int` not `Task<int>`. Compiler will convert `int` to `Task<int>` for you:
 

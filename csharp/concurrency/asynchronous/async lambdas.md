@@ -1,4 +1,4 @@
-# Async lamdas
+# Async lambdas
 
 ```csharp
 using System;
