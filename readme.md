@@ -198,7 +198,7 @@
     - [Exceptions handling with `async` and `await`](csharp/concurrency/asynchronous/exceptions.md)
     - [Execution context](csharp/concurrency/asynchronous/execution%20context.md)
     - [Reporting task's progress](csharp/concurrency/asynchronous/reporting%20progress.md)
-    - [Returning variable of `Task` type](csharp/concurrency/returning%20task.md)
+    - [Returning variable of `Task` type](csharp/concurrency/asynchronous/returning%20task.md)
     - [`ValueTask<T>`](csharp/concurrency/asynchronous/valuetask.md)
   - Asynchronous streams
     - [`IAsyncEnumerable<T>` interface](csharp/concurrency/iasyncenumerable.md)
