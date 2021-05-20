@@ -1,6 +1,13 @@
 # Downloading pages
 
-Without throttling it takes, on avarage, **8–12** seconds to execute:
+- [Downloading pages](#downloading-pages)
+  - [Without throttling](#without-throttling)
+  - [With throttling](#with-throttling)
+  - [Using `Select` and throttling](#using-select-and-throttling)
+
+## Without throttling
+
+On avarage it takes **8–12** seconds to execute:
 
 ```csharp
 HttpClient client = new();
@@ -8,7 +15,7 @@ HttpClient client = new();
 Stopwatch stopWatch = new();
 stopWatch.Start();
 
-List<Task> tasks = CreateTasks();
+IEnumerable<Task> tasks = CreateTasks();
 await Task.WhenAll(tasks);
 
 stopWatch.Stop();
@@ -25,7 +32,7 @@ async Task DownloadUri(string uri)
     string responseBody = await response.Content.ReadAsStringAsync();
 }
 
-List<Task> CreateTasks()
+IEnumerable<Task> CreateTasks()
 {
     List<Task> list = new();
     for (int i = 0; i < 100; i++)
@@ -37,7 +44,9 @@ List<Task> CreateTasks()
 }
 ```
 
-*With* throttling it takes, on avarage, only **2–3** seconds to execute:
+## With throttling
+
+On avarage it takes only **2–3** seconds to execute:
 
 ```csharp
 HttpClient client = new();
@@ -48,7 +57,7 @@ stopWatch.Start();
 var maxParallel = 200;
 var throttler = new SemaphoreSlim(initialCount: maxParallel);
 
-List<Task> tasks = CreateTasks();
+IEnumerable<Task> tasks = CreateTasks();
 await Task.WhenAll(tasks);
 
 stopWatch.Stop();
@@ -73,7 +82,7 @@ async Task DownloadUri(string uri)
     }
 }
 
-List<Task> CreateTasks()
+IEnumerable<Task> CreateTasks()
 {
     List<Task> list = new();
     for (int i = 0; i < 100; i++)
@@ -82,5 +91,24 @@ List<Task> CreateTasks()
         list.Add(DownloadUri("https://dict.mialkin.ru"));
     }
     return list;
+}
+```
+
+## Using `Select` and throttling
+
+On avarage it takes **3–4** seconds to execute:
+
+```csharp
+IEnumerable<Task> CreateTasks()
+{
+    int repeat = 1000;
+    IEnumerable<string> urls = Enumerable.Repeat("https://internship.mialkin.ru", repeat)
+        .Concat(Enumerable.Repeat("https://dict.mialkin.ru", repeat));
+    
+    IEnumerable<Task> enumerable = urls.Select(async x => {
+        await DownloadUri(x);
+    });
+
+    return enumerable;
 }
 ```
