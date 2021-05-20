@@ -147,7 +147,7 @@ int value = 5;      // 0101
 
 // 1100 OR 0101 = 1101 = 13
 
-int result = Interlocked.Or(ref location1, value);
+int result = Interlocked.Or(ref location1, value); // Returns the original value in location1.
 
 Console.WriteLine($"{location1}, {value}, {result}"); // 13, 5, 12
 ```
