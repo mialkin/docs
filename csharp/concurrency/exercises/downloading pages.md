@@ -35,7 +35,7 @@ async Task DownloadUri(string uri)
 IEnumerable<Task> CreateTasks()
 {
     List<Task> list = new();
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 1000; i++)
     {
         list.Add(DownloadUri("https://internship.mialkin.ru"));
         list.Add(DownloadUri("https://dict.mialkin.ru"));
@@ -85,7 +85,7 @@ async Task DownloadUri(string uri)
 IEnumerable<Task> CreateTasks()
 {
     List<Task> list = new();
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 1000; i++)
     {
         list.Add(DownloadUri("https://internship.mialkin.ru"));
         list.Add(DownloadUri("https://dict.mialkin.ru"));
