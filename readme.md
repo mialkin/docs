@@ -209,8 +209,7 @@
     - [`Interlocked`](csharp/concurrency/synchronization%20primitives/interlocked.md)
     - `Mutex`
     - `ReaderWriterLockSlim`
-    - [`Semaphore`](csharp/synchronization%20primitives/semaphore.md)
-    - [`SemaphoreSlim`](csharp/synchronization%20primitives/semaphoreslim.md)
+    - [`Semaphore` and `SemaphoreSlim`](csharp/concurrency/synchronization%20primitives/semaphore.md)
     - `SpinLock`
     - `SpinWait`
     - Thread interaction, or signaling
