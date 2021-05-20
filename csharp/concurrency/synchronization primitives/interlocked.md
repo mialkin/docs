@@ -3,8 +3,8 @@
 - [`Interlocked`](#interlocked)
   - [About](#about)
   - [Methods](#methods)
-    - [`Add`(`Int32`, `Int32`)](#addint32-int32)
-    - [Add(Int64, Int64)](#addint64-int64)
+    - [`Add(Int32, Int32)`](#addint32-int32)
+    - [`Add(Int64, Int64)`](#addint64-int64)
 
 ## About
 
@@ -24,7 +24,7 @@ The `Exchange` method atomically exchanges the values of the specified variables
 
 ## Methods
 
-### `Add`(`Int32`, `Int32`)
+### `Add(Int32, Int32)`
 
 Adds two 32-bit integers and replaces the first integer with the sum, as an atomic operation:
 
@@ -48,7 +48,7 @@ Interlocked.Add(ref location1, value);
 Console.WriteLine($"{location1}, {value}"); // -2147483647, 2
 ```
 
-### Add(Int64, Int64)
+### `Add(Int64, Int64)`
 
 Adds two 64-bit integers and replaces the first integer with the sum, as an atomic operation:
 
