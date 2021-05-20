@@ -5,6 +5,9 @@
   - [Methods](#methods)
     - [`Add(Int32, Int32)`](#addint32-int32)
     - [`Add(Int64, Int64)`](#addint64-int64)
+    - [`Increment(Int32)`](#incrementint32)
+    - [`Increment(Int64)`](#incrementint64)
+    - [`Exchange(Int32, Int32)`](#exchangeint32-int32)
 
 ## About
 
@@ -55,11 +58,39 @@ Adds two 64-bit integers and replaces the first integer with the sum, as an atom
 ```csharp
 Console.WriteLine(Int32.MaxValue); // 2147483647
 
-long location1 = Int32.MaxValue;;
+long location1 = Int32.MaxValue;
 long value = 2;
 
 Interlocked.Add(ref location1, value);
 Console.WriteLine($"{location1}, {value}"); // 2147483649, 2
 ```
 
-[↑ Interlocked.Add Method — Microsoft documentation](https://docs.microsoft.com/en-us/dotnet/api/system.threading.interlocked.add)
+### `Increment(Int32)`
+
+Increments a specified variable and stores the result, as an atomic operation:
+
+```csharp
+int location = 1;
+
+int result = Interlocked.Increment(ref location); // The result is the incremented value
+Console.WriteLine($"{result}, {location}"); // 2, 2
+```
+
+This method handles an overflow condition by wrapping: if `location` = `Int32.MaxValue`, `location + 1` = `Int32.MinValue`. No exception is thrown.
+
+### `Increment(Int64)`
+
+Works similiar to `Increment(Int32)`.
+
+### `Exchange(Int32, Int32)`
+
+Sets a 32-bit signed integer to a specified value and returns the original value, as an atomic operation:
+
+```csharp
+int location1 = 1;
+int value = 2;
+
+int result = Interlocked.Exchange(ref location1, value);
+
+Console.WriteLine($"{result}, {location1}, {value}"); // 1, 2, 2
+```
