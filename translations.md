@@ -6,7 +6,7 @@
 * **Access modifier** — модификатор доступа
 * **Accessibility level** — уровень доступности
 * **Accessor** — метод доступа или акцессор
-* **Account** — учетная запись§
+* **Account** — учетная запись
 * **Aggregate** — собирать вместе
 * **Agile software development** — гибкая методология разработки
 * **Alias** — псевдоним

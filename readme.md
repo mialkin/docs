@@ -227,6 +227,9 @@
   - Contextual keywords
     - [`yield`](csharp/keywords/yield.md)
   - [`ref`, `out`, `in` (parameter modifiers)](csharp/keywords/ref%20out%20in.md)
+- Libraries
+  - [HttpClient](csharp/libraries/httpclient.md)
+  - [Stopwatch](csharp/libraries/stopwatch.md)
 - Memory
   - [Garbage collector](csharp/memory/gc.md)
   - `GC`
@@ -242,7 +245,6 @@
 - Operators and expressions
   - [Equality operator](csharp/operators/equality%20operator.md)
   - [Lambda expressions](csharp/operators/lambda%20expressions.md)
-- [Stopwatch](csharp/stopwatch.md)
 - Types
   - [Value types](csharp/types/value%20types.md)
     - [Boxing and unboxing](csharp/types/boxing%20and%20unboxing.md)
