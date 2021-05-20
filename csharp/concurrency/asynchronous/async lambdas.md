@@ -1,18 +1,15 @@
 # Async lambdas
 
 ```csharp
-async Task Main()
+HttpClient client = new();
+
+await Task.Run(async () =>
 {
-    string url = "https://example.com";
+    HttpResponseMessage response = await client.GetAsync("https://example.com");
 
-    await Task.Run(async () =>
-    {
-        HttpResponseMessage response = await client.GetAsync(url);
-
-        string text = await response.Content.ReadAsStringAsync();
-        Console.WriteLine(text);
-    });
-}
+    string text = await response.Content.ReadAsStringAsync();
+    Console.WriteLine(text);
+});
 ```
 
 ## Catching exceptions
