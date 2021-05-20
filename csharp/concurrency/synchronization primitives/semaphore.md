@@ -23,40 +23,35 @@ The semaphore concept was invented by Dutch computer scientist Edsger Dijkstra i
 
 ### Remarks
 
-Semaphores are of two types: local semaphores and named system semaphores. If you create a `Semaphore` object using a constructor that accepts a name, it is associated with an operating-system semaphore of that name. Named system semaphores are visible throughout the operating system, and can be used to synchronize the activities of processes. You can create multiple Semaphore objects that represent the same named system semaphore, and you can use the `OpenExisting` method to open an existing named system semaphore.
+Semaphores are of two types: `local semaphores` and `named system semaphores`. If you create a `Semaphore` object using a constructor that accepts a name, it is associated with an operating-system semaphore of that name. Named system semaphores are visible throughout the operating system, and can be used to synchronize the activities of processes. You can create multiple `Semaphore` objects that represent the same named system semaphore, and you can use the `OpenExisting` method to open an existing named system semaphore.
 A local semaphore exists only within your process. It can be used by any thread in your process that has a reference to the local `Semaphore` object. Each `Semaphore` object is a separate local semaphore.
 
 Note:
-> Unlike SemaphoreSlim class, Semaphore doesn't have any asynchornouse methods like WaitAsync().
+> Unlike `SemaphoreSlim` class, `Semaphore` doesn't have any asynchornouse methods like `WaitAsync()`.
 
 ## `SemaphoreSlim`
 
-Represents a lightweight alternative to [Semaphore](semaphore.md) that limits the number of threads that can access a resource or pool of resources concurrently.
+Represents a lightweight alternative to `Semaphore` that limits the number of threads that can access a resource or pool of resources concurrently.
 
 ### Remarks
 
-Semaphores are of two types: local semaphores and named system semaphores. Local semaphores are local to an application, system semaphores are visible throughout the operating system and are suitable for inter-process synchronization. The `SemaphoreSlim` is a lightweight alternative to the Semaphore class that doesn't use Windows kernel semaphores. Unlike the [Semaphore](semaphore.md) class, the `SemaphoreSlim` class doesn't support named system semaphores. You can use it as a local semaphore only. The `SemaphoreSlim` class is the recommended semaphore for synchronization within a single app.
+Semaphores are of two types: `local semaphores` and `named system semaphores`. Local semaphores are local to an application, system semaphores are visible throughout the operating system and are suitable for inter-process synchronization. The `SemaphoreSlim` is a lightweight alternative to the `Semaphore` class that doesn't use Windows kernel semaphores. Unlike the `Semaphore` class, the `SemaphoreSlim` class doesn't support named system semaphores. You can use it as a local semaphore only. The `SemaphoreSlim` class is the recommended semaphore for synchronization within a single app.
 
 ### Examples
 
 #### Example 1
 
 ```csharp
-using System;
-using System.Threading;
-using System.Threading.Tasks;
+SemaphoreSlim gate = new SemaphoreSlim(0);
 
-class Example
+await DoWork();
+
+async Task DoWork()
 {
-    static SemaphoreSlim _gate = new SemaphoreSlim(0);
-
-    static async Task Main()
-    {
-        Console.WriteLine("Start");
-        await _gate.WaitAsync();
-        Console.WriteLine("Middle");
-        Console.WriteLine("End");
-    }
+    Console.WriteLine("Start");
+    await gate.WaitAsync();
+    Console.WriteLine("Middle");
+    Console.WriteLine("End");
 }
 ```
 
@@ -66,28 +61,23 @@ Outputs:
 Start
 ```
 
-You need to pass `Start` into `SemaphoreSlim` constructor to print "Middle" and "End".
+You need to pass `1` into `SemaphoreSlim` constructor to print "Middle" and "End".
 
 #### Example 2
 
 ```csharp
-using System;
-using System.Threading;
-using System.Threading.Tasks;
+SemaphoreSlim gate = new SemaphoreSlim(2);
 
-class Example
+await DoWork();
+
+async Task DoWork()
 {
-    static SemaphoreSlim _gate = new SemaphoreSlim(2);
-
-    static async Task Main()
+    for (int i = 0; i < 10; i++)
     {
-        for (int i = 0; i < 10; i++)
-        {
-            Console.WriteLine("Start");
-            await _gate.WaitAsync();
-            Console.WriteLine("Middle");
-            Console.WriteLine("End");
-        }
+        Console.WriteLine("Start");
+        await gate.WaitAsync();
+        Console.WriteLine("Middle");
+        Console.WriteLine("End");
     }
 }
 ```
@@ -107,50 +97,41 @@ Start
 #### Example 3
 
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
+HttpClient client = new();
 
-class Example
+var maxParallel = 10;
+var throttler = new SemaphoreSlim(initialCount: maxParallel);
+
+Stopwatch stopWatch = new();
+stopWatch.Start();
+
+List<Task> tasks = new();
+for (int i = 0; i < 100; i++)
 {
-    static SemaphoreSlim _gate = new SemaphoreSlim(10);
+    tasks.Add(DownloadUri());
+}
 
-    static HttpClient _client = new HttpClient
-    {
-        Timeout = TimeSpan.FromSeconds(5)
-    };
+await Task.WhenAll(tasks);
 
-    static void Main()
+stopWatch.Stop();
+
+TimeSpan ts = stopWatch.Elapsed;
+string elapsedTime = $"{ts.Seconds:00}.{ts.Milliseconds}";
+
+Console.WriteLine(elapsedTime); // 02.586
+
+async Task DownloadUri()
+{
+    await throttler.WaitAsync();
+    try
     {
-        Console.WriteLine(DateTime.Now.ToUniversalTime());
-        Task.WaitAll(CreateCalls().ToArray());
-        Console.WriteLine(DateTime.Now.ToUniversalTime());
+        HttpResponseMessage response = await client.GetAsync("https://google.com");
+        response.EnsureSuccessStatusCode();
+        string responseBody = await response.Content.ReadAsStringAsync();
     }
-
-    private static IEnumerable<Task> CreateCalls()
+    finally
     {
-        for (int i = 0; i < 500; i++)
-        {
-            yield return CallWebsite();
-        }
-    }
-
-    private static async Task CallWebsite()
-    {
-        try
-        {
-            await _gate.WaitAsync();
-            HttpResponseMessage response = await _client.GetAsync("https://google.com");
-            _gate.Release();
-            Console.WriteLine(response.StatusCode + " " + Thread.CurrentThread.ManagedThreadId);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message);
-        }
+        throttler.Release();
     }
 }
 ```
