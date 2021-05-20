@@ -1,26 +1,41 @@
 # Async lambdas
 
 ```csharp
-using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-
-class Program
+async Task Main()
 {
-    static readonly HttpClient Client = new HttpClient();
+    string url = "https://example.com";
 
-    static async Task Main()
+    await Task.Run(async () =>
     {
-        string url = "https://example.com";
+        HttpResponseMessage response = await client.GetAsync(url);
 
-        await Task.Run(async () =>
-        {
-            HttpResponseMessage response = await Client.GetAsync(url);
-
-            string text = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(text);
-        });
-
-    }
+        string text = await response.Content.ReadAsStringAsync();
+        Console.WriteLine(text);
+    });
 }
 ```
+
+## Catching exceptions
+
+```csharp
+try
+{
+    await Task.Run(async () => await DoWork()); // Task.Run accepts Func<Task?> here.
+}
+catch (Exception ex)
+{
+    Console.WriteLine("Caught exception: " + ex.Message);
+}
+
+async Task DoWork()
+{
+    await Task.Delay(1000);
+    throw new Exception("Exception inside DoWork method");
+}
+```
+
+Output:
+
+```console
+Caught exception: Exception inside DoWork method
+````
