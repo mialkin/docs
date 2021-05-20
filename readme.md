@@ -206,7 +206,7 @@
   - [Collections](csharp/concurrency/collections.md)
   - [Synchronization](csharp/concurrency/synchronization.md)
   - Synchronization primitives
-    - `Interlocked`
+    - [`Interlocked`](csharp/concurrency/synchronization%20primitives/interlocked.md)
     - `Mutex`
     - `ReaderWriterLockSlim`
     - [`Semaphore`](csharp/synchronization%20primitives/semaphore.md)
