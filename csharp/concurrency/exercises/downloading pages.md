@@ -1,6 +1,6 @@
 # Downloading pages
 
-Without throttling it takes **8–12** seconds to execute on avarage:
+Without throttling it takes, on avarage, **8–12** seconds to execute:
 
 ```csharp
 HttpClient client = new();
@@ -37,7 +37,7 @@ List<Task> CreateTasks()
 }
 ```
 
-With throttling it takes only **2–3** seconds to execute on avarage:
+*With* throttling it takes, on avarage, only **2–3** seconds to execute:
 
 ```csharp
 HttpClient client = new();
