@@ -203,7 +203,8 @@
   - [Dataflow programming](csharp/concurrency/dataflow%20programming.md)
   - [Reactive programming](csharp/concurrency/reactive%20programming.md)
   - [Cancellation](csharp/concurrency/cancellation.md)
-  - [Collections](csharp/concurrency/collections.md)
+  - [Collections](csharp/concurrency/collections/collections.md)
+    - [When to use a thread-safe collection](csharp/concurrency/collections/when%20to%20use%20thread-safe.md)
   - [Synchronization](csharp/concurrency/synchronization.md)
   - Synchronization primitives
     - [`Interlocked`](csharp/concurrency/synchronization%20primitives/interlocked.md)
