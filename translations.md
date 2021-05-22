@@ -54,6 +54,7 @@
 * **Coupling**  — связывание, зацепление
 * **Covariance** — ковариантность
 * **Creational design pattern** — порождающий шаблон проектирования
+* **Critical section** — критическая секция
 * **Cross-origin resource sharing** — совместное использование ресурсов между разными источниками
 * **Cross-site request forgery** — межсайтовая подделка запроса
 * **Cross-site scripting** — межсайтовый скриптинг
