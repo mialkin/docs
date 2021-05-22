@@ -204,6 +204,12 @@
   - [Reactive programming](csharp/concurrency/reactive%20programming.md)
   - [Cancellation](csharp/concurrency/cancellation.md)
   - [Collections](csharp/concurrency/collections/collections.md)
+    - Thread-safe collections
+      - `BlockingCollection<T>`
+      - `ConcurrentBag<T>`
+      - `ConcurrentDictionary<TKey,TValue>`
+      - `ConcurrentQueue<T>`
+      - `ConcurrentStack<T>`
     - [When to use a thread-safe collection](csharp/concurrency/collections/when%20to%20use%20thread-safe.md)
   - [Synchronization](csharp/concurrency/synchronization.md)
   - Synchronization primitives
