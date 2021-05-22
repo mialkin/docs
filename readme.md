@@ -222,7 +222,7 @@
     - `SpinWait`
     - Thread interaction or signaling
       - `Barrier`
-      - `CountdownEvent`
+      - [`CountdownEvent`](csharp/concurrency/synchronization%20primitives/contdownevent.md)
       - `EventWaitHandle`, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`
   - Exercises
     - [Downloading web pages](csharp/concurrency/exercises/downloading%20pages.md)
