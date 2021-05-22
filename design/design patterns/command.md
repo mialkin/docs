@@ -21,20 +21,14 @@ The **Command** is a behavioral software design pattern that encapsulates a requ
 ```csharp
 using System;
 
-class Program
+IReceiver receiver = new Receiver();
+ICommand command = new Command(receiver);
+
+Invoker(command);
+
+void Invoker(ICommand cmd)
 {
-    public static void Main()
-    {
-        var receiver = new Receiver();
-        var command = new Command(receiver);
-
-        Invoker(command);
-    }
-
-    private static void Invoker(ICommand command)
-    {
-        command.Execute(10);
-    }
+    cmd.Execute(10);
 }
 
 interface ICommand

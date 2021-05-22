@@ -220,7 +220,7 @@
     - [`Semaphore` and `SemaphoreSlim`](csharp/concurrency/synchronization%20primitives/semaphore.md)
     - `SpinLock`
     - `SpinWait`
-    - Thread interaction, or signaling
+    - Thread interaction or signaling
       - `Barrier`
       - `CountdownEvent`
       - `EventWaitHandle`, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`
