@@ -1,6 +1,6 @@
 # Object-oriented programming (OOP)
 
-## Incapsulation
+## Encapsulation
 
 Different parts of an application should use **encapsulation** to insulate them from other parts of the application. Proper use of encapsulation helps achieve loose coupling and modularity in application designs, since objects and packages can be replaced with alternative implementations so long as the same interface is maintained.
 
