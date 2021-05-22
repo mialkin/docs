@@ -17,18 +17,17 @@ The **Facade** is a structural software desing pattern that provides a unified i
 ```csharp
 using System;
 
-class Program
-{
-    static void Main()
-    {
-        IFacade facade = new Facade();
-        Client(facade);
-    }
+IA a = new A();
+IB b = new B();
+IC c = new C();
 
-    static void Client(IFacade facade)
-    {
-        facade.Act();
-    }
+IFacade facade = new Facade(a, b, c);
+
+Client(facade);
+
+void Client(IFacade f)
+{
+    f.Act();
 }
 
 interface IFacade
@@ -42,11 +41,11 @@ class Facade : IFacade
     private readonly IB _b;
     private readonly IC _c;
 
-    public Facade()
+    public Facade(IA a, IB b, IC c)
     {
-        _a = new A();
-        _b = new B();
-        _c = new C();
+        _a = a;
+        _b = b;
+        _c = c;
     }
 
     public void Act()
