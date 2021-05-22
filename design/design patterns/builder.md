@@ -30,32 +30,17 @@ interfaces for assembling the parts into the final result.
 ```csharp
 using System;
 
-class Program
+IBuilder a = new BuilderA();
+IProduct product = Director(a);
+Console.WriteLine(product.Name);
+
+IProduct Director(IBuilder b)
 {
-    static void Main()
-    {
-        var a = new BuilderA();
-        var director = new Director(a);
-        director.Act();
-        IProduct product = a.Build();
-    }
-}
-
-class Director
-{
-    private IBuilder _builder;
-
-    public Director(IBuilder builder)
-    {
-        _builder = builder;
-    }
-
-    public void Act()
-    {
-        _builder.BuildStepOne();
-        _builder.BuildStepTwo();
-        _builder.BuildStepN();
-    }
+    b.BuildStepOne();
+    b.BuildStepTwo();
+    b.BuildStepN();
+    
+    return b.Build();
 }
 
 interface IBuilder
@@ -71,7 +56,7 @@ interface IBuilder
 
 class BuilderA : IBuilder
 {
-    private ProductA _product;
+    private readonly ProductA _product;
 
     public BuilderA()
     {
@@ -90,6 +75,7 @@ class BuilderA : IBuilder
 
     public void BuildStepN()
     {
+        _product.Name = "Product";
         Console.WriteLine("N");
     }
 
@@ -101,10 +87,12 @@ class BuilderA : IBuilder
 
 interface IProduct
 {
+    public string Name { get; set; }
 }
 
 class ProductA : IProduct
 {
+    public string Name { get; set; } 
 }
 ```
 
@@ -114,4 +102,5 @@ Output:
 One
 Two
 N
+Product
 ```
