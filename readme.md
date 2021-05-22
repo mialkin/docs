@@ -232,13 +232,13 @@
 - [Indexers](csharp/indexers.md)
 - [Keywords](csharp/keywords/keywords.md)
   - Modifiers
-    - [event](csharp/keywords/event.md)
+    - [`event`](csharp/keywords/event.md)
   - Contextual keywords
     - [`yield`](csharp/keywords/yield.md)
   - [`ref`, `out`, `in` (parameter modifiers)](csharp/keywords/ref%20out%20in.md)
 - Libraries
-  - [HttpClient](csharp/libraries/httpclient.md)
-  - [Stopwatch](csharp/libraries/stopwatch.md)
+  - [`HttpClient`](csharp/libraries/httpclient.md)
+  - [`Stopwatch`](csharp/libraries/stopwatch.md)
 - Memory
   - [Garbage collector](csharp/memory/gc.md)
   - `GC`
