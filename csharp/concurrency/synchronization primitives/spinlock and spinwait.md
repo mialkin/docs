@@ -49,6 +49,8 @@ As with an ordinary `lock`, `lockTaken` will be false after calling `Enter` if (
 
 A `SpinLock` makes the most sense when writing your own reusable synchronization constructs. Even then, a spinlock is not as useful as it sounds. It still limits concurrency. And it wastes CPU time doing *nothing useful*. Often, a better choice is to spend some of that time doing something *speculative* — with the help of `SpinWait`.
 
+> Spinlocks are only useful in places where anticipated waiting time is shorter than a quantum (read: milliseconds) and preemption doesn't make much sense (e.g. kernel objects aren't available).<sup>1</sup>
+
 ## `SpinWait`
 
 `SpinWait` helps you write lock-free code that spins rather than blocks. It works by implementing safeguards to avoid the dangers of resource starvation and priority inversion that might otherwise arise with spinning.
@@ -63,6 +65,12 @@ On a single-core machine, `SpinWait` yields on every iteration. You can test whe
 
 If a `SpinWait` remains in "spin-yielding" mode for long enough (maybe 20 cycles) it will periodically sleep for a few milliseconds to further save resources and help other threads progress.
 
+`SpinWait` is a value type, which means that low-level code can utilize `SpinWait` without fear of unnecessary allocation overheads. `SpinWait` is not generally useful for ordinary applications. In most cases, you should use the synchronization classes provided by the .NET Framework, such as `Monitor`. For most purposes where spin waiting is required, however, the `SpinWait` type should be preferred over the `Thread.SpinWait` method.<sup>2</sup>
+
 ## Links
 
 [↑ SpinLock and SpinWait](http://www.albahari.com/threading/part5.aspx#_SpinLock_and_SpinWait)
+
+<sup>1</sup> [↑ Stack Overflow — Does that mean I should use spinlocks wherever possible?](https://stackoverflow.com/a/1957464/1833895)
+
+<sup>2</sup> [↑ Microsoft documentation — SpinWait Struct](https://docs.microsoft.com/en-us/dotnet/api/system.threading.spinwait?view=net-5.0#remarks)
