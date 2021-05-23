@@ -11,4 +11,4 @@ response.EnsureSuccessStatusCode();
 string responseBody = await response.Content.ReadAsStringAsync();
 ```
 
-[Microsoft documentation ↑](https://docs.microsoft.com/en-us/dotnet/api/system.net.http.httpclient)
+[↑ Microsoft documentation](https://docs.microsoft.com/en-us/dotnet/api/system.net.http.httpclient)

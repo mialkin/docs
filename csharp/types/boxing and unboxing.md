@@ -7,3 +7,5 @@ Boxing is the process of converting a value type to the type object or to any in
 It is best to avoid using value types in situations where they must be boxed a high number of times, for example in non-generic collections classes such as `System.Collections.ArrayList`. You can avoid boxing of value types by using generic collections such as `System.Collections.Generic.List<T>`. Boxing and unboxing are computationally expensive processes. When a value type is boxed, an entirely new object must be created. This can take up to 20 times longer than a simple reference assignment. When unboxing, the casting process can take four times as long as an assignment.
 
 In generics, such as `List<T>`, value types are still stored on the heap. The difference is that, internally, a `List<int>` makes a single array of integers, and can store the numbers directly. WIth `ArrayList`, you end up storing an array of references to boxed integer values.
+
+[↑ Microsoft documentation — Boxing and Unboxing](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/boxing-and-unboxing)
