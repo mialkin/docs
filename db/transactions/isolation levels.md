@@ -67,3 +67,7 @@ Serializable (3)
 All data read or modified is locked until EOT. All access structures that are modified are locked until EOT. Access structures used by the query are locked until EOT.
 
 https://media.datadirect.com/download/docs/odbc/allodbc/index.html#page/odbc/isolation-levels.html
+
+## Links
+
+[↑ Deeply understand Isolation levels and Read phenomena in MySQL & PostgreSQL](https://dev.to/techschoolguru/understand-isolation-levels-read-phenomena-in-mysql-postgres-c2e)
