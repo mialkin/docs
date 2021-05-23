@@ -218,8 +218,7 @@
     - [`Mutex`](csharp/concurrency/synchronization%20primitives/mutex.md)
     - `ReaderWriterLockSlim`
     - [`Semaphore` and `SemaphoreSlim`](csharp/concurrency/synchronization%20primitives/semaphore.md)
-    - `SpinLock`
-    - `SpinWait`
+    - [`SpinLock` and `SpinWait`](csharp/concurrency/synchronization%20primitives/spinlock%20and%20spinwait.md)
     - Thread interaction or signaling
       - `Barrier`
       - [`CountdownEvent`](csharp/concurrency/synchronization%20primitives/contdownevent.md)
