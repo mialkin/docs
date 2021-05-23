@@ -125,15 +125,6 @@
 - Higher-order function
 - [Idempotence](cs/idempotence.md)
 - [OOP](cs/oop.md)
-- Programming paradigms
-  - Imperative
-    - procedural
-    - object-oriented
-  - Declarative
-    - functional
-    - logic
-    - mathematical
-    - reactive
 - [Serialization](cs/serialization.md)
 - [Sorting algorithms](cs/sorting%20algorithms.md)
 
@@ -216,7 +207,7 @@
     - [`Semaphore` and `SemaphoreSlim`](csharp/concurrency/synchronization%20primitives/semaphore.md)
     - [`SpinLock` and `SpinWait`](csharp/concurrency/synchronization%20primitives/spinlock%20and%20spinwait.md)
     - Thread interaction or signaling
-      - `Barrier`
+      - [`Barrier`](csharp/concurrency/synchronization%20primitives/barrier.md)
       - [`CountdownEvent`](csharp/concurrency/synchronization%20primitives/contdownevent.md)
       - `EventWaitHandle`, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`
   - Exercises
