@@ -12,9 +12,9 @@ Use the `Enter` and `Exit` methods to mark the beginning and end of a critical s
 
 ## `Monitor` vs `Mutex`
 
-A `Monitor` is managed, and more lightweight — but is restricted to your `AppDomain`. A Mutex can be named, and can span processes (allowing some simple IPC scenarios between applications), and can be used in code that wants a wait-handle).
+A `Monitor` is managed, and more lightweight — but is restricted to your `AppDomain`. A `Mutex` can be named, and can span processes (allowing some simple IPC scenarios between applications), and can be used in code that wants a wait-handle).
 
-For most simple scenarios, Monitor (via lock) is fine.
+For most simple scenarios, `Monitor` (via `lock`) is fine.
 
 ## Links
 
