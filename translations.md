@@ -91,6 +91,7 @@
 * **Encrypt** — шифровать
 * **End-to-end encryption** — сквозное шифрование
 * **Endpoint** — конечная точка
+* **Exclusive lock** — исключающая блокировка
 * **Expression body** — тело выражения
 * **Extreme programming** — экстремальное программирование
 * **Event loop** — цикл событий
