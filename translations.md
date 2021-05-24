@@ -101,6 +101,7 @@
 
 * **Fault-tolerance** — отказоустойчивость
 * **Favor object composition over class inheritance** — отдавать предпочтение композиции перед наследованием
+* **File handle** — дескриптор файла
 * **First-class citizen/object/entity/value** — объект первого класса
 * **Finalizer** — метод завершения или деструктор
 * **Flyweight** — Приспособленец (шаблон проектирования)
