@@ -225,6 +225,7 @@
 * **Separation of concerns** — разделение ответственностей
 * **Service worker** — служебный сценарий, a browser script that runs in the background separately from a web page, intercepting network requests, caching or retrieving resources from the cache, and delivering push messages.
 * **Sidecar** — расширение
+* **Signaled state** — сигнальное состояние
 * **Single-page application** — одностраничное приложение
 * **Single responsibility principle** — принцип единственной ответственности
 * **Shallow copy** — поверхостная копия
