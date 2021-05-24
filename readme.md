@@ -25,7 +25,6 @@
 - [Git](tools/git/git.md)
 - Kubernetes
   - [Flux](tools/kubernetes/flux.md)
-  - [gcloud](tools/kubernetes/gcloud.md)
   - [helm](tools/kubernetes/helm.md)
   - [kubectl](tools/kubernetes/kubectl.md)
 - [RabbitMQ](tools/rabbitmq.md)
@@ -107,27 +106,17 @@
 - [Aggregation and composition](cs/aggregation%20and%20composition/aggregation%20and%20composition.md)
 - [Arguments vs parameters](cs/argument%20vs%20parameter.md)
 - [Idempotence](cs/idempotence.md)
-- [OOP](cs/oop.md)
-- [Serialization](cs/serialization.md)
 - [Sorting algorithms](cs/sorting%20algorithms.md)
 
 ## Web
 
-- [CSS](web/css/css.md)
 - [GraphQL](web/graphql.md)
 - [gRPC](web/grpc.md)
-- [HTML](web/html/html.md)
-- [HTTP](web/http/http.md)
-- [JavaScript](web/javascript/javascript.md)
-- [REST](web/rest.md)
 - [OAuth](web/oauth.md)
 - [OpenID Connect](web/oidc.md)
-- [Web APIs](web/api/api.md)
 
 ## Networking
 
-- [Commands](networking/commands.md)
-- [IP](networking/ip.md)
 - [Ports](networking/ports.md)
 - [Sockets](networking/sockets.md)
 - [TCP](networking/tcp.md)
@@ -156,8 +145,6 @@
 
 ## C&#35;
 
-- [↑ .NET API browser](https://docs.microsoft.com/en-us/dotnet/api)
-- [↑ .NET Framework 4.8 Reference Source](https://referencesource.microsoft.com)
 - [Attributes](csharp/attributes.md)
   - [Nullable static analysis attributes](csharp/nullable%20static%20analysis%20attributes.md)
 - [Concurrency](csharp/concurrency/concurrency.md)
