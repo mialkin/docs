@@ -210,7 +210,7 @@
     - Thread interaction or signaling
       - [`Barrier`](csharp/concurrency/synchronization%20primitives/barrier.md)
       - [`CountdownEvent`](csharp/concurrency/synchronization%20primitives/contdownevent.md)
-      - `EventWaitHandle`, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`
+      - [`EventWaitHandle`, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`](csharp/concurrency/synchronization%20primitives/eventwaithandle.md)
   - [Threads and threading](csharp/concurrency/threads%20and%20threading.md)
   - Exercises
     - [Downloading web pages](csharp/concurrency/exercises/downloading%20pages.md)
