@@ -82,7 +82,21 @@
 ## Design
 
 * Architectural patterns
-  * [↑ CQRS](https://www.youtube.com/watch?v=xKKVW94F2bc)
+  * [↑ Event Sourcing](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing)
+  * MVC
+  * [Repository](https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application)
+  * Microservices related patterns
+    * Aggregator
+    * [↑ Ambassador](https://docs.microsoft.com/en-us/azure/architecture/patterns/ambassador)
+    * API Gateway
+    * Circuit Breaker
+    * [↑ Backends for Frontends](https://microservices.io/patterns/apigateway.html)
+    * Retry
+    * Service Layer
+    * Service Locator
+    * Sidecar
+  * Unit of Work
+* CAP theorem
   * MediatR
   * Event sourcing
 

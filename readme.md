@@ -64,21 +64,6 @@
 
 - Architectural patterns
   - CQRS
-  - [↑ Event Sourcing](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing)
-  - MVC
-  - [Repository](https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application)
-  - Microservices related patterns
-    - Aggregator
-    - [↑ Ambassador](https://docs.microsoft.com/en-us/azure/architecture/patterns/ambassador)
-    - API Gateway
-    - Circuit Breaker
-    - [↑ Backends for Frontends](https://microservices.io/patterns/apigateway.html)
-    - Retry
-    - Service Layer
-    - Service Locator
-    - Sidecar
-  - Unit of Work
-- CAP theorem
 - [Design patterns](design/design%20patterns/design%20patterns.md)
   - Creational
     - [Abstract Factory](design/design%20patterns/abstract%20factory.md)
@@ -121,8 +106,6 @@
 
 - [Aggregation and composition](cs/aggregation%20and%20composition/aggregation%20and%20composition.md)
 - [Arguments vs parameters](cs/argument%20vs%20parameter.md)
-- First-class function
-- Higher-order function
 - [Idempotence](cs/idempotence.md)
 - [OOP](cs/oop.md)
 - [Serialization](cs/serialization.md)
@@ -175,7 +158,6 @@
 
 - [↑ .NET API browser](https://docs.microsoft.com/en-us/dotnet/api)
 - [↑ .NET Framework 4.8 Reference Source](https://referencesource.microsoft.com)
-- Application domains
 - [Attributes](csharp/attributes.md)
   - [Nullable static analysis attributes](csharp/nullable%20static%20analysis%20attributes.md)
 - [Concurrency](csharp/concurrency/concurrency.md)
@@ -224,7 +206,7 @@
   - Contextual keywords
     - [`yield`](csharp/keywords/yield.md)
   - [`ref`, `out`, `in` (parameter modifiers)](csharp/keywords/ref%20out%20in.md)
-- Libraries
+- Selected classes
   - [`HttpClient`](csharp/libraries/httpclient.md)
   - [`Stopwatch`](csharp/libraries/stopwatch.md)
 - Memory
