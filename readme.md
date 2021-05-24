@@ -64,15 +64,15 @@
 
 - Architectural patterns
   - CQRS
-  - Event Sourcing
+  - [↑ Event Sourcing](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing)
   - MVC
-  - [Repository ↑](https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application)
+  - [Repository](https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application)
   - Microservices related patterns
     - Aggregator
-    - [Ambassador ↑](https://docs.microsoft.com/en-us/azure/architecture/patterns/ambassador)
+    - [↑ Ambassador](https://docs.microsoft.com/en-us/azure/architecture/patterns/ambassador)
     - API Gateway
     - Circuit Breaker
-    - [Backends for Frontends ↑](https://microservices.io/patterns/apigateway.html)
+    - [↑ Backends for Frontends](https://microservices.io/patterns/apigateway.html)
     - Retry
     - Service Layer
     - Service Locator
@@ -157,8 +157,8 @@
 - [Generating self-signed certificate](security/generating%20certificate.md)
 - [TLS handshake](security/tls%20handshake.md)
 - Web
-  - [Cross-site request forgery (XSRF or CSRF) ↑](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
-  - [Cross-site scripting XSS ↑](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
+  - [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
+  - [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
 
 ## Python
 
@@ -173,8 +173,8 @@
 
 ## C&#35;
 
-- [.NET API browser ↑](https://docs.microsoft.com/en-us/dotnet/api)
-- [.NET Framework 4.8 Reference Source ↑](https://referencesource.microsoft.com)
+- [↑ .NET API browser](https://docs.microsoft.com/en-us/dotnet/api)
+- [↑ .NET Framework 4.8 Reference Source](https://referencesource.microsoft.com)
 - Application domains
 - [Attributes](csharp/attributes.md)
   - [Nullable static analysis attributes](csharp/nullable%20static%20analysis%20attributes.md)
