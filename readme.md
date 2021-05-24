@@ -198,16 +198,7 @@
   - [`Stopwatch`](csharp/libraries/stopwatch.md)
 - Memory
   - [Garbage collector](csharp/memory/garbage%20collector.md)
-  - `GC`
-    - Properties
-      - MaxGeneration
-    - Methods
-      - Collect(Int32)
-      - CollectionCount(Int32)
-      - GetGeneration(Object)
-      - GetTotalMemory(Boolean)
-      - SuppressFinalize(Object)
-      - WaitForPendingFinalizers()
+  - [`GC`](csharp/memory/gc.md)
 - Operators and expressions
   - [Equality operator](csharp/operators/equality%20operator.md)
   - [Lambda expressions](csharp/operators/lambda%20expressions.md)
