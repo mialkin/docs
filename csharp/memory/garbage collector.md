@@ -75,7 +75,7 @@ If a collection of generation 0 does not reclaim enough memory for the applicati
 
 ### Generation 2
 
-This generation contains long-lived objects.
+This generation contains long-lived objects. Application level singletons generally migrate to generation 2.
 
 Objects in generation 2 that survive a collection remain in generation 2 until they are determined to be unreachable in a future collection.
 

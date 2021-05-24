@@ -197,7 +197,7 @@
   - [`HttpClient`](csharp/libraries/httpclient.md)
   - [`Stopwatch`](csharp/libraries/stopwatch.md)
 - Memory
-  - [Garbage collector](csharp/memory/gc.md)
+  - [Garbage collector](csharp/memory/garbage%20collector.md)
   - `GC`
     - Properties
       - MaxGeneration
