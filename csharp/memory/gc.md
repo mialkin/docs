@@ -10,28 +10,30 @@
     - [Generation 1](#generation-1)
     - [Generation 2](#generation-2)
   - [Conditions for a garbage collection](#conditions-for-a-garbage-collection)
+  - [Ephemeral generations and segments](#ephemeral-generations-and-segments)
+  - [Unmanaged resources](#unmanaged-resources)
   - [See also](#see-also)
 
 In the CLR the garbage collector (GC) serves as an automatic memory manager.
 
 ## Benefits
 
-- Frees developers from having to manually release memory.
-- Allocates objects on the managed heap efficiently.
-- Reclaims objects that are no longer being used, clears their memory, and keeps the memory available for future allocations. Managed objects automatically get clean content to start with, so their constructors don't have to initialize every data field.
-- Provides memory safety by making sure that an object cannot use the content of another object.
+-   Frees developers from having to manually release memory.
+-   Allocates objects on the managed heap efficiently.
+-   Reclaims objects that are no longer being used, clears their memory, and keeps the memory available for future allocations. Managed objects automatically get clean content to start with, so their constructors don't have to initialize every data field.
+-   Provides memory safety by making sure that an object cannot use the content of another object.
 
 ## Fundamentals of memory
 
-- Each process has its own, separate **virtual address space**. All processes on the same computer share the same physical memory and the page file, if there is one.
-- By default, on 32-bit computers, each process has a 2-GB user-mode virtual address space.
-- As an application developer, you work only with virtual address space and never manipulate physical memory directly. The garbage collector allocates and frees virtual memory for you on the managed heap.
-- Virtual memory can be in three states:  
-  - **Free** — The block of memory has no references to it and is available for allocation.
-  - **Reserved** — The block of memory is available for your use and cannot be used for any other allocation request. However, you cannot store data to this memory block until it is committed.
-  - **Commited** — The block of memory is assigned to physical storage.
-- Virtual address space can get fragmented. This means that there are free blocks, also known as holes, in the address space. When a virtual memory allocation is requested, the virtual memory manager has to find a single free block that is large enough to satisfy that allocation request. Even if you have 2 GB of free space, an allocation that requires 2 GB will be unsuccessful unless all of that free space is in a single address block.
-- You can run out of memory if there isn't enough virtual address space to reserve or physical space to commit.
+-   Each process has its own, separate **virtual address space**. All processes on the same computer share the same physical memory and the page file, if there is one.
+-   By default, on 32-bit computers, each process has a 2-GB user-mode virtual address space.
+-   As an application developer, you work only with virtual address space and never manipulate physical memory directly. The garbage collector allocates and frees virtual memory for you on the managed heap.
+-   Virtual memory can be in three states:
+    -   **Free** — The block of memory has no references to it and is available for allocation.
+    -   **Reserved** — The block of memory is available for your use and cannot be used for any other allocation request. However, you cannot store data to this memory block until it is committed.
+    -   **Commited** — The block of memory is assigned to physical storage.
+-   Virtual address space can get fragmented. This means that there are free blocks, also known as holes, in the address space. When a virtual memory allocation is requested, the virtual memory manager has to find a single free block that is large enough to satisfy that allocation request. Even if you have 2 GB of free space, an allocation that requires 2 GB will be unsuccessful unless all of that free space is in a single address block.
+-   You can run out of memory if there isn't enough virtual address space to reserve or physical space to commit.
 
 ## Memory allocation
 
@@ -81,13 +83,42 @@ Objects on the large object heap are also collected in generation 2.
 
 ## Conditions for a garbage collection
 
-- The system has low physical memory. This is detected by either the low memory notification from the OS or low memory as indicated by the host.
-- The memory that's used by allocated objects on the managed heap surpasses an acceptable threshold. This threshold is continuously adjusted as the process runs.
-- The `GC.Collect` method is called. In almost all cases, you don't have to call this method, because the garbage collector runs continuously. This method is primarily used for unique situations and testing.
+-   The system has low physical memory. This is detected by either the low memory notification from the OS or low memory as indicated by the host.
+-   The memory that's used by allocated objects on the managed heap surpasses an acceptable threshold. This threshold is continuously adjusted as the process runs.
+-   The `GC.Collect` method is called. In almost all cases, you don't have to call this method, because the garbage collector runs continuously. This method is primarily used for unique situations and testing.
 
 Garbage collections occur on specific generations as conditions warrant. Collecting a generation means collecting objects in that generation and all its younger generations. A generation 2 garbage collection is also known as a **full garbage collection**, because it reclaims objects in all generations (that is, all objects in the managed heap).
 
 The CLR continually balances two priorities: not letting an application's working set get too large by delaying garbage collection and not letting the garbage collection run too frequently.
+
+Before a garbage collection starts, all managed threads are suspended except for the thread that triggered the garbage collection.
+
+## Ephemeral generations and segments
+
+Because objects in generations 0 and 1 are short-lived, these generations are known as the **ephemeral generations**.
+
+Ephemeral generations are allocated in the **memory segment** that's known as the **ephemeral segment**. Each new segment acquired by the garbage collector becomes the new ephemeral segment and contains the objects that survived a generation 0 garbage collection. The old ephemeral segment becomes the new generation 2 segment.
+
+The size of the ephemeral segment varies depending on whether a system is 32-bit or 64-bit and on the type of garbage collector it is running (workstation or server GC). The following table shows the default sizes of the ephemeral segment.
+
+| Workstation/server GC           | 32-bit | 64-bit |
+| ------------------------------- | ------ | ------ |
+| Workstation GC                  | 16 MB  | 256 MB |
+| Server GC                       | 64 MB  | 4 GB   |
+| Server GC with > 4 logical CPUs | 32 MB  | 2 GB   |
+| Server GC with > 8 logical CPUs | 16 MB  | 1 GB   |
+
+The ephemeral segment can include generation 2 objects. Generation 2 objects can use multiple segments (as many as your process requires and memory allows for).
+
+The amount of freed memory from an ephemeral garbage collection is limited to the size of the ephemeral segment. The amount of memory that is freed is proportional to the space that was occupied by the dead objects.
+
+## Unmanaged resources
+
+For most of the objects that your application creates, you can rely on garbage collection to automatically perform the necessary memory management tasks. However, unmanaged resources require explicit cleanup. The most common type of unmanaged resource is an object that wraps an operating system resource, such as a file handle, window handle, or network connection. Although the garbage collector is able to track the lifetime of a managed object that encapsulates an unmanaged resource, it doesn't have specific knowledge about how to clean up the resource.
+
+When you create an object that encapsulates an unmanaged resource, it's recommended that you provide the necessary code to clean up the unmanaged resource in a public `Dispose` method. By providing a `Dispose` method, you enable users of your object to explicitly free its memory when they are finished with the object. When you use an object that encapsulates an unmanaged resource, make sure to call `Dispose` as necessary.
+
+You must also provide a way for your unmanaged resources to be released in case a consumer of your type forgets to call `Dispose`. You can either use a safe handle (`SafeHandle` class) to wrap the unmanaged resource, or override the `Object.Finalize()` method.
 
 ## See also
 
