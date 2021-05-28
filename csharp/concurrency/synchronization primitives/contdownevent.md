@@ -21,8 +21,18 @@ Console.WriteLine("Finished waiting");  // Prints out in 10 seconds
 async Task Signal(int delay)
 {
     await Task.Delay(TimeSpan.FromSeconds(delay));
+    Console.WriteLine("Signaling once");
     cde.Signal();
 }
+```
+
+Output:
+
+```console
+Started waiting
+Signaling once
+Signaling once
+Finished waiting
 ```
 
 There are `CurrentCount`, `InitialCount` properties and `AddCount` method:
