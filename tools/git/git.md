@@ -30,6 +30,13 @@ git config --global init.defaultBranch BRANCH_NAME
 | git rm -fr --cached FOLDER_NAME           | Removes caches of FOLDER_NAME folder. You can use dot (`.`) instead of folder |
 | vim .git/config                           | Edit upstreams                                                                |
 
+## Push to multiple repositories
+
+```bash
+git remote set-url --add --push origin https://gitlab.com/mialkin/jour.webapi.git
+git remote set-url --add --push origin https://github.com/mialkin/jour.webapi.git
+```
+
 ## .gitignore
 
 | Line           | Description      |
