@@ -1,5 +1,56 @@
 # macOS
 
+- [macOS](#macos)
+  - [Hotkeys](#hotkeys)
+  - [Terminal](#terminal)
+    - [Shortcuts](#shortcuts)
+    - [Other](#other)
+  - [Finder](#finder)
+  - [Terminal aliases](#terminal-aliases)
+  - [Key repeating](#key-repeating)
+  - [Adding new path to PATH environment variable](#adding-new-path-to-path-environment-variable)
+  - [Flush DNS cache](#flush-dns-cache)
+  - [Launch Rider from terminal](#launch-rider-from-terminal)
+  - [Hosts](#hosts)
+  - [Installing app from developers](#installing-app-from-developers)
+
+## Hotkeys
+
+| Command                                                                                                          | Description                               |
+| :--------------------------------------------------------------------------------------------------------------- | :---------------------------------------- |
+| <kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>G</kbd>                                                                       | Go to folder dialog in Terminal           |
+| <kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>.</kbd>                                                                       | Show hidden files and folders in Terminal |
+| <kbd>⌘</kbd> + <kbd>C</kbd> on the file to copy, and <kbd>⌘</kbd> + <kbd>V</kbd> on the command line in Terminal | Get full path to a file in Terminal       |
+| <kbd>⌥</kbd> + <kbd>⌘</kbd> + <kbd>H</kbd> + <kbd>M</kbd>                                                        | Minimize all windows                      |
+
+## Terminal
+
+### Shortcuts
+
+| Shortcut | Meaning                     |
+| -------- | --------------------------- |
+| Ctrl + F | Move forward one character  |
+| Ctrl + B | Move backward one character |
+| Ctrl + W | Remove word backward        |
+| Ctrl + K | Delete to end of line       |
+| Ctrl + Y | Paste                       |
+
+### Other
+
+Run an application:
+
+```sh
+open -a calculator                  # -a is for "application"
+ll /Applications                    # List installed apps
+open -a "Microsoft Remote Desktop"
+```
+
+Copy text to clippbord:
+
+```sh
+cat example.txt \| pbcopy
+```
+
 ## Finder
 
 Always show hidden files in Finder:

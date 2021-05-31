@@ -38,8 +38,6 @@
 
 - [Environment variables](unix/environment%20variables.md)
 - [macOS](unix/macos/macos.md)
-  - [Hotkeys](unix/macos/hotkeys.md)
-  - [Terminal](unix/macos/terminal.md)
 - [Ubuntu](unix/ubuntu.md)
 - [Nginx](unix/nginx.md)
 - [Shell](unix/shell/shell.md)
