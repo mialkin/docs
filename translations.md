@@ -40,6 +40,7 @@
 * **Claim** — утверждение
 * **Class diagram** — диаграмма классов
 * **Clustering** — кластеризация
+* **Cohesion** — сцепление, связность
 * **Columnar database** — колоночная база данных
 * **Commit** — фиксация
 * **Common Language Runtime** — общеязыковая исполняющая среда
@@ -51,7 +52,7 @@
 * **Contravariance** — контравариантность
 * **Control** — элемент управления
 * **Control flow** or **flow of control** — порядок выполнения/исполнения/вычислений
-* **Coupling**  — связывание, зацепление
+* **Coupling**  — связанность, зацепление
 * **Covariance** — ковариантность
 * **Creational design pattern** — порождающий шаблон проектирования
 * **Critical section** — критическая секция
