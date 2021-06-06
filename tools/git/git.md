@@ -33,8 +33,8 @@ git config --global init.defaultBranch BRANCH_NAME
 ## Push to multiple repositories
 
 ```bash
-git remote set-url --add --push origin https://gitlab.com/mialkin/jour.webapi.git
-git remote set-url --add --push origin https://github.com/mialkin/jour.webapi.git
+git remote set-url --add --push origin https://gitlab.com/mialkin/YOUR_REPOSITORY_NAME.git
+git remote set-url --add --push origin https://github.com/mialkin/YOUR_REPOSITORY_NAME.git
 ```
 
 ## .gitignore

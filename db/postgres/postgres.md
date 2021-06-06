@@ -1,6 +1,18 @@
 # PostregSQL
 
-## Kubernetes
+- [PostregSQL](#postregsql)
+  - [Running](#running)
+    - [Kubernetes](#kubernetes)
+    - [Docker](#docker)
+  - [psql](#psql)
+  - [Shortcuts](#shortcuts)
+  - [Commands](#commands)
+  - [SQL syntax](#sql-syntax)
+  - [Links](#links)
+
+## Running
+
+### Kubernetes
 
 ```bash
 helm install postgres bitnami/postgresql
@@ -36,7 +48,7 @@ To connect to your database run the following command:
 kubectl run postgres-postgresql-client --rm --tty -i --restart='Never' --namespace default --image docker.io/bitnami/postgresql:11.11.0-debian-10-r31 --env="PGPASSWORD=YOUR_PASSWORD" --command -- psql --host postgres-postgresql -U postgres -d postgres -p 5432
 ```
 
-## Docker
+### Docker
 
 Starting a postgresql instance. The default `postgres` user and database are created in the entrypoint with [↑ initdb](https://www.postgresql.org/docs/13/app-initdb.html):
 
