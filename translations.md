@@ -247,6 +247,7 @@
 * **Thread-safety** — потоковая безопасность
 * **Threshold** — порог, граница
 * **Throttling** — регулирование
+* **Throughput** — пропускная способность
 * **Time offset** — сдвиг по времени
 * **Time series** — временной ряд
   * **Time series database** — база данных временных рядов
