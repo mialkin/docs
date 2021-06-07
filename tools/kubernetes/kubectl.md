@@ -94,6 +94,12 @@ Installation:
 brew install k9s
 ```
 
+Update:
+
+```zsh
+brew upgrade k9s
+```
+
 Project on GitHub: https://github.com/derailed/k9s.
 
 ## kubectx & kubens
