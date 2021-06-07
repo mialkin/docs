@@ -16,6 +16,7 @@ A _release_ is an instance of a chart running in a Kubernetes cluster. One chart
 | helm install RELEASE_NAME CHART_NAME         | Install a chart                                                                  |
 | helm list                                    | List releases                                                                    |
 | helm pull REPOSITORY_NAME/CHART_NAME         | Download a chart from a repository and (optionally) unpack it in local directory |
-| helm repo list                               | List chart repositories                                                          |
 | helm repo add REPOSITORY_NAME REPOSITORY_URL | Add chart repository                                                             |
+| helm repo list                               | List chart repositories                                                          |
+| helm repo update                             | Update information of available charts locally from chart repositories           |
 | helm status RELEASE_NAME                     | Display status of the release                                                    |
