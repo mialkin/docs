@@ -9,7 +9,7 @@ kubectl label namespace NAMESPACE_NAME istio-injection=enabled
 Determine your external IP:
 
 ```bash
-get svc istio-ingressgateway -n istio-system
+kubectl get svc istio-ingressgateway -n istio-system
 ```
 
 List Istio ingress gateways:
