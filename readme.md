@@ -24,6 +24,7 @@
   - [Docker Compose](tools/docker/docker%20compose.md)
 - [Git](tools/git/git.md)
 - Kubernetes
+  - [cert-manager](tools/kubernetes/cert-manager.md)
   - [Flux](tools/kubernetes/flux.md)
   - [Helm](tools/kubernetes/helm.md)
   - [Istio](tools/kubernetes/istio.md)
