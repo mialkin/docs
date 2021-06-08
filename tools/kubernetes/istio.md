@@ -1,4 +1,4 @@
-# istioctl
+# Istio
 
 Label namespaces that will have automatic sidecar injection:
 

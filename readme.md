@@ -25,8 +25,12 @@
 - [Git](tools/git/git.md)
 - Kubernetes
   - [Flux](tools/kubernetes/flux.md)
-  - [helm](tools/kubernetes/helm.md)
+  - [Helm](tools/kubernetes/helm.md)
+  - [Istio](tools/kubernetes/istio.md)
+  - [Kiali](tools/kubernetes/kiali.md)
   - [kubectl](tools/kubernetes/kubectl.md)
+  - [Metrics server](tools/kubernetes/metrics%20server.md)
+  - [Prometheus](tools/kubernetes/prometheus.md)
 - [RabbitMQ](tools/rabbitmq.md)
 - [Redis](tools/redis.md)
 - [Regular expressions](tools/regular%20expressions/regular%20expressions.md)
