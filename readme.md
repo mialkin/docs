@@ -8,13 +8,14 @@
   - [Unix](#unix)
   - [Databases](#databases)
   - [Software architecture and design](#software-architecture-and-design)
-  - [Computer science](#computer-science)
+  - [Programming](#programming)
   - [Web](#web)
   - [Networking](#networking)
   - [Security](#security)
   - [Python](#python)
   - [dotNET](#dotnet)
   - [C&#35;](#c)
+  - [Computer science](#computer-science)
 
 ## Tools
 
@@ -104,12 +105,11 @@
     - [Interface Segregation Principle](design/solid/isp.md)
     - [Dependency Inversion Principle](design/solid/dip/dip.md)
 
-## Computer science
+## Programming
 
-- [Aggregation and composition](cs/aggregation%20and%20composition/aggregation%20and%20composition.md)
-- [Arguments vs parameters](cs/argument%20vs%20parameter.md)
-- [Idempotence](cs/idempotence.md)
-- [Sorting algorithms](cs/sorting%20algorithms.md)
+- [Aggregation and composition](programming/aggregation%20and%20composition/aggregation%20and%20composition.md)
+- [Arguments vs parameters](programming/argument%20vs%20parameter.md)
+- [Idempotence](programming/idempotence.md)
 
 ## Web
 
@@ -221,3 +221,7 @@
       - [`record`](csharp/types/record.md)
       - [`string`](csharp/types/string.md)
     - [Nullable reference types](csharp/types/nullable%20reference%20types.md)
+
+## Computer science
+
+- [Sorting algorithms](computer%20science/sorting%20algorithms.md)
