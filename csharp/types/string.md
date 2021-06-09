@@ -34,6 +34,8 @@ string world = "world";
 
 Act(hello, ref world);
 
+// The reference to the string "hello" is passed by value.
+// The reference to the string "world" is passed by reference.
 void Act(string h, ref string w)
 {
     h += "!";
