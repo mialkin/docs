@@ -108,6 +108,7 @@
 ## Programming
 
 - [Aggregation and composition](programming/aggregation%20and%20composition/aggregation%20and%20composition.md)
+- [Agile](programming/agile/agile.md)
 - [Arguments vs parameters](programming/argument%20vs%20parameter.md)
 - [Idempotence](programming/idempotence.md)
 
