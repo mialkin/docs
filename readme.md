@@ -57,11 +57,11 @@
 
 ## Databases
 
-- [ACID](database/transactions/acid.md)
-- [Isolation levels](database/transactions/isolation%20levels.md)
-- [PostgreSQL](database/postgres/postgres.md)
-- [PL/SQL](database/oracle/plsql.md)
-- [EF Core tools](database/efcore/efcoretools.md)
+- [ACID](databases/transactions/acid.md)
+- [Isolation levels](databases/transactions/isolation%20levels.md)
+- [PostgreSQL](databases/postgres/postgres.md)
+- [PL/SQL](databases/oracle/plsql.md)
+- [EF Core tools](databases/efcore/efcoretools.md)
 
 ## Software architecture and design
 
