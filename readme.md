@@ -71,6 +71,7 @@
   - Creational
     - [Abstract Factory](design/design%20patterns/abstract%20factory.md)
     - [Builder](design/design%20patterns/builder.md)
+    - [Dependency injection](design/design%20patterns/dependency%20injection.md)
     - [Factory Method](design/design%20patterns/factory%20method.md)
     - [Prototype](design/design%20patterns/prototype.md)
     - [Singleton](design/design%20patterns/singleton.md)
