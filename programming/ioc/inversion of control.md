@@ -7,12 +7,16 @@ If you go back to old computer programming days, program flow used to run in its
 1. End user sends chat message.
 2. Application waits for the message from the other end.
 3. If no message is found it goes to step 2 or else moves to step 4.
-4. Displays the message.
+4. Application displays the message.
 5. User continues with his work ahead.
 
 <img src="01.jpg" height="300"/>
 
 Now if you analyze the program's control flow closely, it's sequential. The program is in control of itself. Inversion of control means that the program delegates control to someone else who will drive the flow. For instance, if we make the chat application event based then the flow of the program will look like this:
+
+1. End user sends chat message.
+2. User continues with his work ahead.
+3. Application listens to events. If a message arrives event is activated and message is received and displayed.
 
 <img src="02.jpg" height="150"/>
 
