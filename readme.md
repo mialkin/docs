@@ -146,6 +146,7 @@
 ## dotNET
 
 - [.NET CLI](dotnet/cli.md)
+- [Dependency injection in .NET](dotnet/dependency%20injection%20dotnet.md)
 - [PowerShell](dotnet/powershell.md)
   - [PowerShell scripting](dotnet/powershell%20scripting.md)
 
