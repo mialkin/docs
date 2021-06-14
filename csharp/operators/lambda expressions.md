@@ -14,25 +14,17 @@ A lambda expression is an expression of any of the following two forms:
 (input-parameters) => { <sequence-of-statements> }
 ```
 
-Any lambda expression can be converted to a delegate type. The delegate type to which a lambda expression can be converted is defined by the types of its parameters and return value. If a lambda expression doesn't return a value, it can be converted to one of the `Action` delegate types; otherwise, it can be converted to one of the `Func` delegate types.
+Any lambda expression can be converted to a delegate type:
 
 ```csharp
-using System;
+M(x => x * 3);
 
-class Program
+void M(Whatever whatever)
 {
-    private delegate int Whatever(int value);
-
-    static void Main(string[] args)
-    {
-        M(x => x * 3);
-    }
-
-    static void M(Whatever whatever)
-    {
-        Console.WriteLine(whatever.Invoke(5));
-    }
+    Console.WriteLine(whatever.Invoke(5));
 }
+
+delegate int Whatever(int value);
 ```
 
 Output:
@@ -42,7 +34,3 @@ Output:
 ```
 
 You can use lambda expressions in any code that requires instances of delegate types or expression trees, for example as an argument to the `Task.Run(Action)` method to pass the code that should be executed in the background.
-
-## Links
-
-[↑ Lambda expressions (C# reference)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions)
