@@ -24,9 +24,7 @@ In scrum the development procces is broken into small pieces:
 3. We test.
 4. We review that small feature set and get it ready to ship.
 
-When cycle from above is complete we end up with a *potentially shippable product*.
-
-This proccess usually happens in period of time of 1–3 weeks and repeated time and time again. You end up with several incremented releases called *sprints*. You keep repeating this sprints until your product is feature complete.
+When cycle from above is complete we end up with a *potentially shippable product*. This proccess usually happens in period of time of 1–3 weeks and repeated time and time again. You end up with several incremented releases called *sprints*. You keep repeating this sprints until your product is feature complete.
 
 > "Potentially shippable" means that the *product owner* can decide if it is ready to ship or there are any additional features needed before it ships.
 
