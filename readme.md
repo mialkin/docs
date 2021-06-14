@@ -109,10 +109,10 @@
 ## Programming
 
 - [Aggregation and composition](programming/aggregation%20and%20composition/aggregation%20and%20composition.md)
-- [Agile](programming/agile/agile.md)
 - [Arguments vs parameters](programming/argument%20vs%20parameter.md)
 - [Idempotence](programming/idempotence.md)
 - [Inversion of control (IoC)](programming/ioc/inversion%20of%20control.md)
+- [Scrum](programming/scrum/scrum.md)
 
 ## Web
 
