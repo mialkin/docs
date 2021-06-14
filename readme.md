@@ -13,7 +13,7 @@
   - [Networking](#networking)
   - [Security](#security)
   - [Python](#python)
-  - [dotNET](#dotnet)
+  - [.NET](#net)
   - [C&#35;](#c)
   - [Computer science](#computer-science)
 
@@ -143,7 +143,7 @@
 - [Python](python/python.md)
   - [Syntax](python/syntax.md)
 
-## dotNET
+## .NET
 
 - [.NET CLI](dotnet/cli.md)
 - [Dependency injection in .NET](dotnet/dependency%20injection%20dotnet.md)
