@@ -1,7 +1,7 @@
 # PostregSQL
 
 - [PostregSQL](#postregsql)
-  - [Running](#running)
+  - [Installation](#installation)
     - [Kubernetes](#kubernetes)
     - [Docker](#docker)
   - [psql](#psql)
@@ -10,42 +10,20 @@
   - [SQL syntax](#sql-syntax)
   - [Links](#links)
 
-## Running
+## Installation
 
 ### Kubernetes
+
+Install Postgres with [↑ Bitmani helm chart](https://bitnami.com/stack/postgresql/helm):
 
 ```bash
 helm install postgres bitnami/postgresql
 ```
 
-PostgreSQL can be accessed via port 5432 on the following DNS name from within your cluster:
-
-```text
-postgres-postgresql.default.svc.cluster.local
-```
-
-or run:
+To get information needed to connect to database run:
 
 ```bash
 helm status postgres
-```
-
-To get the password for "postgres" run:
-
-```bash
-kubectl get secret --namespace default postgres-postgresql -o jsonpath="{.data.postgresql-password}" | base64 --decode
-```
-
-To connect to your database from outside the cluster execute the following commands:
-
-```bash
-kubectl port-forward --namespace default svc/postgres-postgresql 5432:5432 PGPASSWORD="YOUR_PASSWORD" psql --host 127.0.0.1 -U postgres -d postgres -p 5432
-```
-
-To connect to your database run the following command:
-
-```bash
-kubectl run postgres-postgresql-client --rm --tty -i --restart='Never' --namespace default --image docker.io/bitnami/postgresql:11.11.0-debian-10-r31 --env="PGPASSWORD=YOUR_PASSWORD" --command -- psql --host postgres-postgresql -U postgres -d postgres -p 5432
 ```
 
 ### Docker
