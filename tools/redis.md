@@ -1,6 +1,22 @@
 # Redis
 
-**Redis** is an open source, in-memory data structure store, used as a database, cache, and message broker. Redis provides data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes, and streams. Redis has built-in replication, Lua scripting, LRU eviction, transactions, and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.
+- [Redis](#redis)
+  - [Installation](#installation)
+    - [Docker](#docker)
+  - [Commands](#commands)
+  - [GUI](#gui)
+
+**Redis** is an open source, in-memory data structure store, used as a database, cache, and message broker.
+
+Redis provides data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes, and streams. Redis has built-in replication, Lua scripting, LRU eviction, transactions, and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.
+
+## Installation
+
+### Docker
+
+```bash
+docker run --name CONTAINER_NAME -d -p 6379:6379 redis redis-server --appendonly yes
+```
 
 ## Commands
 
@@ -45,3 +61,7 @@
 | EXEC                        | Commits transaction                                                              |
 | subscribe CHANNEL           | Subscries to the channel                                                         |
 | publish CHANNEL MESSAGE     | Publish message to the channel                                                   |
+
+## GUI
+
+Try [↑ RedisInsight](https://redislabs.com/redis-enterprise/redis-insight).
