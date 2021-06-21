@@ -1,12 +1,26 @@
 # Helm
 
-Helm is Kubernetes package manager.
+- [Helm](#helm)
+  - [Installation](#installation)
+  - [Commands](#commands)
 
-Helm uses a packaging format called _charts_. A chart is a collection of files that describe a related set of Kubernetes resources.
+**Helm** is Kubernetes package manager.
 
-A _repository_ is the place where charts can be collected and shared.
+Helm uses a packaging format called _charts_. A **chart** is a collection of files that describe a related set of Kubernetes resources. It is a bundle of information necessary to create an instance of a Kubernetes application.
 
-A _release_ is an instance of a chart running in a Kubernetes cluster. One chart can often be installed many times into the same cluster. And each time it is installed, a new release is created.
+A **config** is a configuration information that can be merged into a packaged chart to create a releasable object.
+
+A **repository** is the place where charts can be collected and shared.
+
+A **release** is a running in Kubernetes cluster instance of a chart, combined with a specific config. One chart can often be installed many times into the same cluster. And each time it is installed, a new release is created.
+
+## Installation
+
+Homebrew:
+
+```bash
+brew install helm
+```
 
 ## Commands
 
