@@ -36,7 +36,7 @@ docker run --name CONTAINER_NAME -d -p 6379:6379 --restart=always redis redis-se
 | decr KEY                    | Decrements value by 1                                                            |
 | hset HASHSET_NAME KEY VALUE | Creates hashset and sets key and value inside of it                              |
 | hget HASHSET_NAME KEY       | Gets value inside hashset by key                                                 |
-| HGETALL HASHSET_NAME        | Gets all key/values for the hashset                                              |
+| hgetall HASHSET_NAME        | Gets all key/values for the hashset                                              |
 | hkeys NAME                  | Gets all keys from hashset                                                       |
 | hvalues NAME                | Gets all values from hashset                                                     |
 | sadd SET_NAME VALUE         | Creates a set and adds value to it                                               |
