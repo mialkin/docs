@@ -9,7 +9,7 @@
 
 ## Config
 
-Edit `.gitconfig` file:
+Edit global `.gitconfig` file:
 
 ```bash
 vim ~/.gitconfig # or use: git config --global --edit
@@ -21,23 +21,36 @@ Set default branch name:
 git config --global init.defaultBranch BRANCH_NAME
 ```
 
+To see where that setting is defined (global, user, repo, etc...):
+
+```bash
+git config --list --show-origin
+```
+
 ## Commands
 
-| Command                                   | Description                                                                   |
-| ----------------------------------------- | ----------------------------------------------------------------------------- |
-| git branch -d BRANCH_NAME                 | Delete local branch                                                           |
-| git branch -m NEW_NAME                    | Rename branch                                                                 |
-| git log --oneline                         | Print only commits subject line (without body)                                |
-| git push REMOTE_NAME -u BRANCH_NAME       | Push local branch to remote                                                   |
-| git push REMOTE_NAME --delete BRANCH_NAME | Delete remote branch                                                          |
-| git remote add REMOTE_NAME REMOTE_URL     | Add a remote                                                                  |
-| git remote remove REMOTE_NAME             | Remove remote                                                                 |
-| git remote set-url REMOTE_NAME REMOTE_URL | Replace old remote URL with new one                                           |
-| git remote -v                             | Display list of remotes with origins                                          |
-| git rm --cached FILENAME                  | Remove a file from cache                                                      |
-| git rm -fr --cached FOLDER_NAME           | Removes caches of FOLDER_NAME folder. You can use dot (`.`) instead of folder |
-| git shortlog                              | Summarizes git log so that each commit will be grouped by author and title    |
-| vim .git/config                           | Edit upstreams                                                                |
+| Command                                       | Description                                                                   |
+| --------------------------------------------- | ----------------------------------------------------------------------------- |
+| git branch -d BRANCH_NAME                     | Delete local branch                                                           |
+| git branch -m NEW_NAME                        | Rename branch                                                                 |
+| git config --list                             | Show all config sections                                                      |
+| git config --list --show-origin               | Show where settings are defined (global, user, repo, etc...)                  |
+| git config SETTING_NAME                       | Check what current settings are (in this case username)                       |
+| git config user.name                          | Check current value of `username` setting                                     |
+| git config user.name "John Doe"               | Set local user name                                                           |
+| git config user.email your@email.com          | Set local user email                                                          |
+| git config --global user.email your@email.com | Set global user email                                                         |
+| git log --oneline                             | Print only commits subject line (without body)                                |
+| git push REMOTE_NAME -u BRANCH_NAME           | Push local branch to remote                                                   |
+| git push REMOTE_NAME --delete BRANCH_NAME     | Delete remote branch                                                          |
+| git remote add REMOTE_NAME REMOTE_URL         | Add a remote                                                                  |
+| git remote remove REMOTE_NAME                 | Remove remote                                                                 |
+| git remote set-url REMOTE_NAME REMOTE_URL     | Replace old remote URL with new one                                           |
+| git remote -v                                 | Display list of remotes with origins                                          |
+| git rm --cached FILENAME                      | Remove a file from cache                                                      |
+| git rm -fr --cached FOLDER_NAME               | Removes caches of FOLDER_NAME folder. You can use dot (`.`) instead of folder |
+| git shortlog                                  | Summarizes git log so that each commit will be grouped by author and title    |
+| vim .git/config                               | Edit upstreams                                                                |
 
 ## Push to multiple repositories
 
@@ -60,6 +73,6 @@ git remote set-url --add --push origin https://github.com/mialkin/YOUR_REPOSITOR
 - Do not end the subject line with a period
 - Use the imperative mood in the subject line
 - Wrap the body at 72 characters
-- Use the body to explain *what* and *why* vs. *how*
+- Use the body to explain _what_ and _why_ vs. _how_
 
 [↑ How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit)
