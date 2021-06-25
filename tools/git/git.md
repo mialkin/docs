@@ -6,6 +6,9 @@
   - [Push to multiple repositories](#push-to-multiple-repositories)
   - [.gitignore](#gitignore)
   - [Naming commits](#naming-commits)
+  - [Fetching vs pulling](#fetching-vs-pulling)
+    - [Fetching](#fetching)
+    - [Pulling](#pulling)
 
 ## Config
 
@@ -76,3 +79,30 @@ git remote set-url --add --push origin https://github.com/mialkin/YOUR_REPOSITOR
 - Use the body to explain _what_ and _why_ vs. _how_
 
 [↑ How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit)
+
+## Fetching vs pulling
+
+`git fetch` and `git pull` both are used to download new data from a remote repository.
+
+### Fetching
+
+`git fetch` really only downloads new data from a remote repository - but it doesn't integrate any of this new data into your working files:
+
+```bash
+git fetch origin
+```
+
+Fetch is great for getting a fresh view on all the things that happened in a remote repository.
+Due to it's "harmless" nature, you can rest assured: fetch will never manipulate, destroy, or screw up anything. This means you can never fetch often enough.
+
+### Pulling
+
+`git pull`, in contrast, is used with a different goal in mind: to update your current HEAD branch with the latest changes from the remote server:
+
+```bash
+git pull origin master
+```
+
+This means that pull not only downloads new data; it also directly integrates it into your current working copy files.
+
+Since "git pull" tries to merge remote changes with your local ones, a so-called "merge conflict" can occur. It's highly recommended to start a "git pull" only with a clean working copy. This means that you should not have any uncommitted local changes before you pull. Use Git's stash feature to save your local changes temporarily.
