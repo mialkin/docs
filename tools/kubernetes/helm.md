@@ -3,6 +3,7 @@
 - [Helm](#helm)
   - [Installation](#installation)
   - [Commands](#commands)
+  - [Create a chart](#create-a-chart)
 
 **Helm** is Kubernetes package manager.
 
@@ -34,3 +35,33 @@ brew install helm
 | helm repo list                               | List chart repositories                                                          |
 | helm repo update                             | Update information of available charts locally from chart repositories           |
 | helm status RELEASE_NAME                     | Display status of the release                                                    |
+
+## Create a chart
+
+Generate chart:
+
+```bash
+helm create CHART_NAME
+```
+
+This will create a new directory called _CHART_NAME_ with the structure shown below:
+
+```text
+CHART_NAME
+|-- charts
+|-- templates
+|   |-- tests
+|       |-- test-connection.yaml
+|   |-- _helpers.tpl
+|   |-- deployment.yaml
+|   |-- hpa.yaml
+|   |-- ingress.yaml
+|   |-- NOTES.txt
+|   |-- service.yaml
+|   |-- serviceaccount.yaml
+|-- .helmignore
+|-- Chart.yaml
+|-- values.yaml
+```
+
+Helm runs each file in the _templates_ directory through a Go template rendering engine
