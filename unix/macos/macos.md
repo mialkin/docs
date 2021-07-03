@@ -2,6 +2,7 @@
 
 - [macOS](#macos)
   - [Hotkeys](#hotkeys)
+  - [Tree](#tree)
   - [Terminal](#terminal)
     - [Shortcuts](#shortcuts)
     - [Other](#other)
@@ -22,6 +23,13 @@
 | <kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>.</kbd>                                                                       | Show hidden files and folders in Terminal |
 | <kbd>⌘</kbd> + <kbd>C</kbd> on the file to copy, and <kbd>⌘</kbd> + <kbd>V</kbd> on the command line in Terminal | Get full path to a file in Terminal       |
 | <kbd>⌥</kbd> + <kbd>⌘</kbd> + <kbd>H</kbd> + <kbd>M</kbd>                                                        | Minimize all windows                      |
+
+## Tree
+
+```bash
+brew install tree
+tree .
+```
 
 ## Terminal
 
