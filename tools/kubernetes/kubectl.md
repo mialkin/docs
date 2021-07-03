@@ -185,3 +185,5 @@ Every namespace has a `default` service account resource called default. You can
 ```bash
 kubectl get serviceaccount -n NAMESPACE_NAME
 ```
+
+[↑ Youtube video – Role Based Access Control (RBAC) with Kubernetes](https://www.youtube.com/watch?v=BLktpM--0jA)
