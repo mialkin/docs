@@ -1,9 +1,12 @@
 # Helm
 
 - [Helm](#helm)
-  - [Installation](#installation)
+  - [Install Helm](#install-helm)
   - [Commands](#commands)
   - [Create a chart](#create-a-chart)
+  - [Linting](#linting)
+  - [Packaging](#packaging)
+  - [Installation](#installation)
 
 **Helm** is Kubernetes package manager.
 
@@ -15,7 +18,7 @@ A **repository** is the place where charts can be collected and shared.
 
 A **release** is a running in Kubernetes cluster instance of a chart, combined with a specific config. One chart can often be installed many times into the same cluster. And each time it is installed, a new release is created.
 
-## Installation
+## Install Helm
 
 Homebrew:
 
@@ -34,7 +37,8 @@ brew install helm
 | helm repo add REPOSITORY_NAME REPOSITORY_URL | Add chart repository                                                             |
 | helm repo list                               | List chart repositories                                                          |
 | helm repo update                             | Update information of available charts locally from chart repositories           |
-| helm status RELEASE_NAME                     | Display status of the release                                                    |
+| helm show values REPOSITORY_NAME/CHART_NAME  | Display configurable options before installing chart                             |
+| helm status RELEASE_NAME                     | Display status of the release's stated, for example during installation          |
 
 ## Create a chart
 
@@ -69,7 +73,7 @@ Helm runs each file in the _templates_ directory through a [↑ Go template](htt
 You can do a dry-run of a helm install and enable debug to inspect the generated definitions:
 
 ```bash
-helm install --dry-run --debug --generate-name ./CHART_NAME 
+helm install --dry-run --debug --generate-name ./CHART_NAME
 ```
 
 If a user of your chart wanted to change the default configuration, they could provide overrides directly on the command-line using `--set` parameter:
@@ -78,16 +82,71 @@ If a user of your chart wanted to change the default configuration, they could p
 helm install --dry-run --generate-name ./CHART_NAME --set service.port=7775
 ```
 
+## Linting
+
 As you develop your chart, it's a good idea to run it through the linter to ensure you're following best practices and that your templates are well-formed:
 
 ```bash
 helm lint ./CHART_NAME
 ```
 
-The _templates/NOTES.txt_ is a templated, plaintext file that gets printed out after the chart is successfully deployed. As we'll see when we deploy our first chart, this is a useful place to briefly describe the next steps for using a chart.
+The _templates/NOTES.txt_ is a templated, plaintext file that gets printed out after the chart is successfully deployed. This is a useful place to briefly describe the next steps for using a chart.
 
-Installing chat from local files:
+## Packaging
+
+When it's time to package the chart up for distribution, you can run the `helm package` command:
 
 ```bash
-helm install example ./mychart --set service.type=NodePort
+helm package CHART_NAME/
 ```
+
+## Installation
+
+Installing chart from local files:
+
+```bash
+helm install RELEASE_NAME ./mychart --set service.type=NodePort
+```
+
+Installing chart from local package:
+
+```bash
+helm package RELEASE_NAME PACKAGE_NAME.tgz
+```
+
+Helm installs resources in the following order:
+
+- Namespace
+- NetworkPolicy
+- ResourceQuota
+- LimitRange
+- PodSecurityPolicy
+- PodDisruptionBudget
+- ServiceAccount
+- Secret
+- SecretList
+- ConfigMap
+- StorageClass
+- PersistentVolume
+- PersistentVolumeClaim
+- CustomResourceDefinition
+- ClusterRole
+- ClusterRoleList
+- ClusterRoleBinding
+- ClusterRoleBindingList
+- Role
+- RoleList
+- RoleBinding
+- RoleBindingList
+- Service
+- DaemonSet
+- Pod
+- ReplicationController
+- ReplicaSet
+- Deployment
+- HorizontalPodAutoscaler
+- StatefulSet
+- Job
+- CronJob
+- Ingress
+- APIService
