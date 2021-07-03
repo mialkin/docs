@@ -1,5 +1,17 @@
 # kubectl
 
+- [kubectl](#kubectl)
+  - [Aliases](#aliases)
+  - [Commands](#commands)
+  - [k9s](#k9s)
+  - [kubectx & kubens](#kubectx--kubens)
+  - [Multiple clusters](#multiple-clusters)
+  - [Create Docker registry secret](#create-docker-registry-secret)
+  - [Create secret from literals](#create-secret-from-literals)
+  - [Extract secret to YAML](#extract-secret-to-yaml)
+  - [Role based access control (RBAC)](#role-based-access-control-rbac)
+    - [Service accounts](#service-accounts)
+
 The **kubectl** command line tool lets you control Kubernetes clusters.
 
 Kubernetes supports multiple virtual clusters backed by the same physical cluster. These virtual clusters are called namespaces.
@@ -151,4 +163,25 @@ kubectl create secret generic SECRET_NAME \
 
 ```bash
 kubectl get secret SECRET_NAME -o=yaml
+```
+
+## Role based access control (RBAC)
+
+Roles are scoped to namespace whereas cluster roles are scoped to the entire cluster.
+
+```bash
+kubectl get roles --all-namespaces
+kubectl get clusterroles --all-namespaces
+```
+
+### Service accounts
+
+A service account provides an identity for processes that run in a Pod.
+
+When you (a human) access the cluster (for example, using `kubectl`), you are authenticated by the apiserver as a particular User Account (currently this is usually `admin`, unless your cluster administrator has customized your cluster). Processes in containers inside pods can also contact the apiserver. When they do, they are authenticated as a particular Service Account (for example, `default`).
+
+Every namespace has a `default` service account resource called default. You can list this and any other serviceAccount resources in the namespace with this command:
+
+```bash
+kubectl get serviceaccount -n NAMESPACE_NAME
 ```
