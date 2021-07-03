@@ -14,6 +14,7 @@
     - [Daily scrum](#daily-scrum)
     - [Sprint review](#sprint-review)
   - [Workflow](#workflow)
+  - [Scrum vs Kanban](#scrum-vs-kanban)
 
 **Scrum** is a framework utilizing an *agile* mindset for developing, delivering, and sustaining complex products.
 
@@ -111,3 +112,7 @@ At the end of the sprint *sprint review* and *retrospective* occur.
 Repeat this workflow for each sprint:
 
 <img src="scrum%20backlog.jpg" />
+
+## Scrum vs Kanban
+
+<img src="scrum%20vs%20kanban.jpg" />
