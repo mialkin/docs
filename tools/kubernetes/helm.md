@@ -64,4 +64,30 @@ CHART_NAME
 |-- values.yaml
 ```
 
-Helm runs each file in the _templates_ directory through a Go template rendering engine
+Helm runs each file in the _templates_ directory through a [↑ Go template](https://golang.org/pkg/text/template/) rendering engine.
+
+You can do a dry-run of a helm install and enable debug to inspect the generated definitions:
+
+```bash
+helm install --dry-run --debug --generate-name ./CHART_NAME 
+```
+
+If a user of your chart wanted to change the default configuration, they could provide overrides directly on the command-line using `--set` parameter:
+
+```bash
+helm install --dry-run --generate-name ./CHART_NAME --set service.port=7775
+```
+
+As you develop your chart, it's a good idea to run it through the linter to ensure you're following best practices and that your templates are well-formed:
+
+```bash
+helm lint ./CHART_NAME
+```
+
+The _templates/NOTES.txt_ is a templated, plaintext file that gets printed out after the chart is successfully deployed. As we'll see when we deploy our first chart, this is a useful place to briefly describe the next steps for using a chart.
+
+Installing chat from local files:
+
+```bash
+helm install example ./mychart --set service.type=NodePort
+```
