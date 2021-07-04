@@ -9,6 +9,8 @@
   - [Fetching vs pulling](#fetching-vs-pulling)
     - [Fetching](#fetching)
     - [Pulling](#pulling)
+  - [Stashing](#stashing)
+    - [Re-applying stashed changes](#re-applying-stashed-changes)
 
 ## Config
 
@@ -106,3 +108,35 @@ git pull origin master
 This means that pull not only downloads new data; it also directly integrates it into your current working copy files.
 
 Since "git pull" tries to merge remote changes with your local ones, a so-called "merge conflict" can occur. It's highly recommended to start a "git pull" only with a clean working copy. This means that you should not have any uncommitted local changes before you pull. Use Git's stash feature to save your local changes temporarily.
+
+## Stashing
+
+```bash
+git stash
+```
+
+At this point you're free to make changes, create new commits, switch branches, and perform any other Git operations; then come back and re-apply your stash when you're ready.
+
+Note that the stash is local to your Git repository; stashes are not transferred to the server when you push.
+
+### Re-applying stashed changes
+
+You can reapply previously stashed changes with:
+
+```bash
+git stash pop
+```
+
+Popping your stash removes the changes from your stash and reapplies them to your working copy.
+
+Alternatively, you can reapply the changes to your working copy and keep them in your stash with:
+
+```bash
+git stash apply
+```
+
+This is useful if you want to apply the same stashed changes to multiple branches.
+
+Now that you know the basics of stashing, there is one caveat with git stash you need to be aware of: by default Git *won't* stash changes made to untracked or ignored files.
+
+[↑ Git stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash)
