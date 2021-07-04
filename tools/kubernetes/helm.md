@@ -6,7 +6,8 @@
   - [Create a chart](#create-a-chart)
   - [Linting](#linting)
   - [Packaging](#packaging)
-  - [Installation](#installation)
+  - [Deploying](#deploying)
+  - [Installing](#installing)
 
 **Helm** is Kubernetes package manager.
 
@@ -36,6 +37,7 @@ brew install helm
 | helm pull REPOSITORY_NAME/CHART_NAME         | Download a chart from a repository and (optionally) unpack it in local directory |
 | helm repo add REPOSITORY_NAME REPOSITORY_URL | Add chart repository                                                             |
 | helm repo list                               | List chart repositories                                                          |
+| helm repo remove REPOSITORY_NAME             | Remove repository                                                                |
 | helm repo update                             | Update information of available charts locally from chart repositories           |
 | helm show values REPOSITORY_NAME/CHART_NAME  | Display configurable options before installing chart                             |
 | helm status RELEASE_NAME                     | Display status of the release's stated, for example during installation          |
@@ -100,7 +102,14 @@ When it's time to package the chart up for distribution, you can run the `helm p
 helm package CHART_NAME/
 ```
 
-## Installation
+## Deploying
+
+```bash
+curl -u<USERNAME>:<PASSWORD> -T <PATH_TO_FILE> "https://mialkin.jfrog.io/artifactory/mialkin-helm/<TARGET_FILE_PATH>"
+curl -u "username@gmail.com:YOUR_PASSWOR" -T PACKAGE_NAME.tgz "https://mialkin.jfrog.io/artifactory/mialkin-helm/CHART_NAME"
+```
+
+## Installing
 
 Installing chart from local files:
 
@@ -112,6 +121,13 @@ Installing chart from local package:
 
 ```bash
 helm package RELEASE_NAME PACKAGE_NAME.tgz
+```
+
+Installing from jFrog repository:
+
+```bash
+helm repo update
+helm install mialkin-helm/[chartName]
 ```
 
 Helm installs resources in the following order:
