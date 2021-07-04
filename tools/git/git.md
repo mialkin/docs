@@ -1,7 +1,8 @@
 # Git
 
 - [Git](#git)
-  - [Config](#config)
+  - [Git config](#git-config)
+    - [Work vs personal credentials](#work-vs-personal-credentials)
   - [Commands](#commands)
   - [Push to multiple repositories](#push-to-multiple-repositories)
   - [.gitignore](#gitignore)
@@ -12,7 +13,7 @@
   - [Stashing](#stashing)
     - [Re-applying stashed changes](#re-applying-stashed-changes)
 
-## Config
+## Git config
 
 Edit global `.gitconfig` file:
 
@@ -30,6 +31,28 @@ To see where that setting is defined (global, user, repo, etc...):
 
 ```bash
 git config --list --show-origin
+```
+
+### Work vs personal credentials
+
+`.gitconfig` file:
+
+```text
+[user]
+	email = personal@gmail.com
+	name = John Doe
+[init]
+	defaultBranch = main
+[includeIf "gitdir:~/work/"]
+    path = .gitconfig-work
+```
+
+`.gitconfig-work`:
+
+```text
+[user]
+	email = work@company.com
+	name = John Work
 ```
 
 ## Commands
