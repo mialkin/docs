@@ -1,5 +1,18 @@
 # Unit testing best practices
 
+- [Unit testing best practices](#unit-testing-best-practices)
+  - [Naming your tests](#naming-your-tests)
+  - [Prefer helper methods to setup and teardown](#prefer-helper-methods-to-setup-and-teardown)
+    - [Why?](#why)
+    - [Bad:](#bad)
+    - [Better:](#better)
+  - [Validate private methods by unit testing public methods](#validate-private-methods-by-unit-testing-public-methods)
+  - [Avoid logic in tests](#avoid-logic-in-tests)
+    - [Why?](#why-1)
+  - [Avoid multiple asserts](#avoid-multiple-asserts)
+    - [Why?](#why-2)
+  - [Links](#links)
+
 A **fake** is a generic term that can be used to describe either a *stub* or a *mock* object. Whether it's a *stub* or a *mock* depends on the context in which it's used.
 
 A **stub** is a controllable replacement for an existing dependency (or collaborator) in the system. By using a stub, you can test your code without dealing with the dependency directly. By default, a *fake* starts out as a *stub*.
