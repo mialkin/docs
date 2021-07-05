@@ -12,6 +12,7 @@
     - [Pulling](#pulling)
   - [Stashing](#stashing)
     - [Re-applying stashed changes](#re-applying-stashed-changes)
+    - [Drop stash](#drop-stash)
 
 ## Git config
 
@@ -161,5 +162,12 @@ git stash apply
 This is useful if you want to apply the same stashed changes to multiple branches.
 
 Now that you know the basics of stashing, there is one caveat with git stash you need to be aware of: by default Git *won't* stash changes made to untracked or ignored files.
+
+### Drop stash
+
+```bash
+git stash drop            # drop top hash, stash@{0}
+git stash drop stash@{n}  # drop specific stash - see git stash list
+```
 
 [↑ Git stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash)
