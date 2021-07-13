@@ -61,6 +61,7 @@
 - [Isolation levels](databases/transactions/isolation%20levels.md)
 - [PostgreSQL](databases/postgres/postgres.md)
 - [PL/SQL](databases/oracle/plsql.md)
+- [T-SQL](databases/tsql.md)
 - [EF Core tools](databases/efcore/efcoretools.md)
 
 ## Software architecture and design
