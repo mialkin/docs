@@ -29,6 +29,10 @@ class Derived : Base
 
 The LSP is all about well-designed inheritance. When you inherit from a base class, you must be able to substitute your subclass for that base class without things going terribly wrong. Otherwise, you've used inheritance incorrectly!<sup>1</sup>
 
+## Related links
+
+[↑ Implementing an interface when you don't need one of the properties](https://softwareengineering.stackexchange.com/questions/306105/implementing-an-interface-when-you-dont-need-one-of-the-properties)
+
 <hr>
 
 <sup>1</sup> Head First Object-Oriented Analysis and Design O'Reilly Media; 1st edition (December 19, 2006), page 400
