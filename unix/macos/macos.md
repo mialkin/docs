@@ -5,6 +5,7 @@
   - [Tree](#tree)
   - [Terminal](#terminal)
     - [Shortcuts](#shortcuts)
+  - [IP address](#ip-address)
     - [Other](#other)
   - [Finder](#finder)
   - [Terminal aliases](#terminal-aliases)
@@ -42,6 +43,12 @@ tree .
 | Ctrl + W | Remove word backward        |
 | Ctrl + K | Delete to end of line       |
 | Ctrl + Y | Paste                       |
+
+## IP address
+
+```bash
+curl icanhazip.com
+```
 
 ### Other
 
