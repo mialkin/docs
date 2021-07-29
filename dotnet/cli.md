@@ -14,7 +14,8 @@ The .NET command-line interface (CLI) is a cross-platform toolchain for developi
 | dotnet pack                            | Build the project and create NuGet packages. The result of this command is a NuGet package (that is, a _.nupkg_ file) |
 | dotnet publish                         | Publish the application and its dependencies to a folder for deployment to a hosting system                           |
 | dotnet restore                         | Restore the dependencies and tools of a project <sup>1</sup>                                                          |
-| dotnet run                             | Run source code without any explicit compile or launch commands <sup>2</sup>                                          |
+| dotnet run                             | Run source code in the context of projects without any explicit compile or launch commands <sup>2</sup>               |
+| dotnet myproject.dll                   | Run built assemblies                                                                                                  |
 | dotnet test                            | Execute unit tests in a given solution <sup>3</sup>                                                                   |
 
 ## Footnotes
