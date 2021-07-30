@@ -1,15 +1,20 @@
 # RabbitMQ
 
 - [RabbitMQ](#rabbitmq)
-  - [Kubernetes](#kubernetes)
-    - [Installation](#installation)
-    - [Running](#running)
-    - [Performance test](#performance-test)
-    - [Commands](#commands)
+  - [Basics](#basics)
+  - [Installation](#installation)
+    - [Kubernetes](#kubernetes)
+      - [Running](#running)
+      - [Performance test](#performance-test)
+      - [Commands](#commands)
 
-## Kubernetes
+## Basics
 
-### Installation
+[Explaination of basics ↑](https://www.rabbitmq.com/tutorials/amqp-concepts.html)
+
+## Installation
+
+### Kubernetes
 
 Install `rabbitmq` plugin using `krew` kubectl plugin manager:
 
@@ -25,7 +30,7 @@ Install [cluster operator ↑](https://www.rabbitmq.com/kubernetes/operator/oper
 kubectl rabbitmq install-cluster-operator
 ```
 
-### Running
+#### Running
 
 ```bash
 YOUR_NAMESPACE=mialkin
@@ -36,7 +41,7 @@ kubectl rabbitmq -n $YOUR_NAMESPACE secrets $CLUSTER_NAME
 kubectl rabbitmq -n $YOUR_NAMESPACE manage $CLUSTER_NAME
 ```
 
-### Performance test
+#### Performance test
 
 ```bash
 username="$(kubectl get secret hello-world-default-user -o jsonpath='{.data.username}' | base64 --decode)"
@@ -50,7 +55,7 @@ kubectl delete pod perf-test -n YOUR_NAMESPACE
 kubectl delete service perf-test -n YOUR_NAMESPACE
 ```
 
-### Commands
+#### Commands
 
 | Command                                                             | Description                                   |
 | ------------------------------------------------------------------- | --------------------------------------------- |
