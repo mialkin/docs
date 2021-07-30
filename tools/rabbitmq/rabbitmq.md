@@ -12,6 +12,8 @@
 
 [Explaination of basics ↑](https://www.rabbitmq.com/tutorials/amqp-concepts.html)
 
+<img src="rmq.jpeg">
+
 ## Installation
 
 ### Kubernetes
