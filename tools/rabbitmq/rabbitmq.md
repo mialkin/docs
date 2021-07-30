@@ -19,13 +19,16 @@
 
 <img src="statuses.png">
 
-| Status  | Meaning                                         |
-| ------- | ----------------------------------------------- |
-| Ready   | Messages that were never delivered to consumer  |
-| Unacked | Messages that were delivered but were not acked |
-| Total   | Ready + Unacked                                 |
+| Status              | Meaning                                                                                                                                                                                            |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Ready               | Messages that were never delivered to consumer                                                                                                                                                     |
+| Unacked             | Messages that were delivered but were not acked                                                                                                                                                    |
+| Total               | Ready + Unacked                                                                                                                                                                                    |
+| Delivery (auto ack) | Number of messages prefeteched by consumer with `autoack` set to `true` they are acked automatically, even if they were not proccessed yet: `channel.BasicConsume(queue, autoAck: true, consumer)` |
+| Consumer ack        | Number of messages acked by consumer when `autoack` is set to `false`                                                                                                                              |
+| Redelivered         | Number of unacked messages that were resend to consumers                                                                                                                                           |
 
-Imagine Consumer 1 prefteched 9 messages from a queue and haven't acknowledged them. No new messages arrive to the queue, so Consumer 1 stays still. Now Consumer 2 starts consuming from the queue and stays still, because no new messages arrive to the queue. If we kill Consumer 1, then Consumer 2 will start receiving those 9 messages from Rabbit, that were not acked by Consumer 1.
+Imagine Consumer 1 prefteched 9 messages from a queue and haven't acknowledged them. No new messages arrive to the queue, so Consumer 1 stays still. Now Consumer 2 starts consuming from the queue and stays still, because no new messages arrive to the queue. If we kill Consumer 1, then Consumer 2 will start receiving (redelivery) those 9 messages from Rabbit, that were not acked by Consumer 1.
 
 ## Installation
 
