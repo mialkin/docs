@@ -10,6 +10,8 @@
     - [Headers exchange](#headers-exchange)
   - [Virtual hosts](#virtual-hosts)
   - [Statuses](#statuses)
+  - [Prefetch count](#prefetch-count)
+    - [How to set the correct prefetch value?](#how-to-set-the-correct-prefetch-value)
   - [Channels](#channels)
   - [Connections](#connections)
   - [AMQP 0-9-1 methods](#amqp-0-9-1-methods)
@@ -83,6 +85,26 @@ To make it possible for a single broker to host multiple isolated "environments"
 | Redelivered         | Number of unacked messages that were resend to consumers                                                                                                                                           |
 
 Imagine Consumer 1 prefteched 9 messages from a queue and haven't acknowledged them. No new messages arrive to the queue, so Consumer 1 stays still. Now Consumer 2 starts consuming from the queue and stays still, because no new messages arrive to the queue. If we kill Consumer 1, then Consumer 2 will start receiving (redelivery) those 9 messages from Rabbit, that were not acked by Consumer 1.
+
+## Prefetch count
+
+There are two prefetch options available, *channel prefetch count* and *consumer prefetch count*.
+
+The `basic_qos` function contains the global flag. Setting the value to `false` applies the count to each new consumer. Setting the value to `true` applies a channel prefetch count to all consumers. Most APIs set the global flag to `false` by default.
+
+A larger prefetch count generally improves the rate of message delivery. The broker does not need to wait for acknowledgments as often and the communication between the broker and consumers decreases. Still, smaller prefetch values can be ideal for distributing messages across larger systems. Smaller values maintain the evenness of message consumption. A value of one helps ensure equal message distribution.
+
+### How to set the correct prefetch value?
+
+If you have one single or only a few consumers processing messages quickly, we recommend prefetching many messages at once to keep your client as busy as possible. If you have about the same processing time all the time and network behavior remains the same, simply take the total round trip time and divide by the processing time on the client for each message to get an estimated prefetch value.
+
+In a situation with many consumers and short processing time, we recommend a lower prefetch value. A value that is too low will keep the consumers idling a lot since they need to wait for messages to arrive. A value that is too high may keep one consumer busy while other consumers are being kept in an idling state.
+
+If you have many consumers and/or long processing time, we recommend setting the prefetch count to one (1) so that messages are evenly distributed among all your workers.
+
+Please note that if your client auto-acks messages, the prefetch value will have no effect.
+
+Avoid the usual mistake of having an unlimited prefetch, where one client receives all messages and runs out of memory and crashes, causing all the messages to be re-delivered.
 
 ## Channels
 
