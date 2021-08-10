@@ -36,6 +36,12 @@ sudo hostnamectl set-hostname YOUR_HOSTNAME
 hostnamectl
 ```
 
+## Grant user root priveleges
+
+```bash
+usermod -aG sudo username
+```
+
 ## Install Nginx
 
 ```sh
