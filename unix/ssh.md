@@ -7,6 +7,7 @@
     - [Get public key](#get-public-key)
   - [Connect](#connect)
   - [`known_hosts` file](#known_hosts-file)
+  - [Disable password authentication](#disable-password-authentication)
   - [Links](#links)
 
 The **Secure Shell** (**SSH**) is a cryptographic network protocol for operating network services securely over an unsecured network.
@@ -78,6 +79,32 @@ Open known_hosts file:
 
 ```bash
 vim ~/.ssh/known_hosts
+```
+
+## Disable password authentication
+
+On client:
+
+```bash
+ssh-copy-id aleksei@192.168.0.44
+```
+
+On server:
+
+```bash
+sudo vim /etc/ssh/sshd_config
+```
+
+Set:
+
+```text
+PasswordAuthentication no
+```
+
+Run:
+
+```bash
+sudo systemctl restart ssh
 ```
 
 ## Links
