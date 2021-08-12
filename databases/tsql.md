@@ -5,6 +5,7 @@
     - [Declare a variable](#declare-a-variable)
     - [`SET NOCOUNT` command](#set-nocount-command)
   - [Count objects](#count-objects)
+  - [Triggers](#triggers)
   - [Indexes](#indexes)
     - [Index scan](#index-scan)
     - [Index seek](#index-seek)
@@ -62,6 +63,23 @@ Number of **functions** in a database:
 SELECT COUNT(*) AS FUNCTION_COUNT
 FROM INFORMATION_SCHEMA.ROUTINES
 WHERE ROUTINE_TYPE = 'FUNCTION'
+```
+
+## Triggers
+
+```sql
+CREATE TRIGGER [dbo].[TRIGGER_NAME] ON [dbo].[TABLE_NAME]
+FOR INSERT, UPDATE
+AS
+
+INSERT INTO [dbo].[TABLE_NAME] (OrderNumber, DateCreated, DateLastChanged)
+SELECT OrderNumber, DateCreated, GETDATE()
+FROM INSERTED
+
+GO
+
+ALTER TABLE [dbo].[TABLE_NAME] ENABLE TRIGGER [TRIGGER_NAME]
+GO
 ```
 
 ## Indexes
