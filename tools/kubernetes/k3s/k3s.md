@@ -28,3 +28,7 @@ kubectl -n kubernetes-dashboard describe secret admin-user-token | grep '^token'
 ## Jenkins
 
 [jenkins.yaml](jenkins.yaml)
+
+## Grafana
+
+[grafana.yaml](grafana.yaml)
