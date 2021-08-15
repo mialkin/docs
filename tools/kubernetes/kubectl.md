@@ -13,7 +13,7 @@
 
 The **kubectl** command line tool lets you control Kubernetes clusters.
 
-Kubernetes supports multiple virtual clusters backed by the same physical cluster. These virtual clusters are called *namespaces*.
+Kubernetes supports multiple virtual clusters backed by the same physical cluster. These virtual clusters are called _namespaces_.
 
 ## Aliases
 
@@ -49,7 +49,7 @@ echo "alias k='kubectl'" >> ~/.zshrc
 | kubectl describe configmap CONFIG_MAP_NAME -n NAMESPACE_NAME                                     | Get details of configmap                                                                                                                        |
 | kubectl describe deployment DEPLOYMENT_NAME                                                      | Get datails of deployment                                                                                                                       |
 | kubectl describe deployments                                                                     | Get details of all deployment                                                                                                                   |
-| kubectl describe nodes                                                                           | Get details of all nodes, inluding used resources and current performance                                                                       |
+| kubectl describe nodes                                                                           | Get details of all nodes, inluding used resources (CPU & memory requests) and current performance                                               |
 | kubectl drain NODE_NAME                                                                          | Draining didn't work in GKE as was expected                                                                                                     |
 | kubectl exec -it POD_NAME -n NAMESPACE_NAME -- /bin/bash                                         | Run shell inside container inside pod if pod has a single container                                                                             |
 | kubectl exec -it POD_NAME -- env                                                                 | Print environment variables of container inside pod if pod has a single container                                                               |
