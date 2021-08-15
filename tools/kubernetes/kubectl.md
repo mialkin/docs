@@ -4,7 +4,6 @@
   - [Aliases](#aliases)
   - [Commands](#commands)
   - [k9s](#k9s)
-  - [kubectx & kubens](#kubectx--kubens)
   - [Multiple clusters](#multiple-clusters)
   - [Create Docker registry secret](#create-docker-registry-secret)
   - [Create secret from literals](#create-secret-from-literals)
@@ -14,7 +13,7 @@
 
 The **kubectl** command line tool lets you control Kubernetes clusters.
 
-Kubernetes supports multiple virtual clusters backed by the same physical cluster. These virtual clusters are called namespaces.
+Kubernetes supports multiple virtual clusters backed by the same physical cluster. These virtual clusters are called *namespaces*.
 
 ## Aliases
 
@@ -113,23 +112,6 @@ brew upgrade k9s
 ```
 
 Project on GitHub: https://github.com/derailed/k9s.
-
-## kubectx & kubens
-
-Installation:
-
-```zsh
-brew install kubectx
-```
-
-Commands:
-
-| Command   | Description                      |
-| --------- | -------------------------------- |
-| kubectx   | List contexts                    |
-| kubectx - | Switch to the previous context   |
-| kubens    | List namespaces                  |
-| kubens -  | Switch to the previous namespace |
 
 ## Multiple clusters
 
