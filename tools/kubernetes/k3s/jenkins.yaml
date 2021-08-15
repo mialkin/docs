@@ -90,3 +90,45 @@ spec:
         - name: jenkins-data
           persistentVolumeClaim:
             claimName: jenkins-pvc
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins
+  namespace: jenkins
+spec:
+  selector:
+    app: jenkins-server
+  ports:
+    - name: http
+      port: 8080
+    - name: jnl
+      port: 50000
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jenkins-ingress
+  namespace: jenkins
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+    cert-manager.io/cluster-issuer: self-signed-issuer
+    traefik.ingress.kubernetes.io/router.tls: "true"
+spec:
+  rules:
+  - host: jenkins.pi.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: jenkins
+            port:
+              number: 8080
+  tls:
+  - hosts:
+    - jenkins.pi.local
+    secretName: jenkins-tls
