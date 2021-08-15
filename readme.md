@@ -29,11 +29,10 @@
   - [Flux](tools/kubernetes/flux.md)
   - [Helm](tools/kubernetes/helm.md)
   - [Istio](tools/kubernetes/istio.md)
+  - [k3s](tools/kubernetes/k3s/k3s.md)
   - [Kiali](tools/kubernetes/kiali.md)
   - [kubectl](tools/kubernetes/kubectl.md)
-  - [Metrics server](tools/kubernetes/metrics%20server.md)
-  - [Prometheus](tools/kubernetes/prometheus.md)
-- [RabbitMQ](tools/rabbitmq/rabbitmq.md)
+  - [RabbitMQ](tools/rabbitmq/rabbitmq.md)
 - [Redis](tools/redis.md)
 - [Regular expressions](tools/regular%20expressions/regular%20expressions.md)
 - Testing

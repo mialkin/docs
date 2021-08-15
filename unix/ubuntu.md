@@ -51,3 +51,17 @@ sudo systemctl start nginx
 ```
 
 [Configure Nginx](nginx.md) once the installation is finished.
+
+## Temperature & frequency (Raspberry Pi)
+
+Temperature:
+
+```bash
+paste <(cat /sys/class/thermal/thermal_zone*/type) <(cat /sys/class/thermal/thermal_zone*/temp) | column -s $"\t" -t | sed "s/\(.\)..$/.\1°C/"
+```
+
+Frequency:
+
+```bash
+echo ">> CPU Freq:" $(($(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq)/1000))MHz
+```
