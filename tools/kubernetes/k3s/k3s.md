@@ -24,3 +24,7 @@ kubectl -n kubernetes-dashboard describe secret admin-user-token | grep '^token'
 ## whoami
 
 [whoami.yaml](whoami.yaml)
+
+## Jenkins
+
+[jenkins.yaml](jenkins.yaml)
