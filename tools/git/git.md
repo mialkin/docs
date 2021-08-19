@@ -104,7 +104,9 @@ git remote set-url --add --push origin https://github.com/mialkin/YOUR_REPOSITOR
 - Wrap the body at 72 characters
 - Use the body to explain _what_ and _why_ vs. _how_
 
-[↑ How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit)
+[↑ How to Write a Git Commit Message.pdf](How%20to%20Write%20a%20Git%20Commit%20Message.pdf)
+
+[↑ How to Write a Git Commit Message — Original Article](https://chris.beams.io/posts/git-commit)
 
 ## Fetching vs pulling
 
