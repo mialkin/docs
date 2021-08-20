@@ -21,14 +21,18 @@ kubectl proxy
 kubectl -n kubernetes-dashboard describe secret admin-user-token | grep '^token'
 ```
 
-## whoami
+## Applications
 
-[whoami.yaml](whoami.yaml)
+| Application name | YAML file                                |
+| ---------------- | ---------------------------------------- |
+| whoami           | [whoami.yaml](whoami.yaml)               |
+| Jenkins          | [jenkins.yaml](jenkins.yaml)             |
+| Grafana          | [grafana.yaml](grafana.yaml)             |
 
-## Jenkins
+## Home Assistant
 
-[jenkins.yaml](jenkins.yaml)
+Helm chart: https://artifacthub.io/packages/helm/k8s-at-home/home-assistant
 
-## Grafana
-
-[grafana.yaml](grafana.yaml)
+```bash
+kubectl port-forward $POD_NAME 8080:8123
+```
