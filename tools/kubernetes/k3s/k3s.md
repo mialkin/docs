@@ -28,11 +28,3 @@ kubectl -n kubernetes-dashboard describe secret admin-user-token | grep '^token'
 | whoami           | [whoami.yaml](whoami.yaml)               |
 | Jenkins          | [jenkins.yaml](jenkins.yaml)             |
 | Grafana          | [grafana.yaml](grafana.yaml)             |
-
-## Home Assistant
-
-Helm chart: https://artifacthub.io/packages/helm/k8s-at-home/home-assistant
-
-```bash
-kubectl port-forward $POD_NAME 8080:8123
-```

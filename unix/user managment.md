@@ -87,6 +87,18 @@ Show group to which current user belongs:
 groups
 ```
 
+## Add password to user
+
+```bash
+sudo passwd sammy
+```
+
+## Add to `sudo` group
+
+```bash
+usermod -aG sudo sammy
+```
+
 ## Allowing to connect via SSH
 
 Being logged in as a new user create new `.ssh` directory:
