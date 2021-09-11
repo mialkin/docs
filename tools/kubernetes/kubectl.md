@@ -7,6 +7,7 @@
   - [Multiple clusters](#multiple-clusters)
   - [Create Docker registry secret](#create-docker-registry-secret)
   - [Create secret from literals](#create-secret-from-literals)
+  - [Decode base64 string](#decode-base64-string)
   - [Extract secret to YAML](#extract-secret-to-yaml)
   - [Role based access control (RBAC)](#role-based-access-control-rbac)
     - [Service accounts](#service-accounts)
@@ -139,6 +140,12 @@ kubectl create secret generic SECRET_NAME \
 --from-literal=username=admin \
 --from-literal="password=123"
 --from-literal=connectionstring='host=localhost;user=admin;password=secret'
+```
+
+## Decode base64 string
+
+```bash
+echo QWxhZGRpbjpvcGVuIHNlc2FtZQ== | base64 --decode
 ```
 
 ## Extract secret to YAML
