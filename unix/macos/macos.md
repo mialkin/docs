@@ -11,8 +11,9 @@
   - [Terminal aliases](#terminal-aliases)
   - [Key repeating](#key-repeating)
   - [Adding new path to PATH environment variable](#adding-new-path-to-path-environment-variable)
+  - [Rider](#rider)
+  - [Sublime](#sublime)
   - [Flush DNS cache](#flush-dns-cache)
-  - [Launch Rider from terminal](#launch-rider-from-terminal)
   - [Hosts](#hosts)
   - [Installing app from developers](#installing-app-from-developers)
 
@@ -47,7 +48,7 @@ tree .
 ## IP address
 
 ```bash
-curl icanhazip.com
+curl ifconfig.me
 ```
 
 ### Other
@@ -89,7 +90,6 @@ Set up aliases in `~/.zshrc` file:
 alias ll='ls -la'
 alias cls='clear'
 alias python='python3'
-alias k='kubectl'
 ```
 
 ## Key repeating
@@ -122,13 +122,7 @@ Save file and source it:
 source .zshrc
 ```
 
-## Flush DNS cache
-
-```zsh
-sudo killall -HUP mDNSResponder
-```
-
-## Launch Rider from terminal
+## Rider
 
 Create file:
 
@@ -149,6 +143,18 @@ Change access mode:
 
 ```bash
 chmod 775 rider
+```
+
+## Sublime
+
+```bash
+echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"' >> ~/.zprofile
+```
+
+## Flush DNS cache
+
+```zsh
+sudo killall -HUP mDNSResponder
 ```
 
 ## Hosts
