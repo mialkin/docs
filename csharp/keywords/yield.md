@@ -2,7 +2,7 @@
 
 When you use the `yield` contextual keyword in a statement, you indicate that the method, operator, or get accessor in which it appears is an iterator. Using `yield` to define an iterator removes the need for an explicit extra class (the class that holds the state for an enumeration, see `IEnumerator<T>` for an example) when you implement the `IEnumerable` and `IEnumerator` pattern for a custom collection type.
 
-When you use `yiled reurn` the compiler will automatically generate a class that implements both `IEnumerable<T>` and `IEnumerator<T>` (in the same class).
+When you use `yiled return` the compiler will automatically generate a class that implements both `IEnumerable<T>` and `IEnumerator<T>` (in the same class).
 
 The following example shows the two forms of the `yield` statement:
 
