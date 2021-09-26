@@ -49,6 +49,7 @@
   - [Shell scripting](unix/shell/shell%20scripting.md)
 - [Tools](unix/tools.md)
   - [crontab](unix/crontab.md)
+  - [gpg](unix/gpg.md)
   - [ssh](unix/ssh.md)
   - [tmux](unix/tmux.md)
   - [vim](unix/vim.md)
