@@ -7,6 +7,7 @@
     - [Get public key](#get-public-key)
   - [Connect](#connect)
   - [`known_hosts` file](#known_hosts-file)
+  - [Use multiple keys](#use-multiple-keys)
   - [Disable password authentication](#disable-password-authentication)
   - [Links](#links)
 
@@ -80,6 +81,29 @@ Open known_hosts file:
 ```bash
 vim ~/.ssh/known_hosts
 ```
+
+## Use multiple keys
+
+```bash
+cd
+touch .ssh/config
+vim .ssh/config
+```
+
+Contents of the file:
+
+```text
+Host myshortname realname.example.com
+    HostName realname.example.com
+    IdentityFile ~/.ssh/realname_rsa
+    User remoteusername
+
+Host myother realname2.example.org
+    HostName realname2.example.org
+    IdentityFile ~/.ssh/realname2_rsa
+    User remoteusername2
+```
+
 
 ## Disable password authentication
 
