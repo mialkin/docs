@@ -42,22 +42,22 @@ The **apt** provides a high-level commandline interface for the package manageme
 
 References:
 
--   u — user, file owner
--   g — group, members of the file's group
--   o — others, users who are neither the file's owner nor memebers of the file's group
--   a — all, all three of the above, same as `ugo`
+- u — user, file owner
+- g — group, members of the file's group
+- o — others, users who are neither the file's owner nor memebers of the file's group
+- a — all, all three of the above, same as `ugo`
 
 Operators:
 
--   \+ — adds the specified modes to the specified classes
--   \- — removes the specified modes from the specified classes
--   = — the modes specified are to be made the exact modes for the specified classes
+- \+ — adds the specified modes to the specified classes
+- \- — removes the specified modes from the specified classes
+- = — the modes specified are to be made the exact modes for the specified classes
 
 Modes:
 
--   r — read, read a file or list a directory's contents
--   w — write, write to a file or directory
--   x — execute, execute a file or recurse a directory tree
+- r — read, read a file or list a directory's contents
+- w — write, write to a file or directory
+- x — execute, execute a file or recurse a directory tree
 
 | Command               | Description                        |
 | --------------------- | ---------------------------------- |
@@ -206,10 +206,8 @@ The **rg** tool allows to search current directory recursively for lines matchin
 Search "ssh" keyword.
 
 ```sh
-ll | rg ssh
-find . | rg .sln
-find "$PWD" | rg .sln
-ls -R | rg .sln
+rg text_in_file
+rg -l filename_text
 ```
 
 ## rsync
@@ -288,18 +286,18 @@ GNU **tar** is an archiving program designed to store multiple files in a single
 
 **Options**:
 
--   `c` — create new archive
--   `f` — use archive file (`archive.tar.gz`)
--   `t` — list archive contents to stdout
--   `v` — verbose output
--   `x` — extract to disk from the archive
--   `z` — filter the archive through gzip
--   `-C` — changes the directory
--   `--exclude <pattern>` — do not process files or directories that match the specified pattern
+- `c` — create new archive
+- `f` — use archive file (`archive.tar.gz`)
+- `t` — list archive contents to stdout
+- `v` — verbose output
+- `x` — extract to disk from the archive
+- `z` — filter the archive through gzip
+- `-C` — changes the directory
+- `--exclude <pattern>` — do not process files or directories that match the specified pattern
 
 ## xxd
 
-Creates a hex dump of a given file or standard input.  It can also convert a hex dump back to its original binary form.
+Creates a hex dump of a given file or standard input. It can also convert a hex dump back to its original binary form.
 
 ```bash
 xxd filename | less
