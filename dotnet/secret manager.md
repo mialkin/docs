@@ -21,7 +21,7 @@ It will add a new `UserSecretsId` record to `.csproj` file:
 From the project directory run:
 
 ```bash
-dotnet user-secrets set "ConnectionStrings:SalesDatabase" "localhost"
+dotnet user-secrets set "ConnectionStrings:SalesDatabase" "Server=localhost;Database=Sales;Trusted_Connection=True;"
 ```
 
 List project's secrets:
@@ -38,9 +38,9 @@ Project's secrets are stored in the file:
 
 This `cat ~/.microsoft/usersecrets/8bf536a6-2591-43de-9052-0e6781dec11e/secrets.json` outputs:
 
-```text
+```json
 {
-  "ConnectionStrings:SalesDatabase": "localhost"
+  "ConnectionStrings:SalesDatabase": "Server=localhost;Database=Sales;Trusted_Connection=True;"
 }
 ```
 
