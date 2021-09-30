@@ -40,7 +40,7 @@ This `cat ~/.microsoft/usersecrets/8bf536a6-2591-43de-9052-0e6781dec11e/secrets.
 
 ```json
 {
-  "ConnectionStrings:SalesDatabase": "Server=localhost;Database=Sales;Trusted_Connection=True;"
+  "ConnectionStrings:SalesDatabase": "ConnectionStrings:SalesDatabase": "Server=localhost;Database=Sales;User=sa;Password=<YourStrong@Passw0rd>;"
 }
 ```
 
