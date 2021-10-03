@@ -4,8 +4,8 @@
   - [Naming your tests](#naming-your-tests)
   - [Prefer helper methods to setup and teardown](#prefer-helper-methods-to-setup-and-teardown)
     - [Why?](#why)
-    - [Bad:](#bad)
-    - [Better:](#better)
+    - [Bad](#bad)
+    - [Better](#better)
   - [Validate private methods by unit testing public methods](#validate-private-methods-by-unit-testing-public-methods)
   - [Avoid logic in tests](#avoid-logic-in-tests)
     - [Why?](#why-1)
@@ -47,9 +47,9 @@ The main thing to remember about mocks versus stubs is that mocks are just like 
 
 The name of your test should consist of three parts:
 
-* The name of the method being tested.
-* The scenario under which it's being tested.
-* The expected behavior when the scenario is invoked.
+- The name of the method being tested.
+- The scenario under which it's being tested.
+- The expected behavior when the scenario is invoked.
 
 Example:
 
@@ -74,15 +74,15 @@ If you require a similar object or state for your tests, prefer a helper method 
 
 ### Why?
 
-* Less confusion when reading the tests since all of the code is visible from within each test.
-* Less chance of setting up too much or too little for the given test.
-* Less chance of sharing state between tests, which creates unwanted dependencies between them.
+- Less confusion when reading the tests since all of the code is visible from within each test.
+- Less chance of setting up too much or too little for the given test.
+- Less chance of sharing state between tests, which creates unwanted dependencies between them.
 
 In unit testing frameworks, `Setup` is called before each and every unit test within your test suite. While some may see this as a useful tool, it generally ends up leading to bloated and hard to read tests. Each test will generally have different requirements in order to get the test up and running. Unfortunately, `Setup` forces you to use the exact same requirements for each test.
 
 > xUnit has removed both SetUp and TearDown as of version 2.x
 
-### Bad:
+### Bad
 
 ```csharp
 private readonly StringCalculator stringCalculator;
@@ -102,7 +102,7 @@ public void Add_TwoNumbers_ReturnsSumOfNumbers()
 }
 ```
 
-### Better:
+### Better
 
 ```csharp
 [Fact]
@@ -129,8 +129,8 @@ In most cases, there should not be a need to test a private method. Private meth
 
 Links:
 
-* [Should I test private methods or only public ones?](https://stackoverflow.com/questions/105007/should-i-test-private-methods-or-only-public-ones)
-* [How do you unit test private methods?](https://softwareengineering.stackexchange.com/questions/100959/how-do-you-unit-test-private-methods)
+- [Should I test private methods or only public ones?](https://stackoverflow.com/questions/105007/should-i-test-private-methods-or-only-public-ones)
+- [How do you unit test private methods?](https://softwareengineering.stackexchange.com/questions/100959/how-do-you-unit-test-private-methods)
 
 ## Avoid logic in tests
 
@@ -138,8 +138,8 @@ When writing your unit tests avoid manual string concatenation and logical condi
 
 ### Why?
 
-* Less chance to introduce a bug inside of your tests.
-* Focus on the end result, rather than implementation details.
+- Less chance to introduce a bug inside of your tests.
+- Focus on the end result, rather than implementation details.
 
 When you introduce logic into your test suite, the chance of introducing a bug into it increases dramatically. The last place that you want to find a bug is within your test suite. You should have a high level of confidence that your tests work, otherwise, you will not trust them. Tests that you do not trust, do not provide any value. When a test fails, you want to have a sense that something is actually wrong with your code and that it cannot be ignored.
 
@@ -149,14 +149,14 @@ If logic in your test seems unavoidable, consider splitting the test up into two
 
 When writing your tests, try to only include one Assert per test. Common approaches to using only one assert include:
 
-* Create a separate test for each assert.
-* Use parameterized tests.
+- Create a separate test for each assert.
+- Use parameterized tests.
 
 ### Why?
 
-* If one Assert fails, the subsequent Asserts will not be evaluated.
-* Ensures you are not asserting multiple cases in your tests.
-* Gives you the entire picture as to why your tests are failing.
+- If one Assert fails, the subsequent Asserts will not be evaluated.
+- Ensures you are not asserting multiple cases in your tests.
+- Gives you the entire picture as to why your tests are failing.
 
 When introducing multiple asserts into a test case, it is not guaranteed that all of the asserts will be executed. In most unit testing frameworks, once an assertion fails in a unit test, the proceeding tests are automatically considered to be failing. This can be confusing as functionality that is actually working, will be shown as failing.
 
