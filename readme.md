@@ -24,6 +24,7 @@
   - [Dockerfile](tools/docker/dockerfiles.md)
   - [Docker Compose](tools/docker/docker%20compose.md)
 - [Git](tools/git/git.md)
+- [Jenkins](tools/jenkins.md)
 - Kubernetes
   - [cert-manager](tools/kubernetes/cert-manager.md)
   - [Flux](tools/kubernetes/flux.md)
