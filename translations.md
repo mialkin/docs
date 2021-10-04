@@ -152,6 +152,7 @@
 * **Layout** — макет
 * **Liskov substitution principle** — принцип подстановки Лисков
 * **Listener** — прослушиватель
+* **Liveness probe** — проверка активности
 * **Lock** — блокировка
   * **Aquire lock** — создать блокировку
   * **Enter lock** — входить в блокировку
@@ -211,6 +212,7 @@
 * **Race condition** — состояние гонки
 * **Read-only** — доступный только для чтения
 * **Read phenomena** — феномены чтения
+* **Readiness probe** — проверка готовности
 * **Reference** — ссылка
   * **Reference type** — ссылочный тип
   * **Dereference** — разыменовывать
