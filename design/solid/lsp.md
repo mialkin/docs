@@ -8,6 +8,10 @@ or:
 
 > Subtypes must be substitutable for their base types.
 
+Simplier definition:
+
+> Derived classes must be substitutable for their base classes.
+
 Principle means that a user of a base class should continue to function properly if a derivative of that base class is passed to it. In other words, if some function `User` takes and argument of type `Base`, then it should be legal to pass in an instance of `Derived` to that function:
 
 ```csharp

@@ -6,6 +6,10 @@ The principle states<sup>1</sup>:
 
 * B. Abstractions should not depend on details. Details should depend on abstractions.
 
+Simplier definition:
+
+> Depend on abstractions, not on concretions.
+
 ## C# example without dependency inversion
 
 ```csharp

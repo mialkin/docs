@@ -8,6 +8,10 @@ Principle means that we should write our modules so that they can be extended, w
 
 *OCP is achieved by using abstraction.*
 
+Simplier definition:
+
+> You should be able to extend a classes behavior, without modifying it.
+
 ## Meyer's open–closed principle
 
 Bertrand Meyer is generally credited for having originated the term open–closed principle, which appeared in his 1988 book Object Oriented Software Construction:
