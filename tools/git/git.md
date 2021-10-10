@@ -6,6 +6,7 @@
   - [Commands](#commands)
   - [Push to multiple repositories](#push-to-multiple-repositories)
   - [.gitignore](#gitignore)
+  - [Rebase](#rebase)
   - [Naming commits](#naming-commits)
   - [Fetching vs pulling](#fetching-vs-pulling)
     - [Fetching](#fetching)
@@ -62,6 +63,7 @@ git config --list --show-origin
 | --------------------------------------------- | ----------------------------------------------------------------------------- |
 | git branch -d BRANCH_NAME                     | Delete local branch                                                           |
 | git branch -m NEW_NAME                        | Rename branch                                                                 |
+| git checkout -b NEW_BRANCH                    | Create new branch from current                                                |
 | git config --list                             | Show all config sections                                                      |
 | git config --list --show-origin               | Show where settings are defined (global, user, repo, etc...)                  |
 | git config SETTING_NAME                       | Check what current settings are (in this case username)                       |
@@ -94,15 +96,24 @@ git remote set-url --add --push origin https://github.com/mialkin/YOUR_REPOSITOR
 | -------------- | ---------------- |
 | dir_to_ignore/ | Ignore directory |
 
+## Rebase
+
+```bash
+git checkout -b my-feature-branch-backup
+git checkout my-feature-branch
+git fetch origin main
+git rebase origin/main
+```
+
 ## Naming commits
 
-- Separate subject from body with a blank line
-- Limit the subject line to 50 characters
-- Capitalize the subject line
-- Do not end the subject line with a period
-- Use the imperative mood in the subject line
-- Wrap the body at 72 characters
-- Use the body to explain _what_ and _why_ vs. _how_
+-   Separate subject from body with a blank line
+-   Limit the subject line to 50 characters
+-   Capitalize the subject line
+-   Do not end the subject line with a period
+-   Use the imperative mood in the subject line
+-   Wrap the body at 72 characters
+-   Use the body to explain _what_ and _why_ vs. _how_
 
 [↑ How to Write a Git Commit Message.pdf](How%20to%20Write%20a%20Git%20Commit%20Message.pdf)
 
@@ -163,7 +174,7 @@ git stash apply
 
 This is useful if you want to apply the same stashed changes to multiple branches.
 
-Now that you know the basics of stashing, there is one caveat with git stash you need to be aware of: by default Git *won't* stash changes made to untracked or ignored files.
+Now that you know the basics of stashing, there is one caveat with git stash you need to be aware of: by default Git _won't_ stash changes made to untracked or ignored files.
 
 ### Drop stash
 
