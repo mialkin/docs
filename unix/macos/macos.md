@@ -5,6 +5,7 @@
   - [Tree](#tree)
   - [Terminal](#terminal)
     - [Shortcuts](#shortcuts)
+  - [TTL](#ttl)
   - [IP address](#ip-address)
     - [Other](#other)
   - [Finder](#finder)
@@ -44,6 +45,13 @@ tree .
 | Ctrl + W | Remove word backward        |
 | Ctrl + K | Delete to end of line       |
 | Ctrl + Y | Paste                       |
+
+## TTL
+
+```bash
+sysctl -w net.inet.ip.ttl           # Get current value
+sudo sysctl -w net.inet.ip.ttl=65   # Set value to 65
+```
 
 ## IP address
 
