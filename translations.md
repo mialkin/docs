@@ -233,6 +233,9 @@
 * **Scope** — область видимости или область действия
 * **Semaphore** — семафор
 * **Separation of concerns** — разделение ответственностей
+* **Service level agreement** (SLA) — соглашение об уровне обслуживания
+* **Service level indicator** (SLI) — показатель уровня обслуживания
+* **Service level objective** (SLO) — требование к уровню обслуживания
 * **Service worker** — служебный сценарий, a browser script that runs in the background separately from a web page, intercepting network requests, caching or retrieving resources from the cache, and delivering push messages.
 * **Sidecar** — расширение
 * **Signaled state** — сигнальное состояние
