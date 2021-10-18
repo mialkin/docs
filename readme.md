@@ -33,6 +33,7 @@
   - [k3s](tools/kubernetes/k3s/k3s.md)
   - [Kiali](tools/kubernetes/kiali.md)
   - [kubectl](tools/kubernetes/kubectl.md)
+- [Prometheus](tools/prometheus.md)
 - [RabbitMQ](tools/rabbitmq/rabbitmq.md)
 - [Redis](tools/redis.md)
 - [Regular expressions](tools/regular%20expressions/regular%20expressions.md)
