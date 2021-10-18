@@ -8,6 +8,7 @@ Prometheus collects and stores its metrics as time series data, i.e. metrics inf
   - [Data Model](#data-model)
   - [Metric Types](#metric-types)
   - [Jobs And Instances](#jobs-and-instances)
+  - [Exporters And Collectors](#exporters-and-collectors)
   - [PromQL](#promql)
 
 ## Data Model
@@ -107,6 +108,12 @@ For each instance scrape, Prometheus stores a sample in the following time serie
 - `scrape_series_added{job="<job-name>", instance="<instance-id>"}`: the approximate number of new series in this scrape.
 
 The `up` time series is useful for instance availability monitoring.
+
+## Exporters And Collectors
+
+An **exporter** is a binary running alongside the application you want to obtain metrics from. The exporter exposes Prometheus metrics, commonly by converting metrics that are exposed in a non-Prometheus format into a format that Prometheus supports.
+
+A **collector** is a part of an exporter that represents a set of metrics. It may be a single metric if it is part of direct instrumentation, or many metrics if it is pulling metrics from another system.
 
 ## PromQL
 
