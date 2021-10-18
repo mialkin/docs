@@ -7,6 +7,8 @@ Prometheus collects and stores its metrics as time series data, i.e. metrics inf
 - [Prometheus](#prometheus)
   - [Data Model](#data-model)
   - [Metric Types](#metric-types)
+  - [Jobs And Instances](#jobs-and-instances)
+  - [PromQL](#promql)
 
 ## Data Model
 
@@ -28,7 +30,7 @@ A label with an empty label value is considered equivalent to a label that does 
 
 See also the [↑ best practices for naming metrics and labels](https://prometheus.io/docs/practices/naming/).
 
-**Samples** form the actual time series data. Each sample consists of:
+A **sample** is a single value at a point in time in a time series. Samples form the actual time series data. Each sample consists of:
 
 - a float64 value
 - a millisecond-precision timestamp
@@ -78,3 +80,34 @@ the **total sum** of all observed values, exposed as `basename_sum`
 the count of events that have been observed, exposed as `basename_count`
 
 See [↑ histograms and summaries](https://prometheus.io/docs/practices/histograms/) for detailed explanations of φ-quantiles, summary usage, and differences to histograms.
+
+## Jobs And Instances
+
+In Prometheus terms, an endpoint you can scrape is called an **instance**, usually corresponding to a single process. A collection of instances with the same purpose, a process replicated for scalability or reliability for example, is called a **job**.
+
+For example, an API server job with four replicated instances:
+
+- job: `api-server`
+  - instance 1: `1.2.3.4:5670`
+  - instance 2: `1.2.3.4:5671`
+  - instance 4: `5.6.7.8:5671`
+  - instance 3: `5.6.7.8:5670`
+
+When Prometheus scrapes a target, it attaches some labels automatically to the scraped time series which serve to identify the scraped target:
+
+- `job`: The configured job name that the target belongs to.
+- `instance`: The `<host>:<port>` part of the target's URL that was scraped.
+
+For each instance scrape, Prometheus stores a sample in the following time series:
+
+- `up{job="<job-name>", instance="<instance-id>"}`: `1` if the instance is healthy, i.e. reachable, or `0` if the scrape failed.
+- `scrape_duration_seconds{job="<job-name>", instance="<instance-id>"}`: duration of the scrape.
+- `scrape_samples_post_metric_relabeling{job="<job-name>", instance="<instance-id>"}`: the number of samples remaining after metric relabeling was applied.
+- `scrape_samples_scraped{job="<job-name>", instance="<instance-id>"}`: the number of samples the target exposed.
+- `scrape_series_added{job="<job-name>", instance="<instance-id>"}`: the approximate number of new series in this scrape.
+
+The `up` time series is useful for instance availability monitoring.
+
+## PromQL
+
+**PromQL** is the Prometheus Query Language. It allows for a wide range of operations including aggregation, slicing and dicing, prediction and joins.
