@@ -5,11 +5,72 @@ Prometheus is an open-source systems monitoring and alerting toolkitю
 Prometheus collects and stores its metrics as time series data, i.e. metrics information is stored with the timestamp at which it was recorded, alongside optional key-value pairs called labels.
 
 - [Prometheus](#prometheus)
+  - [Run As Docker Container](#run-as-docker-container)
   - [Data Model](#data-model)
   - [Metric Types](#metric-types)
   - [Jobs And Instances](#jobs-and-instances)
   - [Exporters And Collectors](#exporters-and-collectors)
   - [PromQL](#promql)
+
+## Run As Docker Container
+
+```bash
+docker run \
+    -d \
+    -p 9090:9090 \
+    -v /Users/aleksei/Downloads/prometheus.yml:/etc/prometheus/prometheus.yml \
+    --name prometheus \
+    prom/prometheus
+```
+
+Example of [↑ prometheus.yml](https://github.com/prometheus/prometheus/blob/main/documentation/examples/prometheus.yml) file:
+
+```yaml
+# my global config
+global:
+  scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          # - alertmanager:9093
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: "prometheus"
+
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+
+    static_configs:
+      - targets: ["localhost:9090"]
+```
+
+Modify `prometheus.yaml` file in Rider by adding this lines:
+
+```yaml
+  - job_name: 'dictionary.words'
+    static_configs: 
+      - targets: ['host.docker.internal:5000']
+    metrics_path: /metrics-text
+```
+
+Restart container:
+
+```bash
+docker restart prometheus
+```
 
 ## Data Model
 
