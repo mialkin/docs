@@ -168,7 +168,7 @@ sudo killall -HUP mDNSResponder
 ## Hosts
 
 ```zsh
-vim /etc/hosts
+sudo vim /etc/hosts
 ```
 
 ## Installing app from developers
