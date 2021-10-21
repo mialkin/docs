@@ -38,8 +38,9 @@
 - [Redis](tools/redis.md)
 - [Regular expressions](tools/regular%20expressions/regular%20expressions.md)
 - Testing
-  - [xUnit.net](tools/testing/xunit.md)
+  - [k6](tools/testing/k6/k6.md)
   - [Unit testing best practices](tools/testing/unit%20testing%20best%20practices.md)
+  - [xUnit.net](tools/testing/xunit.md)
 
 ## Unix
 
