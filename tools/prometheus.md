@@ -76,9 +76,9 @@ Prometheus fundamentally stores all data as time series: streams of timestamped 
 
 Every time series is uniquely identified by its **metric name** and optional key-value pairs called **labels**.
 
-The metric name specifies the general feature of a system that is measured (e.g. `http_requests_total` - the total number of HTTP requests received). It may contain ASCII letters and digits, as well as underscores and colons. It must match the regex `[a-zA-Z_:][a-zA-Z0-9_:]*`.
+The metric name specifies the general feature of a system that is measured (e.g. `http_requests_total` — the total number of HTTP requests received). It may contain ASCII letters and digits, as well as underscores and colons. It must match the regex `[a-zA-Z_:][a-zA-Z0-9_:]*`.
 
-Note: The colons are reserved for user defined recording rules. They should not be used by exporters or direct instrumentation.
+> The colons are reserved for user defined recording rules. They should not be used by exporters or direct instrumentation.
 
 Labels enable Prometheus's dimensional data model: any given combination of labels for the same metric name identifies a particular dimensional instantiation of that metric (for example: all HTTP requests that used the method `POST` to the `/api/tracks` handler). The query language allows filtering and aggregation based on these dimensions. Changing any label value, including adding or removing a label, will create a new time series.
 
@@ -98,7 +98,7 @@ A **sample** is a single value at a point in time in a time series. Samples form
 Given a metric name and a set of labels, time series are frequently identified using this notation:
 
 ```text
-<metric name>{<label name>=<label value>, ...}
+metric_name{label_name=label_value, ...}
 ```
 
 For example, a time series with the metric name `api_http_requests_total` and the labels `method="POST"` and `handler="/messages"` could be written like this:
@@ -125,7 +125,7 @@ A **histogram** samples observations (usually things like request durations or r
 
 A histogram with a base metric name of  `basename` exposes multiple time series during a scrape:
 
-- cumulative counters for the observation buckets, exposed as `basename_bucket{le="upper inclusive bound>"}`
+- cumulative counters for the observation buckets, exposed as `basename_bucket{le="upper inclusive bound"}`
 - the **total sum** of all observed values, exposed as `basename_sum`
 - the **count** of events that have been observed, exposed as `basename_count` (identical to `basename_bucket{le="+Inf"}` above)
 
@@ -133,9 +133,9 @@ Use the `histogram_quantile()` function to calculate quantiles from histograms o
 
 A **summary**, which is similar to a histogram, samples observations (usually things like request durations and response sizes). While it also provides a total count of observations and a sum of all observed values, it calculates configurable quantiles over a sliding time window.
 
-A summary with a base metric name of`basename` exposes multiple time series during a scrape:
+A summary with a base metric name of `basename` exposes multiple time series during a scrape:
 
-streaming **φ-quantiles** (0 ≤ φ ≤ 1) of observed events, exposed as `basename{quantile="<φ>"}`
+streaming **φ-quantiles** (0 ≤ φ ≤ 1) of observed events, exposed as `basename{quantile="φ"}`
 the **total sum** of all observed values, exposed as `basename_sum`
 the count of events that have been observed, exposed as `basename_count`
 
@@ -156,15 +156,15 @@ For example, an API server job with four replicated instances:
 When Prometheus scrapes a target, it attaches some labels automatically to the scraped time series which serve to identify the scraped target:
 
 - `job`: The configured job name that the target belongs to.
-- `instance`: The `<host>:<port>` part of the target's URL that was scraped.
+- `instance`: The `host:port` part of the target's URL that was scraped.
 
 For each instance scrape, Prometheus stores a sample in the following time series:
 
-- `up{job="<job-name>", instance="<instance-id>"}`: `1` if the instance is healthy, i.e. reachable, or `0` if the scrape failed.
-- `scrape_duration_seconds{job="<job-name>", instance="<instance-id>"}`: duration of the scrape.
-- `scrape_samples_post_metric_relabeling{job="<job-name>", instance="<instance-id>"}`: the number of samples remaining after metric relabeling was applied.
-- `scrape_samples_scraped{job="<job-name>", instance="<instance-id>"}`: the number of samples the target exposed.
-- `scrape_series_added{job="<job-name>", instance="<instance-id>"}`: the approximate number of new series in this scrape.
+- `up{job="job name", instance="instance id"}`: `1` if the instance is healthy, i.e. reachable, or `0` if the scrape failed.
+- `scrape_duration_seconds{job="job name", instance="instance id"}`: duration of the scrape.
+- `scrape_samples_post_metric_relabeling{job="job name", instance="instance id"}`: the number of samples remaining after metric relabeling was applied.
+- `scrape_samples_scraped{job="job name", instance="instance id"}`: the number of samples the target exposed.
+- `scrape_series_added{job="job name", instance="instance id"}`: the approximate number of new series in this scrape.
 
 The `up` time series is useful for instance availability monitoring.
 
