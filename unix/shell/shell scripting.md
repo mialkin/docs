@@ -289,6 +289,12 @@ while read -r CURRENT_LINE; do
 done <"./new-1.txt"
 ```
 
+Run command infinitely with 2 secods delay after each interation:
+
+```bash
+while true; do foo; sleep 2; done
+```
+
 ## Functions
 
 Simple function:
