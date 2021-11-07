@@ -16,6 +16,7 @@
   - [Sublime](#sublime)
   - [Flush DNS cache](#flush-dns-cache)
   - [Hosts](#hosts)
+  - [Safari](#safari)
   - [Installing app from developers](#installing-app-from-developers)
 
 ## Hotkeys
@@ -170,6 +171,10 @@ sudo killall -HUP mDNSResponder
 ```zsh
 sudo vim /etc/hosts
 ```
+
+## Safari
+
+Clear local storage: **Web inspector** → **Storage** → **Clear local storage**.
 
 ## Installing app from developers
 
