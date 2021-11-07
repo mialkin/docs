@@ -14,16 +14,7 @@ Prometheus collects and stores its metrics as time series data, i.e. metrics inf
 
 ## Run As Docker Container
 
-```bash
-docker run \
-    -d \
-    -p 9090:9090 \
-    -v /Users/aleksei/Downloads/prometheus.yml:/etc/prometheus/prometheus.yml \
-    --name prometheus \
-    prom/prometheus
-```
-
-Example of [↑ prometheus.yml](https://github.com/prometheus/prometheus/blob/main/documentation/examples/prometheus.yml) file:
+Create `prometheus.yaml` file and put it under `/Users/aleksei/prometheus` folder:
 
 ```yaml
 # my global config
@@ -66,10 +57,17 @@ Modify `prometheus.yaml` file in Rider by adding this lines:
     metrics_path: /metrics-text
 ```
 
-Restart container:
+Example of [↑ prometheus.yml](https://github.com/prometheus/prometheus/blob/main/documentation/examples/prometheus.yml) file:
+
+Run Docker container:
 
 ```bash
-docker restart prometheus
+docker run \
+    -d \
+    -p 9090:9090 \
+    -v /Users/aleksei/prometheus:/etc/prometheus \
+    --name prometheus \
+    prom/prometheus
 ```
 
 ## Data Model
