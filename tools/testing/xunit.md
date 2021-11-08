@@ -5,12 +5,11 @@
 - [xUnit](#xunit)
   - [TOC](#toc)
   - [`Theory`](#theory)
-    - [`MemberData`](#memberdata)
   - [Setup And Teardown](#setup-and-teardown)
 
 ## `Theory`
 
-Using `InlineData` attribute:
+`InlineData` attribute:
 
 ```csharp
 [Theory]
@@ -22,12 +21,10 @@ public void Number_Is_Odd(int number)
 }
 ```
 
-### `MemberData`
-
-Using `ClassData` attribute:
+`ClassData` attribute:
 
 ```csharp
-public class ExampleTests
+public class ExampleTest
 {
     [Theory]
     [ClassData(typeof(ExampleData))]
