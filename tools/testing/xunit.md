@@ -1,52 +1,56 @@
-# xUnit.net
+# xUnit
 
-## Types of unit tests
+## TOC
 
-xUnit.net includes support for two different major types of unit tests — *facts* and *theories*:
+- [xUnit](#xunit)
+  - [TOC](#toc)
+  - [`Theory`](#theory)
+    - [`MemberData`](#memberdata)
+  - [Setup And Teardown](#setup-and-teardown)
 
-- **Facts** are tests which are always true. They test invariant conditions.
-- **Theories** are tests which are only true for a particular set of data.
+## `Theory`
 
-Theory example #1:
+Using `InlineData` attribute:
 
 ```csharp
 [Theory]
 [InlineData(3)]
 [InlineData(5)]
-[InlineData(6)]
-public void MyFirstTheory(int value)
+public void Number_Is_Odd(int number)
 {
-    Assert.True(IsOdd(value));
-}
-
-bool IsOdd(int value)
-{
-    return value % 2 == 1;
+    Assert.True(number % 2 == 1);
 }
 ```
 
-Example #2:
+### `MemberData`
+
+Using `ClassData` attribute:
 
 ```csharp
-public class BirthdayControllerUnitTests
+public class ExampleTests
 {
-    [Theory, MemberData(nameof(ActiveBirthdays))]
-    public async Task List_HasActiveBirthdays(DateTime machineUtcDate, DateTime birthdayDate)
+    [Theory]
+    [ClassData(typeof(ExampleData))]
+    public void Number_Is_Null_Or_Zero(byte? number)
     {
-        // Do the test using machineUtcDate and birthdayDate parameters
+        Assert.True(number == null || number == 0);
     }
 
-    public static readonly object[][] ActiveBirthdays =
+    private class ExampleData : TheoryData<byte?>
     {
-        new object[] {new DateTime(2010, 1, 10, 20, 30, 0), new DateTime(1990, 10, 9)},
-        new object[] {new DateTime(2010, 1, 10), new DateTime(1990, 1, 10)},
-        new object[] {new DateTime(2010, 12, 31, 21, 30, 0), new DateTime(1990, 1, 1)},
-    };
+        public ExampleData()
+        {
+            Add(null);
+            Add(0);
+        }
+    }
 }
 ```
 
-## Constructor and Dispose
+## Setup And Teardown
 
-xUnit.net [creates a new instance ↑](https://xunit.net/docs/shared-context) of the test class for every test that is run, so any code which is placed into the constructor of the test class will be run for every single test. This makes the constructor a convenient place to put reusable context setup code where you want to share the code without sharing object instances (meaning, you get a clean copy of the context object(s) for every test that is run).
+> While text below is working look at unit tests best practice that says "Prefer helper methods to setup and teardown"
+
+xUnit creates a new instance of the test class for every test that is run. This makes the constructor a convenient place to put reusable context setup code.
 
 For context cleanup, add the `IDisposable` interface to your test class, and put the cleanup code in the `Dispose()` method.
