@@ -1,79 +1,41 @@
 # macOS
 
 - [macOS](#macos)
-  - [Hotkeys](#hotkeys)
-  - [Tree](#tree)
-  - [Terminal](#terminal)
-    - [Shortcuts](#shortcuts)
-  - [TTL](#ttl)
-  - [IP address](#ip-address)
-    - [Other](#other)
+  - [Edit `PATH` environment variable](#edit-path-environment-variable)
   - [Finder](#finder)
-  - [Terminal aliases](#terminal-aliases)
-  - [Key repeating](#key-repeating)
-  - [Adding new path to PATH environment variable](#adding-new-path-to-path-environment-variable)
-  - [Rider](#rider)
-  - [Sublime](#sublime)
+  - [Finder Hotkeys](#finder-hotkeys)
   - [Flush DNS cache](#flush-dns-cache)
-  - [Hosts](#hosts)
+  - [`hosts` file](#hosts-file)
+  - [Install Developer's App](#install-developers-app)
+  - [IP address](#ip-address)
+  - [Key repeating](#key-repeating)
+    - [Other](#other)
+  - [Rider](#rider)
   - [Safari](#safari)
-  - [Installing app from developers](#installing-app-from-developers)
+  - [Sublime Text](#sublime-text)
+  - [Terminal Aliases](#terminal-aliases)
+  - [Terminal Shortcuts](#terminal-shortcuts)
+  - [Tree](#tree)
+  - [TTL](#ttl)
 
-## Hotkeys
+## Edit `PATH` environment variable
 
-| Command                                                                                                          | Description                               |
-| :--------------------------------------------------------------------------------------------------------------- | :---------------------------------------- |
-| <kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>G</kbd>                                                                       | Go to folder dialog in Terminal           |
-| <kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>.</kbd>                                                                       | Show hidden files and folders in Terminal |
-| <kbd>⌘</kbd> + <kbd>C</kbd> on the file to copy, and <kbd>⌘</kbd> + <kbd>V</kbd> on the command line in Terminal | Get full path to a file in Terminal       |
-| <kbd>⌥</kbd> + <kbd>⌘</kbd> + <kbd>H</kbd> + <kbd>M</kbd>                                                        | Minimize all windows                      |
+Open `.zshrc` file:
 
-## Tree
-
-```bash
-brew install tree
-tree .
+```zsh
+vim ~/.zshrc
 ```
 
-## Terminal
+Insert a new line at the end of the file:
 
-### Shortcuts
-
-| Shortcut | Meaning                     |
-| -------- | --------------------------- |
-| Ctrl + F | Move forward one character  |
-| Ctrl + B | Move backward one character |
-| Ctrl + W | Remove word backward        |
-| Ctrl + K | Delete to end of line       |
-| Ctrl + Y | Paste                       |
-
-## TTL
-
-```bash
-sysctl -w net.inet.ip.ttl           # Get current value
-sudo sysctl -w net.inet.ip.ttl=65   # Set value to 65
+```text
+export PATH="/Users/aleksei/Library/Python/3.8/bin:${PATH}"
 ```
 
-## IP address
+Save file and source it:
 
-```bash
-curl ifconfig.me
-```
-
-### Other
-
-Run an application:
-
-```sh
-open -a calculator                  # -a is for "application"
-ll /Applications                    # List installed apps
-open -a "Microsoft Remote Desktop"
-```
-
-Copy text to clippbord:
-
-```sh
-cat example.txt \| pbcopy
+```zsh
+source .zshrc
 ```
 
 ## Finder
@@ -89,16 +51,37 @@ Set `Downloads` as default folder:
 
 <img src="macosFinder.png" width="400px">
 
-Replace `true` with `false` to revert changes back.
+## Finder Hotkeys
 
-## Terminal aliases
+| Hotkey                                                                                                           | Description                               |
+| :--------------------------------------------------------------------------------------------------------------- | :---------------------------------------- |
+| <kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>G</kbd>                                                                       | Go to folder dialog in Terminal           |
+| <kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>.</kbd>                                                                       | Show hidden files and folders in Terminal |
+| <kbd>⌘</kbd> + <kbd>C</kbd> on the file to copy, and <kbd>⌘</kbd> + <kbd>V</kbd> on the command line in Terminal | Get full path to a file in Terminal       |
+| <kbd>⌥</kbd> + <kbd>⌘</kbd> + <kbd>H</kbd> + <kbd>M</kbd>                                                        | Minimize all windows                      |
 
-Set up aliases in `~/.zshrc` file:
+## Flush DNS cache
 
 ```zsh
-alias ll='ls -la'
-alias cls='clear'
-alias python='python3'
+sudo killall -HUP mDNSResponder
+```
+
+## `hosts` file
+
+```zsh
+sudo vim /etc/hosts
+```
+
+## Install Developer's App
+
+1. Just move app into `/Applications` folder and open it.
+2. If you see `"YOUR_APP" cannot be opened because the developer cannot be verified.`, please open up System Preferences -> Security & Privacy -> General -> Open Anyway.
+3. If you see the error `The application YOUR_APP can't be opened` error on launch, you could chmod +x "/Applications/YOUR_APP.app/Contents/MacOS/YOUR_APP"
+
+## IP address
+
+```bash
+curl ifconfig.me
 ```
 
 ## Key repeating
@@ -111,24 +94,22 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 
 Next, restart your computer and you should now be able to repeat all characters.
 
-## Adding new path to PATH environment variable
+Replace `true` with `false` to revert changes back.
 
-Open `.zshrc` file:
+### Other
 
-```zsh
-vim ~/.zshrc
+Run an application:
+
+```sh
+open -a calculator                  # -a is for "application"
+ll /Applications                    # List installed apps
+open -a "Microsoft Remote Desktop"
 ```
 
-Add line at the end of the file:
+Copy text to clippbord:
 
-```text
-export PATH="/Users/aleksei/Library/Python/3.8/bin:${PATH}"
-```
-
-Save file and source it:
-
-```zsh
-source .zshrc
+```sh
+cat example.txt \| pbcopy
 ```
 
 ## Rider
@@ -154,30 +135,46 @@ Change access mode:
 chmod 775 rider
 ```
 
-## Sublime
+## Safari
+
+Clear local storage: **Web inspector** → **Storage** → **Clear local storage**
+
+## Sublime Text
 
 ```bash
 echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"' >> ~/.zprofile
 ```
 
-## Flush DNS cache
+## Terminal Aliases
+
+Set up aliases in `~/.zshrc` file:
 
 ```zsh
-sudo killall -HUP mDNSResponder
+alias ll='ls -la'
+alias cls='clear'
+alias python='python3'
 ```
 
-## Hosts
+## Terminal Shortcuts
 
-```zsh
-sudo vim /etc/hosts
+| Shortcut | Description                 |
+| -------- | --------------------------- |
+| Ctrl + F | Move forward one character  |
+| Ctrl + B | Move backward one character |
+| Ctrl + W | Remove word backward        |
+| Ctrl + K | Delete to end of line       |
+| Ctrl + Y | Paste                       |
+
+## Tree
+
+```bash
+brew install tree
+tree .
 ```
 
-## Safari
+## TTL
 
-Clear local storage: **Web inspector** → **Storage** → **Clear local storage**.
-
-## Installing app from developers
-
-1. Just move app into `/Applications` folder and open it.
-2. If you see `"YOUR_APP" cannot be opened because the developer cannot be verified.`, please open up System Preferences -> Security & Privacy -> General -> Open Anyway.
-3. If you see the error `The application YOUR_APP can't be opened` error on launch, you could chmod +x "/Applications/YOUR_APP.app/Contents/MacOS/YOUR_APP"
+```bash
+sysctl -w net.inet.ip.ttl           # Get current value
+sudo sysctl -w net.inet.ip.ttl=65   # Set value to 65
+```
