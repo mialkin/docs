@@ -3,6 +3,7 @@
 - [Jenkins](#jenkins)
   - [Installation](#installation)
   - [Jenkins Pipeline](#jenkins-pipeline)
+  - [Remote Access Via SSH](#remote-access-via-ssh)
 
 ## Installation
 
@@ -55,3 +56,27 @@ node {
 A **step** is a single task; fundamentally steps tell Jenkins what to do.
 
 A **stage** is a step for defining a conceptually distinct subset of the entire Pipeline, for example: "Build", "Test", and "Deploy", which is used by many plugins to visualize or present Jenkins Pipeline status/progress.
+
+## Remote Access Via SSH
+
+```groovy
+pipeline {
+    agent any
+    stages {
+        stage('Go') {
+            steps {
+                sshagent(credentials: ['YOUR_CREDENTIALS_ID']) {
+                    sh '''
+                        [ -d ~/.ssh ] || mkdir ~/.ssh && chmod 0700 ~/.ssh
+                        ssh-keyscan -t rsa,dsa hostname-or-ip-address >> ~/.ssh/known_hosts
+                    '''
+                    sh '''ssh -tt username@hostname-or-ip-address << EOF
+                    kubectl get pods -n mialkin
+                    exit
+                    EOF'''
+                }
+            }
+        }
+    }
+}
+```
