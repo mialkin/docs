@@ -125,6 +125,7 @@
 - [GraphQL](web/graphql.md)
 - [gRPC](web/grpc.md)
 - [OAuth](web/oauth.md)
+- [OpenAPI](web/openapi.md)
 - [OpenID Connect](web/oidc.md)
 
 ## Networking
