@@ -118,6 +118,7 @@
 - [Arguments vs parameters](programming/argument%20vs%20parameter.md)
 - [Idempotence](programming/idempotence.md)
 - [Inversion of control (IoC)](programming/ioc/inversion%20of%20control.md)
+- [Programming case types](programming/cases.md)
 - [Scrum](programming/scrum/scrum.md)
 
 ## Web
