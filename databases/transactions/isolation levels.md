@@ -10,6 +10,7 @@
     - [Read committed](#read-committed)
     - [Repeatable read](#repeatable-read)
     - [Serializable](#serializable)
+  - [DataGrip](#datagrip)
   - [Links](#links)
 
 An **isolation level** represents a particular locking strategy employed in the database system to avoid _read phenomena_.
@@ -84,6 +85,12 @@ Locks are obtained for reading and modifying the database. Locks on all modified
 ### Serializable
 
 All data read or modified is locked until EOT. All access structures that are modified are locked until EOT. Access structures used by the query are locked until EOT.
+
+## DataGrip
+
+Selection isolation level in DataGrip:
+
+<img src="images/datagrip.png" width="350" />
 
 ## Links
 
