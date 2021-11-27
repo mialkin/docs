@@ -63,7 +63,7 @@
 ## Databases
 
 - [ACID](databases/transactions/acid.md)
-- [Isolation levels](databases/transactions/isolation%20levels.md)
+- [Read phenomena and isolation levels](databases/transactions/isolation%20levels.md)
 - [PostgreSQL](databases/postgres/postgres.md)
 - [PL/SQL](databases/oracle/plsql.md)
 - [T-SQL](databases/tsql.md)
