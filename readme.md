@@ -120,6 +120,7 @@
 - [Inversion of control (IoC)](programming/ioc/inversion%20of%20control.md)
 - [Programming case types](programming/cases.md)
 - [Scrum](programming/scrum/scrum.md)
+- [Serialization](programming/serialization.md)
 
 ## Web
 
