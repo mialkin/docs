@@ -1,6 +1,6 @@
-# Read Phenomena and Isolation Levels
+# Isolation levels and read phenomena
 
-- [Read Phenomena and Isolation Levels](#read-phenomena-and-isolation-levels)
+- [Isolation levels and read phenomena](#isolation-levels-and-read-phenomena)
   - [Read phenomena](#read-phenomena)
     - [Dirty reads](#dirty-reads)
     - [Non-repeatable reads](#non-repeatable-reads)
@@ -57,7 +57,7 @@ The American National Standards Institute (ANSI) defines four isolation levels:
 - Repeatable read
 - Serializable
 
-See 1995 article: [A Critique of ANSI SQL Isolation Levels](tr-95-51.pdf).
+See 1995 article: [A Critique of ANSI SQL Isolation Levels](files/tr-95-51.pdf).
 
 The plus sign `+` reads as "phenomenon can happen":
 
@@ -88,9 +88,9 @@ All data read or modified is locked until EOT. All access structures that are mo
 
 ## DataGrip
 
-Selection isolation level in DataGrip:
+Isolation level selection in DataGrip:
 
-<img src="images/datagrip.png" width="350" />
+<img src="files/datagrip.png" width="350" />
 
 ## Links
 

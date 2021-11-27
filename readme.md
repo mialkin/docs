@@ -62,11 +62,12 @@
 
 ## Databases
 
-- [ACID](databases/transactions/acid.md)
-- [Read phenomena and isolation levels](databases/transactions/isolation%20levels.md)
-- [PostgreSQL](databases/postgres/postgres.md)
+- [ACID](databases/acid.md)
+- [Isolation levels and read phenomena](databases/isolation%20levels.md)
 - [PL/SQL](databases/oracle/plsql.md)
-- [T-SQL](databases/tsql.md)
+- [PostgreSQL](databases/postgres/postgres.md)
+- [SQL Server](databases/sqlserver/sqlserver.md)
+  - [T-SQL](databases/sqlserver/tsql.md)
 - [EF Core tools](databases/efcore/efcoretools.md)
 
 ## Software architecture and design
