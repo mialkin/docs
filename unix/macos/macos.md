@@ -3,7 +3,6 @@
 - [macOS](#macos)
   - [Edit `PATH` environment variable](#edit-path-environment-variable)
   - [Finder](#finder)
-  - [Finder Hotkeys](#finder-hotkeys)
   - [Flush DNS cache](#flush-dns-cache)
   - [`hosts` file](#hosts-file)
   - [Install Developer's App](#install-developers-app)
@@ -49,15 +48,6 @@ killall Finder
 Set `Downloads` as default folder:
 
 <img src="macosFinder.png" width="400px">
-
-## Finder Hotkeys
-
-| Hotkey                                                                                                           | Description                               |
-| :--------------------------------------------------------------------------------------------------------------- | :---------------------------------------- |
-| <kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>G</kbd>                                                                       | Go to folder dialog in Terminal           |
-| <kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>.</kbd>                                                                       | Show hidden files and folders in Terminal |
-| <kbd>⌘</kbd> + <kbd>C</kbd> on the file to copy, and <kbd>⌘</kbd> + <kbd>V</kbd> on the command line in Terminal | Get full path to a file in Terminal       |
-| <kbd>⌥</kbd> + <kbd>⌘</kbd> + <kbd>H</kbd> + <kbd>M</kbd>                                                        | Minimize all windows                      |
 
 ## Flush DNS cache
 
