@@ -88,7 +88,7 @@ All data read or modified is locked until EOT. All access structures that are mo
 
 ## DataGrip
 
-Isolation level selection in DataGrip:
+Selection of an isolation level in DataGrip:
 
 <img src="files/datagrip.png" width="350" />
 

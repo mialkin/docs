@@ -16,6 +16,7 @@
   - [.NET](#net)
   - [C&#35;](#c)
   - [Computer science](#computer-science)
+  - [Miscellaneous](#miscellaneous)
 
 ## Tools
 
@@ -240,3 +241,8 @@
 ## Computer science
 
 - [Sorting algorithms](computer%20science/sorting%20algorithms.md)
+
+## Miscellaneous
+
+- [Application shortcuts](shortcuts.md)
+- [Translation of terminology into Russian](translations.md)
