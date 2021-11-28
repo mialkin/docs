@@ -80,19 +80,19 @@ There are two basic ways to create a `Task` instance. Some tasks represent actua
 There's one other important guideline when it comes to methods: once you start using `async`, it's best to allow it to grow through your code. If you call an `async` method, you should (eventually) the task it returns. Resist the temptation to call `Task.Wait`, `Task<TResult>.Result`, or `GetAwaiter().GetResult()`; doing so could cause a deadlock. Consider the following method:
 
 ```csharp
-async Task WaitAsync()
-{
-    // This await will capture the current context ...
-    await Task.Delay(TimeSpan.FromSeconds(1));
-    // ... and will attempt to resume the method here in that context.
-}
-
 void Deadlock()
 {
     // Start the delay.
     Task task = WaitAsync();
     // Synchronously block, waiting for the async method to complete.
     task.Wait();
+}
+
+async Task WaitAsync()
+{
+    // This await will capture the current context ...
+    await Task.Delay(TimeSpan.FromSeconds(1));
+    // ... and will attempt to resume the method here in that context.
 }
 ```
 
