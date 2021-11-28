@@ -6,7 +6,7 @@ The term **window** describes the set of rows on which the function operates. A 
 
 ## Syntax overiew
 
-```sql
+```text
 function (expression) over 
 (
     [ partition by expression_list ]
