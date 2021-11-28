@@ -17,10 +17,9 @@ function (expression) over
 
 Window functions are initiated with the `over` clause, and are configured using three concepts:
 
-- Window partition (PARTITION BY) — groups rows into partitions
-- Window ordering (ORDER BY) — defines the order or sequence of rows within each window
+- Window partition (`partition by`) — groups rows into partitions
+- Window ordering (`order by`) — defines the order or sequence of rows within each window
 - Window frame (`rows`) — defines the window by use of an offset from the specified row
-
 
 ## Initialization
 
@@ -48,7 +47,7 @@ values (1, 'development', 11, 5200),
        (10, 'sales', 4, 4800);
 ```
 
-Output table:
+Resulting table:
 
 ```sql
 select * from employee_salary;
@@ -69,8 +68,6 @@ select * from employee_salary;
 
 ## Average salary in employee's department
 
-Each employee's salary with the average salary in employee's department:
-
 ```sql
 select department, employee_number, salary, avg(salary) over (partition by department)
 from employee_salary;
@@ -89,7 +86,7 @@ from employee_salary;
 | 9   | sales       | 1               | 5000   | 4866.6666666666666667 |
 | 10  | sales       | 4               | 4800   | 4866.6666666666666667 |
 
-## Window function vs `group by`
+## Window functions vs `group by`
 
 - Window functions don't reduce the number of rows in the output.
 - Window functions can retrieve values from other rows, whereas `group by` functions cannot.
