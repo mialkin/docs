@@ -91,3 +91,10 @@ from employee_salary;
 - Window functions don't reduce the number of rows in the output.
 - Window functions can retrieve values from other rows, whereas `group by` functions cannot.
 - Window functions can calculate running totals and moving averages, whereas `group by` functions cannot.
+
+## Links
+
+- [3.5. Window Functions](https://www.postgresql.org/docs/current/tutorial-window.html)
+- [Оконные функции в SQL — что это и зачем они нужны](https://tproger.ru/translations/sql-window-functions/)
+- [Convert CSV to Markdown](https://www.convertcsv.com/csv-to-markdown.htm)
+- [Учимся применять оконные функции](http://thisisdata.ru/blog/uchimsya-primenyat-okonnyye-funktsii/)
