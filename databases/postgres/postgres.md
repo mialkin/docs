@@ -61,13 +61,15 @@ helm status postgres
 
 ### Create database
 
+When you get a connection to PostgreSQL it is always to a particular database. To access a different database, you must get a new connection.
+
+Using `\c` in psql closes the old connection and acquires a new one, using the specified database and/or credentials. You get a whole new back-end process and everything.
+
 ```sql
 create database DATABASE_NAME;
 select current_database(); -- Display current database name
-drop database if exists DATABASE_NAME;
+drop database if exists DATABASE_NAME; -- if exists is optional
 ```
-
-The `if exists` is optional.
 
 ## psql
 
