@@ -1,19 +1,18 @@
 # T-SQL
 
 - [T-SQL](#t-sql)
+  - [Variables](#variables)
   - [Commands](#commands)
-    - [Declare a variable](#declare-a-variable)
-    - [`SET NOCOUNT` command](#set-nocount-command)
-  - [Count objects](#count-objects)
+    - [`SET NOCOUNT`](#set-nocount)
+  - [Count](#count)
+    - [Count tables in database](#count-tables-in-database)
+    - [Count stored procedures in database](#count-stored-procedures-in-database)
+    - [Count functions in database](#count-functions-in-database)
   - [Triggers](#triggers)
-  - [Indexes](#indexes)
-    - [Index scan](#index-scan)
-    - [Index seek](#index-seek)
-    - [Indexes with included columns](#indexes-with-included-columns)
 
-## Commands
+## Variables
 
-### Declare a variable
+Declare variable:
 
 ```sql
 DECLARE @start VARCHAR(30);   
@@ -24,7 +23,9 @@ FROM [Database].[Schema].[Table]
 WHERE DateLastChanged > @start;
 ```
 
-### `SET NOCOUNT` command
+## Commands
+
+### `SET NOCOUNT`
 
 Stops the message that shows the count of the number of rows affected by a Transact-SQL statement or stored procedure from being returned as part of the result set.
 
@@ -32,9 +33,9 @@ Stops the message that shows the count of the number of rows affected by a Trans
 SET NOCOUNT { ON | OFF }  
 ```
 
-## Count objects
+## Count
 
-Number of **tables** in a database:
+### Count tables in database
 
 ```sql
 SELECT COUNT(*) AS TABLE_COUNT
@@ -49,7 +50,7 @@ SELECT COUNT(*) AS VIEW_COUNT
 FROM INFORMATION_SCHEMA.VIEWS
 ```
 
-Number of **stored procedures** in a database:
+### Count stored procedures in database
 
 ```sql
 SELECT COUNT(*) AS PROCEDURE_COUNT
@@ -57,7 +58,7 @@ FROM INFORMATION_SCHEMA.ROUTINES
 WHERE ROUTINE_TYPE = 'PROCEDURE'
 ```
 
-Number of **functions** in a database:
+### Count functions in database
 
 ```sql
 SELECT COUNT(*) AS FUNCTION_COUNT
@@ -81,19 +82,3 @@ GO
 ALTER TABLE [dbo].[TABLE_NAME] ENABLE TRIGGER [TRIGGER_NAME]
 GO
 ```
-
-## Indexes
-
-### Index scan
-
-Since a scan touches every row in the table, whether or not it qualifies, the cost is proportional to the total number of rows in the table. Thus, a scan is an efficient strategy if the table is small or if most of the rows qualify for the predicate.
-
-### Index seek
-
-Index seek traverses a B-tree and walks through leaf nodes seeking only the matching or qualifying rows based on the filter criteria.
-
-### Indexes with included columns
-
-An index with included columns can greatly improve query performance because all columns in the query are included in the index; The query optimizer can locate all columns values within the index without accessing table or clustered index resulting in fewer disk I/O operations.
-
-> When an index contains all the columns referenced by a query, the index is typically referred to as *covering the query*.

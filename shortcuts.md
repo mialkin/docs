@@ -6,16 +6,16 @@
 
 ## DataGrip
 
-| Shortcut             | Description |
-| -------------------- | ----------- |
-| Command + Option + L | Format code |
+| Shortcut         | Description |
+| ---------------- | ----------- |
+| Cmd + Option + L | Format code |
 
 ## Terminal
 
-| Shortcut    | Description                 |
-| ----------- | --------------------------- |
-| Control + F | Move forward one character  |
-| Control + B | Move backward one character |
-| Control + W | Remove word backward        |
-| Control + K | Delete to end of line       |
-| Control + Y | Paste                       |
+| Shortcut | Description                 |
+| -------- | --------------------------- |
+| Ctrl + F | Move forward one character  |
+| Ctrl + B | Move backward one character |
+| Ctrl + W | Remove word backward        |
+| Ctrl + K | Delete to end of line       |
+| Ctrl + Y | Paste                       |
