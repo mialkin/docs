@@ -64,6 +64,7 @@
 ## Databases
 
 - [ACID](databases/acid.md)
+- [CTEs](databases/cte.md)
 - [EF Core tools](databases/efcore/efcoretools.md)
 - [Isolation levels and read phenomena](databases/isolation%20levels.md)
 - [PL/SQL](databases/oracle/plsql.md)
