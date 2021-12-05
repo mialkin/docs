@@ -13,6 +13,10 @@
 
 A **binary search** is a search algorithm that finds the position of a target value within a sorted array.
 
+Binary search is a *divide and conquer* algorithm. Like all divide-and-conquer algorithms, binary search first divides a large array into two smaller subarrays and then recursively or iteratively operates the subarrays. But instead of working on both subarrays, it discards one subarray and continues on the second subarray. This decision of discarding one subarray is made in just one comparison.
+
+Binary search reduces the search space to half at each step. By search space, we mean a subarray of the given array where the target value is located (if present in the array). Initially, the search space is the entire array, and binary search redefines the search space at every step of the algorithm by using the property of the array that it is sorted. It does so by comparing the mid-value in the search space to the target value. If the target value matches the middle element, its position in the array is returned; otherwise, it discards half of the search space based on the comparison result.
+
 C# implementation:
 
 ```csharp
@@ -40,6 +44,18 @@ public int BinarySearch(int[] array, int number)
 
     return -1;
 }
+```
+
+To avoid integer overflow, we can use any of the following expressions:
+
+```csharp
+int middle = left + (right - left) / 2;
+```
+
+or:
+
+```csharp
+int middle = right - (right - left) / 2;
 ```
 
 ## Breadth-first search
