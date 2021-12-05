@@ -10,7 +10,7 @@
   - [Stack](#stack)
   - [Tree](#tree)
     - [Binary tree](#binary-tree)
-    - [Binary search tree](#binary-search-tree)
+    - [Binary search tree (BST)](#binary-search-tree-bst)
 
 ## Array
 
@@ -42,6 +42,6 @@ A **binary tree** is a tree where each node has up to two leaves.
 2   3
 ```
 
-### Binary search tree
+### Binary search tree (BST)
 
 A **binary search tree** (**BST**) is a binary tree where the left child contains only nodes with values less than the parent node, and where the right child only contains nodes with values greater than or equal to the parent. BSTs are ased for searching.
