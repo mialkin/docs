@@ -5,6 +5,7 @@
   - [Breadth-first search](#breadth-first-search)
   - [Depth-first search](#depth-first-search)
   - [Dijkstra's algorithm](#dijkstras-algorithm)
+  - [Links](#links)
 
 ## Binary search
 
@@ -21,3 +22,7 @@ A **depth-first search** (**DFS**) is an algorithm for *traversing* or *searchin
 ## Dijkstra's algorithm
 
 **Dijkstra's algorithm** is an algorithm for finding the shortest paths between nodes in a graph, which may represent, for example, road networks.
+
+## Links
+
+[↑ Top 25 Algorithms Every Programmer Should Know](https://medium.com/techie-delight/top-25-algorithms-every-programmer-should-know-373246b4881b)
