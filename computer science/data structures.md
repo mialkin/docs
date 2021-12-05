@@ -28,6 +28,8 @@
 
 ## Tree
 
+A **tree** is just a restricted form of a graph that has direction (parent/child relationships) and don't contain cycles. They fit with in the category of directed acyclic graphs (DAG). So trees are DAGs with the restriction that a child can only have one parent.
+
 ### Binary tree
 
 A **binary tree** is a tree where each node has up to two leaves.
