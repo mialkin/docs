@@ -3,17 +3,70 @@
 - [Algorithms](#algorithms)
   - [Binary search](#binary-search)
   - [Breadth-first search](#breadth-first-search)
+  - [Bubble sort](#bubble-sort)
   - [Depth-first search](#depth-first-search)
   - [Dijkstra's algorithm](#dijkstras-algorithm)
+  - [Selection sort](#selection-sort)
   - [Links](#links)
 
 ## Binary search
 
 A **binary search** is a search algorithm that finds the position of a target value within a sorted array.
 
+C# implementation:
+
+```csharp
+public int BinarySearch(int[] array, int number)
+{
+    int left = 0;
+    int right = array.Length - 1;
+
+    while (left <= right)
+    {
+        int middle = (left + right) / 2; // Overflow can happen.
+
+        if (array[middle] == number)
+            return middle;
+
+        if (array[middle] > number)
+        {
+            right = middle - 1;
+        }
+        else
+        {
+            left = middle + 1;
+        }
+    }
+
+    return -1;
+}
+```
+
 ## Breadth-first search
 
 A **breadth-first search** (**BFS**) is an algorithm for *traversing* or *searching*  a tree or graph data structures. The algorithm starts at the root node (selecting some arbitrary node as the root node in the case of a graph) and explores all nodes at the present depth prior to moving on to the nodes at the next depth level. Extra memory, usually a queue, is needed to keep track of the child nodes that were encountered but not yet explored.
+
+## Bubble sort
+
+Each pass of bubble sort steps through the list to be sorted compares each pair of adjacent items and swaps them if they are in the wrong order. At the end of each pass, the next largest element will “Bubble” up to its correct position. These passes through the list are repeated until no swaps are needed, which indicates that the list is sorted. In the worst-case, we might end up making an `n - 1` pass, where `n` is the input size.
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Bubble-sort-example-300px.gif">
+
+Following is the implementation of the bubble sort algorithm in C#. The implementation can be easily optimized by stopping the algorithm when the inner loop didn't do any swap:
+
+```csharp
+public void Sort(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        for (int j = 1; j < array.Length - i; j++)
+        {
+            if (array[j - 1] > array[j])
+                (array[j - 1], array[j]) = (array[j], array[j - 1]);
+        }
+    }
+}
+```
 
 ## Depth-first search
 
@@ -22,6 +75,33 @@ A **depth-first search** (**DFS**) is an algorithm for *traversing* or *searchin
 ## Dijkstra's algorithm
 
 **Dijkstra's algorithm** is an algorithm for finding the shortest paths between nodes in a graph, which may represent, for example, road networks.
+
+## Selection sort
+
+The idea is to divide the array into two subsets —– sorted subset and unsorted subset. Initially, the sorted subset is empty, and the unsorted subset is the entire input list. The algorithm proceeds by finding the smallest (or largest, depending on sorting order) element in the unsorted subset, swapping it with the leftmost unsorted element (putting it in sorted subset), and moving the subset boundaries one element to the right.
+
+Visual demonstration:
+
+<img src="images/selection%20sort.png" width="200px">
+
+C# implementation:
+
+```csharp
+public void Sort(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        int minIndex = i;
+        for (int j = i + 1; j < array.Length; j++)
+        {
+            if (array[j] < array[minIndex])
+                minIndex = j;
+        }
+
+        (array[i], array[minIndex]) = (array[minIndex], array[i]);
+    }
+}
+```
 
 ## Links
 

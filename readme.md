@@ -244,7 +244,6 @@
 ## Computer science
 
 - [Algorithms](computer%20science/algorithms.md)
-  - [Sorting algorithms](computer%20science/sorting/sorting%20algorithms.md)
 - [Data structures](computer%20science/data%20structures.md)
 
 ## Miscellaneous
