@@ -1,9 +1,12 @@
 # Sorting algorithms
 
 - [Sorting algorithms](#sorting-algorithms)
+  - [Initialization](#initialization)
   - [Naive sort (19 sec)](#naive-sort-19-sec)
   - [Bubble sort (15 sec)](#bubble-sort-15-sec)
   - [Selection sort (4 sec)](#selection-sort-4-sec)
+
+## Initialization
 
 Array size: **100 000 elements**.
 
@@ -95,6 +98,10 @@ public class BubbleSorter : ISorter
 
 ## Selection sort (4 sec)
 
+The idea is to divide the array into two subsets —– sorted subset and unsorted subset. Initially, the sorted subset is empty, and the unsorted subset is the entire input list. The algorithm proceeds by finding the smallest (or largest, depending on sorting order) element in the unsorted subset, swapping it with the leftmost unsorted element (putting it in sorted subset), and moving the subset boundaries one element to the right:
+
+<img src="selection%20sort.png" width="200px">
+
 ```csharp
 public class SelectionSorter : ISorter
 {
@@ -120,5 +127,3 @@ public class SelectionSorter : ISorter
     }
 }
 ```
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Selection-Sort-Animation.gif">
