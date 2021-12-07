@@ -4,15 +4,15 @@ The **big O notation** is a mathematical notation that describes the limiting be
 
 ## Common data structure operations
 
-<img src="data%20strucutre%20complexities.png" />
+<img src="data%20strucutre%20complexities.png" width="800px" />
 
 ## Array sorting algorithms
 
-<img src="array%20sorting%20complexities.png" />
+<img src="array%20sorting%20complexities.png" width="500px" />
 
 ## Big O complexity chart
 
-<img src="complexity%20chart.png" />
+<img src="complexity%20chart.png" width="700px"/>
 
 ## Links
 
