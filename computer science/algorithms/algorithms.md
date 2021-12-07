@@ -122,7 +122,7 @@ public void Sort(int[] array)
 
 ## Sorting complexities
 
-<img src="array%20sorting%20complexities.png" width="530px">
+<img src="array%20sorting%20complexities.png" width="550px">
 
 ## Links
 

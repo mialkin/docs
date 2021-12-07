@@ -49,4 +49,4 @@ A **binary search tree** (**BST**) is a binary tree where the left child contain
 
 ## Data structure complexities
 
-<img src="data%20structure%20complexities.png" width="800px">
+<img src="data%20structure%20complexities.png" width="850px">
