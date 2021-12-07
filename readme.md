@@ -244,8 +244,7 @@
 ## Computer science
 
 - [Algorithms](computer%20science/algorithms/algorithms.md)
-- [Big O notation](computer%20science/big%20o/big%20o.md)
-- [Data structures](computer%20science/data%20structures.md)
+- [Data structures](computer%20science/data%20structures/data%20structures.md)
 
 ## Miscellaneous
 

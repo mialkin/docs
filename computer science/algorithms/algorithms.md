@@ -7,6 +7,7 @@
   - [Depth-first search](#depth-first-search)
   - [Dijkstra's algorithm](#dijkstras-algorithm)
   - [Selection sort](#selection-sort)
+  - [Sorting complexities](#sorting-complexities)
   - [Links](#links)
 
 ## Binary search
@@ -98,7 +99,7 @@ The idea is to divide the array into two subsets —– sorted subset and unsort
 
 Visual demonstration:
 
-<img src="images/selection%20sort.png" width="200px">
+<img src="selection%20sort.png" width="200px">
 
 C# implementation:
 
@@ -118,6 +119,10 @@ public void Sort(int[] array)
     }
 }
 ```
+
+## Sorting complexities
+
+<img src="array%20sorting%20complexities.png" width="530px">
 
 ## Links
 
