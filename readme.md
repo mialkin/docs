@@ -108,6 +108,7 @@
     - [Visitor](design/design%20patterns/visitor.md)
 - Design principles
   - [Composition over inheritance](design/composition%20over%20inheritance.md)
+  - [DDD](design/ddd.md)
   - [DRY, KISS, separation of concerns, YAGNI](design/main%20principles.md)
   - [Explicit Dependencies Principle](design/explicit%20dependencies%20principle.md)
   - [SOLID](design/solid/solid.md)
