@@ -98,3 +98,5 @@ from employee_salary;
 - [Оконные функции в SQL — что это и зачем они нужны](https://tproger.ru/translations/sql-window-functions/)
 - [Convert CSV to Markdown](https://www.convertcsv.com/csv-to-markdown.htm)
 - [Учимся применять оконные функции](http://thisisdata.ru/blog/uchimsya-primenyat-okonnyye-funktsii/)
+- https://stackoverflow.com/questions/8477040/highest-salary-in-each-department/8477093
+- https://stackoverflow.com/questions/4297160/sql-command-for-finding-the-second-highest-salary
