@@ -12,4 +12,4 @@
 
 <hr>
 
-<sup>1</sup> [Using domain analysis to model microservices](https://docs.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis)
+<sup>1</sup> [↑ Using domain analysis to model microservices](https://docs.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis)
