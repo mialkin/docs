@@ -43,7 +43,7 @@
 * **Clause** — оператор
 * **Closure** — замыкание
 * **Clustering** — кластеризация
-* **Cohesion** — сцепление, связность
+* **Cohesion** — связность или прочность (англ. *module strength*)
 * **Columnar database** — колоночная база данных
 * **Commit** — фиксация
 * **Common Language Runtime** — общеязыковая исполняющая среда

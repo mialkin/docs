@@ -111,6 +111,7 @@
   - [DDD](design/ddd.md)
   - [DRY, KISS, separation of concerns, YAGNI](design/main%20principles.md)
   - [Explicit Dependencies Principle](design/explicit%20dependencies%20principle.md)
+  - [Loose coupling and high cohesion](design/loose%20coupling%20and%20high%20cohesion.md)
   - [SOLID](design/solid/solid.md)
     - [Single Responsibility Principle](design/solid/srp.md)
     - [Open-Closed Principle](design/solid/ocp.md)
