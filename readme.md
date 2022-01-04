@@ -139,6 +139,7 @@
 
 ## Networking
 
+- [IP](networking/ip.md)
 - [Ports](networking/ports.md)
 - [Sockets](networking/sockets.md)
 - [TCP](networking/tcp.md)
