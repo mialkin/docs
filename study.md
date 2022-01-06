@@ -43,6 +43,7 @@
 - Memory managment
   - Managed heap
     - Small object heap (SOH)
+- [↑ Grouping assertions with `AssertionScope`](https://ardalis.com/grouping-assertions-in-tests/)
 
 ## ASP.NET
 
