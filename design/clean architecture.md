@@ -6,9 +6,10 @@
   - [Infrastructure project](#infrastructure-project)
   - [Web project](#web-project)
   - [Shared kernel](#shared-kernel)
-  - [Links](#links)
 
 A **clean architecture** is just the latest in a series of names for the same loosely-coupled, dependency-inverted, domain-centric approach to organizing dependencies in an application. You will also find it named **hexagonal**, **ports and adapters**, or **onion architecture**.
+
+> The goal of this repository (https://github.com/ardalis/CleanArchitecture) is to provide a basic solution structure that can be used to build DDD-based or simply well-factored, SOLID applications using .NET Core.
 
 There are two common approaches to dependency organization (arrows show direction of dependencies):
 
@@ -94,6 +95,4 @@ What belongs to shared kernel project:
 
 Shared kernel should have no infrastructure dependencies!
 
-## Links
-
-https://github.com/ardalis/CleanArchitecture
+It's recommended to create a separate shared kernel project and solution if you will require sharing code between multiple bounded contexts. It's further recommended to be published as a NuGet package, most likely privately within your organization, and referenced as a NuGet dependency by those projects that require it.
