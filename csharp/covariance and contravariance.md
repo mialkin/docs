@@ -127,7 +127,7 @@ Variance in generic interfaces is supported for reference types only. Value type
 ```csharp
 IEnumerable<int> integers = new List<int>();
 // The following statement generates a compiler error
-// IEnumerable<Object> objects = integers;
+// IEnumerable<object> objects = integers;
 ```
 
 It is also important to remember that classes that implement variant interfaces are still invariant. For example, although `List<T>` implements the covariant interface `IEnumerable<T>`, you cannot implicitly convert to `List<Object>`. This is illustrated in the following code example:
