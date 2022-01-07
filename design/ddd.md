@@ -31,13 +31,13 @@ A **bounded context** is a conceptual boundary where a domain model is applicabl
 
 ### Ubiquitous language
 
-A **ubiquitous language** is a shared team language. It’s shared by domain experts and developers alike. In fact, it’s shared by everyone on the project team. No matter your role on the team, since you are on the team you use the ubiquitous language of the project.
+A **ubiquitous language** is a shared team language. It's shared by domain experts and developers alike. In fact, it's shared by everyone on the project team. No matter your role on the team, since you are on the team you use the ubiquitous language of the project.
 
 Ubiquitous means "pervasive," or "found everywhere," as *spoken among the team and expressed by the single domain model* that the team develops. There is one ubiquitous language per bounded context.
 
 ### Entity
 
-An **entity** is a thing that has an identity, i.e. ID.
+An **entity** is an object that has an identity, i.e. ID.
 
 ### Aggregate
 
@@ -45,7 +45,7 @@ An **aggregate** is a DDD pattern for grouping entities together that gives anot
 
 ### Value object
 
-A **value object** is a thing that doesn't have an identity which you can compare with other thing by just looking at its properties. A `DateTime` object in .NET can serve as an example. If value object requires validation you put this validation logic in the constructor and then you don't have to check it anywhere else in the code.
+A **value object** is an object that doesn't have an identity which you can compare with other thing by just looking at its properties. A `DateTime` object in .NET can serve as an example. If value object requires validation you put this validation logic in the constructor and then you don't have to check it anywhere else in the code.
 
 ### Domain event
 
