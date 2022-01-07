@@ -161,7 +161,7 @@
 
 ## .NET
 
-- [.NET CLI](dotnet/cli.md)
+- [dotnet CLI](dotnet/cli.md)
 - [Dependency injection in .NET](dotnet/dependency%20injection%20dotnet.md)
 - [Secret Manager tool](dotnet/secret%20manager.md)
 - [PowerShell](dotnet/powershell.md)

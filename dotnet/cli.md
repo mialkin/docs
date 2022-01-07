@@ -1,8 +1,8 @@
-# .NET CLI
+# dotnet CLI
 
-The .NET command-line interface (CLI) is a cross-platform toolchain for developing, building, running, and publishing .NET applications.
+The dotnet CLI is a cross-platform toolchain for developing, building, running, and publishing .NET applications.
 
-[.NET CLI documentation ↑](https://docs.microsoft.com/en-us/dotnet/core/tools/)
+## List of commands
 
 | <div style="width:120px">Command</div> | Description                                                                                                           |
 | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
@@ -17,6 +17,15 @@ The .NET command-line interface (CLI) is a cross-platform toolchain for developi
 | dotnet run                             | Run source code in the context of projects without any explicit compile or launch commands <sup>2</sup>               |
 | dotnet myproject.dll                   | Run built assemblies                                                                                                  |
 | dotnet test                            | Execute unit tests in a given solution <sup>3</sup>                                                                   |
+
+## Create new Web API project
+
+Folder containing project will have the same name as the project itself, i.e. `Mediator`:
+
+```bash
+dotnet new gitignore
+dotnet new webapi -n Mediator
+```
 
 ## Footnotes
 
