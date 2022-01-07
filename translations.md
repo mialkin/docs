@@ -276,7 +276,7 @@
 ## U
 
 * **Unmanaged resource** — неуправляемый ресурс
-* **Ubiquitous language** — повсеместно используемый язык
+* **Ubiquitous language** — язык описания или повсеместный язык
 
 ## V
 
