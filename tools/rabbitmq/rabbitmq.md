@@ -108,7 +108,7 @@ Avoid the usual mistake of having an unlimited prefetch, where one client receiv
 
 ## Channels
 
-Some applications need multiple connections to the broker. However, it is undesirable to keep many TCP connections open at the same time because doing so consumes system resources and makes it more difficult to configure firewalls. AMQP 0-9-1 connections are multiplexed with **channels** that can be thought of as "lightweight connections that share a single TCP connection".>
+Some applications need multiple connections to the broker. However, it is undesirable to keep many TCP connections open at the same time because doing so consumes system resources and makes it more difficult to configure firewalls. AMQP 0-9-1 connections are multiplexed with **channels** that can be thought of as "lightweight connections that share a single TCP connection".
 
 Every protocol operation performed by a client happens on a channel. Communication on a particular channel is completely separate from communication on another channel, therefore every protocol method also carries a channel ID (a.k.a. channel number), an integer that both the broker and clients use to figure out which channel the method is for.
 
