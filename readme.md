@@ -77,6 +77,7 @@
 
 ## Software architecture and design
 
+- [Anti-patterns](design/anti-patterns.md)
 - [Clean architecture](design/clean%20architecture.md)
 - [Composition over inheritance](design/composition%20over%20inheritance.md)
 - [DDD](design/ddd.md)
