@@ -4,6 +4,8 @@
   - [Domain](#domain)
   - [Subdomain](#subdomain)
   - [Domain model](#domain-model)
+    - [Anemic domain model](#anemic-domain-model)
+    - [Rich domain model](#rich-domain-model)
   - [Bounded context](#bounded-context)
   - [Ubiquitous language](#ubiquitous-language)
   - [Context map](#context-map)
@@ -11,6 +13,7 @@
   - [Aggregate](#aggregate)
   - [Value object](#value-object)
   - [Domain event](#domain-event)
+  - [Event storming](#event-storming)
   - [Specification](#specification)
 
 The term **domain-driven design** was coined by Eric Evans in his book written in 2003.
@@ -38,9 +41,28 @@ If it models some aspect of the business that is essential, yet not *core*, it i
 
 The business creates a supporting subdomain because it is somewhat specialized. Otherwise, if it captures nothing special to the business, yet is required for the overall business solution, it is a **generic subdomain**. Being supporting or heneric doesn't mean unimportant. These kinds of subdomains are important to the success of the business, yet there is no need for the business to excel in these areas. It's the **core domain** that requires excellence in implementation, since it will provide distinct advantages to the business.
 
+Recognizing anemic domains:
+
+- Looks like the real thing with objects named for nouns in the domain
+- Little or no behavior
+- Equate to property bags with getters and setters
+- All business logic has been relegated to service objects
+
 ## Domain model
 
 A **domain model** is a software model of the very specific business domain you are working in.
+
+### Anemic domain model
+
+An **anemic domain model** is a domain model that is focused on the state of its objects which is the antithesis of DDD.
+
+There is nothing wrong with anemic classes when all you need to do is some CRUD logic. But if you are creating a domain model, you've already made a decision that your domain is too complex for simple CRUD. So, anemia in domain model is considered an anti-pattern.
+
+### Rich domain model
+
+A **rich domain model** is a domain model that represents behaviors and business logic of the domain. Classes that simply affect state are considered anti-patterns in the domain model.
+
+Strive for *rich* domain models and have an awareness of the strengths and weaknesses of those that are not so rich.
 
 ## Bounded context
 
@@ -65,7 +87,7 @@ Context maps can be used to analyze existing systems or application landscapes b
 
 ## Entity
 
-An **entity** is an object that has an identity, i.e. ID.
+An **entity** is an object that has an identity, i.e. an ID.
 
 ## Aggregate
 
@@ -77,7 +99,11 @@ A **value object** is an object that doesn't have an identity which you can comp
 
 ## Domain event
 
-A **domain event** is another DDD pattern.
+A **domain event** is an occurrence of something that happened in the domain.
+
+## Event storming
+
+An **event storming** is a workshop-based method to quickly find out what is happening in the domain of a software program
 
 ## Specification
 
