@@ -2,8 +2,12 @@
 
 - [Domain-Driven Design](#domain-driven-design)
   - [Terminology](#terminology)
+  - [Domain](#domain)
+  - [Subdomain](#subdomain)
+    - [Domain model](#domain-model)
     - [Bounded context](#bounded-context)
     - [Ubiquitous language](#ubiquitous-language)
+  - [Context map](#context-map)
     - [Entity](#entity)
     - [Aggregate](#aggregate)
     - [Value object](#value-object)
@@ -25,6 +29,22 @@ Some scenarios in which DDD is going to be an overkill:
 
 ## Terminology
 
+## Domain
+
+A **domain** can refer to both the entire domain of the business, as well as just one core or supporting area of it. When referring to just one area of the business we will use words *core domain*, *subdomain*, and the like.
+
+## Subdomain
+
+Almost every software domain has multiple **subdomains**.
+
+If it models some aspect of the business that is essential, yet not *core*, it is a **supporting subdomain**.
+
+The business creates a Supporting Subdomain because it is somewhat specialized. Otherwise, if it captures nothing special to the business, yet is required for the overall business solution, it is a Generic Subdomain. Being Supporting or Generic doesn’t mean unimportant. These kinds of Subdomains are important to the success of the business, yet there is no need for the business to excel in these areas. It’s the Core Domain that requires excellence in implementation, since it will provide distinct advantages to the business.
+
+### Domain model
+
+A **domain model** is a software model of the very specific business domain you are working in.
+
 ### Bounded context
 
 A **bounded context** is a conceptual boundary where a domain model is applicable. It provides a context for the *ubiquitous language* that is spoken by the team and expressed in its carefully designed software model.
@@ -34,6 +54,15 @@ A **bounded context** is a conceptual boundary where a domain model is applicabl
 A **ubiquitous language** is a shared team language. It's shared by domain experts and developers alike. In fact, it's shared by everyone on the project team. No matter your role on the team, since you are on the team you use the ubiquitous language of the project.
 
 Ubiquitous means "pervasive," or "found everywhere," as *spoken among the team and expressed by the single domain model* that the team develops. There is one ubiquitous language per bounded context.
+
+## Context map
+
+Context maps describe the contact between bounded contexts and teams with a collection of patterns. There are nine context map patterns and three different team relationships. The context map patterns describe a variety of perspectives like service provisioning, model propagation or governance aspects. This diversity of perspectives enables you to get an holisitic overview of team and bounded context relationships.
+
+Context maps can be used to analyze existing systems or application landscapes but they are also suitable for upfront design considerations.
+
+- [↑ Context mapping](https://github.com/ddd-crew/context-mapping)
+- [↑ Context mapping in domain-driven design](https://medium.com/ingeniouslysimple/context-mapping-in-domain-driven-design-9063465d2eb8)
 
 ### Entity
 
