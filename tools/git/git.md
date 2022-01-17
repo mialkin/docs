@@ -57,6 +57,13 @@ git config --list --show-origin
 	name = John Work
 ```
 
+Check username and password inside *specific* repository:
+
+```bash
+git config user.name
+git config user.email
+```
+
 ## Commands
 
 | Command                                       | Description                                                                   |
