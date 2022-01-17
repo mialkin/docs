@@ -3,6 +3,7 @@
 - [Keyboard shortcuts](#keyboard-shortcuts)
   - [DataGrip](#datagrip)
   - [Terminal](#terminal)
+  - [Visual Studio Code](#visual-studio-code)
 
 ## DataGrip
 
@@ -19,3 +20,9 @@
 | Ctrl + W | Remove word backward        |
 | Ctrl + K | Delete to end of line       |
 | Ctrl + Y | Paste                       |
+
+## Visual Studio Code
+
+| Shortcut               | Description           |
+| ---------------------- | --------------------- |
+| Shift + Option + Click | Select multiple lines |
