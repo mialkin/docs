@@ -57,7 +57,7 @@ git config --list --show-origin
 	name = John Work
 ```
 
-Check username and password inside *specific* repository:
+Check username and password inside _specific_ repository:
 
 ```bash
 git config user.name
@@ -79,6 +79,7 @@ git config user.email
 | git config user.email your@email.com          | Set local user email                                                          |
 | git config --global user.email your@email.com | Set global user email                                                         |
 | git log --oneline                             | Print only commits subject line (without body)                                |
+| git mv README README.md                       | Rename file                                                                   |
 | git push REMOTE_NAME -u BRANCH_NAME           | Push local branch to remote                                                   |
 | git push REMOTE_NAME --delete BRANCH_NAME     | Delete remote branch                                                          |
 | git remote add REMOTE_NAME REMOTE_URL         | Add a remote                                                                  |
