@@ -1,5 +1,9 @@
 # Documenting notes
 
+> There are only two hard things in computer science: cache invalidation and naming things.
+>
+> — <cite>Phil Karlton</cite>
+
 ## TOC
 
 - [Documenting notes](#documenting-notes)
