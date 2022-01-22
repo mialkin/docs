@@ -23,10 +23,11 @@ Edit global `.gitconfig` file:
 vim ~/.gitconfig # or use: git config --global --edit
 ```
 
-Set default branch name:
+Set default branch name and always pull with rebase:
 
 ```bash
 git config --global init.defaultBranch BRANCH_NAME
+git config --global pull.rebase true
 ```
 
 To see where that setting is defined (global, user, repo, etc...):
