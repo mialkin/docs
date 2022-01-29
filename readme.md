@@ -4,6 +4,10 @@
 >
 > — <cite>Phil Karlton</cite>
 
+> So much complexity in software comes from trying to make one thing do two things.
+>
+> — <cite>Ryan Singer</cite>
+
 ## TOC
 
 - [Documenting notes](#documenting-notes)
