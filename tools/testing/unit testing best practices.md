@@ -147,14 +147,14 @@ If logic in your test seems unavoidable, consider splitting the test up into two
 
 ## Avoid multiple asserts
 
-When writing your tests, try to only include one Assert per test. Common approaches to using only one assert include:
+When writing your tests, try to only include one `Assert` per test. Common approaches to using only one assert include:
 
 - Create a separate test for each assert.
 - Use parameterized tests.
 
 ### Why?
 
-- If one Assert fails, the subsequent Asserts will not be evaluated.
+- If one `Assert` fails, the subsequent `Assert`s will not be evaluated.
 - Ensures you are not asserting multiple cases in your tests.
 - Gives you the entire picture as to why your tests are failing.
 
