@@ -218,6 +218,7 @@
     - [Downloading web pages](csharp/concurrency/exercises/downloading%20pages.md)
 - [Covariance and contravariance](csharp/covariance%20and%20contravariance.md)
 - [Extension methods](csharp/extension%20methods.md)
+  - [Extension methods guidelines](csharp/extension%20methods%20guidelines.md)
 - [`IEnumerable<T>`](csharp/ienumerable.md)
 - [Indexers](csharp/indexers.md)
 - [Keywords](csharp/keywords/keywords.md)
