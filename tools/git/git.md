@@ -14,6 +14,7 @@
   - [Stashing](#stashing)
     - [Re-applying stashed changes](#re-applying-stashed-changes)
     - [Drop stash](#drop-stash)
+    - [Show stash content](#show-stash-content)
 
 ## Git config
 
@@ -171,6 +172,7 @@ You can reapply previously stashed changes with:
 
 ```bash
 git stash pop
+git stash pop stash@{n}
 ```
 
 Popping your stash removes the changes from your stash and reapplies them to your working copy.
@@ -179,6 +181,7 @@ Alternatively, you can reapply the changes to your working copy and keep them in
 
 ```bash
 git stash apply
+git stash apply stash@{n}
 ```
 
 This is useful if you want to apply the same stashed changes to multiple branches.
@@ -190,6 +193,13 @@ Now that you know the basics of stashing, there is one caveat with git stash you
 ```bash
 git stash drop            # drop top hash, stash@{0}
 git stash drop stash@{n}  # drop specific stash - see git stash list
+```
+
+### Show stash content
+
+```bash
+git stash show -p
+git stash show -p stash@{n}  ## show specific stash
 ```
 
 [↑ Git stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash)
