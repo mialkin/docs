@@ -11,10 +11,11 @@
   - [Fetching vs pulling](#fetching-vs-pulling)
     - [Fetching](#fetching)
     - [Pulling](#pulling)
-  - [Stashing](#stashing)
-    - [Re-applying stashed changes](#re-applying-stashed-changes)
-    - [Drop stash](#drop-stash)
-    - [Show stash content](#show-stash-content)
+  - [Stash](#stash)
+    - [Pop](#pop)
+    - [Apply](#apply)
+    - [Drop](#drop)
+    - [Show](#show)
 
 ## Git config
 
@@ -156,7 +157,7 @@ This means that pull not only downloads new data; it also directly integrates it
 
 Since "git pull" tries to merge remote changes with your local ones, a so-called "merge conflict" can occur. It's highly recommended to start a "git pull" only with a clean working copy. This means that you should not have any uncommitted local changes before you pull. Use Git's stash feature to save your local changes temporarily.
 
-## Stashing
+## Stash
 
 ```bash
 git stash
@@ -166,7 +167,7 @@ At this point you're free to make changes, create new commits, switch branches, 
 
 Note that the stash is local to your Git repository; stashes are not transferred to the server when you push.
 
-### Re-applying stashed changes
+### Pop
 
 You can reapply previously stashed changes with:
 
@@ -176,6 +177,8 @@ git stash pop stash@{n}
 ```
 
 Popping your stash removes the changes from your stash and reapplies them to your working copy.
+
+### Apply
 
 Alternatively, you can reapply the changes to your working copy and keep them in your stash with:
 
@@ -188,14 +191,14 @@ This is useful if you want to apply the same stashed changes to multiple branche
 
 Now that you know the basics of stashing, there is one caveat with git stash you need to be aware of: by default Git _won't_ stash changes made to untracked or ignored files.
 
-### Drop stash
+### Drop
 
 ```bash
 git stash drop            # drop top hash, stash@{0}
 git stash drop stash@{n}  # drop specific stash - see git stash list
 ```
 
-### Show stash content
+### Show
 
 ```bash
 git stash show -p
