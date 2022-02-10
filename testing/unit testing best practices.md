@@ -1,6 +1,7 @@
 # Unit testing best practices
 
 - [Unit testing best practices](#unit-testing-best-practices)
+  - [Let's speak the same language](#lets-speak-the-same-language)
   - [Naming your tests](#naming-your-tests)
   - [Prefer helper methods to setup and teardown](#prefer-helper-methods-to-setup-and-teardown)
     - [Why?](#why)
@@ -11,8 +12,12 @@
     - [Why?](#why-1)
   - [Avoid multiple asserts](#avoid-multiple-asserts)
     - [Why?](#why-2)
+  - [Write minimally passing tests](#write-minimally-passing-tests)
+    - [Why?](#why-3)
   - [Code coverage](#code-coverage)
   - [Links](#links)
+
+## Let's speak the same language
 
 A **fake** is a generic term that can be used to describe either a *stub* or a *mock* object. Whether it's a *stub* or a *mock* depends on the context in which it's used.
 
@@ -162,6 +167,17 @@ When writing your tests, try to only include one `Assert` per test. Common appro
 When introducing multiple asserts into a test case, it is not guaranteed that all of the asserts will be executed. In most unit testing frameworks, once an assertion fails in a unit test, the proceeding tests are automatically considered to be failing. This can be confusing as functionality that is actually working, will be shown as failing.
 
 A common exception to this rule is when asserting against an object. In this case, it is generally acceptable to have multiple asserts against each property to ensure the object is in the state that you expect it to be in.
+
+## Write minimally passing tests
+
+The input to be used in a unit test should be the simplest possible in order to verify the behavior that you are currently testing.
+
+### Why?
+
+- Tests become more resilient to future changes in the codebase.
+- Closer to testing behavior over implementation.
+
+Tests that include more information than required to pass the test have a higher chance of introducing errors into the test and can make the intent of the test less clear. When writing tests, you want to focus on the behavior. Setting extra properties on models or using non-zero values when not required, only detracts from what you are trying to prove.
 
 ## Code coverage
 
