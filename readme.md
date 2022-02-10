@@ -17,6 +17,7 @@
   - [Databases](#databases)
   - [Software architecture and design](#software-architecture-and-design)
   - [Programming](#programming)
+  - [Testing](#testing)
   - [Web](#web)
   - [Networking](#networking)
   - [Security](#security)
@@ -48,10 +49,6 @@
 - [RabbitMQ](tools/rabbitmq/rabbitmq.md)
 - [Redis](tools/redis.md)
 - [Regular expressions](tools/regular%20expressions/regular%20expressions.md)
-- Testing
-  - [k6](tools/testing/k6/k6.md)
-  - [Unit testing best practices](tools/testing/unit%20testing%20best%20practices.md)
-  - [xUnit](tools/testing/xunit.md)
 
 ## Unix
 
@@ -136,6 +133,13 @@
 - [Programming case types](programming/cases.md)
 - [Scrum](programming/scrum/scrum.md)
 - [Serialization](programming/serialization.md)
+
+## Testing
+
+- [k6](testing/k6/k6.md)
+- [Unit testing best practices](testing/unit%20testing%20best%20practices.md)
+- [xUnit](testing/xunit.md)
+
 
 ## Web
 
