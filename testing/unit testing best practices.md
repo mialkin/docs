@@ -11,6 +11,7 @@
     - [Why?](#why-1)
   - [Avoid multiple asserts](#avoid-multiple-asserts)
     - [Why?](#why-2)
+  - [Code coverage](#code-coverage)
   - [Links](#links)
 
 A **fake** is a generic term that can be used to describe either a *stub* or a *mock* object. Whether it's a *stub* or a *mock* depends on the context in which it's used.
@@ -161,6 +162,12 @@ When writing your tests, try to only include one `Assert` per test. Common appro
 When introducing multiple asserts into a test case, it is not guaranteed that all of the asserts will be executed. In most unit testing frameworks, once an assertion fails in a unit test, the proceeding tests are automatically considered to be failing. This can be confusing as functionality that is actually working, will be shown as failing.
 
 A common exception to this rule is when asserting against an object. In this case, it is generally acceptable to have multiple asserts against each property to ensure the object is in the state that you expect it to be in.
+
+## Code coverage
+
+A high code coverage percentage is often associated with a higher quality of code. However, the measurement itself *cannot* determine the quality of code. Setting an overly ambitious code coverage percentage goal can be counterproductive.
+
+A high code coverage percentage is not an indicator of success, nor does it imply high code quality. It just represents the amount of code that is covered by unit tests.
 
 ## Links
 
