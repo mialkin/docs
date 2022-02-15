@@ -156,7 +156,8 @@
 
 ## Security
 
-- [Active Directory](security/ad.md)
+- [AD](security/ad.md)
+- [AD FS](security/ad%20fs.md)
 - [Asymmetric cryptography](security/asymmetric%20cryptography/asymmetric%20cryptography.md)
 - [Advanced Encryption Standard (AES)](security/aes.md)
 - [Generating self-signed certificate](security/generating%20certificate.md)
