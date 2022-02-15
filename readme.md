@@ -144,13 +144,10 @@
 ## Web
 
 - [GraphQL](web/graphql.md)
-- [gRPC](web/grpc.md)
-- [OAuth](web/oauth.md)
-- [OpenAPI](web/openapi.md)
-- [OpenID Connect](web/oidc.md)
 
 ## Networking
 
+- [gRPC](networking/grpc.md)
 - [IP](networking/ip.md)
 - [Ports](networking/ports.md)
 - [Sockets](networking/sockets.md)
@@ -159,10 +156,14 @@
 
 ## Security
 
-- [Asymmetric cryptography](security/asymmetric%20cryptography.md)
+- [Active Directory](security/ad.md)
+- [Asymmetric cryptography](security/asymmetric%20cryptography/asymmetric%20cryptography.md)
 - [Advanced Encryption Standard (AES)](security/aes.md)
 - [Generating self-signed certificate](security/generating%20certificate.md)
-- [TLS handshake](security/tls%20handshake.md)
+- [OAuth](security/oauth.md)
+- [OpenAPI](security/openapi.md)
+- [OpenID Connect](security/oidc.md)
+- [TLS handshake](security/tls%20handshake/tls%20handshake.md)
 - Web
   - [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
   - [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)

@@ -84,6 +84,7 @@
 * **Derived class** — производный класс
 * **Design pattern** — шаблон проектирования
 * **Diffie–Hellman key exchange** — протокол Диффи — Хеллмана
+* **Directory service** — служба каталогов
 * **Dispose** — высвобождать, освобождать
 * **Document-oriented database** — документоориентированная база данных
 * **Document store** — документное хранилище
