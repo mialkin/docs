@@ -11,12 +11,14 @@
   - [df](#df)
   - [du](#du)
   - [find](#find)
+  - [grep](#grep)
   - [htop](#htop)
   - [iproute2](#iproute2)
   - [less](#less)
   - [rg](#rg)
   - [rsync](#rsync)
   - [scp](#scp)
+  - [sed](#sed)
   - [systemctl](#systemctl)
   - [tail](#tail)
   - [tar](#tar)
@@ -36,9 +38,9 @@ The **apt** provides a high-level commandline interface for the package manageme
 
 ## chmod
 
-**chmod** is the command and system call which is used to change the access permissions of file system objects (files and directories). The name is an abbreviation of _change mode_.
+**chmod** is the command and system call which is used to change the access permissions of file system objects (files and directories). The name is an abbreviation of *change mode*.
 
-**Modes** are the filesystem permissions given to _user_ (i.e. the file owner), _group_ (i.e. the group owning the file) and _others_ (users who are not the owner of the file and who are not members of the group) classes to access files under Unix.
+**Modes** are the filesystem permissions given to *user* (i.e. the file owner), *group* (i.e. the group owning the file) and *others* (users who are not the owner of the file and who are not members of the group) classes to access files under Unix.
 
 References:
 
@@ -63,9 +65,9 @@ Modes:
 | --------------------- | ---------------------------------- |
 | chmod +x FILE_NAME    | Add execute mode to all classes    |
 | chmod a-rwx FILE_NAME | Removes all modes from all classes |
-| chmod 100 FILE_NAME   | Adds _only_ execute mode to user   |
-| chmod 200 FILE_NAME   | Adds _only_ write mode to user     |
-| chmod 400 FILE_NAME   | Adds _only_ read mode to user      |
+| chmod 100 FILE_NAME   | Adds *only* execute mode to user   |
+| chmod 200 FILE_NAME   | Adds *only* write mode to user     |
+| chmod 400 FILE_NAME   | Adds *only* read mode to user      |
 
 [↑ chmod on Wikipedia](https://en.wikipedia.org/wiki/Chmod)
 
@@ -141,6 +143,10 @@ Find is a command-line utility that locates files based on some user-specified c
 | ----------------------------- | --------------------------------------------------------------------------- |
 | find . -name YOUR_NAME        | Find inside current directory all files/folders that match `YOUR_NAME` name |
 | find . -type f -name "\*.txt" | Find inside current directory all files with the extension `.txt`           |
+
+## grep
+
+**grep** is a command-line utility for searching plain-text data sets for lines that match a regular expression. Its name comes from the `ed` command g/re/p (**g**lobally search for a **r**egular **e**xpression and **p**rint matching lines), which has the same effect.
 
 ## htop
 
@@ -249,6 +255,24 @@ Copy from remote to local:
 
 ```sh
 scp username@remote:/file/to/send /where/to/put
+```
+
+## sed
+
+**sed**, short for *stream editor*, is a Unix utility that parses and transforms text, using a simple, compact programming language.
+
+Perhaps the most well-known use for sed is substituting text. sed can search for text patterns using regular expressions, and then replace the found text with something else:
+
+```bash
+'s/old_word/new_word/g'
+```
+
+The `s` is the substitute command, `g` substitutes each occurrence in the line, not only the first one.
+
+macOS command:
+
+```bash
+sed -i '' 's/abc/XYZ/g' /tmp/file.txt
 ```
 
 ## systemctl
