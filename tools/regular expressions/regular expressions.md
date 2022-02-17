@@ -36,37 +36,37 @@ Metacharacters can have more than one meaning which depends on how they are used
 
 List of metacharacters:
 
-* [. wildcard](wildcard.md)
-* [\ escaping](escaping.md)
-* [[] character set](set.md)
-  * [- character range](range.md)
-  * [^ negative character set](negative%20set.md)
-  * [\d \w \s shorthand character sets](shorthand%20sets.md)
-* [*, +, ? repetition metacharacters](repetition.md)
-* [{min,max} quantified repetition](quantified%20repetition.md)
-* [Greedy expressions](greedy%20expressions.md)
-* [*?, +?, {min,max}?, ?? lazy expressions](lazy%20expressions.md)
-* [() grouping metacharacters](grouping.md)
-* [| alternation metacharacter](alternation.md)
-* [^, $ start and end anchors](start%20and%20end%20anchors.md)
-* [\b, \B word boundaries](word%20boundaries.md)
-* [\1 through \9 backreferences](backreferences.md)
-* [?: non-capturing group expressions](non-capturing.md)
-* Lookaround assertions
-  * [?= positive lookahead assertions](positive%20lookahead%20assertions.md)
-  * [?! negative lookahead assertions](negative%20lookahead%20assertions.md)
-  * [?<=, ?<! positive and negative lookbehind assertions](lookbehind%20assertions.md)
+- [. wildcard](wildcard.md)
+- [\ escaping](escaping.md)
+- [[] character set](set.md)
+  - [- character range](range.md)
+  - [^ negative character set](negative%20set.md)
+  - [\d \w \s shorthand character sets](shorthand%20sets.md)
+- [*, +, ? repetition metacharacters](repetition.md)
+- [{min,max} quantified repetition](quantified%20repetition.md)
+- [Greedy expressions](greedy%20expressions.md)
+- [*?, +?, {min,max}?, ?? lazy expressions](lazy%20expressions.md)
+- [() grouping metacharacters](grouping.md)
+- [| alternation metacharacter](alternation.md)
+- [^, $ start and end anchors](start%20and%20end%20anchors.md)
+- [\b, \B word boundaries](word%20boundaries.md)
+- [\1 through \9 backreferences](backreferences.md)
+- [?: non-capturing group expressions](non-capturing.md)
+- Lookaround assertions
+  - [?= positive lookahead assertions](positive%20lookahead%20assertions.md)
+  - [?! negative lookahead assertions](negative%20lookahead%20assertions.md)
+  - [?<=, ?<! positive and negative lookbehind assertions](lookbehind%20assertions.md)
 
 ## Other special characters
 
-* Spaces
-* Tabs `\t`
-* Line returns `\r`, `\n`, `\r\n`
-* Non-printable characters
-  * bell `\a`, escape `\e`, form feed `\f`, vertical tab `\v`
-* ASCII or ANSI codes
-  * Codes that control appearance of a text terminal
-  * 0xA9 = \xA9
+- Spaces
+- Tabs `\t`
+- Line returns `\r`, `\n`, `\r\n`
+- Non-printable characters
+  - bell `\a`, escape `\e`, form feed `\f`, vertical tab `\v`
+- ASCII or ANSI codes
+  - Codes that control appearance of a text terminal
+  - 0xA9 = \xA9
 
 The expression `\e` will match letter `e` in the word "r**e**staurant".
 
@@ -80,11 +80,11 @@ On the other hand expressions `\n` and `\t` will not match because they have ano
 
 Modes go right after slashes, they are not a part of regullar expressions, they are modifiers for the way this regular expressions ought to be handled:
 
-* Standard: `/re/`
-* Global: `/re/g`
-* Case-insensitive: `/re/i`
-* Multiline: `/re/m`
-* Dot-matches-all: `/re/s`
+- Standard: `/re/`
+- Global: `/re/g`
+- Case-insensitive: `/re/i`
+- Multiline: `/re/m`
+- Dot-matches-all: `/re/s`
 
 ### Standard vs global matching
 
