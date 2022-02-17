@@ -2,7 +2,7 @@
 
 **OAuth** (**O**pen **A**uthorization) is the industry-standard protocol for authorization.
 
-OAuth is used for granting websites and/or applications access to subset of user's information stored on another website.
+OAuth is used for granting websites or applications access to subset of user's information stored on another website.
 
 OAuth is directly related to OpenID Connect (OIDC), since OIDC is an authentication layer built on top of OAuth 2.0.
 
@@ -22,11 +22,11 @@ OAuth is directly related to OpenID Connect (OIDC), since OIDC is an authenticat
 
 ### Client
 
-A **client** or an **app** or a **third-party app** is an application that uses OAuth to access some information about *user* on *resource server*.
+A **client** or an **app** or a **third-party app** is an application that uses OAuth to access some data or perform some actions on the *resource server* on behalf of the *user*.
 
 ### User
 
-A **user** or **resource owner** is an identity whose information app wants to retrieve from *resource server*.
+A **user** or a **resource owner** is an identity on behalf of which client accesses some data or performs some action on the *resource server*.
 
 ### Authorization server
 
