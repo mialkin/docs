@@ -26,7 +26,7 @@ A **client** or an **app** or a **third-party app** is an application that uses 
 
 ### User
 
-A **user** or a **resource owner** is an identity on behalf of which client accesses some data or performs some action on the *resource server*.
+A **user** or a **resource owner** is an identity on behalf of which client wants to access some data or perform some actions on the *resource server*.
 
 ### Authorization server
 
