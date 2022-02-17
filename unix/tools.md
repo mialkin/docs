@@ -269,10 +269,10 @@ Perhaps the most well-known use for sed is substituting text. sed can search for
 
 The `s` is the substitute command, `g` substitutes each occurrence in the line, not only the first one.
 
-macOS command:
+Regex replace:
 
 ```bash
-sed -i '' 's/abc/XYZ/g' /tmp/file.txt
+sed -E 's/($.+$)/\1/' calculus/chapter\ 1.md
 ```
 
 ## systemctl
