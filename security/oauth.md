@@ -6,40 +6,56 @@ OAuth is used for granting websites and/or applications access to subset of user
 
 OAuth is directly related to OpenID Connect (OIDC), since OIDC is an authentication layer built on top of OAuth 2.0.
 
+- [OAuth](#oauth)
+  - [Terminology](#terminology)
+    - [Client](#client)
+    - [User](#user)
+    - [Authorization server](#authorization-server)
+    - [Resoure server](#resoure-server)
+    - [Scope](#scope)
+    - [Consent](#consent)
+    - [Client ID](#client-id)
+    - [Redirect URI](#redirect-uri)
+    - [Access token](#access-token)
+
 ## Terminology
 
 ### Client
 
-**Client** or **app** or **third-party app** is an application that uses OAuth to access some information about *user* on *resource server*.
+A **client** or an **app** or a **third-party app** is an application that uses OAuth to access some information about *user* on *resource server*.
 
 ### User
 
-**User** or **resource owner** is an identity whose information app wants to retrieve from *resource server*.
+A **user** or **resource owner** is an identity whose information app wants to retrieve from *resource server*.
 
 ### Authorization server
 
-**Authorization server** or **token factory** is a service that that knows the user, where the user already has an account. Authorization server issues *access token* to the client.
+An **authorization server** is a service that that knows the user, where the user already has an account.
 
 ### Resoure server
 
-**Resoure server** is and API that gives client some resource when client provides valid access token.
+A **resoure server** is an API or service that client wants to use on behalf of the user.
+
+### Scope
+
+A **scope** is a set of granular permissions that client wants to do on resource server, such as have access to data or to perform actions.
+
+### Consent
+
+A consent is user's agreement to grant client permissions specified in the scope.
+
+The authorization server takes the scopes the client is requesting, and verifies with the user whether or not he wants to give the client permission.
+
+### Client ID
+
+A **client ID** is an ID is used to identify the client within the authorization server.
+
+### Redirect URI
+
+A **redirect URI**: The URL the Authorization Server will redirect the Resource Owner back to after granting permission to the Client. This is sometimes referred to as the “Callback URL.”
 
 ### Access token
 
-An OAuth Access Token is a string that the OAuth client uses to make requests to the resource server.
+An **access token** is a string that the client uses to make requests to the resource server.
 
 Access tokens do not have to be in any particular format, and in practice, various OAuth servers have chosen many different formats for their access tokens.
-
-### Refresh Token
-
-An OAuth Refresh Token is a string that the OAuth client can use to get a new access token without the user's interaction.
-
-A refresh token must not allow the client to gain any access beyond the scope of the original grant. The refresh token exists to enable authorization servers to use short lifetimes for access tokens without needing to involve the user when the token expires.
-
-### OAuth Scopes
-
-Scope is a mechanism in OAuth 2.0 to limit an application's access to a user's account. An application can request one or more scopes, this information is then presented to the user in the consent screen, and the access token issued to the application will be limited to the scopes granted.
-
-The OAuth spec allows the authorization server or user to modify the scopes granted to the application compared to what is requested, although there are not many examples of services doing this in practice.
-
-OAuth does not define any particular values for scopes, since it is highly dependent on the service's internal architecture and needs.
