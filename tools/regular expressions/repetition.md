@@ -1,10 +1,10 @@
 # Repetition metacharacters
 
-Metacharacter | Meaning
--|-
-* | Preceding item zero or more times
-+ | Preceding item one or more times
-? | Preceding item zero or one time
+| Metacharacter | Meaning                           |
+| ------------- | --------------------------------- |
+| \*            | Preceding item zero or more times |
+| +             | Preceding item one or more times  |
+| ?             | Preceding item zero or one time   |
 
 ## Examples
 
