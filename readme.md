@@ -156,15 +156,17 @@
 
 ## Security
 
-- [AD](security/ad.md)
-  - [AD FS](security/ad%20fs.md)
+- [AD](security/ad/ad.md)
+  - [AD FS](security/ad/ad%20fs.md)
 - [Asymmetric cryptography](security/asymmetric%20cryptography/asymmetric%20cryptography.md)
-- [Advanced Encryption Standard (AES)](security/aes.md)
 - [Generating self-signed certificate](security/generating%20certificate.md)
-- [OAuth](security/oauth.md)
-  - [OpenID Connect](security/oidc.md)
+- [JWT](security/jwt.md)
+- [OAuth](security/oauth/oauth.md)
+  - [OpenID Connect](security/oauth/oidc.md)
   - [Tokens](security/oauth/tokens.md)
 - [OpenAPI](security/openapi.md)
+- Symmetric cryptography
+  - [AES](security/aes.md)
 - [TLS handshake](security/tls%20handshake/tls%20handshake.md)
 - Web
   - [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
