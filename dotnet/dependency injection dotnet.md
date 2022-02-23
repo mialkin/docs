@@ -90,61 +90,6 @@ Service registration is generally order independent except when registering mult
 
 Registering a service with only an implementation type is equivalent to registering that service with the same implementation and service type. This is why multiple implementations of a service cannot be registered using the methods that don't take an explicit service type. These methods can register multiple *instances* of a service, but they will all have the same *implementation* type.
 
-Any of the above service registration methods can be used to register multiple service instances of the same service type. In the following example, `AddSingleton` is called twice with `IMessageWriter` as the service type. The second call to `AddSingleton` overrides the previous one when resolved as `IMessageWriter` and adds to the previous one when multiple services are resolved via `IEnumerable<IMessageWriter>`. Services appear in the order they were registered when resolved via `IEnumerable<{SERVICE}>`.
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-
-using IHost host = CreateHostBuilder(args).Build();
-_ = host.Services.GetService<ExampleService>();
-host.RunAsync();
-
-static IHostBuilder CreateHostBuilder(string[] args) =>
-    Host.CreateDefaultBuilder(args)
-        .ConfigureServices((_, services) =>
-            services
-                .AddSingleton<IMessageWriter, ConsoleMessageWriter>()
-                .AddSingleton<IMessageWriter, LoggingMessageWriter>()
-                .AddSingleton<ExampleService>());
-
-public interface IMessageWriter
-{
-    void Write(string message);
-}
-
-public class ConsoleMessageWriter : IMessageWriter
-{
-    public void Write(string message)
-    {
-        Console.WriteLine($"ConsoleMessageWriter.Write(message: \"{message}\")");
-    }
-}
-
-public class LoggingMessageWriter : IMessageWriter
-{
-    public void Write(string message)
-    {
-        Console.WriteLine($"LoggingMessageWriter.Write(message: \"{message}\")");
-    }
-}
-
-public class ExampleService
-{
-    public ExampleService(IMessageWriter messageWriter, IEnumerable<IMessageWriter> messageWriters)
-    {
-        Console.WriteLine(messageWriter is LoggingMessageWriter); // True
-
-        var dependencyArray = messageWriters.ToArray();
-        Console.WriteLine(dependencyArray[0] is ConsoleMessageWriter); // True
-        Console.WriteLine(dependencyArray[1] is LoggingMessageWriter); // True
-    }
-}
-```
-
 ## Scope scenarios
 
 To achieve scoping services within implementations of `IHostedService`, such as the `BackgroundService`, do **not** inject the service dependencies via constructor injection. Instead, inject `IServiceScopeFactory`, create a scope, then resolve dependencies from the scope to use the appropriate service lifetime.
