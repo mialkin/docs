@@ -178,6 +178,7 @@
 
 - [dotnet CLI](dotnet/cli.md)
 - [Dependency injection in .NET](dotnet/dependency%20injection%20dotnet.md)
+- [OWIN](dotnet/owin.md)
 - [Secret Manager tool](dotnet/secret%20manager.md)
 - [PowerShell](dotnet/powershell.md)
   - [PowerShell scripting](dotnet/powershell%20scripting.md)
