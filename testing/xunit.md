@@ -1,9 +1,9 @@
 # xUnit
 
-## TOC
+## Table of contents
 
 - [xUnit](#xunit)
-  - [TOC](#toc)
+  - [Table of contents](#table-of-contents)
   - [`Theory`](#theory)
   - [Setup And Teardown](#setup-and-teardown)
 

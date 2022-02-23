@@ -1,9 +1,9 @@
 # Microsoft SQL Server
 
-## TOC
+## Table of contents
 
 - [Microsoft SQL Server](#microsoft-sql-server)
-  - [TOC](#toc)
+  - [Table of contents](#table-of-contents)
   - [Installation](#installation)
     - [Docker](#docker)
   - [Indexes](#indexes)

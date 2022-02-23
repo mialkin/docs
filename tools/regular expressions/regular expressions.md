@@ -2,10 +2,10 @@
 
 A **regular expression** is a set of symbols representing a text pattern.
 
-## TOC
+## Table of contents
 
 - [Regular expresssions](#regular-expresssions)
-  - [TOC](#toc)
+  - [Table of contents](#table-of-contents)
   - [Notation](#notation)
   - [Metacharacters](#metacharacters)
   - [Other special characters](#other-special-characters)

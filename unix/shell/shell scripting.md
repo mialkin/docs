@@ -19,11 +19,11 @@ White space after `#!` is optional:
 - [Learn bash in Y minutes ↑](https://learnxinyminutes.com/docs/bash/)
 - [Bash scripting cheatsheet ↑](https://devhints.io/bash)
 
-## TOC
+## Table of contents
 
 - [Shell scripting](#shell-scripting)
   - [Links](#links)
-  - [TOC](#toc)
+  - [Table of contents](#table-of-contents)
   - [Executing script](#executing-script)
   - [Output text](#output-text)
   - [Variables](#variables)
