@@ -8,10 +8,10 @@
 >
 > — <cite>Ryan Singer</cite>
 
-## TOC
+## Table of contents
 
 - [Documenting notes](#documenting-notes)
-  - [TOC](#toc)
+  - [Table of contents](#table-of-contents)
   - [Tools](#tools)
   - [Unix](#unix)
   - [Databases](#databases)
@@ -157,13 +157,14 @@
 ## Security
 
 - [AD](security/ad.md)
-- [AD FS](security/ad%20fs.md)
+  - [AD FS](security/ad%20fs.md)
 - [Asymmetric cryptography](security/asymmetric%20cryptography/asymmetric%20cryptography.md)
 - [Advanced Encryption Standard (AES)](security/aes.md)
 - [Generating self-signed certificate](security/generating%20certificate.md)
 - [OAuth](security/oauth.md)
+  - [OpenID Connect](security/oidc.md)
+  - [Tokens](security/oauth/tokens.md)
 - [OpenAPI](security/openapi.md)
-- [OpenID Connect](security/oidc.md)
 - [TLS handshake](security/tls%20handshake/tls%20handshake.md)
 - Web
   - [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
