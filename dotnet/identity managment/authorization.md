@@ -1,5 +1,7 @@
 # Authorization
 
+**Authorization** is the process of determining whether a user has access to a resource.
+
 Authorization is orthogonal and independent from authentication. However, authorization requires an authentication mechanism.
 
 ASP.NET Core authorization provides following authorization types:

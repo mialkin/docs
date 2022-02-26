@@ -9,6 +9,21 @@ Authentication is the process of determining user's identity. Authentication may
 - Authenticating a user
 - Responding when an unauthenticated user tries to access a restricted resource
 
+## Authentication handler
+
+An authentication handler:
+
+- Is a type that implements the behavior of a *scheme*.
+- Is derived from `IAuthenticationHandler` or `AuthenticationHandler<TOptions>`.
+
+Based on the authentication scheme's configuration and the incoming request context, authentication handlers:
+
+- Construct `AuthenticationTicket` objects representing the user's identity if authentication is successful.
+- Return 'no result' or 'failure' if authentication is unsuccessful.
+- Have methods for challenge and forbid actions for when users attempt to access resources:
+  - They are unauthorized to access: `ForbidAsync` method.
+  - When they are unauthenticated: `ChallengeAsync` method.
+
 ## Schema
 
 A **schema** is a registered authentication handler and its *configuration options*.
