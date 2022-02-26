@@ -7,9 +7,10 @@
   - [Authorization code flow](#authorization-code-flow)
   - [Implicit flow](#implicit-flow)
   - [Client credentials flow](#client-credentials-flow)
-  - [Resource owner password credentials flow](#resource-owner-password-credentials-flow)
-  - [On-behalf-of flow](#on-behalf-of-flow)
+  - [Resource owner password flow](#resource-owner-password-flow)
   - [Links](#links)
+
+There are several common flows, but not all of them, below:
 
 ## Authorization code flow
 
@@ -25,17 +26,15 @@ Its primary benefit is that it allows the app to get tokens from authorization s
 
 ## Client credentials flow
 
-OAuth: used for machine-to-machine communication.
+The client credentials flow is typically used to access web-hosted resources by using the identity of an application. This type of grant is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. These types of applications are often referred to as daemons or service accounts.
 
-## Resource owner password credentials flow
+This flow permits a web service (confidential client) to use its own credentials, instead of impersonating a user, to authenticate when calling another web service. In this scenario, the client is typically a middle-tier web service, a daemon service, or a web site.
+
+## Resource owner password flow
 
 Resource owner password credential grant allows an application to sign in the user by directly handling their password. The flow requires a high degree of trust and user exposure and you should only use this flow when other, more secure, flows can't be used.
 
-The flow is a single request—it sends the client identification and user's credentials to the IDP, and then receives tokens in return. The client must request username and password before doing so. Immediately after a successful request, the client should securely release the user's credentials from memory. It must never save them.
-
-## On-behalf-of flow
-
-The OAuth 2.0 On-Behalf-Of flow (OBO) serves the use case where an application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it needs to secure an access token from the AD FS, on behalf of the user.
+The flow is a single request—it sends the client identification and user's credentials to the IDP, and then receives tokens in return. The client must request username and password before doing so. Immediately after a successful request, the client should securely release the user's credentials from memory. It must never save them.  This flow is generally not recommended.
 
 ## Links
 
