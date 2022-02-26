@@ -162,6 +162,7 @@
 - [Generating self-signed certificate](security/generating%20certificate.md)
 - [JWT](security/jwt.md)
 - [OAuth](security/oauth/oauth.md)
+  - [OAuth flows](security/oauth/oauth%20flows.md)
   - [OpenID Connect](security/oauth/oidc.md)
   - [Tokens](security/oauth/tokens.md)
 - [OpenAPI](security/openapi.md)
