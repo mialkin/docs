@@ -2,13 +2,6 @@
 
 **Authorization** is the process of determining whether a user has access to a resource.
 
-- [Authorization](#authorization)
-  - [Simple authorization](#simple-authorization)
-  - [Role-based authorization](#role-based-authorization)
-  - [Claims-based authorization](#claims-based-authorization)
-  - [Policy-based authorization](#policy-based-authorization)
-    - [Requirements](#requirements)
-
 Authorization is orthogonal and independent from authentication. However, authorization requires an authentication mechanism.
 
 ASP.NET Core authorization provides following authorization types:
@@ -19,6 +12,16 @@ ASP.NET Core authorization provides following authorization types:
 - Policy-based
 - Resource-based
 - View-based
+
+## Table of contents
+
+- [Authorization](#authorization)
+  - [Table of contents](#table-of-contents)
+  - [Simple authorization](#simple-authorization)
+  - [Role-based authorization](#role-based-authorization)
+  - [Claims-based authorization](#claims-based-authorization)
+  - [Policy-based authorization](#policy-based-authorization)
+    - [Requirements](#requirements)
 
 ## Simple authorization
 
