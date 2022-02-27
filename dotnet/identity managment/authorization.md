@@ -25,7 +25,7 @@ ASP.NET Core authorization provides following authorization types:
 
 ## Simple authorization
 
-Authorization in ASP.NET Core is controlled with `AuthorizeAttribute` attribute and its various parameters. In its most basic form, applying the `[Authorize]` attribute to a controller or action limits access to that component to the authenticated users.
+Authorization in ASP.NET Core is controlled with `AuthorizeAttribute` class and its various parameters. In its most basic form, applying the `[Authorize]` attribute to a controller or action limits access to that component to the authenticated users.
 
 You can also use the `AllowAnonymous` attribute to allow access by non-authenticated users to individual actions.
 
