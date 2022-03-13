@@ -18,7 +18,6 @@
   - [Software architecture and design](#software-architecture-and-design)
   - [Programming](#programming)
   - [Testing](#testing)
-  - [Web](#web)
   - [Networking](#networking)
   - [Security](#security)
   - [Python](#python)
@@ -141,12 +140,9 @@
 - [Unit testing best practices](testing/unit%20testing%20best%20practices.md)
 - [xUnit](testing/xunit.md)
 
-## Web
-
-- [GraphQL](web/graphql.md)
-
 ## Networking
 
+- [GraphQL](networking/graphql.md)
 - [gRPC](networking/grpc.md)
 - [IP](networking/ip.md)
 - [Ports](networking/ports.md)
