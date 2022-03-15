@@ -75,6 +75,7 @@ git config user.email
 | git branch -m NEW_NAME                        | Rename branch                                                                 |
 | git branch -r                                 | List all remote branches                                                      |
 | git checkout -b NEW_BRANCH                    | Create new branch from current                                                |
+| git cherry-pick COMMIT_HASH                   | Cherry pick commit                                                            |
 | git config --list                             | Show all config sections                                                      |
 | git config --list --show-origin               | Show where settings are defined (global, user, repo, etc...)                  |
 | git config SETTING_NAME                       | Check what current settings are (in this case username)                       |
