@@ -16,9 +16,9 @@ Either spaces or tabs may be used for indentation. The recommended indentation l
   - [Table of Contents](#table-of-contents)
   - [Feature](#feature)
   - [Scenario](#scenario)
+  - [Step](#step)
   - [Tag](#tag)
   - [Descriptions](#descriptions)
-  - [Step](#step)
   - [Asterisk](#asterisk)
   - [Localization](#localization)
 
@@ -26,7 +26,7 @@ Either spaces or tabs may be used for indentation. The recommended indentation l
 
 A **feature** is an abstraction that helps to group related *scenarios*.
 
-The first primary keyword in a Gherkin document must always be `Feature`, followed by a `:` and a short text that describes the feature.
+The first primary keyword in a Gherkin document must always be the `Feature`, followed by a `:` and a short text that describes the feature.
 
 ```gherkin
 Feature: Guess the word
@@ -44,27 +44,27 @@ A **scenario** is a concrete example that illustrates a business rule. It consis
 
 The keyword `Scenario` is a synonym of the keyword `Example`.
 
+## Step
+
+A **step** is a way to map a Gherkin sentence in specification to a method in the code.
+
+Each step starts with one of the following keywords: `Given`, `When`, `Then`, `And`, `But`.
+
+A BDD framework executes each step in a scenario one at a time, in the sequence they have been written them in. When a framework tries to execute a step, it looks for a matching step definition to execute.
+
+Keywords are not taken into account when looking for a step definition. This means you cannot have a `Given`, `When`, `Then`, `And` or `But` step with the same text as another step.
+
 ## Tag
 
-A **tag** is a marker that can be assigned to features and scenarios. Assigning a tag to a feature is equivalent to assigning the tag to all scenarios in the feature file.
+A **tag** is a marker that can be assigned to a feature or a scenario. Assigning a tag to a feature is equivalent to assigning the tag to all scenarios in the feature file.
 
-You can filter and group tests by using tags. For example, you can tag crucial tests with `@important` tag, and then execute these tests more frequently.
+You can use tags to filter and group generated from specification test methods. For example, you can tag crucial tests with `@important` tag, and then execute these tests more frequently.
 
 ## Descriptions
 
 Free-form descriptions can also be placed underneath `Example`, `Scenario`, `Background`, `Scenario Outline` and `Rule`.
 
 You can write anything you like, as long as no line starts with a keyword.
-
-## Step
-
-A **step** is a way to map a Gherkin sentence to a method in the code.
-
-Each step starts with one of the keywords: `Given`, `When`, `Then`, `And`, `But`.
-
-A BDD framework executes each step in a scenario one at a time, in the sequence you’ve written them in. When frameworks tries to execute a step, it looks for a matching step definition to execute.
-
-Keywords are not taken into account when looking for a step definition. This means you cannot have a Given, When, Then, And or But step with the same text as another step.
 
 ## Asterisk
 
