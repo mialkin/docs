@@ -118,6 +118,12 @@ git fetch origin main
 git rebase origin/main
 ```
 
+Cancel rebase:
+
+```bash
+git rebase --abort
+```
+
 ## Naming commits
 
 -   Separate subject from body with a blank line
