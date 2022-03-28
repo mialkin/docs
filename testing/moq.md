@@ -82,7 +82,7 @@ public void Get_WhenUserExists_ReturnsUser_Is()
 
 ### Defined variable
 
-When you set up or verify a method parameter with a variable, you're saying you want exactly that value. A method called with another value will never match your setup/verifyЖ
+When you set up or verify a method parameter with a variable, you're saying you want exactly that value. A method called with another value will never match your setup/verify:
 
 ```csharp
 [Fact]
