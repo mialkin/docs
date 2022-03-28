@@ -138,6 +138,7 @@
 - [BDD](testing/bdd.md)
 - [Gherkin](testing/gherkin.md)
 - [k6](testing/k6/k6.md)
+- [moq](testing/moq.md)
 - [Unit testing best practices](testing/unit%20testing%20best%20practices.md)
 - [xUnit](testing/xunit.md)
 
