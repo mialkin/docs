@@ -170,6 +170,8 @@ Since "git pull" tries to merge remote changes with your local ones, a so-called
 
 ```bash
 git stash
+# or:
+git stash push -m "My stash name"
 ```
 
 At this point you're free to make changes, create new commits, switch branches, and perform any other Git operations; then come back and re-apply your stash when you're ready.
