@@ -97,7 +97,7 @@ An **aggregate** is a DDD pattern for grouping entities together that gives anot
 
 ## Value object
 
-A **value object** is an object that doesn't have an identity which you can compare with other thing by just looking at its properties. A `DateTime` object in .NET can serve as an example. If value object requires validation you put this validation logic in the constructor and then you don't have to check it anywhere else in the code.
+A **value object** is an immutable type that is distinguishable only by the state of its properties. That is, unlike an entity, which has a unique identifier and remains distinct even if its properties are otherwise identical, two value objects with the exact same properties can be considered equal. Value objects are a pattern first described in Eric Evans' book on domain-driven design.
 
 ## Domain event
 

@@ -8,4 +8,4 @@
 
 [↑ Specflow](https://specflow.org) is a free and open source BDD framework that provides test automation for .NET, based on the Gherkin specification language.
 
-[↑ Xunit.Gherkin.Quick](https://github.com/ttutisani/Xunit.Gherkin.Quick) is a lightweight BDD test framework that targets .NET Standard. It parses Gherkin language and executes Xunit tests corresponding to scenarios.
+[↑ Xunit.Gherkin.Quick](https://github.com/ttutisani/Xunit.Gherkin.Quick) is a lightweight BDD test framework that targets .NET Standard. It parses Gherkin language and executes xUnit tests corresponding to scenarios.
