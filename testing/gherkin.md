@@ -46,7 +46,7 @@ The keyword `Scenario` is a synonym of the keyword `Example`.
 
 ## Step
 
-A **step** is a way to map a Gherkin sentence in specification to a method in the code.
+A **step** is a way to map a Gherkin sentence in the specification to a method in the code.
 
 Each step starts with one of the following keywords: `Given`, `When`, `Then`, `And`, `But`.
 
@@ -62,7 +62,7 @@ You can use tags to filter and group generated from specification test methods. 
 
 ## Descriptions
 
-Free-form descriptions can also be placed underneath `Example`, `Scenario`, `Background`, `Scenario Outline` and `Rule`.
+Free-form descriptions can be placed underneath `Feature`, `Example`, `Scenario`, `Background`, `Scenario Outline` and `Rule`.
 
 You can write anything you like, as long as no line starts with a keyword.
 
@@ -111,3 +111,9 @@ Gherkin keywords have translations into multiple languages. To improve readabili
 | `And`             | `*`, `И`, `К тому же`, `Также`                          |
 | `But`             | `*`, `Но`, `А`, `Иначе`                                 |
 | `Rule`            | `Правило`                                               |
+
+To use language different from English add `# language: XX` comment at the first line of `.feature` file. Example for Russian language:
+
+```gherkin
+# language: ru
+```
