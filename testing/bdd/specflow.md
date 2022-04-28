@@ -1,5 +1,7 @@
 # SpecFlow
 
+[↑ SpecFlow](https://specflow.org) is a free and open source BDD framework that provides test automation for .NET, based on the Gherkin specification language.
+
 ## Table Of Contents
 
 - [SpecFlow](#specflow)
