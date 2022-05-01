@@ -26,6 +26,7 @@
 * **Behavior-driven development** — разработка через поведение
 * **Behavior diagram** — диаграмма поведения
 * **Behavioral design pattern** — поведенческий шаблон проектирования
+* **Benchmarking** — эталонное тестирование
 * **Block** — заблокировать/-ться
 * **Block cipher** — блочный шифр
 * **Bounded** — ограниченный
