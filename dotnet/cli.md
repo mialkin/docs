@@ -18,6 +18,17 @@ The dotnet CLI is a cross-platform toolchain for developing, building, running, 
 | dotnet myproject.dll                   | Run built assemblies                                                                                                  |
 | dotnet test                            | Execute unit tests in a given solution <sup>3</sup>                                                                   |
 
+## Create new solution with project
+
+```bash
+git init
+dotnet new sln -n "Your solution name"
+dotnet new gitignore
+dotnet new console -n "Your console project name"
+dotnet sln add "Path to .csproj file"
+dotnet run --project "Path to startup project folder"
+```
+
 ## Create new Web API project
 
 Folder containing project will have the same name as the project itself, i.e. `Mediator`:
