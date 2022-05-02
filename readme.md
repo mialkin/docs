@@ -126,7 +126,7 @@
 ## Programming
 
 - [Aggregation and composition](programming/aggregation%20and%20composition/aggregation%20and%20composition.md)
-- [Arguments vs parameters](programming/argument%20vs%20parameter.md)
+- [Function parameters vs arguments](programming/function%20parameters%20vs%20arguments.md)
 - [Idempotence](programming/idempotence.md)
 - [Inversion of control (IoC)](programming/ioc/inversion%20of%20control.md)
 - [Programming case types](programming/cases.md)
