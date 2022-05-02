@@ -185,6 +185,8 @@
 - Identity management
   - [Authentication](dotnet/identity%20managment/authentication.md)
   - [Authorization](dotnet/identity%20managment/authorization.md)
+- Libraries
+  - [BenchmarkDotNet](dotnet/libraries/benchmarkdotnet.md)
 - [OWIN](dotnet/owin.md)
 - [PowerShell](dotnet/powershell.md)
   - [PowerShell scripting](dotnet/powershell%20scripting.md)

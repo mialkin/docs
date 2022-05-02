@@ -1,8 +1,6 @@
-# Benchmarking
+# BenchmarkDotNet
 
 **Benchmarking** is a process of running a test that measures the performance of a software.
-
-## BenchmarkDotNet
 
 [↑ BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet) is an open-source .NET library that helps to transform methods into benchmarks, track their performance, and share reproducible measurement experiments.
 
