@@ -187,6 +187,7 @@
   - [Authorization](dotnet/identity%20managment/authorization.md)
 - Libraries
   - [BenchmarkDotNet](dotnet/libraries/benchmarkdotnet.md)
+  - [MediatR](dotnet/libraries/mediatr.md)
 - [OWIN](dotnet/owin.md)
 - [PowerShell](dotnet/powershell.md)
   - [PowerShell scripting](dotnet/powershell%20scripting.md)

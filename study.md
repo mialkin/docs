@@ -72,7 +72,6 @@
     - Sidecar
   - Unit of Work
 - CAP theorem
-  - MediatR
   - Event sourcing
 
 ## Databases
