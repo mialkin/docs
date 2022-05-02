@@ -12,11 +12,11 @@ Under the hood, BenchmarkDotNet performs a lot of magic that guarantees reliable
   - [Table of contents](#table-of-contents)
   - [Benchmark project](#benchmark-project)
     - [Running project](#running-project)
+    - [Benchmark results](#benchmark-results)
     - [Project code](#project-code)
       - [`Program.cs`](#programcs)
       - [`DateParserBenchmarks.cs`](#dateparserbenchmarkscs)
       - [`Parser.cs`](#parsercs)
-    - [Benchmark results](#benchmark-results)
 
 ## Benchmark project
 
@@ -34,6 +34,18 @@ Build and run benchmark project:
 dotnet build -c Release
 dotnet PATH_TO_PROJECT_DLL_FILE
 ```
+
+### Benchmark results
+
+As a result of benchmark project run several files, with different extensions, containing results will be added under `BenchmarkDotNet.Artifacts` folder with contents like this:
+
+| Method                              |       Mean |     Error |    StdDev | Ratio | Rank |  Gen 0 | Allocated |
+| ----------------------------------- | ---------: | --------: | --------: | ----: | ---: | -----: | --------: |
+| GetYearFromSpanWithManualConversion |   6.922 ns | 0.1398 ns | 0.1239 ns |  0.02 |    1 |      - |         - |
+| GetYearFromSpan                     |  17.700 ns | 0.2097 ns | 0.1859 ns |  0.06 |    2 |      - |         - |
+| GetYearFromSubstring                |  30.559 ns | 0.6229 ns | 0.5522 ns |  0.10 |    3 | 0.0051 |      32 B |
+| GetYearFromSplit                    |  88.605 ns | 1.3126 ns | 1.2279 ns |  0.28 |    4 | 0.0254 |     160 B |
+| GetYearFromDateTime                 | 315.677 ns | 5.3811 ns | 4.7702 ns |  1.00 |    5 |      - |         - |
 
 ### Project code
 
@@ -136,15 +148,3 @@ public class DateParser
     }
 }
 ```
-
-### Benchmark results
-
-As a result of project run several files, with different extensions, containing results will be added under `BenchmarkDotNet.Artifacts` folder with contents like this:
-
-| Method                              |       Mean |     Error |    StdDev | Ratio | Rank |  Gen 0 | Allocated |
-| ----------------------------------- | ---------: | --------: | --------: | ----: | ---: | -----: | --------: |
-| GetYearFromSpanWithManualConversion |   6.922 ns | 0.1398 ns | 0.1239 ns |  0.02 |    1 |      - |         - |
-| GetYearFromSpan                     |  17.700 ns | 0.2097 ns | 0.1859 ns |  0.06 |    2 |      - |         - |
-| GetYearFromSubstring                |  30.559 ns | 0.6229 ns | 0.5522 ns |  0.10 |    3 | 0.0051 |      32 B |
-| GetYearFromSplit                    |  88.605 ns | 1.3126 ns | 1.2279 ns |  0.28 |    4 | 0.0254 |     160 B |
-| GetYearFromDateTime                 | 315.677 ns | 5.3811 ns | 4.7702 ns |  1.00 |    5 |      - |         - |
