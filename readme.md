@@ -136,7 +136,6 @@
 ## Testing
 
 - [BDD](testing/bdd/bdd.md)
-- [Benchmarking](testing/benchmarking.md)
 - [Gherkin](testing/bdd/gherkin.md)
 - [SpecFlow](testing/bdd/specflow.md)
 - [k6](testing/k6/k6.md)
