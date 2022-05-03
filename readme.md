@@ -181,12 +181,13 @@
 
 - [Dependency injection in .NET](dotnet/dependency%20injection%20dotnet.md)
 - [Dotnet CLI](dotnet/cli.md)
+- Dotnet libraries
+  - [BenchmarkDotNet](dotnet/libraries/benchmarkdotnet.md)
+  - [MediatR](dotnet/libraries/mediatr.md)
+  - [Polly](dotnet/libraries/polly.md)
 - Identity management
   - [Authentication](dotnet/identity%20managment/authentication.md)
   - [Authorization](dotnet/identity%20managment/authorization.md)
-- Libraries
-  - [BenchmarkDotNet](dotnet/libraries/benchmarkdotnet.md)
-  - [MediatR](dotnet/libraries/mediatr.md)
 - [OWIN](dotnet/owin.md)
 - [PowerShell](dotnet/powershell.md)
   - [PowerShell scripting](dotnet/powershell%20scripting.md)
