@@ -15,6 +15,7 @@
   - [Table of contents](#table-of-contents)
   - [Installation](#installation)
   - [Retry](#retry)
+  - [Timeout](#timeout)
 
 ## Installation
 
@@ -63,4 +64,22 @@ public class ApiResult
 {
     public string? Message { get; set; }
 }
+```
+
+## Timeout
+
+Throws `Polly.Timeout.TimeoutRejectedException`:
+
+```csharp
+using Polly;
+using Polly.Timeout;
+
+var policy = Policy.TimeoutAsync(TimeSpan.FromSeconds(3), TimeoutStrategy.Pessimistic);
+
+await policy.ExecuteAsync(async () =>
+{
+    Console.WriteLine("Start executing");
+    await Task.Delay(TimeSpan.FromSeconds(4));
+    Console.WriteLine("Finish executing");
+});
 ```
