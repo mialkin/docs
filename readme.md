@@ -113,6 +113,10 @@
     - [Strategy](design/design%20patterns/strategy.md)
     - [Template Method](design/design%20patterns/template%20method.md)
     - [Visitor](design/design%20patterns/visitor.md)
+- Distributed system patterns
+  - Reliability patterns
+    - Resiliency
+      - [Retry](design/distributed%20systems/reliability/retry.md)
 - [DRY, KISS, separation of concerns, YAGNI](design/main%20principles.md)
 - [Explicit dependencies principle](design/explicit%20dependencies%20principle.md)
 - [Loose coupling and high cohesion](design/loose%20coupling%20and%20high%20cohesion.md)
