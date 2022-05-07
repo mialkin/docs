@@ -2,20 +2,31 @@
 
 [↑ Polly](https://github.com/App-vNext/Polly) is a .NET resilience and transient-fault-handling library that allows developers in a fluent and thread-safe manner to express such policies as:
 
+Reactive policies:
+
 - Retry
 - Circuit breaker
+- Fallback
+
+Proactive policies:
+
 - Timeout
 - Bulkhead
 - Rate limiting
-- Fallback
 
 ## Table of contents
 
 - [Polly](#polly)
   - [Table of contents](#table-of-contents)
   - [Installation](#installation)
-  - [Retry](#retry)
-  - [Timeout](#timeout)
+  - [Reactive policies](#reactive-policies)
+    - [Retry](#retry)
+    - [Circuit breaker](#circuit-breaker)
+    - [Fallback](#fallback)
+  - [Proactive policies](#proactive-policies)
+    - [Timeout](#timeout)
+    - [Bulkhead](#bulkhead)
+    - [Rate limiting](#rate-limiting)
 
 ## Installation
 
@@ -23,7 +34,39 @@
 dotnet add package Polly
 ```
 
-## Retry
+## Reactive policies
+
+Reactive, aka fault-handling, policies handle specific exceptions thrown by, or results returned by the delegates you execute through the policy.
+
+First the exceptions that need to be handled by the policy need to be specified:
+
+```csharp
+// Single exception type
+Policy
+  .Handle<HttpRequestException>()
+
+// Single exception type with condition
+Policy
+  .Handle<SqlException>(ex => ex.Number == 1205)
+
+// Multiple exception types
+Policy
+  .Handle<HttpRequestException>()
+  .Or<OperationCanceledException>()
+
+// Multiple exception types with condition
+Policy
+  .Handle<SqlException>(ex => ex.Number == 1205)
+  .Or<ArgumentException>(ex => ex.ParamName == "example")
+
+// Inner exceptions of ordinary exceptions or AggregateException, with or without conditions
+// (HandleInner matches exceptions at both the top-level and inner exceptions)
+Policy
+  .HandleInner<HttpRequestException>()
+  .OrInner<OperationCanceledException>(ex => ex.CancellationToken != myToken)
+```
+
+### Retry
 
 ```csharp
 using Polly;
@@ -49,9 +92,9 @@ public class ApiService
     {
         // Call actual API.
         await Task.Delay(TimeSpan.FromSeconds(1));
-        
+
         Console.WriteLine($"API called times: {++_counter}");
-        
+
         // throw new Exception(); // This will crash the app after the 1-st API call.
         // throw new HttpRequestException(); // This will crash the app after the 4-th API call.
         // throw new HttpRequestException("Forest"); // This will crash the app after the 1-st API call.
@@ -66,7 +109,15 @@ public class ApiResult
 }
 ```
 
-## Timeout
+### Circuit breaker
+
+### Fallback
+
+## Proactive policies
+
+The proactive policies add resilience strategies that are not based on handling faults which the governed code may throw or return.
+
+### Timeout
 
 Throws `Polly.Timeout.TimeoutRejectedException`:
 
@@ -83,3 +134,11 @@ await policy.ExecuteAsync(async () =>
     Console.WriteLine("Finish executing");
 });
 ```
+
+**Optimistic timeout** operates via `CancellationToken` and assumes delegates you execute support co-operative cancellation. You must use `Execute/Async(...)` overloads taking a `CancellationToken`, and the executed delegate must honor that `CancellationToken`.
+
+**Pessimistic timeout** allows calling code to "walk away" from waiting for an executed delegate to complete, even if it does not support cancellation. In synchronous executions this is at the expense of an extra thread.
+
+### Bulkhead
+
+### Rate limiting
