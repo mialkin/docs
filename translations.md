@@ -31,6 +31,7 @@
 * **Block cipher** — блочный шифр
 * **Bounded** — ограниченный
 * **Builder** — Строитель (шаблон проектирования)
+* **Bulkhead** (resilience strategy) — переборка
 * **Bus** — шина
 
 ## C
@@ -107,6 +108,7 @@
 
 ## F
 
+* **Fallback** (resilience strategy) — запасной вариант
 * **Fault-tolerance** — отказоустойчивость
 * **Favor object composition over class inheritance** — отдавать предпочтение композиции перед наследованием
 * **File handle** — дескриптор файла
@@ -226,6 +228,7 @@
 * **Replica** — реплика
 * **Replication** — тиражирование, репликация
 * **Result set** — результирующий набор
+* **Retry** (resilience strategy) — повторная попытка
 * **Reviewer** — проверяющий, рецензент
 * **Robustness** — надежность, устойчивость системы, ошибкоустойчивость
 * **Rollout** — выпуск, постепенный выпуск

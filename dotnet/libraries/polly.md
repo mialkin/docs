@@ -40,7 +40,7 @@ dotnet add package Polly
 
 Reactive, aka fault-handling, policies handle specific exceptions thrown by, or results returned by the delegates you execute through the policy.
 
-First, the exceptions, that need to be handled by the policy, have to be specified:
+1\. First specify the exceptions, that need to be handled by the policy:
 
 ```csharp
 // Single exception type
@@ -68,7 +68,7 @@ Policy
   .OrInner<OperationCanceledException>(ex => ex.CancellationToken != myToken)
 ```
 
-Then, optionally, the return results that needs to be handled can be specified:
+Then, optionally, specify the return results that needs to be handled:
 
 ```csharp
 // Handle return value with condition
@@ -100,6 +100,10 @@ HttpResponseMessage result = await Policy
   .RetryAsync(...)
   .ExecuteAsync( /* some Func<Task<HttpResponseMessage>> */ )
 ```
+
+2\. Then, specify how the policy should be handle faults with `Retry`, `RetryForever`, `WaitAndRetry`, `WaitAndRetryForever`, `CircuitBreaker`, `AdvancedCircuitBreaker`, `Fallback`.
+
+3\. Execute an `Action`, `Func`, or lambda delegate equivalent, through the policy using `ExecuteAsync` method.
 
 ### Retry
 
@@ -148,6 +152,28 @@ public class ApiResult
 
 ### Fallback
 
+```csharp
+// Provide a substitute value, if an execution faults.
+Policy<UserAvatar>
+   .Handle<FooException>()
+   .OrResult(null)
+   .Fallback<UserAvatar>(UserAvatar.Blank)
+
+// Specify a func to provide a substitute value, if execution faults.
+Policy<UserAvatar>
+   .Handle<FooException>()
+   .OrResult(null)
+   .Fallback<UserAvatar>(() => UserAvatar.GetRandomAvatar()) // where: public UserAvatar GetRandomAvatar() { ... }
+
+// Specify a substitute value or func, calling an action (eg for logging) if the fallback is invoked.
+Policy<UserAvatar>
+   .Handle<FooException>()
+   .Fallback<UserAvatar>(UserAvatar.Blank, onFallback: (exception, context) =>
+    {
+        // Add extra logic to be called when the fallback is invoked, such as logging
+    });
+```
+
 ## Proactive policies
 
 The proactive policies add resilience strategies that are not based on handling faults which the governed code may throw or return.
@@ -175,5 +201,35 @@ await policy.ExecuteAsync(async () =>
 **Pessimistic timeout** allows calling code to "walk away" from waiting for an executed delegate to complete, even if it does not support cancellation. In synchronous executions this is at the expense of an extra thread.
 
 ### Bulkhead
+
+> A bulkhead is a wall within a ship which separates one compartment from another, such that damage to one compartment does not cause the whole ship to sink.
+
+Similarly, a bulkhead isolation policy constrains operations, such that one faulting channel of actions cannot swamp all resource (threads/CPU/whatever) in a system, bringing down other operations with it. The impact of a faulting system is isolated to the resource-pool to which it is limited; other threads/pools/capacity remain to continue serving other calls.
+
+```csharp
+// Restrict executions through the policy to a maximum of twelve concurrent actions.
+Policy
+  .Bulkhead(12)
+
+// Restrict executions through the policy to a maximum of twelve concurrent actions,
+// with up to two actions waiting for an execution slot in the bulkhead if all slots are taken.
+Policy
+  .Bulkhead(12, 2)
+
+// Restrict concurrent executions, calling an action if an execution is rejected
+Policy
+  .Bulkhead(12, context =>
+    {
+        // Add callback logic for when the bulkhead rejects execution, such as logging
+    });
+
+// Monitor the bulkhead available capacity, for example for health/load reporting.
+var bulkhead = Policy.Bulkhead(12, 2);
+// ...
+int freeExecutionSlots = bulkhead.BulkheadAvailableCount;
+int freeQueueSlots     = bulkhead.QueueAvailableCount;
+```
+
+Bulkhead policies throw `BulkheadRejectedException` if items are queued to the bulkhead when the bulkhead execution and queue are both full.
 
 ### Rate limiting
