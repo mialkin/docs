@@ -1,6 +1,6 @@
 # Polly
 
-[↑ Polly](https://github.com/App-vNext/Polly) is a .NET resilience and transient-fault-handling library that allows developers in a fluent and thread-safe manner to express such policies as:
+[↑ Polly](https://github.com/App-vNext/Polly) is a .NET resilience and transient-fault-handling library that helps navigate the unreliable network by providing *resilience strategies* in fluent-to-express *policies*:
 
 Reactive policies:
 
@@ -13,6 +13,8 @@ Proactive policies:
 - Timeout
 - Bulkhead
 - Rate limiting
+
+Example usages are fault-tolerance for any distributed systems and inter-process calls, such as WCF, RESTful calls between microservices, calls to cloud services, Internet of Things connectivity, messaging systems, calls to your persistence layer, for example,wrapping Entity Framework calls, etc.
 
 ## Table of contents
 
@@ -38,7 +40,7 @@ dotnet add package Polly
 
 Reactive, aka fault-handling, policies handle specific exceptions thrown by, or results returned by the delegates you execute through the policy.
 
-First the exceptions that need to be handled by the policy need to be specified:
+First, the exceptions, that need to be handled by the policy, have to be specified:
 
 ```csharp
 // Single exception type
@@ -64,6 +66,39 @@ Policy
 Policy
   .HandleInner<HttpRequestException>()
   .OrInner<OperationCanceledException>(ex => ex.CancellationToken != myToken)
+```
+
+Then, optionally, the return results that needs to be handled can be specified:
+
+```csharp
+// Handle return value with condition
+Policy
+  .HandleResult<HttpResponseMessage>(r => r.StatusCode == HttpStatusCode.NotFound)
+
+// Handle multiple return values
+Policy
+  .HandleResult<HttpResponseMessage>(r => r.StatusCode == HttpStatusCode.InternalServerError)
+  .OrResult(r => r.StatusCode == HttpStatusCode.BadGateway)
+
+// Handle primitive return values (implied use of .Equals())
+Policy
+  .HandleResult<HttpStatusCode>(HttpStatusCode.InternalServerError)
+  .OrResult(HttpStatusCode.BadGateway)
+
+// Handle both exceptions and return values in one policy
+HttpStatusCode[] httpStatusCodesWorthRetrying = {
+   HttpStatusCode.RequestTimeout, // 408
+   HttpStatusCode.InternalServerError, // 500
+   HttpStatusCode.BadGateway, // 502
+   HttpStatusCode.ServiceUnavailable, // 503
+   HttpStatusCode.GatewayTimeout // 504
+};
+
+HttpResponseMessage result = await Policy
+  .Handle<HttpRequestException>()
+  .OrResult<HttpResponseMessage>(r => httpStatusCodesWorthRetrying.Contains(r.StatusCode))
+  .RetryAsync(...)
+  .ExecuteAsync( /* some Func<Task<HttpResponseMessage>> */ )
 ```
 
 ### Retry
