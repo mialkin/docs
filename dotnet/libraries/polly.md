@@ -13,6 +13,7 @@ Proactive policies:
 - Timeout
 - Bulkhead
 - Rate limiting
+- Cache
 
 Example usages are fault-tolerance for any distributed systems and inter-process calls, such as WCF, RESTful calls between microservices, calls to cloud services, Internet of Things connectivity, messaging systems, calls to your persistence layer, for example,wrapping Entity Framework calls, etc.
 
@@ -29,6 +30,8 @@ Example usages are fault-tolerance for any distributed systems and inter-process
     - [Timeout](#timeout)
     - [Bulkhead](#bulkhead)
     - [Rate limiting](#rate-limiting)
+    - [Cache](#cache)
+  - [PolicyWrap](#policywrap)
 
 ## Installation
 
@@ -233,3 +236,30 @@ int freeQueueSlots     = bulkhead.QueueAvailableCount;
 Bulkhead policies throw `BulkheadRejectedException` if items are queued to the bulkhead when the bulkhead execution and queue are both full.
 
 ### Rate limiting
+
+```csharp
+// Allow up to 20 executions per second.
+Policy.RateLimit(20, TimeSpan.FromSeconds(1));
+
+// Allow up to 20 executions per second with a burst of 10 executions.
+Policy.RateLimit(20, TimeSpan.FromSeconds(1), 10);
+
+// Allow up to 20 executions per second, with a delegate to return the
+// retry-after value to use if the rate limit is exceeded.
+Policy.RateLimit(20, TimeSpan.FromSeconds(1), (retryAfter, context) =>
+{
+    return retryAfter.Add(TimeSpan.FromSeconds(2));
+});
+
+// Allow up to 20 executions per second with a burst of 10 executions,
+// with a delegate to return the retry-after value to use if the rate
+// limit is exceeded.
+Policy.RateLimit(20, TimeSpan.FromSeconds(1), 10, (retryAfter, context) =>
+{
+    return retryAfter.Add(TimeSpan.FromSeconds(2));
+});
+```
+
+### Cache
+
+## PolicyWrap
