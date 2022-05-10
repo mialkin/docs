@@ -1,12 +1,25 @@
 # Kafka
 
-**Kafka** is a horizontally scalable, fault tolerant, and fast messaging system. It’s a pub-sub model in which various producers and consumers can write and read. It decouples source and target systems. Some of the key features are:
+**Kafka** is a horizontally scalable, fault tolerant, and fast messaging system. It’s a pub-sub model in which various producers and consumers can write and read. It decouples source and target systems. 
+
+Some of the key Kafka features:
 
 - Scale to hundreds of nodes
 - Handle millions of messages per second
 - Real-time processing (~10ms)
 
-## Terminology
+## Table of contents
+
+- [Kafka](#kafka)
+  - [Table of contents](#table-of-contents)
+  - [Key terminology](#key-terminology)
+  - [Zookeeper](#zookeeper)
+  - [Broker](#broker)
+  - [Replication](#replication)
+  - [Summary of Kafka core components](#summary-of-kafka-core-components)
+  - [Links](#links)
+
+## Key terminology
 
 A **topic** is a specific stream of data. The topic is split into **partitions** that enable topics to be distributed across various **nodes** also called **brokers**. Topics have **offsets** per partitions. You can uniquely identify a message using its topic, partition, and offset.
 
@@ -31,6 +44,26 @@ Key things to remember about ZooKeeper:
 - Sends notifications on a new broker, new topic, deleted topic, lost brokers, etc
 - Consumer offsets are not stored in ZooKeeper, only the metadata of the cluster is stored in ZooKeeper
 - The leader in ZooKeeper handles all writes and follower ZooKeeper handle only reads
+
+## Broker
+
+A **broker** is a single Kafka node that is managed by ZooKeeper. A set of brokers form a Kafka **cluster**. Topics that are created in Kaka are distributed across brokers based on the partition, replication, and other factors. When a broker node fails based on the state stored in ZooKeeper it automatically rebalances the cluster and if a leader partition is lost then one of the follower petitions is elected as the leader.
+
+You can think of a broker as a team leader who takes care of the assigned tasks. If a team lead isn’t available then the manager takes care of assigning tasks to other team members.
+
+## Replication
+
+A **replication** is making a copy of a partition available in another broker. Replication enables Kafka to be fault tolerant. When a partition of the topic is available in multiple brokers then one of the partitions in a broker is elected as the leader and the rest of the replications of the partition are followers.
+
+Replication enables Kafka to be fault tolerant even when a broker is down. For example, Topic B partition 0 is stored in both broker 0 and broker 1. Both producers and consumers are served only by the leader. In case of a broker failure the partition from another broker is elected as a leader and it starts serving the producers and consumer groups. Replica partitions that are in sync with the leader are flagged as **ISR** (in sync replica).
+
+## Summary of Kafka core components
+
+- ZooKeeper manages Kafka brokers and their metadata.
+- Brokers are horizontally scalable Kafka nodes that contain topics and it's replications.
+- Topics are message streams with one or more partitions.
+- Partitions contains messages with unique offsets per partition.
+- Replication enables Kafka to be fault tolerant using follower partitions.
 
 ## Links
 
