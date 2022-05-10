@@ -16,6 +16,7 @@
   - [Unix](#unix)
   - [Databases](#databases)
   - [Software architecture and design](#software-architecture-and-design)
+  - [Distributed systems](#distributed-systems)
   - [Programming](#programming)
   - [Testing](#testing)
   - [Networking](#networking)
@@ -85,7 +86,7 @@
 - [Clean architecture](design/clean%20architecture.md)
 - [Composition over inheritance](design/composition%20over%20inheritance.md)
 - [DDD](design/ddd.md)
-- [Design patterns](design/design%20patterns/design%20patterns.md)
+- [Software design patterns](design/design%20patterns/design%20patterns.md)
   - Creational
     - [Abstract Factory](design/design%20patterns/abstract%20factory.md)
     - [Builder](design/design%20patterns/builder.md)
@@ -113,10 +114,6 @@
     - [Strategy](design/design%20patterns/strategy.md)
     - [Template Method](design/design%20patterns/template%20method.md)
     - [Visitor](design/design%20patterns/visitor.md)
-- Distributed system patterns
-  - Reliability patterns
-    - Resiliency
-      - [Retry](design/distributed%20systems/reliability/retry.md)
 - [DRY, KISS, separation of concerns, YAGNI](design/main%20principles.md)
 - [Explicit dependencies principle](design/explicit%20dependencies%20principle.md)
 - [Loose coupling and high cohesion](design/loose%20coupling%20and%20high%20cohesion.md)
@@ -126,6 +123,14 @@
   - [Liskov substitution principle](design/solid/lsp.md)
   - [Interface segregation principle](design/solid/isp.md)
   - [Dependency inversion principle](design/solid/dip/dip.md)
+
+## Distributed systems
+
+- Distributed system patterns
+  - Reliability
+    - Resiliency
+      - [Retry](distributed%20systems/patterns/reliability/retry.md)
+- [Message delivery semantics](distributed%20systems/message%20delivery%20semantics.md)
 
 ## Programming
 
