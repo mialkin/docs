@@ -36,6 +36,7 @@
 - [Git](tools/git/git.md)
 - [Grafana](tools/grafana.md)
 - [Jenkins](tools/jenkins.md)
+- [Kafka](tools/kafka.md)
 - Kubernetes
   - [cert-manager](tools/kubernetes/cert-manager.md)
   - [Flux](tools/kubernetes/flux.md)
