@@ -12,16 +12,16 @@ Some of the key Kafka features:
 
 - [Kafka](#kafka)
   - [Table of contents](#table-of-contents)
-  - [Key terminology](#key-terminology)
-  - [Zookeeper](#zookeeper)
-  - [Broker](#broker)
-  - [Replication](#replication)
-  - [Summary of Kafka core components](#summary-of-kafka-core-components)
+  - [Terminology and components](#terminology-and-components)
+    - [Zookeeper](#zookeeper)
+    - [Broker](#broker)
+    - [Replication](#replication)
+  - [Kafka producers](#kafka-producers)
   - [Links](#links)
 
-## Key terminology
+## Terminology and components
 
-A **topic** is a specific stream of data. The topic is split into **partitions** that enable topics to be distributed across various **nodes** also called **brokers**. Topics have **offsets** per partitions. You can uniquely identify a message using its topic, partition, and offset.
+A **topic** is a message streams with one or more *partitions*. The topic is split into **partitions** that enable topics to be distributed across various **nodes** also called **brokers**. Topics have **offsets** per partitions. You can uniquely identify a message using its topic, partition, and offset.
 
 Partitions enable topics to be distributed across the cluster. Partitions are a unit of parallelism for horizontal scalability. One topic can have more than one partition scaling across nodes.
 
@@ -29,7 +29,7 @@ Messages are assigned to partitions based on partition keys; if there are no par
 
 Each message in a partition is assigned an incremental ID called an offset. Offsets are unique per partition and messages are ordered only within a partition. Messages written to partitions are immutable.
 
-## Zookeeper
+### Zookeeper
 
 **ZooKeeper** is a centralized service for managing distributed systems. It offers hierarchical key-value store, configuration, synchronization, and name registry services to the distributed system it manages. ZooKeeper acts as ensemble layer (ties things together) and ensures high availability of the Kafka cluster. It’s important to understand that Kafka cannot work without ZooKeeper.
 
@@ -45,25 +45,25 @@ Key things to remember about ZooKeeper:
 - Consumer offsets are not stored in ZooKeeper, only the metadata of the cluster is stored in ZooKeeper
 - The leader in ZooKeeper handles all writes and follower ZooKeeper handle only reads
 
-## Broker
+### Broker
 
 A **broker** is a single Kafka node that is managed by ZooKeeper. A set of brokers form a Kafka **cluster**. Topics that are created in Kaka are distributed across brokers based on the partition, replication, and other factors. When a broker node fails based on the state stored in ZooKeeper it automatically rebalances the cluster and if a leader partition is lost then one of the follower petitions is elected as the leader.
 
 You can think of a broker as a team leader who takes care of the assigned tasks. If a team lead isn’t available then the manager takes care of assigning tasks to other team members.
 
-## Replication
+### Replication
 
 A **replication** is making a copy of a partition available in another broker. Replication enables Kafka to be fault tolerant. When a partition of the topic is available in multiple brokers then one of the partitions in a broker is elected as the leader and the rest of the replications of the partition are followers.
 
 Replication enables Kafka to be fault tolerant even when a broker is down. For example, Topic B partition 0 is stored in both broker 0 and broker 1. Both producers and consumers are served only by the leader. In case of a broker failure the partition from another broker is elected as a leader and it starts serving the producers and consumer groups. Replica partitions that are in sync with the leader are flagged as **ISR** (in sync replica).
 
-## Summary of Kafka core components
+## Kafka producers
 
-- ZooKeeper manages Kafka brokers and their metadata.
-- Brokers are horizontally scalable Kafka nodes that contain topics and it's replications.
-- Topics are message streams with one or more partitions.
-- Partitions contains messages with unique offsets per partition.
-- Replication enables Kafka to be fault tolerant using follower partitions.
+The primary role of a Kafka producer is to take producer properties, record them as inputs, and write them to an appropriate Kafka broker. Producers serialize, partition, compress, and load balance data across brokers based on partitions.
+
+Some of the producer properties are: `bootstrap servers`, ACKs, `batch.size`, `linger.ms`, `key.serializer`, `value.serializer`, and many more.
+
+A message that should be written to Kafka is referred to as a producer record. A producer record contains the name of the topic it should be written to and the value of the record. Other fields like partition, timestamp, and key are optional.
 
 ## Links
 
