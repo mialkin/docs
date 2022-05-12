@@ -142,6 +142,7 @@
 - [Programming case types](programming/cases.md)
 - [Scrum](programming/scrum/scrum.md)
 - [Serialization](programming/serialization.md)
+- [UML diagrams](programming/uml.md)
 
 ## Testing
 
