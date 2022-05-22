@@ -194,6 +194,7 @@
 - [Dotnet CLI](dotnet/cli.md)
 - Dotnet libraries
   - [BenchmarkDotNet](dotnet/libraries/benchmarkdotnet.md)
+  - [FluentDocker](dotnet/libraries/fluentdocker.md)
   - [MediatR](dotnet/libraries/mediatr.md)
   - [Polly](dotnet/libraries/polly.md)
 - Identity management
