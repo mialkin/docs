@@ -17,6 +17,7 @@ Some of the key Kafka features:
     - [Broker](#broker)
     - [Replication](#replication)
   - [Kafka producers](#kafka-producers)
+  - [Running Kafka locally](#running-kafka-locally)
   - [Links](#links)
 
 ## Terminology and components
@@ -64,6 +65,56 @@ The primary role of a Kafka producer is to take producer properties, record them
 Some of the producer properties are: `bootstrap servers`, ACKs, `batch.size`, `linger.ms`, `key.serializer`, `value.serializer`, and many more.
 
 A message that should be written to Kafka is referred to as a producer record. A producer record contains the name of the topic it should be written to and the value of the record. Other fields like partition, timestamp, and key are optional.
+
+## Running Kafka locally
+
+```bash
+docker-compose up -d
+```
+
+Contents of `docker-compose.yaml` file:
+
+```yaml
+version: "3.8"
+
+services:
+  zookeeper:
+    container_name: zookeeper
+    image: wurstmeister/zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+
+  kafka:
+    container_name: kafka
+    image: wurstmeister/kafka
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: CLIENT://kafka:9092,EXTERNAL://kafka:9093
+      KAFKA_ADVERTISED_LISTENERS: CLIENT://kafka:9092,EXTERNAL://127.0.0.1:9093
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CLIENT:PLAINTEXT,EXTERNAL:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: CLIENT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_CREATE_TOPICS: >
+        your.topic1.name:1:1,
+        your.topic2.name:1:1,
+    ports:
+      - "9092:9092"
+      - "9093:9093"
+    depends_on:
+      - zookeeper
+
+  kafka-ui:
+    container_name: kafka-ui
+    image: provectuslabs/kafka-ui:latest 
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+      KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
+    ports:
+      - "8083:8080"
+    depends_on:
+      - kafka
+```
 
 ## Links
 
