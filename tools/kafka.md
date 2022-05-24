@@ -17,7 +17,7 @@ Some of the key Kafka features:
     - [Broker](#broker)
     - [Replication](#replication)
   - [Kafka producers](#kafka-producers)
-  - [Running Kafka locally](#running-kafka-locally)
+  - [Running Kafka in Docker](#running-kafka-in-docker)
   - [Links](#links)
 
 ## Terminology and components
@@ -66,7 +66,7 @@ Some of the producer properties are: `bootstrap servers`, ACKs, `batch.size`, `l
 
 A message that should be written to Kafka is referred to as a producer record. A producer record contains the name of the topic it should be written to and the value of the record. Other fields like partition, timestamp, and key are optional.
 
-## Running Kafka locally
+## Running Kafka in Docker
 
 ```bash
 docker-compose up -d
