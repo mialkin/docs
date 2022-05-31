@@ -1,17 +1,25 @@
 # Moq
 
-Moq is a mocking library for .NET.
+[↑ Moq](https://github.com/moq/moq4) is a mocking library for .NET.
 
 ## Table of Contents
 
 - [Moq](#moq)
   - [Table of Contents](#table-of-contents)
-  - [Matching Arguments](#matching-arguments)
+  - [Creating mock object](#creating-mock-object)
+  - [Matching arguments](#matching-arguments)
     - [`It.IsAny<>`](#itisany)
     - [`It.Is`](#itis)
     - [Defined variable](#defined-variable)
+  - [Links](#links)
 
-## Matching Arguments
+## Creating mock object
+
+```csharp
+ var mock = new Mock<ILoveThisLibrary>();
+```
+
+## Matching arguments
 
 ```csharp
 // any value
@@ -104,3 +112,7 @@ public void Get_WhenUserExists_ReturnsUser_Variable()
     user!.Id.Should().Be(userId);
 }
 ```
+
+## Links
+
+[↑ Quick start guide](https://github.com/Moq/moq4/wiki/Quickstart)
