@@ -194,7 +194,10 @@
 - Dotnet libraries
   - [AutoFixture](dotnet/libraries/autofixture.md)
   - [BenchmarkDotNet](dotnet/libraries/benchmarkdotnet.md)
+  - [↑ FluentAssertions](https://fluentassertions.com/introduction)
   - [FluentDocker](dotnet/libraries/fluentdocker.md)
+  - [↑ FluentValidation](https://docs.fluentvalidation.net)
+  - [↑ Flurl](https://github.com/tmenier/Flurl)
   - [MediatR](dotnet/libraries/mediatr.md)
   - [Moq](dotnet/libraries/moq.md)
   - [Polly](dotnet/libraries/polly.md)
