@@ -200,6 +200,7 @@
   - [↑ Flurl](https://github.com/tmenier/Flurl)
   - [MediatR](dotnet/libraries/mediatr.md)
   - [Moq](dotnet/libraries/moq.md)
+  - [↑ OpenTelemetry .NET](https://github.com/open-telemetry/opentelemetry-dotnet)
   - [Polly](dotnet/libraries/polly.md)
   - [xUnit](dotnet/libraries/xunit.md)
 - Identity management
