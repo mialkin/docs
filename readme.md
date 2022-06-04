@@ -196,9 +196,9 @@
   - [BenchmarkDotNet](dotnet/libraries/benchmarkdotnet.md)
   - [FluentDocker](dotnet/libraries/fluentdocker.md)
   - [MediatR](dotnet/libraries/mediatr.md)
-  - [Moq](testing/moq.md)
+  - [Moq](dotnet/libraries/moq.md)
   - [Polly](dotnet/libraries/polly.md)
-  - [xUnit](testing/xunit.md)
+  - [xUnit](dotnet/libraries/xunit.md)
 - Identity management
   - [Authentication](dotnet/identity%20managment/authentication.md)
   - [Authorization](dotnet/identity%20managment/authorization.md)
