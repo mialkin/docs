@@ -194,6 +194,7 @@
 - [Dependency injection in .NET](dotnet/dependency%20injection%20dotnet.md)
 - [Dotnet CLI](dotnet/cli.md)
 - Dotnet libraries
+  - [AutoFixture](dotnet/libraries/autofixture.md)
   - [BenchmarkDotNet](dotnet/libraries/benchmarkdotnet.md)
   - [FluentDocker](dotnet/libraries/fluentdocker.md)
   - [MediatR](dotnet/libraries/mediatr.md)
