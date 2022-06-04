@@ -151,9 +151,7 @@
   - [Gherkin](testing/bdd/gherkin.md)
   - [SpecFlow](testing/bdd/specflow.md)
 - [k6](testing/k6/k6.md)
-- [Moq](testing/moq.md)
 - [Unit testing best practices](testing/unit%20testing%20best%20practices.md)
-- [xUnit](testing/xunit.md)
 
 ## Networking
 
@@ -198,7 +196,9 @@
   - [BenchmarkDotNet](dotnet/libraries/benchmarkdotnet.md)
   - [FluentDocker](dotnet/libraries/fluentdocker.md)
   - [MediatR](dotnet/libraries/mediatr.md)
+  - [Moq](testing/moq.md)
   - [Polly](dotnet/libraries/polly.md)
+  - [xUnit](testing/xunit.md)
 - Identity management
   - [Authentication](dotnet/identity%20managment/authentication.md)
   - [Authorization](dotnet/identity%20managment/authorization.md)

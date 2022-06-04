@@ -1,15 +1,16 @@
 # xUnit
 
+[↑ xUnit.net](https://github.com/xunit/xunit) is a free, open source, community-focused unit testing tool for the .NET.
+
 ## Table of contents
 
 - [xUnit](#xunit)
   - [Table of contents](#table-of-contents)
-  - [`Theory`](#theory)
-  - [Setup And Teardown](#setup-and-teardown)
+  - [`InlineData`](#inlinedata)
+  - [`ClassData`](#classdata)
+  - [Setup and teardown](#setup-and-teardown)
 
-## `Theory`
-
-`InlineData` attribute:
+## `InlineData`
 
 ```csharp
 [Theory]
@@ -21,7 +22,7 @@ public void Number_Is_Odd(int number)
 }
 ```
 
-`ClassData` attribute:
+## `ClassData`
 
 ```csharp
 public class ExampleTest
@@ -44,7 +45,9 @@ public class ExampleTest
 }
 ```
 
-## Setup And Teardown
+[↑ Creating strongly typed xUnit theory test data with TheoryData](https://andrewlock.net/creating-strongly-typed-xunit-theory-test-data-with-theorydata/)
+
+## Setup and teardown
 
 > While text below is working look at unit tests best practice that says "Prefer helper methods to setup and teardown"
 

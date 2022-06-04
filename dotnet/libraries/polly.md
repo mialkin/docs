@@ -17,11 +17,17 @@ Proactive policies:
 
 Example usages are fault-tolerance for any distributed systems and inter-process calls, such as WCF, RESTful calls between microservices, calls to cloud services, Internet of Things connectivity, messaging systems, calls to your persistence layer, for example,wrapping Entity Framework calls, etc.
 
+## Installation
+
+```bash
+dotnet add package Polly
+```
+
 ## Table of contents
 
 - [Polly](#polly)
-  - [Table of contents](#table-of-contents)
   - [Installation](#installation)
+  - [Table of contents](#table-of-contents)
   - [Reactive policies](#reactive-policies)
     - [Retry](#retry)
     - [Circuit breaker](#circuit-breaker)
@@ -32,12 +38,6 @@ Example usages are fault-tolerance for any distributed systems and inter-process
     - [Rate limiting](#rate-limiting)
     - [Cache](#cache)
   - [PolicyWrap](#policywrap)
-
-## Installation
-
-```bash
-dotnet add package Polly
-```
 
 ## Reactive policies
 
