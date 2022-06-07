@@ -256,4 +256,3 @@ or just:
 ```bash
 date -v-28d
 ```
-
