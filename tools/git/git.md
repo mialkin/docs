@@ -17,6 +17,7 @@
     - [Drop](#drop)
     - [Show](#show)
   - [Change commit date](#change-commit-date)
+    - [macOS date](#macos-date)
 
 ## Git config
 
@@ -232,13 +233,27 @@ Warning: `git --date` will only modify the `GIT_AUTHOR_DATE`, so depending on th
 To make a commit that looks like it was done in the past you have to set both `GIT_AUTHOR_DATE` and `GIT_COMMITTER_DATE` environment variables:
 
 ```bash
-GIT_AUTHOR_DATE=$(date -d'...') GIT_COMMITTER_DATE="$GIT_AUTHOR_DATE" git commit -m '...'
+GIT_AUTHOR_DATE=$(date -d "...") GIT_COMMITTER_DATE="$GIT_AUTHOR_DATE" git commit -m "..."
 ```
 
-Above `date -d'...'` can be exact date like `2019-01-01 12:40:04` or relative like `24 days ago`.
+Above `date -d "..."` can be exact date like `2019-01-01 12:40:04` or relative like `24 days ago`.
 
 The author date on a commit is preserved on rebase / cherry-pick etc, but the committer date is changed.
 
 As the "Pro Git Book" explains: "The author is the person who originally wrote the work, whereas the committer is the person who last applied the work".
 
 In the context of dates, the `GIT_AUTHOR_DATE` is the date the file was changed, whereas the `GIT_COMMITTER_DATE` is the date it was committed. It is important to note that by default, `git log` displays author dates as "Date" but then uses commit dates for filtering when given a `--since` option.
+
+### macOS date
+
+```bash
+brew install coreutils
+gdate -d "28 days ago" 
+```
+
+or just:
+
+```bash
+date -v-28d
+```
+
