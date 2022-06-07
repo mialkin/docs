@@ -5,8 +5,8 @@
     - [Docker](#docker)
   - [Commands](#commands)
   - [GUI](#gui)
-  - [Implementing C# client](#implementing-c-client)
-  - [Implementing distributed locking in C# language](#implementing-distributed-locking-in-c-language)
+  - [C# client implementation](#c-client-implementation)
+  - [Distributed locking](#distributed-locking)
 
 **Redis** is an open source, in-memory data structure store, used as a database, cache, and message broker.
 
@@ -69,7 +69,7 @@ docker run --name CONTAINER_NAME -d -p 6379:6379 --restart=always redis redis-se
 
 Try web browser GUI [↑ RedisInsight](https://redislabs.com/redis-enterprise/redis-insight).
 
-## Implementing C# client
+## C# client implementation
 
 Example using [↑ StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) library:
 
@@ -118,7 +118,7 @@ public class RedisClient : IRedisClient
 }
 ```
 
-## Implementing distributed locking in C# language
+## Distributed locking
 
 Example using [↑ RedLock.net](https://github.com/samcook/RedLock.net) library:
 
