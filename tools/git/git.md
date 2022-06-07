@@ -16,6 +16,7 @@
     - [Apply](#apply)
     - [Drop](#drop)
     - [Show](#show)
+  - [Change commit date](#change-commit-date)
 
 ## Git config
 
@@ -217,3 +218,27 @@ git stash show -p stash@{n}  ## show specific stash
 ```
 
 [↑ Git stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash)
+
+## Change commit date
+
+Simple solution:
+
+```bash
+git commit --date="10 day ago" -m "Your commit message"
+```
+
+Warning: `git --date` will only modify the `GIT_AUTHOR_DATE`, so depending on the circumstances you'll see the current date attached to the commit `GIT_COMMITTER_DATE`.
+
+To make a commit that looks like it was done in the past you have to set both `GIT_AUTHOR_DATE` and `GIT_COMMITTER_DATE` environment variables:
+
+```bash
+GIT_AUTHOR_DATE=$(date -d'...') GIT_COMMITTER_DATE="$GIT_AUTHOR_DATE" git commit -m '...'
+```
+
+Above `date -d'...'` can be exact date like `2019-01-01 12:40:04` or relative like `24 days ago`.
+
+The author date on a commit is preserved on rebase / cherry-pick etc, but the committer date is changed.
+
+As the "Pro Git Book" explains: "The author is the person who originally wrote the work, whereas the committer is the person who last applied the work".
+
+In the context of dates, the `GIT_AUTHOR_DATE` is the date the file was changed, whereas the `GIT_COMMITTER_DATE` is the date it was committed. It is important to note that by default, `git log` displays author dates as "Date" but then uses commit dates for filtering when given a `--since` option.
