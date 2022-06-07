@@ -8,7 +8,7 @@
   - [Table of Contents](#table-of-contents)
   - [Creating mock object](#creating-mock-object)
   - [Matching arguments](#matching-arguments)
-  - [Returning value that was passed into a method](#returning-value-that-was-passed-into-a-method)
+    - [Returning value that was passed into a method](#returning-value-that-was-passed-into-a-method)
     - [`It.IsAny<>`](#itisany)
     - [`It.Is`](#itis)
     - [Defined variable](#defined-variable)
@@ -39,7 +39,7 @@ mock.Setup(foo => foo.Add(It.IsInRange<int>(0, 10, Range.Inclusive))).Returns(tr
 mock.Setup(x => x.DoSomething(It.IsRegex("[a-d]+", RegexOptions.IgnoreCase))).Returns("foo");
 ```
 
-## Returning value that was passed into a method
+### Returning value that was passed into a method
 
 ```csharp
 mock.Setup(x => x.Sum(It.IsAny<int>(), It.IsAny<int>()))
