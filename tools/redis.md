@@ -5,6 +5,8 @@
     - [Docker](#docker)
   - [Commands](#commands)
   - [GUI](#gui)
+  - [Implementing C# client](#implementing-c-client)
+  - [Implementing distributed locking in C# language](#implementing-distributed-locking-in-c-language)
 
 **Redis** is an open source, in-memory data structure store, used as a database, cache, and message broker.
 
@@ -66,3 +68,70 @@ docker run --name CONTAINER_NAME -d -p 6379:6379 --restart=always redis redis-se
 ## GUI
 
 Try web browser GUI [↑ RedisInsight](https://redislabs.com/redis-enterprise/redis-insight).
+
+## Implementing C# client
+
+Example using [↑ StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) library:
+
+```csharp
+private static void ConfigureRedis(IServiceCollection services, IConfiguration configuration)
+{
+    services.ConfigureSettings<RedisSettings>(configuration);
+    services.AddSingleton<IConnectionMultiplexer>(x =>
+    {
+        var redisSettings = x.GetRequiredService<IOptions<RedisSettings>>().Value;
+        var options = ConfigurationOptions.Parse(redisSettings.Hosts);
+        options.AbortOnConnectFail = false;
+        return ConnectionMultiplexer.Connect(options);
+    });
+
+    services.AddTransient<IRedisClient, RedisClient>();
+}
+
+public class RedisClient : IRedisClient
+{
+    private readonly IConnectionMultiplexer _connectionMultiplexer;
+
+    private IDatabase Database => _connectionMultiplexer.GetDatabase() ??
+                                throw new RedisException("Unable to acquire Redis database");
+
+    public RedisClient(IConnectionMultiplexer connectionMultiplexer)
+    {
+        _connectionMultiplexer = connectionMultiplexer;
+    }
+
+    public async Task SetAsync<T>(string key, T value, TimeSpan ttl)
+    {
+        var json = JsonSerializer.Serialize(value);
+        await Database.StringSetAsync(key, json, ttl);
+    }
+
+    public async Task<T?> GetAsync<T>(string key)
+    {
+        var redisValue = await Database.StringGetAsync(key);
+        JsonSerializer.Deserialize<T>(redisValue);
+
+        return !redisValue.HasValue
+            ? default
+            : JsonSerializer.Deserialize<T>(redisValue);
+    }
+}
+```
+
+## Implementing distributed locking in C# language
+
+Example using [↑ RedLock.net](https://github.com/samcook/RedLock.net) library:
+
+```csharp
+services.AddTransient<IDistributedLockFactory>(sp =>
+{
+    var multiplexer = new RedLockMultiplexer(sp.GetRequiredService<IConnectionMultiplexer>());
+    return RedLockFactory.Create(new List<RedLockMultiplexer> { multiplexer });
+});
+
+using var redLock = await _distributedLockFactory
+    .CreateLockAsync("lockResourceName", TimeSpan.FromMinutes(10);
+
+if (redLock.IsAcquired)
+    DoStuff();
+```
