@@ -71,33 +71,34 @@ git config user.email
 
 ## Commands
 
-| Command                                       | Description                                                                   |
-| --------------------------------------------- | ----------------------------------------------------------------------------- |
-| git branch -d BRANCH_NAME                     | Delete local branch                                                           |
-| git branch -m NEW_NAME                        | Rename branch                                                                 |
-| git branch -r                                 | List all remote branches                                                      |
-| git checkout -b NEW_BRANCH                    | Create new branch from current                                                |
-| git cherry-pick COMMIT_HASH                   | Cherry pick commit                                                            |
-| git config --list                             | Show all config sections                                                      |
-| git config --list --show-origin               | Show where settings are defined (global, user, repo, etc...)                  |
-| git config SETTING_NAME                       | Check what current settings are (in this case username)                       |
-| git config user.name                          | Check current value of `username` setting                                     |
-| git config user.name "John Doe"               | Set local user name                                                           |
-| git config user.email your@email.com          | Set local user email                                                          |
-| git config --global user.email your@email.com | Set global user email                                                         |
-| git log --oneline                             | Print only commits subject line (without body)                                |
-| git mv README README.md                       | Rename/move file preserving history                                           |
-| git mv folder folder2                         | Rename/move folder preserving history                                         |
-| git push REMOTE_NAME -u BRANCH_NAME           | Push local branch to remote                                                   |
-| git push REMOTE_NAME --delete BRANCH_NAME     | Delete remote branch                                                          |
-| git remote add REMOTE_NAME REMOTE_URL         | Add a remote                                                                  |
-| git remote remove REMOTE_NAME                 | Remove remote                                                                 |
-| git remote set-url REMOTE_NAME REMOTE_URL     | Replace old remote URL with new one                                           |
-| git remote -v                                 | Display list of remotes with origins                                          |
-| git rm --cached FILENAME                      | Remove a file from cache                                                      |
-| git rm -fr --cached FOLDER_NAME               | Removes caches of FOLDER_NAME folder. You can use dot (`.`) instead of folder |
-| git shortlog                                  | Summarizes git log so that each commit will be grouped by author and title    |
-| vim .git/config                               | Edit upstreams                                                                |
+| Command                                           | Description                                                                   |
+| ------------------------------------------------- | ----------------------------------------------------------------------------- |
+| git branch -d BRANCH_NAME                         | Delete local branch                                                           |
+| git branch -m NEW_NAME                            | Rename branch                                                                 |
+| git branch -r                                     | List all remote branches                                                      |
+| git checkout -b NEW_BRANCH                        | Create new branch from current                                                |
+| git cherry-pick COMMIT_HASH                       | Cherry pick commit                                                            |
+| git commit --amend -m "An updated commit message" | Modify the most recent commit                                                 |
+| git config --list                                 | Show all config sections                                                      |
+| git config --list --show-origin                   | Show where settings are defined (global, user, repo, etc...)                  |
+| git config SETTING_NAME                           | Check what current settings are (in this case username)                       |
+| git config user.name                              | Check current value of `username` setting                                     |
+| git config user.name "John Doe"                   | Set local user name                                                           |
+| git config user.email your@email.com              | Set local user email                                                          |
+| git config --global user.email your@email.com     | Set global user email                                                         |
+| git log --oneline                                 | Print only commits subject line (without body)                                |
+| git mv README README.md                           | Rename/move file preserving history                                           |
+| git mv folder folder2                             | Rename/move folder preserving history                                         |
+| git push REMOTE_NAME -u BRANCH_NAME               | Push local branch to remote                                                   |
+| git push REMOTE_NAME --delete BRANCH_NAME         | Delete remote branch                                                          |
+| git remote add REMOTE_NAME REMOTE_URL             | Add a remote                                                                  |
+| git remote remove REMOTE_NAME                     | Remove remote                                                                 |
+| git remote set-url REMOTE_NAME REMOTE_URL         | Replace old remote URL with new one                                           |
+| git remote -v                                     | Display list of remotes with origins                                          |
+| git rm --cached FILENAME                          | Remove a file from cache                                                      |
+| git rm -fr --cached FOLDER_NAME                   | Removes caches of FOLDER_NAME folder. You can use dot (`.`) instead of folder |
+| git shortlog                                      | Summarizes git log so that each commit will be grouped by author and title    |
+| vim .git/config                                   | Edit upstreams                                                                |
 
 ## Push to multiple repositories
 
@@ -129,13 +130,13 @@ git rebase --abort
 
 ## Naming commits
 
--   Separate subject from body with a blank line
--   Limit the subject line to 50 characters
--   Capitalize the subject line
--   Do not end the subject line with a period
--   Use the imperative mood in the subject line
--   Wrap the body at 72 characters
--   Use the body to explain _what_ and _why_ vs. _how_
+- Separate subject from body with a blank line
+- Limit the subject line to 50 characters
+- Capitalize the subject line
+- Do not end the subject line with a period
+- Use the imperative mood in the subject line
+- Wrap the body at 72 characters
+- Use the body to explain _what_ and _why_ vs. _how_
 
 [↑ How to Write a Git Commit Message.pdf](How%20to%20Write%20a%20Git%20Commit%20Message.pdf)
 
@@ -248,7 +249,7 @@ In the context of dates, the `GIT_AUTHOR_DATE` is the date the file was changed,
 
 ```bash
 brew install coreutils
-gdate -d "28 days ago" 
+gdate -d "28 days ago"
 ```
 
 or just:
