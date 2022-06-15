@@ -35,6 +35,7 @@
   - [Docker compose](tools/docker/docker%20compose.md)
 - [Git](tools/git/git.md)
 - [Grafana](tools/grafana.md)
+- [Jaeger](tools/jaeger.md)
 - [Jenkins](tools/jenkins.md)
 - [Kafka](tools/kafka.md)
 - Kubernetes
