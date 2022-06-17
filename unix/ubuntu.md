@@ -41,3 +41,47 @@ hostnamectl
 ```bash
 usermod -aG sudo username
 ```
+
+## Stop Ubuntu from asking for password
+
+Change the line that says:
+
+```bash
+sudo vim /etc/sudoers
+```
+
+into:
+
+```bash
+%sudo  ALL=(ALL) NOPASSWD:ALL
+```
+
+or even:
+
+```bash
+%sudo  ALL=(ALL:ALL) NOPASSWD:ALL
+```
+
+Restart session.
+
+## See temperature
+
+CPU:
+
+```bash
+sudo apt install lm-sensors 
+yes yes | sudo sensors-detect
+sudo service kmod start
+
+watch sensors # see temperature values updating each second
+```
+
+SSD:
+
+```bash
+sudo apt update
+wget http://archive.ubuntu.com/ubuntu/pool/universe/h/hddtemp/hddtemp_0.3-beta15-54_amd64.deb  
+sudo apt install hddtemp
+
+sudo watch hddtemp /dev/sda
+```
