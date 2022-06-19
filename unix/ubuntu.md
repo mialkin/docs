@@ -64,7 +64,7 @@ or even:
 
 Restart session.
 
-## See temperature
+## Watch temperature
 
 CPU:
 
