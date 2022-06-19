@@ -38,7 +38,7 @@
 - [Jaeger](tools/jaeger.md)
 - [Jenkins](tools/jenkins.md)
 - [Kafka](tools/kafka.md)
-- Kubernetes
+- [Kubernetes](tools/kubernetes/kubernetes.md)
   - [cert-manager](tools/kubernetes/cert-manager.md)
   - [Flux](tools/kubernetes/flux.md)
   - [Helm](tools/kubernetes/helm.md)
