@@ -111,6 +111,8 @@
 * **Fallback** (resilience strategy) — запасной вариант
 * **Fault-tolerance** — отказоустойчивость
 * **Favor object composition over class inheritance** — отдавать предпочтение композиции перед наследованием
+* **Feature** — функция
+* **Feature flag** — флаг функции
 * **File handle** — дескриптор файла
 * **First-class citizen/object/entity/value** — объект первого класса
 * **Finalizer** — метод завершения или деструктор
