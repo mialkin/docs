@@ -172,6 +172,7 @@
 - [AD](security/ad/ad.md)
   - [AD FS](security/ad/ad%20fs.md)
 - [Asymmetric cryptography](security/asymmetric%20cryptography/asymmetric%20cryptography.md)
+- [Encryption](security/encryption.md)
 - [Generating self-signed certificate](security/generating%20certificate.md)
 - [JWT](security/jwt.md)
 - [OAuth](security/oauth/oauth.md)
@@ -181,7 +182,7 @@
 - [OpenAPI](security/openapi.md)
 - Symmetric cryptography
   - [AES](security/aes.md)
-- [TLS handshake](security/tls%20handshake/tls%20handshake.md)
+- [TLS](security/tls/tls.md)
 - Web
   - [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
   - [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
