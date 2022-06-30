@@ -35,6 +35,7 @@
   - [Dockerfile](tools/docker/dockerfiles.md)
   - [Docker compose](tools/docker/docker%20compose.md)
 - [Git](tools/git/git.md)
+- [GitLab](tools/gitlab.md)
 - [Grafana](tools/grafana.md)
 - [Jaeger](tools/jaeger.md)
 - [Jenkins](tools/jenkins.md)
