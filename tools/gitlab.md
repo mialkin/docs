@@ -28,13 +28,15 @@ To use GitLab CI/CD:
 
 A **`.gitlab-ci.yml`** is a file that contains the CI/CD configuration.
 
+The scripts of CI/CD  are grouped into *jobs*, and jobs run as part of a larger *pipeline*. You can group multiple independent jobs into *stages* that run in a defined order. The CI/CD configuration needs at least one job that is not hidden.
+
 ### Runners
 
 A **runner** is an agent that runs your CI/CD jobs.
 
 ### Jobs
 
-A **job** is an instructions that a runner has to execute.
+A **job** is the instructions that a runner has to execute.
 
 When you commit the file to your repository, the runner runs your jobs. The job results are displayed in a *pipeline*.
 
