@@ -11,6 +11,7 @@
       - [Keywords](#keywords)
     - [Runners](#runners)
     - [Jobs](#jobs)
+      - [Hidden jobs](#hidden-jobs)
     - [Pipelines](#pipelines)
       - [Merge request pipelines](#merge-request-pipelines)
     - [Stages](#stages)
@@ -71,7 +72,22 @@ A **runner** is an agent that runs your CI/CD jobs.
 
 A **job** is the instructions that a runner has to execute.
 
-When you commit the file to your repository, the runner runs your jobs. The job results are displayed in a *pipeline*.
+When you commit the file to your repository, the runner runs your jobs.
+
+#### Hidden jobs
+
+Start the job name with a dot `.` and it is not processed by GitLab CI/CD:
+
+```yaml
+.hidden_job:
+  script:
+    - run test
+```
+
+You can use hidden jobs that start with `.` as templates for reusable configuration with:
+
+- The `extends` keyword.
+- YAML anchors.
 
 ### Pipelines
 
