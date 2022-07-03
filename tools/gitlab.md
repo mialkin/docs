@@ -8,15 +8,20 @@
   - [Table of contents](#table-of-contents)
   - [CI/CD](#cicd)
     - [`.gitlab-ci.yml` file](#gitlab-ciyml-file)
+      - [Keywords](#keywords)
     - [Runners](#runners)
     - [Jobs](#jobs)
     - [Pipelines](#pipelines)
+      - [Merge request pipelines](#merge-request-pipelines)
     - [Stages](#stages)
+    - [Variables](#variables)
     - [Caches](#caches)
     - [Artifacts](#artifacts)
       - [Job artifacts](#job-artifacts)
       - [Pipeline artifacts](#pipeline-artifacts)
     - [Services](#services)
+    - [Docker](#docker)
+      - [Run your CI/CD jobs in Docker containers](#run-your-cicd-jobs-in-docker-containers)
     - [GitLab Runner](#gitlab-runner)
       - [Runner registration](#runner-registration)
       - [Executors](#executors)
@@ -40,6 +45,24 @@ A **`.gitlab-ci.yml`** is a file that contains the CI/CD configuration.
 
 The scripts of CI/CD  are grouped into *jobs*, and jobs run as part of a larger *pipeline*. You can group multiple independent jobs into *stages* that run in a defined order. The CI/CD configuration needs at least one job that is not hidden.
 
+[↑ The `.gitlab-ci.yml` file](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html)
+
+To use GitLab CI/CD, you need:
+
+- Application code hosted in a Git repository.
+- A file called `.gitlab-ci.yml` in the root of your repository, which contains the CI/CD configuration.
+
+When you add a `.gitlab-ci.yml` file to your repository, GitLab detects it and an application called GitLab Runner runs the scripts defined in the jobs.
+
+#### Keywords
+
+A GitLab CI/CD pipeline configuration includes:
+
+- Global keywords that configure pipeline behavior.
+- Job keywords that configure jobs behavior
+
+[↑ .gitlab-ci.yml keyword reference](https://docs.gitlab.com/ee/ci/yaml/)
+
 ### Runners
 
 A **runner** is an agent that runs your CI/CD jobs.
@@ -56,6 +79,31 @@ A **pipeline** is a collection of jobs split into different *stages*.
 
 [↑ Pipelines](https://docs.gitlab.com/ee/ci/pipelines/)
 
+#### Merge request pipelines
+
+You can configure your pipeline to run every time you commit changes to a branch. This type of pipeline is called a **branch pipeline**.
+
+Alternatively, you can configure your pipeline to run every time you make changes to the source branch for a merge request. This type of pipeline is called a **merge request pipeline**.
+
+Branch pipelines:
+
+- Run when you push a new commit to a branch.
+- Are the default type of pipeline.
+- Have access to some predefined variables.
+- Have access to protected variables and protected runners.
+
+Merge request pipelines:
+
+- Run when you:
+  - Create a new merge request from a source branch with one or more commits.
+  - Push a new commit to the source branch for a merge request.
+  - Select **Run pipeline** from the **Pipelines** tab in a merge request. This option is only available  when merge request pipelines are configured for the pipeline and the source branch has at least  one commit.
+- Do not run by default. The jobs in the CI/CD configuration file must be configured to run in - merge request pipelines.
+- Have access to more predefined variables.
+- Do not have access to protected variables or protected runners.
+
+[↑ Merge request pipelines](https://docs.gitlab.com/ee/ci/pipelines/merge_request_pipelines.html)
+
 ### Stages
 
 A **stage** is a keyword that defines certain stage of a job, such as `build` and `deploy`. Jobs of the same stage are executed in parallel.
@@ -65,6 +113,18 @@ Multiple jobs in the same stage are executed in parallel, if there are enough co
 If *all* jobs in a stage succeed, the pipeline moves on to the next stage.
 
 If *any* job in a stage fails, the next stage is not (usually) executed and the pipeline ends early.
+
+### Variables
+
+CI/CD variables are a type of environment variable. You can use them to:
+
+- Control the behavior of jobs and pipelines.
+- Store values you want to re-use.
+- Avoid hard-coding values in your `.gitlab-ci.yml` file.
+
+You can use [↑ predefined CI/CD variables](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html) or define custom.
+
+[↑ GitLab CI/CD variables](https://docs.gitlab.com/ee/ci/variables)
 
 ### Caches
 
@@ -105,6 +165,33 @@ The service image can run any application, but the most common use case is to ru
 - Redis
 
 [↑ Services](https://docs.gitlab.com/ee/ci/services)
+
+### Docker
+
+There are two primary ways to incorporate Docker into your CI/CD workflow:
+
+- Run your CI/CD jobs in Docker containers.
+
+You can create CI/CD jobs to do things like test, build, or publish an application. These jobs can run in Docker containers.
+
+For example, you can tell GitLab CI/CD to use a Node image that’s hosted on Docker Hub or in the GitLab Container Registry. Your job then runs in a container that’s based on the image. The container has all the Node dependencies you need to build your app.
+
+- Use Docker or kaniko to build Docker images.
+
+You can create CI/CD jobs to build Docker images and publish them to a container registry.
+
+#### Run your CI/CD jobs in Docker containers
+
+You can run your CI/CD jobs in separate, isolated Docker containers.
+
+If you run Docker on your local machine, you can run tests in the container, rather than testing on a dedicated CI/CD server.
+
+To run CI/CD jobs in a Docker container, you need to:
+
+- Register a runner so that all jobs run in Docker containers. Do this by choosing the Docker executor during registration.
+- Specify which container to run the jobs in. Do this by specifying an `image` in your `.gitlab-ci.yml` file.
+- Optional. Run other services, like MySQL, in containers. Do this by specifying `services` in your `.gitlab-ci.yml` file.
+
 
 ### GitLab Runner
 
