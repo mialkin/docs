@@ -74,6 +74,8 @@ A **job** is the instructions that a runner has to execute.
 
 When you commit the file to your repository, the runner runs your jobs.
 
+[↑ Jobs](https://docs.gitlab.com/ee/ci/jobs)
+
 #### Hidden jobs
 
 Start the job name with a dot `.` and it is not processed by GitLab CI/CD:
