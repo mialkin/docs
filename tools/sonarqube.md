@@ -1,8 +1,10 @@
 # SonarQube
 
-[SonarQube](https://www.sonarqube.org) is a quality management platform focusing on continuous analysis of source code quality.
+[SonarQube](https://www.sonarqube.org) is an open source platform to perform automatic reviews with *static analysis* of code to detect bugs, code smells and security vulnerabilities on 25+ programming
 
-SonarQube detects bugs in the code automatically and alerts developers to fix them before rolling it out for production. SonarQube also highlights the complex areas of code that are less covered by unit tests
+A **static analysis** is a type of analysis that does not rely on actually running the code: analysis of running code is called **dynamic analysis**.
+
+SonarQube also highlights the complex areas of code that are less covered by unit tests
 
 ## Table of contents
 
@@ -10,13 +12,14 @@ SonarQube detects bugs in the code automatically and alerts developers to fix th
   - [Table of contents](#table-of-contents)
   - [Installing a local instance of SonarQube](#installing-a-local-instance-of-sonarqube)
   - [SonarScanner](#sonarscanner)
-  - [SonarCloud](#sonarcloud)
   - [SonarLint](#sonarlint)
+  - [Workflow](#workflow)
   - ["Clean as you code" approach](#clean-as-you-code-approach)
   - [Quality gate](#quality-gate)
     - [Recommended quality gate](#recommended-quality-gate)
     - [Getting notified when a quality gate fails](#getting-notified-when-a-quality-gate-fails)
   - [Pull request analysis](#pull-request-analysis)
+  - [SonarCloud](#sonarcloud)
 
 ## Installing a local instance of SonarQube
 
@@ -30,19 +33,19 @@ Typically, the scanner is configured to run as part of your continuous integrati
 
 [↑ SonarScanner for .NET](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-msbuild)
 
-## SonarCloud
-
-[↑ SonarCloud](https://sonarcloud.io) is a cloud-based code analysis service designed to detect code quality issues in 25 different programming languages, continuously ensuring the maintainability, reliability and security of your code.
-
-SonarCloud uses state-of-the-art techniques in *static code analysis* to find problems, and potential problems, in the code that you and your team write.
-
-A **static analysis** is a type of analysis that does not rely on actually running the code: analysis of running code is called **dynamic analysis**. As a result, SonarCloud offers an additional layer of verification, different from automated testing and human code-review.
-
-[↑ Sonar community: SonarCloud vs SonarQube](https://community.sonarsource.com/t/sonarcloud-vs-sonarqube/9557)
-
 ## SonarLint
 
 [↑ SonarLint](https://www.sonarlint.org) is a free IDE extension to find and fix bugs, vulnerabilities and code smells.
+
+## Workflow
+
+1. Developers code in their IDEs and, potentially, use SonarLint to run local analysis.
+2. Developers push their code into git repository.
+3. The CI server triggers an automatic build and the execution of the SonarScanner required to run the SonarQube analysis.
+4. The analysis report is sent to the SonarQube server for processing.
+5. SonarQube server processes and stores the analysis report results in the SonarQube database, and displays the results in the UI.
+6. Developers review, comment, challenge their issues to manage and reduce their technical debt through the SonarQube UI.
+7. Managers receive reports from the analysis. Ops use APIs to automate configuration and extract data from SonarQube.
 
 ## "Clean as you code" approach
 
@@ -70,3 +73,13 @@ Thanks to the notification mechanism, users can be notified when a quality gate 
 You can use pull request analysis and decoration to make sure your code is meeting your standards before you merge. Pull request analysis lets you see your pull request's quality gate in the SonarQube UI.
 
 [↑ Pull Request Analysis](https://docs.sonarqube.org/latest/analysis/pull-request)
+
+## SonarCloud
+
+[↑ SonarCloud](https://sonarcloud.io) is a cloud-based code analysis service designed to detect code quality issues in 25 different programming languages, continuously ensuring the maintainability, reliability and security of your code.
+
+Unlike self-hosted SonarQube, SonarCloud is hosted by [↑ SonarSource](https://www.sonarsource.com) in AWS and is the easiest path to start scanning your code in minutes. SonarSource does all the heavy lifting for you, so you don’t have to worry about installation or maintenance. As a SaaS offering, SonarCloud gives you immediate access to new features and functionality.
+
+> In summary, if your team is fully cloud-based, you don’t want maintenance hassles and you’d like the fastest access to new features, then SonarCloud is a great choice. If you’re fine with self-hosting and maintenance or see value in the management capabilities, then SonarQube would make sense for you.
+
+[↑ SonarCloud or SonarQube? - Guidance on Choosing One for Your Team](https://blog.sonarsource.com/sq-sc_guidance)
