@@ -1,4 +1,4 @@
-# EF Core tools
+# `dotnet-ef` tool
 
 ## Installation
 

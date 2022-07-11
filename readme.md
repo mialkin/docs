@@ -76,7 +76,6 @@
 
 - [ACID](databases/acid.md)
 - [CTEs](databases/cte.md)
-- [EF Core tools](databases/efcore/efcoretools.md)
 - [Isolation levels and read phenomena](databases/isolation%20levels.md)
 - [N + 1 query problem](databases/n%20plus%20one.md)
 - [Natural and surrogate keys](databases/natural%20and%20surrogate%20keys.md)
@@ -199,6 +198,8 @@
 
 - [Dependency injection in .NET](dotnet/dependency%20injection%20dotnet.md)
 - [Dotnet CLI](dotnet/cli.md)
+- [Dotnet tools](dotnet/dotnet-tools/dotnet-tools.md)
+  - [`dotnet-ef` tool](dotnet/dotnet-tools/dotnet-ef.md)
 - Dotnet libraries
   - [AutoFixture](dotnet/libraries/autofixture.md)
   - [BenchmarkDotNet](dotnet/libraries/benchmarkdotnet.md)
