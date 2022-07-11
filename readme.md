@@ -130,6 +130,7 @@
   - [Liskov substitution principle](design/solid/lsp.md)
   - [Interface segregation principle](design/solid/isp.md)
   - [Dependency inversion principle](design/solid/dip/dip.md)
+- [Technical debt](design/technical%20debt.md)
 
 ## Distributed systems
 
