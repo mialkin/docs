@@ -1,6 +1,6 @@
 # SonarQube
 
-[SonarQube](https://www.sonarqube.org) is an open source platform to perform automatic reviews with *static analysis* of code to detect bugs, code smells and security vulnerabilities on 25+ programming
+[SonarQube](https://www.sonarqube.org) is an open source platform to perform automatic reviews with *static analysis* of code to detect bugs, code smells and security vulnerabilities on 25+ programming languages.
 
 A **static analysis** is a type of analysis that does not rely on actually running the code: analysis of running code is called **dynamic analysis**.
 
