@@ -4,7 +4,7 @@
 
 A **static analysis** is a type of analysis that does not rely on actually running the code: analysis of running code is called **dynamic analysis**.
 
-SonarQube also highlights the complex areas of code that are less covered by unit tests
+SonarQube also highlights the complex areas of code that are less covered by unit tests.
 
 ## Table of contents
 
