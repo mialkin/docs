@@ -102,6 +102,7 @@
 * **Endpoint** — конечная точка
 * **Exclusive lock** — исключающая блокировка
 * **Expression body** — тело выражения
+* **Extension method** — метод расширения
 * **Extreme programming** — экстремальное программирование
 * **Event loop** — цикл событий
 * **Eventual consistency** — конечная/итоговая согласованность
@@ -126,6 +127,7 @@
   * **Generic type** — универсальный тип
 * **Generics** — универсальные/обобщенные шаблоны/типы
 * **Globalization** — глобализация
+* **Graceful shutdown** — нормальное завершение работы
 * **Guide** — руководство
 
 ## H
@@ -253,7 +255,7 @@
 * **Signaled state** — сигнальное состояние
 * **Single-page application** — одностраничное приложение
 * **Single responsibility principle** — принцип единственной ответственности
-* **Shallow copy** — поверхостная копия
+* **Shallow copy** — поверхностная копия
 * **Sharding** — сегментирование
 * **Spinlock** — спин-блокировка
 * **Stateless** — без запоминания/сохранения состояния
