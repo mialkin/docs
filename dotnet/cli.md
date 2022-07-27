@@ -13,6 +13,12 @@ The dotnet CLI is a cross-platform toolchain for developing, building, running, 
   - [Test](#test)
     - [Test options](#test-options)
       - [`--no-build`](#--no-build)
+      - [`--packages`](#--packages)
+      - [`--runtime`](#--runtime)
+      - [`--source`](#--source)
+  - [Restore](#restore)
+    - [Restore options](#restore-options)
+      - [`--no-cache`](#--no-cache)
   - [Create new solution with project](#create-new-solution-with-project)
   - [Create new Web API project](#create-new-web-api-project)
   - [Footnotes](#footnotes)
@@ -62,6 +68,44 @@ dotnet test
 #### `--no-build`
 
 Doesn't build the test project before running it. It also implicitly sets the `--no-restore` flag.
+
+#### `--packages`
+
+Specifies the directory for restored packages.
+
+```bash
+--packages /nuget/packages
+```
+
+#### `--runtime`
+
+Specifies a runtime for the package restore.
+
+```bash
+--runtime linux-x64
+```
+
+#### `--source`
+
+Specifies the URI of the NuGet package source to use during the restore operation. This setting overrides all of the sources specified in the nuget.config files. Multiple sources can be provided by specifying this option multiple times.
+
+```bash
+--source http://your-custom.nuget-feed.ru/nuget
+```
+
+## Restore
+
+```bash
+dotnet restore
+```
+
+[↑ dotnet restore](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-restore)
+
+### Restore options
+
+#### `--no-cache`
+
+Specifies to not cache HTTP requests.
 
 ## Create new solution with project
 
