@@ -4,8 +4,8 @@ A **middleware** is software that's assembled into an app pipeline to handle req
 
 The middleware class must include:
 
-- A public constructor with a parameter of type RequestDelegate.
-- A public method named Invoke or InvokeAsync. This method must:
+- A public constructor with a parameter of type `RequestDelegate`.
+- A public method named `Invoke` or `InvokeAsync`. This method must:
   - Return a `Task`.
   - Accept a first parameter of type `HttpContext`.
 
