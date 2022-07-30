@@ -11,10 +11,12 @@ A **clean architecture** is just the latest in a series of names for the same lo
 
 > The goal of this repository (https://github.com/ardalis/CleanArchitecture) is to provide a basic solution structure that can be used to build DDD-based or simply well-factored, SOLID applications using .NET Core.
 
+> YouTube video "Clean Architecture with ASP.NET Core 6": https://www.youtube.com/watch?v=lkmvnjypENw.
+
 There are two common approaches to dependency organization (arrows show direction of dependencies):
 
-1. **N-tier** or **N-layer architecture**: UI →  business → data access → DB
-2. **Clean architecture**: UI  → core ← infrastructure → DB
+1. **N-tier** or **N-layer architecture**: UI → business → data access → DB
+2. **Clean architecture**: UI → core ← infrastructure → DB
 
 In clean architecture the UI and the infrastructure both depend on the core.
 
