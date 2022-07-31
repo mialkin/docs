@@ -2,14 +2,40 @@
 
 Istio is a [service mesh](#service-mesh) which is logically split into a *data plane* and a *control plane*:
 
-- The **data plane** is composed of a set of intelligent [↑ Envoy](https://www.envoyproxy.io/) proxies deployed as sidecars. These proxies mediate and control all network communication between microservices. They also collect and report telemetry on all mesh traffic.
+- The **data plane** is composed of a set of intelligent [↑ Envoy](https://www.envoyproxy.io) proxies deployed as sidecars. These proxies mediate and control all network communication between microservices. They also collect and report telemetry on all mesh traffic.
 - The **control plane** manages and configures the proxies to route traffic.
 
 Working with both Kubernetes and traditional workloads, Istio brings standard, universal traffic management, telemetry, and security to complex deployments.
 
+## Envoy
+
+[↑ Envoy](https://www.envoyproxy.io) is a high-performance proxy developed in C++ to mediate all inbound and outbound traffic for all services in the service mesh.
+
+Envoy proxies are deployed as sidecars to services, logically augmenting the services with Envoy's many built-in features, for example:
+
+- Dynamic service discovery
+- Load balancing
+- TLS termination
+- HTTP/2 and gRPC proxies
+- Circuit breakers, retries, failovers, and fault injection.
+- Health checks
+- Staged rollouts with %-based traffic split
+- Fault injection
+- Rich metrics
+
+## Istiod
+
+Istiod provides service discovery, configuration and certificate management.
+
+Istiod converts high level routing rules that control traffic behavior into Envoy-specific configurations, and propagates them to the sidecars at runtime.
+
+Istiod acts as a certificate authority and generates certificates to allow secure mTLS communication in the data plane.
+
 ## Table of contents
 
 - [Istio](#istio)
+  - [Envoy](#envoy)
+  - [Istiod](#istiod)
   - [Table of contents](#table-of-contents)
   - [Pod](#pod)
   - [Service](#service)
@@ -27,11 +53,13 @@ A **pod** is a group of one or more containers, with shared storage and network,
 
 ## Service
 
-A **service** is a delineated group of related behaviors within a [service mesh](#service-mesh). Services are identified using a service name, and Istio policies such as load balancing and routing are applied using these names. A service is typically materialized by one or more [service endpoints](#service-endpoint), and may consist of multiple service versions.
+A **service** is a delineated group of related behaviors within a [service mesh](#service-mesh).
+
+A service is typically materialized by one or more [service endpoints](#service-endpoint), and may consist of multiple service versions.
 
 ## Service endpoint
 
-A **service endpoint** is a network-reachable manifestation of a service.
+A **service endpoint** is a network-reachable manifestation of a [service](#service).
 
 ## Service mesh
 
