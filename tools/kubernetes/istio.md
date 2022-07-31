@@ -37,6 +37,7 @@ Istiod acts as a certificate authority and generates certificates to allow secur
   - [Envoy](#envoy)
   - [Istiod](#istiod)
   - [Table of contents](#table-of-contents)
+  - [Gateway](#gateway)
   - [Pod](#pod)
   - [Service](#service)
   - [Service endpoint](#service-endpoint)
@@ -46,6 +47,10 @@ Istiod acts as a certificate authority and generates certificates to allow secur
   - [Workload](#workload)
   - [Workload instance](#workload-instance)
   - [Kubernetes Ingress vs Istio Gateway](#kubernetes-ingress-vs-istio-gateway)
+
+## Gateway
+
+A **gateway** is a standalone Istio proxy deployed at the edge of the [mesh](#service-mesh). Gateways are used to route traffic into or out of the mesh.
 
 ## Pod
 
@@ -71,7 +76,7 @@ Istio maintains an internal **service registry** containing the set of [services
 
 ## Virtual service
 
-A virtual service is an object that defines a set of traffic routing rules to apply when a host is addressed. Each routing rule defines matching criteria for traffic of a specific protocol. If the traffic is matched, then it is sent to a named destination service (or subset/version of it) defined in the service registry.
+A **virtual service** is an object that defines a set of traffic routing rules to apply when a host is addressed. Each routing rule defines matching criteria for traffic of a specific protocol. If the traffic is matched, then it is sent to a named destination service (or subset/version of it) defined in the [service registry](#service-registry).
 
 ## Workload
 
