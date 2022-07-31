@@ -29,6 +29,13 @@ See installed addons:
 microk8s status
 ```
 
+## Run dashboard
+
+```bash
+kubectl proxy
+# http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy
+```
+
 ## MetalLB
 
 Enable [↑ MetaLB](https://metallb.universe.tf):
@@ -41,9 +48,40 @@ Use IP range: `192.168.0.100-192.168.0.150`.
 
 > Your WiFi router should include this range in its DHCP server's range: `DHCP Start IP Address`/`DHCP End IP Address`.
 
-## Run dashboard
+Make sure that a service got external IP:
 
-```bash
-kubectl proxy
-# http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  externalTrafficPolicy: Local
+  type: LoadBalancer
 ```
