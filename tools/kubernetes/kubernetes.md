@@ -5,10 +5,12 @@
 - [Kubernetes](#kubernetes)
   - [Table of contents](#table-of-contents)
   - [Configmap](#configmap)
+  - [Deployment](#deployment)
   - [Ingress resource](#ingress-resource)
   - [Ingress controller](#ingress-controller)
   - [Namespace](#namespace)
   - [Pod](#pod)
+  - [Replicaset](#replicaset)
   - [Secret](#secret)
   - [Service](#service)
   - [`ClusterIP`, `NodePort`, `LoadBalancer`](#clusterip-nodeport-loadbalancer)
@@ -19,15 +21,21 @@ A **configmap** is an object used to store non-confidential data in key-value pa
 
 [↑ ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap)
 
+## Deployment
+
+A **deployment** is an object that provides declarative updates for [pods](#pod) and [replicasets](#replicaset).
+
+[↑ Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment)
+
 ## Ingress resource
 
 An **ingress resource** is an object with a set of routing rules.
 
 ## Ingress controller
 
-An **ingress controller** is just another pod running in Kubernetes.
+An **ingress controller** is just another [pod](#pod) running in Kubernetes that is responsible for reading the [ingress resource](#ingress-resource) information and processing that data accordingly.
 
-The ingress controller is responsible for reading the ingress resource information and processing that data accordingly.
+[↑ Ingress Controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers)
 
 ## Namespace
 
@@ -45,11 +53,21 @@ A **pod** is a group of one or more containers, with shared storage and network 
 
 [↑ Pod](https://kubernetes.io/docs/concepts/workloads/pods)
 
+## Replicaset
+
+A **replicaset** is an object that maintains a stable set of replica [pods](#pod) running at any given time.
+
+As such, it is often used to guarantee the availability of a specified number of identical pods.
+
+[↑ ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset)
+
 ## Secret
 
 A **secret** is an object that contains a small amount of sensitive data such as a password, a token, or a key.
 
 Secrets are similar to [configmaps](#configmap) but are specifically intended to hold confidential data.
+
+[↑ Secrets](https://kubernetes.io/docs/concepts/configuration/secret)
 
 ## Service
 
