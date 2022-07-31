@@ -6,6 +6,7 @@
   - [Table of contents](#table-of-contents)
   - [Configmap](#configmap)
   - [Deployment](#deployment)
+  - [Ingress](#ingress)
   - [Ingress resource](#ingress-resource)
   - [Ingress controller](#ingress-controller)
   - [Namespace](#namespace)
@@ -26,6 +27,16 @@ A **configmap** is an object used to store non-confidential data in key-value pa
 A **deployment** is an object that provides declarative updates for [pods](#pod) and [replicasets](#replicaset).
 
 [↑ Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment)
+
+## Ingress
+
+An **ingress** is an object that manages external access to the services in a cluster, typically HTTP.
+
+Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. Traffic routing is controlled by rules defined on the [ingress resource](#ingress-resource).
+
+Ingress may provide load balancing, SSL termination and name-based virtual hosting.
+
+[↑ Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress)
 
 ## Ingress resource
 
