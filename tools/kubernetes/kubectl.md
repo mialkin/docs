@@ -126,9 +126,10 @@ echo $KUBECONFIG
 
 ```bash
 kubectl create secret docker-registry SECRET_NAME \
+--namespace="YOUR_NAMESPACE" \
 --docker-server="registry.gitlab.com" \
 --docker-username="admin" \
---docker-password="abc123" \
+--docker-password="abc123"
 #--docker-email="admin@example.com"
 ```
 
@@ -136,10 +137,10 @@ kubectl create secret docker-registry SECRET_NAME \
 
 ```bash
 kubectl create secret generic SECRET_NAME \
---namespace=YOUR_NAMESPACE \
---from-literal=username=admin \
---from-literal="password=123"
---from-literal=connectionstring='host=localhost;user=admin;password=secret'
+--namespace="YOUR_NAMESPACE" \
+--from-literal="username=admin" \
+--from-literal="password=123" \
+--from-literal="connectionstring='host=localhost;user=admin;password=secret'"
 ```
 
 ## Decode base64 string
