@@ -90,7 +90,7 @@ What belongs to shared kernel project:
 - Common exceptions
 - DI
 - Logging
-- Validators
+- Common validators
 
 Shared kernel should have no infrastructure dependencies!
 
