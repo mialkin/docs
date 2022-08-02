@@ -1,19 +1,11 @@
 # Clean Architecture
 
-- [Clean Architecture](#clean-architecture)
-  - [Core project](#core-project)
-  - [Infrastructure Project](#infrastructure-project)
-  - [Web Project](#web-project)
-  - [Shared Kernel](#shared-kernel)
-  - [GitHub Repository](#github-repository)
-  - [YouTube Video](#youtube-video)
-
 A **clean architecture** is just the latest in a series of names for the same loosely-coupled, dependency-inverted, domain-centric approach to organizing dependencies in an application. You will also find it named [↑ **hexagonal**](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)), **ports and adapters**, or **onion architecture**.
 
 There are two common approaches to dependency organization, arrows show direction of dependencies:
 
-1. **N-tier architecture**: UI → business layer → data access layer → database
-2. **Clean architecture**: UI → core ← infrastructure → database
+1. **N-tier/N-layer architecture**: UI → business layer → data access layer → database
+2. **Clean architecture**: UI → core ← infrastructure (including data access) → database
 
 In clean architecture the UI and the infrastructure both depend on the core.
 
@@ -23,7 +15,18 @@ Clean architecture rules:
 - All dependencies flow towards the core project
 - Inner projects define interfaces, outer projects implement them
 
-## Core project
+## Table of Contents
+
+- [Clean Architecture](#clean-architecture)
+  - [Table of Contents](#table-of-contents)
+  - [Core Project](#core-project)
+  - [Infrastructure Project](#infrastructure-project)
+  - [Web Project](#web-project)
+  - [Shared Kernel](#shared-kernel)
+  - [GitHub Repository](#github-repository)
+  - [YouTube Video](#youtube-video)
+
+## Core Project
 
 What belongs to core project:
 
