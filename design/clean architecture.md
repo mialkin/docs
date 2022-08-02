@@ -40,7 +40,7 @@ What belongs to core project:
 - Enums
 - Custom [↑ guard clauses](https://github.com/ardalis/GuardClauses). Guard clauses are simple validators you do to make sure that the system is in consistent state. You create custom ones that you reuse that apply to your domain model
 
-`IAggregateRoot` interface is used to enforce persistence rule that says that we only wanna fetch and store aggregates as the whole, not individual entities. For example a `ToDoItem` is also an entity, but not an aggregate root, so it's not something you gonna persist on its own.
+The Core project is the center of the clean architecture design, and all other project dependencies should point toward it. As such, it has very few external dependencies.
 
 ## Infrastructure Project
 
@@ -75,6 +75,8 @@ What belongs to web project:
 - Other services
 - Other interfaces. The same rules apply as with infrastructure's other interfaces and services
 
+The Web project is an entry point of the application.
+
 ## Shared Kernel
 
 What belongs to shared kernel project:
@@ -92,9 +94,9 @@ What belongs to shared kernel project:
 - Logging
 - Common validators
 
-Shared kernel should have no infrastructure dependencies!
+Shared Kernel should have no infrastructure dependencies!
 
-It's recommended to create a separate shared kernel project and solution if you will require sharing code between multiple bounded contexts. It's further recommended to be published as a NuGet package, most likely privately within your organization, and referenced as a NuGet dependency by those projects that require it.
+It's recommended to create a separate Shared Kernel project and solution if you will require sharing code between multiple bounded contexts. It's further recommended to be published as a NuGet package, most likely privately within your organization, and referenced as a NuGet dependency by those projects that require it.
 
 ## GitHub Repository
 
