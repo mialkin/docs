@@ -1,53 +1,48 @@
 # Clean Architecture
 
 - [Clean Architecture](#clean-architecture)
-  - [Clean architecture rules](#clean-architecture-rules)
   - [Core project](#core-project)
-  - [Infrastructure project](#infrastructure-project)
-  - [Web project](#web-project)
-  - [Shared kernel](#shared-kernel)
+  - [Infrastructure Project](#infrastructure-project)
+  - [Web Project](#web-project)
+  - [Shared Kernel](#shared-kernel)
+  - [GitHub Repository](#github-repository)
+  - [YouTube Video](#youtube-video)
 
-A **clean architecture** is just the latest in a series of names for the same loosely-coupled, dependency-inverted, domain-centric approach to organizing dependencies in an application. You will also find it named **hexagonal**, **ports and adapters**, or **onion architecture**.
+A **clean architecture** is just the latest in a series of names for the same loosely-coupled, dependency-inverted, domain-centric approach to organizing dependencies in an application. You will also find it named [↑ **hexagonal**](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)), **ports and adapters**, or **onion architecture**.
 
-> The goal of this repository (https://github.com/ardalis/CleanArchitecture) is to provide a basic solution structure that can be used to build DDD-based or simply well-factored, SOLID applications using .NET Core.
+There are two common approaches to dependency organization, arrows show direction of dependencies:
 
-> YouTube video "Clean Architecture with ASP.NET Core 6": https://www.youtube.com/watch?v=lkmvnjypENw.
-
-There are two common approaches to dependency organization (arrows show direction of dependencies):
-
-1. **N-tier** or **N-layer architecture**: UI → business → data access → DB
-2. **Clean architecture**: UI → core ← infrastructure → DB
+1. **N-tier architecture**: UI → business layer → data access layer → database
+2. **Clean architecture**: UI → core ← infrastructure → database
 
 In clean architecture the UI and the infrastructure both depend on the core.
 
-## Clean architecture rules
+Clean architecture rules:
 
-- All business rules and entities are modeled inside core project
-- All dependencies flow toward the core project
+- All business rules and entities are modeled inside the core project
+- All dependencies flow towards the core project
 - Inner projects define interfaces, outer projects implement them
-
-> You should get familiar with [DDD patterns](ddd.md) before reading further.
 
 ## Core project
 
 What belongs to core project:
 
 - Interfaces
-- Aggregates
-- Entities
-- Value objects
+- [↑ Aggregates](https://deviq.com/domain-driven-design/aggregate-pattern)
+- [↑ Entities](https://deviq.com/domain-driven-design/entity)
+- [↑ Value objects](https://deviq.com/domain-driven-design/value-object)
 - Domain services. This is where logic lives that has to do with multiple entities or value objects and how they work with each other. You want to try and put as much behavior into your entities, aggregates and value objects as you can, but sometimes it doesn't belong to one of those and so you have domain services for that type of thing
 - Custom domain exceptions. Something like `CustomerNotFoundException`
 - Domain events
 - Domain handlers. You could have handlers in other places as well, but the events themselves should usually be defined inside of core
-- Specifications
+- [↑ Specifications](https://deviq.com/design-patterns/specification-pattern)
 - Validators. Like [↑ FluentValidation](https://github.com/FluentValidation/FluentValidation)
-- Enums or [↑ SmartEnums](https://github.com/ardalis/SmartEnum)
-- Custom guard classes. For example [↑ GuardClauses](https://github.com/ardalis/GuardClauses). Guard classes are simple validators you do to make sure that the system is in consistent state. You create custom ones that you reuse that apply to your domain model
+- Enums
+- Custom [↑ guard clauses](https://github.com/ardalis/GuardClauses). Guard clauses are simple validators you do to make sure that the system is in consistent state. You create custom ones that you reuse that apply to your domain model
 
 `IAggregateRoot` interface is used to enforce persistence rule that says that we only wanna fetch and store aggregates as the whole, not individual entities. For example a `ToDoItem` is also an entity, but not an aggregate root, so it's not something you gonna persist on its own.
 
-## Infrastructure project
+## Infrastructure Project
 
 What belongs to infrastructure project:
 
@@ -62,7 +57,9 @@ What belongs to infrastructure project:
 - Other services
 - Other interfaces. Those do not use domain models for their parameters and return types. For instance, if you are using some SDK and it's returning some of its type you don't want to put it in the core, because now core will have dependency on SDK's type
 
-## Web project
+Most of your application's dependencies on external resources should be implemented in classes defined in the Infrastructure project. These classes should implement interfaces defined in Core.
+
+## Web Project
 
 What belongs to web project:
 
@@ -78,7 +75,7 @@ What belongs to web project:
 - Other services
 - Other interfaces. The same rules apply as with infrastructure's other interfaces and services
 
-## Shared kernel
+## Shared Kernel
 
 What belongs to shared kernel project:
 
@@ -88,7 +85,7 @@ What belongs to shared kernel project:
 - Base specification
 - Common interfaces
 - Common authentication
-- Common guards
+- Common [↑ guard clauses](https://github.com/ardalis/GuardClauses)
 - Common libraries
 - Common exceptions
 - DI
@@ -98,3 +95,11 @@ What belongs to shared kernel project:
 Shared kernel should have no infrastructure dependencies!
 
 It's recommended to create a separate shared kernel project and solution if you will require sharing code between multiple bounded contexts. It's further recommended to be published as a NuGet package, most likely privately within your organization, and referenced as a NuGet dependency by those projects that require it.
+
+## GitHub Repository
+
+[↑ Clean Architecture](https://github.com/ardalis/CleanArchitecture).
+
+## YouTube Video
+
+[↑ Clean Architecture with ASP.NET Core 6](https://www.youtube.com/watch?v=lkmvnjypENw).
