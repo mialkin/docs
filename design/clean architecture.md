@@ -43,7 +43,7 @@ What belongs to core project:
 - Enums
 - Custom [↑ guard clauses](https://github.com/ardalis/GuardClauses). Guard clauses are simple validators you do to make sure that the system is in consistent state. You create custom ones that you reuse that apply to your domain model
 
-The Core project is the center of the clean architecture design, and all other project dependencies should point toward it. As such, it has very few external dependencies.
+The Core project is the center of the clean architecture design, and all other project dependencies should point towards it. As such, it has very few external dependencies.
 
 ## Infrastructure Project
 
