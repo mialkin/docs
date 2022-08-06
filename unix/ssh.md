@@ -11,6 +11,7 @@
     - [Use multiple keys](#use-multiple-keys)
   - [On server](#on-server)
     - [Disable password authentication](#disable-password-authentication)
+    - [Change SSH port](#change-ssh-port)
   - [Links](#links)
 
 The **Secure Shell** (**SSH**) is a cryptographic network protocol for operating network services securely over an unsecured network.
@@ -50,6 +51,10 @@ cat ~/.ssh/id_rsa.pub | pbcopy
 ssh-copy-id -i ~/.ssh/gitlab remote_username@remote_host
 ```
 
+This logs into the server host, and copies keys to the server, and configures them to grant access by adding them to the `authorized_keys` file. The copying may ask for a password or other authentication for the server.
+
+Only the public key is copied to the server. The private key should never be copied to another machine.
+
 After that connect to server and make sure that your public key was added there:
 
 ```bash
@@ -62,6 +67,7 @@ If you have multiple privates keys, specify the one to use:
 
 ```bash
 ssh -i path_to_private_key_file remote_username@remote_host
+#ssh -i path_to_private_key_file remote_username@remote_hos -p SSH_PORT
 ```
 
 This command assumes that your username on the remote system is the same as your username on your local system:
@@ -146,6 +152,43 @@ Run:
 sudo systemctl restart ssh
 ```
 
+### Change SSH port
+
+```bash
+grep -i port /etc/ssh/sshd_config
+```
+
+If you want to change the default SSH port in Ubuntu, perform the following steps with root privileges:
+
+Open the `/etc/ssh/sshd_config` file:
+
+```bash
+sudo vim /etc/ssh/sshd_config
+```
+
+and locate the line:
+
+```text
+#Port 22
+```
+
+Then, uncomment (Remove the leading`#` character) it and change the value with an appropriate port number (for example, 22000):
+
+```text
+Port 22000
+```
+
+Restart the SSH server:
+
+```bash
+systemctl restart sshd
+```
+
+When connecting to the server using the ssh command, you need to specify the port to connect using the `-p` flag:
+
+```bash
+ssh remote_username@remote_host -p SSH_PORT_NUMBER
+```
 
 ## Links
 
