@@ -81,10 +81,10 @@ Modes:
 
 | Command                                   | Description                                     |
 | ----------------------------------------- | ----------------------------------------------- |
-| curl https://www.example.com              | Get the main page from a web-server             |
-| curl -i https://www.example.com           | Include protocol response headers in the output |
+| curl `https://www.example.com`            | Get the main page from a web-server             |
+| curl -i `https://www.example.com`         | Include protocol response headers in the output |
 | curl -H "Host: sub.domain.com" 120.7.3.15 | Passing header value                            |
-| curl -v https://www.example.com           | Get verbose fetching                            |
+| curl -v `https://www.example.com`         | Get verbose fetching                            |
 
 ### Download a file
 
