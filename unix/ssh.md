@@ -1,24 +1,23 @@
 # Secure Shell (SSH)
 
 - [Secure Shell (SSH)](#secure-shell-ssh)
-  - [Manage keys](#manage-keys)
-    - [On client](#on-client)
-      - [List existing keys](#list-existing-keys)
-      - [Generate new key](#generate-new-key)
-      - [Get public key](#get-public-key)
-      - [Connect](#connect)
-  - [`known_hosts` file](#known_hosts-file)
-  - [Use multiple keys](#use-multiple-keys)
-  - [Disable password authentication](#disable-password-authentication)
+  - [On client](#on-client)
+    - [List existing keys](#list-existing-keys)
+    - [Generate new key](#generate-new-key)
+    - [Get public key](#get-public-key)
+    - [Copy public key to server](#copy-public-key-to-server)
+    - [Connect to server](#connect-to-server)
+    - [`known_hosts` file](#known_hosts-file)
+    - [Use multiple keys](#use-multiple-keys)
+  - [On server](#on-server)
+    - [Disable password authentication](#disable-password-authentication)
   - [Links](#links)
 
 The **Secure Shell** (**SSH**) is a cryptographic network protocol for operating network services securely over an unsecured network.
 
-## Manage keys
+## On client
 
-### On client
-
-#### List existing keys
+### List existing keys
 
 List existing SSH keys:
 
@@ -26,7 +25,7 @@ List existing SSH keys:
 ls -al ~/.ssh
 ```
 
-#### Generate new key
+### Generate new key
 
 Generate a new key pair:
 
@@ -37,7 +36,7 @@ ssh-keygen
 # ssh-keygen -t ed25519
 ```
 
-#### Get public key
+### Get public key
 
 Copy public key into clipboard:
 
@@ -45,26 +44,36 @@ Copy public key into clipboard:
 cat ~/.ssh/id_rsa.pub | pbcopy
 ```
 
-#### Connect
+### Copy public key to server
 
 ```bash
-ssh remote_host
+ssh-copy-id -i ~/.ssh/gitlab remote_username@remote_host
 ```
 
-The _remote_host_ in this example is the IP address or domain name that you are trying to connect to.
-
-This command assumes that your username on the remote system is the same as your username on your local system.
-
-If your username is different on the remote system, you can specify it by using this syntax:
+After that connect to server and make sure that your public key was added there:
 
 ```bash
-ssh remote_username@remote_host
+cat ~/.ssh/authorized_keys 
 ```
+
+### Connect to server
 
 If you have multiple privates keys, specify the one to use:
 
 ```bash
 ssh -i path_to_private_key_file remote_username@remote_host
+```
+
+This command assumes that your username on the remote system is the same as your username on your local system:
+
+```bash
+ssh remote_host
+```
+
+If your username is different on the remote system, you can specify it by using this syntax:
+
+```bash
+ssh remote_username@remote_host
 ```
 
 To exit back into your local session, simply type:
@@ -79,15 +88,15 @@ You can create an alias to connect quicker:
 echo "alias mysite='ssh mywebsite.abcd'" >> ~/.zshrc
 ```
 
-## `known_hosts` file
+### `known_hosts` file
 
-Open known_hosts file:
+Path to `known_hosts` file:
 
 ```bash
 vim ~/.ssh/known_hosts
 ```
 
-## Use multiple keys
+### Use multiple keys
 
 ```bash
 cd
@@ -109,8 +118,9 @@ Host myother realname2.example.org
     User remoteusername2
 ```
 
+## On server
 
-## Disable password authentication
+### Disable password authentication
 
 On client:
 
@@ -135,6 +145,7 @@ Run:
 ```bash
 sudo systemctl restart ssh
 ```
+
 
 ## Links
 
