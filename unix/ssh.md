@@ -2,10 +2,11 @@
 
 - [Secure Shell (SSH)](#secure-shell-ssh)
   - [Manage keys](#manage-keys)
-    - [List](#list)
-    - [Generate](#generate)
-    - [Get public key](#get-public-key)
-  - [Connect](#connect)
+    - [On client](#on-client)
+      - [List existing keys](#list-existing-keys)
+      - [Generate new key](#generate-new-key)
+      - [Get public key](#get-public-key)
+      - [Connect](#connect)
   - [`known_hosts` file](#known_hosts-file)
   - [Use multiple keys](#use-multiple-keys)
   - [Disable password authentication](#disable-password-authentication)
@@ -15,7 +16,9 @@ The **Secure Shell** (**SSH**) is a cryptographic network protocol for operating
 
 ## Manage keys
 
-### List
+### On client
+
+#### List existing keys
 
 List existing SSH keys:
 
@@ -23,16 +26,18 @@ List existing SSH keys:
 ls -al ~/.ssh
 ```
 
-### Generate
+#### Generate new key
 
 Generate a new key pair:
 
 ```bash
+cd ~/.ssh
 ssh-keygen
+# ssh-keygen -f gitlab
 # ssh-keygen -t ed25519
 ```
 
-### Get public key
+#### Get public key
 
 Copy public key into clipboard:
 
@@ -40,7 +45,7 @@ Copy public key into clipboard:
 cat ~/.ssh/id_rsa.pub | pbcopy
 ```
 
-## Connect
+#### Connect
 
 ```bash
 ssh remote_host
