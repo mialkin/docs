@@ -22,6 +22,7 @@
   - [systemctl](#systemctl)
   - [tail](#tail)
   - [tar](#tar)
+  - [telnet](#telnet)
   - [xxd](#xxd)
 
 ## apt
@@ -319,6 +320,31 @@ GNU **tar** is an archiving program designed to store multiple files in a single
 - `z` — filter the archive through gzip
 - `-C` — changes the directory
 - `--exclude <pattern>` — do not process files or directories that match the specified pattern
+
+## telnet
+
+Test if port 22 is open on `your.hostname.com`:
+
+```bash
+telnet your.hostname.com 22
+```
+
+Success message looks like:
+
+```text
+Trying 10.11.12.13...
+Connected to your.hostname.com.
+Escape character is '^]'.
+SSH-2.0-OpenSSH_8.9p1 Ubuntu-3
+```
+
+Failure message looks like:
+
+```text
+Trying 10.11.12.13...
+telnet: connect to address 10.11.12.13: Connection refused
+telnet: Unable to connect to remote host
+```
 
 ## xxd
 
