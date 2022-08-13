@@ -1,5 +1,14 @@
 # microk8s
 
+## Table of contents
+
+- [microk8s](#microk8s)
+  - [Table of contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Run dashboard](#run-dashboard)
+  - [MetalLB](#metallb)
+  - [Access Kubernetes API from remote client](#access-kubernetes-api-from-remote-client)
+
 ## Installation
 
 Installation [↑ instruction](https://ubuntu.com/kubernetes/install):
@@ -84,4 +93,26 @@ spec:
       targetPort: 80
   externalTrafficPolicy: Local
   type: LoadBalancer
+```
+
+## Access Kubernetes API from remote client
+
+Add in the file domain name and/or IP address of the remote machine:
+
+```bash
+vim /var/snap/microk8s/current/certs/csr.conf.template
+```
+
+Add lines similar to following:
+
+```text
+DNS.6 = your.hostname.com
+IP.3 = 1.2.3.4
+```
+
+Restart microk8s:
+
+```bash
+microk8s stop
+microk8s start
 ```
