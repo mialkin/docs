@@ -7,6 +7,23 @@ Istio is a [service mesh](#service-mesh) which is logically split into a *data p
 
 Working with both Kubernetes and traditional workloads, Istio brings standard, universal traffic management, telemetry, and security to complex deployments.
 
+## Table of contents
+
+- [Istio](#istio)
+  - [Table of contents](#table-of-contents)
+  - [Envoy](#envoy)
+  - [Istiod](#istiod)
+  - [Gateway](#gateway)
+  - [Pod](#pod)
+  - [Service](#service)
+  - [Service endpoint](#service-endpoint)
+  - [Service mesh](#service-mesh)
+  - [Service registry](#service-registry)
+  - [Virtual service](#virtual-service)
+  - [Workload](#workload)
+  - [Workload instance](#workload-instance)
+  - [Kubernetes Ingress vs Istio Gateway](#kubernetes-ingress-vs-istio-gateway)
+
 ## Envoy
 
 [↑ Envoy](https://www.envoyproxy.io) is a high-performance proxy developed in C++ to mediate all inbound and outbound traffic for all services in the service mesh.
@@ -30,23 +47,6 @@ Istiod provides service discovery, configuration and certificate management.
 Istiod converts high level routing rules that control traffic behavior into Envoy-specific configurations, and propagates them to the sidecars at runtime.
 
 Istiod acts as a certificate authority and generates certificates to allow secure mTLS communication in the data plane.
-
-## Table of contents
-
-- [Istio](#istio)
-  - [Envoy](#envoy)
-  - [Istiod](#istiod)
-  - [Table of contents](#table-of-contents)
-  - [Gateway](#gateway)
-  - [Pod](#pod)
-  - [Service](#service)
-  - [Service endpoint](#service-endpoint)
-  - [Service mesh](#service-mesh)
-  - [Service registry](#service-registry)
-  - [Virtual service](#virtual-service)
-  - [Workload](#workload)
-  - [Workload instance](#workload-instance)
-  - [Kubernetes Ingress vs Istio Gateway](#kubernetes-ingress-vs-istio-gateway)
 
 ## Gateway
 
