@@ -9,13 +9,13 @@ using System;
 using System.Diagnostics;
 using System.Threading;
 
-Stopwatch stopWatch = new();
+var stopwatch = new Stopwatch();
 
-stopWatch.Start();
+stopwatch.Start();
 Thread.Sleep(1234);
-stopWatch.Stop();
+stopwatch.Stop();
 
-TimeSpan ts = stopWatch.Elapsed;
+TimeSpan ts = stopwatch.Elapsed;
 string elapsedTime = $"{ts.Hours:00}:{ts.Minutes:00}:{ts.Seconds:00}.{ts.Milliseconds / 10:00}";
 
 Console.WriteLine(elapsedTime); // 00:00:01.23
