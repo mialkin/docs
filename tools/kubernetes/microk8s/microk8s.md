@@ -95,6 +95,8 @@ spec:
   type: LoadBalancer
 ```
 
+As you can see if service has `LoadBalancer` type MetalLB automatically assigns external IP to such a service. This is also the case with, for example, Istio ingress gateway.
+
 ## Access Kubernetes API from remote client
 
 Add in the file domain name and/or IP address of the remote machine:
