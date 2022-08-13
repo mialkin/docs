@@ -12,7 +12,7 @@
   - [On server](#on-server)
     - [Disable password authentication](#disable-password-authentication)
     - [Change SSH port](#change-ssh-port)
-  - [Links](#links)
+    - [List failed SSH login attempts](#list-failed-ssh-login-attempts)
 
 The **Secure Shell** (**SSH**) is a cryptographic network protocol for operating network services securely over an unsecured network.
 
@@ -154,10 +154,6 @@ sudo systemctl restart ssh
 
 ### Change SSH port
 
-```bash
-grep -i port /etc/ssh/sshd_config
-```
-
 If you want to change the default SSH port in Ubuntu, perform the following steps with root privileges:
 
 Open the `/etc/ssh/sshd_config` file:
@@ -190,8 +186,8 @@ When connecting to the server using the ssh command, you need to specify the por
 ssh remote_username@remote_host -p SSH_PORT_NUMBER
 ```
 
-## Links
+### List failed SSH login attempts
 
-- [↑ Best way to use multiple SSH private keys on one client](https://stackoverflow.com/questions/2419566/best-way-to-use-multiple-ssh-private-keys-on-one-client)
-- [↑ Что записано в файле .ssh/known_hosts](https://habr.com/ru/post/421477/)
-- [↑ How to Set Up SSH Keys on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)
+```bash
+grep "Failed password" /var/log/auth.log
+```
