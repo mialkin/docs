@@ -1,17 +1,10 @@
 # Helm
 
-- [Helm](#helm)
-  - [Install Helm](#install-helm)
-  - [Commands](#commands)
-  - [Create a chart](#create-a-chart)
-  - [Linting](#linting)
-  - [Packaging](#packaging)
-  - [Deploying](#deploying)
-  - [Installing](#installing)
-
 **Helm** is Kubernetes package manager.
 
-Helm uses a packaging format called _charts_. A **chart** is a collection of files that describe a related set of Kubernetes resources. It is a bundle of information necessary to create an instance of a Kubernetes application.
+Helm uses a packaging format called _charts_.
+
+A **chart** is a collection of files that describe a related set of Kubernetes resources. It is a bundle of information necessary to create an instance of a Kubernetes application.
 
 A **config** is a configuration information that can be merged into a packaged chart to create a releasable object.
 
@@ -19,7 +12,19 @@ A **repository** is the place where charts can be collected and shared.
 
 A **release** is a running in Kubernetes cluster instance of a chart, combined with a specific config. One chart can often be installed many times into the same cluster. And each time it is installed, a new release is created.
 
-## Install Helm
+## Table of contents
+
+- [Helm](#helm)
+  - [Table of contents](#table-of-contents)
+  - [Installing Helm](#installing-helm)
+  - [Commands](#commands)
+  - [Creating chart](#creating-chart)
+  - [Linting](#linting)
+  - [Packaging](#packaging)
+  - [Deploying](#deploying)
+  - [Installing](#installing)
+
+## Installing Helm
 
 Homebrew:
 
@@ -42,7 +47,7 @@ brew install helm
 | helm show values REPOSITORY_NAME/CHART_NAME  | Display configurable options before installing chart                             |
 | helm status RELEASE_NAME                     | Display status of the release's stated, for example during installation          |
 
-## Create a chart
+## Creating chart
 
 Generate chart:
 
