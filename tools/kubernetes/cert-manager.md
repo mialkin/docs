@@ -1,22 +1,45 @@
 # cert-manager
 
-[↑ Installing with Helm](https://cert-manager.io/next-docs/installation/kubernetes/#installing-with-helm):
+[↑ cert-manager](https://cert-manager.io/docs) is a powerful and extensible X.509 certificate controller for Kubernetes and OpenShift workloads.
+
+cert-manager adds certificates and certificate issuers as resource types in Kubernetes clusters, and simplifies the process of obtaining, renewing and using those certificates.
+
+It can issue certificates from a variety of supported sources, including [↑ Let's Encrypt](https://letsencrypt.org) and [↑ HashiCorp Vault](https://www.vaultproject.io).
+
+It will ensure certificates are valid and up to date, and attempt to renew certificates at a configured time before expiry.
+
+## Installation
+
+### x86
+
+[↑ Installing with Helm](https://cert-manager.io/docs/installation/helm):
+
+Install Helm:
 
 ```bash
-kubectl create namespace cert-manager
-helm repo add jetstack https://charts.jetstack.io
+brew install helm
 ```
+
+Create `cert-manager` namespace and add jetstack's repository:
+
+```bash
+helm repo list
+helm repo add jetstack https://charts.jetstack.io
+helm repo update
+```
+
+Install cert-manager:
 
 ```bash
 helm install \
   cert-manager jetstack/cert-manager \
   --namespace cert-manager \
   --create-namespace \
-  --version v1.3.1 \
+  --version v1.9.1 \
   --set installCRDs=true
 ```
 
-## ARM64
+### ARM64
 
 ```bash
 curl -sL \
