@@ -5,6 +5,8 @@
 - [microk8s](#microk8s)
   - [Table of contents](#table-of-contents)
   - [Installation](#installation)
+  - [List installed addons](#list-installed-addons)
+  - [Turn on addons you need](#turn-on-addons-you-need)
   - [Run dashboard](#run-dashboard)
   - [MetalLB](#metallb)
   - [Access Kubernetes API from remote client](#access-kubernetes-api-from-remote-client)
@@ -26,16 +28,16 @@ Print out `.kube/config` file:
 microk8s config
 ```
 
-Turn on services you need:
-
-```bash
-microk8s enable dns ingress dashboard prometheus
-```
-
-See installed addons:
+## List installed addons
 
 ```bash
 microk8s status
+```
+
+## Turn on addons you need
+
+```bash
+microk8s enable dns ingress dashboard prometheus
 ```
 
 ## Run dashboard
