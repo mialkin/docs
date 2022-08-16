@@ -224,6 +224,7 @@
 - [OWIN](dotnet/owin.md)
 - [PowerShell](dotnet/powershell.md)
   - [PowerShell scripting](dotnet/powershell%20scripting.md)
+- [Roslyn](dotnet/roslyn.md)
 - [Secret Manager tool](dotnet/secret%20manager.md)
 
 ## ASP.NET
