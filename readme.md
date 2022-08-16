@@ -143,8 +143,8 @@
 ## Programming
 
 - [Aggregation and composition](programming/aggregation%20and%20composition/aggregation%20and%20composition.md)
-- Code analysis
-  - [Cyclomatic complexity](programming/code%20analysis/cyclomatic%20complexity.md)
+- [Cyclomatic complexity](programming/cyclomatic%20complexity.md)
+- [EditorConfig](programming/editorconfig.md)
 - [Function parameters vs arguments](programming/function%20parameters%20vs%20arguments.md)
 - [Idempotence](programming/idempotence.md)
 - [Inversion of control (IoC)](programming/ioc/inversion%20of%20control.md)
@@ -215,7 +215,6 @@
   - [Moq](dotnet/libraries/moq.md)
   - [↑ OpenTelemetry .NET](https://github.com/open-telemetry/opentelemetry-dotnet)
   - [Polly](dotnet/libraries/polly.md)
-  - [StyleCop.Analyzers](dotnet/libraries/stylecop.md)
   - [xUnit](dotnet/libraries/xunit.md)
   - [↑ YARP](https://github.com/microsoft/reverse-proxy)
 - Identity management
@@ -224,7 +223,7 @@
 - [OWIN](dotnet/owin.md)
 - [PowerShell](dotnet/powershell.md)
   - [PowerShell scripting](dotnet/powershell%20scripting.md)
-- [Roslyn](dotnet/roslyn.md)
+- [Roslyn and Roslyn analyzers](dotnet/roslyn.md)
 - [Secret Manager tool](dotnet/secret%20manager.md)
 
 ## ASP.NET

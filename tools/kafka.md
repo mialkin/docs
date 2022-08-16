@@ -18,6 +18,9 @@ Some of the key Kafka features:
     - [Replication](#replication)
   - [Kafka producers](#kafka-producers)
   - [Running Kafka in Docker](#running-kafka-in-docker)
+  - [Kafka consumer auto offset reset](#kafka-consumer-auto-offset-reset)
+  - [Exactly-Once Semantics](#exactly-once-semantics)
+  - [The Transactional Outbox Pattern](#the-transactional-outbox-pattern)
   - [Links](#links)
 
 ## Terminology and components
@@ -32,7 +35,9 @@ Each message in a partition is assigned an incremental ID called an offset. Offs
 
 ### Zookeeper
 
-**ZooKeeper** is a centralized service for managing distributed systems. It offers hierarchical key-value store, configuration, synchronization, and name registry services to the distributed system it manages. ZooKeeper acts as ensemble layer (ties things together) and ensures high availability of the Kafka cluster. It’s important to understand that Kafka cannot work without ZooKeeper.
+**ZooKeeper** is a centralized service for managing distributed systems. It offers hierarchical key-value store, configuration, synchronization, and name registry services to the distributed system it manages.
+
+> [↑ Apache Kafka Needs No Keeper: Removing the Apache ZooKeeper Dependency](https://www.confluent.io/blog/removing-zookeeper-dependency-in-kafka)
 
 From the list of ZooKeeper nodes, one of the nodes is elected as a leader and the rest of the nodes follow the leader. In the case of a ZooKeeper node failure, one of the followers is elected as leader. More than one node is strongly recommended for high availability and more than 7 is not recommended.
 
@@ -40,7 +45,7 @@ ZooKeeper stores metadata and the current state of the Kafka cluster. For exampl
 
 Key things to remember about ZooKeeper:
 
-- Manages list of brokers
+- Manages list of *brokers*, i.e. Kafka nodes
 - Elects broker leaders when a broker goes down
 - Sends notifications on a new broker, new topic, deleted topic, lost brokers, etc
 - Consumer offsets are not stored in ZooKeeper, only the metadata of the cluster is stored in ZooKeeper
@@ -48,9 +53,7 @@ Key things to remember about ZooKeeper:
 
 ### Broker
 
-A **broker** is a single Kafka node that is managed by ZooKeeper. A set of brokers form a Kafka **cluster**. Topics that are created in Kaka are distributed across brokers based on the partition, replication, and other factors. When a broker node fails based on the state stored in ZooKeeper it automatically rebalances the cluster and if a leader partition is lost then one of the follower petitions is elected as the leader.
-
-You can think of a broker as a team leader who takes care of the assigned tasks. If a team lead isn’t available then the manager takes care of assigning tasks to other team members.
+A **broker** is a single Kafka node that is managed by ZooKeeper. A set of brokers form a Kafka **cluster**. Topics that are created in Kaka are distributed across brokers based on the partition, replication, and other factors. When a broker node fails based on the state stored in ZooKeeper it automatically rebalances the cluster and if a leader partition is lost then one of the follower partitions is elected as the leader.
 
 ### Replication
 
@@ -115,6 +118,18 @@ services:
     depends_on:
       - kafka
 ```
+
+## Kafka consumer auto offset reset
+
+[↑ Kafka Consumer Auto Offset Reset](https://medium.com/lydtech-consulting/kafka-consumer-auto-offset-reset-d3962bad2665)
+
+## Exactly-Once Semantics
+
+https://medium.com/lydtech-consulting/kafka-transactions-part-1-exactly-once-messaging-9949350281ff
+
+## The Transactional Outbox Pattern
+
+https://medium.com/lydtech-consulting/kafka-idempotent-consumer-transactional-outbox-74b304815550
 
 ## Links
 
