@@ -1,15 +1,21 @@
 # Code analysis
 
-## Roslyn
+## Code analysis
 
-[↑ Roslyn](https://github.com/dotnet/roslyn) is a .NET compiler platform.
+[↑ Overview of .NET source code analysis](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview)
 
-Roslyn includes implementation of both the C# and Visual Basic compilers with an API surface for building *code analysis* tools.
+*Roslyn* analyzers inspect your C# or Visual Basic code for *code quality* and *style issues*.
+
+[↑ Roslyn](https://github.com/dotnet/roslyn) is a .NET compiler platform. Roslyn includes implementation of both the C# and Visual Basic compilers with an API surface for building *code analysis* tools.
+
+[↑ Code quality analysis rules](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules), denoted as `CAxxxx`, inspect your C# code for security, performance, design and other issues.
+
+[↑ Code-style analysis rules](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules), denoted as `IDExxxx`, enable you to define and maintain consistent code style in your codebase.
 
 ## Table of contents
 
 - [Code analysis](#code-analysis)
-  - [Roslyn](#roslyn)
+  - [Code analysis](#code-analysis-1)
   - [Table of contents](#table-of-contents)
   - [Code analyzers](#code-analyzers)
   - [Code analysis vs EditorConfig file](#code-analysis-vs-editorconfig-file)
@@ -17,16 +23,14 @@ Roslyn includes implementation of both the C# and Visual Basic compilers with an
   - [Code analysis in CI builds](#code-analysis-in-ci-builds)
   - [Running analyzers](#running-analyzers)
   - [AnalysisMode](#analysismode)
-  - [Rule categories](#rule-categories)
+  - [Analysis rule category](#analysis-rule-category)
   - [Language rules](#language-rules)
 
 ## Code analyzers
 
-[↑ Roslyn analyzers](https://github.com/dotnet/roslyn-analyzers) inspect your C# or Visual Basic code for code quality and style issues.
+`Microsoft.CodeAnalysis.NetAnalyzers` is a primary analyzer package among [↑ Roslyn analyzers](https://github.com/dotnet/roslyn-analyzers). Included and enabled by default in .NET 5+ projects. You do not need to install `Microsoft.CodeAnalysis.NetAnalyzers` [↑ NuGet package](https://www.nuget.org/packages/Microsoft.CodeAnalysis.NetAnalyzers) to use it because it's a part of .NET SDK now.
 
-`Microsoft.CodeAnalysis.NetAnalyzers` is a primary analyzer package among Roslyn analyzers. Included and enabled by default in .NET 5+ projects. You do not need to install `Microsoft.CodeAnalysis.NetAnalyzers` [↑ NuGet package](https://www.nuget.org/packages/Microsoft.CodeAnalysis.NetAnalyzers) to use it because it's a part of .NET SDK now.
-
-Roslyn analyzers analyze source code in real time and during compilation.
+If rule violations are found by an analyzer, they're reported as a suggestion, warning, or error, depending on how each rule is configured. Code analysis violations appear with the prefix `CA` or `IDE` to differentiate them from compiler errors.
 
 Code quality analysis rules have `CAxxxx` format, for example `CA2017`, `CA2013`, etc.
 
@@ -56,13 +60,13 @@ The `AnalysisMode` property lets you customize the set of rules that are enabled
 
 Available modes: `None`, `Default`, `Minimum`, `Recommended`, `All`.
 
-## Rule categories
+## Analysis rule category
 
 [↑ Rule categories](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/categories)
 
 Each code analysis rule belongs to a category of rules. You can configure the severity level for an entire category of rules. You can also configure additional options on a per-category basis.
 
-Available rule categories: `Design`, `Documentation`, `Globalization`, `Portability and interoperability`, `Maintainability rules`, ``, ``, ``, ``, ``, ``, ``, ``, ``, ``, ``, ``, ``,
+Available rule categories: `Design`, `Documentation`, `Globalization`, `Portability and interoperability`, `Maintainability`, `Naming`, `Performance`, `SingleFile`, `Reliability`, `Security`, `Style`, `Usage`.
 
 ## Language rules
 
