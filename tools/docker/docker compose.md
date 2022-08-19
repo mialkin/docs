@@ -28,12 +28,11 @@ By default, Compose reads two files, a docker-compose.yml and an optional docker
 | --force-recreate | Recreate containers even if their configuration and image haven't changed  |
 | --rmi all -v     | The `--rmi all` removes all images; the `-v` removes named volumes         |
 
-## Useful links
+## Enable BuildKit
 
-- [↑ Environment variables](https://docs.docker.com/compose/environment-variables/)
-- [↑ Variable substitution](https://docs.docker.com/compose/compose-file/compose-file-v3/#variable-substitution)
-- [↑ Multiple Compose files](https://docs.docker.com/compose/extends/#multiple-compose-files)
-- [↑ Volume configuration reference](https://docs.docker.com/compose/compose-file/compose-file-v3/#volume-configuration-reference)
+```bash
+COMPOSE_DOCKER_CLI_BUILD=0 docker-compose build
+```
 
 ## Docker Compose file reference
 

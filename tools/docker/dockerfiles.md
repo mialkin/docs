@@ -15,7 +15,21 @@ Each instruction above creates one layer. When you run an image and generate a c
 
 ### Understand build context
 
-When you issue a `docker build` command, the current working directory is called the *build context*. By default, the Dockerfile is assumed to be located here, but you can specify a different location with the file flag `-f`. Regardless of where the Dockerfile actually lives, all recursive contents of files and directories in the current directory are sent to the Docker daemon as the build context. 
+When you issue a `docker build` command, the current working directory is called the *build context*. By default, the Dockerfile is assumed to be located here, but you can specify a different location with the file flag `-f`. Regardless of where the Dockerfile actually lives, all recursive contents of files and directories in the current directory are sent to the Docker daemon as the build context.
+
+### Enable BuildKit
+
+```bash
+DOCKER_BUILDKIT=0 docker build .
+```
+
+```yml
+FROM alpine
+
+WORKDIR /app
+RUN echo "hello world"
+RUN ls -l
+```
 
 ### Exclude with .dockerignore
 
