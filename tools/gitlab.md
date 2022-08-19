@@ -146,11 +146,11 @@ You can use [↑ predefined CI/CD variables](https://docs.gitlab.com/ee/ci/varia
 
 ### Caches
 
-A **cache** is one or more files a job downloads and saves. Subsequent jobs that use the same cache don’t have to download the files again, so they execute more quickly.
+A **cache** is one or more files a job downloads and saves. Subsequent jobs that use the same cache don't have to download the files again, so they execute more quickly.
 
 Use cache for dependencies, like packages you download from the internet. Cache is stored where GitLab Runner is installed, and uploaded to S3 if distributed cache is enabled.
 
-Both caches and *artifacts* define their paths relative to the project directory, and can’t link to files outside it.
+Both caches and *artifacts* define their paths relative to the project directory, and can't link to files outside it.
 
 [↑ Caching](https://docs.gitlab.com/ee/ci/caching)
 
@@ -162,7 +162,7 @@ Use artifacts to pass intermediate build results between stages. Artifacts are g
 
 #### Job artifacts
 
-Jobs can output an archive of files and directories. This output is known as a job artifact.
+Jobs can output an archive of files and directories. This output is known as a **job artifact**.
 
 #### Pipeline artifacts
 
@@ -192,7 +192,7 @@ There are two primary ways to incorporate Docker into your CI/CD workflow:
 
 You can create CI/CD jobs to do things like test, build, or publish an application. These jobs can run in Docker containers.
 
-For example, you can tell GitLab CI/CD to use a Node image that’s hosted on Docker Hub or in the GitLab Container Registry. Your job then runs in a container that’s based on the image. The container has all the Node dependencies you need to build your app.
+For example, you can tell GitLab CI/CD to use a Node image that's hosted on Docker Hub or in the GitLab Container Registry. Your job then runs in a container that's based on the image. The container has all the Node dependencies you need to build your app.
 
 - Use Docker or kaniko to build Docker images.
 
@@ -215,7 +215,7 @@ To run CI/CD jobs in a Docker container, you need to:
 
 **GitLab Runner** is an application that works with GitLab CI/CD to run jobs in a pipeline.
 
-You can choose to install the GitLab Runner application on infrastructure that you own or manage. If you do, you should install GitLab Runner on a machine that’s separate from the one that hosts the GitLab instance for security and performance reasons. When you use separate machines, you can have different operating systems and tools, like Kubernetes or Docker, on each.
+You can choose to install the GitLab Runner application on infrastructure that you own or manage. If you do, you should install GitLab Runner on a machine that's separate from the one that hosts the GitLab instance for security and performance reasons. When you use separate machines, you can have different operating systems and tools, like Kubernetes or Docker, on each.
 
 GitLab Runner is open-source and written in Go. It can be run as a single binary; no language-specific requirements are needed.
 
@@ -244,7 +244,7 @@ For example:
 
 These are only a few of the possible configurations. You can install GitLab Runner on a virtual machine and have it use another virtual machine as an executor.
 
-When you install GitLab Runner in a Docker container and choose the Docker executor to run your jobs, it’s sometimes referred to as a "Docker-in-Docker" configuration.
+When you install GitLab Runner in a Docker container and choose the Docker executor to run your jobs, it's sometimes referred to as a "Docker-in-Docker" configuration.
 
 GitLab Runner implements a number of executors that can be used to run your builds in different scenarios.
 
@@ -270,7 +270,7 @@ The Kubernetes executor allows you to use an existing Kubernetes cluster for you
 
 ##### SSH executor
 
-The SSH executor is added for completeness, but it’s the least supported among all executors. It makes GitLab Runner connect to an external server and runs the builds there. We have some success stories from organizations using this executor, but usually we recommend using one of the other types.
+The SSH executor is added for completeness, but it's the least supported among all executors. It makes GitLab Runner connect to an external server and runs the builds there. We have some success stories from organizations using this executor, but usually we recommend using one of the other types.
 
 ##### Custom executor
 
