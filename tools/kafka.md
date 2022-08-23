@@ -83,7 +83,6 @@ version: "3.9"
 services:
   schema-registry:
     image: confluentinc/cp-schema-registry:5.5.3
-    container_name: tp-crawler-schema-registry
     ports:
       - "18081:8081"
     environment:
@@ -96,7 +95,6 @@ services:
 
   kafka:
     image: confluentinc/cp-kafka:5.5.3
-    container_name: tp-crawler-kafka
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
@@ -115,13 +113,11 @@ services:
 
   zookeeper:
     image: confluentinc/cp-zookeeper:5.5.3
-    container_name: tp-crawler-zookeeper
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
 
   kafka-ui:
     image: provectuslabs/kafka-ui:latest
-    container_name: tp-crawler-kafka-ui
     ports:
       - "1000:8080"
     environment:
