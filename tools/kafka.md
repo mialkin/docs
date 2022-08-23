@@ -78,43 +78,55 @@ docker-compose up -d
 Contents of `docker-compose.yaml` file:
 
 ```yaml
-version: "3.8"
+version: "3.9"
 
 services:
-  zookeeper:
-    container_name: zookeeper
-    image: wurstmeister/zookeeper
+  schema-registry:
+    image: docker-proxy.artifactory.tcsbank.ru/confluentinc/cp-schema-registry:5.5.3
+    container_name: tp-crawler-schema-registry
+    ports:
+      - "18081:8081"
     environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
+      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: "PLAINTEXT://kafka:9092"
+      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
+    depends_on:
+      - kafka
+      - zookeeper
 
   kafka:
-    container_name: kafka
-    image: wurstmeister/kafka
+    image: docker-proxy.artifactory.tcsbank.ru/confluentinc/cp-kafka:5.5.3
+    container_name: tp-crawler-kafka
     environment:
+      KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_LISTENERS: CLIENT://kafka:9092,EXTERNAL://kafka:9093
-      KAFKA_ADVERTISED_LISTENERS: CLIENT://kafka:9092,EXTERNAL://127.0.0.1:9093
+      # Kafka is available on port 9092 inside Docker network and on port 9093 at localhost.
+      KAFKA_ADVERTISED_LISTENERS: CLIENT://kafka:9092,EXTERNAL://localhost:9093
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CLIENT:PLAINTEXT,EXTERNAL:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: CLIENT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_CREATE_TOPICS: >
-        your.topic1.name:1:1,
-        your.topic2.name:1:1,
+      KAFKA_SCHEMA_REGISTRY_URL: "schema-registry:8081"
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
     ports:
       - "9092:9092"
       - "9093:9093"
     depends_on:
       - zookeeper
 
+  zookeeper:
+    image: docker-proxy.artifactory.tcsbank.ru/confluentinc/cp-zookeeper:5.5.3
+    container_name: tp-crawler-zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+
   kafka-ui:
-    container_name: kafka-ui
-    image: provectuslabs/kafka-ui:latest 
+    image: docker-proxy.artifactory.tcsbank.ru/provectuslabs/kafka-ui:latest
+    container_name: tp-crawler-kafka-ui
+    ports:
+      - "1000:8080"
     environment:
       KAFKA_CLUSTERS_0_NAME: local
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
-      KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
-    ports:
-      - "8083:8080"
     depends_on:
       - kafka
 ```
