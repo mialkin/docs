@@ -23,6 +23,7 @@
   - [tail](#tail)
   - [tar](#tar)
   - [telnet](#telnet)
+  - [xargs](#xargs)
   - [xxd](#xxd)
 
 ## apt
@@ -141,10 +142,10 @@ Display disk usage statistics.
 
 Find is a command-line utility that locates files based on some user-specified criteria and then applies some requested action on each matched object.
 
-| Command                       | Description                                                                 |
-| ----------------------------- | --------------------------------------------------------------------------- |
-| find . -name YOUR_NAME        | Find inside current directory all files/folders that match `YOUR_NAME` name |
-| find . -type f -name "\*.txt" | Find inside current directory all files with the extension `.txt`           |
+| Command                     | Description                                                                 |
+| --------------------------- | --------------------------------------------------------------------------- |
+| find . -name YOUR_NAME      | Find inside current directory all files/folders that match `YOUR_NAME` name |
+| find . -name \*.txt -type f | Find inside current directory all files with the extension `.txt`           |
 
 ## grep
 
@@ -344,6 +345,34 @@ Failure message looks like:
 Trying 10.11.12.13...
 telnet: connect to address 10.11.12.13: Connection refused
 telnet: Unable to connect to remote host
+```
+
+## xargs
+
+**xargs** is a command on Unix and most Unix-like operating systems used to build and execute commands from standard input. It converts input from standard input into arguments to a command. Some commands such as grep and awk can take input either as command-line arguments or from the standard input.
+
+General syntax:
+
+```text
+[list_generating_command] | xargs [xargs_options] [command]
+```
+
+Delete files:
+
+```bash
+$ ls
+one.sh one.py two.sh two.py
+
+$ find . -name "*.sh"| xargs rm -rf
+
+$ ls
+one.py two.py
+```
+
+Compress files:
+
+```bash
+$ ls | xargs -p -l gzip
 ```
 
 ## xxd
