@@ -36,7 +36,7 @@ public interface IQueryProvider
 
 The `IQueryable<T>` interface is intended for implementation by query providers.
 
-This interface inherits the [IEnumerable<T>](../collections/generic/ienumerable.md) interface so that if it represents a query, the results of that query can be enumerated. Enumeration forces the expression tree associated with an `IQueryable<T>` object to be executed. Queries that do not return enumerable results are executed when the `Execute<TResult>(Expression)` method is called.
+This interface inherits the [IEnumerable<T>](ienumerable.md) interface so that if it represents a query, the results of that query can be enumerated. Enumeration forces the expression tree associated with an `IQueryable<T>` object to be executed. Queries that do not return enumerable results are executed when the `Execute<TResult>(Expression)` method is called.
 
 The definition of "executing an expression tree" is specific to a query provider. For example, it may involve translating the expression tree to a query language appropriate for an underlying data source.
 

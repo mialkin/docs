@@ -145,7 +145,7 @@ IEnumerable<Object> listObjects = new List<String>();
 
 ### **Covarinace and contravariance**
 
-Covariance and contravariance support for *method groups* <sup>1</sup> allows for matching method signatures with [delegate](../api/system/delegate/delegate.md) types. This enables you to assign to delegates not only methods that have matching signatures, but also methods that return more derived types (covariance) or that accept parameters that have less derived types (contravariance) than that specified by the delegate type:
+Covariance and contravariance support for *method groups* <sup>1</sup> allows for matching method signatures with [delegate](types/delegate.md) types. This enables you to assign to delegates not only methods that have matching signatures, but also methods that return more derived types (covariance) or that accept parameters that have less derived types (contravariance) than that specified by the delegate type:
 
 ```csharp
 using System;

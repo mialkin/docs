@@ -120,7 +120,7 @@ namespace System
 }
 ```
 
-Unlike the [Equals](Equals.md) method and the equality operator, the `ReferenceEquals` method cannot be overridden. Because of this, if you want to test two object references for equality and you are unsure about the implementation of the Equals method, you can call the `ReferenceEquals` method.
+Unlike the `Equals` method and the equality operator, the `ReferenceEquals` method cannot be overridden. Because of this, if you want to test two object references for equality and you are unsure about the implementation of the Equals method, you can call the `ReferenceEquals` method.
 
 [Object.ReferenceEquals(Object, Object) Method ↑](https://docs.microsoft.com/en-us/dotnet/api/system.object.referenceequals)
 

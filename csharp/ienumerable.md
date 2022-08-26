@@ -23,25 +23,25 @@ using System.Collections.Generic;
 
 private static void <Main>$(string[] args)
 {
-	//IL_002c: Unknown result type (might be due to invalid IL or missing references)
-	//IL_0031: Unknown result type (might be due to invalid IL or missing references)
-	List<string> obj = new List<string>();
-	obj.Add("Un");
-	obj.Add("Deux");
-	obj.Add("Trois");
-	List<string> list = obj;
-	Enumerator<string> enumerator = list.GetEnumerator();
-	try
-	{
-		while (enumerator.MoveNext())
-		{
-			string item = enumerator.get_Current();
-			Console.WriteLine(item);
-		}
-	}
-	finally
-	{
-		((global::System.IDisposable)enumerator).Dispose();
-	}
+  //IL_002c: Unknown result type (might be due to invalid IL or missing references)
+  //IL_0031: Unknown result type (might be due to invalid IL or missing references)
+  List<string> obj = new List<string>();
+  obj.Add("Un");
+  obj.Add("Deux");
+  obj.Add("Trois");
+  List<string> list = obj;
+  Enumerator<string> enumerator = list.GetEnumerator();
+  try
+  {
+    while (enumerator.MoveNext())
+    {
+      string item = enumerator.get_Current();
+      Console.WriteLine(item);
+    }
+  }
+  finally
+  {
+    ((global::System.IDisposable)enumerator).Dispose();
+  }
 }
 ```

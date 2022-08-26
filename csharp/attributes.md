@@ -1,6 +1,6 @@
 # Attributes
 
-Attributes provide a method of associating metadata with code: assemblies, types, methods, properties, etc. After an attribute is associated with a program entity, the attribute can be queried at run time by using a technique called [reflection](reflection.md).
+Attributes provide a method of associating metadata with code: assemblies, types, methods, properties, etc. After an attribute is associated with a program entity, the attribute can be queried at run time by using a technique called *reflection*.
 
 Attributes can accept arguments in the same way as methods and properties.
 

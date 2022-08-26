@@ -8,7 +8,7 @@ Delegates are similar to C++ function pointers, but delegates are fully object-o
 
 Delegates can be chained together; for example, multiple methods can be called on a single event.
 
-Methods do not have to match the delegate type exactly. For more information, see [variance in delegates](../../../csharp/covariance%20and%20contravariance.md).
+Methods do not have to match the delegate type exactly. For more information, see [variance in delegates](../covariance%20and%20contravariance.md).
 
 The declaration of a delegate type is similar to a method signature. It has a return value and any number of parameters of any type:
 
@@ -16,7 +16,7 @@ The declaration of a delegate type is similar to a method signature. It has a re
 public delegate int Delegate(int x, int y);
 ```
 
-Delegates are the basis for [events](event.md). A delegate can be instantiated by associating it either with a named or anonymous method.
+Delegates are the basis for [events](../keywords/event.md). A delegate can be instantiated by associating it either with a named or anonymous method.
 
 ```csharp
 class Program

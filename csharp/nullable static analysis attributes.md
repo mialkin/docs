@@ -235,7 +235,7 @@ public void SetState(object containedField)
 
 ## Links
 
-[Nullable reference types](nullable%20reference%20types.md)
+[Nullable reference types](types/nullable%20reference%20types.md)
 
 [↑ System.Diagnostics.CodeAnalysis Namespace](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis)
 
