@@ -209,7 +209,7 @@
   - [BenchmarkDotNet](dotnet/libraries/benchmarkdotnet.md)
   - [↑ FluentAssertions](https://fluentassertions.com/introduction)
   - [FluentDocker](dotnet/libraries/fluentdocker.md)
-  - [↑ FluentValidation](https://docs.fluentvalidation.net)
+  - [FluentValidation](dotnet/libraries/fluentvalidation.md)
   - [↑ Flurl](https://github.com/tmenier/Flurl)
   - [MediatR](dotnet/libraries/mediatr.md)
   - [Moq](dotnet/libraries/moq.md)
