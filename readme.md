@@ -158,6 +158,7 @@
 - [BDD](testing/bdd/bdd.md)
   - [Gherkin](testing/bdd/gherkin.md)
   - [SpecFlow](testing/bdd/specflow.md)
+- [Integration testing](testing/integration%20testing.md)
 - [k6](testing/k6/k6.md)
 - [Unit testing best practices](testing/unit%20testing%20best%20practices.md)
 
