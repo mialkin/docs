@@ -151,6 +151,7 @@
 - [Programming case types](programming/cases.md)
 - [Scrum](programming/scrum/scrum.md)
 - [Serialization](programming/serialization.md)
+- [Time zones vs offsets](programming/time%20zones%20vs%20offsets.md)
 - [UML diagrams](programming/uml.md)
 
 ## Testing
