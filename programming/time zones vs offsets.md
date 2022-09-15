@@ -10,7 +10,7 @@ A **daylight saving time**, a term which is used in the United States, Canada, a
 
 The **Coordinated Universal Time** or **UTC** is the primary time standard by which the world regulates clocks and time. UTC is not adjusted for daylight saving time. UTC is effectively a successor to Greenwich Mean Time (GMT).
 
-[↑ Time Zones Aren’t Offsets – Offsets Aren’t Time Zones](https://spin.atomicobject.com/2016/07/06/time-zones-offsets)
+[↑ Time Zones Aren't Offsets – Offsets Aren't Time Zones](https://spin.atomicobject.com/2016/07/06/time-zones-offsets)
 
 [↑ Time zones of the world](https://en.wikipedia.org/wiki/Time_zone#/media/File:World_Time_Zones_Map.png)
 

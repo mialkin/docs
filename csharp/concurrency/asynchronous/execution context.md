@@ -2,9 +2,9 @@
 
 ## Content
 
-In the synchronous world, each thread keeps ambient information in a *thread-local storage*<sup>1</sup>. It can be security-related information, culture-specific data, or something else. When 3 methods are called sequentially in one thread this information flows naturally between all of them. But this is no longer true for asynchronous methods. Each "section" of an asynchronous method can be executed in different threads that makes thread-local information unusable.
+In the synchronous world, each thread keeps ambient information in a _thread-local storage_<sup>1</sup>. It can be security-related information, culture-specific data, or something else. When 3 methods are called sequentially in one thread this information flows naturally between all of them. But this is no longer true for asynchronous methods. Each "section" of an asynchronous method can be executed in different threads that makes thread-local information unusable.
 
-Execution context keeps the information for one logical *flow of control*<sup>3</sup> even when it spans multiple threads.
+Execution context keeps the information for one logical _flow of control_<sup>3</sup> even when it spans multiple threads.
 
 Methods like `Task.Run` or `ThreadPool.QueueUserWorkItem` do this automatically. `Task.Run` method captures `ExecutionContext` from the invoking thread and stores it with the `Task` instance. When the `TaskScheduler` associated with the task runs a given delegate, it runs it via `ExecutionContext.Run` using the stored context.
 
@@ -39,7 +39,7 @@ class Example
 }
 ```
 
-In these cases, the execution context flows through `Task.Run` and then to `Task.ContinueWith` method. So if you run this method you’ll see:
+In these cases, the execution context flows through `Task.Run` and then to `Task.ContinueWith` method. So if you run this method you'll see:
 
 ```output
 In Task.Run: 42
@@ -101,6 +101,6 @@ After second await: 42
 
 ## Links
 
-* [↑ ExecutionContext vs SynchronizationContext](https://devblogs.microsoft.com/pfxteam/executioncontext-vs-synchronizationcontext/)
-* [↑ Dissecting the async methods in C#](https://devblogs.microsoft.com/premier-developer/dissecting-the-async-methods-in-c/)
-* [↑ ExecutionContext Class](https://docs.microsoft.com/en-us/dotnet/api/system.threading.executioncontext)
+- [↑ ExecutionContext vs SynchronizationContext](https://devblogs.microsoft.com/pfxteam/executioncontext-vs-synchronizationcontext/)
+- [↑ Dissecting the async methods in C#](https://devblogs.microsoft.com/premier-developer/dissecting-the-async-methods-in-c/)
+- [↑ ExecutionContext Class](https://docs.microsoft.com/en-us/dotnet/api/system.threading.executioncontext)

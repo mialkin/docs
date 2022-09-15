@@ -37,7 +37,7 @@ What belongs to core project:
 - Domain services. This is where logic lives that has to do with multiple entities or value objects and how they work with each other. You want to try and put as much behavior into your entities, aggregates and value objects as you can, but sometimes it doesn't belong to one of those and so you have domain services for that type of thing
 - Custom domain exceptions. Something like `CustomerNotFoundException`
 - Domain events
-- Domain handlers. You could have handlers in other places as well, but the events themselves should usually be defined inside of core
+- Domain event handlers. You could have handlers in other places as well, but the events themselves should usually be defined inside of core
 - [↑ Specifications](https://deviq.com/design-patterns/specification-pattern)
 - Validators. Like [↑ FluentValidation](https://github.com/FluentValidation/FluentValidation)
 - Enums

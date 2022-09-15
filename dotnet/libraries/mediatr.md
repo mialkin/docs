@@ -4,6 +4,16 @@
 
 MediatR supports request/response, commands, queries, notifications and events, synchronous and asynchronous, with intelligent dispatching via C# generic variance.
 
+## Table of contents
+
+- [MediatR](#mediatr)
+  - [Table of contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Why do we need MediatR](#why-do-we-need-mediatr)
+    - [Single responsibility](#single-responsibility)
+    - [Decorators](#decorators)
+  - [You probably don't need MediatR](#you-probably-dont-need-mediatr)
+
 ## Installation
 
 ```bash
@@ -62,3 +72,24 @@ services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
 ```
 
 > And everything works the same way. You don't need decorators anymore. All registered pipeline behaviors will be executed with each request handler in the order they are registered.
+
+## You probably don't need MediatR
+
+TL;DR for the impatient:
+
+- Despite the name, MediatR does not implement the Mediator Pattern at all: it's a [↑ Command Dispatcher](https://hillside.net/plop/plop/plop2001/accepted_submissions/PLoP2001/bdupireandebfernandez0/PLoP2001_bdupireandebfernandez0_1.pdf).
+- Most of the times it's used as a glorified method invocation, similarly to Service Locator, which is often an [anti-pattern](https://blog.ploeh.dk/2010/02/03/ServiceLocatorisanAnti-Pattern).
+- Classes that use it are forced to depend on methods they don't use, violating the [↑ Interface Segregation Principle](https://en.wikipedia.org/wiki/Interface_segregation_principle). This creates an implicit, global coupling.
+- They also tend to violate the [↑ Explicit Dependencies Principle](https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/architectural-principles#explicit-dependencies): instead of explicitly requiring the collaborating objects they need, they get a global accessor to the whole domain
+- Domain code cannot have interfaces named after the domain-driven language
+- The domain code is polluted with Send and Handle methods
+- Domain classes are forced to implement interfaces defined in MediatR, ending up being coupled with a 3rd party library
+- Browsing code is harder
+- IntelliSense is no help
+- The compiler gets confused and marks classes as unused. Workarounds are hacks.
+- Invoking the handler directly is about to 50x faster and allocates way less memory than invoking it through MediatR.
+- Good news is: MediatR can be easily replaced with trivial OOP techniques
+
+For more details see [↑ "You probably don't need MediatR"](http://arialdomartini.github.io/mediatr) article.
+
+'

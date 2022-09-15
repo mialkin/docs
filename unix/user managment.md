@@ -40,13 +40,13 @@ less /etc/passwd
 
 Each line in the file has seven fields delimited by colons that contain the following information:
 
-* User name.
-* Encrypted password (`x` means that the password is stored in the `/etc/shadow` file).
-* User ID number (UID).
-* User’s group ID number (GID).
-* Full name of the user (GECOS).
-* User home directory.
-* Login shell (defaults to `/bin/bash`).
+- User name.
+- Encrypted password (`x` means that the password is stored in the `/etc/shadow` file).
+- User ID number (UID).
+- User's group ID number (GID).
+- Full name of the user (GECOS).
+- User home directory.
+- Login shell (defaults to `/bin/bash`).
 
 If you want to find out how many users accounts you have on your system, pipe the `getent passwd` output to the `wc` command:
 

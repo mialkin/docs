@@ -23,7 +23,7 @@ In other words, only data that is both _shared_ and _updated_ needs synchronizat
 
 ## `lock` statement
 
-There are many other kinds of locks in the .NET framework except `lock` statement, such as `Monitor`, `SpinLock`, and `ReaderWriterLockSlim`. In most applications, these lock types should almost never be used directly. In particular, it’s natural for developers to jump to `ReaderWriterLockSlim` when there is no need for that level of complexity. The basic lock statement handles 99% of cases quite well.
+There are many other kinds of locks in the .NET framework except `lock` statement, such as `Monitor`, `SpinLock`, and `ReaderWriterLockSlim`. In most applications, these lock types should almost never be used directly. In particular, it's natural for developers to jump to `ReaderWriterLockSlim` when there is no need for that level of complexity. The basic lock statement handles 99% of cases quite well.
 
 There are four important guidelines when using locks:
 

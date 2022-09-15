@@ -57,10 +57,10 @@ Output:
 20
 ```
 
-So far, this isn’t terribly exciting. You could change the method to create a `List<int>`, replace each yield return statement with a call to `Add()`, and then return the list at the end of the method. The loop output would be exactly the same, but it wouldn’t execute in the same way at all. The huge difference is that iterators are executed **lazily**.
+So far, this isn't terribly exciting. You could change the method to create a `List<int>`, replace each yield return statement with a call to `Add()`, and then return the list at the end of the method. The loop output would be exactly the same, but it wouldn't execute in the same way at all. The huge difference is that iterators are executed **lazily**.
 
 ## Links
 
-* [↑ What concrete type does 'yield return' return?](https://stackoverflow.com/questions/3454395/what-concrete-type-does-yield-return-return)
-* [↑ Proper use of 'yield return'](https://stackoverflow.com/questions/410026/proper-use-of-yield-return)
-* [↑ yield (C# Reference)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/yield)
+- [↑ What concrete type does 'yield return' return?](https://stackoverflow.com/questions/3454395/what-concrete-type-does-yield-return-return)
+- [↑ Proper use of 'yield return'](https://stackoverflow.com/questions/410026/proper-use-of-yield-return)
+- [↑ yield (C# Reference)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/yield)

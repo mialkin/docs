@@ -5,14 +5,15 @@
   - [Finder](#finder)
   - [Flush DNS cache](#flush-dns-cache)
   - [`hosts` file](#hosts-file)
-  - [Install Developer's App](#install-developers-app)
+  - [Install developer's app](#install-developers-app)
   - [IP address](#ip-address)
   - [Key repeating](#key-repeating)
     - [Other](#other)
   - [Rider](#rider)
   - [Safari](#safari)
+  - [Shortcuts](#shortcuts)
   - [Sublime Text](#sublime-text)
-  - [Terminal Aliases](#terminal-aliases)
+  - [Terminal aliases](#terminal-aliases)
   - [Tree](#tree)
   - [TTL](#ttl)
 
@@ -61,7 +62,7 @@ sudo killall -HUP mDNSResponder
 sudo vim /etc/hosts
 ```
 
-## Install Developer's App
+## Install developer's app
 
 1. Just move app into `/Applications` folder and open it.
 2. If you see `"YOUR_APP" cannot be opened because the developer cannot be verified.`, please open up System Preferences -> Security & Privacy -> General -> Open Anyway.
@@ -128,13 +129,19 @@ chmod 775 rider
 
 Clear local storage: **Web inspector** → **Storage** → **Clear local storage**
 
+## Shortcuts
+
+| Shortcut | Meaning                   |
+| -------- | ------------------------- |
+|          | Print apostrophe sign `’` |
+
 ## Sublime Text
 
 ```bash
 echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"' >> ~/.zprofile
 ```
 
-## Terminal Aliases
+## Terminal aliases
 
 Set up aliases in `~/.zshrc` file:
 

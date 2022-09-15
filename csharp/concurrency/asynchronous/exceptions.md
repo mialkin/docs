@@ -1,6 +1,6 @@
 # Exceptions handling with `async` and `await`
 
-Error handling is natural with `async` and `await`. In the code snippet that follows, `PossibleExceptionAsync` may throw a `NotSupportedException`, but `TrySomethingAsync` can catch the exception naturally. The caught exception has its stack trace properly preserved and isn’t artificially wrapped in a `TargetInvocationException` or `AggregateException`:
+Error handling is natural with `async` and `await`. In the code snippet that follows, `PossibleExceptionAsync` may throw a `NotSupportedException`, but `TrySomethingAsync` can catch the exception naturally. The caught exception has its stack trace properly preserved and isn't artificially wrapped in a `TargetInvocationException` or `AggregateException`:
 
 ```csharp
 async Task TrySomethingAsync()

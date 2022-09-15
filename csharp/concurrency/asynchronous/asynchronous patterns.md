@@ -15,7 +15,7 @@ The **Task-Based Asynchronous Pattern** (**TAP**) is the modern asynchronous API
 
 It is common for TAP methods to have an `Async` suffix. However, this is just a convention; not all TAP methods have an `Async` suffix. It can be skipped if the API developer believes the asynchronous context is sufficiently implied; e.g., `Task.WhenAll` and `Task.WhenAny` do not have an `Async` suffix. Furthermore, keep in mind that the `Async` suffix may be present on non-TAP methods (e.g., `WebClient.DownloadStringAsync` is not a TAP method). The usual pattern in this case is for the TAP method to have a `TaskAsync` suffix (e.g., `WebClient.DownloadStringTaskAsync` is a TAP method).
 
-Methods that return asynchronous streams also follow a TAP-like pattern, with `Async` used as a suffix. Even though they don’t return awaitables, they do return awaitable streams — types that can be consumed using `await foreach`.
+Methods that return asynchronous streams also follow a TAP-like pattern, with `Async` used as a suffix. Even though they don't return awaitables, they do return awaitable streams — types that can be consumed using `await foreach`.
 
 The Task-Based Asynchronous Pattern can be recognized by these characteristics:
 
@@ -23,7 +23,7 @@ The Task-Based Asynchronous Pattern can be recognized by these characteristics:
 2. The method returns an awaitable or an awaitable stream.
 3. The method usually ends with `Async`.
 
-Here’s an example of a type with a TAP API:
+Here's an example of a type with a TAP API:
 
 ```csharp
 class ExampleHttpClient
@@ -51,7 +51,7 @@ In all cases, the consuming code must eventually call the `End` method to retrie
 
 The `Begin` method takes an `AsyncCallback` parameter and an object parameter (usually called `state`) as its last two parameters. These are used by consuming code to provide a callback delegate to invoke when the operation completes. The `object` parameter can be whatever you want; this is a holdover from the very early days of .NET, before lambda methods or even anonymous methods existed. It is just used to provide context to the `AsyncCallback` parameter.
 
-The APM is fairly widespread among Microsoft libraries, but is not as common in the wider .NET ecosystem. This is because there were never any `IAsyncResult` implementations made available for reuse, and implementing that interface correctly is fairly complex. In addition, it is difficult to compose APM-based systems. I’ve seen only a few custom `IAsyncResult` implementations in the wild.
+The APM is fairly widespread among Microsoft libraries, but is not as common in the wider .NET ecosystem. This is because there were never any `IAsyncResult` implementations made available for reuse, and implementing that interface correctly is fairly complex. In addition, it is difficult to compose APM-based systems. I've seen only a few custom `IAsyncResult` implementations in the wild.
 
 The Asynchronous Programming Model pattern can be recognized by these characteristics:
 
@@ -59,14 +59,14 @@ The Asynchronous Programming Model pattern can be recognized by these characteri
 2. The `Begin` method returns an `IAsyncResult`, and takes all normal input parameters, along with an extra `AsyncCallback` parameter and an extra object parameter.
 3. `The` End method only takes an `IAsyncResult`, and returns the result value, if any.
 
-Here’s an example of a type with an APM API:
+Here's an example of a type with an APM API:
 
 ```csharp
 class MyHttpClient
 {
     public IAsyncResult BeginGetString(Uri requestUri, AsyncCallback callback, object state);
     public string EndGetString(IAsyncResult asyncResult);
-    
+
     // Synchronous equivalent, for comparison
     public string GetString(Uri requestUri);
 }
@@ -78,7 +78,7 @@ Consume the APM by converting it to TAP using `Task.Factory.FromAsync`.
 
 The **Event-Based Asynchronous Programming** (**EAP**) defines a matching method/event pair. The method usually ends in `Async`, and it eventually causes an event to be raised that ends in `Completed`.
 
-There are a few caveats when working with EAP that make it a bit more difficult than it first appears. First, you have to remember to add your handler to the event *before* calling the method; otherwise, you’d have a race condition where the event could happen before you subscribed, and then you’d never see it complete. Second, components written in the EAP pattern usually capture the current `SynchronizationContext` at some point and then raise their event in that context. Some components capture the `SynchronizationContext` in the constructor, and others capture it at the time the method is called and the asynchronous operation begins.
+There are a few caveats when working with EAP that make it a bit more difficult than it first appears. First, you have to remember to add your handler to the event _before_ calling the method; otherwise, you'd have a race condition where the event could happen before you subscribed, and then you'd never see it complete. Second, components written in the EAP pattern usually capture the current `SynchronizationContext` at some point and then raise their event in that context. Some components capture the `SynchronizationContext` in the constructor, and others capture it at the time the method is called and the asynchronous operation begins.
 
 The Event-Based Asynchronous Programming pattern can be recognized by these characteristics:
 
@@ -90,7 +90,7 @@ The Event-Based Asynchronous Programming pattern can be recognized by these char
 
 EAP methods ending in `Async` are distinguishable from TAP methods ending in `Async` because the EAP methods return `void`, while the TAP methods return an awaitable type.
 
-Here’s an example of a type with an EAP API:
+Here's an example of a type with an EAP API:
 
 ```csharp
 class GetStringCompletedEventArgs : AsyncCompletedEventArgs
@@ -112,7 +112,7 @@ Consume the EAP by converting it to TAP using `TaskCompletionSource<T>`.
 
 ## Continuation Passing Style (CPS)
 
-This is a pattern that is much more common in other languages, particularly JavaScript and TypeScript as used by Node.js developers. In this pattern, each asynchronous operation takes a callback delegate that is invoked when the operation completes, either successfully or with error. A variant of this pattern uses *two* callback delegates, one for success and one for error. This kind of callback is called a “continuation,” and the continuation is passed as a parameter, hence the name “continuation passing style.” This pattern was never common in the .NET world, but there are a few older open source libraries that used it.
+This is a pattern that is much more common in other languages, particularly JavaScript and TypeScript as used by Node.js developers. In this pattern, each asynchronous operation takes a callback delegate that is invoked when the operation completes, either successfully or with error. A variant of this pattern uses _two_ callback delegates, one for success and one for error. This kind of callback is called a “continuation,” and the continuation is passed as a parameter, hence the name “continuation passing style.” This pattern was never common in the .NET world, but there are a few older open source libraries that used it.
 
 The Continuation Passing Style pattern can be recognized by these characteristics:
 
@@ -121,13 +121,13 @@ The Continuation Passing Style pattern can be recognized by these characteristic
 3. Alternatively, the operation method takes two extra parameters, both callback delegates; one callback delegate is only for errors, and the other callback delegate is only for results.
 4. The callback delegates are commonly named `done` or `next`.
 
-Here’s an example of a type with a continuation-passing style API:
+Here's an example of a type with a continuation-passing style API:
 
 ```csharp
 class MyHttpClient
 {
     public void GetString(Uri requestUri, Action<Exception, string> done);
-    
+
     // Synchronous equivalent, for comparison
     public string GetString(Uri requestUri);
 }
@@ -139,7 +139,7 @@ Consume CPS by converting it to TAP using `TaskCompletionSource<T>`, passing cal
 
 Very specialized types will sometimes define their own custom asynchronous patterns. Custom patterns do not have any common characteristics and are therefore the hardest to recognize. Thankfully, custom asynchronous patterns are rare.
 
-Here’s an example of a type with a custom asynchronous API:
+Here's an example of a type with a custom asynchronous API:
 
 ```csharp
 class MyHttpClient
@@ -157,14 +157,14 @@ class MyHttpClient
 
 All the previous patterns are for asynchronous operations that are started, and once they start, they complete once. Some components follow a subscription model: they represent a push-based stream of events rather than a single operation that starts once and completes once.
 
-Some components use an `ISynchronizeInvoke` pattern for their events. They expose a single `ISynchronizeInvoke` property, and consumers set that property to an implementation that allows the component to schedule work. This is most commonly used to schedule work to a UI thread so that the component’s events are raised on the UI thread. By convention, if `ISynchronizeInvoke` is `null`, then no synchronizing of the events is done, and they may be raised on background threads.
+Some components use an `ISynchronizeInvoke` pattern for their events. They expose a single `ISynchronizeInvoke` property, and consumers set that property to an implementation that allows the component to schedule work. This is most commonly used to schedule work to a UI thread so that the component's events are raised on the UI thread. By convention, if `ISynchronizeInvoke` is `null`, then no synchronizing of the events is done, and they may be raised on background threads.
 
 The `ISynchronizeInvoke` pattern can be recognized by these characteristics:
 
 1. There is a property of type `ISynchronizeInvoke`.
 2. The property is usually called `SynchronizingObject`.
 
-Here’s an example of a type that uses the `ISynchronizeInvoke` pattern:
+Here's an example of a type that uses the `ISynchronizeInvoke` pattern:
 
 ```csharp
 class MyHttpClient

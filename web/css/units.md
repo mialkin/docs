@@ -11,7 +11,7 @@ With [CSS Grid](grid.md) layout, we get a new flexible unit: the Fr unit. Fr is 
 }
 ```
 
-As you saw in the previous examples, you can mix `fr` values with fixed and percentage values. The `fr` values will be divided between the space that’s left after what’s taken by the other values.
+As you saw in the previous examples, you can mix `fr` values with fixed and percentage values. The `fr` values will be divided between the space that's left after what's taken by the other values.
 
 For example, if you have a grid with 4 columns as in the following snippet, the 1st column will be 300px, the second 80px (10% of 800px), the 3rd and 4th columns will be 210px (each occupying half of the remaining space):
 

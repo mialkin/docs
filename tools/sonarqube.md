@@ -1,6 +1,6 @@
 # SonarQube
 
-[SonarQube](https://www.sonarqube.org) is an open source platform to perform automatic reviews with *static analysis* of code to detect bugs, code smells and security vulnerabilities on 25+ programming languages.
+[SonarQube](https://www.sonarqube.org) is an open source platform to perform automatic reviews with _static analysis_ of code to detect bugs, code smells and security vulnerabilities on 25+ programming languages.
 
 A **static analysis** is a type of analysis that does not rely on actually running the code: analysis of running code is called **dynamic analysis**.
 
@@ -34,7 +34,7 @@ See [↑ Try out SonarQube](https://docs.sonarqube.org/latest/setup/get-started-
 
 ## SonarScanner
 
-Once the SonarQube platform has been installed, to enable CI-based analysis you have to install and configure a piece of software called a *scanner*.
+Once the SonarQube platform has been installed, to enable CI-based analysis you have to install and configure a piece of software called a _scanner_.
 
 Typically, the scanner is configured to run as part of your continuous integration pipeline so that whenever your build process is triggered, the scanner is invoked and performs a scan on the code.
 
@@ -95,7 +95,7 @@ While SonarCloud does provide an overall picture of the quality of your entire c
 A **quality gate** is a set of conditions that tells you whether or not your project is ready for release. With the Clean as You Code approach, your Quality Gate should:
 
 - **Focus on new code metrics**: new features will be delivered cleanly. As long as your quality gate is green, your releases will continue to improve.
-- **Set and enforce high standards**: you aren't worried about having to meet those standards in old code and having to clean up someone else's code. You can take pride in meeting high standards of *your* code. If a project doesn't meet these high standards, it won't pass the quality gate, and it's obviously not ready to be released.
+- **Set and enforce high standards**: you aren't worried about having to meet those standards in old code and having to clean up someone else's code. You can take pride in meeting high standards of _your_ code. If a project doesn't meet these high standards, it won't pass the quality gate, and it's obviously not ready to be released.
 
 ### Recommended quality gate
 
@@ -117,8 +117,8 @@ You can use pull request analysis and decoration to make sure your code is meeti
 
 [↑ SonarCloud](https://sonarcloud.io) is a cloud-based code analysis service designed to detect code quality issues in 25 different programming languages, continuously ensuring the maintainability, reliability and security of your code.
 
-Unlike self-hosted SonarQube, SonarCloud is hosted by [↑ SonarSource](https://www.sonarsource.com) in AWS and is the easiest path to start scanning your code in minutes. SonarSource does all the heavy lifting for you, so you don’t have to worry about installation or maintenance. As a SaaS offering, SonarCloud gives you immediate access to new features and functionality.
+Unlike self-hosted SonarQube, SonarCloud is hosted by [↑ SonarSource](https://www.sonarsource.com) in AWS and is the easiest path to start scanning your code in minutes. SonarSource does all the heavy lifting for you, so you don't have to worry about installation or maintenance. As a SaaS offering, SonarCloud gives you immediate access to new features and functionality.
 
-> In summary, if your team is fully cloud-based, you don’t want maintenance hassles and you’d like the fastest access to new features, then SonarCloud is a great choice. If you’re fine with self-hosting and maintenance or see value in the management capabilities, then SonarQube would make sense for you.
+> In summary, if your team is fully cloud-based, you don't want maintenance hassles and you'd like the fastest access to new features, then SonarCloud is a great choice. If you're fine with self-hosting and maintenance or see value in the management capabilities, then SonarQube would make sense for you.
 
 [↑ SonarCloud or SonarQube? - Guidance on Choosing One for Your Team](https://blog.sonarsource.com/sq-sc_guidance)

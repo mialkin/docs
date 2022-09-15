@@ -17,7 +17,7 @@
 
 ## Why use EditorConfig
 
-Consider a scenario where your team is working on a project but the individual members of the team use a different IDE or code editor, these differences might result in inconsistent formatting applied to the code as each IDE/editor has its own configurations. EditorConfig solves this problem by having a single config file that is readable by all IDE’s and code editors with the help of some plugins/extensions.
+Consider a scenario where your team is working on a project but the individual members of the team use a different IDE or code editor, these differences might result in inconsistent formatting applied to the code as each IDE/editor has its own configurations. EditorConfig solves this problem by having a single config file that is readable by all IDE's and code editors with the help of some plugins/extensions.
 
 ## Examples of use
 

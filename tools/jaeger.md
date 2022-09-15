@@ -6,7 +6,7 @@ The Jaeger data model is compatible with OpenTracing — which is a specificatio
 
 As most other distributed tracing systems, Jaeger works with *spans* and *traces*, as defined in the OpenTracing specification.
 
-A **span** represents a unit of work in an application (HTTP request, call to a database, etc) and is Jaeger’s most basic unit of work. A span must have an operation name, start time, and duration.
+A **span** represents a unit of work in an application (HTTP request, call to a database, etc) and is Jaeger's most basic unit of work. A span must have an operation name, start time, and duration.
 
 A **trace** is a collection/list of spans connected in a parent/child relationship and can also be thought of as a directed acyclic graph of spans. Traces specify how requests are propagated through application services and other components.
 

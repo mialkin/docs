@@ -2,7 +2,7 @@
 
 **Docker Compose** is a tool for defining and running multi-container Docker applications.
 
-With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration.
+With Compose, you use a YAML file to configure your application's services. Then, with a single command, you create and start all the services from your configuration.
 
 By default, Compose reads two files, a docker-compose.yml and an optional docker-compose.override.yml file. By convention, the docker-compose.yml contains your base configuration.
 
@@ -45,8 +45,8 @@ Configuration options that are applied at build time.
 ```yaml
 version: "3.9"
 services:
-    webapp:
-        build: ./dir
+  webapp:
+    build: ./dir
 ```
 
 Or, as an object with the path specified under `context` and optionally `Dockerfile` and `args`:
@@ -54,12 +54,12 @@ Or, as an object with the path specified under `context` and optionally `Dockerf
 ```yaml
 version: "3.9"
 services:
-    webapp:
-        build:
-            context: ./dir
-            dockerfile: Dockerfile-alternate
-            args:
-                buildno: 1
+  webapp:
+    build:
+      context: ./dir
+      dockerfile: Dockerfile-alternate
+      args:
+        buildno: 1
 ```
 
 ### depends_on
@@ -70,21 +70,21 @@ Simple example:
 ```yaml
 version: "3.9"
 services:
-    web:
-        build: .
-        depends_on:
-            - db
-            - redis
-    redis:
-        image: redis
-    db:
-        image: postgres
+  web:
+    build: .
+    depends_on:
+      - db
+      - redis
+  redis:
+    image: redis
+  db:
+    image: postgres
 ```
 
 Service dependencies cause the following behaviors:
 
 - `docker-compose up` starts services in dependency order. In the following example, `db` and `redis` are started before `web`.
-- `docker-compose up SERVICE` automatically includes `SERVICE`’s dependencies. In the example above, `docker-compose up` web also creates and starts `db` and `redis`.
+- `docker-compose up SERVICE` automatically includes `SERVICE`'s dependencies. In the example above, `docker-compose up` web also creates and starts `db` and `redis`.
 - `docker-compose stop` stops services in dependency order. In the following example, `web` is stopped before `db` and `redis`.
 
 > `depends_on` does not wait for db and redis to be "ready" before starting web - only until they have been started. If you need to wait for a service to be ready, see [Controlling startup](https://docs.docker.com/compose/startup-order/) order for more on this problem and strategies for solving it.

@@ -1,8 +1,8 @@
 # Collections
 
-There are a couple of collection categories that are useful for concurrent programming: *concurrent collections* and *immutable collections*. Concurrent collections allow multiple threads to update them simultaneously in a safe way. Most concurrent collections use *snapshots* to enable one thread to enumerate the values while another thread may be adding or removing values. Concurrent collections are usually more efficient than just protecting a regular collection with a lock.
+There are a couple of collection categories that are useful for concurrent programming: _concurrent collections_ and _immutable collections_. Concurrent collections allow multiple threads to update them simultaneously in a safe way. Most concurrent collections use _snapshots_ to enable one thread to enumerate the values while another thread may be adding or removing values. Concurrent collections are usually more efficient than just protecting a regular collection with a lock.
 
-Immutable collections are a bit different. An immutable collection cannot actually be modified; instead, to modify an immutable collection, you create a new collection that represents the modified collection. This sounds horribly inefficient, but immutable collections share as much memory as possible between collection instances, so it’s not as bad as it sounds. The nice thing about immutable collections is that all operations are pure, so they work very well with functional code
+Immutable collections are a bit different. An immutable collection cannot actually be modified; instead, to modify an immutable collection, you create a new collection that represents the modified collection. This sounds horribly inefficient, but immutable collections share as much memory as possible between collection instances, so it's not as bad as it sounds. The nice thing about immutable collections is that all operations are pure, so they work very well with functional code
 
 ## Immutable collections
 
@@ -29,7 +29,7 @@ There are several important design philosophies that are true for _all_ immutabl
 
 > Threadsafe collections are in the `System.Collections.Concurrent` namespace.
 
-**Threadsafe collections** are mutable collection instances can be changed by multiple threads simultaneously. Threadsafe collections use a mixture of fine-grained locks and lock-free techniques to ensure that threads are blocked for a minimal amount of time (and usually aren’t blocked at all). For many threadsafe collections, enumeration of the collection creates a snapshot of the collection and then enumerates that snapshot. The key advantage of threadsafe collections is that they can be accessed safely from multiple threads, yet the operations will only block your code for a short time, if at all.
+**Threadsafe collections** are mutable collection instances can be changed by multiple threads simultaneously. Threadsafe collections use a mixture of fine-grained locks and lock-free techniques to ensure that threads are blocked for a minimal amount of time (and usually aren't blocked at all). For many threadsafe collections, enumeration of the collection creates a snapshot of the collection and then enumerates that snapshot. The key advantage of threadsafe collections is that they can be accessed safely from multiple threads, yet the operations will only block your code for a short time, if at all.
 
 > NOTE! Access to elements of a collection object through extension methods or through explicit interface implementations are not guaranteed to be thread-safe and may need to be synchronized by the caller.
 
@@ -37,7 +37,7 @@ There are several important design philosophies that are true for _all_ immutabl
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ConcurrentDictionary\<TKey, TValue> | You have a key/value collection (e.g., an in-memory cache) that you need to keep in sync, even though multiple threads are both reading from and writing to it.                                                                                                                   |
 | BlockingCollection\<T>              | You need a conduit to pass messages or data from one thread to another. For example, one thread could be loading data, which it pushes down the conduit as it loads; meanwhile, there are other threads on the receiving end of the conduit that receive the data and process it. |
-|                                     | You need a conduit to pass messages or data from one thread to another, but you don’t want (or need) the conduit to have first-in, first-out semantics.                                                                                                                           |
+|                                     | You need a conduit to pass messages or data from one thread to another, but you don't want (or need) the conduit to have first-in, first-out semantics.                                                                                                                           |
 
 ## Producer/consumer collections
 

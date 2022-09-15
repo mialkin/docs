@@ -1,6 +1,6 @@
 # Kafka
 
-**Kafka** is a horizontally scalable, fault tolerant, and fast messaging system. It’s a pub-sub model in which various producers and consumers can write and read. It decouples source and target systems. 
+**Kafka** is a horizontally scalable, fault tolerant, and fast messaging system. It's a pub-sub model in which various producers and consumers can write and read. It decouples source and target systems.
 
 Some of the key Kafka features:
 
@@ -29,7 +29,7 @@ A **topic** is a message streams with one or more *partitions*. The topic is spl
 
 Partitions enable topics to be distributed across the cluster. Partitions are a unit of parallelism for horizontal scalability. One topic can have more than one partition scaling across nodes.
 
-Messages are assigned to partitions based on partition keys; if there are no partition keys then the partition is randomly assigned. It’s important to use the correct key to avoid hotspots.
+Messages are assigned to partitions based on partition keys; if there are no partition keys then the partition is randomly assigned. It's important to use the correct key to avoid hotspots.
 
 Each message in a partition is assigned an incremental ID called an offset. Offsets are unique per partition and messages are ordered only within a partition. Messages written to partitions are immutable.
 

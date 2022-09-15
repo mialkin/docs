@@ -2,7 +2,7 @@
 
 ## Installing
 
-On Linux, once Docker is installed, you need to add your user to the docker group (otherwise you’d have to run all docker commands with `sudo`, which could lead to security issues):
+On Linux, once Docker is installed, you need to add your user to the docker group (otherwise you'd have to run all docker commands with `sudo`, which could lead to security issues):
 
 ```bash
 sudo usermod -aG docker $USER
@@ -54,9 +54,9 @@ Log out and log back in, so the changes will take effect.
 
 | Option                   | Description                                                                                                                                                                        |
 | :----------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| -d                       | Starts container in detached mode, i.e. your terminal’s standard input, output, and error (or any combination of the three) will not be attached to running container              |
+| -d                       | Starts container in detached mode, i.e. your terminal's standard input, output, and error (or any combination of the three) will not be attached to running container              |
 | -e KEY=VALUE             | Sets environment variable                                                                                                                                                          |
-| -it                      | Instructs Docker to allocate a pseudo-TTY connected to the container’s stdin; creating an interactive bash shell in the container                                                  |
+| -it                      | Instructs Docker to allocate a pseudo-TTY connected to the container's stdin; creating an interactive bash shell in the container                                                  |
 | -p 5001:80               | Binds TCP port 5001 on the host machine to port 80 of the container                                                                                                                |
 | -v /var/app-files:/files | Mounts /var/app-files folder on host machine onto /files folder in container                                                                                                       |
 | --name CONTAINER_NAME    | Assigns name to the running container                                                                                                                                              |
