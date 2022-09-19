@@ -2,6 +2,8 @@
 
 - [PostgreSQL](#postgresql)
   - [Installation](#installation)
+    - [Local installation](#local-installation)
+      - [Access from Kubernetes pods](#access-from-kubernetes-pods)
     - [Docker run](#docker-run)
     - [docker-compose](#docker-compose)
     - [Kubernetes](#kubernetes)
@@ -12,6 +14,102 @@
     - [Shortcuts](#shortcuts)
 
 ## Installation
+
+### Local installation
+
+```bash
+sudo apt install postgresql postgresql-contrib
+```
+
+[↑ How To Install PostgreSQL on Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-22-04-quickstart)
+
+Create new user:
+
+```bash
+sudo -i -u postgres
+createuser --interactive
+exit
+```
+
+Enter something like:
+
+```text
+Enter name of role to add: dictionary
+Shall the new role be a superuser? (y/n) y
+```
+
+Another assumption that the Postgres authentication system makes by default is that for any role used to log in, that role will have a database with the same name which it can access.
+
+This means that if the user you created in the last section is called `dictionary`, that role will attempt to connect to a database which is also called `dictionary` by default. You can create the appropriate database with the createdb command.
+
+```bash
+createdb dictionary
+```
+
+Set new password for user:
+
+```bash
+psql
+ALTER USER dictionary PASSWORD 'dictionary';
+# If successful, Postgres will output a confirmation of ALTER ROLE.
+\q
+```
+
+#### Access from Kubernetes pods
+
+Enable the DNS and host-access addons:
+
+```bash
+microk8s.enable dns host-access
+```
+
+Host-access will bind the host to an IP within your cluster, the default being `10.0.1.1`.
+
+```bash
+sudo vim /etc/postgresql/14/main/postgresql.conf
+sudo systemctl restart postgresql
+```
+
+Check if Postgres listens on the desired address by running:
+
+```bash
+sudo ss -ntlp | grep postgres
+```
+
+From your pods deployed within your Microk8s cluster you should be able to reach IP addresses of your node:
+
+```bash
+apt update
+apt install iputils-ping
+ping 10.0.1.1
+```
+
+Configure PostgreSQL to accept all incoming connections by opening client authentication configuration file:
+
+```bash
+sudo vim /etc/postgresql/14/main/pg_hba.conf
+```
+
+> Modification of pg_hba.conf file may not be needed. Try first without modifying it
+
+Add this line:
+
+```text
+host    all             all             0.0.0.0/0               md5
+```
+
+Install Postgres client inside your pod:
+
+```bash
+install -y postgresql-client
+psql --version 
+```
+
+Try to connect to database:
+
+```bash
+psql postgresql://dictionary@10.0.1.1:5432/dictionary?sslmode=disable
+```
 
 ### Docker run
 
