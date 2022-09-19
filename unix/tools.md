@@ -324,6 +324,14 @@ GNU **tar** is an archiving program designed to store multiple files in a single
 
 ## telnet
 
+Installation:
+
+```bash
+apt-get install telnet
+```
+
+Usage:
+
 Test if port 22 is open on `your.hostname.com`:
 
 ```bash
