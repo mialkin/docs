@@ -1,14 +1,12 @@
 # .NET tools
 
-A **.NET tool** is a special NuGet package that contains a console application. A tool can be installed on your machine in the following ways:
+A **.NET tool** is a special NuGet package that contains a console application.
 
-List installed tools:
+## Commands
 
-```bash
-dotnet tool list
-```
-
-## Links
-
-- [↑ How to manage .NET tools](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools)
-- [↑ dotnet tool install](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-install)
+| Command                                  | Description           |
+| ---------------------------------------- | --------------------- |
+| dotnet tool list --global                | Install tool globally |
+| dotnet tool install --global TOOL_NAME   | Update tool           |
+| dotnet tool update --global TOOL_NAME    | Update tool           |
+| dotnet tool uninstall --global TOOL_NAME | Uninstall tool        |
