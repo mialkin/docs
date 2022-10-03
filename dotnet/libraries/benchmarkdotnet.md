@@ -2,6 +2,8 @@
 
 [↑ BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet) is an open source .NET library that helps to transform methods into benchmarks, track their performance, and share reproducible measurement experiments.
 
+BenchmarkDotNet works only with console applications. It does not support any other kind of application like ASP.NET.
+
 > Benchmarking is a process of running a test that measures the performance of a software
 
 Under the hood, BenchmarkDotNet performs a lot of magic that guarantees reliable and precise results thanks to the [↑ perfolizer](https://github.com/AndreyAkinshin/perfolizer) statistical engine. BenchmarkDotNet protects you from popular benchmarking mistakes and warns you if something is wrong with your benchmark design or obtained measurements. The results are presented in a user-friendly form that highlights all the important facts about your experiment.
@@ -10,10 +12,15 @@ Under the hood, BenchmarkDotNet performs a lot of magic that guarantees reliable
 
 - [BenchmarkDotNet](#benchmarkdotnet)
   - [Table of contents](#table-of-contents)
+  - [Good practices](#good-practices)
   - [Benchmark project](#benchmark-project)
     - [Create new project](#create-new-project)
     - [Run project](#run-project)
     - [Benchmark results](#benchmark-results)
+
+## Good practices
+
+[↑ Good practices](https://benchmarkdotnet.org/articles/guides/good-practices.html).
 
 ## Benchmark project
 
