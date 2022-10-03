@@ -148,6 +148,7 @@
 - [Function parameters vs arguments](programming/function%20parameters%20vs%20arguments.md)
 - [Idempotence](programming/idempotence.md)
 - [Inversion of control (IoC)](programming/ioc/inversion%20of%20control.md)
+- [Makefile](programming/makefile.md)
 - [Programming case types](programming/cases.md)
 - [Scrum](programming/scrum/scrum.md)
 - [Serialization](programming/serialization.md)
