@@ -13,7 +13,7 @@
 ## Installation
 
 ```zsh
-dotnet tool install --global dotnet-ef
+dotnet tool install dotnet-ef --global
 ```
 
 Before you can use the tools on a specific project, you'll need to add the `Microsoft.EntityFrameworkCore.Design` package to it.
@@ -29,12 +29,53 @@ Before you can use the tools on a specific project, you'll need to add the `Micr
 
 ## Migrations
 
-| Command                                 | Meaning                                |
-| --------------------------------------- | -------------------------------------- |
-| dotnet ef migrations add MIGRATION_NAME | Create new migration                   |
-| dotnet ef migrations list               | Lists available migrations             |
-| dotnet ef migrations remove             | Remove the last migration              |
+| Command                                 | Meaning                               |
+| --------------------------------------- | ------------------------------------- |
+| dotnet ef migrations add MIGRATION_NAME | Create new migration                  |
+| dotnet ef migrations list               | Lists available migrations            |
+| dotnet ef migrations remove             | Remove the last migration             |
 | dotnet ef migrations script             | Generate a SQL script from migrations |
+
+List migrations:
+
+```bash
+dotnet ef migrations list \
+--project src/Mialkin.Dictionary.Migrations \
+--startup-project src/Mialkin.Dictionary \
+#--connection="User ID=dictionary_mialkin_ru;Password=dictionary_mialkin_ru;Host=localhost;Port=5444;Database=dictionary_mialkin_ru;Pooling=true;Integrated Security=true"
+```
+
+Create migration:
+
+```bash
+dotnet ef migrations add NewMigration \
+--project src/Mialkin.Dictionary.Migrations \
+--startup-project src/Mialkin.Dictionary
+```
+
+Create bundle:
+
+```bash
+dotnet ef migrations bundle \
+--startup-project src/Mialkin.Dictionary \
+--project src/Mialkin.Dictionary.Migrations \
+--verbose \
+--self-contained \
+--output migration_bundle \
+--target-runtime osx-x64 \
+--force
+#--target-runtime linux-x64
+```
+
+Apply migration:
+
+```bash
+#./migration_bundle --connection="User ID=dictionary_mialkin_ru;Password=dictionary_mialkin_ru;Host=localhost;Port=5444;Database=dictionary_mialkin_ru;Pooling=true;Integrated Security=true"
+export PostgresSettings__ConnectionString="UserID=dictionary_mialkin_ru;Password=dictionary_mialkin_ru;Host=localhost;Port=5444;Database=dictionary_mialkin_ru;Pooling=true;Integrated Security=true"
+./migration_bundle
+```
+
+[↑ Using a Separate Migrations Project](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/projects?tabs=dotnet-core-cli).
 
 ### Applying migrations
 
@@ -46,14 +87,6 @@ There are four ways to apply migrations:
 - Migration bundles: running `./efbundle --verbose` command
 
 #### Migration bundles
-
-```bash
-dotnet ef migrations bundle \
---startup-project src/Mialkin.Dictionary \
---project src/Mialkin.Dictionary.Infrastructure \
---self-contained \
---target-runtime linux-x64
-```
 
 Migration bundles are single-file executables that can be used to apply migrations to a database. They address some of the shortcomings of the SQL script and command-line tools:
 
