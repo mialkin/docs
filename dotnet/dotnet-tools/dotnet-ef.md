@@ -36,13 +36,18 @@ Before you can use the tools on a specific project, you'll need to add the `Micr
 | dotnet ef migrations remove             | Remove the last migration             |
 | dotnet ef migrations script             | Generate a SQL script from migrations |
 
+> Set up environment variable containing connection string before running commands below:
+
+```bash
+export PostgresSettings__ConnectionString="UserID=dictionary_mialkin_ru;Password=dictionary_mialkin_ru;Host=localhost;Port=5444;Database=dictionary_mialkin_ru;Pooling=true;Integrated Security=true"
+```
+
 List migrations:
 
 ```bash
 dotnet ef migrations list \
 --project src/Mialkin.Dictionary.Migrations \
---startup-project src/Mialkin.Dictionary \
-#--connection="User ID=dictionary_mialkin_ru;Password=dictionary_mialkin_ru;Host=localhost;Port=5444;Database=dictionary_mialkin_ru;Pooling=true;Integrated Security=true"
+--startup-project src/Mialkin.Dictionary
 ```
 
 Create migration:
@@ -62,16 +67,12 @@ dotnet ef migrations bundle \
 --verbose \
 --self-contained \
 --output migration_bundle \
---target-runtime osx-x64 \
 --force
-#--target-runtime linux-x64
 ```
 
 Apply migration:
 
 ```bash
-#./migration_bundle --connection="User ID=dictionary_mialkin_ru;Password=dictionary_mialkin_ru;Host=localhost;Port=5444;Database=dictionary_mialkin_ru;Pooling=true;Integrated Security=true"
-export PostgresSettings__ConnectionString="UserID=dictionary_mialkin_ru;Password=dictionary_mialkin_ru;Host=localhost;Port=5444;Database=dictionary_mialkin_ru;Pooling=true;Integrated Security=true"
 ./migration_bundle
 ```
 
