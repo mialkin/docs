@@ -1,6 +1,13 @@
 # RabbitMQ
 
+**RabbitMQ** is an open-source message-broker software.
+
+[↑ RabbitMQ website](https://www.rabbitmq.com).
+
+## Table of contents
+
 - [RabbitMQ](#rabbitmq)
+  - [Table of contents](#table-of-contents)
   - [Basics](#basics)
   - [Exchanges](#exchanges)
   - [Exchange types](#exchange-types)
