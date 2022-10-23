@@ -48,6 +48,8 @@ Currently, there are two type families, `keyword` and `text`. Other type familie
 
 ## Text analysis
 
+[↑ Anatomy of an analyzer](https://www.elastic.co/guide/en/elasticsearch/reference/master/analyzer-anatomy.html).
+
 A **text** is an unstructured content, such as a product description or log message.
 
 A **text analysis** is the process of converting unstructured text into a structured format that's optimized for search.
@@ -60,19 +62,33 @@ A **tokenization** is a process of breaking a text down into tokens.
 
 A **normalization** is a process of bringing tokens into a standard format.
 
-### Analyzers
+An **analyzer** is a package which contains three lower-level building blocks:
 
-An **analyzer** is a package which contains three lower-level building blocks: character filters, tokenizers, and token filters.
+- *character filters*
+- *tokenizer*
+- *token filters*.
 
-A **custom analyzer** is an analyzer that uses the appropriate combination of:
+A **character filter** is a thing that receives the original text as a stream of characters and can transform the stream by adding, removing, or changing characters.
 
-- zero or more character filters
-- a tokenizer
-- zero or more token filters.
+For example, [↑ HTML strip character filter](https://www.elastic.co/guide/en/elasticsearch/reference/master/analysis-htmlstrip-charfilter.html) strips HTML elements from a text and replaces HTML entities with their decoded value, e.g, replaces `&amp;` with `&`.
 
-A **character filter** is a thing that is used to preprocess the stream of characters before it is passed to the tokenizer.
+An analyzer may have zero or more character filters, which are applied in order.
 
-A character filter receives the original text as a stream of characters and can transform the stream by adding, removing, or changing characters. For instance, a character filter could be used to convert Hindu-Arabic numerals `٠١٢٣٤٥٦٧٨٩` into their Arabic-Latin equivalents `0123456789`, or to strip HTML elements like `<b>` from the stream.
+A **tokenizer** is a thing that receives a stream of characters, breaks it up into individual tokens, and outputs a stream of tokens.
+
+For example, a [↑ whitespace tokenizer](https://www.elastic.co/guide/en/elasticsearch/reference/master/analysis-whitespace-tokenizer.html) breaks text into tokens whenever it sees any whitespace.
+
+The tokenizer is also responsible for recording the order or *position* of each term and the start and end character offsets of the original word which the term represents.
+
+An analyzer must have exactly one tokenizer.
+
+A **token filter** is a thing that receives the token stream and may add, remove, or change tokens.
+
+For example, a [↑ lowercase token filter](https://www.elastic.co/guide/en/elasticsearch/reference/master/analysis-lowercase-tokenfilter.html) converts all tokens to lowercase, a stop token filter removes common words (*stop words*) like the from the token stream, and a synonym token filter introduces synonyms into the token stream.
+
+Token filters are not allowed to change the position or character offsets of each token.
+
+An analyzer may have zero or more token filters, which are applied in order.
 
 ## Commands
 
