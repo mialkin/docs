@@ -48,9 +48,31 @@ Currently, there are two type families, `keyword` and `text`. Other type familie
 
 ## Text analysis
 
-A **text analysis** is the process of converting unstructured text, like the body of an email or a product description, into a structured format that's optimized for search.
+A **text** is an unstructured content, such as a product description or log message.
+
+A **text analysis** is the process of converting unstructured text into a structured format that's optimized for search.
 
 Elasticsearch performs text analysis when indexing or searching `text` fields.
+
+A **token** or a **term** is a chunk of unstructured text that's been optimized for search. In most cases, tokens are individual words.
+
+A **tokenization** is a process of breaking a text down into tokens.
+
+A **normalization** is a process of bringing tokens into a standard format.
+
+### Analyzers
+
+An **analyzer** is a package which contains three lower-level building blocks: character filters, tokenizers, and token filters.
+
+A **custom analyzer** is an analyzer that uses the appropriate combination of:
+
+- zero or more character filters
+- a tokenizer
+- zero or more token filters.
+
+A **character filter** is a thing that is used to preprocess the stream of characters before it is passed to the tokenizer.
+
+A character filter receives the original text as a stream of characters and can transform the stream by adding, removing, or changing characters. For instance, a character filter could be used to convert Hindu-Arabic numerals `٠١٢٣٤٥٦٧٨٩` into their Arabic-Latin equivalents `0123456789`, or to strip HTML elements like `<b>` from the stream.
 
 ## Commands
 
