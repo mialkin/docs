@@ -92,24 +92,37 @@ An analyzer may have zero or more token filters, which are applied in order.
 
 ## Commands
 
-List all indexes:
+Get cluster information:
 
 ```bash
-curl http://localhost:9200/_aliases
-# or:
-curl http://localhost:9200/_cat/indices?v
-# or:
-curl http://localhost:9200/_status
+curl localhost:9200
+```
+
+[↑ Create index](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-create-index.html):
+
+```bash
+curl -X PUT "localhost:9200/my-index-000001?pretty"
+```
+
+[↑ Get information](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-index.html) about ore more indices:
+
+```bash
+curl "localhost:9200/my-index-000001?pretty"
+curl "localhost:9200/*?pretty"
+curl "localhost:9200/_all?pretty"
+```
+
+[↑ Get aliases](https://www.elastic.co/guide/en/elasticsearch/reference/current/aliases.html):
+
+```bash
+curl "localhost:9200/_alias?pretty"
+curl "localhost:9200/my-index-000001/_alias?pretty"
+curl "http://localhost:9200/_cat/indices?v"
+curl "http://localhost:9200/_status"
 ```
 
 List all documents in index:
 
 ```bash
-curl http://localhost:9200:/smaple/_search
-```
-
-Query using URL parameters:
-
-```bash
-curl http://localhost:9200:/smaple/_search
+curl "localhost:9200/my-index-000001/_search?pretty"
 ```
