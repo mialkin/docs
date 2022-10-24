@@ -126,3 +126,7 @@ List all documents in index:
 ```bash
 curl "localhost:9200/my-index-000001/_search?pretty"
 ```
+
+## Query DSL
+
+[↑ Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/8.4/query-dsl.html).
