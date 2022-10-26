@@ -8,6 +8,7 @@
   - [Table of contents](#table-of-contents)
   - [`InlineData`](#inlinedata)
   - [`ClassData`](#classdata)
+  - [Articles](#articles)
   - [Setup and teardown](#setup-and-teardown)
 
 ## `InlineData`
@@ -45,7 +46,11 @@ public class ExampleTest
 }
 ```
 
+## Articles
+
 [↑ Creating strongly typed xUnit theory test data with TheoryData](https://andrewlock.net/creating-strongly-typed-xunit-theory-test-data-with-theorydata/)
+
+[↑ Creating parameterized tests in xUnit with `[InlineData]`, `[ClassData]`, and `[MemberData]`](https://andrewlock.net/creating-parameterised-tests-in-xunit-with-inlinedata-classdata-and-memberdata/)
 
 ## Setup and teardown
 
