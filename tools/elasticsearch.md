@@ -145,4 +145,4 @@ You can use the [↑ search API](https://www.elastic.co/guide/en/elasticsearch/r
 
 [↑ Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/8.4/query-dsl.html).
 
-[↑ Painless scripting language](https://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting-painless.html)
+[↑ Painless scripting language](https://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting-painless.html).
