@@ -10,11 +10,25 @@ Elasticsearch provides near real-time search and analytics for all types of data
 
 - [Elasticsearch](#elasticsearch)
   - [Table of contents](#table-of-contents)
+  - [Lucene](#lucene)
   - [Terminology](#terminology)
   - [Text analysis](#text-analysis)
   - [Commands](#commands)
   - [Field data types](#field-data-types)
   - [Searching data](#searching-data)
+
+## Lucene
+
+Elasticsearch is built over [↑ Lucene Core](https://lucene.apache.org/core) Java library. Each shard that gets created in Elasticsearch is a separate Lucene instance.
+
+Lucene provides powerful indexing and search features, as well as spellchecking, hit highlighting and advanced analysis/tokenization capabilities.
+
+Though it's Lucene who is doing the actual work beneath, Elasticsearch provides a convenient layer over Lucene:
+
+- JSON based REST API to refer to Lucene features
+- Distributed system on top of Lucene. A distributed system is not something Lucene is aware of or built for
+- Thread-pool, queues, node/cluster monitoring API, data monitoring API, cluster management, etc
+- Powerful DSL: JSON interface for reading and writing queries on top of Lucene. You can write complex queries without knowing Lucene syntax
 
 ## Terminology
 
