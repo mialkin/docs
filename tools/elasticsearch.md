@@ -16,6 +16,9 @@ Elasticsearch provides near real-time search and analytics for all types of data
   - [Commands](#commands)
   - [Field data types](#field-data-types)
   - [Searching data](#searching-data)
+    - [Queries](#queries)
+      - [`match_all`](#match_all)
+      - [`match_none`](#match_none)
 
 ## Lucene
 
@@ -157,6 +160,45 @@ A **hit** or **search result** is a document that matches a search's queries and
 
 You can use the [↑ search API](https://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html) to search and aggregate data stored in Elasticsearch data streams or indices. The API’s query request body parameter accepts queries written in Query DSL.
 
+[↑ Painless scripting language](https://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting-painless.html).
+
+### Queries
+
 [↑ Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/8.4/query-dsl.html).
 
-[↑ Painless scripting language](https://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting-painless.html).
+#### `match_all`
+
+Match all documents, giving them all a `_score` of `1.0`:
+
+```json
+GET my-index-000001/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+```
+
+The `_score` can be changed with the `boost` parameter:
+
+```json
+GET my-index-000001/_search
+{
+  "query": {
+    "match_all": { "boost" : 1.2 }
+  }
+}
+```
+
+#### `match_none`
+
+This is the inverse of the `match_all` query, which matches no documents:
+
+```json
+GET my-index-000001/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+```
