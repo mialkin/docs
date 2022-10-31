@@ -158,7 +158,7 @@ A **search** is a set of one or more queries that are combined and sent to Elast
 
 A **hit** or **search result** is a document that matches a search's queries and returned in response.
 
-You can use the [↑ search API](https://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html) to search and aggregate data stored in Elasticsearch data streams or indices. The API’s query request body parameter accepts queries written in Query DSL.
+You can use the [↑ search API](https://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html) to search and aggregate data stored in Elasticsearch data streams or indices. The API's query request body parameter accepts queries written in Query DSL.
 
 [↑ Painless scripting language](https://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting-painless.html).
 
