@@ -26,43 +26,38 @@ The **Flyweight** is a structural software design pattern that uses sharing to s
 ## C# implementation
 
 ```csharp
-public class Program
+void DisplayMemory() =>
+    Console.WriteLine($"Number of MBs currently thought to be allocated: {GC.GetTotalMemory(false) / (1024 * 1024)}");
+
+var state = new Flyweight(Color.Red, "Red line", 5);
+var lines = new List<Line>();
+
+DisplayMemory();
+for (var i = 0; i < 1000000; i++)
 {
-    public static void Main()
+    lines.Add(new Line
     {
-        Flyweight state = new Flyweight(Color.Red, "Red line", 5);
-
-        var lines = new List<Line>();
-        var random = new Random();
-
-        Console.WriteLine("Number of bytes currently thought to be allocated: " + GC.GetTotalMemory(false));
-        for (int i = 0; i < 1000; i++)
-        {
-            lines.Add(new Line
-            {
-                X1 = random.Next(100),
-                Y1 = random.Next(100),
-                X2 = random.Next(100),
-                Y2 = random.Next(100),
-                State = state
-                //State = new State(Color.Red, "Red line", 5)
-            });
-        }
-
-        Console.WriteLine("Number of bytes currently thought to be allocated: " + GC.GetTotalMemory(false));
-        Line line = lines.First();
-        Console.WriteLine($"First line coordinates: X1={line.X1}, Y1={line.Y1}, X2={line.X2}, Y2={line.Y2}");
-        Console.WriteLine("First line length: " + line.State.CalculateLength(line.X1, line.Y1, line.X2, line.Y2));
-    }
+        X1 = Random.Shared.Next(100),
+        Y1 = Random.Shared.Next(100),
+        X2 = Random.Shared.Next(100),
+        Y2 = Random.Shared.Next(100),
+        State = state
+        // State = new Flyweight(Color.Red, "Red line", 5)
+    });
 }
+
+DisplayMemory();
+var line = lines.First();
+Console.WriteLine($"First line coordinates: X1={line.X1}, Y1={line.Y1}, X2={line.X2}, Y2={line.Y2}");
+Console.WriteLine("First line length: " + Flyweight.CalculateLength(line.X1, line.Y1, line.X2, line.Y2));
 
 struct Line
 {
-    public int X1 { get; set; }
-    public int Y1 { get; set; }
-    public int X2 { get; set; }
-    public int Y2 { get; set; }
-    public Flyweight State { get; set; }
+    public int X1 { get; init; }
+    public int Y1 { get; init; }
+    public int X2 { get; init; }
+    public int Y2 { get; init; }
+    public Flyweight State { get; init; }
 }
 
 class Flyweight
@@ -78,7 +73,7 @@ class Flyweight
         Priority = priority;
     }
 
-    public double CalculateLength(int x1, int y1, int x2, int y2)
+    public static double CalculateLength(int x1, int y1, int x2, int y2)
     {
         return Math.Sqrt(Math.Pow(x1 - x2, 2) + Math.Pow(y1 - y2, 2));
     }
@@ -95,9 +90,9 @@ enum Color
 
 Output:
 
-```output
-Number of bytes currently thought to be allocated: 59344
-Number of bytes currently thought to be allocated: 120880
-First line coordinates: X1=64, Y1=75, X2=20, Y2=65
-First line length: 45.12205669071391
+```console
+Number of MBs currently thought to be allocated: 1
+Number of MBs currently thought to be allocated: 46
+First line coordinates: X1=82, Y1=75, X2=50, Y2=93
+First line length: 36.71511950137164
 ```
