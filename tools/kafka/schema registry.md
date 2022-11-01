@@ -1,6 +1,8 @@
 # Schema Registry
 
-[↑ Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html) is a standalone server process that runs on a machine external to the Kafka brokers. Its job is to maintain a database of all of the schemas that have been written into topics in the cluster for which it is responsible. That "database" is persisted in an internal Kafka topic and cached in Schema Registry for low-latency access.
+[↑ Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html) is a standalone server process that runs on a machine external to the Kafka brokers. Its job is to maintain a database of all of the schemas that have been written into topics in the cluster for which it is responsible.
+
+Kafka is used as Schema Registry storage backend. The special Kafka topic `<kafkastore.topic>` (default `_schemas`), with a single partition, is used as a highly available write ahead log.
 
 Schema Registry provides serializers that plug into Kafka clients that handle schema storage and retrieval for Kafka messages that are sent in any of the supported formats.
 
