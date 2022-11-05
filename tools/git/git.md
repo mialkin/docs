@@ -104,8 +104,8 @@ git config user.email
 ## Push to multiple repositories
 
 ```bash
-git remote set-url --add --push origin https://gitlab.com/mialkin/YOUR_REPOSITORY_NAME.git
-git remote set-url --add --push origin https://github.com/mialkin/YOUR_REPOSITORY_NAME.git
+git remote set-url --add --push origin git@gitlab.com:mialkin/YOUR_REPOSITORY_NAME.git
+git remote set-url --add --push origin git@github.com:mialkin/YOUR_REPOSITORY_NAME.git
 ```
 
 ## .gitignore
