@@ -38,6 +38,7 @@
 - [Git](tools/git/git.md)
 - [GitLab](tools/gitlab.md)
 - [Grafana](tools/grafana.md)
+- [Graphviz & PlantUML](tools/graphviz%20plantuml.md)
 - [Jaeger](tools/jaeger.md)
 - [Jenkins](tools/jenkins.md)
 - [Kafka](tools/kafka/kafka.md)
@@ -156,7 +157,6 @@
 - [Scrum](programming/scrum/scrum.md)
 - [Serialization](programming/serialization.md)
 - [Time zones vs offsets](programming/time%20zones%20vs%20offsets.md)
-- [UML diagrams](programming/uml.md)
 
 ## Testing
 

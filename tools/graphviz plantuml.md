@@ -1,4 +1,4 @@
-# UML diagrams
+# Graphviz & PlantUML
 
 ## Graphviz
 
@@ -21,7 +21,13 @@ digraph DiagramName {
 }
 ```
 
-## Other tools
+## PlantUML
 
 - [↑ PlantUML](https://plantuml.com)
-- [↑ Mermaid](https://mermaid-js.github.io/mermaid)
+- [↑PlantUML Server](https://github.com/plantuml/plantuml-server)
+
+Visual Studio code settings:
+
+```json
+"plantuml.server": "http://localhost:8080"
+```
