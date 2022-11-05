@@ -63,14 +63,7 @@ Enable the DNS and host-access addons:
 microk8s.enable dns host-access
 ```
 
-Host-access will bind the host to an IP within your cluster, the default being `10.0.1.1`.
-
-```bash
-sudo vim /etc/postgresql/14/main/postgresql.conf
-sudo systemctl restart postgresql
-```
-
-Check if Postgres listens on the desired address by running:
+Host-access will bind the host to an IP within your cluster, the default being `10.0.1.1`. Check if Postgres listens on the desired address by running:
 
 ```bash
 sudo ss -ntlp | grep postgres
@@ -101,7 +94,7 @@ host    all             all             0.0.0.0/0               md5
 Install Postgres client inside your pod:
 
 ```bash
-install -y postgresql-client
+apt install -y postgresql-client
 psql --version 
 ```
 
