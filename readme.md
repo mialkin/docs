@@ -213,6 +213,7 @@
 - Dotnet libraries
   - [AutoFixture](dotnet/libraries/autofixture.md)
   - [BenchmarkDotNet](dotnet/libraries/benchmarkdotnet.md)
+  - [Bogus](dotnet/libraries/bogus.md)
   - [↑ FluentAssertions](https://fluentassertions.com/introduction)
   - [FluentDocker](dotnet/libraries/fluentdocker.md)
   - [FluentValidation](dotnet/libraries/fluentvalidation.md)
