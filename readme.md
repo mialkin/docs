@@ -223,6 +223,7 @@
   - [↑ OpenTelemetry .NET](https://github.com/open-telemetry/opentelemetry-dotnet)
   - [Polly](dotnet/libraries/polly.md)
   - [xUnit](dotnet/libraries/xunit.md)
+  - [↑ WireMock.Net](https://www.youtube.com/watch?v=YU3ohofu6UU)
   - [↑ YARP](https://github.com/microsoft/reverse-proxy)
 - Identity management
   - [Authentication](dotnet/identity%20managment/authentication.md)
