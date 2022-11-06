@@ -217,6 +217,7 @@
   - [FluentDocker](dotnet/libraries/fluentdocker.md)
   - [FluentValidation](dotnet/libraries/fluentvalidation.md)
   - [↑ Flurl](https://github.com/tmenier/Flurl)
+  - [↑ Humanizer](https://github.com/Humanizr/Humanizer)
   - [MediatR](dotnet/libraries/mediatr.md)
   - [Moq](dotnet/libraries/moq.md)
   - [NEST](dotnet/libraries/nest.md)
