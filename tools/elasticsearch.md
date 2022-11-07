@@ -21,11 +21,12 @@ Elasticsearch provides near real-time search and analytics for all types of data
   - [Commands](#commands)
     - [Create index](#create-index)
     - [Delete index](#delete-index)
-    - [Get index information](#get-index-information)
-    - [Get aliases](#get-aliases)
     - [Index document](#index-document)
     - [Get documents](#get-documents)
-    - [Get mapping](#get-mapping)
+    - [List indices](#list-indices)
+    - [Get mappings](#get-mappings)
+    - [Get index information](#get-index-information)
+    - [Get aliases](#get-aliases)
   - [Ingest pipeline](#ingest-pipeline)
   - [Text analysis](#text-analysis)
 
@@ -163,6 +164,61 @@ PUT books_test
 DELETE books_test
 ```
 
+### Index document
+
+```text
+POST books_test/_doc
+{
+  "name": "An Awesome Book",
+  "tags": [{ "name": "best-seller" }, { "name": "summer-sale" }],
+  "authors": [
+    { "name": "Gustavo Llermaly", "age": "32", "country": "Chile" },
+    { "name": "John Doe", "age": "20", "country": "USA" }
+  ]
+}
+```
+
+Specify document ID explicitly:
+
+```text
+POST books_test/_doc/1
+{
+  "name": "An Awesome Book",
+  "tags": [{ "name": "best-seller" }, { "name": "summer-sale" }],
+  "authors": [
+    { "name": "Gustavo Llermaly", "age": "32", "country": "Chile" },
+    { "name": "John Doe", "age": "20", "country": "USA" }
+  ]
+}
+```
+
+If document ID is not specified explicitly, then a unique inside index like `5QvnUoQBvyqDobl6CzNM` will be created automatically.
+
+### Get documents
+
+```text
+GET books_test/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+```
+
+### List indices
+
+List all documents in index:
+
+```bash
+curl "localhost:9200/my-index-000001/_search?pretty"
+```
+
+### Get mappings
+
+```text
+GET books_test/_mapping
+```
+
 ### Get index information
 
 [↑ Get information](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-index.html) about ore more indices:
@@ -171,6 +227,10 @@ DELETE books_test
 curl "localhost:9200/my-index-000001?pretty"
 curl "localhost:9200/*?pretty"
 curl "localhost:9200/_all?pretty"
+```
+
+```text
+GET books_test
 ```
 
 ### Get aliases
@@ -182,45 +242,6 @@ curl "localhost:9200/_alias?pretty"
 curl "localhost:9200/my-index-000001/_alias?pretty"
 curl "http://localhost:9200/_cat/indices?v"
 curl "http://localhost:9200/_status"
-```
-
-### Index document
-
-```text
-PUT books_test/_doc/1
-{
-  "name": "An Awesome Book",
-  "tags": [{ "name": "best-seller" }, { "name": "summer-sale" }],
-  "authors": [
-    { "name": "Gustavo Llermaly", "age": "32", "country": "Chile" },
-    { "name": "John Doe", "age": "20", "country": "USA" }
-  ]
-}
-```
-
-### Get documents
-
-```text
-GET books_test/_search
-{
-  "query": {
-    "match_all": {}
-  }
-}
-````
-
-### List indices
-
-List all documents in index:
-
-```bash
-curl "localhost:9200/my-index-000001/_search?pretty"
-```
-
-### Get mapping
-
-```text
-GET books_test/_mapping
 ```
 
 ## Ingest pipeline
