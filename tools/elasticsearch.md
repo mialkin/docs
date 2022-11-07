@@ -12,13 +12,22 @@ Elasticsearch provides near real-time search and analytics for all types of data
   - [Table of contents](#table-of-contents)
   - [Lucene](#lucene)
   - [Terminology](#terminology)
-  - [Text analysis](#text-analysis)
-  - [Commands](#commands)
   - [Field data types](#field-data-types)
+  - [Mapping](#mapping)
   - [Searching data](#searching-data)
     - [Queries](#queries)
       - [`match_all`](#match_all)
       - [`match_none`](#match_none)
+  - [Commands](#commands)
+    - [Create index](#create-index)
+    - [Delete index](#delete-index)
+    - [Get index information](#get-index-information)
+    - [Get aliases](#get-aliases)
+    - [Index document](#index-document)
+    - [Get documents](#get-documents)
+    - [Get mapping](#get-mapping)
+  - [Ingest pipeline](#ingest-pipeline)
+  - [Text analysis](#text-analysis)
 
 ## Lucene
 
@@ -57,87 +66,6 @@ A **time series data** is a series of data points, such as logs, metrics and eve
 
 A **time series data stream** is a type of data stream optimized for indexing metrics time series data. A TSDS allows for reduced storage size and for a sequence of metrics data points to be considered efficiently as a whole.
 
-## Text analysis
-
-[↑ Anatomy of an analyzer](https://www.elastic.co/guide/en/elasticsearch/reference/master/analyzer-anatomy.html).
-
-A **text** is an unstructured content, such as a product description or log message.
-
-A **text analysis** is the process of converting unstructured text into a structured format that's optimized for search.
-
-Elasticsearch performs text analysis when indexing or searching `text` fields.
-
-A **token** or a **term** is a chunk of unstructured text that's been optimized for search. In most cases, tokens are individual words.
-
-A **tokenization** is a process of breaking a text down into tokens.
-
-A **normalization** is a process of bringing tokens into a standard format.
-
-An **analyzer** is a package which contains three lower-level building blocks:
-
-- *character filters*
-- *tokenizer*
-- *token filters*.
-
-A **character filter** is a thing that receives the original text as a stream of characters and can transform the stream by adding, removing, or changing characters.
-
-For example, [↑ HTML strip character filter](https://www.elastic.co/guide/en/elasticsearch/reference/master/analysis-htmlstrip-charfilter.html) strips HTML elements from a text and replaces HTML entities with their decoded value, e.g, replaces `&amp;` with `&`.
-
-An analyzer may have zero or more character filters, which are applied in order.
-
-A **tokenizer** is a thing that receives a stream of characters, breaks it up into individual tokens, and outputs a stream of tokens.
-
-For example, a [↑ whitespace tokenizer](https://www.elastic.co/guide/en/elasticsearch/reference/master/analysis-whitespace-tokenizer.html) breaks text into tokens whenever it sees any whitespace.
-
-The tokenizer is also responsible for recording the order or *position* of each term and the start and end character offsets of the original word which the term represents.
-
-An analyzer must have exactly one tokenizer.
-
-A **token filter** is a thing that receives the token stream and may add, remove, or change tokens.
-
-For example, a [↑ lowercase token filter](https://www.elastic.co/guide/en/elasticsearch/reference/master/analysis-lowercase-tokenfilter.html) converts all tokens to lowercase, a stop token filter removes common words (*stop words*) like the from the token stream, and a synonym token filter introduces synonyms into the token stream.
-
-Token filters are not allowed to change the position or character offsets of each token.
-
-An analyzer may have zero or more token filters, which are applied in order.
-
-## Commands
-
-Get cluster information:
-
-```bash
-curl localhost:9200
-```
-
-[↑ Create index](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-create-index.html):
-
-```bash
-curl -X PUT "localhost:9200/my-index-000001?pretty"
-```
-
-[↑ Get information](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-index.html) about ore more indices:
-
-```bash
-curl "localhost:9200/my-index-000001?pretty"
-curl "localhost:9200/*?pretty"
-curl "localhost:9200/_all?pretty"
-```
-
-[↑ Get aliases](https://www.elastic.co/guide/en/elasticsearch/reference/current/aliases.html):
-
-```bash
-curl "localhost:9200/_alias?pretty"
-curl "localhost:9200/my-index-000001/_alias?pretty"
-curl "http://localhost:9200/_cat/indices?v"
-curl "http://localhost:9200/_status"
-```
-
-List all documents in index:
-
-```bash
-curl "localhost:9200/my-index-000001/_search?pretty"
-```
-
 ## Field data types
 
 [↑ Field data types](https://www.elastic.co/guide/en/elasticsearch/reference/master/mapping-types.html).
@@ -147,6 +75,12 @@ Each field has a **field data type**, or **field type**. This type indicates the
 Field types are grouped by **family**. Types in the same family have exactly the same search behavior but may have different space usage or performance characteristics.
 
 Currently, there are two type families, `keyword` and `text`. Other type families have only a single field type. For example, the boolean type family consists of one field type: `boolean`.
+
+## Mapping
+
+**Mapping** is the process of defining how a document, and the fields it contains, are stored and indexed.
+
+[↑ Mapping](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html)
 
 ## Searching data
 
@@ -202,3 +136,137 @@ GET my-index-000001/_search
   }
 }
 ```
+
+## Commands
+
+Get cluster information:
+
+```bash
+curl localhost:9200
+```
+
+### Create index
+
+[↑ Create index](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-create-index.html)
+
+```bash
+curl -X PUT "localhost:9200/my-index-000001?pretty"
+```
+
+```elastic
+PUT books_test
+```
+
+### Delete index
+
+```text
+DELETE books_test
+```
+
+### Get index information
+
+[↑ Get information](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-index.html) about ore more indices:
+
+```bash
+curl "localhost:9200/my-index-000001?pretty"
+curl "localhost:9200/*?pretty"
+curl "localhost:9200/_all?pretty"
+```
+
+### Get aliases
+
+[↑ Get aliases](https://www.elastic.co/guide/en/elasticsearch/reference/current/aliases.html):
+
+```bash
+curl "localhost:9200/_alias?pretty"
+curl "localhost:9200/my-index-000001/_alias?pretty"
+curl "http://localhost:9200/_cat/indices?v"
+curl "http://localhost:9200/_status"
+```
+
+### Index document
+
+```text
+PUT books_test/_doc/1
+{
+  "name": "An Awesome Book",
+  "tags": [{ "name": "best-seller" }, { "name": "summer-sale" }],
+  "authors": [
+    { "name": "Gustavo Llermaly", "age": "32", "country": "Chile" },
+    { "name": "John Doe", "age": "20", "country": "USA" }
+  ]
+}
+```
+
+### Get documents
+
+```text
+GET books_test/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+````
+
+### List indices
+
+List all documents in index:
+
+```bash
+curl "localhost:9200/my-index-000001/_search?pretty"
+```
+
+### Get mapping
+
+```text
+GET books_test/_mapping
+```
+
+## Ingest pipeline
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html
+
+## Text analysis
+
+[↑ Anatomy of an analyzer](https://www.elastic.co/guide/en/elasticsearch/reference/master/analyzer-anatomy.html).
+
+A **text** is an unstructured content, such as a product description or log message.
+
+A **text analysis** is the process of converting unstructured text into a structured format that's optimized for search.
+
+Elasticsearch performs text analysis when indexing or searching `text` fields.
+
+A **token** or a **term** is a chunk of unstructured text that's been optimized for search. In most cases, tokens are individual words.
+
+A **tokenization** is a process of breaking a text down into tokens.
+
+A **normalization** is a process of bringing tokens into a standard format.
+
+An **analyzer** is a package which contains three lower-level building blocks:
+
+- *character filters*
+- *tokenizer*
+- *token filters*.
+
+A **character filter** is a thing that receives the original text as a stream of characters and can transform the stream by adding, removing, or changing characters.
+
+For example, [↑ HTML strip character filter](https://www.elastic.co/guide/en/elasticsearch/reference/master/analysis-htmlstrip-charfilter.html) strips HTML elements from a text and replaces HTML entities with their decoded value, e.g, replaces `&amp;` with `&`.
+
+An analyzer may have zero or more character filters, which are applied in order.
+
+A **tokenizer** is a thing that receives a stream of characters, breaks it up into individual tokens, and outputs a stream of tokens.
+
+For example, a [↑ whitespace tokenizer](https://www.elastic.co/guide/en/elasticsearch/reference/master/analysis-whitespace-tokenizer.html) breaks text into tokens whenever it sees any whitespace.
+
+The tokenizer is also responsible for recording the order or *position* of each term and the start and end character offsets of the original word which the term represents.
+
+An analyzer must have exactly one tokenizer.
+
+A **token filter** is a thing that receives the token stream and may add, remove, or change tokens.
+
+For example, a [↑ lowercase token filter](https://www.elastic.co/guide/en/elasticsearch/reference/master/analysis-lowercase-tokenfilter.html) converts all tokens to lowercase, a stop token filter removes common words (*stop words*) like the from the token stream, and a synonym token filter introduces synonyms into the token stream.
+
+Token filters are not allowed to change the position or character offsets of each token.
+
+An analyzer may have zero or more token filters, which are applied in order.
