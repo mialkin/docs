@@ -22,7 +22,7 @@ Elasticsearch provides near real-time search and analytics for all types of data
     - [Create index](#create-index)
     - [Delete index](#delete-index)
     - [Index document](#index-document)
-    - [Get documents](#get-documents)
+    - [Get document by ID](#get-document-by-id)
     - [List indices](#list-indices)
     - [Get mappings](#get-mappings)
     - [Get index information](#get-index-information)
@@ -166,6 +166,8 @@ DELETE books_test
 
 ### Index document
 
+[↑ Index API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html)
+
 ```text
 POST books_test/_doc
 {
@@ -194,15 +196,15 @@ POST books_test/_doc/1
 
 If document ID is not specified explicitly, then a unique inside index like `5QvnUoQBvyqDobl6CzNM` will be created automatically.
 
-### Get documents
+You can index a new JSON document with the `_doc` or `_create` resource. Using `_create` guarantees that the document is only indexed if it does not already exist. To update an existing document, you must use the `_doc` resource.
+
+### Get document by ID
+
+[↑ Get API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-get.html)
 
 ```text
-GET books_test/_search
-{
-  "query": {
-    "match_all": {}
-  }
-}
+GET books_test/_doc/5QvnUoQBvyqDobl6CzNM
+GET books_test/_doc/1
 ```
 
 ### List indices
