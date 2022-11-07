@@ -18,6 +18,7 @@ Elasticsearch provides near real-time search and analytics for all types of data
     - [Queries](#queries)
       - [`match_all`](#match_all)
       - [`match_none`](#match_none)
+      - [Match query vs term query](#match-query-vs-term-query)
   - [Commands](#commands)
     - [Create index](#create-index)
     - [Delete index](#delete-index)
@@ -135,6 +136,12 @@ GET my-index-000001/_search
   }
 }
 ```
+
+#### Match query vs term query
+
+Same as `text` and `keyword`, the difference between Match Query and Term Query is that the query in Match Query will get analyzed into terms first, while the query in Term Query will not.
+
+[↑ Elasticsearch: Text vs. Keyword](https://codecurated.com/blog/elasticsearch-text-vs-keyword)
 
 ## Commands
 
