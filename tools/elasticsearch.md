@@ -71,11 +71,9 @@ A **time series data stream** is a type of data stream optimized for indexing me
 
 [↑ Field data types](https://www.elastic.co/guide/en/elasticsearch/reference/master/mapping-types.html).
 
-Each field has a **field data type**, or **field type**. This type indicates the kind of data the field contains, such as strings or boolean values, and its intended use. For example, you can index strings to both `text` and `keyword` fields. However, `text` field values are analyzed for full-text search while `keyword` strings are left as-is for filtering and sorting.
+Each field has a **field data type**, or **field type**. This type indicates the kind of data the field contains, such as strings or boolean values, and its intended use.
 
-Field types are grouped by **family**. Types in the same family have exactly the same search behavior but may have different space usage or performance characteristics.
-
-Currently, there are two type families, `keyword` and `text`. Other type families have only a single field type. For example, the boolean type family consists of one field type: `boolean`.
+Field types are grouped by **family**. Types in the same family have exactly the same search behavior but may have different space usage or performance characteristics. Currently, there are two type families: `keyword` and `text`. Other type families have only a single field type. For example, the boolean type family consists of one field type: `boolean`.
 
 ## Mapping
 
