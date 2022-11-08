@@ -4,7 +4,7 @@
 
 Elasticsearch provides near real-time search and analytics for all types of data.
 
-[↑ Welcome to Elastic Docs](https://www.elastic.co/guide/index.html).
+[↑ Welcome to Elastic Docs](https://www.elastic.co/guide/index.html)
 
 ## Table of contents
 
@@ -26,6 +26,7 @@ Elasticsearch provides near real-time search and analytics for all types of data
     - [Get document by ID](#get-document-by-id)
     - [List indices](#list-indices)
     - [Get mappings](#get-mappings)
+    - [Update mapping](#update-mapping)
     - [Get index information](#get-index-information)
     - [Get aliases](#get-aliases)
   - [Ingest pipeline](#ingest-pipeline)
@@ -46,7 +47,7 @@ Though it's Lucene who is doing the actual work beneath, Elasticsearch provides 
 
 ## Terminology
 
-[↑ Terminology](https://www.elastic.co/guide/en/elastic-stack-glossary/current/terms.html).
+[↑ Terminology](https://www.elastic.co/guide/en/elastic-stack-glossary/current/terms.html)
 
 A **document** is a JSON object containing data stored in Elasticsearch.
 
@@ -70,7 +71,7 @@ A **time series data stream** is a type of data stream optimized for indexing me
 
 ## Field data types
 
-[↑ Field data types](https://www.elastic.co/guide/en/elasticsearch/reference/master/mapping-types.html).
+[↑ Field data types](https://www.elastic.co/guide/en/elasticsearch/reference/master/mapping-types.html)
 
 Each field has a **field data type**, or **field type**. This type indicates the kind of data the field contains, such as strings or boolean values, and its intended use.
 
@@ -82,9 +83,11 @@ Field types are grouped by **family**. Types in the same family have exactly the
 
 [↑ Mapping](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html)
 
+[↑ Auto mapping](https://www.elastic.co/guide/en/elasticsearch/client/net-api/7.17/auto-map.html#auto-map)
+
 ## Searching data
 
-[↑ Search your data](https://www.elastic.co/guide/en/elasticsearch/reference/master/search-your-data.html).
+[↑ Search your data](https://www.elastic.co/guide/en/elasticsearch/reference/master/search-your-data.html)
 
 A **query**, is a request for information about data in *data streams* or indices.
 
@@ -94,11 +97,11 @@ A **hit** or **search result** is a document that matches a search's queries and
 
 You can use the [↑ search API](https://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html) to search and aggregate data stored in Elasticsearch data streams or indices. The API's query request body parameter accepts queries written in Query DSL.
 
-[↑ Painless scripting language](https://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting-painless.html).
+[↑ Painless scripting language](https://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting-painless.html)
 
 ### Queries
 
-[↑ Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/8.4/query-dsl.html).
+[↑ Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/8.4/query-dsl.html)
 
 #### `match_all`
 
@@ -163,6 +166,22 @@ curl -X PUT "localhost:9200/my-index-000001?pretty"
 PUT books_test
 ```
 
+Create index with dynamic mapping turned off:
+
+```json
+PUT /test
+{
+  "mappings": {
+    "dynamic": false,
+    "properties": {
+      "length": { "type": "integer" }
+    }
+  }
+}
+```
+
+[↑ `dynamic` mapping parameter](https://www.elastic.co/guide/en/elasticsearch/reference/7.16/dynamic.html)
+
 ### Delete index
 
 ```text
@@ -173,7 +192,7 @@ DELETE books_test
 
 [↑ Index API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html)
 
-```text
+```json
 POST books_test/_doc
 {
   "name": "An Awesome Book",
@@ -187,7 +206,7 @@ POST books_test/_doc
 
 Specify document ID explicitly:
 
-```text
+```json
 POST books_test/_doc/1
 {
   "name": "An Awesome Book",
@@ -225,6 +244,9 @@ curl "localhost:9200/my-index-000001/_search?pretty"
 ```text
 GET books_test/_mapping
 ```
+
+### Update mapping
+
 
 ### Get index information
 
