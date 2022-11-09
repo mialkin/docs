@@ -247,7 +247,6 @@ GET books_test/_mapping
 
 ### Update mapping
 
-
 ### Get index information
 
 [↑ Get information](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-index.html) about ore more indices:
