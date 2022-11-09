@@ -32,25 +32,23 @@ PUT /test
   "mappings": {
     "dynamic": "strict",
     "properties": {
-      "length": { "type": "integer" }
+      "length": { "type": "integer" },
+      "title": { "type": "text" }
     }
   }
 }
 GET test
 GET test/_mapping
-POST test/_doc
+POST test/_doc/1
 {
   "length": "5"
 }
 GET test/_search
-POST test/_doc
+POST test/_doc/1
 {
-  "this_will_produce_error": "5"
+  "title": "The Title"
 }
-POST test/_doc/O8j2WoQB6vbHwDshMP1w
-{
-  "length": "15"
-}
+DELETE test/_doc/1
 DELETE test
 ```
 
