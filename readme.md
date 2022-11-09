@@ -35,6 +35,7 @@
   - [Dockerfile](tools/docker/dockerfiles.md)
   - [Docker compose](tools/docker/docker%20compose.md)
 - [Elasticsearch](tools/elasticsearch/elasticsearch.md)
+  - [Elasticsearch commands](tools/elasticsearch/elasticsearch-commands.md)
 - [Git](tools/git/git.md)
 - [GitLab](tools/gitlab.md)
 - [Grafana](tools/grafana.md)
