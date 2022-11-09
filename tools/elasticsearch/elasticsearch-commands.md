@@ -27,13 +27,24 @@ curl localhost:9200
 ## Concise example
 
 ```json
+POST test/_doc/1
+{
+  "name": "An Awesome Book 2222",
+  "tags": [{ "name": "best-seller" }, { "name": "summer-sale" }],
+  "authors": [
+    { "name": "Gustavo Llermaly", "age": "32", "country": "Chile" },
+    { "name": "John Doe", "age": "20", "country": "USA" }
+  ]
+}
+
 PUT /test
 {
   "mappings": {
     "dynamic": "strict",
     "properties": {
+      "title": { "type": "text" },
       "length": { "type": "integer" },
-      "title": { "type": "text" }
+      "width": { "type": "integer"}
     }
   }
 }
@@ -44,9 +55,17 @@ POST test/_doc/1
   "length": "5"
 }
 GET test/_search
+# Replaces entirely existing document:
 POST test/_doc/1
 {
   "title": "The Title"
+}
+POST test/_update/1
+{
+    "doc" : {
+        "length": "100",
+        "width": "500"
+    }
 }
 DELETE test/_doc/1
 DELETE test
