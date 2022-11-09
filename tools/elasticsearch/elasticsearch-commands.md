@@ -5,6 +5,7 @@
 - [Elasticsearch commands](#elasticsearch-commands)
   - [Table of contents](#table-of-contents)
   - [Get cluster information](#get-cluster-information)
+  - [Concise example](#concise-example)
   - [Create index](#create-index)
   - [Delete index](#delete-index)
   - [Index document](#index-document)
@@ -21,6 +22,36 @@ Get cluster information:
 
 ```bash
 curl localhost:9200
+```
+
+## Concise example
+
+```json
+PUT /test
+{
+  "mappings": {
+    "dynamic": "strict",
+    "properties": {
+      "length": { "type": "integer" }
+    }
+  }
+}
+GET test
+GET test/_mapping
+POST test/_doc
+{
+  "length": "5"
+}
+GET test/_search
+POST test/_doc
+{
+  "this_will_produce_error": "5"
+}
+POST test/_doc/O8j2WoQB6vbHwDshMP1w
+{
+  "length": "15"
+}
+DELETE test
 ```
 
 ## Create index
