@@ -55,6 +55,13 @@ ALTER USER dictionary PASSWORD 'dictionary';
 \q
 ```
 
+Check status:
+
+```bash
+sudo systemctl status postgresql.service
+sudo systemctl restart postgresql.service
+```
+
 #### Access from Kubernetes pods
 
 Enable the DNS and host-access addons:

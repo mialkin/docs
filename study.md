@@ -1,9 +1,23 @@
 # Study list
 
+## Table of contents
+
+- [Study list](#study-list)
+  - [Table of contents](#table-of-contents)
+  - [Misc](#misc)
+  - [C#](#c)
+  - [ASP.NET](#aspnet)
+  - [Design](#design)
+  - [Programming](#programming)
+  - [Databases](#databases)
+  - [JavaScript](#javascript)
+  - [Computer science](#computer-science)
+
+## Misc
+
 - [↑ TDD](https://www.youtube.com/watch?v=a7BvGBT0gFw)
 - JavaScript promises, async/await
 - DDD
-- GraphQL
 - [↑ Introduction to Functional Programming in F#](https://docs.microsoft.com/en-us/dotnet/fsharp/introduction-to-functional-programming/)
 - OpenTracing
 - blue-green deployment
@@ -59,7 +73,7 @@
 
 - Architectural patterns
   - [↑ Event Sourcing](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing)
-  - [Repository](https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application)
+  - [↑ Repository](https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application)
   - Microservices related patterns
     - Aggregator
     - [↑ Ambassador](https://docs.microsoft.com/en-us/azure/architecture/patterns/ambassador)
@@ -71,11 +85,18 @@
     - Service Locator
     - Sidecar
   - Unit of Work
+- [↑ Disposable pattern](https://medium.com/@mypascal2000/disposable-patterns-ffa2145619e2)
+  - [↑ Implement a Dispose method](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose)
 - CAP theorem
   - Event sourcing
 
+## Programming
+
+- [↑ Orleans](https://learn.microsoft.com/en-us/dotnet/orleans/overview)
+
 ## Databases
 
+- [↑ Александр Шелёмин «Concurrency в базах данных»](https://www.youtube.com/watch?v=a6YzdDFzDl8)
 - Cursor
 - Execution plan
 - Group by https://www.postgresql.org/docs/9.4/tutorial-agg.html
