@@ -21,6 +21,7 @@
   - [↑ Kafka producer delivery semantics](https://medium.com/@sdjemails/kafka-producer-delivery-semantics-be863c727d3f)
 - Postgres
   - [↑ Selecting for Share and Update in PostgreSQL](https://shiroyasha.io/selecting-for-share-and-update-in-postgresql.html)
+  - [↑ Group by, Having](https://www.postgresql.org/docs/9.4/tutorial-agg.html)
 - [↑ Serilog `LogContext`](https://github.com/serilog/serilog/wiki/Enrichment)
 
 ## Databases
@@ -28,7 +29,6 @@
 - [↑ Александр Шелёмин «Concurrency в базах данных»](https://www.youtube.com/watch?v=a6YzdDFzDl8)
 - Cursor
 - Execution plan
-- [Group by, Having](https://www.postgresql.org/docs/9.4/tutorial-agg.html)
 - Window function
 
 ## Software architecture and design
@@ -59,6 +59,7 @@
 - [↑ Vertical Slice Architecture - Jimmy Bogard](https://www.youtube.com/watch?v=SUiWfhAhgQw)
 - [↑ Distributed Tracing for Microservice Architecture](https://habr.com/ru/post/539022/)
 - [↑ Concurrent Processing in .NET 6 with System.Threading.Channels](https://itnext.io/concurrent-processing-in-net-6-with-system-threading-channels-bonus-interval-trees-441b7539b5d1)
+- [↑ Тестируем микросервисы правильно](https://www.youtube.com/watch?v=yj3sndjLHEA)
 
 ## Programming
 
@@ -119,6 +120,7 @@ for (var i = 0; i < 5; i++) {
   - [↑ A Use Case of Immutable Collections](https://codeburst.io/a-use-case-of-immutable-collections-dd558f614722)
   - [↑ C# Highlights: Immutable Collections](https://www.youtube.com/watch?v=_p-Z9gAYabM)
   - [↑ Immutable Collections in NET: Why and How?](https://www.youtube.com/watch?v=soyzikvjx3s)
+- [↑ Clean Up Your Client to Business Logic Relationship With a Result Pattern (C#)](https://alexdunn.org/2019/02/25/clean-up-your-client-to-business-logic-relationship-with-a-result-pattern-c/)
 
 ## ASP.NET
 
@@ -129,6 +131,10 @@ for (var i = 0; i < 5; i++) {
 - [↑ Routing](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing)
 - [↑ Servers](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers)
 - [↑ ASP.NET Core Series: Performance Testing Techniques](https://www.youtube.com/watch?v=jn54CjePzs0)
+- [Feature flags]
+  - [↑ Tutorial: Use feature flags in an ASP.NET Core app](https://learn.microsoft.com/en-us/azure/azure-app-configuration/use-feature-flags-dotnet-core?tabs=core5x)
+  - [↑ Feature flags](https://docs.gitlab.com/ee/operations/feature_flags.html)
+  - [↑ Unleash, an open source feature management solution](https://github.com/Unleash/unleash)
 
 ## Computer science
 
