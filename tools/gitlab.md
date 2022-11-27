@@ -23,15 +23,16 @@
     - [Services](#services)
     - [Docker](#docker)
       - [Run your CI/CD jobs in Docker containers](#run-your-cicd-jobs-in-docker-containers)
-    - [GitLab Runner](#gitlab-runner)
-      - [Runner registration](#runner-registration)
-      - [Executors](#executors)
-        - [Shell executor](#shell-executor)
-        - [Docker executor](#docker-executor)
-        - [Kubernetes executor](#kubernetes-executor)
-        - [SSH executor](#ssh-executor)
-        - [Custom executor](#custom-executor)
-      - [Monitoring runners](#monitoring-runners)
+  - [GitLab Runner](#gitlab-runner)
+    - [Runner registration](#runner-registration)
+    - [Executors](#executors)
+      - [Shell executor](#shell-executor)
+      - [Docker executor](#docker-executor)
+      - [Kubernetes executor](#kubernetes-executor)
+      - [SSH executor](#ssh-executor)
+      - [Custom executor](#custom-executor)
+    - [Monitoring runners](#monitoring-runners)
+  - [Releases](#releases)
 
 ## CI/CD
 
@@ -210,8 +211,7 @@ To run CI/CD jobs in a Docker container, you need to:
 - Specify which container to run the jobs in. Do this by specifying an `image` in your `.gitlab-ci.yml` file.
 - Optional. Run other services, like MySQL, in containers. Do this by specifying `services` in your `.gitlab-ci.yml` file.
 
-
-### GitLab Runner
+## GitLab Runner
 
 **GitLab Runner** is an application that works with GitLab CI/CD to run jobs in a pipeline.
 
@@ -223,7 +223,7 @@ You can install GitLab Runner on several different supported operating systems. 
 
 GitLab Runner can also run inside a Docker container or be deployed into a Kubernetes cluster.
 
-#### Runner registration
+### Runner registration
 
 After you install the application, you register individual runners. Runners are the agents that run the CI/CD jobs that come from GitLab.
 
@@ -231,7 +231,7 @@ When you register a runner, you are setting up communication between your GitLab
 
 Runners usually process jobs on the same machine where you installed GitLab Runner. However, you can also have a runner process jobs in a container, in a Kubernetes cluster, or in auto-scaled instances in the cloud.
 
-#### Executors
+### Executors
 
 When you register a runner, you must choose an *executor*.
 
@@ -256,30 +256,34 @@ GitLab Runner implements a number of executors that can be used to run your buil
 - Kubernetes
 - Custom
 
-##### Shell executor
+#### Shell executor
 
 Shell is the simplest executor to configure. All required dependencies for your builds need to be installed manually on the same machine that GitLab Runner is installed on.
 
-##### Docker executor
+#### Docker executor
 
 A great option is to use Docker as it allows a clean build environment, with easy dependency management (all dependencies for building the project can be put in the Docker image). The Docker executor allows you to easily create a build environment with dependent services, like MySQL.
 
-##### Kubernetes executor
+#### Kubernetes executor
 
 The Kubernetes executor allows you to use an existing Kubernetes cluster for your builds. The executor will call the Kubernetes cluster API and create a new Pod (with a build container and services containers) for each GitLab CI job.
 
-##### SSH executor
+#### SSH executor
 
 The SSH executor is added for completeness, but it's the least supported among all executors. It makes GitLab Runner connect to an external server and runs the builds there. We have some success stories from organizations using this executor, but usually we recommend using one of the other types.
 
-##### Custom executor
+#### Custom executor
 
 The Custom executor allows you to specify your own execution environments. When GitLab Runner does not provide an executor (for example, LXC containers), you are able to provide your own executables to GitLab Runner to provision and clean up any environment you want to use.
 
 [↑ Executors](https://docs.gitlab.com/runner/executors)
 
-#### Monitoring runners
+### Monitoring runners
 
 You can use Prometheus to monitor your runners. You can view things like the number of currently-running jobs and how much CPU your runners are using.
 
 [↑ GitLab Runner](https://docs.gitlab.com/runner)
+
+## Releases
+
+[↑ Releases](https://docs.gitlab.com/ee/user/project/releases/)
