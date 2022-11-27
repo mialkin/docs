@@ -16,6 +16,8 @@
 
 ## Tools
 
+- Hangfire & Quartz.NET
+- MongoDB
 - Kafka
   - [↑ Error Handling Patterns for Apache Kafka Applications](https://www.confluent.io/blog/error-handling-patterns-in-kafka/)
   - [↑ Kafka producer delivery semantics](https://medium.com/@sdjemails/kafka-producer-delivery-semantics-be863c727d3f)
@@ -33,6 +35,7 @@
 
 ## Software architecture and design
 
+- [↑ Architectural Katas](https://nealford.com/katas)
 - DDD
 - OpenTracing
 - Architectural patterns
