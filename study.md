@@ -4,13 +4,24 @@
 
 - [Study list](#study-list)
   - [Table of contents](#table-of-contents)
+  - [Tools](#tools)
   - [Databases](#databases)
   - [Software architecture and design](#software-architecture-and-design)
   - [Programming](#programming)
   - [JavaScript](#javascript)
+  - [.NET](#net)
   - [C#](#c)
   - [ASP.NET](#aspnet)
   - [Computer science](#computer-science)
+
+## Tools
+
+- Kafka
+  - [↑ Error Handling Patterns for Apache Kafka Applications](https://www.confluent.io/blog/error-handling-patterns-in-kafka/)
+  - [↑ Kafka producer delivery semantics](https://medium.com/@sdjemails/kafka-producer-delivery-semantics-be863c727d3f)
+- Postgres
+  - [↑ Selecting for Share and Update in PostgreSQL](https://shiroyasha.io/selecting-for-share-and-update-in-postgresql.html)
+- [↑ Serilog `LogContext`](https://github.com/serilog/serilog/wiki/Enrichment)
 
 ## Databases
 
@@ -41,7 +52,12 @@
 - [↑ Disposable pattern](https://medium.com/@mypascal2000/disposable-patterns-ffa2145619e2)
   - [↑ Implement a Dispose method](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose)
 - CAP theorem
+- [↑ А какие виды CQRS вы знаете? Андрей Цветцих](https://www.youtube.com/watch?v=TnS6PwxHcLg)
 - MapReduce
+- Saga
+  - [↑ Пример микросервисной архитектуры с Saga на MassTransit](https://habr.com/ru/post/664962/)
+- [↑ Vertical Slice Architecture - Jimmy Bogard](https://www.youtube.com/watch?v=SUiWfhAhgQw)
+- [↑ Distributed Tracing for Microservice Architecture](https://habr.com/ru/post/539022/)
 
 ## Programming
 
@@ -49,6 +65,7 @@
 - Blue-green deployment
 - [↑ Higher-order function](https://en.wikipedia.org/wiki/Higher-order_function)
 - [↑ First-class citizen](https://en.wikipedia.org/wiki/First-class_citizen)
+- [↑ Денис Цветцих "Repository и UnitOfWork в 2020 году, must have или антипаттерн?"](https://www.youtube.com/watch?v=3yPpL1rEK9o)
 
 ## JavaScript
 
@@ -61,6 +78,13 @@ for (var i = 0; i < 5; i++) {
   }, i * 1000);
 }
 ```
+
+## .NET
+
+- Dotnet libraries
+  - MediatR
+    - [↑ You probably don't need MediatR](http://arialdomartini.github.io/mediatr)
+    - [↑ You Probably Don't Need to Worry About MediatR](https://jimmybogard.com/you-probably-dont-need-to-worry-about-mediatr/)
 
 ## C&#35;
 
@@ -83,11 +107,17 @@ for (var i = 0; i < 5; i++) {
 - Memory managment
   - Managed heap
     - Small object heap (SOH)
+    - [↑ The large object heap on Windows systems](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/large-object-heap)
 - [↑ Grouping assertions with `AssertionScope`](https://ardalis.com/grouping-assertions-in-tests/)
 - [↑ volatile (C# Reference)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/volatile)
 - [↑ Introduction to Functional Programming in F#](https://docs.microsoft.com/en-us/dotnet/fsharp/introduction-to-functional-programming/)
 - async lock
 - [↑ Weak reference](https://docs.microsoft.com/en-us/dotnet/api/system.weakreference?view=netcore-3.1)
+- [↑ Immutable Collections](https://docs.microsoft.com/en-us/archive/msdn-magazine/2017/march/net-framework-immutable-collections)
+  - [↑ How to use immutability in C#](https://www.infoworld.com/article/3564161/how-to-use-immutability-in-csharp.html)
+  - [↑ A Use Case of Immutable Collections](https://codeburst.io/a-use-case-of-immutable-collections-dd558f614722)
+  - [↑ C# Highlights: Immutable Collections](https://www.youtube.com/watch?v=_p-Z9gAYabM)
+  - [↑ Immutable Collections in NET: Why and How?](https://www.youtube.com/watch?v=soyzikvjx3s)
 
 ## ASP.NET
 
