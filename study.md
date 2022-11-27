@@ -26,7 +26,7 @@
 
 ## Databases
 
-- [↑ Александр Шелёмин «Concurrency в базах данных»](https://www.youtube.com/watch?v=a6YzdDFzDl8)
+- [↑ «Concurrency в базах данных»](https://www.youtube.com/watch?v=a6YzdDFzDl8)
 - Cursor
 - Execution plan
 - Window function
@@ -52,14 +52,12 @@
 - [↑ Disposable pattern](https://medium.com/@mypascal2000/disposable-patterns-ffa2145619e2)
   - [↑ Implement a Dispose method](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose)
 - CAP theorem
-- [↑ А какие виды CQRS вы знаете? Андрей Цветцих](https://www.youtube.com/watch?v=TnS6PwxHcLg)
 - MapReduce
 - Saga
   - [↑ Пример микросервисной архитектуры с Saga на MassTransit](https://habr.com/ru/post/664962/)
 - [↑ Vertical Slice Architecture - Jimmy Bogard](https://www.youtube.com/watch?v=SUiWfhAhgQw)
 - [↑ Distributed Tracing for Microservice Architecture](https://habr.com/ru/post/539022/)
 - [↑ Concurrent Processing in .NET 6 with System.Threading.Channels](https://itnext.io/concurrent-processing-in-net-6-with-system-threading-channels-bonus-interval-trees-441b7539b5d1)
-- [↑ Тестируем микросервисы правильно](https://www.youtube.com/watch?v=yj3sndjLHEA)
 
 ## Programming
 
@@ -68,6 +66,10 @@
 - [↑ Higher-order function](https://en.wikipedia.org/wiki/Higher-order_function)
 - [↑ First-class citizen](https://en.wikipedia.org/wiki/First-class_citizen)
 - [↑ Денис Цветцих "Repository и UnitOfWork в 2020 году, must have или антипаттерн?"](https://www.youtube.com/watch?v=3yPpL1rEK9o)
+- [↑ Domain-Driven Refactoring - Jimmy Bogard - NDC London 2022](https://www.youtube.com/watch?v=f64tZ90Dntg)
+- [↑ Тестируем микросервисы правильно](https://www.youtube.com/watch?v=yj3sndjLHEA)
+- [↑ Чистая архитектура на практике](https://www.youtube.com/watch?v=Bd83nPK_K3U)
+- [↑ А какие виды CQRS вы знаете?](https://www.youtube.com/watch?v=TnS6PwxHcLg)
 
 ## JavaScript
 
