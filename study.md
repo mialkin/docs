@@ -41,13 +41,12 @@
 - [↑ Disposable pattern](https://medium.com/@mypascal2000/disposable-patterns-ffa2145619e2)
   - [↑ Implement a Dispose method](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose)
 - CAP theorem
-  - Event sourcing
 - MapReduce
 
 ## Programming
 
 - [↑ Orleans](https://learn.microsoft.com/en-us/dotnet/orleans/overview)
-- blue-green deployment
+- Blue-green deployment
 - [↑ Higher-order function](https://en.wikipedia.org/wiki/Higher-order_function)
 - [↑ First-class citizen](https://en.wikipedia.org/wiki/First-class_citizen)
 
@@ -56,31 +55,30 @@
 - JavaScript promises, async/await
 
 ```js
-for (var i = 0; i < 5; i++){
-  setTimeout(function() { console.log(i); },  i * 1000);
+for (var i = 0; i < 5; i++) {
+  setTimeout(function () {
+    console.log(i);
+  }, i * 1000);
 }
 ```
 
-## C#
+## C&#35;
 
 - Access modifiers
 - See IL of `yield` [↑ What concrete type does 'yield return' return?](https://stackoverflow.com/questions/3454395/what-concrete-type-does-yield-return-return)
-- Closure in C# (пример взять из интервью). Найти более простое и понятное определение, чем то, что сейчас есть
-- Expression tree https://tyrrrz.me/blog/expression-trees
-- Finalizers
-  - https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/finalizers
-  - https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/unmanaged
-  - Сослаться на dispose-pattern, которй нужно описать на странице с IDisposable
-  - https://stackoverflow.com/questions/20358401/throwing-exception-in-finalizer-to-enforce-dispose-calls
+- Closure in C#
+- [↑ Expression trees](https://tyrrrz.me/blog/expression-trees)
+- [↑ Finalizers](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/finalizers)
+  - [↑ Cleaning up unmanaged resources](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/unmanaged)
+  - [↑ Throwing exception in finalizer to enforce Dispose calls:](https://stackoverflow.com/questions/20358401/throwing-exception-in-finalizer-to-enforce-dispose-calls)
 - `IDisposable`
-  - https://stackoverflow.com/questions/7914423/struct-and-idisposable
-  - https://ericlippert.com/2011/03/14/to-box-or-not-to-box/
-  - Описать паттерн Dispose https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose
-  - https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/unmanaged
-  - https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-disposeasync
+  - [↑ Struct and IDisposable](https://stackoverflow.com/questions/7914423/struct-and-idisposable)
+  - [↑ To box or not to box](https://ericlippert.com/2011/03/14/to-box-or-not-to-box/)
+  - [↑ Implement a Dispose method](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose)
+  - [↑ Implement a DisposeAsync method](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-disposeasync)
 - LINQ
-  - Deffered execution and lazy evaluation https://docs.microsoft.com/en-us/dotnet/standard/linq/deferred-execution-lazy-evaluation
-  - Примеры взять из интервью + https://stackoverflow.com/questions/7324033/what-are-the-benefits-of-a-deferred-execution-in-linq
+  - [↑ Deffered execution and lazy evaluation](https://docs.microsoft.com/en-us/dotnet/standard/linq/deferred-execution-lazy-evaluation)
+  - [↑ What are the benefits of a Deferred Execution in LINQ?](https://stackoverflow.com/questions/7324033/what-are-the-benefits-of-a-deferred-execution-in-linq)
 - [↑ Local functions](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/local-functions)
 - Memory managment
   - Managed heap
@@ -103,6 +101,6 @@ for (var i = 0; i < 5; i++){
 
 ## Computer science
 
-- [↑ Heap](https://en.wikipedia.org/wiki/Heap_(data_structure)), [\[2\]](https://en.wikipedia.org/wiki/Binary_heap)
+- [↑ Heap](<https://en.wikipedia.org/wiki/Heap_(data_structure)>), [\[2\]](https://en.wikipedia.org/wiki/Binary_heap)
 - [↑ Binary Heap](https://www.geeksforgeeks.org/binary-heap)
 - [↑ Why does a Binary Heap has to be a Complete Binary Tree?](https://stackoverflow.com/questions/25319305/why-does-a-binary-heap-has-to-be-a-complete-binary-tree)
