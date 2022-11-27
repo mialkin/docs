@@ -23,6 +23,13 @@ sudo apt install postgresql postgresql-contrib
 
 [↑ How To Install PostgreSQL on Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-22-04-quickstart)
 
+Check status:
+
+```bash
+sudo systemctl status postgresql.service
+sudo systemctl restart postgresql.service
+```
+
 Create new user:
 
 ```bash
@@ -53,13 +60,6 @@ psql
 ALTER USER dictionary PASSWORD 'dictionary';
 # If successful, Postgres will output a confirmation of ALTER ROLE.
 \q
-```
-
-Check status:
-
-```bash
-sudo systemctl status postgresql.service
-sudo systemctl restart postgresql.service
 ```
 
 #### Access from Kubernetes pods
