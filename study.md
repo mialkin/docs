@@ -68,7 +68,7 @@
 - Blue-green deployment
 - [↑ Higher-order function](https://en.wikipedia.org/wiki/Higher-order_function)
 - [↑ First-class citizen](https://en.wikipedia.org/wiki/First-class_citizen)
-- [↑ Денис Цветцих "Repository и UnitOfWork в 2020 году, must have или антипаттерн?"](https://www.youtube.com/watch?v=3yPpL1rEK9o)
+- [↑ "Repository и UnitOfWork в 2020 году, must have или антипаттерн?"](https://www.youtube.com/watch?v=3yPpL1rEK9o)
 - [↑ Domain-Driven Refactoring - Jimmy Bogard - NDC London 2022](https://www.youtube.com/watch?v=f64tZ90Dntg)
 - [↑ Тестируем микросервисы правильно](https://www.youtube.com/watch?v=yj3sndjLHEA)
 - [↑ Чистая архитектура на практике](https://www.youtube.com/watch?v=Bd83nPK_K3U)
@@ -89,6 +89,8 @@ for (var i = 0; i < 5; i++) {
 ## .NET
 
 - Dotnet libraries
+  - [↑ Dependabot](https://github.com/dependabot)
+    - [↑ Integrating Dependabot into your .NET Core project on GitHub](https://medium.com/@nickfane/integrating-dependabot-into-your-net-core-project-on-github-3e3024bd3394)
   - MediatR
     - [↑ You probably don't need MediatR](http://arialdomartini.github.io/mediatr)
     - [↑ You Probably Don't Need to Worry About MediatR](https://jimmybogard.com/you-probably-dont-need-to-worry-about-mediatr/)
