@@ -66,7 +66,7 @@ Restart session.
 
 ## Watch temperature
 
-CPU:
+### CPU
 
 ```bash
 sudo apt install lm-sensors 
@@ -76,7 +76,7 @@ sudo service kmod start
 watch sensors # see temperature values updating each second
 ```
 
-SSD:
+### SSD
 
 ```bash
 sudo apt update
