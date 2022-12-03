@@ -94,6 +94,7 @@ for (var i = 0; i < 5; i++) {
   - MediatR
     - [↑ You probably don't need MediatR](http://arialdomartini.github.io/mediatr)
     - [↑ You Probably Don't Need to Worry About MediatR](https://jimmybogard.com/you-probably-dont-need-to-worry-about-mediatr/)
+- [↑ CLRium #5: Курс "Garbage Collector"](https://www.youtube.com/watch?v=DVnmGW6964o)
 
 ## C&#35;
 
@@ -101,6 +102,8 @@ for (var i = 0; i < 5; i++) {
 - See IL of `yield` [↑ What concrete type does 'yield return' return?](https://stackoverflow.com/questions/3454395/what-concrete-type-does-yield-return-return)
 - Closure in C#
 - [↑ Expression trees](https://tyrrrz.me/blog/expression-trees)
+- IQueryable interface
+- [↑ Specification pattern](https://deviq.com/design-patterns/specification-pattern)
 - [↑ Finalizers](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/finalizers)
   - [↑ Cleaning up unmanaged resources](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/unmanaged)
   - [↑ Throwing exception in finalizer to enforce Dispose calls:](https://stackoverflow.com/questions/20358401/throwing-exception-in-finalizer-to-enforce-dispose-calls)
