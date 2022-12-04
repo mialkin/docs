@@ -299,6 +299,7 @@
   - [Garbage collector](csharp/memory/garbage%20collector.md)
   - [`GC`](csharp/memory/gc.md)
   - [`WeakReference`](csharp/memory/weak%20reference.md)
+  - [Dispose pattern](csharp/memory/dispose%20pattern.md)
 - Operators and expressions
   - [Equality operator](csharp/operators/equality%20operator.md)
   - [Lambda expressions](csharp/operators/lambda%20expressions.md)
