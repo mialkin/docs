@@ -24,7 +24,7 @@
   - [Python](#python)
   - [.NET](#net)
   - [ASP.NET](#aspnet)
-  - [C&#35;](#c)
+  - [C#](#c)
   - [Computer science](#computer-science)
   - [Miscellaneous](#miscellaneous)
 
@@ -298,6 +298,7 @@
 - Memory
   - [Garbage collector](csharp/memory/garbage%20collector.md)
   - [`GC`](csharp/memory/gc.md)
+  - [`WeakReference`](csharp/memory/weak%20reference.md)
 - Operators and expressions
   - [Equality operator](csharp/operators/equality%20operator.md)
   - [Lambda expressions](csharp/operators/lambda%20expressions.md)
