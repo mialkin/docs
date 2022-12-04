@@ -12,6 +12,7 @@
   - [Conditions for a garbage collection](#conditions-for-a-garbage-collection)
   - [Ephemeral generations and segments](#ephemeral-generations-and-segments)
   - [Unmanaged resources](#unmanaged-resources)
+    - [LOH](#loh)
   - [See also](#see-also)
 
 In the CLR the garbage collector (GC) serves as an automatic memory manager.
@@ -119,6 +120,14 @@ For most of the objects that your application creates, you can rely on garbage c
 When you create an object that encapsulates an unmanaged resource, it's recommended that you provide the necessary code to clean up the unmanaged resource in a public `Dispose` method. By providing a `Dispose` method, you enable users of your object to explicitly free its memory when they are finished with the object. When you use an object that encapsulates an unmanaged resource, make sure to call `Dispose` as necessary.
 
 You must also provide a way for your unmanaged resources to be released in case a consumer of your type forgets to call `Dispose`. You can either use a safe handle (`SafeHandle` class) to wrap the unmanaged resource, or override the `Object.Finalize()` method.
+
+### LOH
+
+Frequent memory allocation/free cycles can fragment memory, especially when allocating large chunks of memory. Objects are allocated in contiguous blocks of memory. To mitigate fragmentation, when the GC frees memory, it tries to defragment it. This process is called compaction. Compaction involves moving objects. Moving large objects imposes a performance penalty. For this reason the GC creates a special memory zone for large objects, called the large object heap (LOH). Objects that are greater than 85,000 bytes (approximately 83 KB) are:
+
+- Placed on the LOH.
+- Not compacted.
+- Collected during generation 2 GCs.
 
 ## See also
 
