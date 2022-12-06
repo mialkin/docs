@@ -9,7 +9,7 @@ AutoFixture will by default, take care of providing data to the constructor  of 
 ## Installation
 
 ```bash
-dotnet add package AutoFixture
+dotnet add package AutoFixture.Xunit2
 ```
 
 ## Links
