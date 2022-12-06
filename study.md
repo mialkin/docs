@@ -94,7 +94,11 @@ for (var i = 0; i < 5; i++) {
   - MediatR
     - [↑ You probably don't need MediatR](http://arialdomartini.github.io/mediatr)
     - [↑ You Probably Don't Need to Worry About MediatR](https://jimmybogard.com/you-probably-dont-need-to-worry-about-mediatr/)
-- [↑ CLRium #5: Курс "Garbage Collector"](https://www.youtube.com/watch?v=DVnmGW6964o)
+- Memory managment
+  - Small object heap (SOH)
+  - [↑ The large object heap on Windows systems](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/large-object-heap)
+  - [↑ CLRium #5: Курс "Garbage Collector"](https://www.youtube.com/watch?v=DVnmGW6964o)
+  - [↑ Pinned Object Heap в .NET 5](https://habr.com/ru/post/593441/)
 
 ## C&#35;
 
@@ -116,10 +120,6 @@ for (var i = 0; i < 5; i++) {
   - [↑ Deffered execution and lazy evaluation](https://docs.microsoft.com/en-us/dotnet/standard/linq/deferred-execution-lazy-evaluation)
   - [↑ What are the benefits of a Deferred Execution in LINQ?](https://stackoverflow.com/questions/7324033/what-are-the-benefits-of-a-deferred-execution-in-linq)
 - [↑ Local functions](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/local-functions)
-- Memory managment
-  - Managed heap
-    - Small object heap (SOH)
-    - [↑ The large object heap on Windows systems](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/large-object-heap)
 - [↑ Grouping assertions with `AssertionScope`](https://ardalis.com/grouping-assertions-in-tests/)
 - [↑ volatile (C# Reference)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/volatile)
 - [↑ Introduction to Functional Programming in F#](https://docs.microsoft.com/en-us/dotnet/fsharp/introduction-to-functional-programming/)
