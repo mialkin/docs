@@ -38,6 +38,7 @@
 - [↑ Architectural Katas](https://nealford.com/katas)
 - DDD
 - OpenTracing
+  - [↑ The Three Pillars of Observability](https://www.oreilly.com/library/view/distributed-systems-observability/9781492033431/ch04.html)
 - Architectural patterns
   - [↑ Event Sourcing](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing)
   - [↑ Repository](https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application)
@@ -141,7 +142,7 @@ for (var i = 0; i < 5; i++) {
 - [↑ Routing](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing)
 - [↑ Servers](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers)
 - [↑ ASP.NET Core Series: Performance Testing Techniques](https://www.youtube.com/watch?v=jn54CjePzs0)
-- [Feature flags]
+- Feature flags
   - [↑ Tutorial: Use feature flags in an ASP.NET Core app](https://learn.microsoft.com/en-us/azure/azure-app-configuration/use-feature-flags-dotnet-core?tabs=core5x)
   - [↑ Feature flags](https://docs.gitlab.com/ee/operations/feature_flags.html)
   - [↑ Unleash, an open source feature management solution](https://github.com/Unleash/unleash)
