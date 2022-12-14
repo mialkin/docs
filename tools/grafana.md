@@ -2,6 +2,10 @@
 
 **Grafana** is an open source visualization and analytics platform.
 
+[↑ Grafana fundamentals](https://grafana.com/tutorials/grafana-fundamentals).
+
+[↑ Grafana tutorials](https://grafana.com/tutorials).
+
 ## Run
 
 ```bash
