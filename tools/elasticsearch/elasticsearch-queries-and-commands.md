@@ -1,22 +1,130 @@
-# Elasticsearch commands
+# Elasticsearch queries and commands
 
 ## Table of contents
 
-- [Elasticsearch commands](#elasticsearch-commands)
+- [Elasticsearch queries and commands](#elasticsearch-queries-and-commands)
   - [Table of contents](#table-of-contents)
-  - [Get cluster information](#get-cluster-information)
-  - [Concise example](#concise-example)
-  - [Create index](#create-index)
-  - [Delete index](#delete-index)
-  - [Index document](#index-document)
-  - [Get document by ID](#get-document-by-id)
-  - [List indices](#list-indices)
-  - [Get mappings](#get-mappings)
-  - [Update mapping](#update-mapping)
-  - [Get index information](#get-index-information)
-  - [Get aliases](#get-aliases)
+  - [Queries](#queries)
+    - [`match_all`](#match_all)
+    - [`match_none`](#match_none)
+    - [Match query vs term query](#match-query-vs-term-query)
+  - [Commands](#commands)
+    - [Get cluster information](#get-cluster-information)
+    - [Concise example](#concise-example)
+    - [Create index](#create-index)
+    - [Delete index](#delete-index)
+    - [Index document](#index-document)
+    - [Get document by ID](#get-document-by-id)
+    - [List indices](#list-indices)
+    - [Get mappings](#get-mappings)
+    - [Update mapping](#update-mapping)
+    - [Get index information](#get-index-information)
+    - [Get aliases](#get-aliases)
 
-## Get cluster information
+## Queries
+
+[↑ Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/8.4/query-dsl.html)
+
+### `match_all`
+
+Match all documents, giving them all a `_score` of `1.0`:
+
+```json
+GET my-index-000001/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+```
+
+The `_score` can be changed with the `boost` parameter:
+
+```json
+GET my-index-000001/_search
+{
+  "query": {
+    "match_all": { "boost" : 1.2 }
+  }
+}
+```
+
+### `match_none`
+
+This is the inverse of the `match_all` query, which matches no documents:
+
+```json
+GET my-index-000001/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+```
+
+```json
+GET my-index-000001/_search
+{
+  "query": {
+    "query_string": {
+      "query": "apples"
+    }
+  }
+}
+```
+
+Filter:
+
+```json
+GET users/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match_all": {}
+        }
+      ],
+      "filter": [
+        {
+          "term": {
+            "id": "32211930947"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+Update:
+
+```json
+POST users/_update_by_query
+{
+  "query": {
+    "range": {
+      "registrationDate": {
+        "lt": "2022-12-07T00:00:00"
+      }
+    }
+  },
+  "script": {
+    "source": "ctx._source.users = null",
+    "lang": "painless"
+  }
+}
+```
+
+### Match query vs term query
+
+Same as `text` and `keyword`, the difference between Match Query and Term Query is that the query in Match Query will get analyzed into terms first, while the query in Term Query will not.
+
+[↑ Elasticsearch: Text vs. Keyword](https://codecurated.com/blog/elasticsearch-text-vs-keyword)
+
+## Commands
+
+### Get cluster information
 
 Get cluster information:
 
@@ -24,7 +132,7 @@ Get cluster information:
 curl localhost:9200
 ```
 
-## Concise example
+### Concise example
 
 ```json
 POST test/_doc/1
@@ -71,7 +179,7 @@ DELETE test/_doc/1
 DELETE test
 ```
 
-## Create index
+### Create index
 
 [↑ Create index](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-create-index.html)
 
@@ -99,13 +207,13 @@ PUT /test
 
 [↑ `dynamic` mapping parameter](https://www.elastic.co/guide/en/elasticsearch/reference/7.16/dynamic.html)
 
-## Delete index
+### Delete index
 
 ```text
 DELETE books_test
 ```
 
-## Index document
+### Index document
 
 [↑ Index API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html)
 
@@ -139,7 +247,7 @@ If document ID is not specified explicitly, then a unique inside index like `5Qv
 
 You can index a new JSON document with the `_doc` or `_create` resource. Using `_create` guarantees that the document is only indexed if it does not already exist. To update an existing document, you must use the `_doc` resource.
 
-## Get document by ID
+### Get document by ID
 
 [↑ Get API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-get.html)
 
@@ -148,7 +256,7 @@ GET books_test/_doc/5QvnUoQBvyqDobl6CzNM
 GET books_test/_doc/1
 ```
 
-## List indices
+### List indices
 
 List all documents in index:
 
@@ -156,15 +264,15 @@ List all documents in index:
 curl "localhost:9200/my-index-000001/_search?pretty"
 ```
 
-## Get mappings
+### Get mappings
 
 ```text
 GET books_test/_mapping
 ```
 
-## Update mapping
+### Update mapping
 
-## Get index information
+### Get index information
 
 [↑ Get information](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-index.html) about ore more indices:
 
@@ -178,7 +286,7 @@ curl "localhost:9200/_all?pretty"
 GET books_test
 ```
 
-## Get aliases
+### Get aliases
 
 [↑ Get aliases](https://www.elastic.co/guide/en/elasticsearch/reference/current/aliases.html):
 
