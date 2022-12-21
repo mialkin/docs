@@ -12,6 +12,7 @@ Prometheus collects metrics from *targets* by scraping metrics HTTP endpoints. S
 
 - [Prometheus](#prometheus)
   - [Data Model](#data-model)
+    - [Sample](#sample)
   - [Metric types](#metric-types)
     - [Counter](#counter)
     - [Gauge](#gauge)
@@ -44,11 +45,6 @@ See also the [↑ best practices for naming metrics and labels](https://promethe
 
 > CAUTION: Remember that every unique combination of key-value label pairs represents a new time series, which can dramatically increase the amount of data stored. Do not use labels to store dimensions with high cardinality (many different label values), such as user IDs, email addresses, or other unbounded sets of values.
 
-A **sample** is a single value at a point in time in a time series. Samples form the actual time series data. Each sample consists of:
-
-- a float64 value
-- a millisecond-precision timestamp
-
 Given a metric name and a set of labels, time series are frequently identified using this notation:
 
 ```text
@@ -60,6 +56,13 @@ For example, a time series with the metric name `api_http_requests_total` and th
 ```text
 api_http_requests_total{method="POST", handler="/messages"}
 ```
+
+### Sample
+
+A **sample** is a single value at a point in time in a time series. Samples form the actual time series data. Each sample consists of:
+
+- a float64 value
+- a millisecond-precision timestamp
 
 ## Metric types
 
@@ -204,3 +207,7 @@ A **collector** is a part of an exporter that represents a set of metrics. It ma
 ## PromQL
 
 **PromQL** is the Prometheus Query Language. It allows for a wide range of operations including aggregation, slicing and dicing, prediction and joins.
+
+[↑ Basics](https://prometheus.io/docs/prometheus/latest/querying/basics).
+
+[↑ Functions](https://prometheus.io/docs/prometheus/latest/querying/functions).
