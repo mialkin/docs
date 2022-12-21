@@ -2,7 +2,11 @@
 
 **Prometheus** is an open-source systems monitoring and alerting toolkit.
 
-Prometheus collects and stores its *metrics* as time series data, i.e. metrics information is stored with the timestamp at which it was recorded, alongside optional key-value pairs called *labels*.
+Prometheus collects and stores its *metrics* as *time series* data, i.e. metrics information is stored with the timestamp at which it was recorded, alongside optional key-value pairs called *labels*.
+
+A **metric** is a quantitative measure of some characteristic.
+
+A **time series** is a series of values of a quantity obtained at successive times, often with equal intervals between them.
 
 Prometheus collects metrics from *targets* by scraping metrics HTTP endpoints. Since Prometheus exposes data in the same manner about itself, it can also scrape and monitor its own health.
 
@@ -13,14 +17,12 @@ Prometheus collects metrics from *targets* by scraping metrics HTTP endpoints. S
     - [Gauge](#gauge)
     - [Histogram](#histogram)
     - [Summary](#summary)
+  - [Running Prometheus in Docker container](#running-prometheus-in-docker-container)
   - [Jobs and instances](#jobs-and-instances)
   - [Exporters and collectors](#exporters-and-collectors)
   - [PromQL](#promql)
-  - [Run as a Docker container](#run-as-a-docker-container)
 
 ## Data Model
-
-A **metric** is a quantitative measure of some software characteristic.
 
 Prometheus fundamentally stores all data as time series: streams of timestamped values, called *samples*, belonging to the same metric and the same set of labeled dimensions.
 
@@ -105,46 +107,7 @@ A summary with a base metric name of `basename` exposes multiple time series dur
 
 See [↑ histograms and summaries](https://prometheus.io/docs/practices/histograms/) for detailed explanations of φ-quantiles, summary usage, and differences to histograms.
 
-## Jobs and instances
-
-An **instance** is an endpoint you can scrape, usually corresponding to a single process.
-
-A **job** is a collection of instances with the same purpose, a process replicated for scalability or reliability for example.
-
-For example, an API server job with four replicated instances:
-
-- job: `api-server`
-  - instance 1: `1.2.3.4:5670`
-  - instance 2: `1.2.3.4:5671`
-  - instance 4: `5.6.7.8:5671`
-  - instance 3: `5.6.7.8:5670`
-
-When Prometheus scrapes a target, it attaches some labels automatically to the scraped time series which serve to identify the scraped target:
-
-- `job`: The configured job name that the target belongs to.
-- `instance`: The `host:port` part of the target's URL that was scraped.
-
-For each instance scrape, Prometheus stores a sample in the following time series:
-
-- `up{job="job name", instance="instance id"}`: `1` if the instance is healthy, i.e. reachable, or `0` if the scrape failed.
-- `scrape_duration_seconds{job="job name", instance="instance id"}`: duration of the scrape.
-- `scrape_samples_post_metric_relabeling{job="job name", instance="instance id"}`: the number of samples remaining after metric relabeling was applied.
-- `scrape_samples_scraped{job="job name", instance="instance id"}`: the number of samples the target exposed.
-- `scrape_series_added{job="job name", instance="instance id"}`: the approximate number of new series in this scrape.
-
-The `up` time series is useful for instance availability monitoring.
-
-## Exporters and collectors
-
-An **exporter** is a binary running alongside the application you want to obtain metrics from. The exporter exposes Prometheus metrics, commonly by converting metrics that are exposed in a non-Prometheus format into a format that Prometheus supports.
-
-A **collector** is a part of an exporter that represents a set of metrics. It may be a single metric if it is part of direct instrumentation, or many metrics if it is pulling metrics from another system.
-
-## PromQL
-
-**PromQL** is the Prometheus Query Language. It allows for a wide range of operations including aggregation, slicing and dicing, prediction and joins.
-
-## Run as a Docker container
+## Running Prometheus in Docker container
 
 Create `prometheus.yaml` file and put it under `/Users/aleksei/prometheus` folder:
 
@@ -201,3 +164,43 @@ docker run \
     --name prometheus \
     prom/prometheus
 ```
+
+
+## Jobs and instances
+
+An **instance** is an endpoint you can scrape, usually corresponding to a single process.
+
+A **job** is a collection of instances with the same purpose, a process replicated for scalability or reliability for example.
+
+For example, an API server job with four replicated instances:
+
+- job: `api-server`
+  - instance 1: `1.2.3.4:5670`
+  - instance 2: `1.2.3.4:5671`
+  - instance 4: `5.6.7.8:5671`
+  - instance 3: `5.6.7.8:5670`
+
+When Prometheus scrapes a target, it attaches some labels automatically to the scraped time series which serve to identify the scraped target:
+
+- `job`: The configured job name that the target belongs to.
+- `instance`: The `host:port` part of the target's URL that was scraped.
+
+For each instance scrape, Prometheus stores a sample in the following time series:
+
+- `up{job="job name", instance="instance id"}`: `1` if the instance is healthy, i.e. reachable, or `0` if the scrape failed.
+- `scrape_duration_seconds{job="job name", instance="instance id"}`: duration of the scrape.
+- `scrape_samples_post_metric_relabeling{job="job name", instance="instance id"}`: the number of samples remaining after metric relabeling was applied.
+- `scrape_samples_scraped{job="job name", instance="instance id"}`: the number of samples the target exposed.
+- `scrape_series_added{job="job name", instance="instance id"}`: the approximate number of new series in this scrape.
+
+The `up` time series is useful for instance availability monitoring.
+
+## Exporters and collectors
+
+An **exporter** is a binary running alongside the application you want to obtain metrics from. The exporter exposes Prometheus metrics, commonly by converting metrics that are exposed in a non-Prometheus format into a format that Prometheus supports.
+
+A **collector** is a part of an exporter that represents a set of metrics. It may be a single metric if it is part of direct instrumentation, or many metrics if it is pulling metrics from another system.
+
+## PromQL
+
+**PromQL** is the Prometheus Query Language. It allows for a wide range of operations including aggregation, slicing and dicing, prediction and joins.
