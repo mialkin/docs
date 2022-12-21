@@ -29,7 +29,7 @@
 
 Match all documents, giving them all a `_score` of `1.0`:
 
-```json
+```dsl
 GET my-index-000001/_search
 {
   "query": {
@@ -40,7 +40,7 @@ GET my-index-000001/_search
 
 The `_score` can be changed with the `boost` parameter:
 
-```json
+```dsl
 GET my-index-000001/_search
 {
   "query": {
@@ -53,7 +53,7 @@ GET my-index-000001/_search
 
 This is the inverse of the `match_all` query, which matches no documents:
 
-```json
+```dsl
 GET my-index-000001/_search
 {
   "query": {
@@ -62,7 +62,7 @@ GET my-index-000001/_search
 }
 ```
 
-```json
+```dsl
 GET my-index-000001/_search
 {
   "query": {
@@ -75,7 +75,7 @@ GET my-index-000001/_search
 
 Filter:
 
-```json
+```dsl
 GET users/_search
 {
   "query": {
@@ -99,7 +99,7 @@ GET users/_search
 
 Update:
 
-```json
+```dsl
 POST users/_update_by_query
 {
   "query": {
@@ -134,7 +134,7 @@ curl localhost:9200
 
 ### Concise example
 
-```json
+```dsl
 POST test/_doc/1
 {
   "name": "An Awesome Book 2222",
@@ -193,7 +193,7 @@ PUT books_test
 
 Create index with dynamic mapping turned off:
 
-```json
+```dsl
 PUT /test
 {
   "mappings": {
@@ -217,7 +217,7 @@ DELETE books_test
 
 [↑ Index API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html)
 
-```json
+```dsl
 POST books_test/_doc
 {
   "name": "An Awesome Book",
@@ -231,7 +231,7 @@ POST books_test/_doc
 
 Specify document ID explicitly:
 
-```json
+```dsl
 POST books_test/_doc/1
 {
   "name": "An Awesome Book",
