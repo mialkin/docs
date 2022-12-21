@@ -130,6 +130,60 @@ GET my-index-000001/_search
 }
 ```
 
+```json
+GET my-index-000001/_search
+{
+  "query": {
+    "query_string": {
+      "query": "apples"
+    }
+  }
+}
+```
+
+Filter:
+
+```json
+GET users/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match_all": {}
+        }
+      ],
+      "filter": [
+        {
+          "term": {
+            "id": "32211930947"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+Update:
+
+```json
+POST users/_update_by_query
+{
+  "query": {
+    "range": {
+      "registrationDate": {
+        "lt": "2022-12-07T00:00:00"
+      }
+    }
+  },
+  "script": {
+    "source": "ctx._source.users = null",
+    "lang": "painless"
+  }
+}
+```
+
 #### Match query vs term query
 
 Same as `text` and `keyword`, the difference between Match Query and Term Query is that the query in Match Query will get analyzed into terms first, while the query in Term Query will not.
