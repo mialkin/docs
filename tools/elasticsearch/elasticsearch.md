@@ -10,6 +10,7 @@ Elasticsearch provides near real-time search and analytics for all types of data
 
 - [Elasticsearch](#elasticsearch)
   - [Table of contents](#table-of-contents)
+  - [Installation](#installation)
   - [Lucene](#lucene)
   - [Terminology](#terminology)
   - [Field data types](#field-data-types)
@@ -21,6 +22,54 @@ Elasticsearch provides near real-time search and analytics for all types of data
       - [Match query vs term query](#match-query-vs-term-query)
   - [Ingest pipeline](#ingest-pipeline)
   - [Text analysis](#text-analysis)
+
+## Installation
+
+The `.env` file:
+
+```env
+ELASTICSEARCH_PORT=6300
+DEJAVU_PORT=6400
+KIBANA_PORT=6500
+```
+
+The `docker-compose.yml` file:
+
+```yml
+version: "3.9"
+
+services:
+  elasticsearch:
+    image: elasticsearch:7.17.6
+    container_name: elasticsearch
+    environment:
+      discovery.type: single-node
+      http.cors.enabled: "true"
+      http.cors.allow-origin: "http://localhost:${DEJAVU_PORT}"
+      http.cors.allow-headers: X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization
+      http.cors.allow-credentials: "true"
+      ELASTIC_PASSWORD: "elasticsearch"
+    ports:
+      - "${ELASTICSEARCH_PORT}:9200"
+
+  elasticsearch-dejavu:
+    image: appbaseio/dejavu:3.3.0
+    container_name: elasticsearch-dejavu
+    ports:
+      - "${DEJAVU_PORT}:1358"
+    depends_on:
+      - elasticsearch
+
+  elasticsearch-kibana:
+    image: kibana:7.17.6
+    container_name: elasticsearch-kibana
+    environment:
+      ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
+    ports:
+      - "${KIBANA_PORT}:5601"
+    depends_on:
+      - elasticsearch
+```
 
 ## Lucene
 
