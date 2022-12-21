@@ -2,19 +2,19 @@
 
 **Prometheus** is an open-source systems monitoring and alerting toolkit.
 
-Prometheus collects and stores its metrics as time series data, i.e. metrics information is stored with the timestamp at which it was recorded, alongside optional key-value pairs called *labels*.
+Prometheus collects and stores its *metrics* as time series data, i.e. metrics information is stored with the timestamp at which it was recorded, alongside optional key-value pairs called *labels*.
 
 Prometheus collects metrics from *targets* by scraping metrics HTTP endpoints. Since Prometheus exposes data in the same manner about itself, it can also scrape and monitor its own health.
 
 - [Prometheus](#prometheus)
   - [Data Model](#data-model)
-  - [Metric Types](#metric-types)
+  - [Metric types](#metric-types)
     - [Counter](#counter)
     - [Gauge](#gauge)
     - [Histogram](#histogram)
     - [Summary](#summary)
-  - [Jobs And Instances](#jobs-and-instances)
-  - [Exporters And Collectors](#exporters-and-collectors)
+  - [Jobs and instances](#jobs-and-instances)
+  - [Exporters and collectors](#exporters-and-collectors)
   - [PromQL](#promql)
   - [Run as a Docker container](#run-as-a-docker-container)
 
@@ -40,6 +40,8 @@ A label with an empty label value is considered equivalent to a label that does 
 
 See also the [↑ best practices for naming metrics and labels](https://prometheus.io/docs/practices/naming/).
 
+> CAUTION: Remember that every unique combination of key-value label pairs represents a new time series, which can dramatically increase the amount of data stored. Do not use labels to store dimensions with high cardinality (many different label values), such as user IDs, email addresses, or other unbounded sets of values.
+
 A **sample** is a single value at a point in time in a time series. Samples form the actual time series data. Each sample consists of:
 
 - a float64 value
@@ -57,7 +59,7 @@ For example, a time series with the metric name `api_http_requests_total` and th
 api_http_requests_total{method="POST", handler="/messages"}
 ```
 
-## Metric Types
+## Metric types
 
 The Prometheus client libraries offer four core metric types. These are currently only differentiated in the client libraries, to enable APIs tailored to the usage of the specific types, and in the wire protocol. The Prometheus server does not yet make use of the type information and flattens all data into untyped time series. This may change in the future.
 
@@ -77,29 +79,33 @@ Gauges are typically used for measured values like temperatures or current memor
 
 ### Histogram
 
-A **histogram** samples observations (usually things like request durations or response sizes) and counts them in configurable buckets. It also provides a sum of all observed values.
+A **histogram** samples observations, usually things like request durations or response sizes, and counts them in configurable buckets. It also provides a sum of all observed values.
 
-A histogram with a base metric name of  `basename` exposes multiple time series during a scrape:
+A histogram with a base metric name of `basename` exposes multiple time series during a scrape:
 
 - cumulative counters for the observation buckets, exposed as `basename_bucket{le="upper inclusive bound"}`
 - the **total sum** of all observed values, exposed as `basename_sum`
-- the **count** of events that have been observed, exposed as `basename_count` (identical to `basename_bucket{le="+Inf"}` above)
+- the **count** of events that have been observed, exposed as `basename_count`, identical to `basename_bucket{le="+Inf"}` above
 
-Use the `histogram_quantile()` function to calculate quantiles from histograms or even aggregations of histograms. A histogram is also suitable to calculate an Apdex score. When operating on buckets, remember that the histogram is cumulative.
+Use the `histogram_quantile()` function to calculate *quantiles* from histograms or even aggregations of histograms. A histogram is also suitable to calculate an Apdex score.
+
+> A **quantile** defines a particular part of a data set, i.e. a quantile determines how many values in a distribution are above or below a certain limit. Special quantiles are the quartile (quarter), the quintile (fifth) and percentiles (hundredth).
+
+When operating on buckets, remember that the histogram is cumulative.
 
 ### Summary
 
-A **summary**, which is similar to a histogram, samples observations (usually things like request durations and response sizes). While it also provides a total count of observations and a sum of all observed values, it calculates configurable quantiles over a sliding time window.
+A **summary**, which is similar to a histogram, samples observations, usually things like request durations and response sizes. While it also provides a total count of observations and a sum of all observed values, it calculates configurable quantiles over a sliding time window.
 
 A summary with a base metric name of `basename` exposes multiple time series during a scrape:
 
-streaming **φ-quantiles** (0 ≤ φ ≤ 1) of observed events, exposed as `basename{quantile="φ"}`
-the **total sum** of all observed values, exposed as `basename_sum`
-the count of events that have been observed, exposed as `basename_count`
+- streaming **φ-quantiles** (0 ≤ φ ≤ 1) of observed events, exposed as `basename{quantile="φ"}`
+- the **total sum** of all observed values, exposed as `basename_sum`
+- the **count** of events that have been observed, exposed as `basename_count`
 
 See [↑ histograms and summaries](https://prometheus.io/docs/practices/histograms/) for detailed explanations of φ-quantiles, summary usage, and differences to histograms.
 
-## Jobs And Instances
+## Jobs and instances
 
 An **instance** is an endpoint you can scrape, usually corresponding to a single process.
 
@@ -128,7 +134,7 @@ For each instance scrape, Prometheus stores a sample in the following time serie
 
 The `up` time series is useful for instance availability monitoring.
 
-## Exporters And Collectors
+## Exporters and collectors
 
 An **exporter** is a binary running alongside the application you want to obtain metrics from. The exporter exposes Prometheus metrics, commonly by converting metrics that are exposed in a non-Prometheus format into a format that Prometheus supports.
 
