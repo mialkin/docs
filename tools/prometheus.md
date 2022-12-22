@@ -1,6 +1,6 @@
 # Prometheus
 
-**Prometheus** is an open-source systems monitoring and alerting toolkit.
+[↑ Prometheus](https://prometheus.io) is an open-source systems monitoring and alerting toolkit.
 
 Prometheus collects and stores its *metrics* as *time series* data, i.e. metrics information is stored with the timestamp at which it was recorded, alongside optional key-value pairs called *labels*.
 
@@ -220,8 +220,14 @@ Prometheus scrapes metrics from monitored targets at regular intervals, defined 
 
 Prometheus has another loop, whose clock is independent from the scraping one, that evaluates alerting rules at a regular interval, defined by `evaluation_interval` (defaults to `1m`). At each evaluation cycle, Prometheus runs the expression defined in each alerting rule and updates the alert state.
 
-The `scrape_timeout` setting defines time window in which Prometheus will try to get a metric. If it can't scrape it in this time window it will time out.
-
 [↑ Prometheus: understanding the delays on alerting](https://pracucci.com/prometheus-understanding-the-delays-on-alerting.html).
 
+The `scrape_timeout` setting defines time window in which Prometheus will try to get a metric. If it can't scrape it in this time window it will time out.
+
+`metrics_path` — metrics path for the target, by default it is `/metrics`.
+
+`scheme` — protocol scheme used for requests, by default it is `http`.
+
 Settings from above can be viewed at Prometheus's [↑ Configuration](http://localhost:9090/config) page.
+
+List of targets can be seen on Prometheus's [↑ Targets](http://localhost:9090/targets) page.
