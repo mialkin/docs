@@ -15,6 +15,8 @@ Grafana page at localhost is <http://localhost:3000>.
   - [Run](#run)
   - [Basics](#basics)
   - [Connect to Prometheus](#connect-to-prometheus)
+  - [Visualizations](#visualizations)
+  - [Data sources](#data-sources)
   - [Grafana Loki](#grafana-loki)
 
 ## Run
@@ -27,13 +29,27 @@ docker run -d -p 3000:3000 --name=grafana grafana/grafana-enterprise
 
 A **dashboard** is a set of one or more *panels* organized and arranged into one or more *rows*.
 
-A **panel** is a basic visualization building block in Grafana. Each panel has a query editor specific to the data source selected in the panel. The query editor allows you to build a query that returns the data you want to visualize.
+A **panel** is a basic visualization building block in Grafana.
 
-Every panel consists of a *query* and a *visualization*. The query defines *what* data you want to display, whereas the visualization defines *how* the data is displayed.
+Each panel contains a set of queries to one or more data sources.
+
+Each panel has a query editor specific to the data source selected in the panel. The query editor allows you to build a query that returns the data you want to visualize.
+
+The query defines *what* data you want to display, whereas the visualization defines *how* the data is displayed.
 
 ## Connect to Prometheus
 
 **Configuration** (gear icon) → **Data Sources** → `http://host.docker.internal:9090`
+
+## Visualizations
+
+Grafana offers a variety of [↑ visualizations](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations) to support different use cases.
+
+You can explore [↑ play.grafana.org](https://play.grafana.org) which has a large set of demo dashboards that showcase all the different visualizations.
+
+## Data sources
+
+[↑ Data sources](https://grafana.com/docs/grafana/latest/datasources).
 
 ## Grafana Loki
 
