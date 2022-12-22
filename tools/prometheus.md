@@ -22,6 +22,7 @@ Prometheus collects metrics from *targets* by scraping metrics HTTP endpoints. S
   - [Jobs and instances](#jobs-and-instances)
   - [Exporters and collectors](#exporters-and-collectors)
   - [PromQL](#promql)
+  - [Scraping, evaluation and alerting](#scraping-evaluation-and-alerting)
 
 ## Data Model
 
@@ -168,7 +169,6 @@ docker run \
     prom/prometheus
 ```
 
-
 ## Jobs and instances
 
 An **instance** is an endpoint you can scrape, usually corresponding to a single process.
@@ -206,8 +206,22 @@ A **collector** is a part of an exporter that represents a set of metrics. It ma
 
 ## PromQL
 
-**PromQL** is the Prometheus Query Language. It allows for a wide range of operations including aggregation, slicing and dicing, prediction and joins.
+**PromQL**, stands for Prometheus query language, is a functional query language that lets the user select and aggregate time series data in real time. It allows for a wide range of operations including aggregation, slicing and dicing, prediction and joins.
+
+The result of a PromQL expression can either be shown as a graph, viewed as tabular data in Prometheus's [↑ expression browser](http://localhost:9090/graph), or consumed by external systems via the [↑ HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api).
 
 [↑ Basics](https://prometheus.io/docs/prometheus/latest/querying/basics).
 
 [↑ Functions](https://prometheus.io/docs/prometheus/latest/querying/functions).
+
+## Scraping, evaluation and alerting
+
+Prometheus scrapes metrics from monitored targets at regular intervals, defined by the `scrape_interval` (defaults to `1m`). The scrape interval can be configured globally, and then overridden per job. Scraped metrics are then stored persistently on its local storage.
+
+Prometheus has another loop, whose clock is independent from the scraping one, that evaluates alerting rules at a regular interval, defined by `evaluation_interval` (defaults to `1m`). At each evaluation cycle, Prometheus runs the expression defined in each alerting rule and updates the alert state.
+
+The `scrape_timeout` setting defines time window in which Prometheus will try to get a metric. If it can't scrape it in this time window it will time out.
+
+[↑ Prometheus: understanding the delays on alerting](https://pracucci.com/prometheus-understanding-the-delays-on-alerting.html).
+
+Settings from above can be viewed at Prometheus's [↑ Configuration](http://localhost:9090/config) page.
