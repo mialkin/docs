@@ -144,6 +144,7 @@
       - [Retry](distributed-systems/patterns/reliability/retry.md)
 - [Message delivery semantics](distributed-systems/message-delivery-semantics.md)
 - [Observability: logs, metrics, traces](distributed-systems/observability/observability.md)
+  - [Instrumentation guidelines](distributed-systems/observability/instrumentation-guidelines.md)
   - [OpenTelemetry](distributed-systems/observability/opentelemetry.md)
 
 ## Programming
