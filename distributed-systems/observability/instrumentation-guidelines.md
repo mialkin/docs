@@ -2,7 +2,7 @@
 
 An [↑ instrumentation](https://en.wikipedia.org/wiki/Instrumentation_(computer_programming)) refers to the measure of a product's performance, in order to diagnose errors and to write trace information.
 
-This page provides excerpts from Prometheus's [↑ opinionated set of guidelines](https://prometheus.io/docs/practices/instrumentation/) for instrumenting your code.
+This page provides excerpts from Prometheus's [↑ opinionated set of guidelines](https://prometheus.io/docs/practices/instrumentation/) for code instrumentation.
 
 ## Table of contents
 
@@ -20,6 +20,9 @@ This page provides excerpts from Prometheus's [↑ opinionated set of guidelines
     - [Use labels](#use-labels)
     - [Do not overuse labels](#do-not-overuse-labels)
     - [Counter vs gauge, summary vs histogram](#counter-vs-gauge-summary-vs-histogram)
+    - [Timestamps, not time since](#timestamps-not-time-since)
+    - [Inner loops](#inner-loops)
+    - [Avoid missing metrics](#avoid-missing-metrics)
 
 ## How to instrument
 
@@ -99,8 +102,30 @@ It is important to know which of the four main metric types to use for a given m
 
 To pick between counter and gauge, there is a simple rule of thumb: if the value can go down, it is a gauge.
 
-Counters can only go up (and reset, such as when a process restarts). They are useful for accumulating the number of events, or the amount of something at each event. For example, the total number of HTTP requests, or the total number of bytes sent in HTTP requests. Raw counters are rarely useful. Use the `rate()` function to get the per-second rate at which they are increasing.
+Counters can only go up and reset, such as when a process restarts. They are useful for accumulating the number of events, or the amount of something at each event. For example, the total number of HTTP requests, or the total number of bytes sent in HTTP requests. Raw counters are rarely useful. Use the `rate()` function to get the per-second rate at which they are increasing.
 
 Gauges can be set, go up, and go down. They are useful for snapshots of state, such as in-progress requests, free/total memory, or temperature. You should never take a `rate()` of a gauge.
 
 Summaries and histograms are more complex metric types discussed in [↑ their own section](https://prometheus.io/docs/practices/histograms).
+
+### Timestamps, not time since
+
+If you want to track the amount of time since something happened, export the Unix timestamp at which it happened - not the time since it happened.
+
+With the timestamp exported, you can use the expression `time() - my_timestamp_metric` to calculate the time since the event, removing the need for update logic and protecting you against the update logic getting stuck.
+
+### Inner loops
+
+In general, the additional resource cost of instrumentation is far outweighed by the benefits it brings to operations and development.
+
+For code which is performance-critical or called more than 100k times a second inside a given process, you may wish to take some care as to how many metrics you update.
+
+A Java counter takes 12-17ns to increment depending on contention. Other languages will have similar performance. If that amount of time is significant for your inner loop, limit the number of metrics you increment in the inner loop and avoid labels (or cache the result of the label lookup, for example, the return value of `With()` in Go or `labels()` in Java) where possible.
+
+Beware also of metric updates involving time or durations, as getting the time may involve a [↑ syscall](https://en.wikipedia.org/wiki/System_call). As with all matters involving performance-critical code, benchmarks are the best way to determine the impact of any given change.
+
+### Avoid missing metrics
+
+Time series that are not present until something happens are difficult to deal with, as the usual simple operations are no longer sufficient to correctly handle them. To avoid this, export a default value such as `0` for any time series you know may exist in advance.
+
+Most Prometheus client libraries (including Go, Java, and Python) will automatically export a `0` for you for metrics with no labels.
