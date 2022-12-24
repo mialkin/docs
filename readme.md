@@ -141,9 +141,10 @@
 - Distributed system patterns
   - Reliability
     - Resiliency
-      - [Retry](distributed%20systems/patterns/reliability/retry.md)
-- [Message delivery semantics](distributed%20systems/message%20delivery%20semantics.md)
-- [Observability: logs, metrics, traces](distributed%20systems/observability/observability.md)
+      - [Retry](distributed-systems/patterns/reliability/retry.md)
+- [Message delivery semantics](distributed-systems/message-delivery-semantics.md)
+- [Observability: logs, metrics, traces](distributed-systems/observability/observability.md)
+  - [OpenTelemetry](distributed-systems/observability/opentelemetry.md)
 
 ## Programming
 
