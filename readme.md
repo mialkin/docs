@@ -143,7 +143,7 @@
     - Resiliency
       - [Retry](distributed%20systems/patterns/reliability/retry.md)
 - [Message delivery semantics](distributed%20systems/message%20delivery%20semantics.md)
-- [Observability: logs, metrics, distributed tracing](distributed%20systems/observability/observability.md)
+- [Observability: logs, metrics, traces](distributed%20systems/observability/observability.md)
 
 ## Programming
 
