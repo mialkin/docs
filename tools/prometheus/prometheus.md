@@ -148,7 +148,7 @@ scrape_configs:
       - targets: ["localhost:9090"]
 ```
 
-Modify `prometheus.yml` file in Rider by adding this lines:
+Modify `prometheus.yml` file in by adding this lines to the end:
 
 ```yml
   - job_name: 'YOUR_APPLICATION_NAME'
