@@ -55,7 +55,7 @@
   - [kubectl](tools/kubernetes/kubectl.md)
   - [microk8s](tools/kubernetes/microk8s/microk8s.md)
 - [MC](tools/mc.md)
-- [Prometheus](tools/prometheus.md)
+- [Prometheus](tools/prometheus/prometheus.md)
 - [RabbitMQ](tools/rabbitmq/rabbitmq.md)
 - [Redis](tools/redis.md)
 - [Regular expressions](tools/regular%20expressions/regular%20expressions.md)

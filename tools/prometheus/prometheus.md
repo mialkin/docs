@@ -2,7 +2,7 @@
 
 [↑ Prometheus](https://prometheus.io) is an open-source systems monitoring and alerting toolkit.
 
-Prometheus page at localhost is <http://localhost:9090> or <http://host.docker.internal:9090>.
+By default Prometheus's localhost page is <http://localhost:9090> or <http://host.docker.internal:9090>.
 
 Prometheus collects and stores its *metrics* as *time series* data, i.e. metrics information is stored with the timestamp at which it was recorded, alongside optional key-value pairs called *labels*.
 
@@ -151,10 +151,9 @@ scrape_configs:
 Modify `prometheus.yml` file in Rider by adding this lines:
 
 ```yml
-  - job_name: 'dictionary.words'
+  - job_name: 'YOUR_APPLICATION_NAME'
     static_configs: 
-      - targets: ['host.docker.internal:5000']
-    metrics_path: /metrics-text
+      - targets: ['host.docker.internal:YOUR_APPLICATION_PORT']
 ```
 
 Example of [↑ prometheus.yml](https://github.com/prometheus/prometheus/blob/main/documentation/examples/prometheus.yml) file:
