@@ -27,11 +27,63 @@ In Prometheus's expression language, an expression or sub-expression can evaluat
 - Scalar
 - String
 
-Depending on the use-case (e.g. when graphing vs. displaying the output of an expression), only some of these types are legal as the result from a user-specified expression. 
+Depending on the use-case (e.g. when graphing vs. displaying the output of an expression), only some of these types are legal as the result from a user-specified expression.
 
 ### Instant vector
 
 An **instant vector** is a set of time series containing a single sample for each time series, all sharing the same timestamp.
+
+Instant vector selectors allow the selection of a set of time series and a single sample value for each at a given timestamp i.e. *instant*: in the simplest form, only a metric name is specified. This results in an instant vector containing elements for all time series that have this metric name.
+
+This example selects all time series that have the `http_requests_total` metric name:
+
+```text
+http_requests_total
+```
+
+It is possible to filter these time series further by appending a comma separated list of label matchers in curly braces (`{}`).
+
+This example selects only those time series with the `http_requests_total` metric name that also have the `job` label set to `prometheus` and their group label set to `canary`:
+
+```text
+http_requests_total{job="prometheus",group="canary"}
+```
+
+It is also possible to negatively match a label value, or to match label values against regular expressions. The following label matching operators exist:
+
+- `=:` select labels that are exactly equal to the provided string
+- `!=:` select labels that are not equal to the provided string
+- `=~:` select labels that regex-match the provided string
+- `!~:` select labels that do not regex-match the provided string
+
+Regex matches are fully anchored. A match of `env=~"foo"` is treated as `env=~"^foo$"`.
+
+For example, this selects all `http_requests_total` time series for `staging`, `testing`, and `development` environments and HTTP methods other than `GET`:
+
+```text
+http_requests_total{environment=~"staging|testing|development",method!="GET"}
+```
+
+Label matchers that match empty label values also select all time series that do not have the specific label set at all. It is possible to have multiple matchers for the same label name.
+
+Vector selectors must either specify a name or at least one label matcher that does not match the empty string. The following expression is illegal:
+
+```text
+{job=~".*"} # Bad!
+```
+
+In contrast, these expressions are valid as they both have a selector that does not match empty label values:
+
+```text
+{job=~".+"}              # Good!
+{job=~".*",method="get"} # Good!
+```
+
+Label matchers can also be applied to metric names by matching against the internal `__name__` label. For example, the expression `http_requests_total` is equivalent to `{__name__="http_requests_total"}`. Matchers other than `=` (`!=`, `=~`, `!~`) may also be used. The following expression selects all metrics that have a name starting with `job:`:
+
+```text
+{__name__=~"job:.*"}
+```
 
 ### Range vector
 
