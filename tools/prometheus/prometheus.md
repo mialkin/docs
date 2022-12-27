@@ -23,7 +23,6 @@ Prometheus collects metrics from *targets* by scraping metrics HTTP endpoints. S
   - [Running Prometheus in Docker container](#running-prometheus-in-docker-container)
   - [Jobs and instances](#jobs-and-instances)
   - [Exporters and collectors](#exporters-and-collectors)
-  - [PromQL](#promql)
   - [Scraping, evaluation and alerting](#scraping-evaluation-and-alerting)
 
 ## Data Model
@@ -203,16 +202,6 @@ The `up` time series is useful for instance availability monitoring.
 An **exporter** is a binary running alongside the application you want to obtain metrics from. The exporter exposes Prometheus metrics, commonly by converting metrics that are exposed in a non-Prometheus format into a format that Prometheus supports.
 
 A **collector** is a part of an exporter that represents a set of metrics. It may be a single metric if it is part of direct instrumentation, or many metrics if it is pulling metrics from another system.
-
-## PromQL
-
-**PromQL**, stands for Prometheus query language, is a functional query language that lets the user select and aggregate time series data in real time. It allows for a wide range of operations including aggregation, slicing and dicing, prediction and joins.
-
-The result of a PromQL expression can either be shown as a graph, viewed as tabular data in Prometheus's [↑ expression browser](http://localhost:9090/graph), or consumed by external systems via the [↑ HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api).
-
-[↑ Basics](https://prometheus.io/docs/prometheus/latest/querying/basics).
-
-[↑ Functions](https://prometheus.io/docs/prometheus/latest/querying/functions).
 
 ## Scraping, evaluation and alerting
 
