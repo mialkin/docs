@@ -13,6 +13,8 @@ See also [↑ MetricsQL](https://docs.victoriametrics.com/MetricsQL.html).
   - [Expression language data types](#expression-language-data-types)
     - [Instant vector](#instant-vector)
     - [Range vector](#range-vector)
+      - [Time durations](#time-durations)
+      - [Offset modifier](#offset-modifier)
     - [Scalar](#scalar)
     - [String](#string)
   - [Functions](#functions)
@@ -96,6 +98,51 @@ In this example, we select all the values we have recorded within the last `5` m
 ```text
 http_requests_total{job="prometheus"}[5m]
 ```
+
+#### Time durations
+
+Time durations are specified as a number, followed immediately by one of the following units:
+
+- `ms` - milliseconds
+- `s` - seconds
+- `m` - minutes
+- `h` - hours
+- `d` - days - assuming a day has always 24h
+- `w` - weeks - assuming a week has always 7d
+- `y` - years - assuming a year has always 365d
+
+Time durations can be combined, by concatenation. Units must be ordered from the longest to the shortest. A given unit must only appear once in a time duration.
+
+Here are some examples of valid time durations:
+
+```text
+5h
+1h30m
+5m
+10s
+```
+
+#### Offset modifier
+
+The offset modifier allows changing the time offset for individual instant and range vectors in a query.
+
+For example, the following expression returns the value of `http_requests_total` 5 minutes in the past relative to the current query evaluation time:
+
+`http_requests_total` offset 5m
+
+This returns the 5-minute rate that `http_requests_total` had a week ago:
+
+```text
+rate(http_requests_total[5m] offset 1w)
+```
+
+For comparisons with temporal shifts forward in time, a negative offset can be specified:
+
+```text
+rate(http_requests_total[5m] offset -1w)
+```
+
+Note that this allows a query to look ahead of its evaluation time.
 
 ### Scalar
 
