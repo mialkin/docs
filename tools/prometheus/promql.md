@@ -15,6 +15,7 @@ See also [↑ MetricsQL](https://docs.victoriametrics.com/MetricsQL.html).
     - [Range vector](#range-vector)
       - [Time durations](#time-durations)
       - [Offset modifier](#offset-modifier)
+      - [`@` modifier](#-modifier)
     - [Scalar](#scalar)
     - [String](#string)
   - [Functions](#functions)
@@ -145,6 +146,29 @@ rate(http_requests_total[5m] offset -1w)
 ```
 
 Note that this allows a query to look ahead of its evaluation time.
+
+#### `@` modifier
+
+The `@` modifier allows changing the evaluation time for individual instant and range vectors in a query. The time supplied to the `@` modifier is a unix timestamp and described with a float literal.
+
+For example, the following expression returns the value of `http_requests_total` at `2021-01-04T07:40:00+00:00`:
+
+```text
+http_requests_total @ 1609746000
+```
+
+This returns the 5-minute rate that `http_requests_total` had at `2021-01-04T07:40:00+00:00`:
+
+```text
+rate(http_requests_total[5m] @ 1609746000)
+```
+
+The `@` modifier supports all representation of float literals described above within the limits of int64. It can also be used along with the `offset` modifier where the offset is applied relative to the `@` modifier time irrespective of which modifier is written first. These 2 queries will produce the same result.
+
+```text
+http_requests_total @ 1609746000 offset 5m
+http_requests_total offset 5m @ 1609746000
+```
 
 ### Scalar
 
