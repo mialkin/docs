@@ -128,7 +128,9 @@ The offset modifier allows changing the time offset for individual instant and r
 
 For example, the following expression returns the value of `http_requests_total` 5 minutes in the past relative to the current query evaluation time:
 
-`http_requests_total` offset 5m
+```text
+http_requests_total offset 5m
+```
 
 This returns the 5-minute rate that `http_requests_total` had a week ago:
 
