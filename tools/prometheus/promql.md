@@ -89,6 +89,14 @@ Label matchers can also be applied to metric names by matching against the inter
 
 A **range vector** is a set of time series containing a range of data points over time for each time series.
 
+Range vector literals work like instant vector literals, except that they select a range of samples back from the current instant. Syntactically, a time duration is appended in square brackets (`[]`) at the end of a vector selector to specify how far back in time values should be fetched for each resulting range vector element.
+
+In this example, we select all the values we have recorded within the last `5` minutes for all time series that have the metric name `http_requests_total` and a `job` label set to `prometheus`:
+
+```text
+http_requests_total{job="prometheus"}[5m]
+```
+
 ### Scalar
 
 A **scalar** is a simple numeric floating point value.
