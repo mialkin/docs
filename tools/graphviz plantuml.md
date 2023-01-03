@@ -28,13 +28,13 @@ digraph DiagramName {
 - [↑ PlantUML Server](https://github.com/plantuml/plantuml-server)
 
 ```bash
-docker run -d -p 8080:8080 plantuml/plantuml-server:jetty
+docker run -d -p 7077:8080 plantuml/plantuml-server:jetty
 ```
 
 Visual Studio code settings:
 
 ```json
-"plantuml.server": "http://localhost:8080"
+"plantuml.server": "http://localhost:7077"
 ```
 
 Example:
