@@ -92,6 +92,8 @@ Label matchers can also be applied to metric names by matching against the inter
 
 ### Range vector
 
+[↑ Understanding Prometheus Range Vectors](https://satyanash.net/software/2021/01/04/understanding-prometheus-range-vectors.html)
+
 A **range vector** is a set of time series containing a range of data points over time for each time series.
 
 Range vector literals work like instant vector literals, except that they select a range of samples back from the current instant. Syntactically, a time duration is appended in square brackets (`[]`) at the end of a vector selector to specify how far back in time values should be fetched for each resulting range vector element.
