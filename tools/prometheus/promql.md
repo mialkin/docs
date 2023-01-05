@@ -20,6 +20,7 @@ See also [↑ MetricsQL](https://docs.victoriametrics.com/MetricsQL.html).
     - [String](#string)
   - [Functions](#functions)
     - [`rate(v range-vector)`](#ratev-range-vector)
+    - [`resets(v range-vector)`](#resetsv-range-vector)
 
 ## Expression language data types
 
@@ -180,11 +181,9 @@ A **string** is a simple string value; currently unused.
 
 ## Functions
 
-[↑ Functions](https://prometheus.io/docs/prometheus/latest/querying/functions).
-
 ### `rate(v range-vector)`
 
-The `rate(m[d])` function calculates the increase of a counter metric `m` over the given lookbehind window `d` in square brackets and then divides the increase by `d`. The calculation is performed independently per each matching time series `m`. For example, suppose there are `http_requests_total` metrics with `url` label:
+The [↑ `rate(m[d])`](https://prometheus.io/docs/prometheus/latest/querying/functions/#rate) function calculates the increase of a counter metric `m` over the given lookbehind window `d` in square brackets and then divides the increase by `d`. The calculation is performed independently per each matching time series `m`. For example, suppose there are `http_requests_total` metrics with `url` label:
 
 ```text
 http_requests_total{url="/foo"}
@@ -222,3 +221,15 @@ rate(http_requests_total{url="/bar"}[5m]) = 333 / 300 = 1.11
 ```
 
 The end result of `rate(http_requests_total[5m])` is a per-second average rps for the last `5` minutes, which is calculated individually per each time series with `http_requests_total` name.
+
+### `resets(v range-vector)`
+
+The [↑ `resets`](https://prometheus.io/docs/prometheus/latest/querying/functions/#resets) function gives you the number of counter resets over a specified time window:
+
+```text
+resets(parser_processed_documents_total[5m])
+```
+
+For each input time series, `resets` returns the number of counter resets within the provided time range as an instant vector. Any decrease in the value between two consecutive samples is interpreted as a counter reset.
+
+`resets` should only be used with counters.
