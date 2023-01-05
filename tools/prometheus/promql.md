@@ -19,6 +19,7 @@ See also [↑ MetricsQL](https://docs.victoriametrics.com/MetricsQL.html).
     - [Scalar](#scalar)
     - [String](#string)
   - [Functions](#functions)
+    - [`increase(v range-vector)`](#increasev-range-vector)
     - [`rate(v range-vector)`](#ratev-range-vector)
     - [`resets(v range-vector)`](#resetsv-range-vector)
 
@@ -181,7 +182,21 @@ A **string** is a simple string value; currently unused.
 
 ## Functions
 
+### `increase(v range-vector)`
+
+[↑ `increase(v range-vector)`](https://prometheus.io/docs/prometheus/latest/querying/functions/#increase) calculates the increase in the time series in the range vector. Breaks in monotonicity (such as counter resets due to target restarts) are automatically adjusted for. The increase is extrapolated to cover the full time range as specified in the range vector selector, so that it is possible to get a non-integer result even if a counter increases only by integer increments.
+
+The following example expression returns the number of HTTP requests as measured over the last 5 minutes, per time series in the range vector:
+
+```text
+increase(http_requests_total{job="api-server"}[5m])
+```
+
+`increase` should only be used with counters and native histograms where the components behave like counters. It is syntactic sugar for `rate(v)` multiplied by the number of seconds under the specified time range window, and should be used primarily for human readability.
+
 ### `rate(v range-vector)`
+
+[↑ How Exactly Does PromQL Calculate Rates?](https://promlabs.com/blog/2021/01/29/how-exactly-does-promql-calculate-rates).
 
 The [↑ `rate(m[d])`](https://prometheus.io/docs/prometheus/latest/querying/functions/#rate) function calculates the increase of a counter metric `m` over the given lookbehind window `d` in square brackets and then divides the increase by `d`. The calculation is performed independently per each matching time series `m`. For example, suppose there are `http_requests_total` metrics with `url` label:
 
