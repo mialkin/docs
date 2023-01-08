@@ -100,6 +100,8 @@ Use the `histogram_quantile()` function to calculate *quantiles* from histograms
 
 When operating on buckets, remember that the histogram is cumulative.
 
+[↑ How to visualize Prometheus histograms in Grafana](https://grafana.com/blog/2020/06/23/how-to-visualize-prometheus-histograms-in-grafana).
+
 ### Summary
 
 A **summary**, which is similar to a histogram, samples observations, usually things like request durations and response sizes. While it also provides a total count of observations and a sum of all observed values, it calculates configurable quantiles over a sliding time window.
