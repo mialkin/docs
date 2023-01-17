@@ -49,6 +49,8 @@ The scripts of CI/CD  are grouped into *jobs*, and jobs run as part of a larger 
 
 [↑ The `.gitlab-ci.yml` file](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html)
 
+[↑ Development guide for GitLab CI templates](https://gitlab.com/gitlab-org/gitlab/-/tree/master/lib/gitlab/ci/templates)
+
 To use GitLab CI/CD, you need:
 
 - Application code hosted in a Git repository.
@@ -154,6 +156,12 @@ Use cache for dependencies, like packages you download from the internet. Cache 
 Both caches and *artifacts* define their paths relative to the project directory, and can't link to files outside it.
 
 [↑ Caching](https://docs.gitlab.com/ee/ci/caching)
+
+As we know a pipeline is a set of stages and each stage can have one or more jobs. Jobs work on a distributed farm of runners. When we start a pipeline, a random runner with free resources executes the needed job. The GitLab-runner is the agent that can run jobs. For simplicity, let's consider Docker as an executor for all runners.
+
+Each job starts with a clean slate and doesn't know the results of the previous one. If you don't use cache and artifacts, the runner will have to go to the internet or local registry and download the necessary packages when installing project dependencies.
+
+[↑ GitLab CI: Cache and Artifacts explained by example](https://dev.to/drakulavich/gitlab-ci-cache-and-artifacts-explained-by-example-2opi)
 
 ### Artifacts
 
