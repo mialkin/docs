@@ -2,6 +2,10 @@
 
 [↑ Moq](https://github.com/moq/moq4) is a mocking library for .NET.
 
+```bash
+dotnet add package Moq
+```
+
 ## Table of Contents
 
 - [Moq](#moq)
