@@ -20,9 +20,13 @@ The [↑ Elasticsearch v8 client](https://www.elastic.co/guide/en/elasticsearch/
   - [Why two clients](#why-two-clients)
   - [Inferred .NET type mapping](#inferred-net-type-mapping)
   - [Indices](#indices)
-    - [List all](#list-all)
+    - [List](#list)
     - [Get](#get)
     - [Create](#create)
+    - [Delete](#delete)
+  - [Documents](#documents)
+    - [Create](#create-1)
+    - [Get by ID](#get-by-id)
 
 ## Why two clients
 
@@ -36,7 +40,7 @@ Elasticsearch.Net is a low level, dependency free client that has no opinions ab
 
 ## Indices
 
-### List all
+### List
 
 ```csharp
 // GET /_cat/indices?v
@@ -62,4 +66,27 @@ return Ok(new { name, aliases, mappings, settings });
 ```csharp
 // PUT indexName
 await _elasticClient.Indices.CreateAsync(indexName);
+```
+
+### Delete
+
+```csharp
+// DELETE indexName
+await _elasticClient.Indices.DeleteAsync(indexName);
+```
+
+## Documents
+
+### Create
+
+```csharp
+await _elasticClient.IndexAsync(document, x => x.Refresh(Refresh.WaitFor).Index(indexName));
+```
+
+### Get by ID
+
+```csharp
+// GET products/_doc/id
+var result = await _elasticClient.GetAsync<ProductDto>(id, x => x.Index("products"));
+var dto = result.Source;
 ```
