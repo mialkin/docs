@@ -28,6 +28,8 @@ The [↑ Elasticsearch v8 client](https://www.elastic.co/guide/en/elasticsearch/
     - [Create](#create-1)
     - [Get by ID](#get-by-id)
     - [Delete by ID](#delete-by-id)
+  - [Search documents](#search-documents)
+    - [Match all](#match-all)
 
 ## Why two clients
 
@@ -109,4 +111,21 @@ var dto = result.Source;
 ```csharp
 // DELETE products/_doc/id
 await _elasticClient.DeleteAsync(new DeleteRequest("products", id));
+```
+
+## Search documents
+
+### Match all
+
+```csharp
+// GET products/_search
+// or:
+// GET products/_search
+// {
+//     "query": {
+//         "match_all": {}
+//     }
+// }
+var result = await _elasticClient.SearchAsync<ProductDto>(x => x.Index("products").MatchAll());
+var documents = result.Documents;
 ```
