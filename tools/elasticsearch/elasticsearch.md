@@ -24,9 +24,9 @@ Elasticsearch provides near real-time search and analytics for all types of data
 The `.env` file:
 
 ```env
-ELASTICSEARCH_PORT=6300
-DEJAVU_PORT=6400
-KIBANA_PORT=6500
+ELASTICSEARCH_PORT=2020
+DEJAVU_PORT=2030
+KIBANA_PORT=2040
 ```
 
 The `docker-compose.yml` file:
@@ -40,6 +40,7 @@ services:
     container_name: elasticsearch
     environment:
       discovery.type: single-node
+      xpack.security.enabled: "false"
       http.cors.enabled: "true"
       http.cors.allow-origin: "http://localhost:${DEJAVU_PORT}"
       http.cors.allow-headers: X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization
@@ -47,22 +48,21 @@ services:
       ELASTIC_PASSWORD: "elasticsearch"
     ports:
       - "${ELASTICSEARCH_PORT}:9200"
-
-  elasticsearch-dejavu:
-    image: appbaseio/dejavu:3.3.0
-    container_name: elasticsearch-dejavu
-    ports:
-      - "${DEJAVU_PORT}:1358"
-    depends_on:
-      - elasticsearch
-
-  elasticsearch-kibana:
+  kibana:
     image: kibana:7.17.6
-    container_name: elasticsearch-kibana
+    container_name: kibana
     environment:
       ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
     ports:
       - "${KIBANA_PORT}:5601"
+    depends_on:
+      - elasticsearch
+
+  dejavu:
+    image: appbaseio/dejavu:3.3.0
+    container_name: dejavu
+    ports:
+      - "${DEJAVU_PORT}:1358"
     depends_on:
       - elasticsearch
 ```
