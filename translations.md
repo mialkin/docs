@@ -48,6 +48,7 @@
 * **Clustering** — кластеризация
 * **Cohesion** — связность или прочность (англ. *module strength*)
 * **Columnar database** — колоночная база данных
+* **Command query responsibility segregation** — разделение ответственности командных запросов
 * **Commit** — фиксация
 * **Common Language Runtime** — общеязыковая исполняющая среда
 * **Common table expression** — обобщенное табличное выражение
@@ -105,6 +106,7 @@
 * **Extension method** — метод расширения
 * **Extreme programming** — экстремальное программирование
 * **Event loop** — цикл событий
+* **Event sourcing** — порождение событий
 * **Eventual consistency** — конечная/итоговая согласованность
 
 ## F
