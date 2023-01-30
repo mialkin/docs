@@ -2,22 +2,108 @@
 
 [↑ MediatR](https://github.com/jbogard/MediatR) is an open source .NET library that provides simple mediator implementation for in-process messaging with no dependencies.
 
-MediatR supports request/response, commands, queries, notifications and events, synchronous and asynchronous, with intelligent dispatching via C# generic variance.
+## Installation
+
+```bash
+dotnet add package MediatR.Extensions.Microsoft.DependencyInjection
+```
 
 ## Table of contents
 
 - [MediatR](#mediatr)
-  - [Table of contents](#table-of-contents)
   - [Installation](#installation)
+  - [Table of contents](#table-of-contents)
+  - [Usage](#usage)
   - [Why do we need MediatR](#why-do-we-need-mediatr)
     - [Single responsibility](#single-responsibility)
     - [Decorators](#decorators)
   - [You probably don't need MediatR](#you-probably-dont-need-mediatr)
 
-## Installation
+## Usage
 
-```bash
-dotnet add package MediatR
+Library registration inside `Program.cs`:
+
+```csharp
+services.AddMediatR(Assembly.GetExecutingAssembly());
+```
+
+Simple request:
+
+```csharp
+public record SomeRequest(string Message) : IRequest<string>;
+```
+
+Simple notification:
+
+```csharp
+public record SomeNotification(string Message) : INotification;
+```
+
+Injection of `IMediator` into controller:
+
+```csharp
+[ApiController]
+[Route("[controller]")]
+public class MediatorController : ControllerBase
+{
+    private readonly IMediator _mediator;
+
+    public MediatorController(IMediator mediator) => _mediator = mediator;
+
+    [HttpGet]
+    [Route("SendRequest")]
+    public Task<string> SendRequest(string message) => _mediator.Send(new SomeRequest(message));
+
+    [HttpGet]
+    [Route("SendNotification")]
+    public Task SendNotification(string message) => _mediator.Publish(new SomeNotification(message));
+}
+```
+
+Simple request handler:
+
+```csharp
+public class SomeRequestHandler : IRequestHandler<SomeRequest, string>
+{
+    public Task<string> Handle(SomeRequest request, CancellationToken cancellationToken) =>
+        Task.FromResult($"Request has been handled with message: {request.Message}");
+}
+```
+
+Two simple notification handlers:
+
+```csharp
+public class SomeNotificationHandler : INotificationHandler<SomeNotification>
+{
+    private readonly ILogger<SomeNotificationHandler> _logger;
+
+    public SomeNotificationHandler(ILogger<SomeNotificationHandler> logger) => _logger = logger;
+
+    public Task Handle(SomeNotification notification, CancellationToken cancellationToken)
+    {
+        _logger.LogInformation("Event handled by {EventHandler} with message: {Message}",
+            nameof(SomeNotificationHandler), notification.Message);
+
+        return Task.CompletedTask;
+    }
+}
+```
+
+```csharp
+public class SomeNotificationHandlerTwo : INotificationHandler<SomeNotification>
+{
+    private readonly ILogger<SomeNotificationHandlerTwo> _logger;
+
+    public SomeNotificationHandlerTwo(ILogger<SomeNotificationHandlerTwo> logger) => _logger = logger;
+
+    public Task Handle(SomeNotification notification, CancellationToken cancellationToken)
+    {
+        _logger.LogInformation("Event handled by {EventHandler} with message: {Message}",
+            nameof(SomeNotificationHandlerTwo), notification.Message);
+
+        return Task.CompletedTask;
+    }
+}
 ```
 
 ## Why do we need MediatR
@@ -91,5 +177,3 @@ TL;DR for the impatient:
 - Good news is: MediatR can be easily replaced with trivial OOP techniques
 
 For more details see [↑ "You probably don't need MediatR"](http://arialdomartini.github.io/mediatr) article.
-
-'
