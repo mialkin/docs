@@ -12,6 +12,17 @@ The [↑ Elasticsearch v8 client](https://www.elastic.co/guide/en/elasticsearch/
 
 [↑ Release notes v8.0.0](https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/release-notes-8.0.0.html)
 
+## Table of contents
+
+- [NEST](#nest)
+  - [Installation](#installation)
+  - [Table of contents](#table-of-contents)
+  - [Why two clients](#why-two-clients)
+  - [Inferred .NET type mapping](#inferred-net-type-mapping)
+  - [Indices](#indices)
+    - [List all](#list-all)
+    - [Create](#create)
+
 ## Why two clients
 
 NEST comes with a strongly typed query DSL that maps 1 to 1 with the Elasticsearch query DSL. It takes advantage of specific .NET features to provide higher level abstractions such as auto mapping of CLR types. Internally, NEST uses and still exposes the low level Elasticsearch.Net client, providing access to the power of NEST and allowing users to drop down to the low level client when wishing to.
@@ -21,3 +32,22 @@ Elasticsearch.Net is a low level, dependency free client that has no opinions ab
 ## Inferred .NET type mapping
 
 [↑ Inferred .NET type mapping](https://www.elastic.co/guide/en/elasticsearch/client/net-api/7.17/auto-map.html#inferred-dotnet-type-mapping)
+
+## Indices
+
+### List all
+
+```text
+GET /_cat/indices?v
+```
+
+```csharp
+var result = await _elasticClient.Indices.GetAsync(new GetIndexRequest(Indices.All));
+var indexNames = result.Indices.Select(x => x.Key.Name);
+```
+
+### Create
+
+```csharp
+await _elasticClient.Indices.CreateAsync(indexName);
+```
