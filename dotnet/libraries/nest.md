@@ -81,6 +81,18 @@ await _elasticClient.Indices.DeleteAsync(indexName);
 ### Create
 
 ```csharp
+// POST products/_doc
+// {
+// }
+// or:
+// PUT products/_doc/bd971fd3-9a7b-4202-a2a4-5d143242d453
+// {
+//     "id": "bd971fd3-9a7b-4202-a2a4-5d143242d453",
+//     "name": "chair",
+//     "isActive": true,
+//     "price": 19.99,
+//     "createdOn": "2023-02-13T00:00:00"
+// }
 await _elasticClient.IndexAsync(document, x => x.Refresh(Refresh.WaitFor).Index(indexName));
 ```
 
