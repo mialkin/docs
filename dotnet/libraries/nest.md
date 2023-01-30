@@ -28,6 +28,8 @@ The [↑ Elasticsearch v8 client](https://www.elastic.co/guide/en/elasticsearch/
     - [Create](#create-1)
     - [Get by ID](#get-by-id)
     - [Delete by ID](#delete-by-id)
+  - [Mappings](#mappings)
+    - [Get mapping](#get-mapping)
   - [Search documents](#search-documents)
     - [Match all](#match-all)
 
@@ -111,6 +113,14 @@ var dto = result.Source;
 ```csharp
 // DELETE products/_doc/id
 await _elasticClient.DeleteAsync(new DeleteRequest("products", id));
+```
+
+## Mappings
+
+### Get mapping
+
+```csharp
+// GET products/_mapping
 ```
 
 ## Search documents
