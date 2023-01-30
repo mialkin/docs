@@ -44,11 +44,11 @@ Injection of `IMediator` into controller:
 ```csharp
 [ApiController]
 [Route("[controller]")]
-public class MediatorController : ControllerBase
+public class SimpleController : ControllerBase
 {
     private readonly IMediator _mediator;
 
-    public MediatorController(IMediator mediator) => _mediator = mediator;
+    public SimpleController(IMediator mediator) => _mediator = mediator;
 
     [HttpGet]
     [Route("SendRequest")]
