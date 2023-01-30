@@ -27,6 +27,7 @@ The [↑ Elasticsearch v8 client](https://www.elastic.co/guide/en/elasticsearch/
   - [Documents](#documents)
     - [Create](#create-1)
     - [Get by ID](#get-by-id)
+    - [Delete by ID](#delete-by-id)
 
 ## Why two clients
 
@@ -89,4 +90,11 @@ await _elasticClient.IndexAsync(document, x => x.Refresh(Refresh.WaitFor).Index(
 // GET products/_doc/id
 var result = await _elasticClient.GetAsync<ProductDto>(id, x => x.Index("products"));
 var dto = result.Source;
+```
+
+### Delete by ID
+
+```csharp
+// DELETE products/_doc/id
+await _elasticClient.DeleteAsync(new DeleteRequest("products", id));
 ```
