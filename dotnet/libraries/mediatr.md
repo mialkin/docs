@@ -30,13 +30,13 @@ services.AddMediatR(Assembly.GetExecutingAssembly());
 Simple request:
 
 ```csharp
-public record SomeRequest(string Message) : IRequest<string>;
+public record SimpleRequest(string Message) : IRequest<string>;
 ```
 
 Simple notification:
 
 ```csharp
-public record SomeNotification(string Message) : INotification;
+public record SimpleNotification(string Message) : INotification;
 ```
 
 Injection of `IMediator` into controller:
@@ -52,20 +52,20 @@ public class MediatorController : ControllerBase
 
     [HttpGet]
     [Route("SendRequest")]
-    public Task<string> SendRequest(string message) => _mediator.Send(new SomeRequest(message));
+    public Task<string> SendRequest(string message) => _mediator.Send(new SimpleRequest(message));
 
     [HttpGet]
     [Route("SendNotification")]
-    public Task SendNotification(string message) => _mediator.Publish(new SomeNotification(message));
+    public Task SendNotification(string message) => _mediator.Publish(new SimpleNotification(message));
 }
 ```
 
 Simple request handler:
 
 ```csharp
-public class SomeRequestHandler : IRequestHandler<SomeRequest, string>
+public class SimpleRequestHandler : IRequestHandler<SimpleRequest, string>
 {
-    public Task<string> Handle(SomeRequest request, CancellationToken cancellationToken) =>
+    public Task<string> Handle(SimpleRequest request, CancellationToken cancellationToken) =>
         Task.FromResult($"Request has been handled with message: {request.Message}");
 }
 ```
@@ -73,16 +73,16 @@ public class SomeRequestHandler : IRequestHandler<SomeRequest, string>
 Two simple notification handlers:
 
 ```csharp
-public class SomeNotificationHandler : INotificationHandler<SomeNotification>
+public class SimpleNotificationHandler : INotificationHandler<SimpleNotification>
 {
-    private readonly ILogger<SomeNotificationHandler> _logger;
+    private readonly ILogger<SimpleNotificationHandler> _logger;
 
-    public SomeNotificationHandler(ILogger<SomeNotificationHandler> logger) => _logger = logger;
+    public SimpleNotificationHandler(ILogger<SimpleNotificationHandler> logger) => _logger = logger;
 
-    public Task Handle(SomeNotification notification, CancellationToken cancellationToken)
+    public Task Handle(SimpleNotification notification, CancellationToken cancellationToken)
     {
         _logger.LogInformation("Event handled by {EventHandler} with message: {Message}",
-            nameof(SomeNotificationHandler), notification.Message);
+            nameof(SimpleNotificationHandler), notification.Message);
 
         return Task.CompletedTask;
     }
@@ -90,16 +90,16 @@ public class SomeNotificationHandler : INotificationHandler<SomeNotification>
 ```
 
 ```csharp
-public class SomeNotificationHandlerTwo : INotificationHandler<SomeNotification>
+public class SimpleNotificationHandlerTwo : INotificationHandler<SimpleNotification>
 {
-    private readonly ILogger<SomeNotificationHandlerTwo> _logger;
+    private readonly ILogger<SimpleNotificationHandlerTwo> _logger;
 
-    public SomeNotificationHandlerTwo(ILogger<SomeNotificationHandlerTwo> logger) => _logger = logger;
+    public SimpleNotificationHandlerTwo(ILogger<SimpleNotificationHandlerTwo> logger) => _logger = logger;
 
-    public Task Handle(SomeNotification notification, CancellationToken cancellationToken)
+    public Task Handle(SimpleNotification notification, CancellationToken cancellationToken)
     {
         _logger.LogInformation("Event handled by {EventHandler} with message: {Message}",
-            nameof(SomeNotificationHandlerTwo), notification.Message);
+            nameof(SimpleNotificationHandlerTwo), notification.Message);
 
         return Task.CompletedTask;
     }
