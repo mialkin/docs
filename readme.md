@@ -148,7 +148,8 @@
 - [Observability: logs, metrics, traces](distributed-systems/observability/observability.md)
   - [Instrumentation guidelines](distributed-systems/observability/instrumentation-guidelines.md)
   - [OpenTelemetry](distributed-systems/observability/opentelemetry.md)
-
+- [Outbox and inbox patterns](distributed-systems/outbox-and-inbox-patterns.md)
+- [Two-phase commit protocol, 2PC](distributed-systems/2pc.md)
 ## Programming
 
 - [Aggregation and composition](programming/aggregation%20and%20composition/aggregation%20and%20composition.md)
