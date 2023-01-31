@@ -33,6 +33,7 @@ The [↑ Elasticsearch v8 client](https://www.elastic.co/guide/en/elasticsearch/
   - [Search documents](#search-documents)
     - [Match all](#match-all)
     - [Term](#term)
+    - [Terms](#terms)
   - [Links](#links)
 
 ## Why two clients
@@ -164,6 +165,31 @@ var result = await _elasticClient.SearchAsync<ProductDto>(search =>
 
 var documents = result.Documents;
 ```
+
+### Terms
+
+```csharp
+// GET products/_search
+// {
+//     "query": {
+//         "terms": {
+//             "price": [
+//             19.99,
+//             10.99
+//                 ]
+//         }
+//     }
+// }
+var result = await _elasticClient.SearchAsync<ProductDto>(search =>
+    search
+        .Index("products")
+        .Query(query =>
+            query.Terms(x => x.Field(y => y.Price).Terms(19.99m, 10.99m)))
+);
+
+var documents = result.Documents;
+```
+
 
 ## Links
 
