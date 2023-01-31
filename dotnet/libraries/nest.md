@@ -32,6 +32,8 @@ The [↑ Elasticsearch v8 client](https://www.elastic.co/guide/en/elasticsearch/
     - [Get mapping](#get-mapping)
   - [Search documents](#search-documents)
     - [Match all](#match-all)
+    - [Term](#term)
+  - [Links](#links)
 
 ## Why two clients
 
@@ -139,3 +141,31 @@ await _elasticClient.DeleteAsync(new DeleteRequest("products", id));
 var result = await _elasticClient.SearchAsync<ProductDto>(x => x.Index("products").MatchAll());
 var documents = result.Documents;
 ```
+
+### Term
+
+```csharp
+// GET products/_search
+// {
+//     "query": {
+//         "term": {
+//             "price": {
+//                 "value": 19.99
+//             }
+//         }
+//     }
+// }
+var result = await _elasticClient.SearchAsync<ProductDto>(search =>
+    search
+        .Index("products")
+        .Query(query =>
+            query.Term(x => x.Field(y => y.Price).Value(19.99)))
+);
+
+var documents = result.Documents;
+```
+
+## Links
+
+- [↑ Deep Dive into Querying Elasticsearch. Filter vs Query. Full-text search](https://towardsdatascience.com/deep-dive-into-querying-elasticsearch-filter-vs-query-full-text-search-b861b06bd4c0)
+- [↑ ELASTIC SEARCH - QUERIES, AGGREGATIONS AND FILTERS USING ASP.NET AND NEST](https://www.methylium.com/articles/elastic-search-filters/)
