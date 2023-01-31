@@ -34,6 +34,8 @@ The [↑ Elasticsearch v8 client](https://www.elastic.co/guide/en/elasticsearch/
     - [Match all](#match-all)
     - [Term](#term)
     - [Terms](#terms)
+    - [Terms `AND`](#terms-and)
+    - [Terms `OR`](#terms-or)
   - [Links](#links)
 
 ## Why two clients
@@ -190,8 +192,83 @@ var result = await _elasticClient.SearchAsync<ProductDto>(search =>
 var documents = result.Documents;
 ```
 
+### Terms `AND`
+
+```csharp
+// GET products/_search
+// {
+//     "query": {
+//         "bool": {
+//             "must": [
+//             {
+//                 "terms": {
+//                     "price": [
+//                     19.99,
+//                     10.99
+//                         ]
+//                 }
+//             },
+//             {
+//                 "term": {
+//                     "name": {
+//                         "value": "pillow"
+//                     }
+//                 }
+//             }
+//             ]
+//         }
+//     }
+// }
+var result = await _elasticClient.SearchAsync<ProductDto>(search =>
+    search
+        .Index("products")
+        .Query(query => query
+            .Terms(x => x.Field(y => y.Price).Terms(prices)) && query
+            .Term(x => x.Field(y => y.Name).Value(name)))
+);
+
+var documents = result.Documents;
+```
+
+### Terms `OR`
+
+```csharp
+// GET products/_search
+// {
+//     "query": {
+//         "bool": {
+//             "should": [
+//             {
+//                 "terms": {
+//                     "price": [
+//                     19.99
+//                         ]
+//                 }
+//             },
+//             {
+//                 "term": {
+//                     "name": {
+//                         "value": "chair"
+//                     }
+//                 }
+//             }
+//             ]
+//         }
+//     }
+// }
+var result = await _elasticClient.SearchAsync<ProductDto>(search =>
+    search
+        .Index("products")
+        .Query(query => query
+            .Terms(x => x.Field(y => y.Price).Terms(prices)) || query
+            .Term(x => x.Field(y => y.Name).Value(name)))
+);
+
+var documents = result.Documents;
+```
 
 ## Links
 
 - [↑ Deep Dive into Querying Elasticsearch. Filter vs Query. Full-text search](https://towardsdatascience.com/deep-dive-into-querying-elasticsearch-filter-vs-query-full-text-search-b861b06bd4c0)
 - [↑ ELASTIC SEARCH - QUERIES, AGGREGATIONS AND FILTERS USING ASP.NET AND NEST](https://www.methylium.com/articles/elastic-search-filters/)
+- [↑ Boolean query](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-bool-query.html)
