@@ -233,12 +233,14 @@
 * **Read-only** — доступный только для чтения
 * **Read phenomena** — феномены чтения
 * **Readiness probe** — проверка готовности
+* **Redundancy** — избыточность
 * **Reference** — ссылка
   * **Reference type** — ссылочный тип
   * **Dereference** — разыменовывать
 * **Remote** — удаленный репозиторий
 * **Replica** — реплика
 * **Replication** — тиражирование, репликация
+* **Resilience** — устойчивость
 * **Result set** — результирующий набор
 * **Retry** (resilience strategy) — повторная попытка
 * **Reviewer** — проверяющий, рецензент
