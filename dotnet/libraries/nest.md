@@ -36,6 +36,8 @@ The [↑ Elasticsearch v8 client](https://www.elastic.co/guide/en/elasticsearch/
     - [Terms](#terms)
     - [Terms `AND`](#terms-and)
     - [Terms `OR`](#terms-or)
+    - [Retrieve subset of fields](#retrieve-subset-of-fields)
+    - [Check if field exists or does not exist](#check-if-field-exists-or-does-not-exist)
   - [Links](#links)
 
 ## Why two clients
@@ -265,6 +267,48 @@ var result = await _elasticClient.SearchAsync<ProductDto>(search =>
 );
 
 var documents = result.Documents;
+```
+
+### Retrieve subset of fields
+
+```json
+{
+  "_source": [ "name", "address.*" ],
+  "query": {
+    "match_all": {}
+  }
+}
+```
+
+[↑ Retrieve selected fields from a search](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/search-fields.html#source-filtering)
+
+### Check if field exists or does not exist
+
+Exists:
+
+```json
+{
+  "query": {
+    "bool": {
+      "must": {
+        "exists": {
+          "filed": "user.name"
+```
+
+Does not exist:
+
+```json
+{
+  "query": {
+    "bool": {
+      "must_not": {
+        "exists": {
+          "filed": "user.name"
+        }
+      }
+    }
+  }
+}
 ```
 
 ## Links
