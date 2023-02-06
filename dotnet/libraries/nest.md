@@ -26,6 +26,7 @@ The [↑ Elasticsearch v8 client](https://www.elastic.co/guide/en/elasticsearch/
     - [Delete](#delete)
   - [Documents](#documents)
     - [Create](#create-1)
+    - [Update](#update)
     - [Get by ID](#get-by-id)
     - [Delete by ID](#delete-by-id)
   - [Mappings](#mappings)
@@ -94,8 +95,17 @@ await _elasticClient.Indices.DeleteAsync(indexName);
 ```csharp
 // POST products/_doc
 // {
+//     "name": "chair",
+//     "isActive": true,
+//     "price": 19.99,
+//     "createdOn": "2023-02-13T00:00:00"
 // }
-// or:
+await _elasticClient.IndexAsync(document, x => x.Refresh(Refresh.WaitFor).Index(indexName));
+```
+
+### Update
+
+```csharp
 // PUT products/_doc/bd971fd3-9a7b-4202-a2a4-5d143242d453
 // {
 //     "id": "bd971fd3-9a7b-4202-a2a4-5d143242d453",
@@ -104,7 +114,6 @@ await _elasticClient.Indices.DeleteAsync(indexName);
 //     "price": 19.99,
 //     "createdOn": "2023-02-13T00:00:00"
 // }
-await _elasticClient.IndexAsync(document, x => x.Refresh(Refresh.WaitFor).Index(indexName));
 ```
 
 ### Get by ID
@@ -293,6 +302,11 @@ Exists:
       "must": {
         "exists": {
           "filed": "user.name"
+        }
+      }
+    }
+  }
+}
 ```
 
 Does not exist:
