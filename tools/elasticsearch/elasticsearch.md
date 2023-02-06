@@ -12,6 +12,8 @@ Elasticsearch provides near real-time search and analytics for all types of data
   - [Table of contents](#table-of-contents)
   - [Installation](#installation)
   - [Lucene](#lucene)
+    - [Shards](#shards)
+    - [Replicas](#replicas)
   - [Terminology](#terminology)
   - [Field data types](#field-data-types)
   - [Mapping](#mapping)
@@ -70,7 +72,7 @@ services:
 
 ## Lucene
 
-Elasticsearch is built over [↑ Lucene Core](https://lucene.apache.org/core) Java library. Each shard that gets created in Elasticsearch is a separate Lucene instance.
+Elasticsearch is built over [↑ Lucene Core](https://lucene.apache.org/core) Java library. Each *shard* that gets created in Elasticsearch is a separate Lucene instance.
 
 Lucene provides powerful indexing and search features, as well as spellchecking, hit highlighting and advanced analysis/tokenization capabilities.
 
@@ -80,6 +82,18 @@ Though it's Lucene who is doing the actual work beneath, Elasticsearch provides 
 - Distributed system on top of Lucene. A distributed system is not something Lucene is aware of or built for
 - Thread-pool, queues, node/cluster monitoring API, data monitoring API, cluster management, etc
 - Powerful DSL: JSON interface for reading and writing queries on top of Lucene. You can write complex queries without knowing Lucene syntax
+
+### Shards
+
+Put simply, **shards** are a single Lucene index. They are the building blocks of Elasticsearch and what facilitate its scalability.
+
+### Replicas
+
+**Replicas** are Elasticsearch fail-safe mechanisms and are basically copies of your index's shards. This is a useful backup system for a rainy day — or, in other words, when a node crashes. Replicas also serve read requests, so adding replicas can help to increase search performance.
+
+To ensure high availability, replicas are not placed on the same node as the original shards (called the "primary" shard) from which they were replicated. For example, Shard 1 might share Node A with Replica Shard 2, while Node B hosts Shard 2 and Replica Shard 1.
+
+Like with shards, the number of replicas can be defined per index when the index is created. Unlike shards, however, you may change the number of replicas anytime after the index is created. In other words, you can have more than one replica for each shard, but there is a balance to be struck between having too few and too many shards. More shards result in more overhead and resource usage, as well as can affect performance and speed.
 
 ## Terminology
 
