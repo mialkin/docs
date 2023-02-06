@@ -24,6 +24,8 @@ The [↑ Elasticsearch v8 client](https://www.elastic.co/guide/en/elasticsearch/
     - [Get](#get)
     - [Create](#create)
     - [Delete](#delete)
+  - [Aliases](#aliases)
+    - [Get](#get-1)
   - [Documents](#documents)
     - [Create](#create-1)
     - [Update](#update)
@@ -86,6 +88,14 @@ await _elasticClient.Indices.CreateAsync(indexName);
 ```csharp
 // DELETE indexName
 await _elasticClient.Indices.DeleteAsync(indexName);
+```
+
+## Aliases
+
+### Get
+
+```csharp
+// GET indexName/_alias
 ```
 
 ## Documents
