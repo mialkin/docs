@@ -15,8 +15,9 @@ Elasticsearch provides near real-time search and analytics for all types of data
   - [Terminology](#terminology)
   - [Field data types](#field-data-types)
   - [Mapping](#mapping)
-  - [Searching data](#searching-data)
-  - [Ingest pipeline](#ingest-pipeline)
+  - [Update documents](#update-documents)
+  - [Search documents](#search-documents)
+  - [Inverted index](#inverted-index)
   - [Text analysis](#text-analysis)
 
 ## Installation
@@ -94,8 +95,6 @@ An **index** is a collection of JSON documents.
 
 An **indexing** is a process of adding one or more JSON documents to Elasticsearch.
 
-A **mapping** is definition of how a document, its fields, and its metadata are stored in Elasticsearch. Similar to a schema definition.
-
 An **alias** is a secondary name for a group of data streams or indices.
 
 A **data stream** is a named resource used to manage time series data. A data stream stores data across multiple backing indices.
@@ -114,13 +113,44 @@ Field types are grouped by **family**. Types in the same family have exactly the
 
 ## Mapping
 
-**Mapping** is the process of defining how a document, and the fields it contains, are stored and indexed.
+A **mapping** is definition of how a document, its fields, and its metadata are stored and indexed in Elasticsearch. Similar to a schema definition.
 
 [↑ Mapping](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html)
 
 [↑ Auto mapping](https://www.elastic.co/guide/en/elasticsearch/client/net-api/7.17/auto-map.html#auto-map)
 
-## Searching data
+## Update documents
+
+Documents in Elasticsearch are *immutable*; we cannot change them. Instead, if we need to update an existing document, we *reindex* it:
+
+```csharp
+PUT products/_doc/bd971fd3-9a7b-4202-a2a4-5d143242d453
+{
+    "id": "bd971fd3-9a7b-4202-a2a4-5d143242d453",
+    "name": "chair",
+    "isActive": true,
+    "price": 19.99,
+    "createdOn": "2023-02-13T00:00:00"
+}
+```
+
+In the response, we can see that Elasticsearch has incremented the `_version` number:
+
+```csharp
+{
+    "_index" :   "products",
+    "_type" :    "product",
+    "_id" :      "bd971fd3-9a7b-4202-a2a4-5d143242d453",
+    "_version" : 2,
+    "created":   false 
+}
+```
+
+The `created` flag is set to `false` because a document with the same index, type, and ID already existed.
+
+Internally, Elasticsearch has marked the old document as deleted and added an entirely new document. The old version of the document doesn’t disappear immediately, although you won’t be able to access it. Elasticsearch cleans up deleted documents in the background as you continue to index more data.
+
+## Search documents
 
 [↑ Search your data](https://www.elastic.co/guide/en/elasticsearch/reference/master/search-your-data.html)
 
@@ -134,9 +164,9 @@ You can use the [↑ search API](https://www.elastic.co/guide/en/elasticsearch/r
 
 [↑ Painless scripting language](https://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting-painless.html)
 
-## Ingest pipeline
+## Inverted index
 
-https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html
+[↑ Inverted index](https://www.elastic.co/guide/en/elasticsearch/guide/current/inverted-index.html)
 
 ## Text analysis
 
