@@ -311,7 +311,7 @@ Exists:
     "bool": {
       "must": {
         "exists": {
-          "filed": "user.name"
+          "field": "user.name"
         }
       }
     }
@@ -327,7 +327,7 @@ Does not exist:
     "bool": {
       "must_not": {
         "exists": {
-          "filed": "user.name"
+          "field": "user.name"
         }
       }
     }
