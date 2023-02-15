@@ -102,7 +102,7 @@ git config user.email
 | git rm -fr --cached FOLDER_NAME                   | Removes caches of FOLDER_NAME folder. You can use dot (`.`) instead of folder                                                              |
 | git shortlog                                      | Summarizes git log so that each commit will be grouped by author and title                                                                 |
 | git tag                                           | List tags                                                                                                                                  |
-| git tag TAG_NAME                                  | Create a [↑ lightweight](https://stackoverflow.com/questions/11514075/what-is-the-difference-between-an-annotated-and-unannotated-tag) tag |
+| git tag TAG_NAME                                  | Create a [↑ lightweight](https://git-scm.com/book/en/v2/Git-Basics-Tagging) tag |
 | git tag -a TAG_NAME -m 'Switch to Postgres'       | Create an annotated tag with message                                                                                                       |
 | git tag -a TAG_NAME COMMIT_HASH                   | Create a new tag for certain commit                                                                                                        |
 | git show TAG_NAME                                 |                                                                                                                                            |
