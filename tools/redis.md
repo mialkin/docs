@@ -1,23 +1,40 @@
 # Redis
 
-- [Redis](#redis)
-  - [Installation](#installation)
-    - [Docker](#docker)
-  - [Commands](#commands)
-  - [GUI](#gui)
-  - [C# client implementation](#c-client-implementation)
-  - [Distributed locking](#distributed-locking)
-
-**Redis** is an open source, in-memory data structure store, used as a database, cache, and message broker.
+[↑ Redis](https://redis.io) is an open source, in-memory data structure store, used as a database, cache, and message broker.
 
 Redis provides data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes, and streams. Redis has built-in replication, Lua scripting, LRU eviction, transactions, and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.
 
-## Installation
+## Table of contents
 
-### Docker
+- [Redis](#redis)
+  - [Table of contents](#table-of-contents)
+  - [Running in Docker](#running-in-docker)
+  - [GUI](#gui)
+  - [NuGet package](#nuget-package)
+  - [Commands](#commands)
+  - [C# client implementation](#c-client-implementation)
+  - [Distributed locking](#distributed-locking)
+
+## Running in Docker
 
 ```bash
-docker run --name CONTAINER_NAME -d -p 6379:6379 --restart=always redis redis-server --appendonly yes
+docker run --name my_redis_container \
+-d \
+-p 6379:6379 \
+redis redis-server \
+--appendonly yes
+```
+
+## GUI
+
+Try web browser GUI [↑ RedisInsight](https://redislabs.com/redis-enterprise/redis-insight).
+
+## NuGet package
+
+[↑ StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis):
+
+```bash
+dotnet add package StackExchange.Redis 
 ```
 
 ## Commands
@@ -64,10 +81,6 @@ docker run --name CONTAINER_NAME -d -p 6379:6379 --restart=always redis redis-se
 | exec                        | Commits transaction                                                              |
 | subscribe CHANNEL           | Subscries to the channel                                                         |
 | publish CHANNEL MESSAGE     | Publish message to the channel                                                   |
-
-## GUI
-
-Try web browser GUI [↑ RedisInsight](https://redislabs.com/redis-enterprise/redis-insight).
 
 ## C# client implementation
 
