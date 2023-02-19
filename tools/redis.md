@@ -11,6 +11,7 @@ Redis provides data structures such as strings, hashes, lists, sets, sorted sets
   - [Running in Docker](#running-in-docker)
   - [GUI](#gui)
   - [NuGet package](#nuget-package)
+  - [Redis CLI](#redis-cli)
   - [Commands](#commands)
   - [C# client implementation](#c-client-implementation)
   - [Distributed locking](#distributed-locking)
@@ -18,7 +19,7 @@ Redis provides data structures such as strings, hashes, lists, sets, sorted sets
 ## Running in Docker
 
 ```bash
-docker run --name my_redis_container \
+docker run --name YOUR_REDIS_CONTAINER_NAME \
 -d \
 -p 6379:6379 \
 redis redis-server \
@@ -35,6 +36,14 @@ Try web browser GUI [↑ RedisInsight](https://redislabs.com/redis-enterprise/re
 
 ```bash
 dotnet add package StackExchange.Redis 
+```
+
+## Redis CLI
+
+Use [↑ Redis CLI](https://redis.io/docs/ui/cli) to run Redis commands:
+
+```bash
+docker exec -it YOUR_REDIS_CONTAINER_NAME redis-cli
 ```
 
 ## Commands
