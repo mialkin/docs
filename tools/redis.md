@@ -15,6 +15,7 @@ Redis provides data structures such as strings, hashes, lists, sets, sorted sets
   - [Commands](#commands)
   - [C# client implementation](#c-client-implementation)
   - [Distributed locking](#distributed-locking)
+  - [Links](#links)
 
 ## Running in Docker
 
@@ -157,3 +158,7 @@ using var redLock = await _distributedLockFactory
 if (redLock.IsAcquired)
     DoStuff();
 ```
+
+## Links
+
+- [↑ JSON Web Tokens (JWT) are Dangerous for User Sessions—Here’s a Solution](https://redis.com/blog/json-web-tokens-jwt-are-dangerous-for-user-sessions/)
