@@ -54,7 +54,9 @@ A **domain model** is a software model of the very specific business domain you 
 
 ### Anemic domain model
 
-An **anemic domain model** is a domain model that is focused on the state of its objects which is the antithesis of DDD.
+An **anemic domain model** is a domain model that has a state but lacks behavior.
+
+Some kinds of objects, such as data transfer objects, DTOs, are expected to simply be a collection of data. However, the objects that model the behavior of the problem space within the application should use encapsulation to manage their internal state and behavior. An anemic model frequently fails to follow the [↑ Tell, Don't Ask](https://deviq.com/principles/tell-dont-ask) principle, since objects cannot perform operations on their own state, but are constantly manipulated by other objects in a non-object-oriented fashion. Rich domain models provide useful behavior to clients within the system. Some code smells that may indicate an anemic domain model include [↑ exposed collection properties](https://deviq.com/antipatterns/exposing-collection-properties), and over-use of properties in general, especially setters.
 
 There is nothing wrong with anemic classes when all you need to do is some CRUD logic. But if you are creating a domain model, you've already made a decision that your domain is too complex for simple CRUD. So, anemia in domain model is considered an anti-pattern.
 
