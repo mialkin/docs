@@ -13,7 +13,6 @@ Redis provides data structures such as strings, hashes, lists, sets, sorted sets
   - [NuGet package](#nuget-package)
   - [Redis CLI](#redis-cli)
   - [Commands](#commands)
-  - [C# client implementation](#c-client-implementation)
   - [Distributed locking](#distributed-locking)
   - [Links](#links)
 
@@ -91,55 +90,6 @@ docker exec -it YOUR_REDIS_CONTAINER_NAME redis-cli
 | exec                        | Commits transaction                                                              |
 | subscribe CHANNEL           | Subscries to the channel                                                         |
 | publish CHANNEL MESSAGE     | Publish message to the channel                                                   |
-
-## C# client implementation
-
-Example using [↑ StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) library:
-
-```csharp
-private static void ConfigureRedis(IServiceCollection services, IConfiguration configuration)
-{
-    services.ConfigureSettings<RedisSettings>(configuration);
-    services.AddSingleton<IConnectionMultiplexer>(x =>
-    {
-        var redisSettings = x.GetRequiredService<IOptions<RedisSettings>>().Value;
-        var options = ConfigurationOptions.Parse(redisSettings.Hosts);
-        options.AbortOnConnectFail = false;
-        return ConnectionMultiplexer.Connect(options);
-    });
-
-    services.AddTransient<IRedisClient, RedisClient>();
-}
-
-public class RedisClient : IRedisClient
-{
-    private readonly IConnectionMultiplexer _connectionMultiplexer;
-
-    private IDatabase Database => _connectionMultiplexer.GetDatabase() ??
-                                throw new RedisException("Unable to acquire Redis database");
-
-    public RedisClient(IConnectionMultiplexer connectionMultiplexer)
-    {
-        _connectionMultiplexer = connectionMultiplexer;
-    }
-
-    public async Task SetAsync<T>(string key, T value, TimeSpan ttl)
-    {
-        var json = JsonSerializer.Serialize(value);
-        await Database.StringSetAsync(key, json, ttl);
-    }
-
-    public async Task<T?> GetAsync<T>(string key)
-    {
-        var redisValue = await Database.StringGetAsync(key);
-        JsonSerializer.Deserialize<T>(redisValue);
-
-        return !redisValue.HasValue
-            ? default
-            : JsonSerializer.Deserialize<T>(redisValue);
-    }
-}
-```
 
 ## Distributed locking
 
