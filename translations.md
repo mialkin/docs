@@ -276,6 +276,7 @@
 * **Task** — задача
   * **Task Parallel Library** (TPL) — библиотека параллельных задач
 * **Test-driven development** — разработка через тестирование
+* **Third-party** — сторонний
 * **Thread-local storage** or **thread local storage** — локальное по отношению к потоку хранилище или локальная память потока
 * **Thread-safety** — потоковая безопасность
 * **Threshold** — порог, граница
