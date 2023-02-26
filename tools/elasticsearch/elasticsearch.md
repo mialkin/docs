@@ -19,6 +19,7 @@ Elasticsearch provides near real-time search and analytics for all types of data
   - [Mapping](#mapping)
   - [Update documents](#update-documents)
   - [Search documents](#search-documents)
+    - [Boolean query](#boolean-query)
   - [Inverted index](#inverted-index)
   - [Text analysis](#text-analysis)
 
@@ -129,9 +130,9 @@ Field types are grouped by **family**. Types in the same family have exactly the
 
 A **mapping** is definition of how a document, its fields, and its metadata are stored and indexed in Elasticsearch. Similar to a schema definition.
 
-[↑ Mapping](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html)
-
 [↑ Auto mapping](https://www.elastic.co/guide/en/elasticsearch/client/net-api/7.17/auto-map.html#auto-map)
+
+[↑ Mapping](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html)
 
 ## Update documents
 
@@ -177,6 +178,10 @@ A **hit** or **search result** is a document that matches a search's queries and
 You can use the [↑ search API](https://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html) to search and aggregate data stored in Elasticsearch data streams or indices. The API's query request body parameter accepts queries written in Query DSL.
 
 [↑ Painless scripting language](https://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting-painless.html)
+
+### Boolean query
+
+[↑ Boolean query](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-bool-query.html).
 
 ## Inverted index
 
