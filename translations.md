@@ -305,6 +305,7 @@
 ## V
 
 * **Value type** — тип значения или значимый тип
+* **Vertical slice architecture** — архитектура вертикальных срезов
 * **Volume** — том
 
 ## W
