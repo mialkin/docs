@@ -24,7 +24,7 @@ Clean architecture rules:
   - [Web Project](#web-project)
   - [Shared Kernel](#shared-kernel)
   - [GitHub Repository](#github-repository)
-  - [YouTube Video](#youtube-video)
+  - [YouTube Videos](#youtube-videos)
 
 ## Core Project
 
@@ -105,6 +105,8 @@ It's recommended to create a separate Shared Kernel project and solution if you 
 
 [↑ Clean Architecture](https://github.com/ardalis/CleanArchitecture).
 
-## YouTube Video
+## YouTube Videos
 
-[↑ Clean Architecture with ASP.NET Core 6](https://www.youtube.com/watch?v=lkmvnjypENw).
+- [↑ Clean Architecture with ASP.NET Core 6](https://www.youtube.com/watch?v=lkmvnjypENw)
+- [↑ Clean Architecture with ASP.NET Core 3.0 by Jason Taylor](https://www.youtube.com/watch?v=dK4Yb6-LxAk)
+- [↑ Денис Цветцих: «Ты можешь лучше, чем программисты Microsoft»](https://youtu.be/IVm-qTyDor4?t=744)
