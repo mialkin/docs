@@ -73,7 +73,6 @@
 - [↑ Domain-Driven Refactoring - Jimmy Bogard - NDC London 2022](https://www.youtube.com/watch?v=f64tZ90Dntg)
 - [↑ Тестируем микросервисы правильно](https://www.youtube.com/watch?v=yj3sndjLHEA)
 - [↑ Чистая архитектура на практике](https://www.youtube.com/watch?v=Bd83nPK_K3U)
-- [↑ А какие виды CQRS вы знаете?](https://www.youtube.com/watch?v=TnS6PwxHcLg)
 
 ## JavaScript
 
