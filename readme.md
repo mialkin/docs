@@ -170,8 +170,15 @@
 - [BDD](testing/bdd/bdd.md)
   - [Gherkin](testing/bdd/gherkin.md)
   - [SpecFlow](testing/bdd/specflow.md)
+- Dotnet libraries
+  - [AutoFixture](testing/dotnet-libraries/autofixture.md)
+  - [↑ FluentAssertions](https://fluentassertions.com/introduction)
+  - [Moq](testing/dotnet-libraries/moq.md)
+  - [xUnit](testing/dotnet-libraries/xunit.md)
+  - [↑ WireMock.Net](https://www.youtube.com/watch?v=YU3ohofu6UU)
 - [Integration testing](testing/integration%20testing.md)
 - [k6](testing/k6/k6.md)
+- [MockServer](testing/mock-server.md)
 - [Unit testing best practices](testing/unit%20testing%20best%20practices.md)
 
 ## Networking
@@ -218,21 +225,16 @@
 - [Dotnet tools](dotnet/dotnet-tools/dotnet-tools.md)
   - [`dotnet-ef` tool](dotnet/dotnet-tools/dotnet-ef.md)
 - Dotnet libraries
-  - [AutoFixture](dotnet/libraries/autofixture.md)
   - [BenchmarkDotNet](dotnet/libraries/benchmarkdotnet.md)
   - [Bogus](dotnet/libraries/bogus.md)
-  - [↑ FluentAssertions](https://fluentassertions.com/introduction)
   - [FluentDocker](dotnet/libraries/fluentdocker.md)
   - [FluentValidation](dotnet/libraries/fluentvalidation.md)
   - [↑ Flurl](https://github.com/tmenier/Flurl)
   - [↑ Humanizer](https://github.com/Humanizr/Humanizer)
   - [MediatR](dotnet/libraries/mediatr.md)
-  - [Moq](dotnet/libraries/moq.md)
   - [NEST](dotnet/libraries/nest.md)
   - [↑ OpenTelemetry .NET](https://github.com/open-telemetry/opentelemetry-dotnet)
   - [Polly](dotnet/libraries/polly.md)
-  - [xUnit](dotnet/libraries/xunit.md)
-  - [↑ WireMock.Net](https://www.youtube.com/watch?v=YU3ohofu6UU)
   - [↑ YARP](https://github.com/microsoft/reverse-proxy)
 - Identity management
   - [Authentication](dotnet/identity%20managment/authentication.md)
