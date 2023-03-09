@@ -93,7 +93,7 @@
 
 ## Software architecture and design
 
-- [ADR](design/adr.md)
+- [Architectural decision records, ADRs](design/adr.md)
 - [Anti-patterns](design/anti-patterns.md)
 - [Clean architecture](design/clean%20architecture.md)
 - [Composition over inheritance](design/composition%20over%20inheritance.md)
