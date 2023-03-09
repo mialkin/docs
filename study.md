@@ -158,3 +158,6 @@ for (var i = 0; i < 5; i++) {
 
 - [↑ Ant Design](https://ant.design)
 - [↑ Material Design](https://m3.material.io)
+- <https://html5book.ru/html-html5>
+- <https://html5book.ru/css-css3>
+- [↑ Sololearn](https://apps.apple.com/us/app/sololearn-learn-to-code-apps/id1210079064)
