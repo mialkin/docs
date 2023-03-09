@@ -13,6 +13,7 @@
   - [C#](#c)
   - [ASP.NET](#aspnet)
   - [Computer science](#computer-science)
+  - [Web](#web)
 
 ## Tools
 
@@ -32,6 +33,7 @@
 - Cursor
 - Execution plan
 - Window function
+- [↑ Apache Cassandra](https://cassandra.apache.org/_/cassandra-basics.html)
 
 ## Software architecture and design
 
@@ -151,3 +153,8 @@ for (var i = 0; i < 5; i++) {
 - [↑ Heap](<https://en.wikipedia.org/wiki/Heap_(data_structure)>), [\[2\]](https://en.wikipedia.org/wiki/Binary_heap)
 - [↑ Binary Heap](https://www.geeksforgeeks.org/binary-heap)
 - [↑ Why does a Binary Heap has to be a Complete Binary Tree?](https://stackoverflow.com/questions/25319305/why-does-a-binary-heap-has-to-be-a-complete-binary-tree)
+
+## Web
+
+- [↑ Ant Design](https://ant.design)
+- [↑ Material Design](https://m3.material.io)
