@@ -8,6 +8,7 @@
     - [**Contravariance**](#contravariance)
   - [Delegates](#delegates)
     - [**Covarinace and contravariance**](#covarinace-and-contravariance)
+  - [Excerpt from Jeffrey Richter's "CLR via C#" book](#excerpt-from-jeffrey-richters-clr-via-c-book)
   - [Links](#links)
 
 Covariance enables implicit conversion of an array/delegate/generic argument of a more derived type to an array/delegate/generic argument of a less derived type.
@@ -183,6 +184,18 @@ Output:
 Passed type: Square
 Output type: Square
 ```
+
+## Excerpt from Jeffrey Richter's "CLR via C#" book
+
+- **Invariant** Meaning that the generic type parameter cannot be changed. I have shown only
+invariant generic type parameters so far in this chapter.
+- **Contra-variant** Meaning that the generic type parameter can change from a class to a
+class derived from it. In C#, you indicate contra-variant generic type parameters with the in
+keyword. Contra-variant generic type parameters can appear only in input positions such as a
+method’s argument.
+- **Covariant** Meaning that the generic type argument can change from a class to one of its
+base classes. In C#, you indicate covariant generic type parameters with the out keyword. Covariant generic type parameters can appear only in output positions such as a method’s return
+type.
 
 ## Links
 
