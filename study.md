@@ -34,6 +34,7 @@
 - Execution plan
 - Window function
 - [↑ Apache Cassandra](https://cassandra.apache.org/_/cassandra-basics.html)
+- [↑ Performance benchmarks of PostgreSQL .NET with Npgsql, Dapper, and Entity Framework Core](https://michaelscodingspot.com/npgsql-dapper-efcore-performance/)
 
 ## Software architecture and design
 
