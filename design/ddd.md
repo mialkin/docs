@@ -15,6 +15,7 @@
   - [Domain event](#domain-event)
   - [Event storming](#event-storming)
   - [Specification](#specification)
+  - [Videos](#videos)
 
 The term **domain-driven design** was coined by Eric Evans in his book written in 2003.
 
@@ -112,3 +113,8 @@ An **event storming** is a workshop-based method to quickly find out what is hap
 ## Specification
 
 A **specification** is another DDD pattern which provides a way to take query logic and take it out of your repositories and put it into your domain model.
+
+## Videos
+
+- [↑ Domain-Driven Refactoring - Jimmy Bogard - NDC Porto 2022](https://www.youtube.com/watch?v=gxgKgMvPH9I)
+- [↑ Чистая архитектура и Domain-Driven Design](https://www.youtube.com/watch?v=fx6NWIgjH7w)
