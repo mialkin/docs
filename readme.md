@@ -274,6 +274,7 @@
     - Thread-safe collections
       - `BlockingCollection<T>`, `ConcurrentBag<T>`, `ConcurrentDictionary<TKey,TValue>`, `ConcurrentQueue<T>`, `ConcurrentStack<T>`
     - [When to use a thread-safe collection](csharp/concurrency/collections/when%20to%20use%20thread-safe.md)
+    - [↑ Which collection interface to use?](https://enterprisecraftsmanship.com/posts/which-collection-interface-to-use/)
   - [Synchronization](csharp/concurrency/synchronization.md)
   - Synchronization primitives
     - [`Interlocked`](csharp/concurrency/synchronization%20primitives/interlocked.md)
