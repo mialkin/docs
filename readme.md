@@ -155,6 +155,7 @@
 
 - [Aggregation and composition](programming/aggregation%20and%20composition/aggregation%20and%20composition.md)
 - [Cyclomatic complexity](programming/cyclomatic%20complexity.md)
+- [↑ DTOs vs POCOs/POJOs](https://ardalis.com/dto-or-poco)
 - [EditorConfig](programming/editorconfig.md)
 - [Function parameters vs arguments](programming/function%20parameters%20vs%20arguments.md)
 - [Idempotence](programming/idempotence.md)
