@@ -38,7 +38,7 @@
 - [Git](tools/git/git.md)
 - [GitLab](tools/gitlab.md)
 - [Grafana](tools/grafana.md)
-- [Graphviz & PlantUML](tools/graphviz%20plantuml.md)
+- [Graphviz, PlantUML, Mermaid](tools/graphviz%20plantuml.md)
 - [Jaeger](tools/jaeger.md)
 - [Jenkins](tools/jenkins.md)
 - [Kafka](tools/kafka/kafka.md)

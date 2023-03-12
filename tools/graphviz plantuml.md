@@ -1,4 +1,4 @@
-# Graphviz & PlantUML
+# Graphviz, PlantUML, Mermaid
 
 ## Graphviz
 
@@ -60,4 +60,40 @@ note "This note is connected\nto several objects." as N2
 (Start) .. N2
 N2 .. (Use)
 @enduml
+```
+
+## Mermaid
+
+[↑ Mermaid](https://mermaid.js.org) is a JavaScript based diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically.
+
+GitHub now supports Mermaid syntax in Markdown:
+
+```text
+flowchart TB
+    c1-->a2
+    subgraph one
+    a1-->a2
+    end
+    subgraph two
+    b1-->b2
+    end
+    subgraph three
+    c1-->c2
+    end
+```
+
+which renders to:
+
+```mermaid
+flowchart TB
+    c1-->a2
+    subgraph one
+    a1-->a2
+    end
+    subgraph two
+    b1-->b2
+    end
+    subgraph three
+    c1-->c2
+    end
 ```
