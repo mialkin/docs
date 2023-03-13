@@ -8,6 +8,8 @@
 
 - Avoid `return await`. When `await` is only used in the `return` statement, return the `Task` instead, but don't do this inside of `try/catch` or `using()` blocks.
 
+[↑ Is awaiting a Task instead of returning it directly in C# actually slower?](https://www.youtube.com/watch?v=Q2zDatDVnO0)
+
 ## When should I use `ConfigureAwait(false)`?
 
 It depends: are you implementing application-level code or general-purpose library code?
