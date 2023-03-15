@@ -52,6 +52,7 @@
     - Circuit Breaker
     - [↑ Backends for Frontends](https://microservices.io/patterns/apigateway.html)
     - Retry
+      - [↑ Implement HTTP call retries with exponential backoff with IHttpClientFactory and Polly policies](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly)
     - Service Layer
     - Service Locator
     - Sidecar
