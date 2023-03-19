@@ -119,6 +119,10 @@ for (var i = 0; i < 5; i++) {
 - [↑ Expression trees](https://tyrrrz.me/blog/expression-trees)
 - IQueryable interface
 - [↑ Specification pattern](https://deviq.com/design-patterns/specification-pattern)
+  - <https://enterprisecraftsmanship.com/posts/specification-pattern-c-implementation>
+  - <https://deviq.com/design-patterns/specification-pattern>
+  - <https://en.wikipedia.org/wiki/Specification_pattern>
+  - <https://medium.com/c-sharp-progarmming/specification-design-pattern-c814649be0ef>
 - [↑ Finalizers](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/finalizers)
   - [↑ Cleaning up unmanaged resources](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/unmanaged)
   - [↑ Throwing exception in finalizer to enforce Dispose calls:](https://stackoverflow.com/questions/20358401/throwing-exception-in-finalizer-to-enforce-dispose-calls)
