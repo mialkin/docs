@@ -16,6 +16,13 @@ Hangfire can be considered as a state machine for *background jobs*.
   - [States](#states)
   - [Configuration](#configuration)
   - [Using SQL Server for storage](#using-sql-server-for-storage)
+  - [Features](#features)
+    - [Persistence](#persistence)
+    - [Transparent](#transparent)
+    - [Reliability](#reliability)
+    - [Distributed processing](#distributed-processing)
+    - [Efficient](#efficient)
+    - [Self-maintainable](#self-maintainable)
 
 ## Overview
 
@@ -25,13 +32,15 @@ The library consists of three main components: *client*, *storage* and *server*:
 
 <img src="hangfire-workflow.webp" width="500px"/>
 
-Hangfire allows to perform *fire-and-forget*, *delayed* and *recurring* jobs inside ASP.NET applications. CPU and I/O intensive, long-running and short-running jobs are supported.
+Hangfire allows to perform *fire-and-forget*, *delayed*, *recurring*, *continuation* and *batches* jobs inside ASP.NET applications. CPU and I/O intensive, long-running and short-running jobs are supported.
 
 **Fire-and-forget tasks** are background jobs that are executed by dedicated worker pool threads as soon as possible.
 
 **Delayed tasks** are scheduled background jobs that are executed only after a given amount of time.
 
 **Recurring tasks** are scheduled background jobs are executed only after a given amount of time.
+
+**Continuations tasks** are background jobs that are executed when its parent job has been finished.
 
 ## Usage scenarios
 
@@ -92,3 +101,35 @@ Starting from version 1.4, `GlobalConfiguration` class is the preferred way to c
 SQL Server is the default storage for Hangfire — it is well known to many .NET developers and used in many project environments. It might be interesting that in the early stage of Hangfire development, Redis was used to store information about jobs, and SQL Server storage implementation was inspired by that NoSQL solution.
 
 [↑ Using SQL Server](https://docs.hangfire.io/en/latest/configuration/using-sql-server.html).
+
+## Features
+
+### Persistence
+
+Background jobs are created in a persistent storage – SQL Server and Redis supported officially, and a lot of other community-driven storages.
+
+You can safely restart your application and use Hangfire with ASP.NET without worrying about application pool recycles.
+
+### Transparent
+
+Built-in web interface allow you to see the whole picture of your background processing, as well as observe the state of each background job.
+
+### Reliability
+
+Once a background job was created without any exception, Hangfire takes the responsibility to process it with the at least once semantics.
+
+You are free to throw unhandled exceptions or terminate your application – background jobs will be re-tried automatically.
+
+### Distributed processing
+
+Background method calls and their arguments are serialized and may overcome the process boundaries.
+
+You can use Hangfire on different machines to get more processing power with no configuration – synchronization is performed automatically.
+
+### Efficient
+
+Although the default installation uses SQL Server and polling technique to fetch jobs, you can leverage MSMQ or Redis extensions to reduce the processing latency to minimum.
+
+### Self-maintainable
+
+You don't need to perform manual storage clean-up — Hangfire keeps it as clean as possible and removes old records automatically.
