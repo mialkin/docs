@@ -142,9 +142,4 @@ dotnet add package Hangfire.AspNetCore
 dotnet add package Hangfire.SqlServer
 ```
 
-```sql
-CREATE DATABASE HangfireTest
-GO
-
-
 [↑ ASP.NET Core Applications](https://docs.hangfire.io/en/latest/getting-started/aspnet-core-applications.html)
