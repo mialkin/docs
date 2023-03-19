@@ -29,6 +29,7 @@
   - [↑ Selecting for Share and Update in PostgreSQL](https://shiroyasha.io/selecting-for-share-and-update-in-postgresql.html)
   - [↑ Group by, Having](https://www.postgresql.org/docs/9.4/tutorial-agg.html)
 - [↑ Serilog `LogContext`](https://github.com/serilog/serilog/wiki/Enrichment)
+- [↑ Refit](https://github.com/reactiveui/refit) and [↑ RestSharp](https://github.com/restsharp/RestSharp)
 
 ## Databases
 
