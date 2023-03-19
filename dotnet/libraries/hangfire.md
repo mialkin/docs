@@ -2,6 +2,10 @@
 
 [↑ Hangfire](https://www.hangfire.io) is an open-source framework that can be used to perform background processing in .NET applications.
 
+Hangfire can be considered as a state machine for *background jobs*.
+
+[↑ GitHub repository](https://github.com/HangfireIO/Hangfire).
+
 ## Background jobs
 
 A **background jobs** in Hangfire looks like regular method calls. Most of its interfaces are using expression trees to define what method should be called and with what arguments.
@@ -11,6 +15,8 @@ The purpose of the method calls is to collect and serialize the following inform
 - Type name, including namespace and assembly
 - Method name and its parameter types
 - Argument values
+
+Serialization is performed by the `Newtonsoft.Json` package and resulting JSON is persisted in a storage making it available for other processes.
 
 ## States
 
@@ -36,6 +42,12 @@ GlobalConfiguration.Configuration
     .WithJobExpirationTimeout(TimeSpan.FromHours(6));
 ```
 
+## Configuration
+
+Starting from version 1.4, `GlobalConfiguration` class is the preferred way to configure Hangfire. This is an entry point for a couple of methods, including ones from third-party storage implementations or other extensions.
+
 ## Using SQL Server for storage
 
-SQL Server is the default storage for Hangfire – it is well known to many .NET developers and used in many project environments. It might be interesting that in the early stage of Hangfire development, Redis was used to store information about jobs, and SQL Server storage implementation was inspired by that NoSQL solution.
+SQL Server is the default storage for Hangfire — it is well known to many .NET developers and used in many project environments. It might be interesting that in the early stage of Hangfire development, Redis was used to store information about jobs, and SQL Server storage implementation was inspired by that NoSQL solution.
+
+[↑ Using SQL Server](https://docs.hangfire.io/en/latest/configuration/using-sql-server.html).
