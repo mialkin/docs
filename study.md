@@ -17,7 +17,10 @@
 
 ## Tools
 
-- Hangfire & Quartz.NET
+- Quartz.NET
+  - <https://code-maze.com/schedule-jobs-with-quartz-net>
+  - <https://www.quartz-scheduler.net/documentation/quartz-3.x/quick-start.html#nuget-package>
+  - <https://blog.vfrz.fr/quartz-asp-net-core-3-0/>
 - MongoDB
 - Kafka
   - [↑ Error Handling Patterns for Apache Kafka Applications](https://www.confluent.io/blog/error-handling-patterns-in-kafka/)
@@ -66,6 +69,9 @@
 - [↑ Vertical Slice Architecture - Jimmy Bogard](https://www.youtube.com/watch?v=SUiWfhAhgQw)
 - [↑ Distributed Tracing for Microservice Architecture](https://habr.com/ru/post/539022/)
 - [↑ Concurrent Processing in .NET 6 with System.Threading.Channels](https://itnext.io/concurrent-processing-in-net-6-with-system-threading-channels-bonus-interval-trees-441b7539b5d1)
+- CQRS
+  - CQRS может без Event sourcing. Event sourcing без CQRS не может. CQRS — это когда только Command может менять модель (модель в смысле DDD, то есть модель какой-то предметной области), Query может только ее читать. [↑ А какие виды CQRS вы знаете?](https://www.youtube.com/watch?v=TnS6PwxHcLg)
+
 
 ## Programming
 
@@ -77,6 +83,7 @@
 - [↑ Domain-Driven Refactoring - Jimmy Bogard - NDC London 2022](https://www.youtube.com/watch?v=f64tZ90Dntg)
 - [↑ Тестируем микросервисы правильно](https://www.youtube.com/watch?v=yj3sndjLHEA)
 - [↑ Чистая архитектура на практике](https://www.youtube.com/watch?v=Bd83nPK_K3U)
+- [↑ Generic types are for arguments, specific types are for return values](https://enterprisecraftsmanship.com/posts/generic-types-arguments-specific-types-return-values/)
 
 ## JavaScript
 
@@ -128,6 +135,8 @@ for (var i = 0; i < 5; i++) {
 - [↑ volatile (C# Reference)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/volatile)
 - [↑ Introduction to Functional Programming in F#](https://docs.microsoft.com/en-us/dotnet/fsharp/introduction-to-functional-programming/)
 - async lock
+- [↑ `AsyncLocal<T>`](https://code-maze.com/charp-difference-between-returning-and-awaiting-a-task/)
+- [↑ How Async/Await Really Works in C#](https://devblogs.microsoft.com/dotnet/how-async-await-really-works/)
 - [↑ Weak reference](https://docs.microsoft.com/en-us/dotnet/api/system.weakreference?view=netcore-3.1)
 - [↑ Immutable Collections](https://docs.microsoft.com/en-us/archive/msdn-magazine/2017/march/net-framework-immutable-collections)
   - [↑ How to use immutability in C#](https://www.infoworld.com/article/3564161/how-to-use-immutability-in-csharp.html)
@@ -143,6 +152,7 @@ for (var i = 0; i < 5; i++) {
 - [↑ Caching](https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices)
 - [↑ Configuration](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration)
 - [↑ Filters](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters)
+  - [↑ Combining ASP.NET Core validation attributes with Value Objects](https://enterprisecraftsmanship.com/posts/combining-asp-net-core-attributes-with-value-objects/)
 - [↑ Performance](https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices)
 - [↑ Routing](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing)
 - [↑ Servers](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers)
