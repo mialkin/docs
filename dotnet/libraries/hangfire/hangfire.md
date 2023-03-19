@@ -23,6 +23,7 @@ Hangfire can be considered as a state machine for *background jobs*.
     - [Distributed processing](#distributed-processing)
     - [Efficient](#efficient)
     - [Self-maintainable](#self-maintainable)
+  - [ASP.NET Core installation](#aspnet-core-installation)
 
 ## Overview
 
@@ -133,3 +134,17 @@ Although the default installation uses SQL Server and polling technique to fetch
 ### Self-maintainable
 
 You don't need to perform manual storage clean-up — Hangfire keeps it as clean as possible and removes old records automatically.
+
+## ASP.NET Core installation
+
+```bash
+dotnet add package Hangfire.AspNetCore
+dotnet add package Hangfire.SqlServer
+```
+
+```sql
+CREATE DATABASE HangfireTest
+GO
+
+
+[↑ ASP.NET Core Applications](https://docs.hangfire.io/en/latest/getting-started/aspnet-core-applications.html)
