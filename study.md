@@ -43,6 +43,7 @@
 ## Software architecture and design
 
 - [↑ Architectural Katas](https://nealford.com/katas)
+- [↑ Software Architecture in Practice (SEI Series in Software Engineering)](https://www.amazon.com/Software-Architecture-Practice-3rd-Engineering/dp/0321815734)
 - DDD
 - OpenTracing
   - [↑ The Three Pillars of Observability](https://www.oreilly.com/library/view/distributed-systems-observability/9781492033431/ch04.html)
