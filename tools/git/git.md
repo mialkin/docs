@@ -116,6 +116,12 @@ git remote set-url --add --push origin git@gitlab.com:mialkin/YOUR_REPOSITORY_NA
 git remote set-url --add --push origin git@github.com:mialkin/YOUR_REPOSITORY_NAME.git
 ```
 
+Print all remotes' fetch/push URLs:
+
+```bash
+git remote -v
+```
+
 ## .gitignore
 
 ```gitignore
