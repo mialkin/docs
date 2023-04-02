@@ -62,8 +62,7 @@ In the pipelines result page, we'd see the name of the step as "Build and test" 
 
 ## Links
 
-[↑ YAML anchors](https://support.atlassian.com/bitbucket-cloud/docs/yaml-anchors)
-
-[↑ Optimize GitLab CI/CD configuration files](https://docs.gitlab.com/ee/ci/yaml/yaml_optimization.html).
-
-[↑ Learn YAML in Y minutes](https://learnxinyminutes.com/docs/yaml).
+- [↑ Three ways to reuse commands across Gitlab jobs](https://jsramblings.com/three-ways-to-reuse-commands-across-gitlab-jobs)
+- [↑ YAML anchors](https://support.atlassian.com/bitbucket-cloud/docs/yaml-anchors)
+- [↑ Optimize GitLab CI/CD configuration files](https://docs.gitlab.com/ee/ci/yaml/yaml_optimization.html)
+- [↑ Learn YAML in Y minutes](https://learnxinyminutes.com/docs/yaml)
