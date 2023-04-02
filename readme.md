@@ -165,6 +165,7 @@
 - [Scrum](programming/scrum/scrum.md)
 - [Serialization](programming/serialization.md)
 - [Time zones vs offsets](programming/time%20zones%20vs%20offsets.md)
+- [YAML](programming/yaml.md)
 
 ## Testing
 
