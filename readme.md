@@ -162,6 +162,7 @@
 - [Inversion of control (IoC)](programming/ioc/inversion%20of%20control.md)
 - [Makefile](programming/makefile.md)
 - [Programming case types](programming/cases.md)
+- [Reviewing merge requests](programming/reviewing-merge-requests.md)
 - [Scrum](programming/scrum/scrum.md)
 - [Serialization](programming/serialization.md)
 - [Time zones vs offsets](programming/time%20zones%20vs%20offsets.md)
