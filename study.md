@@ -89,6 +89,7 @@
 - [↑ Generic types are for arguments, specific types are for return values](https://enterprisecraftsmanship.com/posts/generic-types-arguments-specific-types-return-values/)
 - [↑ Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
 - [↑ GitOps](https://about.gitlab.com/topics/gitops)
+- [↑ Есть ли жизнь на Go после C#?](https://habr.com/ru/companies/ozontech/articles/684422/)
 
 ## JavaScript
 
