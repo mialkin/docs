@@ -31,6 +31,7 @@
 ## Tools
 
 - [Ansible](tools/ansible/ansible.md)
+- [Argo CD](tools/argo-cd.md)
 - [Docker](tools/docker/docker.md)
   - [Dockerfile](tools/docker/dockerfiles.md)
   - [Docker compose](tools/docker/docker%20compose.md)
