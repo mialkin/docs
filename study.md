@@ -44,6 +44,11 @@
 
 - [↑ Architectural Katas](https://nealford.com/katas)
 - [↑ Software Architecture in Practice (SEI Series in Software Engineering)](https://www.amazon.com/Software-Architecture-Practice-3rd-Engineering/dp/0321815734)
+- [↑ Business Process Model and Notation](https://ru.wikipedia.org/wiki/BPMN)
+  - [↑ BPMN tooling](https://bpmn.io)
+  - [↑ Редактор Storm BPMN](https://stormbpmn.com)
+  - [↑ Главный секрет BPMN: токены](https://www.youtube.com/watch?v=Gfx5atU3YDY)
+  - [↑ Как и зачем добавлять BPM движок к своим микросервисам](https://www.youtube.com/watch?v=N2fxpoIHQqA)
 - DDD
 - OpenTracing
   - [↑ The Three Pillars of Observability](https://www.oreilly.com/library/view/distributed-systems-observability/9781492033431/ch04.html)
