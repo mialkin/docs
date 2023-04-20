@@ -52,6 +52,7 @@
 - DDD
 - OpenTracing
   - [↑ The Three Pillars of Observability](https://www.oreilly.com/library/view/distributed-systems-observability/9781492033431/ch04.html)
+  - [↑ Распределенный трейсинг OpenTelemetry вместо логирования всего подряд](https://dotnext.ru/talks/968f0bdc6f7a44b4b868c665d57dcaa5/)
 - Architectural patterns
   - [↑ Event Sourcing](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing)
   - [↑ Repository](https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application)
@@ -95,6 +96,7 @@
 - [↑ Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
 - [↑ GitOps](https://about.gitlab.com/topics/gitops)
 - [↑ Есть ли жизнь на Go после C#?](https://habr.com/ru/companies/ozontech/articles/684422/)
+- [↑ What are Functional and Non-Functional Requirements and How to Document These](https://enkonix.com/blog/functional-requirements-vs-non-functional)
 
 ## JavaScript
 
@@ -172,6 +174,7 @@ for (var i = 0; i < 5; i++) {
 - [↑ Routing](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing)
 - [↑ Servers](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers)
 - [↑ ASP.NET Core Series: Performance Testing Techniques](https://www.youtube.com/watch?v=jn54CjePzs0)
+- [↑ `.AddHttpLogging`](https://youtu.be/isrl_zJa1GY?t=987)
 - Feature flags
   - [↑ Tutorial: Use feature flags in an ASP.NET Core app](https://learn.microsoft.com/en-us/azure/azure-app-configuration/use-feature-flags-dotnet-core?tabs=core5x)
   - [↑ Feature flags](https://docs.gitlab.com/ee/operations/feature_flags.html)
