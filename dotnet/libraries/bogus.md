@@ -10,6 +10,17 @@ dotnet add package Bogus
 
 ## Usage
 
+Random word:
+
+```csharp
+using Bogus;
+
+var faker = new Faker("ru");
+var word = faker.Random.Word();
+```
+
+Random class:
+
 ```csharp
 using Bogus;
 
