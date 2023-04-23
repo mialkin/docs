@@ -29,6 +29,8 @@ docker run -d -p 3000:3000 --name=grafana grafana/grafana-enterprise
 
 A **dashboard** is a set of one or more *panels* organized and arranged into one or more *rows*.
 
+You can create a **folder** and move several dashboards in it. Folders help you organize and group dashboards, which is useful when you have many dashboards or multiple teams using the same Grafana instance.
+
 A **panel** is a basic visualization building block in Grafana.
 
 Each panel contains a set of queries to one or more data sources.
