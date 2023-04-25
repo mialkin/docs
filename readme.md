@@ -31,7 +31,6 @@
 ## Tools
 
 - [Ansible](tools/ansible/ansible.md)
-- [Argo CD](tools/argo-cd.md)
 - [Docker](tools/docker/docker.md)
   - [Dockerfile](tools/docker/dockerfiles.md)
   - [Docker compose](tools/docker/docker%20compose.md)
@@ -46,6 +45,7 @@
   - [Avro](tools/kafka/avro.md)
   - [Schema Registry](tools/kafka/schema%20registry.md)
 - [Kubernetes](tools/kubernetes/kubernetes.md)
+  - [Argo CD](tools/kubernetes/argo-cd.md)
   - [cert-manager](tools/kubernetes/cert-manager.md)
   - [Flux](tools/kubernetes/flux.md)
   - [Helm](tools/kubernetes/helm.md)
