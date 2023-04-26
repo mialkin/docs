@@ -1,10 +1,10 @@
 # Kiali
 
-## Installation
+[↑ Kiali](https://kiali.io) is a console for Istio service mesh.
 
 Kali relies on Prometheus.
 
-[↑ Install](https://kiali.io/documentation/latest/quick-start) Kiali using Helm Chart:
+[↑ Install](https://kiali.io/docs/installation/quick-start/#install-via-helm) Kiali using Helm chart:
 
 ```bash
 helm install \
@@ -15,7 +15,7 @@ helm install \
   kiali-server
 ```
 
-## Access to the UI
+## Access UI
 
 ```bash
 istioctl dashboard kiali
