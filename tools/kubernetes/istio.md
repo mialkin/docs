@@ -1,6 +1,6 @@
 # Istio
 
-Istio is a [service mesh](#service-mesh) which is logically split into a *data plane* and a *control plane*:
+[↑ Istio](https://istio.io) is a [service mesh](#service-mesh) which is logically split into a *data plane* and a *control plane*:
 
 - The **data plane** is composed of a set of intelligent [↑ Envoy](https://www.envoyproxy.io) proxies deployed as sidecars. These proxies mediate and control all network communication between microservices. They also collect and report telemetry on all mesh traffic.
 - The **control plane** manages and configures the proxies to route traffic.
