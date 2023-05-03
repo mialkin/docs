@@ -176,9 +176,11 @@ for (var i = 0; i < 5; i++) {
 - [↑ ASP.NET Core Series: Performance Testing Techniques](https://www.youtube.com/watch?v=jn54CjePzs0)
 - [↑ `.AddHttpLogging`](https://youtu.be/isrl_zJa1GY?t=987)
 - Feature flags
+  - [↑ Feature Toggles (aka Feature Flags)](https://martinfowler.com/articles/feature-toggles.html)
   - [↑ Tutorial: Use feature flags in an ASP.NET Core app](https://learn.microsoft.com/en-us/azure/azure-app-configuration/use-feature-flags-dotnet-core?tabs=core5x)
   - [↑ Feature flags](https://docs.gitlab.com/ee/operations/feature_flags.html)
   - [↑ Unleash, an open source feature management solution](https://github.com/Unleash/unleash)
+- [↑ FastEndpoints](https://fast-endpoints.com)
 
 ## Computer science
 
