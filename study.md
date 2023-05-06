@@ -181,6 +181,7 @@ for (var i = 0; i < 5; i++) {
   - [↑ Feature flags](https://docs.gitlab.com/ee/operations/feature_flags.html)
   - [↑ Unleash, an open source feature management solution](https://github.com/Unleash/unleash)
 - [↑ FastEndpoints](https://fast-endpoints.com)
+- [↑ Graceful shutdown](https://www.google.com/search?q=graceful+shutdown+asp.net+core&oq=Graceful+shutdown+asp&aqs=chrome.1.69i57j0i512j0i15i22i30j0i390i650l2.6447j0j7&sourceid=chrome&ie=UTF-8)
 
 ## Computer science
 
