@@ -53,6 +53,7 @@
   - [k3s](tools/kubernetes/k3s/k3s.md)
   - [Kiali](tools/kubernetes/kiali.md)
   - [kubectl](tools/kubernetes/kubectl.md)
+  - [Kustomize](tools/kubernetes/kustomize.md)
   - [microk8s](tools/kubernetes/microk8s/microk8s.md)
 - [MC](tools/mc.md)
 - [Prometheus](tools/prometheus/prometheus.md)
