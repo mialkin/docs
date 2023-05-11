@@ -30,6 +30,7 @@
 
 ## Tools
 
+- [Amazon S3](tools/amazon-s3/amazon-s3.md)
 - [Ansible](tools/ansible/ansible.md)
 - [Docker](tools/docker/docker.md)
   - [Dockerfile](tools/docker/dockerfiles.md)
