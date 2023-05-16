@@ -37,7 +37,7 @@ Visual Studio code settings:
 "plantuml.server": "http://localhost:7077"
 ```
 
-Example:
+An `example.puml` file:
 
 ```plantuml
 @startuml
