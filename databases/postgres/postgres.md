@@ -12,6 +12,7 @@
   - [psql](#psql)
     - [Commands](#commands)
     - [Shortcuts](#shortcuts)
+  - [JSON](#json)
 
 ## Installation
 
@@ -195,3 +196,7 @@ docker exec -it postgres psql -U postgres
 | Shortcut | Description                                                         |
 | -------- | ------------------------------------------------------------------- |
 | Ctrl + L | Clear screen. As an alternative use `\! clear` or `\! cls` commands |
+
+## JSON
+
+[↑ Querying JSON columns](https://www.npgsql.org/efcore/mapping/json.html#querying-json-columns)
