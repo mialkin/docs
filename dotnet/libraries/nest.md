@@ -32,6 +32,7 @@ The [↑ Elasticsearch v8 client](https://www.elastic.co/guide/en/elasticsearch/
     - [Get by ID](#get-by-id)
     - [Delete by ID](#delete-by-id)
     - [Delete all](#delete-all)
+    - [Count](#count)
   - [Mappings](#mappings)
     - [Get mapping](#get-mapping)
   - [Search documents](#search-documents)
@@ -155,6 +156,12 @@ await _elasticClient.DeleteByQueryAsync<ProductDto>(x => x.MatchAll().Refresh())
 ```
 
 [↑ Delete by query API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete-by-query.html).
+
+### Count
+
+```csharp
+// GET products/_count
+```
 
 ## Mappings
 

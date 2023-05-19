@@ -14,6 +14,7 @@
   - [ASP.NET](#aspnet)
   - [Computer science](#computer-science)
   - [Web](#web)
+  - [Разобрать](#разобрать)
 
 ## Tools
 
@@ -196,3 +197,13 @@ for (var i = 0; i < 5; i++) {
 - <https://html5book.ru/html-html5>
 - <https://html5book.ru/css-css3>
 - [↑ Sololearn](https://apps.apple.com/us/app/sololearn-learn-to-code-apps/id1210079064)
+
+## Разобрать
+
+- https://andrewlock.net/5-new-mvc-features-in-dotnet-7/
+- https://moduscreate.com/blog/microservices-databases-migrations/
+- https://www.postgresql.org/docs/current/rules-materializedviews.html
+- https://www.theserverside.com/answer/Your-near-zero-downtime-microservices-migration-pattern
+- https://www.oreilly.com/library/view/microservices-antipatterns-and/9781492042716/ch01.html
+- https://habr.com/ru/companies/ozontech/articles/708274/
+- https://highload.ru/spb/2022/abstracts/9317
