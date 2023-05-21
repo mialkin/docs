@@ -16,6 +16,8 @@
     - [Reconciliation](#reconciliation)
   - [GitLab](#gitlab)
   - [GitHub](#github)
+  - [Repository structure](#repository-structure)
+  - [Setting up application](#setting-up-application)
 
 ## Installation
 
@@ -130,4 +132,28 @@ flux bootstrap github \
   --branch=main \
   --path=./clusters/my-cluster \
   --personal
+```
+
+## Repository structure
+
+[↑ Repo per app](hhttps://fluxcd.io/flux/guides/repository-structure/#repo-per-app).
+
+## Setting up application
+
+Clone Flux repository. From its root folder run:
+
+```bash
+mkdir dictionary-api
+
+flux create source git dictionary-api \
+  --url=https://github.com/mialkin/dictionary-api \
+  --branch=main \
+  --interval=30s \
+  --export > ./clusters/zotac/dictionary-api/source.yaml
+```
+
+```bash
+git add .
+git commit -am "Add GitRepository source"
+git push
 ```
