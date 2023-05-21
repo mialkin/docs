@@ -5,6 +5,7 @@
 - [microk8s](#microk8s)
   - [Table of contents](#table-of-contents)
   - [Installation](#installation)
+  - [Upgrade cluster](#upgrade-cluster)
   - [List installed addons](#list-installed-addons)
   - [Turn on addons you need](#turn-on-addons-you-need)
   - [Run dashboard](#run-dashboard)
@@ -27,6 +28,14 @@ Print out `.kube/config` file:
 ```bash
 microk8s config
 ```
+
+## Upgrade cluster
+
+```bash
+sudo snap refresh microk8s --channel 1.27/stable
+```
+
+[↑ Release notes](https://microk8s.io/docs/release-notes).
 
 ## List installed addons
 
