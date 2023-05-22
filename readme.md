@@ -244,6 +244,8 @@
   - [NEST](dotnet/libraries/nest.md)
   - [↑ OpenTelemetry .NET](https://github.com/open-telemetry/opentelemetry-dotnet)
   - [Polly](dotnet/libraries/polly.md)
+  - [ReactiveX](dotnet/libraries/reactive/reactive-x.md)
+    - [`System.Reactive` aka Rx.NET](dotnet/libraries/reactive/system-reactive.md)
   - [↑ YARP](https://github.com/microsoft/reverse-proxy)
 - Identity management
   - [Authentication](dotnet/identity%20managment/authentication.md)
