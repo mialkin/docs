@@ -21,11 +21,11 @@
   - [Testing](#testing)
   - [Networking](#networking)
   - [Security](#security)
+  - [Computer science](#computer-science)
   - [Python](#python)
   - [.NET](#net)
   - [ASP.NET](#aspnet)
   - [C#](#c)
-  - [Computer science](#computer-science)
   - [Miscellaneous](#miscellaneous)
 
 ## Tools
@@ -221,6 +221,11 @@
   - [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
   - [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
 
+## Computer science
+
+- [Algorithms](computer%20science/algorithms/algorithms.md)
+- [Data structures](computer%20science/data%20structures/data%20structures.md)
+
 ## Python
 
 - [Python](python/python.md)
@@ -339,11 +344,6 @@
       - [`record`](csharp/types/record.md)
       - [`string`](csharp/types/string.md)
     - [Nullable reference types](csharp/types/nullable%20reference%20types.md)
-
-## Computer science
-
-- [Algorithms](computer%20science/algorithms/algorithms.md)
-- [Data structures](computer%20science/data%20structures/data%20structures.md)
 
 ## Miscellaneous
 
