@@ -14,6 +14,7 @@
       - [Hidden jobs](#hidden-jobs)
     - [Pipelines](#pipelines)
       - [Merge request pipelines](#merge-request-pipelines)
+      - [Downstream pipelines](#downstream-pipelines)
     - [Stages](#stages)
     - [Variables](#variables)
     - [Caches](#caches)
@@ -124,6 +125,16 @@ Merge request pipelines:
 - Do not have access to protected variables or protected runners.
 
 [↑ Merge request pipelines](https://docs.gitlab.com/ee/ci/pipelines/merge_request_pipelines.html)
+
+#### Downstream pipelines
+
+A **downstream pipeline** is any GitLab CI/CD pipeline triggered by another pipeline. Downstream pipelines run independently and concurrently to the upstream pipeline that triggered them.
+
+A **parent-child pipeline** is a downstream pipeline triggered in the *same* project as the first pipeline.
+
+A **multi-project pipeline** is a downstream pipeline triggered in a *different* project than the first pipeline.
+
+[↑ Downstream pipelines](https://docs.gitlab.com/ee/ci/pipelines/downstream_pipelines.html).
 
 ### Stages
 
