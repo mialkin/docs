@@ -157,9 +157,3 @@ git add .
 git commit -am "Add GitRepository source"
 git push
 ```
-
-https://fluxcd.io/flux/components/kustomize/kustomization/#generating-a-kustomizationyaml-file
-
-https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/
-
-[↑ kustomization file](https://kubectl.docs.kubernetes.io/references/kustomize/glossary/#kustomization).
