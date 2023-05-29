@@ -105,12 +105,24 @@ await _elasticClient.Indices.DeleteAsync(indexName);
 ### Create
 
 ```csharp
+// This will create a new index if it doesn't exist yet:
+
 // POST products/_doc
 // {
-//     "name": "chair",
+//     "createdOn": "2023-02-13T00:00:00",
+//     "documents": [
+//         {
+//             "id": "Na4md_d",
+//             "text": "Quick brown fox jumped"
+//         },
+//         {
+//             "id": "f4hM0da",
+//             "text": "over the lazy dog"
+//         }
+//     ],
 //     "isActive": true,
-//     "price": 19.99,
-//     "createdOn": "2023-02-13T00:00:00"
+//     "name": "chair",
+//     "price": 19.99
 // }
 await _elasticClient.IndexAsync(document, x => x.Refresh(Refresh.WaitFor).Index(indexName));
 ```
