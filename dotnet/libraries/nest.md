@@ -43,6 +43,7 @@ The [↑ Elasticsearch v8 client](https://www.elastic.co/guide/en/elasticsearch/
     - [Terms `OR`](#terms-or)
     - [Retrieve subset of fields](#retrieve-subset-of-fields)
     - [Check if field exists or does not exist](#check-if-field-exists-or-does-not-exist)
+  - [Scripting](#scripting)
   - [Debug mode](#debug-mode)
   - [Links](#links)
 
@@ -369,6 +370,10 @@ Does not exist:
   }
 }
 ```
+
+## Scripting
+
+[↑ How to write scripts](https://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting-using.html).
 
 ## Debug mode
 
