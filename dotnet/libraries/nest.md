@@ -43,6 +43,7 @@ The [↑ Elasticsearch v8 client](https://www.elastic.co/guide/en/elasticsearch/
     - [Terms `OR`](#terms-or)
     - [Retrieve subset of fields](#retrieve-subset-of-fields)
     - [Check if field exists or does not exist](#check-if-field-exists-or-does-not-exist)
+  - [Debug mode](#debug-mode)
   - [Links](#links)
 
 ## Why two clients
@@ -368,6 +369,10 @@ Does not exist:
   }
 }
 ```
+
+## Debug mode
+
+[↑ `EnableDebugMode` setting](https://www.elastic.co/guide/en/elasticsearch/client/net-api/master/debug-mode.html).
 
 ## Links
 
