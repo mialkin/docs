@@ -56,15 +56,16 @@ Note that the `uninstall` command will not remove any Kubernetes objects or Helm
 
 ## Commands
 
-| Command                                        | Description                                   |
-| ---------------------------------------------- | --------------------------------------------- |
-| `flux get sources all`                         | Get all source statuses                       |
-| `flux get sources git`                         | List `GitRepository` sources and their status |
-| `flux get kustomizations`                      | Get `Kustomization` statuses                  |
-| `flux delete kustomization KUSTOMIZATION_NAME` | Delete a `Kustomization` resource             |
-| `flux delete source git SOURCE_NAME`           | Delete a `GitRepository` source               |
-| `flux stats`                                   | Stats of Flux reconciles                      |
-| `flux version`                                 |                                               |
+| Command                                         | Description                                   |
+| ----------------------------------------------- | --------------------------------------------- |
+| `flux get sources all`                          | Get all source statuses                       |
+| `flux get sources git`                          | List `GitRepository` sources and their status |
+| `flux get kustomizations`                       | Get `Kustomization` statuses                  |
+| `flux suspend kustomization KUSTOMIZATION_NAME` | Suspend reconciliation of `Kustomization`     |
+| `flux delete kustomization KUSTOMIZATION_NAME`  | Delete a `Kustomization` resource             |
+| `flux delete source git SOURCE_NAME`            | Delete a `GitRepository` source               |
+| `flux stats`                                    | Stats of Flux reconciles                      |
+| `flux version`                                  |                                               |
 
 ## Core concepts
 
@@ -149,11 +150,29 @@ flux create source git dictionary-api \
   --url=https://github.com/mialkin/dictionary-api \
   --branch=main \
   --interval=30s \
-  --export > ./clusters/zotac/dictionary-api/source.yaml
+  --export > ./clusters/zotac/dictionary-api-source.yaml
 ```
 
 ```bash
 git add .
 git commit -am "Add GitRepository source"
 git push
+```
+
+Start watching kustomization:
+
+```bash
+flux get kustomizations --watch
+```
+
+In separate terminal run:
+
+```bash
+flux create kustomization dictionary-api \
+  --target-namespace=dictionary \
+  --source=dictionary-api \
+  --path="./deploy/manifests" \
+  --prune=true \
+  --interval=5m \
+  --export > ./clusters/zotac/dictionary-api-kustomization.yaml
 ```
