@@ -16,7 +16,6 @@ Assuming your manifests are inside `apps/my-app`, you can generate a `kustomizat
 
 ```bash
 cd apps/my-app
-
 kustomize create --autodetect --recursive
 ```
 
