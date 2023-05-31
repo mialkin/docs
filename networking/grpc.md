@@ -14,7 +14,6 @@ Most common usage scenarios include connecting services in microservices style a
 
 [↑ Troubleshoot gRPC on .NET Core](https://docs.microsoft.com/en-us/aspnet/core/grpc/troubleshoot)
 
+[↑ gRPC JSON transcoding in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/grpc/json-transcoding)
 
-https://learn.microsoft.com/en-us/aspnet/core/grpc/json-transcoding
-
-https://learn.microsoft.com/en-us/aspnet/core/grpc/json-transcoding-openapi
+[↑ gRPC JSON transcoding documentation with Swagger / OpenAPI](https://learn.microsoft.com/en-us/aspnet/core/grpc/json-transcoding-openapi)
