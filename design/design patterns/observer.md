@@ -4,18 +4,18 @@ The **Observer** is is a behavioral software design pattern that defines a one-t
 
 ## Participants
 
-* **Subject**
-  * knows its observers. Any number of Observer objects may observe a subject.
-  * provides an interface for attaching and detaching Observer objects.
-* **Observer**
-  * defines an updating interface for objects that should be notified of changes in a subject.
-* **ConcreteSubject**
-  * stores state of interest to ConcreteObserver objects.
-  * sends a notification to its observers when its state changes.
-* **ConcreteObserver**
-  * maintains a reference to a ConcreteSubject object.
-  * stores state that should stay consistent with the subject's.
-  * implements the Observer updating interface to keep its state consistent with the subject's.
+- **`Subject`**
+  - knows its observers. Any number of `Observer` objects may observe a subject
+  - provides an interface for attaching and detaching `Observer` objects
+- **`Observer`**
+  - defines an updating interface for objects that should be notified of changes in a subject
+- **`ConcreteSubject`**
+  - stores state of interest to `ConcreteObserver` objects
+  - sends a notification to its observers when its state changes
+- **`ConcreteObserver`**
+  - maintains a reference to a `ConcreteSubject` object
+  - stores state that should stay consistent with the subject's
+  - implements the Observer updating interface to keep its state consistent with the subject's
 
 ## C# implementation
 
@@ -23,44 +23,29 @@ The **Observer** is is a behavioral software design pattern that defines a one-t
 using System;
 using System.Collections.Generic;
 
-class Program
-{
-    public static void Main()
-    {
-        IObserver observer1 = new Observer("One");
-        IObserver observer2 = new Observer("Two");
+IObserver observer1 = new Observer("1");
+IObserver observer2 = new Observer("2");
 
-        ISubject subject = new Subject();
-        subject.Attach(observer1);
-        subject.Notify();
+ISubject subject = new Subject();
+subject.Attach(observer1);
+subject.Notify();
 
-        subject.Attach(observer2);
-        subject.Notify();
+subject.Attach(observer2);
+subject.Notify();
 
-        subject.Detach(observer1);
-        subject.Notify();
-    }
-}
+subject.Detach(observer1);
+subject.Notify();
 
 interface IObserver
 {
-    string Name { get; }
     void Update();
 }
 
 class Observer : IObserver
 {
     public string Name { get; }
-
-    public Observer(string name)
-    {
-        Name = name;
-    }
-
-    public void Update()
-    {
-        Console.WriteLine($"Subject notified Observer {Name}");
-    }
+    public Observer(string name) => Name = name;
+    public void Update() => Console.WriteLine($"Subject notified observer {Name}");
 }
 
 interface ISubject
@@ -72,7 +57,7 @@ interface ISubject
 
 class Subject : ISubject
 {
-    private readonly List<IObserver> _observers = new List<IObserver>();
+    private readonly List<IObserver> _observers = new();
 
     public void Attach(IObserver observer)
     {
@@ -91,9 +76,7 @@ class Subject : ISubject
     public void Notify()
     {
         foreach (IObserver observer in _observers)
-        {
             observer.Update();
-        }
 
         Console.WriteLine("--------");
     }
@@ -103,18 +86,18 @@ class Subject : ISubject
 Output:
 
 ```output
-Subject notified Observer One
+Subject notified observer 1
 --------
-Subject notified Observer One
-Subject notified Observer Two
+Subject notified observer 1
+Subject notified observer 2
 --------
-Subject notified Observer Two
+Subject notified observer 2
 --------
 ```
 
 ## .NET interfaces
 
-`public interface IObservable<out T>`:
+[↑ `IObservable<T>` interface](https://docs.microsoft.com/en-us/dotnet/api/system.iobservable-1)
 
 ```csharp
 namespace System
@@ -126,7 +109,7 @@ namespace System
 }
 ```
 
-`public interface IObserver<in T>`:
+[↑ `IObserver<T>` interface](https://docs.microsoft.com/en-us/dotnet/api/system.iobserver-1)
 
 ```csharp
 namespace System
@@ -139,8 +122,3 @@ namespace System
     }
 }
 ```
-
-## Links
-
-* [IObservable<T> Interface](https://docs.microsoft.com/en-us/dotnet/api/system.iobservable-1)
-* [IObserver<T> Interface](https://docs.microsoft.com/en-us/dotnet/api/system.iobserver-1)
