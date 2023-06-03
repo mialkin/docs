@@ -70,7 +70,6 @@
 
 - [Environment variables](unix/environment%20variables.md)
 - [macOS](unix/macos/macos.md)
-- [Ubuntu](unix/ubuntu.md)
 - [Nginx](unix/nginx.md)
 - [Shell](unix/shell/shell.md)
   - [Shell scripting](unix/shell/shell%20scripting.md)
@@ -80,6 +79,7 @@
   - [ssh](unix/ssh.md)
   - [tmux](unix/tmux.md)
   - [vim](unix/vim.md)
+- [Ubuntu](unix/ubuntu.md)
 - [User management](unix/user%20managment.md)
 
 ## Databases
@@ -97,11 +97,14 @@
 
 ## Software architecture and design
 
-- [Architectural decision records, ADRs](design/adr.md)
 - [Anti-patterns](design/anti-patterns.md)
+- [Architectural decision records, ADRs](design/adr.md)
 - [Clean architecture](design/clean%20architecture.md)
 - [Composition over inheritance](design/composition%20over%20inheritance.md)
 - [DDD](design/ddd.md)
+- [DRY, KISS, separation of concerns, YAGNI](design/main%20principles.md)
+- [Explicit dependencies principle](design/explicit%20dependencies%20principle.md)
+- [Loose coupling and high cohesion](design/loose%20coupling%20and%20high%20cohesion.md)
 - [Software design patterns](design/design%20patterns/design%20patterns.md)
   - Creational
     - [Abstract Factory](design/design%20patterns/abstract%20factory.md)
@@ -130,9 +133,6 @@
     - [Strategy](design/design%20patterns/strategy.md)
     - [Template Method](design/design%20patterns/template%20method.md)
     - [Visitor](design/design%20patterns/visitor.md)
-- [DRY, KISS, separation of concerns, YAGNI](design/main%20principles.md)
-- [Explicit dependencies principle](design/explicit%20dependencies%20principle.md)
-- [Loose coupling and high cohesion](design/loose%20coupling%20and%20high%20cohesion.md)
 - [SOLID](design/solid/solid.md)
   - [Single responsibility principle](design/solid/srp.md)
   - [Open-closed principle](design/solid/ocp.md)
