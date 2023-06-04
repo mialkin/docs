@@ -78,8 +78,6 @@
 - [↑ Vertical Slice Architecture - Jimmy Bogard](https://www.youtube.com/watch?v=SUiWfhAhgQw)
 - [↑ Distributed Tracing for Microservice Architecture](https://habr.com/ru/post/539022/)
 - [↑ Concurrent Processing in .NET 6 with System.Threading.Channels](https://itnext.io/concurrent-processing-in-net-6-with-system-threading-channels-bonus-interval-trees-441b7539b5d1)
-- CQRS
-  - CQRS может без Event sourcing. Event sourcing без CQRS не может. CQRS — это когда только Command может менять модель (модель в смысле DDD, то есть модель какой-то предметной области), Query может только ее читать. [↑ А какие виды CQRS вы знаете?](https://www.youtube.com/watch?v=TnS6PwxHcLg)
 - [↑ C4 model](https://en.wikipedia.org/wiki/C4_model)
   - <https://c4model.com>
 - [↑ Почему авторизация сложно и причем здесь Занзибар?](https://www.youtube.com/watch?v=Tr5H8iG0FzI)
