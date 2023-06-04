@@ -10,6 +10,7 @@
     - [Horizontal (classical) and vertical architectures](#horizontal-classical-and-vertical-architectures)
       - [Horizontal organization](#horizontal-organization)
       - [Vertical organization](#vertical-organization)
+      - [Advantages of handlers over services](#advantages-of-handlers-over-services)
     - [What is CQRS](#what-is-cqrs)
     - [Will CQRS help with load growth?](#will-cqrs-help-with-load-growth)
     - [Evolving CQRS](#evolving-cqrs)
@@ -29,7 +30,7 @@ Key points:
 
 ### Horizontal (classical) and vertical architectures
 
-There are two ways to organize application layer, aka interactors, in Clean architecture:
+There are two ways to organize application layer, aka Interactors in Clean Architecture:
 
 - Horizontal, classical way
   - Services
@@ -85,7 +86,7 @@ public class GetOrdersQueryHandler
 With this approach folder structure is going to be as follows:
 
 ```csharp
-├── Application.csproj
+├── ApplicationLayer.csproj
     ├── Commands
     |   └── CreateOrder
     |       |── CreateOrderCommand.cs
@@ -104,6 +105,13 @@ With this approach folder structure is going to be as follows:
 Also we use the same model, for reading and writing data; model in DDD sense. Commands return values.
 
 Described above approach is also know as [↑ Vertical Slice Architecture](https://jimmybogard.com/vertical-slice-architecture), the term coined by Jimmy Bogard.
+
+#### Advantages of handlers over services
+
+1. A handler is much smaller than a service. The largest handlers can reach 500 lines of code. It's still several times less than number of lines in a service. Normally handler is much less than 500 lines of code. For a service to have from few hundreds to few thousands lines of code is an usual thing. Maintaining small handlers with a clear area of responsibility is much easier.
+2. A handler does not have code of other business operations. Handlers are independent from each other. All the code of a business operation will be in one place, in one class — in a handler. Operations can be spread across different services. For example cloning of a complex entity can be spread across 7 services. One service can call other services. Operations inside a service get fragmented.
+3. A handler follows SRP principle which states that class should have one reason to change. Architecture based on handlers expands by adding new handlers and not by rewriting existing handlers.
+4. Handlers have less dependencies. Handler has only dependencies it needs for implementing one business operation. It's a rare thing to see more than 5 dependencies inside of a handler. For a service to have 10 or more dependencies is a normal thing.
 
 ### What is CQRS
 
