@@ -101,6 +101,10 @@ With this approach folder structure is going to be as follows:
         └── OrderMappingProfile.cs
 ```
 
+Also we use the same model, for reading and writing data; model in DDD sense. Commands return values.
+
+Described above approach is also know as [↑ Vertical Slice Architecture](https://jimmybogard.com/vertical-slice-architecture), the term coined by Jimmy Bogard.
+
 ### What is CQRS
 
 CQRS is when commands can only change the data, queries can only read it.
