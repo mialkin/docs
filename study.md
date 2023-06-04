@@ -135,6 +135,8 @@ for (var i = 0; i < 5; i++) {
 - [↑ Specification pattern](https://deviq.com/design-patterns/specification-pattern)
   - <https://enterprisecraftsmanship.com/posts/specification-pattern-c-implementation>
   - <https://deviq.com/design-patterns/specification-pattern>
+  - <https://designpatternsphp.readthedocs.io/en/latest/Behavioral/Specification/README.html>
+  - <https://github.com/AdemCatamak/SpecificationPatternExample>
   - <https://en.wikipedia.org/wiki/Specification_pattern>
   - <https://medium.com/c-sharp-progarmming/specification-design-pattern-c814649be0ef>
 - [↑ Finalizers](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/finalizers)
