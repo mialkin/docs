@@ -7,8 +7,11 @@
 - [CQRS](#cqrs)
   - [Table of contents](#table-of-contents)
   - [What kinds of CQRS do you know?](#what-kinds-of-cqrs-do-you-know)
+    - [Horizontal (classical) and vertical architectures](#horizontal-classical-and-vertical-architectures)
+      - [Horizontal organization](#horizontal-organization)
+      - [Vertical organization](#vertical-organization)
     - [What is CQRS](#what-is-cqrs)
-    - [Will the CQRS help with load growth?](#will-the-cqrs-help-with-load-growth)
+    - [Will CQRS help with load growth?](#will-cqrs-help-with-load-growth)
     - [Evolving CQRS](#evolving-cqrs)
     - [Myths about CQRS](#myths-about-cqrs)
   - [CQRS and event sourcing](#cqrs-and-event-sourcing)
@@ -24,6 +27,80 @@ Key points:
 - CQRS has many advantages compared to traditional service approach
 - CQRS fits for different kinds of projects: you can use it for different stacks and in different domains
 
+### Horizontal (classical) and vertical architectures
+
+There are two ways to organize application layer, aka interactors, in Clean architecture:
+
+- Horizontal, classical way
+  - Services
+- Vertical
+  - CQRS handlers
+  - Vertical slices
+
+#### Horizontal organization
+
+With classical horizontal application layer organization we create a separate service for each entity in our domain and each public method of this service is a business operation: create order, get orders, etc:
+
+```csharp
+public class OrderService
+{
+    public Order CreateOrder()
+    {
+        // Create order here
+    }
+
+    public List<Order> GetOrders()
+    {
+        return _databaseContext.Orders;
+    }
+}
+```
+
+With this approach every entity will have its own service and all the services reside inside of one component:
+
+```text
+├── ApplicationServices.proj
+    ├── OrderService.cs
+    └── UserService.cs
+```
+
+#### Vertical organization
+
+With this approach for each business operation a command or a query is created with corresponding handler:
+
+```csharp
+public class GetOrdersQuery
+{    
+}
+
+public class GetOrdersQueryHandler
+{
+    public List<Order> Handle(GetOrdersQuery request)
+    {
+        return _databaseContext.Orders.Find(request.Id);
+    }
+}
+```
+
+With this approach folder structure is going to be as follows:
+
+```csharp
+├── Application.csproj
+    ├── Commands
+    |   └── CreateOrder
+    |       |── CreateOrderCommand.cs
+    |       └── CreateOrderCommandHandler.cs
+    ├── Dtos
+    |    |── CreateOrderDto.cs
+    |    └── GetOrdersDto.cs
+    ├── Queries
+    |   └── GetOrders
+    |       |── GetOrdersQuery.cs
+    |       └── GetOrdersQueryHandler.cs
+    ├── Utils
+        └── OrderMappingProfile.cs
+```
+
 ### What is CQRS
 
 CQRS is when commands can only change the data, queries can only read it.
@@ -32,7 +109,7 @@ The term CQRS was coined by Greg Young.
 
 [↑ CQRS Documents by Greg Young](https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf).
 
-### Will the CQRS help with load growth?
+### Will CQRS help with load growth?
 
 ### Evolving CQRS
 
