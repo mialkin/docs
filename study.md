@@ -28,6 +28,7 @@
   - [↑ Kafka producer delivery semantics](https://medium.com/@sdjemails/kafka-producer-delivery-semantics-be863c727d3f)
 - Postgres
   - [↑ Selecting for Share and Update in PostgreSQL](https://shiroyasha.io/selecting-for-share-and-update-in-postgresql.html)
+  - [↑ SKIP LOCKED](https://www.2ndquadrant.com/en/blog/what-is-select-skip-locked-for-in-postgresql-9-5/)
   - [↑ Group by, Having](https://www.postgresql.org/docs/9.4/tutorial-agg.html)
 - [↑ Serilog `LogContext`](https://github.com/serilog/serilog/wiki/Enrichment)
 - [↑ Refit](https://github.com/reactiveui/refit) and [↑ RestSharp](https://github.com/restsharp/RestSharp)
