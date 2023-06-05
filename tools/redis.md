@@ -10,9 +10,10 @@ Redis provides data structures such as strings, hashes, lists, sets, sorted sets
   - [Table of contents](#table-of-contents)
   - [Running in Docker](#running-in-docker)
   - [GUI](#gui)
-  - [NuGet package](#nuget-package)
   - [Redis CLI](#redis-cli)
   - [Commands](#commands)
+  - [Redis databases](#redis-databases)
+  - [NuGet package](#nuget-package)
   - [Distributed locking](#distributed-locking)
   - [Links](#links)
 
@@ -29,14 +30,6 @@ redis redis-server \
 ## GUI
 
 Try web browser GUI [↑ RedisInsight](https://redislabs.com/redis-enterprise/redis-insight).
-
-## NuGet package
-
-[↑ StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis):
-
-```bash
-dotnet add package StackExchange.Redis
-```
 
 ## Redis CLI
 
@@ -90,6 +83,27 @@ docker exec -it YOUR_REDIS_CONTAINER_NAME redis-cli
 | zadd NAME VALUE             | Add value to ordered set respecting order                                        |
 | zrange NAME 0 -1            | Get all values from the ordered set                                              |
 | zrange NAME 0 -1 WITHSCORES | Get all values from the ordered set with keys                                    |
+
+## Redis databases
+
+Out of the box, a Redis instance supports 16 logical databases. These databases are effectively siloed off from one another, and when you run a command in one database, it doesn’t affect any of the data stored in other databases in your Redis instance.
+
+Redis databases are numbered from `0` to `15` and, by default, you connect to database `0` when you connect to your Redis instance. However, you can change the database you’re using with the select command after you connect:
+
+```terminal
+127.0.0.1:6379> select 15
+```
+
+[↑ How To Manage Redis Databases and Keys](https://www.digitalocean.com/community/cheatsheets/how-to-manage-redis-databases-and-keys).
+
+## NuGet package
+
+[↑ StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis):
+
+```bash
+dotnet add package StackExchange.Redis
+```
+
 
 ## Distributed locking
 
