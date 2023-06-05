@@ -1,6 +1,6 @@
 # CQRS
 
-**Command (and) Query Responsibility Segregation** or **CQRS** is a  a pattern that separates read and update operations for a data store.
+**Command (and) Query Responsibility Segregation** or **CQRS** is a  a pattern that separates read and write operations for a data store.
 
 ## Table of contents
 
