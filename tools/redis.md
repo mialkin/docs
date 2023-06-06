@@ -104,7 +104,6 @@ Redis databases are numbered from `0` to `15` and, by default, you connect to da
 dotnet add package StackExchange.Redis
 ```
 
-
 ## Distributed locking
 
 Example using [↑ RedLock.net](https://github.com/samcook/RedLock.net) library:
