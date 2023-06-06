@@ -9,6 +9,7 @@
 * **Account** — учетная запись
 * **Aggregate** — собирать вместе
 * **Agile software development** — гибкая методология разработки
+* **Alert** — оповещение
 * **Alias** — псевдоним
 * **Application domain** — домен приложения
 * **Approve** — утверждать, подтверждать
