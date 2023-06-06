@@ -202,6 +202,8 @@ for (var i = 0; i < 5; i++) {
 - <https://html5book.ru/html-html5>
 - <https://html5book.ru/css-css3>
 - [↑ Sololearn](https://apps.apple.com/us/app/sololearn-learn-to-code-apps/id1210079064)
+- [↑ StyleDrop: Text-To-Image Generation in Any Style](https://styledrop.github.io)
+- [↑ Muse: Text-To-Image Generation via Masked Generative Transformers](https://muse-model.github.io)
 
 ## Разобрать
 
