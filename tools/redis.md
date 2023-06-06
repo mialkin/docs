@@ -45,6 +45,7 @@ docker exec -it YOUR_REDIS_CONTAINER_NAME redis-cli
 | --------------------------- | -------------------------------------------------------------------------------- |
 | append KEY VALUE            | Appends a string to the old value. Returns number of characters of the new value |
 | decr KEY                    | Decrements value by 1                                                            |
+| del KEY                     | Delete key. A key is ignored if it does not exist.                               |
 | exec                        | Commits transaction                                                              |
 | exists KEY                  | Checks if key exists                                                             |
 | flushall                    | Flushes everything                                                               |
