@@ -16,3 +16,4 @@ dotnet add package AutoFixture.Xunit2
 
 - [↑ Cheat sheet](https://github.com/AutoFixture/AutoFixture/wiki/Cheat-Sheet)
 - [↑ AutoMoq explanation](https://autofixture.github.io/docs/quick-start)
+- [↑ Write simpler tests with Type Builders and AutoFixture](https://canro91.github.io/2021/06/21/WriteSimplerTestsTypeBuilderAndAutoFixture)
