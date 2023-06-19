@@ -181,7 +181,7 @@
   - [SpecFlow](testing/bdd/specflow.md)
 - Dotnet libraries
   - [AutoFixture](testing/dotnet-libraries/autofixture.md)
-  - [FluentAssertions](testing/dotnet-libraries/fluent-assertions.md)
+  - [Fluent Assertions](testing/dotnet-libraries/fluent-assertions.md)
   - [Moq](testing/dotnet-libraries/moq.md)
   - [xUnit](testing/dotnet-libraries/xunit.md)
   - [↑ WireMock.Net](https://www.youtube.com/watch?v=YU3ohofu6UU)
