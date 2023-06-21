@@ -171,6 +171,9 @@ for (var i = 0; i < 5; i++) {
 - [↑ Stephen Cleary — Asynchronous streams](https://www.youtube.com/watch?v=-Tq4wLyen7Q)
 - [↑ How to Convert a String to a Span in C#](https://code-maze.com/csharp-how-to-convert-string-to-span)
 - [↑ Async/await и механизм реализации в C# 5.0](https://habr.com/ru/articles/260217)
+- [↑ Compile code programmatically by using C# compiler](https://learn.microsoft.com/en-us/troubleshoot/developer/visualstudio/csharp/language-compilers/compile-code-using-compiler)
+- [↑ Reflection and Reflection.Emit in C#](https://www.c-sharpcorner.com/UploadFile/puranindia/reflection-and-reflection-emit-in-C-Sharp)
+- Generate code from created expression tree for some mapper. Use generated code to map 2 objects
 
 ## ASP.NET
 
