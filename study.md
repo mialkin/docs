@@ -175,6 +175,8 @@ for (var i = 0; i < 5; i++) {
 - [↑ Reflection and Reflection.Emit in C#](https://www.c-sharpcorner.com/UploadFile/puranindia/reflection-and-reflection-emit-in-C-Sharp)
 - Generate code from created expression tree for some mapper. Use generated code to map 2 objects
 - [↑ Интернирование строк](https://learn.microsoft.com/en-us/dotnet/api/system.string.intern)
+- Заполнить список экземплярами классов и экземплярами структур и прогнать бенчмарки. Посмотреть где больше памяти отъедается и почему. Есть ли оверхед у структуры vs класс?
+- [↑ CLR via C#](https://www.amazon.com/CLR-via-4th-Developer-Reference/dp/0735667454/) or [↑ The Book of the Runtime](https://github.com/dotnet/runtime/blob/main/docs/design/coreclr/botr/README.md)
 
 ## ASP.NET
 
