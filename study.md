@@ -174,6 +174,7 @@ for (var i = 0; i < 5; i++) {
 - [↑ Compile code programmatically by using C# compiler](https://learn.microsoft.com/en-us/troubleshoot/developer/visualstudio/csharp/language-compilers/compile-code-using-compiler)
 - [↑ Reflection and Reflection.Emit in C#](https://www.c-sharpcorner.com/UploadFile/puranindia/reflection-and-reflection-emit-in-C-Sharp)
 - Generate code from created expression tree for some mapper. Use generated code to map 2 objects
+- [↑ Интернирование строк](https://learn.microsoft.com/en-us/dotnet/api/system.string.intern)
 
 ## ASP.NET
 
