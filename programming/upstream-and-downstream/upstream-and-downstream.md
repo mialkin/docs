@@ -16,11 +16,11 @@ The closer a service is to consumer, the farther downstream it is:
 
 A production process:
 
-<img src="3.png" width="600px">
+<img src="3.png" width="500px">
 
 Open source projects:
 
-<img src="4.png" width="400px">
+<img src="4.png" width="300px">
 
 ## Stack Overflow answer
 
