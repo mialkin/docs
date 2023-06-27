@@ -172,6 +172,7 @@
 - [Scrum](programming/scrum/scrum.md)
 - [Serialization](programming/serialization.md)
 - [Time zones vs offsets](programming/time%20zones%20vs%20offsets.md)
+- [Upstream and downstream](programming/upstream-and-downstream/upstream-and-downstream.md)
 - [YAML](programming/yaml.md)
 
 ## Testing
@@ -200,7 +201,6 @@
 - [Ports](networking/ports.md)
 - [Sockets](networking/sockets.md)
 - [TCP](networking/tcp.md)
-- [Upstream and downstream](networking/uspstream-and-downstream.md)
 - [Wireshark](networking/wireshark/wireshark.md)
 
 ## Security
