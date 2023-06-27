@@ -200,6 +200,7 @@
 - [Ports](networking/ports.md)
 - [Sockets](networking/sockets.md)
 - [TCP](networking/tcp.md)
+- [Upstream and downstream](networking/uspstream-and-downstream.md)
 - [Wireshark](networking/wireshark/wireshark.md)
 
 ## Security
