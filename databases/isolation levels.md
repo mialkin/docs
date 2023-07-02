@@ -15,6 +15,7 @@
   - [Isolation levels in MySQL](#isolation-levels-in-mysql)
     - [Run MySQL](#run-mysql)
     - [Get transaction isolation level of the current session](#get-transaction-isolation-level-of-the-current-session)
+    - [Change isolation level](#change-isolation-level)
 
 An **isolation level** represents a particular locking strategy employed in the database system to avoid _read phenomena_.
 
@@ -170,3 +171,12 @@ mysql> select @@global.transaction_isolation;
 ```
 
 By default, it is also `repeatable read`.
+
+### Change isolation level
+
+```console
+mysql> set session transaction isolation level read uncommitted;
+Query OK, 0 rows affected (0.00 sec)
+```
+
+Note that this is change will only have effects on all future transactions of this current session, but not on transactions that runs on another session of MySQL console.
