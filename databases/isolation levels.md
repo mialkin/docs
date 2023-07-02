@@ -15,6 +15,7 @@
     - [Run MySQL](#run-mysql)
     - [Get transaction isolation level of the current session](#get-transaction-isolation-level-of-the-current-session)
     - [Change isolation level](#change-isolation-level)
+    - [Read uncommitted isolation level](#read-uncommitted-isolation-level)
 
 An **isolation level** represents a particular locking strategy employed in the database system to avoid _read phenomena_.
 
@@ -172,8 +173,37 @@ By default, it is also `repeatable read`.
 ### Change isolation level
 
 ```console
+-- Tx1:
 mysql> set session transaction isolation level read uncommitted;
 Query OK, 0 rows affected (0.00 sec)
 ```
 
 Note that this is change will only have effects on all future transactions of this current session, but not on transactions that runs on another session of MySQL console.
+
+### Read uncommitted isolation level
+
+Open another terminal window, put it side by side with this one, and start a new MySQL console inside it.
+
+Then let’s set the isolation level of this session to read uncommitted as well.
+
+```console
+-- Tx2:
+mysql> set session transaction isolation level read uncommitted;
+Query OK, 0 rows affected (0.00 sec)
+```
+
+OK, now both sessions are running at read uncommitted isolation level. We can now start a new transaction.
+
+In MySQL, we can either use `start transaction` statement, or simply use `begin` statement as an alternative.
+
+```console
+-- Tx1:
+mysql> start transaction;
+Query OK, 0 rows affected (0.00 sec)
+```
+
+```console
+-- Tx2:
+mysql> begin;
+Query OK, 0 rows affected (0.00 sec)
+```
