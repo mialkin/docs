@@ -12,6 +12,9 @@
     - [Serializable](#serializable)
   - [DataGrip](#datagrip)
   - [Links](#links)
+  - [Isolation levels in MySQL](#isolation-levels-in-mysql)
+    - [Run MySQL](#run-mysql)
+    - [Get transaction isolation level of the current session](#get-transaction-isolation-level-of-the-current-session)
 
 An **isolation level** represents a particular locking strategy employed in the database system to avoid _read phenomena_.
 
@@ -95,3 +98,75 @@ Selection of an isolation level in DataGrip:
 ## Links
 
 [↑ Deeply understand Isolation levels and Read phenomena in MySQL & PostgreSQL](https://dev.to/techschoolguru/understand-isolation-levels-read-phenomena-in-mysql-postgres-c2e)
+
+## Isolation levels in MySQL
+
+### Run MySQL
+
+Save this as `mysql-docker-compose.yml` file:
+
+```yaml
+# Use root/example as user/password credentials
+version: "3.1"
+
+services:
+  mysql:
+    image: mysql
+    container_name: mysql
+    # NOTE: use of "mysql_native_password" is not recommended: https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
+    # (this is just an example, not intended to be a production configuration)
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+
+  mysql-adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    ports:
+      - 8080:8080
+```
+
+Run container:
+
+```bash
+docker-compose -f mysql-docker-compose.yml up
+watch docker ps -a
+```
+
+Connect to MySQL:
+
+```bash
+docker exec -it mysql mysql -uroot -p
+```
+
+### Get transaction isolation level of the current session
+
+```console
+mysql> select @@transaction_isolation;
++-------------------------+
+| @@transaction_isolation |
++-------------------------+
+| REPEATABLE-READ         |
++-------------------------+
+1 row in set (0.01 sec)
+```
+
+This level is only applied to this specific MySQL console session. By default, it is `repeatable read` as we can see here.
+
+There’s also a global isolation level, which is applied to all sessions when they first started:
+
+```console
+mysql> select @@global.transaction_isolation;
++--------------------------------+
+| @@global.transaction_isolation |
++--------------------------------+
+| REPEATABLE-READ                |
++--------------------------------+
+1 row in set (0.00 sec)
+```
+
+By default, it is also `repeatable read`.
