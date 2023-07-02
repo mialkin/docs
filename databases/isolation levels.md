@@ -11,7 +11,6 @@
     - [Repeatable read](#repeatable-read)
     - [Serializable](#serializable)
   - [DataGrip](#datagrip)
-  - [Links](#links)
   - [Isolation levels in MySQL](#isolation-levels-in-mysql)
     - [Run MySQL](#run-mysql)
     - [Get transaction isolation level of the current session](#get-transaction-isolation-level-of-the-current-session)
@@ -96,11 +95,9 @@ Selection of an isolation level in DataGrip:
 
 <img src="files/datagrip.png" width="350" />
 
-## Links
-
-[↑ Deeply understand Isolation levels and Read phenomena in MySQL & PostgreSQL](https://dev.to/techschoolguru/understand-isolation-levels-read-phenomena-in-mysql-postgres-c2e)
-
 ## Isolation levels in MySQL
+
+Following section contains texts from [↑ Deeply understand Isolation levels and Read phenomena in MySQL & PostgreSQL](https://dev.to/techschoolguru/understand-isolation-levels-read-phenomena-in-mysql-postgres-c2e) article.
 
 ### Run MySQL
 
