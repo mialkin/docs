@@ -128,7 +128,7 @@ version: "3.8"
 services:
     db:
         image: postgres
-        container_name: CONTAINER_NAME
+        container_name: postgres
         restart: unless-stopped
         ports:
             - 5432:5432
