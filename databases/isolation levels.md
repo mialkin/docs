@@ -65,12 +65,12 @@ See 1995 article: [A Critique of ANSI SQL Isolation Levels](files/tr-95-51.pdf).
 
 The plus sign `+` reads as "phenomenon can happen":
 
-| Isolation level  | Phantom reads | Non-repeatable reads | Dirty reads |
-| ---------------- | ------------- | -------------------- | ----------- |
-| Read uncommitted | +             | +                    | +           |
-| Read committed   | +             | +                    | -           |
-| Repeatable read  | +             | -                    | -           |
-| Serializable     | -             | -                    | -           |
+| Isolation level  | Dirty reads | Non-repeatable reads | Phantom reads |
+| ---------------- | ----------- | -------------------- | ------------- |
+| Read uncommitted | +           | +                    | +             |
+| Read committed   | -           | +                    | +             |
+| Repeatable read  | -           | -                    | +             |
+| Serializable     | -           | -                    | -             |
 
 Although higher isolation levels provide better data consistency, this consistency can be costly in terms of the parallel access provided to users. As isolation level increases, so does the chance that the locking strategy used will create problems with parallel access of data.
 
@@ -141,6 +141,8 @@ Connect to MySQL:
 ```bash
 docker exec -it mysql mysql -uroot -p
 ```
+
+A shortcut to clear console after executing a command: `Ctrl` + `L`.
 
 ### Get transaction isolation level of the current session
 
