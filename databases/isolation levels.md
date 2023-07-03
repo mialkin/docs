@@ -13,6 +13,7 @@
   - [DataGrip](#datagrip)
   - [Isolation levels in MySQL](#isolation-levels-in-mysql)
     - [Run MySQL](#run-mysql)
+    - [Create `simple_bank` schema](#create-simple_bank-schema)
     - [Get transaction isolation level of the current session](#get-transaction-isolation-level-of-the-current-session)
     - [Change isolation level](#change-isolation-level)
     - [Read uncommitted isolation level](#read-uncommitted-isolation-level)
@@ -98,7 +99,7 @@ Selection of an isolation level in DataGrip:
 
 ## Isolation levels in MySQL
 
-Following section contains texts from [↑ Deeply understand Isolation levels and Read phenomena in MySQL & PostgreSQL](https://dev.to/techschoolguru/understand-isolation-levels-read-phenomena-in-mysql-postgres-c2e) article.
+Following section contains examples from [↑ Deeply understand Isolation levels and Read phenomena in MySQL & PostgreSQL](https://dev.to/techschoolguru/understand-isolation-levels-read-phenomena-in-mysql-postgres-c2e) article.
 
 ### Run MySQL
 
@@ -143,6 +144,53 @@ docker exec -it mysql mysql -uroot -p
 ```
 
 A shortcut to clear console after executing a command: `Ctrl` + `L`.
+
+### Create `simple_bank` schema
+
+```sql
+CREATE SCHEMA simple_bank;
+
+USE simple_bank;
+
+CREATE TABLE `accounts` (
+  `id` bigint PRIMARY KEY AUTO_INCREMENT,
+  `owner` varchar(255) NOT NULL,
+  `balance` bigint NOT NULL,
+  `currency` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT (now())
+);
+
+CREATE TABLE `entries` (
+  `id` bigint PRIMARY KEY AUTO_INCREMENT,
+  `account_id` bigint NOT NULL,
+  `amount` bigint NOT NULL COMMENT 'can be negative or positive',
+  `created_at` datetime NOT NULL DEFAULT (now())
+);
+
+CREATE TABLE `transfers` (
+  `id` bigint PRIMARY KEY AUTO_INCREMENT,
+  `from_account_id` bigint NOT NULL,
+  `to_account_id` bigint NOT NULL,
+  `amount` bigint NOT NULL COMMENT 'must be positive',
+  `created_at` datetime NOT NULL DEFAULT (now())
+);
+
+CREATE INDEX `accounts_index_0` ON `accounts` (`owner`);
+
+CREATE INDEX `entries_index_1` ON `entries` (`account_id`);
+
+CREATE INDEX `transfers_index_2` ON `transfers` (`from_account_id`);
+
+CREATE INDEX `transfers_index_3` ON `transfers` (`to_account_id`);
+
+CREATE INDEX `transfers_index_4` ON `transfers` (`from_account_id`, `to_account_id`);
+
+ALTER TABLE `entries` ADD FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`);
+
+ALTER TABLE `transfers` ADD FOREIGN KEY (`from_account_id`) REFERENCES `accounts` (`id`);
+
+ALTER TABLE `transfers` ADD FOREIGN KEY (`to_account_id`) REFERENCES `accounts` (`id`);
+```
 
 ### Get transaction isolation level of the current session
 
