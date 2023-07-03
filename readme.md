@@ -86,6 +86,7 @@
 
 - [ACID](databases/acid.md)
 - [CTEs](databases/cte.md)
+- [dbdiagram.io](databases/dbdiagram.md)
 - [Isolation levels and read phenomena](databases/isolation%20levels.md)
 - [N + 1 query problem](databases/n%20plus%20one.md)
 - [Natural and surrogate keys](databases/natural%20and%20surrogate%20keys.md)
@@ -94,7 +95,6 @@
 - [SQL Server](databases/sqlserver/sqlserver.md)
   - [T-SQL](databases/sqlserver/tsql.md)
 - [Window functions](databases/window%20functions.md)
-- <https://dbdiagram.io>
 
 ## Software architecture and design
 
