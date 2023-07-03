@@ -94,6 +94,7 @@
 - [SQL Server](databases/sqlserver/sqlserver.md)
   - [T-SQL](databases/sqlserver/tsql.md)
 - [Window functions](databases/window%20functions.md)
+- <https://dbdiagram.io>
 
 ## Software architecture and design
 
