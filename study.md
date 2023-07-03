@@ -137,6 +137,7 @@ for (var i = 0; i < 5; i++) {
 - Closure in C#
 - [↑ Expression trees](https://tyrrrz.me/blog/expression-trees)
   - [↑ Expression Trees in C#](https://code-maze.com/csharp-expression-trees)
+  - [↑ How to Build Dynamic Queries With Expression Trees in C#](https://code-maze.com/dynamic-queries-expression-trees-csharp/)
 - IQueryable interface
 - [↑ Specification pattern](https://deviq.com/design-patterns/specification-pattern)
   - <https://enterprisecraftsmanship.com/posts/specification-pattern-c-implementation>
