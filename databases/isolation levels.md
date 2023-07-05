@@ -289,9 +289,82 @@ mysql> select * from accounts where id = 1;
 +----+-------+---------+----------+---------------------+
 ```
 
-OK we've got that account with 100 dollars balance. Now let's go back to transaction 1 and run this update statement to subtract 10 dollars from account 1.
+OK, we've got that account with 100 dollars balance. Now let's go back to transaction 1 and run this update statement to subtract 10 dollars from account 1.
 
 ```console
 -- Tx1:
 mysql> update accounts set balance = balance - 10 where id = 1;
 ```
+
+So, if we select account 1 in transaction 1, we will see that the balance has been changed to 90 dollars:
+
+```console
+-- Tx1
+mysql> select * from accounts where id = 1;
++----+-------+---------+----------+---------------------+
+| id | owner | balance | currency | created_at          |
++----+-------+---------+----------+---------------------+
+|  1 | one   |      90 | USD      | 2020-09-06 15:09:38 |
++----+-------+---------+----------+---------------------+
+```
+
+Transaction 2 can also see the modified value of the balance: 90 dollars, though the transaction 1 is not committed yet:
+
+```console
+-- Tx2
+mysql> select * from accounts where id = 1;
++----+-------+---------+----------+---------------------+
+| id | owner | balance | currency | created_at          |
++----+-------+---------+----------+---------------------+
+|  1 | one   |      90 | USD      | 2020-09-06 15:09:38 |
++----+-------+---------+----------+---------------------+
+```
+
+This is a dirty-read, and it happens because we're using `read uncommitted` isolation level.
+
+Open up a third console, set up isolation level there to `read committed` and make sure you can't see uncommitted changes this time:
+
+```console
+-- Tx3
+docker exec -it mysql mysql -uroot -p
+mysql> use simple_bank;
+mysql> set session transaction isolation level read committed;
+mysql> select @@transaction_isolation;
++-------------------------+
+| @@transaction_isolation |
++-------------------------+
+| READ-COMMITTED          |
++-------------------------+
+mysql> select * from accounts;
++----+-------+---------+----------+---------------------+
+| id | owner | balance | currency | created_at          |
++----+-------+---------+----------+---------------------+
+|  1 | one   |     100 | USD      | 2020-09-06 15:09:38 |
+|  2 | two   |     100 | USD      | 2020-09-06 15:09:38 |
+|  3 | three |     100 | USD      | 2020-09-06 15:09:38 |
++----+-------+---------+----------+---------------------+
+```
+
+Now, change isolation level of third transaction to `read uncommitted` and try again:
+
+```console
+mysql> set session transaction isolation level read uncommitted;
+mysql> select @@transaction_isolation;
++-------------------------+
+| @@transaction_isolation |
++-------------------------+
+| READ-UNCOMMITTED        |
++-------------------------+
+mysql> select * from accounts;
++----+-------+---------+----------+---------------------+
+| id | owner | balance | currency | created_at          |
++----+-------+---------+----------+---------------------+
+|  1 | one   |      90 | USD      | 2020-09-06 15:09:38 |
+|  2 | two   |     100 | USD      | 2020-09-06 15:09:38 |
+|  3 | three |     100 | USD      | 2020-09-06 15:09:38 |
++----+-------+---------+----------+---------------------+
+```
+
+You can see uncommitted changes once again.
+
+So `read committed` isolation level prevents dirty read phenomenon.
