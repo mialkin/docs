@@ -14,6 +14,7 @@
   - [Isolation levels in MySQL](#isolation-levels-in-mysql)
     - [Run MySQL](#run-mysql)
     - [Create `simple_bank` schema](#create-simple_bank-schema)
+    - [Insert data](#insert-data)
     - [Get transaction isolation level of the current session](#get-transaction-isolation-level-of-the-current-session)
     - [Change isolation level](#change-isolation-level)
     - [Read uncommitted isolation level](#read-uncommitted-isolation-level)
@@ -192,6 +193,14 @@ ALTER TABLE `transfers` ADD FOREIGN KEY (`from_account_id`) REFERENCES `accounts
 ALTER TABLE `transfers` ADD FOREIGN KEY (`to_account_id`) REFERENCES `accounts` (`id`);
 ```
 
+### Insert data
+
+```sql
+INSERT INTO simple_bank.accounts (id, owner, balance, currency, created_at) VALUES (1, 'one', 100, 'USD', '2020-09-06 15:09:38');
+INSERT INTO simple_bank.accounts (id, owner, balance, currency, created_at) VALUES (2, 'two', 100, 'USD', '2020-09-06 15:09:38');
+INSERT INTO simple_bank.accounts (id, owner, balance, currency, created_at) VALUES (3, 'three', 100, 'USD', '2020-09-06 15:09:38');
+```
+
 ### Get transaction isolation level of the current session
 
 ```console
@@ -201,12 +210,11 @@ mysql> select @@transaction_isolation;
 +-------------------------+
 | REPEATABLE-READ         |
 +-------------------------+
-1 row in set (0.01 sec)
 ```
 
 This level is only applied to this specific MySQL console session. By default, it is `repeatable read` as we can see here.
 
-There’s also a global isolation level, which is applied to all sessions when they first started:
+There's also a global isolation level, which is applied to all sessions when they first started:
 
 ```console
 mysql> select @@global.transaction_isolation;
@@ -215,7 +223,6 @@ mysql> select @@global.transaction_isolation;
 +--------------------------------+
 | REPEATABLE-READ                |
 +--------------------------------+
-1 row in set (0.00 sec)
 ```
 
 By default, it is also `repeatable read`.
@@ -225,7 +232,6 @@ By default, it is also `repeatable read`.
 ```console
 -- Tx1:
 mysql> set session transaction isolation level read uncommitted;
-Query OK, 0 rows affected (0.00 sec)
 ```
 
 Note that this is change will only have effects on all future transactions of this current session, but not on transactions that runs on another session of MySQL console.
@@ -234,12 +240,11 @@ Note that this is change will only have effects on all future transactions of th
 
 Open another terminal window, put it side by side with this one, and start a new MySQL console inside it.
 
-Then let’s set the isolation level of this session to read uncommitted as well.
+Then let's set the isolation level of this session to read uncommitted as well.
 
 ```console
 -- Tx2:
 mysql> set session transaction isolation level read uncommitted;
-Query OK, 0 rows affected (0.00 sec)
 ```
 
 OK, now both sessions are running at read uncommitted isolation level. We can now start a new transaction.
@@ -249,11 +254,44 @@ In MySQL, we can either use `start transaction` statement, or simply use `begin`
 ```console
 -- Tx1:
 mysql> start transaction;
-Query OK, 0 rows affected (0.00 sec)
 ```
 
 ```console
 -- Tx2:
 mysql> begin;
-Query OK, 0 rows affected (0.00 sec)
+```
+
+OK, 2 transactions have started. Let's run a simple select from accounts query in transaction 1:
+
+```console
+-- Tx1:
+mysql> use simple_bank;
+mysql> select * from accounts;
++----+-------+---------+----------+---------------------+
+| id | owner | balance | currency | created_at          |
++----+-------+---------+----------+---------------------+
+|  1 | one   |     100 | USD      | 2020-09-06 15:09:38 |
+|  2 | two   |     100 | USD      | 2020-09-06 15:09:38 |
+|  3 | three |     100 | USD      | 2020-09-06 15:09:38 |
++----+-------+---------+----------+---------------------+
+```
+
+At the moment, there are 3 accounts with the same balance of 100 dollars. Then in transaction 2, let's select the first account with id 1:
+
+```console
+-- Tx2:
+mysql> use simple_bank;
+mysql> select * from accounts where id = 1;
++----+-------+---------+----------+---------------------+
+| id | owner | balance | currency | created_at          |
++----+-------+---------+----------+---------------------+
+|  1 | one   |     100 | USD      | 2020-09-06 15:09:38 |
++----+-------+---------+----------+---------------------+
+```
+
+OK we've got that account with 100 dollars balance. Now let's go back to transaction 1 and run this update statement to subtract 10 dollars from account 1.
+
+```console
+-- Tx1:
+mysql> update accounts set balance = balance - 10 where id = 1;
 ```
