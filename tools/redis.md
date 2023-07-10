@@ -2,7 +2,11 @@
 
 [↑ Redis](https://redis.io) is an open source, in-memory data structure store, used as a database, cache, and message broker.
 
-Redis provides data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes, and streams. Redis has built-in replication, Lua scripting, LRU eviction, transactions, and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.
+Redis provides data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes, and streams.
+
+Redis has built-in replication, Lua scripting, LRU eviction, transactions, and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.
+
+Redis is an acronym that stands for **RE**mote **DI**ctionary **S**erver.
 
 ## Table of contents
 
@@ -11,17 +15,21 @@ Redis provides data structures such as strings, hashes, lists, sets, sorted sets
   - [Running in Docker](#running-in-docker)
   - [GUI](#gui)
   - [Redis CLI](#redis-cli)
+  - [Redis data types](#redis-data-types)
   - [Commands](#commands)
   - [Redis databases](#redis-databases)
   - [NuGet package](#nuget-package)
   - [Distributed locking](#distributed-locking)
+  - [Persistence](#persistence)
+    - [Redis database persistence](#redis-database-persistence)
+    - [Append only file persistence](#append-only-file-persistence)
+  - [Repository](#repository)
   - [Links](#links)
 
 ## Running in Docker
 
 ```bash
-docker run --name YOUR_REDIS_CONTAINER_NAME \
--d \
+docker run --name redis \
 -p 6379:6379 \
 redis redis-server \
 --appendonly yes
@@ -38,6 +46,10 @@ Use [↑ Redis CLI](https://redis.io/docs/ui/cli) to run Redis commands:
 ```bash
 docker exec -it YOUR_REDIS_CONTAINER_NAME redis-cli
 ```
+
+## Redis data types
+
+<https://redis.io/docs/data-types>
 
 ## Commands
 
@@ -123,6 +135,55 @@ if (redLock.IsAcquired)
     DoStuff();
 ```
 
+## Persistence
+
+[↑ Redis persistence. How Redis writes data to disk](https://redis.io/docs/management/persistence).
+
+[↑ Is Redis Persistence Enabled?](https://stackoverflow.com/questions/28630467/is-redis-persistence-enabled)
+
+### Redis database persistence
+
+Check if is RDB persistence is enabled with `redis-cli`:
+
+```bash
+CONFIG GET save
+```
+
+If it returns something like that, then it's enabled:
+
+```console
+1) "save"
+2) "3600 1 300 100 60 10000"
+```
+
+If it returns this, then it's disabled:
+
+```bash
+1) "save"
+2) ""
+```
+
+### Append only file persistence
+
+Check is AOF persistence enabled with `redis-cli`:
+
+```bash
+CONFIG GET appendonly
+```
+
+```console
+1) "appendonly"
+2) "yes"
+```
+
+If you get `yes` — it's enabled, `no` — disabled.
+
+## Repository
+
+<https://github.com/mialkin/redis>
+
 ## Links
 
-- [↑ JSON Web Tokens (JWT) are Dangerous for User Sessions—Here’s a Solution](https://redis.com/blog/json-web-tokens-jwt-are-dangerous-for-user-sessions/)
+- [↑ JSON Web Tokens (JWT) are Dangerous for User Sessions—Here’s a Solution](https://redis.com/blog/json-web-tokens-jwt-are-dangerous-for-user-sessions)
+- <https://redis.io/docs/getting-started/faq>
+- <https://aws.amazon.com/redis>
