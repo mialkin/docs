@@ -21,6 +21,7 @@ Some of the key Kafka features:
   - [Kafka consumer auto offset reset](#kafka-consumer-auto-offset-reset)
   - [Exactly-Once Semantics](#exactly-once-semantics)
   - [The Transactional Outbox Pattern](#the-transactional-outbox-pattern)
+  - [Repository](#repository)
   - [Links](#links)
 
 ## Terminology and components
@@ -138,6 +139,10 @@ https://medium.com/lydtech-consulting/kafka-transactions-part-1-exactly-once-mes
 ## The Transactional Outbox Pattern
 
 https://medium.com/lydtech-consulting/kafka-idempotent-consumer-transactional-outbox-74b304815550
+
+## Repository
+
+<https://github.com/mialkin/kafka>
 
 ## Links
 
