@@ -5,13 +5,13 @@
 - [IT books](#it-books)
   - [Table of contents](#table-of-contents)
   - [Architecture and design](#architecture-and-design)
-    - [Design Patterns: Elements of Reusable Object-Oriented Software 1st Edition](#design-patterns-elements-of-reusable-object-oriented-software-1st-edition)
+    - [Design Patterns: Elements of Reusable Object-Oriented Software](#design-patterns-elements-of-reusable-object-oriented-software)
   - [Unit testing](#unit-testing)
     - [Unit Testing Principles, Practices, and Patterns](#unit-testing-principles-practices-and-patterns)
 
 ## Architecture and design
 
-### Design Patterns: Elements of Reusable Object-Oriented Software 1st Edition
+### Design Patterns: Elements of Reusable Object-Oriented Software
 
 <img src="design-patterns.jpg" width="300px" />
 
