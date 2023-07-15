@@ -31,7 +31,7 @@
 
 ## Books
 
-[Essential books](books/essential-books.md)
+[IT books](books/it-books.md)
 
 ## Tools
 
