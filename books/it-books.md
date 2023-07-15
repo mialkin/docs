@@ -7,6 +7,7 @@
   - [Architecture and design](#architecture-and-design)
     - [Design Patterns: Elements of Reusable Object-Oriented Software](#design-patterns-elements-of-reusable-object-oriented-software)
   - [.NET](#net)
+    - [Concurrency in C#](#concurrency-in-c)
     - [Threading in C#](#threading-in-c)
     - [Unit Testing Principles, Practices, and Patterns](#unit-testing-principles-practices-and-patterns)
 
@@ -20,7 +21,13 @@
 
 ## .NET
 
-### Threading in C#
+### Concurrency in C&#35;
+
+<img src="concurrency-in-csharp.jpg" width="300px" />
+
+[↑ Amazon](https://www.amazon.com/Concurrency-Cookbook-Asynchronous-Multithreaded-Programming/dp/149205450X).
+
+### Threading in C&#35;
 
 <img src="threading-in-csharp.jpg" width="400px" />
 
