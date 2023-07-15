@@ -12,6 +12,7 @@
 
 - [Documenting notes](#documenting-notes)
   - [Table of contents](#table-of-contents)
+  - [Books](#books)
   - [Tools](#tools)
   - [Unix](#unix)
   - [Databases](#databases)
@@ -27,6 +28,10 @@
   - [ASP.NET](#aspnet)
   - [C#](#c)
   - [Miscellaneous](#miscellaneous)
+
+## Books
+
+[Essential books](books/essential-books.md)
 
 ## Tools
 
