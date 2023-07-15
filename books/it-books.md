@@ -6,7 +6,8 @@
   - [Table of contents](#table-of-contents)
   - [Architecture and design](#architecture-and-design)
     - [Design Patterns: Elements of Reusable Object-Oriented Software](#design-patterns-elements-of-reusable-object-oriented-software)
-  - [Unit testing](#unit-testing)
+  - [.NET](#net)
+    - [Threading in C#](#threading-in-c)
     - [Unit Testing Principles, Practices, and Patterns](#unit-testing-principles-practices-and-patterns)
 
 ## Architecture and design
@@ -17,7 +18,13 @@
 
 [↑ Amazon](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612). [↑ Ozon](https://www.ozon.ru/product/patterny-obektno-orientirovannogo-proektirovaniya-211432335).
 
-## Unit testing
+## .NET
+
+### Threading in C#
+
+<img src="threading-in-csharp.jpg" width="400px" />
+
+<https://www.albahari.com/threading>
 
 ### Unit Testing Principles, Practices, and Patterns
 
