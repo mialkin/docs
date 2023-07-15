@@ -5,6 +5,7 @@
 - [IT books](#it-books)
   - [Table of contents](#table-of-contents)
   - [Architecture and design](#architecture-and-design)
+    - [Clean Architecture: A Craftsman's Guide to Software Structure and Design](#clean-architecture-a-craftsmans-guide-to-software-structure-and-design)
     - [Design Patterns: Elements of Reusable Object-Oriented Software](#design-patterns-elements-of-reusable-object-oriented-software)
   - [.NET](#net)
     - [Concurrency in C#](#concurrency-in-c)
@@ -12,6 +13,12 @@
     - [Unit Testing Principles, Practices, and Patterns](#unit-testing-principles-practices-and-patterns)
 
 ## Architecture and design
+
+### Clean Architecture: A Craftsman's Guide to Software Structure and Design
+
+<img src="clean-architecture.jpg" width="300px" />
+
+[↑ Amazon](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164).
 
 ### Design Patterns: Elements of Reusable Object-Oriented Software
 
