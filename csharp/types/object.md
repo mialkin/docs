@@ -1,18 +1,18 @@
 # Object
 
 - [Object](#object)
-  - [`Equals(Object)`](#equalsobject)
-  - [`Equals(Object, Object)`](#equalsobject-object)
-  - [`Finalize()`](#finalize)
-  - [`GetHashCode()`](#gethashcode)
-  - [`GetType()`](#gettype)
-  - [`MemberwiseClone()`](#memberwiseclone)
-  - [`ReferenceEquals(Object, Object)`](#referenceequalsobject-object)
-  - [`ToString()`](#tostring)
+  - [Equals(Object)](#equalsobject)
+  - [Equals(Object, Object)](#equalsobject-object)
+  - [Finalize()](#finalize)
+  - [GetHashCode()](#gethashcode)
+  - [GetType()](#gettype)
+  - [MemberwiseClone()](#memberwiseclone)
+  - [ReferenceEquals(Object, Object)](#referenceequalsobject-object)
+  - [ToString()](#tostring)
 
 The `object` type is an alias for `System.Object` in .NET. In the unified type system of C#, all types, predefined and user-defined, reference types and value types, inherit directly or indirectly from `System.Object`.
 
-## `Equals(Object)`
+## Equals(Object)
 
 Determines whether two object instances are equal.
 
@@ -20,21 +20,21 @@ Determines whether two object instances are equal.
 
 [↑ C# difference between `==` and `Equals()`](https://stackoverflow.com/questions/814878/c-sharp-difference-between-and-equals).
 
-## `Equals(Object, Object)`
+## Equals(Object, Object)
 
-## `Finalize()`
+## Finalize()
 
 [↑ Object.Finalize Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.finalize).
 
-## `GetHashCode()`
+## GetHashCode()
 
 [↑ Object.GetHashCode Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode).
 
-## `GetType()`
+## GetType()
 
 [↑ Object.GetType Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.gettype).
 
-## `MemberwiseClone()`
+## MemberwiseClone()
 
 Creates a shallow copy of the current `Object`.
 
@@ -96,7 +96,7 @@ class C
 }
 ```
 
-## `ReferenceEquals(Object, Object)`
+## ReferenceEquals(Object, Object)
 
 Determines whether the specified `Object` instances are the same instance.
 
@@ -125,7 +125,7 @@ Unlike the `Equals` method and the equality operator, the `ReferenceEquals` meth
 
 [↑ Object.ReferenceEquals(Object, Object) Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.referenceequals).
 
-## `ToString()`
+## ToString()
 
 Returns a string that represents the current object.
 
