@@ -128,7 +128,6 @@ docker exec -it postgres psql -U postgres
 docker exec -i CONTAINER_NAME pg_restore -U USERNAME -v -d database_name < /Users/j.doe/Downloads/name.backup
 ```
 
-
 ### docker-compose
 
 ```yaml
