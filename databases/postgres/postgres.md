@@ -5,6 +5,7 @@
     - [Local installation](#local-installation)
       - [Access from Kubernetes pods](#access-from-kubernetes-pods)
     - [Docker run](#docker-run)
+    - [Restore backup](#restore-backup)
     - [docker-compose](#docker-compose)
     - [Kubernetes](#kubernetes)
   - [SQL](#sql)
@@ -120,6 +121,13 @@ Starting a postgresql instance. The default `postgres` user and database are cre
 docker run --name postgres -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:5432 postgres
 docker exec -it postgres psql -U postgres
 ```
+
+### Restore backup
+
+```bash
+docker exec -i CONTAINER_NAME pg_restore -U USERNAME -v -d database_name < /Users/j.doe/Downloads/name.backup
+```
+
 
 ### docker-compose
 
