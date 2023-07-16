@@ -183,6 +183,8 @@ for (var i = 0; i < 5; i++) {
 - [↑ CLR via C#](https://www.amazon.com/CLR-via-4th-Developer-Reference/dp/0735667454/) or [↑ The Book of the Runtime](https://github.com/dotnet/runtime/blob/main/docs/design/coreclr/botr/README.md)
 - Почему у структуры нет индекса синхронизации? [↑ Внутреннее устройство ссылочных типов C#](https://professorweb.ru/my/csharp/optimization/level2/2_1.php). Джеффри Рихтер
 - Таблица виртуальных функций
+- Как устроен `Task` и `ValueTask`
+- `IAsyncDisposable`
 
 ## ASP.NET
 
@@ -211,6 +213,7 @@ for (var i = 0; i < 5; i++) {
 
 ## Web
 
+- POST vs PUT vs PATCH
 - [↑ Ant Design](https://ant.design)
 - [↑ Material Design](https://m3.material.io)
 - <https://html5book.ru/html-html5>
