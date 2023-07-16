@@ -1,39 +1,40 @@
 # Object
 
 - [Object](#object)
-  - [Equals(Object)](#equalsobject)
-  - [Equals(Object, Object)](#equalsobject-object)
-  - [Finalize()](#finalize)
-  - [GetHashCode()](#gethashcode)
-  - [GetType()](#gettype)
-  - [MemberwiseClone()](#memberwiseclone)
-  - [ReferenceEquals(Object, Object)](#referenceequalsobject-object)
-  - [ToString()](#tostring)
+  - [`Equals(Object)`](#equalsobject)
+  - [`Equals(Object, Object)`](#equalsobject-object)
+  - [`Finalize()`](#finalize)
+  - [`GetHashCode()`](#gethashcode)
+  - [`GetType()`](#gettype)
+  - [`MemberwiseClone()`](#memberwiseclone)
+  - [`ReferenceEquals(Object, Object)`](#referenceequalsobject-object)
+  - [`ToString()`](#tostring)
 
 The `object` type is an alias for `System.Object` in .NET. In the unified type system of C#, all types, predefined and user-defined, reference types and value types, inherit directly or indirectly from `System.Object`.
 
-## Equals(Object)
+## `Equals(Object)`
 
 Determines whether two object instances are equal.
 
-https://docs.microsoft.com/en-us/dotnet/api/system.object.equals
-https://stackoverflow.com/questions/814878/c-sharp-difference-between-and-equals
+[↑ Object.Equals Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.equals).
 
-## Equals(Object, Object)
+[↑ C# difference between `==` and `Equals()`](https://stackoverflow.com/questions/814878/c-sharp-difference-between-and-equals).
 
-## Finalize()
+## `Equals(Object, Object)`
 
-https://docs.microsoft.com/en-us/dotnet/api/system.object.finalize
+## `Finalize()`
 
-## GetHashCode()
+[↑ Object.Finalize Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.finalize).
 
-https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode
+## `GetHashCode()`
 
-## GetType()
+[↑ Object.GetHashCode Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode).
 
-https://docs.microsoft.com/en-us/dotnet/api/system.object.gettype
+## `GetType()`
 
-## MemberwiseClone()
+[↑ Object.GetType Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.gettype).
+
+## `MemberwiseClone()`
 
 Creates a shallow copy of the current `Object`.
 
@@ -95,7 +96,7 @@ class C
 }
 ```
 
-## ReferenceEquals(Object, Object)
+## `ReferenceEquals(Object, Object)`
 
 Determines whether the specified `Object` instances are the same instance.
 
@@ -120,11 +121,11 @@ namespace System
 }
 ```
 
-Unlike the `Equals` method and the equality operator, the `ReferenceEquals` method cannot be overridden. Because of this, if you want to test two object references for equality and you are unsure about the implementation of the Equals method, you can call the `ReferenceEquals` method.
+Unlike the `Equals` method and the equality operator, the `ReferenceEquals` method cannot be overridden. Because of this, if you want to test two object references for equality and you are unsure about the implementation of the `Equals` method, you can call the `ReferenceEquals` method.
 
-[Object.ReferenceEquals(Object, Object) Method ↑](https://docs.microsoft.com/en-us/dotnet/api/system.object.referenceequals)
+[↑ Object.ReferenceEquals(Object, Object) Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.referenceequals).
 
-## ToString()
+## `ToString()`
 
 Returns a string that represents the current object.
 
