@@ -45,6 +45,9 @@
 - [↑ Конспект доклада «Как стать классным спецом по бд» (HL2018, Data Egret, Илья Космодемьянский)](https://habr.com/ru/amp/publications/429508/)
 - [↑ Covering indexes](https://www.red-gate.com/simple-talk/databases/sql-server/learn/using-covering-indexes-to-improve-query-performance/)
 - [↑ SQL Server and Azure SQL index architecture and design guide](https://learn.microsoft.com/en-us/sql/relational-databases/sql-server-index-design-guide)
+- [↑ Optimistic vs Pessimistic Concurrency](https://cult.honeypot.io/reads/optimistic-vs-pessimistic-concurrency)
+- [↑ `ConcurrencyCheck` attribute](https://www.entityframeworktutorial.net/code-first/concurrencycheck-dataannotations-attribute-in-code-first.aspx)
+- [↑ NoSQL: виды, особенности и применение](https://cloud.yandex.ru/blog/posts/2022/10/nosql)
 
 ## Software architecture and design
 
@@ -197,11 +200,6 @@ for (var i = 0; i < 5; i++) {
 - [↑ Servers](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers)
 - [↑ ASP.NET Core Series: Performance Testing Techniques](https://www.youtube.com/watch?v=jn54CjePzs0)
 - [↑ `.AddHttpLogging`](https://youtu.be/isrl_zJa1GY?t=987)
-- Feature flags
-  - [↑ Feature Toggles (aka Feature Flags)](https://martinfowler.com/articles/feature-toggles.html)
-  - [↑ Tutorial: Use feature flags in an ASP.NET Core app](https://learn.microsoft.com/en-us/azure/azure-app-configuration/use-feature-flags-dotnet-core?tabs=core5x)
-  - [↑ Feature flags](https://docs.gitlab.com/ee/operations/feature_flags.html)
-  - [↑ Unleash, an open source feature management solution](https://github.com/Unleash/unleash)
 - [↑ FastEndpoints](https://fast-endpoints.com)
 - [↑ Graceful shutdown](https://www.google.com/search?q=graceful+shutdown+asp.net+core&oq=Graceful+shutdown+asp&aqs=chrome.1.69i57j0i512j0i15i22i30j0i390i650l2.6447j0j7&sourceid=chrome&ie=UTF-8)
 
