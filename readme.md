@@ -204,6 +204,7 @@
 - [gRPC](networking/grpc.md)
 - [Internet](networking/internet.md)
 - [IP](networking/ip.md)
+- [OSI](networking/osi.md)
 - [Ports](networking/ports.md)
 - [Sockets](networking/sockets.md)
 - [TCP](networking/tcp.md)
