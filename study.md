@@ -219,6 +219,8 @@ for (var i = 0; i < 5; i++) {
 - [↑ Sololearn](https://apps.apple.com/us/app/sololearn-learn-to-code-apps/id1210079064)
 - [↑ StyleDrop: Text-To-Image Generation in Any Style](https://styledrop.github.io)
 - [↑ Muse: Text-To-Image Generation via Masked Generative Transformers](https://muse-model.github.io)
+- [↑ В чем разница между HTTP методами POST vs PUT vs PATCH?](https://dev-ed.ru/blog/http-post-put-patch/)
+  - [↑ PUT vs PATCH & PUT vs POST](https://dev.to/mehmehmehlol/put-vs-patch-put-vs-post-56i9)
 
 ## Разобрать
 
