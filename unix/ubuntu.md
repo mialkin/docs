@@ -1,5 +1,20 @@
 # Ubuntu
 
+## Table of contents
+
+- [Ubuntu](#ubuntu)
+  - [Table of contents](#table-of-contents)
+  - [Set up aliases](#set-up-aliases)
+  - [Disable welcome message after SSH login](#disable-welcome-message-after-ssh-login)
+  - [Update packages](#update-packages)
+  - [Set time zone](#set-time-zone)
+  - [Set hostname](#set-hostname)
+  - [Grant user root priveleges](#grant-user-root-priveleges)
+  - [Stop Ubuntu from asking for password](#stop-ubuntu-from-asking-for-password)
+  - [Watch temperature](#watch-temperature)
+    - [CPU](#cpu)
+    - [SSD](#ssd)
+
 ## Set up aliases
 
 ```bash
