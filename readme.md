@@ -41,6 +41,7 @@
 - [Docker](tools/docker/docker.md)
   - [Dockerfile](tools/docker/dockerfiles.md)
   - [Docker compose](tools/docker/docker%20compose.md)
+- [Docusaurus](tools/docusaurus.md)
 - [Elasticsearch](tools/elasticsearch.md)
 - [Git](tools/git/git.md)
 - [GitLab](tools/gitlab.md)
