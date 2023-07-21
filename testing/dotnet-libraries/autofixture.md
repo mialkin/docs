@@ -12,6 +12,10 @@ AutoFixture will by default, take care of providing data to the constructor  of 
 dotnet add package AutoFixture.Xunit2
 ```
 
+## .NET repository
+
+[↑ tests](https://github.com/mialkin/tests).
+
 ## Links
 
 - [↑ Cheat sheet](https://github.com/AutoFixture/AutoFixture/wiki/Cheat-Sheet)
