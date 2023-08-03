@@ -109,6 +109,7 @@
 - [Clean architecture](design/clean%20architecture.md)
 - [Composition over inheritance](design/composition%20over%20inheritance.md)
 - [CQRS](design/cqrs.md)
+- [Database per service](design/database-per-service.md)
 - [DDD](design/ddd.md)
 - [DRY, KISS, separation of concerns, YAGNI](design/main%20principles.md)
 - [Explicit dependencies principle](design/explicit%20dependencies%20principle.md)
