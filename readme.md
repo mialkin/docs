@@ -173,6 +173,7 @@
 - [Function parameters vs arguments](programming/function%20parameters%20vs%20arguments.md)
 - [Idempotence](programming/idempotence.md)
 - [Inversion of control (IoC)](programming/ioc/inversion%20of%20control.md)
+- [Initiatives, epics, stories](programming/initiatives-epics-stories/initiatives-epics-stories.md)
 - [Makefile](programming/makefile.md)
 - [Marshalling](programming/marshalling.md)
 - [Programming case types](programming/cases.md)
