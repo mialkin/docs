@@ -4,6 +4,17 @@
 
 The service's database is effectively part of the implementation of that service. It cannot be accessed directly by other services.
 
+[↑ Pattern: Database per service](https://microservices.io/patterns/data/database-per-service.html).
+
+## Table of contents
+
+- [Database per service](#database-per-service)
+  - [Table of contents](#table-of-contents)
+  - [Implementation](#implementation)
+  - [Advantages](#advantages)
+  - [Disadvantages](#disadvantages)
+  - [Implementing transactions and queries](#implementing-transactions-and-queries)
+
 ## Implementation
 
 There are a few different ways to keep a service's persistent data private. You do not need to provision a database server for each service. For example, if you are using a relational database then the options are:
@@ -27,6 +38,11 @@ It is a good idea to create barriers that enforce this modularity. You could, fo
 - Implementing queries that join data that is now in multiple databases is challenging.
 - Complexity of managing multiple SQL and NoSQL databases
 
-## Links
+## Implementing transactions and queries
 
-[↑ Pattern: Database per service](https://microservices.io/patterns/data/database-per-service.html)
+There are various patterns/solutions for implementing transactions and queries that span services:
+
+- Implementing transactions that span services — use Saga pattern.
+- Implementing queries that span services:
+  - API composition — the application performs the join rather than the database. For example, a service, or the API gateway, could retrieve a customer and their orders by first retrieving the customer from the customer service and then querying the order service to return the customer’s most recent orders.
+  - CQRS — maintain one or more materialized views that contain data from multiple services. The views are kept by services that subscribe to events that each services publishes when it updates its data. For example, the online store could implement a query that finds customers in a particular region and their recent orders by maintaining a view that joins customers and orders. The view is updated by a service that subscribes to customer and order events.
