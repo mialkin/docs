@@ -8,6 +8,13 @@ A **story**, also called a **user story**, is a short requirement or request wri
 
 [↑ Stories, epics, and initiatives](https://www.atlassian.com/agile/project-management/epics-stories-themes).
 
+## Table of contents
+
+- [Initiatives, epics, stories](#initiatives-epics-stories)
+  - [Table of contents](#table-of-contents)
+  - [Agile epic vs story](#agile-epic-vs-story)
+  - [Agile epic vs initiative](#agile-epic-vs-initiative)
+
 ## Agile epic vs story
 
 In a sense, stories and epics in agile are similar to stories and epics in film or literature. A story is one simple narrative; a series of related and interdependent stories makes up an epic. The same is true for your work management, where the completion of related stories leads to the completion of an epic. The stories tell the arc of the work completed while the epic shares a high-level view of the unifying objective.
