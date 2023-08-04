@@ -23,7 +23,7 @@ If your company was launching rockets into space, and wanted to improve the stre
 
 In the same way that epics are made up of stories, initiatives are made up of epics. Initiatives offer another level of organization above epics. In many cases, an initiative compiles epics from multiple teams to achieve a much broader, bigger goal than any of the epics themselves. While an epic is something you might complete in a month or a quarter, initiatives are often completed in multiple quarters to a year.
 
-<img src="epics-vs-stories-agile-development.png" />
+<img src="epics-vs-stories-agile-development.png" width="600px" />
 
 Example of epics in an initiative:
 
