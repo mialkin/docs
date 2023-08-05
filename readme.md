@@ -149,6 +149,7 @@
   - [Interface segregation principle](design/solid/isp.md)
   - [Dependency inversion principle](design/solid/dip/dip.md)
 - [Technical debt](design/technical%20debt.md)
+- [Tell, Don't Ask](design/tell-dont-ask.md)
 - [Vertical slice architecture](design/vertical-slice-architecture.md)
 
 ## Distributed systems
