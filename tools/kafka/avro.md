@@ -30,3 +30,7 @@ Avro is highly popular in the big data world. It has two key features:
 
 - **compression** — data is well encoded and serialized to byte representation. Using advanced compression algorithms can only improve the size reduction.
 - **clear model** — the model of the data is delivered alongside the data itself. What is different, is the format. Model is represented in well-known and human-readable JSON format. It enables backward and forwards compatibility features, which is unique for this level of data compression.
+
+## Avro vs JSON
+
+[↑ AVRO vs JSON](https://www.nidhivichare.com/blog/avro-vs-json).
