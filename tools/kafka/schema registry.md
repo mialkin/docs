@@ -13,3 +13,7 @@ Likewise on the consume side, if a consumer reads a message that has an incompat
 - [↑ Schema Registry Overview](https://docs.confluent.io/platform/current/schema-registry/index.html)
 - [↑ Schema Evolution and Compatibility](https://docs.confluent.io/platform/current/schema-registry/avro.html#schema-evolution-and-compatibility)
 - [↑ Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines)
+
+## Serde
+
+Every Kafka Streams application must provide Serdes serializer/deserializer for the data types of record keys and record values to materialize the data when necessary.
