@@ -170,6 +170,7 @@
 - [Cyclomatic complexity](programming/cyclomatic%20complexity.md)
 - [↑ DTOs vs POCOs/POJOs](https://ardalis.com/dto-or-poco)
 - [EditorConfig](programming/editorconfig.md)
+- [Feature flags](programming/feature-flags.md)
 - [Function parameters vs arguments](programming/function%20parameters%20vs%20arguments.md)
 - [Idempotence](programming/idempotence.md)
 - [Inversion of control (IoC)](programming/ioc/inversion%20of%20control.md)
