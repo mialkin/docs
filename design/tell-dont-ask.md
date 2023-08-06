@@ -2,7 +2,56 @@
 
 **Tell, Don't Ask** or **TDA** is a principle that suggests that it is better to issue an object a command do perform some operation or logic, rather than to query its state and then take some action as a result.
 
-It is related to the Flags Over Objects anti-pattern as well as the Anemic Domain Model anti-pattern. You can easily spot violations of TDA in code that queries or uses several properties of an object in order to perform some calculation. This is especially problematic when the same kind of calculation is done in many places (violating the Don't Repeat Yourself principle), but can represent a design deficiency even if it only occurs in one location in the current codebase.
+It is related to the [↑ Flags Over Objects](https://deviq.com/antipatterns/flags-over-objects) anti-pattern as well as the [Anemic Domain Model](ddd.md#anemic-domain-model) anti-pattern. You can easily spot violations of TDA in code that queries or uses several properties of an object in order to perform some calculation. This is especially problematic when the same kind of calculation is done in many places, violating the Don't Repeat Yourself principle, but can represent a design deficiency even if it only occurs in one location in the current codebase.
+
+## Example
+
+Code, that violates TDA principle:
+
+```csharp
+public record CpuMonitor(int Value);
+
+public class Client
+{
+    public static void AlertService(IEnumerable<CpuMonitor> cpuMonitors)
+    {
+        foreach (var cpuMonitor in cpuMonitors)
+        {
+            if (cpuMonitor.Value > 90)
+            {
+                // Alert
+            }
+        }
+    }
+}
+```
+
+Refactored version of the code above:
+
+```csharp
+public class CpuMonitor
+{
+    private readonly int _alertThreshold;
+    public CpuMonitor(int alertThreshold) => _alertThreshold = alertThreshold;
+    public int Value { get; set; }
+    public bool ExceedsThreshold => Value >= _alertThreshold;
+}
+
+public class Client
+{
+    public static void AlertService(IEnumerable<CpuMonitor> cpuMonitors)
+    {
+        foreach (var cpuMonitor in cpuMonitors)
+        {
+            if (cpuMonitor.ExceedsThreshold)
+            {
+                // Alert
+            }
+        }
+    }
+}
+```
+
 
 ## Links
 
