@@ -64,18 +64,13 @@ Each non-root node can be treated as the root node of its own subtree, which inc
 
 A **B-tree** is a self-balancing tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time.
 
-Отличие B-дерева от обычных деревьев в том, что каждый узел B-дерева может содержать больше чем одно значение.
+The difference between B-trees and regular trees is that each node in a B-tree can contain more than one value.
 
-**Уровень дерева** — максимальное количество значений в B-дереве (у узла?); обычно обозначается буквой $M$. Если, например, мы говорим от 2-3-4-дереве, то это дерево уровня 4.
+When adding new values to the B-tree, we try to add data "lower down", at the maximum depth node.
 
-Каждый узел B-дерева представляет собой массив из нескольких цифр. Данными могут быть не обязательно цифры, но данные обязательно должны быть сравнимыми между собой, т.е. всегда должно быть можно сказать, что одни данные больше, чем другие. Правило сравнимости применимо почти ко всем деревьям.
+[↑ Introduction of B-Tree](https://www.geeksforgeeks.org/introduction-of-b-tree-2).
 
-B-деревья жестко сбалансированные.
-
-**Высота дерева** —
-
-В дочернем узле дерева может быть либо `0` значений, либо `M + 1`, где `M` — количество значений в родительском узле. Если мы создаем хотя бы один дочерний узел
-
+[↑ B-дерево](https://www.youtube.com/watch?v=WXXetwePSRk)
 
 ### Binary tree
 
