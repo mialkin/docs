@@ -18,6 +18,7 @@
     - [Get transaction isolation level of the current session](#get-transaction-isolation-level-of-the-current-session)
     - [Change isolation level](#change-isolation-level)
     - [Read uncommitted isolation level](#read-uncommitted-isolation-level)
+    - [Read committed isolation level](#read-committed-isolation-level)
 
 An **isolation level** represents a particular locking strategy employed in the database system to avoid _read phenomena_.
 
@@ -74,6 +75,8 @@ The plus sign `+` reads as "phenomenon can happen":
 | Repeatable read  | -           | -                    | +             |
 | Serializable     | -           | -                    | -             |
 
+Any phenomena that have been prevented at lower isolation level won't have a chance to occur at higher level.
+
 Although higher isolation levels provide better data consistency, this consistency can be costly in terms of the parallel access provided to users. As isolation level increases, so does the chance that the locking strategy used will create problems with parallel access of data.
 
 ### Read uncommitted
@@ -87,6 +90,8 @@ Locks are acquired for reading and modifying the database. Locks are released af
 ### Repeatable read
 
 Locks are obtained for reading and modifying the database. Locks on all modified objects are held until EOT. Locks obtained for reading data are held until EOT. Locks on non-modified access structures (such as indexes and hashing structures) are released after reading.
+
+Уровень, при котором читающая транзакция «не видит» изменения данных, которые были ею ранее прочитаны. При этом никакая другая транзакция не может изменять данные, читаемые текущей транзакцией, пока та не окончена.
 
 ### Serializable
 
@@ -236,6 +241,8 @@ mysql> set session transaction isolation level read uncommitted;
 
 Note that this is change will only have effects on all future transactions of this current session, but not on transactions that runs on another session of MySQL console.
 
+[↑ `SET TRANSACTION` statement](https://dev.mysql.com/doc/refman/8.0/en/set-transaction.html).
+
 ### Read uncommitted isolation level
 
 Open another terminal window, put it side by side with this one, and start a new MySQL console inside it.
@@ -368,3 +375,84 @@ mysql> select * from accounts;
 You can see uncommitted changes once again.
 
 So `read committed` isolation level prevents dirty read phenomenon.
+
+Commit the first transaction:
+
+-- Tx1:
+mysql> commit;
+
+### Read committed isolation level
+
+```console
+-- Tx1:
+mysql> set session transaction isolation level read committed;
+mysql> select @@transaction_isolation;
++-------------------------+
+| @@transaction_isolation |
++-------------------------+
+| READ-COMMITTED          |
++-------------------------+
+```
+
+```console
+-- Tx2:
+mysql> set session transaction isolation level read committed;
+mysql> select @@transaction_isolation;
++-------------------------+
+| @@transaction_isolation |
++-------------------------+
+| READ-COMMITTED          |
++-------------------------+
+```
+
+```console
+-- Tx1:
+mysql> begin;
+mysql> select * from accounts;
++----+-------+---------+----------+---------------------+
+| id | owner | balance | currency | created_at          |
++----+-------+---------+----------+---------------------+
+|  1 | one   |      90 | USD      | 2020-09-06 15:09:38 |
+|  2 | two   |     100 | USD      | 2020-09-06 15:09:38 |
+|  3 | three |     100 | USD      | 2020-09-06 15:09:38 |
++----+-------+---------+----------+---------------------+
+```
+
+```console
+-- Tx2:
+mysql> begin;
+mysql> select * from accounts;
++----+-------+---------+----------+---------------------+
+| id | owner | balance | currency | created_at          |
++----+-------+---------+----------+---------------------+
+|  1 | one   |      90 | USD      | 2020-09-06 15:09:38 |
+|  2 | two   |     100 | USD      | 2020-09-06 15:09:38 |
+|  3 | three |     100 | USD      | 2020-09-06 15:09:38 |
++----+-------+---------+----------+---------------------+
+```
+
+```console
+-- Tx1:
+mysql> update accounts set balance = balance - 10 where id = 1;
+mysql> select * from accounts;
++----+-------+---------+----------+---------------------+
+| id | owner | balance | currency | created_at          |
++----+-------+---------+----------+---------------------+
+|  1 | one   |      80 | USD      | 2020-09-06 15:09:38 |
+|  2 | two   |     100 | USD      | 2020-09-06 15:09:38 |
+|  3 | three |     100 | USD      | 2020-09-06 15:09:38 |
++----+-------+---------+----------+---------------------+
+```
+
+```console
+-- Tx2:
+mysql> update accounts set balance = balance - 10 where id = 1;
+mysql> select * from accounts;
++----+-------+---------+----------+---------------------+
+| id | owner | balance | currency | created_at          |
++----+-------+---------+----------+---------------------+
+|  1 | one   |      80 | USD      | 2020-09-06 15:09:38 |
+|  2 | two   |     100 | USD      | 2020-09-06 15:09:38 |
+|  3 | three |     100 | USD      | 2020-09-06 15:09:38 |
++----+-------+---------+----------+---------------------+
+```
