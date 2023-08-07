@@ -106,6 +106,7 @@
 
 - [Anti-patterns](design/anti-patterns.md)
 - [Architectural decision records, ADRs](design/adr.md)
+- [Choreography vs orchestration](design/choreography-vs-orchestration.md)
 - [Clean architecture](design/clean%20architecture.md)
 - [Composition over inheritance](design/composition%20over%20inheritance.md)
 - [CQRS](design/cqrs.md)
