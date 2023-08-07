@@ -189,6 +189,7 @@ for (var i = 0; i < 5; i++) {
 - Таблица виртуальных функций
 - Как устроен `Task` и `ValueTask`
 - `IAsyncDisposable`
+- [↑ Утиная типизация в C#](https://habr.com/ru/articles/41377/)
 
 ## ASP.NET
 
