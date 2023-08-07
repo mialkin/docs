@@ -102,6 +102,7 @@
 - [↑ Тестируем микросервисы правильно](https://www.youtube.com/watch?v=yj3sndjLHEA)
 - [↑ Чистая архитектура на практике](https://www.youtube.com/watch?v=Bd83nPK_K3U)
 - [↑ Generic types are for arguments, specific types are for return values](https://enterprisecraftsmanship.com/posts/generic-types-arguments-specific-types-return-values/)
+  - [↑ Return the most specific type, accept the most generic type](https://enterprisecraftsmanship.com/posts/return-the-most-specific-type)
 - [↑ Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
 - [↑ GitOps](https://about.gitlab.com/topics/gitops)
 - [↑ Есть ли жизнь на Go после C#?](https://habr.com/ru/companies/ozontech/articles/684422/)
