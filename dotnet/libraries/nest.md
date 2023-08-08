@@ -37,6 +37,7 @@ The [↑ Elasticsearch v8 client](https://www.elastic.co/guide/en/elasticsearch/
     - [Get mapping](#get-mapping)
   - [Search documents](#search-documents)
     - [Match all](#match-all)
+    - [Match](#match)
     - [Term](#term)
     - [Terms](#terms)
     - [Terms `AND`](#terms-and)
@@ -200,6 +201,23 @@ await _elasticClient.DeleteByQueryAsync<ProductDto>(x => x.MatchAll().Refresh())
 // }
 var result = await _elasticClient.SearchAsync<ProductDto>(x => x.Index("products").MatchAll());
 var documents = result.Documents;
+```
+
+### Match
+
+Finds all records that have "milk" text in `documents.text` field:
+
+```csharp
+// GET products/_search
+// {
+//   "query": {
+//     "match": {
+//       "documents.text": {
+//         "query": "milk"
+//       }
+//     }
+//   }
+// }
 ```
 
 ### Term
