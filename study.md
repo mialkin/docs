@@ -45,7 +45,6 @@
 - [↑ Конспект доклада «Как стать классным спецом по бд» (HL2018, Data Egret, Илья Космодемьянский)](https://habr.com/ru/amp/publications/429508/)
 - [↑ Covering indexes](https://www.red-gate.com/simple-talk/databases/sql-server/learn/using-covering-indexes-to-improve-query-performance/)
 - [↑ SQL Server and Azure SQL index architecture and design guide](https://learn.microsoft.com/en-us/sql/relational-databases/sql-server-index-design-guide)
-- [↑ Optimistic vs Pessimistic Concurrency](https://cult.honeypot.io/reads/optimistic-vs-pessimistic-concurrency)
 - [↑ `ConcurrencyCheck` attribute](https://www.entityframeworktutorial.net/code-first/concurrencycheck-dataannotations-attribute-in-code-first.aspx)
 - [↑ NoSQL: виды, особенности и применение](https://cloud.yandex.ru/blog/posts/2022/10/nosql)
 
