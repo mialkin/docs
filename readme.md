@@ -152,6 +152,7 @@
   - [Dependency inversion principle](design/solid/dip/dip.md)
 - [Technical debt](design/technical%20debt.md)
 - [Tell, Don't Ask](design/tell-dont-ask.md)
+- [Transactional outbox and inbox](design/transactional-outbox-and-inbox.md)
 - [Vertical slice architecture](design/vertical-slice-architecture.md)
 
 ## Distributed systems
