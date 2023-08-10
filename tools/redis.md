@@ -18,7 +18,7 @@ Redis is an acronym that stands for **RE**mote **DI**ctionary **S**erver.
   - [Redis data types](#redis-data-types)
   - [Commands](#commands)
   - [Redis databases](#redis-databases)
-  - [NuGet package](#nuget-package)
+  - [.NET library](#net-library)
   - [Distributed locking](#distributed-locking)
   - [Persistence](#persistence)
     - [Redis database persistence](#redis-database-persistence)
@@ -109,7 +109,7 @@ Redis databases are numbered from `0` to `15` and, by default, you connect to da
 
 [↑ How To Manage Redis Databases and Keys](https://www.digitalocean.com/community/cheatsheets/how-to-manage-redis-databases-and-keys).
 
-## NuGet package
+## .NET library
 
 [↑ StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis):
 
