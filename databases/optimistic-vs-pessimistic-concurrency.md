@@ -63,3 +63,5 @@ In a pessimistic concurrency model, a user who updates a row establishes a lock.
 [↑ Optimistic Concurrency - ADO.NET](https://learn.microsoft.com/en-us/dotnet/framework/data/adonet/optimistic-concurrency).
 
 [↑ Optimistic vs Pessimistic Concurrency: What Every Developer Should Know](https://cult.honeypot.io/reads/optimistic-vs-pessimistic-concurrency).
+
+[↑ How to use Xmin in PostgreSQL Queries](https://www.enterprisedb.com/postgres-tutorials/how-use-xmin-postgresql-queries).
