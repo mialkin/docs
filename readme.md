@@ -273,6 +273,7 @@
 - Identity management
   - [Authentication](dotnet/identity%20managment/authentication.md)
   - [Authorization](dotnet/identity%20managment/authorization.md)
+- [NuGet](dotnet/nuget.md)
 - [OWIN](dotnet/owin.md)
 - [PowerShell](dotnet/powershell.md)
   - [PowerShell scripting](dotnet/powershell%20scripting.md)
