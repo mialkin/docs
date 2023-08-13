@@ -15,6 +15,7 @@
     - [Acquire API key](#acquire-api-key)
     - [Publish package](#publish-package)
     - [Delete package](#delete-package)
+  - [Repository](#repository)
 
 ## NuGet package
 
@@ -71,3 +72,7 @@ To avoid your test package being live on nuget.org, you can push to the nuget.or
 nuget.org does not support permanent deletion of packages. Doing so would break every project depending on the availability of the package, especially with build workflows that involve package restore.
 
 nuget.org does support unlisting a package, which can be done in the package management page on the web site. Unlisted packages don't appear on nuget.org or in the Visual Studio UI, and do not appear in search results. Unlisted packages, however, can still be downloaded and installed by using an exact version number, which supports package restore.
+
+## Repository
+
+<https://github.com/mialkin/nuget>.
