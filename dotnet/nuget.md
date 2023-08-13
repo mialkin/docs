@@ -2,9 +2,9 @@
 
 **NuGet** is a Microsoft-supported mechanism for sharing code, which defines how packages for .NET are created, hosted, and consumed, and provides the tools for each of those roles.
 
-Another definition:
-
 **NuGet** is the package manager for .NET.
+
+[↑ An introduction to NuGet](https://learn.microsoft.com/en-us/nuget/what-is-nuget).
 
 ## Table of contents
 
@@ -14,11 +14,12 @@ Another definition:
     - [Build NuGet package](#build-nuget-package)
     - [Acquire API key](#acquire-api-key)
     - [Publish package](#publish-package)
-  - [Links](#links)
 
 ## NuGet package
 
-A **NuGet package** is a single ZIP file with the `.nupkg` extension that contains compiled code, DLLs) other files related to that code, and a descriptive manifest that includes information like the package's version number.
+A **NuGet package** is a single ZIP file with the `.nupkg` extension that contains compiled code, i.e. DLLs, other files related to that code, and a descriptive manifest that includes information like the package's version number.
+
+[↑ Quickstart: Create and publish a NuGet package using Visual Studio (Windows only)](https://learn.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-visual-studio?tabs=netcore-cli).
 
 ### Build NuGet package
 
@@ -31,6 +32,8 @@ dotnet pack "src/Your.Models/Your.Models.csproj" \
 ```
 
 This will create `Your.Models.1.0.0.nupkg` file under the `build` folder.
+
+[↑ dotnet pack](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-pack).
 
 ### Acquire API key
 
@@ -52,14 +55,12 @@ dotnet nuget push build/Your.Models.1.0.0.nupkg \
 --source https://api.nuget.org/v3/index.json
 ```
 
+[↑ dotnet nuget push](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-push).
+
 When your package successfully publishes, you receive a confirmation email. To see the package you just published, on nuget.org, select your user name at upper right, and then select [↑ Manage Packages](https://www.nuget.org/account/Packages).
 
 It might take awhile for your package to be indexed and appear in search results where others can find it. During that time, your package appears under Unlisted Packages. Package validation and indexing may take up to an hour. Nuget.org scans all uploaded packages for viruses and rejects the packages if it finds any viruses. Nuget.org also scans all existing listed packages periodically.
 
 If you've created a package that isn't useful, such as a sample package that was created with an empty class library, or you decide you don't want the package to be visible, you can unlist the package to hide it from search results.
 
-> To avoid your test package being live on nuget.org, you can push to the nuget.org test site at https://int.nugettest.org. Note that packages uploaded to int.nugettest.org might not be preserved.
-
-## Links
-
-[↑ Quickstart: Create and publish a NuGet package using Visual Studio (Windows only)](https://learn.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-visual-studio?tabs=netcore-cli).
+To avoid your test package being live on nuget.org, you can push to the nuget.org test site at <https://int.nugettest.org>. Note that packages uploaded to int.nugettest.org might not be preserved.
