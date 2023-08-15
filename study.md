@@ -133,6 +133,7 @@ for (var i = 0; i < 5; i++) {
   - [↑ The large object heap on Windows systems](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/large-object-heap)
   - [↑ CLRium #5: Курс "Garbage Collector"](https://www.youtube.com/watch?v=DVnmGW6964o)
   - [↑ Pinned Object Heap в .NET 5](https://habr.com/ru/post/593441/)
+- [↑ dotnet-monitor](https://learn.microsoft.com/en-us/dotnet/core/diagnostics/dotnet-monitor)
 
 ## C&#35;
 
