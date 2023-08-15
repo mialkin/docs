@@ -18,6 +18,7 @@ dotnet add package MediatR.Extensions.Microsoft.DependencyInjection
     - [Single responsibility](#single-responsibility)
     - [Decorators](#decorators)
   - [You probably don't need MediatR](#you-probably-dont-need-mediatr)
+  - [Links](#links)
 
 ## Usage
 
@@ -177,3 +178,7 @@ TL;DR for the impatient:
 - Good news is: MediatR can be easily replaced with trivial OOP techniques
 
 For more details see [↑ "You probably don't need MediatR"](http://arialdomartini.github.io/mediatr) article.
+
+## Links
+
+[↑ You Probably Don't Need to Worry About MediatR](https://jimmybogard.com/you-probably-dont-need-to-worry-about-mediatr)

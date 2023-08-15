@@ -122,12 +122,6 @@ for (var i = 0; i < 5; i++) {
 
 ## .NET
 
-- Dotnet libraries
-  - [↑ Dependabot](https://github.com/dependabot)
-    - [↑ Integrating Dependabot into your .NET Core project on GitHub](https://medium.com/@nickfane/integrating-dependabot-into-your-net-core-project-on-github-3e3024bd3394)
-  - MediatR
-    - [↑ You probably don't need MediatR](http://arialdomartini.github.io/mediatr)
-    - [↑ You Probably Don't Need to Worry About MediatR](https://jimmybogard.com/you-probably-dont-need-to-worry-about-mediatr/)
 - Memory managment
   - Small object heap (SOH)
   - [↑ The large object heap on Windows systems](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/large-object-heap)
