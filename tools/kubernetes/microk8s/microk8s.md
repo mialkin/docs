@@ -11,6 +11,7 @@
   - [Run dashboard](#run-dashboard)
   - [MetalLB](#metallb)
   - [Access Kubernetes API from remote client](#access-kubernetes-api-from-remote-client)
+  - [Update expired certificates](#update-expired-certificates)
 
 ## Installation
 
@@ -129,3 +130,22 @@ Restart microk8s:
 microk8s stop
 microk8s start
 ```
+
+## Update expired certificates
+
+See certificates expiration:
+
+```bash
+sudo microk8s.refresh-certs -c
+```
+
+Update certificates:
+
+```bash
+sudo microk8s.refresh-certs --cert server.crt
+sudo microk8s.refresh-certs --cert front-proxy-client.crt
+```
+
+Do not forget to delete existing context from `~/.kube/config` client folder and replace it with `.kube/config` from Kubernetes cluster.
+
+[↑ Microk8s: Unable to connect to the server: x509: certificate has expired or is not yet valid](https://dev.to/boris/microk8s-unable-to-connect-to-the-server-x509-certificate-has-expired-or-is-not-yet-valid-2b73).
