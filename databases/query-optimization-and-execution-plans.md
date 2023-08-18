@@ -9,6 +9,7 @@ SQL is a *declarative language*. That means that when we write a SQL query, we d
   - [Database optimizer](#database-optimizer)
   - [Execution plan](#execution-plan)
   - [`EXPLAIN` command](#explain-command)
+  - [Short queries](#short-queries)
 
 ## Database optimizer
 
@@ -27,3 +28,9 @@ A **plan space** is a set of possible execution plans for a query. Heuristics ar
 ## `EXPLAIN` command
 
 In Postgres to obtain the execution plan for a query, the `EXPLAIN` command is run. This command takes any grammatically correct SQL statement as a parameter and returns its execution plan.
+
+## Short queries
+
+A **short query** is a such a query that the number of rows needed to compute its output is small, no matter how large the involved tables are.
+
+Short queries may read every row from small tables but read only a small percentage of rows from large tables. How small is a "small percentage"?  Most of the time, however, it means less than 10%.
