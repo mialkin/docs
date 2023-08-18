@@ -23,6 +23,8 @@ OLTP databases are typically used for storing and retrieving data in a structure
 
 OLAP is used to generate reports, charts, and graphs that help businesses make informed decisions.
 
+OLAP databases are optimized for heavy read, low write workloads which allows them to extract business intelligence information in a highly performant way.
+
 OLAP is part of the broader category of [↑ business intelligence](https://en.wikipedia.org/wiki/Business_intelligence).
 
 ## OLTP vs OLAP
