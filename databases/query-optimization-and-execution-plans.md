@@ -11,6 +11,8 @@ SQL is a *declarative language*. That means that when we write a SQL query, we d
   - [`EXPLAIN` command](#explain-command)
   - [Short query](#short-query)
   - [Long query](#long-query)
+  - [Optimization](#optimization)
+  - [Postgres Air database](#postgres-air-database)
 
 ## Database optimizer
 
@@ -39,3 +41,28 @@ Short queries may read every row from small tables but read only a small percent
 ## Long query
 
 A **long query** is a query selectivity of which is high for at least one of the large tables; that is, almost all rows contribute to the output, even when the output size is small.
+
+## Optimization
+
+In the majority of cases, in OLTP systems we are optimizing short queries and in
+OLAP systems both short and long queries.
+
+## Postgres Air database
+
+Throughout [↑ "PostgreSQL Query Optimization"](https://www.amazon.com/PostgreSQL-Query-Optimization-Ultimate-Efficient/dp/1484268849) book, examples are built on one of the databases of a virtual airline company called Postgres Air.
+
+This company connects over 600 virtual destinations worldwide, offers about 32,000 direct virtual flights weekly, and has over 100,000 virtual members in its frequent flyer program and many more passengers every week. The company fleet consists of virtual aircraft.
+
+Google Drive [↑ link](https://drive.google.com/drive/folders/13F7M80Kf_somnjb-mTYAnh1hW1Y_g4kJ) for downloading database backup.
+
+```bash
+docker exec -i postgres pg_restore \
+-U postgres \
+-v \
+-d postgres_air /Users/john.doe/Downloads/postgres_air_2023.backup
+
+
+docker exec postgres sh -c "pg_restore -C -d postgres_air /Users/john.doe/Downloads/postgres_air_2023.backup"
+
+docker exec -i postgres pg_restore -U postgres -v -d postgres_air < /Users/john.doe/Downloads/postgres_air_2023.backup
+```
