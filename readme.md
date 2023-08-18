@@ -97,6 +97,7 @@
 - [Isolation levels and read phenomena](databases/isolation%20levels.md)
 - [N + 1 query problem](databases/n%20plus%20one.md)
 - [Natural and surrogate keys](databases/natural%20and%20surrogate%20keys.md)
+- [Online transaction processing, OLTP vs online analytical processing, OLAP](databases/oltp-vs-olap.md)
 - [Optimistic vs pessimistic concurrency](databases/optimistic-vs-pessimistic-concurrency.md)
 - [PL/SQL](databases/oracle/plsql.md)
 - [PostgreSQL](databases/postgres/postgres.md)
