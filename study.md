@@ -186,6 +186,9 @@ for (var i = 0; i < 5; i++) {
 - Как устроен `Task` и `ValueTask`
 - `IAsyncDisposable`
 - [↑ Утиная типизация в C#](https://habr.com/ru/articles/41377/)
+- Monads
+  - [↑ Monads explained in C#](https://mikhail.io/2016/01/monads-explained-in-csharp/)
+  - [↑ The Maybe Monad (C#)](https://www.dotnetcurry.com/patterns-practices/1510/maybe-monad-csharp)
 
 ## ASP.NET
 
