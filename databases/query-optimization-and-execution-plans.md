@@ -16,6 +16,8 @@ SQL is a *declarative language*. That means that when we write a SQL query, we d
     - [Restore database](#restore-database)
     - [Set initial indexes](#set-initial-indexes)
   - [PostgreSQL specifics](#postgresql-specifics)
+  - [Query processing overview](#query-processing-overview)
+    - [Compilation](#compilation)
 
 ## Database optimizer
 
@@ -94,9 +96,24 @@ CREATE INDEX account_last_name ON account (last_name);
 
 ## PostgreSQL specifics
 
-Perhaps the most important feature you should be aware of is that PostgreSQL does not have optimizer hints. If you previously worked with a database like Oracle, which does have the option of “hinting” to the optimizer, you might feel helpless when you
+Perhaps the most important feature you should be aware of is that PostgreSQL does not have optimizer hints. If you previously worked with a database like Oracle, which does have the option of "hinting" to the optimizer, you might feel helpless when you
 are presented with the challenge of optimizing a PostgreSQL query. However, here is some good news: PostgreSQL does not have hints by design. The PostgreSQL core team believes in investing in developing a query planner which is capable of choosing the best execution path without hints. As a result, the PostgreSQL optimization engine is one of the best among both commercial and open source systems. Many strong database internal developers have been drawn to Postgres because of the optimizer. In addition, Postgres has been chosen as the founding source code base for several commercial databases partly because of the optimizer. With PostgreSQL, it is even more important to write your SQL statements declaratively, allowing the optimizer to do its job.
 
 Another PostgreSQL feature you should be aware of is the difference between the execution of parameterized queries and dynamic SQL.
 
 With PostgreSQL, it is especially important to be aware of new features and capabilities added with each release. In recent years, Postgres has had over 180 of them each year. Many of these features are around optimization. PostgreSQL has an incredibly rich set of types and indexes, and it is always worth consulting recent documentation to check whether a feature you wanted might have been implemented.
+
+## Query processing overview
+
+In order to produce query results, PostgreSQL performs the following steps:
+
+- Compile and transform a SQL statement into an expression consisting of high-level logical operations, known as a *logical plan*
+- Optimize the logical plan and convert it into an execution plan
+- Execute (interpret) the plan and return results
+
+### Compilation
+
+Compiling a SQL query is similar to compiling code written in an imperative language. The source code is parsed, and an internal representation is generated. However, the compilation of SQL statements has two essential differences:
+
+- In an imperative language, the definitions of identifiers are usually included in the source code, while definitions of objects referenced in SQL queries are mostly stored in the database. Consequently, the meaning of a query depends on the database structure: different database servers can interpret the same query differently.
+- The output of an imperative language compiler is usually (almost) executable code, such as byte code for a Java virtual machine. In contrast, the output of a query compiler is an expression consisting of high-level operations that remain declarative—they do not give any instruction on how to obtain the required output. A possible order of operations is specified at this point, but not the manner of executing those operations.
