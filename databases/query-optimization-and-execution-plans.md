@@ -18,6 +18,7 @@ SQL is a *declarative language*. That means that when we write a SQL query, we d
   - [PostgreSQL specifics](#postgresql-specifics)
   - [Query processing overview](#query-processing-overview)
     - [Compilation](#compilation)
+    - [Optimization and execution](#optimization-and-execution)
 
 ## Database optimizer
 
@@ -107,7 +108,7 @@ With PostgreSQL, it is especially important to be aware of new features and capa
 
 In order to produce query results, PostgreSQL performs the following steps:
 
-- Compile and transform a SQL statement into an expression consisting of high-level logical operations, known as a *logical plan*
+- Compile and transform a SQL statement into an expression consisting of high-level logical operations, known as a **logical plan**
 - Optimize the logical plan and convert it into an execution plan
 - Execute (interpret) the plan and return results
 
@@ -117,3 +118,13 @@ Compiling a SQL query is similar to compiling code written in an imperative lang
 
 - In an imperative language, the definitions of identifiers are usually included in the source code, while definitions of objects referenced in SQL queries are mostly stored in the database. Consequently, the meaning of a query depends on the database structure: different database servers can interpret the same query differently.
 - The output of an imperative language compiler is usually (almost) executable code, such as byte code for a Java virtual machine. In contrast, the output of a query compiler is an expression consisting of high-level operations that remain declarative—they do not give any instruction on how to obtain the required output. A possible order of operations is specified at this point, but not the manner of executing those operations.
+
+### Optimization and execution
+
+An optimizer performs two kinds of transformations: it replaces logical operations with their execution algorithms and possibly changes the logical expression structure by changing the order in which logical operations will be executed.
+
+Neither of these transformations is straightforward; a logical operation can be computed using different algorithms, and the optimizer tries to choose the best one. The same query may be represented with several equivalent expressions producing the same result but requiring a significantly different amount of computational resources for execution. The optimizer tries to find a logical plan and physical operations that minimize required resources, including execution time. This search requires sophisticated algorithms that are out of scope for this conversation.
+
+The output of the optimizer is an expression containing physical operations. This expression is called a (**physical**) **execution plan**. For that reason, the PostgreSQL optimizer is called the **query planner**.
+
+Finally, the query execution plan is interpreted by the **query execution engine**, frequently referred to as the **executor** in the PostgreSQL community, and output is returned to the client application.
