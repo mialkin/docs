@@ -108,6 +108,9 @@
 - [↑ GitOps](https://about.gitlab.com/topics/gitops)
 - [↑ Есть ли жизнь на Go после C#?](https://habr.com/ru/companies/ozontech/articles/684422/)
 - [↑ What are Functional and Non-Functional Requirements and How to Document These](https://enkonix.com/blog/functional-requirements-vs-non-functional)
+- F.I.R.S.T. Principles
+  - [↑ FIRST Principles as Solid Rules for Tests](https://dzone.com/articles/first-principles-solid-rules-for-tests)
+  - [↑ F.I.R.S.T Principles of Unit Testing](https://github.com/tekguard/Principles-of-Unit-Testing)
 
 ## JavaScript
 
