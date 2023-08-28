@@ -103,6 +103,10 @@ cURL command response:
 
 MockServer UI: <http://localhost:2020/mockserver/dashboard>.
 
+## Repository
+
+[↑  mock-server](https://github.com/mialkin/mock-server).
+
 ## Links
 
 [↑ JSON examples](https://github.com/mock-server/mockserver/blob/master/mockserver-examples/json_examples.md).
