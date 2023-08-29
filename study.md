@@ -32,6 +32,7 @@
   - [↑ SKIP LOCKED](https://www.2ndquadrant.com/en/blog/what-is-select-skip-locked-for-in-postgresql-9-5/)
   - [↑ Group by, Having](https://www.postgresql.org/docs/9.4/tutorial-agg.html)
 - [↑ Serilog `LogContext`](https://github.com/serilog/serilog/wiki/Enrichment)
+- [↑ ASP.NET Core SignalR Tutorials](https://www.youtube.com/playlist?list=PLOeFnOV9YBa7nzzuXnThdfsyY06AuCP5V)
 - [↑ Refit](https://github.com/reactiveui/refit) and [↑ RestSharp](https://github.com/restsharp/RestSharp)
 
 ## Databases
