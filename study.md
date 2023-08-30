@@ -34,6 +34,8 @@
 - [↑ Serilog `LogContext`](https://github.com/serilog/serilog/wiki/Enrichment)
 - [↑ ASP.NET Core SignalR Tutorials](https://www.youtube.com/playlist?list=PLOeFnOV9YBa7nzzuXnThdfsyY06AuCP5V)
 - [↑ Refit](https://github.com/reactiveui/refit) and [↑ RestSharp](https://github.com/restsharp/RestSharp)
+- [↑ pact-net](https://github.com/pact-foundation/pact-net)
+  - [↑ Introduction to contract testing with Pactflow](https://www.youtube.com/playlist?list=PLwy9Bnco-IpfZ72VQ7hce8GicVZs7nm0i)
 
 ## Databases
 
