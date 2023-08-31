@@ -36,6 +36,9 @@
 - [↑ Refit](https://github.com/reactiveui/refit) and [↑ RestSharp](https://github.com/restsharp/RestSharp)
 - [↑ pact-net](https://github.com/pact-foundation/pact-net)
   - [↑ Introduction to contract testing with Pactflow](https://www.youtube.com/playlist?list=PLwy9Bnco-IpfZ72VQ7hce8GicVZs7nm0i)
+- Vault secrets webhook
+  - [↑ Inject secrets directly into Pods from Vault revisited](https://banzaicloud.com/blog/inject-secrets-into-pods-vault-revisited/)
+  - [↑ Kubernetes Meetup Yekaterinburg 001](https://www.youtube.com/watch?v=YUJRVu66ld8&t=1953s)
 
 ## Databases
 
