@@ -5,6 +5,7 @@
     - [Dirty reads](#dirty-reads)
     - [Non-repeatable reads](#non-repeatable-reads)
     - [Phantom reads](#phantom-reads)
+    - [Overall picture](#overall-picture)
   - [Isolation levels](#isolation-levels)
     - [Read uncommitted](#read-uncommitted)
     - [Read committed](#read-committed)
@@ -20,7 +21,7 @@
     - [Read uncommitted isolation level](#read-uncommitted-isolation-level)
     - [Read committed isolation level](#read-committed-isolation-level)
 
-An **isolation level** represents a particular locking strategy employed in the database system to avoid _read phenomena_.
+An **isolation level** represents a particular locking strategy employed in the database system to avoid *read phenomena*.
 
 ## Read phenomena
 
@@ -54,6 +55,16 @@ User 1 uses a search condition to read a set of rows, but does not commit.
 User 2 inserts one or more rows that satisfy this search condition, then commits.
 User 1 rereads the rows using the search condition and discovers rows that were not present before.
 ```
+
+### Overall picture
+
+**Dirty reads** — read *uncommitted* data from another transaction.
+
+**Non-repeatable reads** — read *committed* data from an `UPDATE` query from another transaction.
+
+**Phantom reads** — read *committed* data from an `INSERT` or `DELETE` query from another transaction.
+
+[↑ What is the difference between Non-Repeatable Read and Phantom Read?](https://stackoverflow.com/questions/11043712/what-is-the-difference-between-non-repeatable-read-and-phantom-read)
 
 ## Isolation levels
 
