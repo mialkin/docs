@@ -22,6 +22,7 @@
   - <https://code-maze.com/schedule-jobs-with-quartz-net>
   - <https://www.quartz-scheduler.net/documentation/quartz-3.x/quick-start.html#nuget-package>
   - <https://blog.vfrz.fr/quartz-asp-net-core-3-0/>
+- [↑ MassTransit](https://www.youtube.com/@PhatBoyG/videos)
 - MongoDB
 - Kafka
   - [↑ Error Handling Patterns for Apache Kafka Applications](https://www.confluent.io/blog/error-handling-patterns-in-kafka/)
@@ -56,6 +57,9 @@
 - [↑ `ConcurrencyCheck` attribute](https://www.entityframeworktutorial.net/code-first/concurrencycheck-dataannotations-attribute-in-code-first.aspx)
 - [↑ NoSQL: виды, особенности и применение](https://cloud.yandex.ru/blog/posts/2022/10/nosql)
 - Define what full text search is, how it works and define [↑ inverted index](https://en.wikipedia.org/wiki/Inverted_index)
+- WITH (NOLOCK)
+  - [↑ SQL Server table hints – WITH (NOLOCK) best practices](https://www.sqlshack.com/understanding-impact-clr-strict-security-configuration-setting-sql-server-2017/)
+  - [↑ Understanding the Impact of NOLOCK and WITH NOLOCK Table Hints in SQL Server](https://www.sqlshack.com/understanding-the-impact-of-nolock-and-with-nolock-table-hints-in-sql-server/)
 
 ## Software architecture and design
 
@@ -99,6 +103,7 @@
   - <https://c4model.com>
 - [↑ Почему авторизация сложно и причем здесь Занзибар?](https://www.youtube.com/watch?v=Tr5H8iG0FzI)
   - <https://zanzibar.academy>
+- [↑ Cloud Desing Patterns](https://learn.microsoft.com/en-us/azure/architecture/patterns/)
 
 ## Programming
 
