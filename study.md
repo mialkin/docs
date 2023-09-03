@@ -23,7 +23,7 @@
   - <https://www.quartz-scheduler.net/documentation/quartz-3.x/quick-start.html#nuget-package>
   - <https://blog.vfrz.fr/quartz-asp-net-core-3-0/>
 - [↑ MassTransit](https://www.youtube.com/@PhatBoyG/videos)
-- MongoDB
+- [↑ MongoDB](https://www.mongodb.com)
 - Kafka
   - [↑ Error Handling Patterns for Apache Kafka Applications](https://www.confluent.io/blog/error-handling-patterns-in-kafka/)
   - [↑ Kafka producer delivery semantics](https://medium.com/@sdjemails/kafka-producer-delivery-semantics-be863c727d3f)
@@ -33,6 +33,7 @@
   - [↑ Selecting for Share and Update in PostgreSQL](https://shiroyasha.io/selecting-for-share-and-update-in-postgresql.html)
   - [↑ SKIP LOCKED](https://www.2ndquadrant.com/en/blog/what-is-select-skip-locked-for-in-postgresql-9-5/)
   - [↑ Group by, Having](https://www.postgresql.org/docs/9.4/tutorial-agg.html)
+  - Разобрать задачи с HAVING
 - [↑ Serilog `LogContext`](https://github.com/serilog/serilog/wiki/Enrichment)
 - [↑ ASP.NET Core SignalR Tutorials](https://www.youtube.com/playlist?list=PLOeFnOV9YBa7nzzuXnThdfsyY06AuCP5V)
 - [↑ Refit](https://github.com/reactiveui/refit) and [↑ RestSharp](https://github.com/restsharp/RestSharp)
@@ -60,6 +61,8 @@
 - WITH (NOLOCK)
   - [↑ SQL Server table hints – WITH (NOLOCK) best practices](https://www.sqlshack.com/understanding-impact-clr-strict-security-configuration-setting-sql-server-2017/)
   - [↑ Understanding the Impact of NOLOCK and WITH NOLOCK Table Hints in SQL Server](https://www.sqlshack.com/understanding-the-impact-of-nolock-and-with-nolock-table-hints-in-sql-server/)
+- Как можно вернуть данные из T-SQL-процедуры?
+- T-SQL table variables vs temporary tables
 
 ## Software architecture and design
 
@@ -104,6 +107,8 @@
 - [↑ Почему авторизация сложно и причем здесь Занзибар?](https://www.youtube.com/watch?v=Tr5H8iG0FzI)
   - <https://zanzibar.academy>
 - [↑ Cloud Desing Patterns](https://learn.microsoft.com/en-us/azure/architecture/patterns/)
+- [↑ Distributed Systems lecture series](https://www.youtube.com/playlist?list=PLeKd45zvjcDFUEv_ohr_HdUFe97RItdiB)
+- [↑ AsyncAPI & event-driven architecture](https://www.asyncapi.com/)
 
 ## Programming
 
@@ -144,6 +149,10 @@ for (var i = 0; i < 5; i++) {
   - [↑ The large object heap on Windows systems](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/large-object-heap)
   - [↑ CLRium #5: Курс "Garbage Collector"](https://www.youtube.com/watch?v=DVnmGW6964o)
   - [↑ Pinned Object Heap в .NET 5](https://habr.com/ru/post/593441/)
+  - [↑ Memory leaks](https://github.com/sebastienros/memoryleak)
+  - `WaitForPendingFinalizers`
+  - [↑ When should I use `GC.SuppressFinalize()`?](https://stackoverflow.com/questions/151051/when-should-i-use-gc-suppressfinalize)
+  - [↑ Finalizers](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/finalizers)
 - [↑ dotnet-monitor](https://learn.microsoft.com/en-us/dotnet/core/diagnostics/dotnet-monitor)
 
 ## C&#35;
@@ -192,6 +201,7 @@ for (var i = 0; i < 5; i++) {
 - [↑ How to Convert a String to a Span in C#](https://code-maze.com/csharp-how-to-convert-string-to-span)
 - [↑ Async/await и механизм реализации в C# 5.0](https://habr.com/ru/articles/260217)
 - [↑ Compile code programmatically by using C# compiler](https://learn.microsoft.com/en-us/troubleshoot/developer/visualstudio/csharp/language-compilers/compile-code-using-compiler)
+- Just-In-Time IL code generation
 - [↑ Reflection and Reflection.Emit in C#](https://www.c-sharpcorner.com/UploadFile/puranindia/reflection-and-reflection-emit-in-C-Sharp)
 - Generate code from created expression tree for some mapper. Use generated code to map 2 objects
 - [↑ Интернирование строк](https://learn.microsoft.com/en-us/dotnet/api/system.string.intern). Как отключить интернирование в коде?
@@ -205,6 +215,35 @@ for (var i = 0; i < 5; i++) {
 - Monads
   - [↑ Monads explained in C#](https://mikhail.io/2016/01/monads-explained-in-csharp/)
   - [↑ The Maybe Monad (C#)](https://www.dotnetcurry.com/patterns-practices/1510/maybe-monad-csharp)
+- [↑ Autofac](https://github.com/autofac/Autofac)
+- Reflection. Create a separate repository with simple examples of getting class methods and class method's attributes
+- На странице interface в репозитории docs разобрать какие типы данных могут реализовывать интерфейсы
+- Приведение типов и вызов виртуальных и абстрактных методов. Создать отдельный репозиторий для задач с интервью?
+- Implement merge sort using TPL
+- Выписать XoR, побитовый сдвиг влево/вправо и прочие операции в CS-секцию с примерами реализации на C#
+- Бесконечный вызов рекурсивной функции. Есть ли минусы? Будет ли происходить переполнение стека?
+- Что нужно чтобы использовать using и await (GetEnumerator, GetAwaiter)?
+- Cohesion <https://www.youtube.com/watch?v=r1Ih_nV79eE>, <https://ru.wikipedia.org/wiki/Связность_(программирование)>
+- Чем лямбда отличается от обычной функции?
+- try { return 1; } finally { return 2; } // Cannot jump out of the finally block
+- Наследование в статических классах. Почему его нет?
+- Разобрать .Cast<>, как реализован?
+- В чем минусы DI?
+- Почему разработчики языка разделили память на стек и кучу?
+- Написать бинарное дерево на C#
+- Написать стек, двусвязный и односвязный список на C#
+- ExecutionContext vs SynchronizationContext <https://devblogs.microsoft.com/pfxteam/executioncontext-vs-synchronizationcontext/>
+- [↑ Async HTTP Server](https://jonlabelle.com/snippets/view/csharp/async-http-server-and-client)
+- Process asynchronous tasks as they complete (C#)
+  - <https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/start-multiple-async-tasks-and-process-them-as-they-complete>
+  - <https://devblogs.microsoft.com/pfxteam/processing-tasks-as-they-complete/>
+  - <https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/chaining-tasks-by-using-continuation-tasks>
+- [↑ Concurrency Visualizer](https://docs.microsoft.com/en-us/visualstudio/profiling/concurrency-visualizer)
+- Разобрать C# AggregateException, посоздавать таких исключений, применить метод  AggregateException.Flatten (страница 32 Стивена Клири)
+- [↑ Adventure in learning Go for a C# dev! - Ken Faulkner](https://www.youtube.com/watch?v=0ghHBPNe6g4)
+- Как реализованы дженерики в C#?
+- [MessagePack](https://github.com/neuecc/MessagePack-CSharp)
+- .NET channels <https://www.youtube.com/watch?v=gT06qvQLtJ0>, <https://www.youtube.com/watch?v=E0Ld7ZgE4oY>
 
 ## ASP.NET
 
@@ -225,6 +264,7 @@ for (var i = 0; i < 5; i++) {
 - [↑ Heap](<https://en.wikipedia.org/wiki/Heap_(data_structure)>), [\[2\]](https://en.wikipedia.org/wiki/Binary_heap)
 - [↑ Binary Heap](https://www.geeksforgeeks.org/binary-heap)
 - [↑ Why does a Binary Heap has to be a Complete Binary Tree?](https://stackoverflow.com/questions/25319305/why-does-a-binary-heap-has-to-be-a-complete-binary-tree)
+- [↑ Top 10 Algorithms for the Coding Interview](https://www.youtube.com/watch?v=r1MXwyiGi_U)
 
 ## Web
 
