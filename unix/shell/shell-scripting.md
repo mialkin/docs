@@ -14,15 +14,9 @@ White space after `#!` is optional:
 #!/bin/bash
 ```
 
-## Links
-
-- [Learn bash in Y minutes ↑](https://learnxinyminutes.com/docs/bash/)
-- [Bash scripting cheatsheet ↑](https://devhints.io/bash)
-
 ## Table of contents
 
 - [Shell scripting](#shell-scripting)
-  - [Links](#links)
   - [Table of contents](#table-of-contents)
   - [Executing script](#executing-script)
   - [Output text](#output-text)
@@ -39,6 +33,7 @@ White space after `#!` is optional:
   - [Functions](#functions)
   - [Pass arguments to script](#pass-arguments-to-script)
   - [Debug](#debug)
+  - [Links](#links)
 
 ## Executing script
 
@@ -86,7 +81,7 @@ double quotes as well"
 
 ## Variables
 
-Variables by convention should be uppercase. Only letters, numbers and undersore is allowed in the name of the variable:
+Variables by convention should be uppercase. Only letters, numbers and underscore is allowed in the name of the variable:
 
 ```bash
 NAME="Aleksei"
@@ -99,7 +94,7 @@ echo $NAME
 echo "My name is $NAME"
 ```
 
-Curly braces work too
+Curly braces work too:
 
 ```bash
 echo "My name is ${NAME}"
@@ -132,7 +127,7 @@ echo "$HOME/$FILE_NAME_2021.txt"    # /Users/aleksei/.txt
 
 ## User input
 
-Reading user intput into a variable:
+Reading user input into a variable:
 
 ```bash
 read -p "Enter your name: " NAME
@@ -347,3 +342,8 @@ set -x
 ..code to debug...
 set +x
 ```
+
+## Links
+
+- [Learn bash in Y minutes ↑](https://learnxinyminutes.com/docs/bash/)
+- [Bash scripting cheatsheet ↑](https://devhints.io/bash)
