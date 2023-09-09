@@ -1,5 +1,17 @@
 # Nginx
 
+## Table of context
+
+- [Nginx](#nginx)
+  - [Table of context](#table-of-context)
+  - [Configuration files](#configuration-files)
+  - [Static website](#static-website)
+  - [Reverse proxy](#reverse-proxy)
+  - [HTML files](#html-files)
+  - [Load balancing](#load-balancing)
+  - [Permanent redirect from one page to another](#permanent-redirect-from-one-page-to-another)
+  - [Links](#links)
+
 ## Configuration files
 
 ```sh
@@ -9,14 +21,14 @@ cd /etc/nginx/conf.d        # Additional config files
 
 ## Static website
 
-Create config file for a domain.
+Create config file for a domain:
 
 ```sh
 cd /etc/nginx/conf.d
 sudo vim sub.domain.ru.conf
 ```
 
-Example of a config file.
+Example of a config file:
 
 ```text
 server {
@@ -27,23 +39,23 @@ server {
 }
 ```
 
-Test config files and restart Nginx.
+Test config files and restart Nginx:
 
 ```sh
 sudo nginx -t
 sudo systemctl restart nginx
 ```
 
-## Dynamic website (reverse proxy)
+## Reverse proxy
 
-Create config file for a domain.
+Create config file for a domain:
 
 ```sh
 cd /etc/nginx/conf.d
 sudo vim sub.domain.ru.conf
 ```
 
-Example of a config file.
+Example of a config file:
 
 ```text
 server  {
@@ -54,14 +66,14 @@ server  {
 }
 ```
 
-Test config files and restart Nginx.
+Test config files and restart Nginx:
 
 ```sh
 sudo nginx -t
 sudo systemctl restart nginx
 ```
 
-[↑ NGINX Reverse Proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
+[↑ NGINX Reverse Proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/).
 
 ## HTML files
 
@@ -72,9 +84,9 @@ cd /usr/share/nginx/html/
 
 ## Load balancing
 
-[↑ NGINX as a load balancer](https://www.youtube.com/watch?v=v81CzSeiQjo)
+[↑ NGINX as a load balancer](https://www.youtube.com/watch?v=v81CzSeiQjo).
 
-[↑ HTTP Load Balancing](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/)
+[↑ HTTP Load Balancing](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/).
 
 ## Permanent redirect from one page to another
 
@@ -82,9 +94,8 @@ cd /usr/share/nginx/html/
 server {
   rewrite ^/old/url$ https://new.domain.ru/old/url permanent;
 }
-
 ```
 
-## See also
+## Links
 
-[↑ Beginner's Guide](http://nginx.org/en/docs/beginners_guide.html)
+[↑ Beginner's Guide](http://nginx.org/en/docs/beginners_guide.html).
