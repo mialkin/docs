@@ -180,7 +180,7 @@ If you get `yes` — it's enabled, `no` — disabled.
 
 ## Repository
 
-<https://github.com/mialkin/redis>
+<https://github.com/mialkin/redis>.
 
 ## Links
 
