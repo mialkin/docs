@@ -1,6 +1,6 @@
 # Middleware
 
-A **middleware** is software that's assembled into an app pipeline to handle requests and responses.
+A **middleware** is software that's assembled into an application's pipeline to handle requests and responses.
 
 The middleware class must include:
 
