@@ -75,11 +75,11 @@
 
 ## Unix
 
-- [Environment variables](unix/environment%20variables.md)
+- [Environment variables](unix/environment-variables.md)
 - [macOS](unix/macos/macos.md)
 - [Nginx](unix/nginx.md)
 - [Shell](unix/shell/shell.md)
-  - [Shell scripting](unix/shell/shell%20scripting.md)
+  - [Shell scripting](unix/shell/shell-scripting.md)
 - [Tools](unix/tools/tools.md)
   - [crontab](unix/tools/crontab.md)
   - [gpg](unix/tools/gpg.md)

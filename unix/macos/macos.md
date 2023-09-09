@@ -48,7 +48,7 @@ killall Finder
 
 Set `Downloads` as default folder:
 
-<img src="macosFinder.png" width="400px">
+<img src="macos-finder.png" width="400px">
 
 ## Flush DNS cache
 
