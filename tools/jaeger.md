@@ -13,4 +13,4 @@ A **trace** is a collection/list of spans connected in a parent/child relationsh
 ## Links
 
 - [↑ Jaeger Tracing: A Friendly Guide for Beginners
-](https://medium.com/jaegertracing/jaeger-tracing-a-friendly-guide-for-beginners-7b53a4a568ca)
+](https://medium.com/jaegertracing/jaeger-tracing-a-friendly-guide-for-beginners-7b53a4a568ca).

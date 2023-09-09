@@ -21,11 +21,11 @@ jenkinsci/blueocean
 
 ## Jenkins Pipeline
 
-A **Jenkins Pipeline** (or simply "Pipeline" with a capital "P") is a suite of plugins which supports implementing and integrating _continuous delivery pipelines_ into Jenkins.
+A **Jenkins Pipeline** or simply **Pipeline** with a capital "P" is a suite of plugins which supports implementing and integrating *continuous delivery pipelines* into Jenkins.
 
 A **continuous delivery pipeline** is an automated expression of your process for getting software from version control right through to your users and customers.
 
-Typically, the definition of a Jenkins Pipeline is written into a text file (called a `Jenkinsfile`) which in turn is checked into a project's source control repository. Example of a `Jenkinsfile`:
+Typically, the definition of a Jenkins Pipeline is written into a text file, called a `Jenkinsfile`, which in turn is checked into a project's source control repository. Example of a `Jenkinsfile`:
 
 ```groovy
 // Declarative pipeline
