@@ -5,13 +5,13 @@
   - [Finder](#finder)
   - [Flush DNS cache](#flush-dns-cache)
   - [`hosts` file](#hosts-file)
-  - [Install developer's app](#install-developers-app)
+  - [Install developers' applications](#install-developers-applications)
   - [IP address](#ip-address)
   - [Key repeating](#key-repeating)
-    - [Other](#other)
+  - [Run application](#run-application)
+  - [Copy text to clipboard](#copy-text-to-clipboard)
   - [Rider](#rider)
   - [Safari](#safari)
-  - [Shortcuts](#shortcuts)
   - [Sublime Text](#sublime-text)
   - [Terminal aliases](#terminal-aliases)
   - [Tree](#tree)
@@ -62,11 +62,11 @@ sudo killall -HUP mDNSResponder
 sudo vim /etc/hosts
 ```
 
-## Install developer's app
+## Install developers' applications
 
-1. Just move app into `/Applications` folder and open it.
-2. If you see `"YOUR_APP" cannot be opened because the developer cannot be verified.`, please open up System Preferences -> Security & Privacy -> General -> Open Anyway.
-3. If you see the error `The application YOUR_APP can't be opened` error on launch, you could chmod +x "/Applications/YOUR_APP.app/Contents/MacOS/YOUR_APP"
+1. Just move application into `/Applications` folder and open it
+2. If you see `"YOUR_APPLICATION" cannot be opened because the developer cannot be verified`, please open up **System Preferences** → **Security & Privacy** → **General** → **Open Anyway**.
+3. If you see the error `The application YOUR_APPLICATION can't be opened` error on launch, you could `chmod +x "/Applications/YOUR_APPLICATION.app/Contents/MacOS/YOUR_APPLICATION`"
 
 ## IP address
 
@@ -86,9 +86,7 @@ Next, restart your computer and you should now be able to repeat all characters.
 
 Replace `true` with `false` to revert changes back.
 
-### Other
-
-Run an application:
+## Run application
 
 ```sh
 open -a calculator                  # -a is for "application"
@@ -96,7 +94,7 @@ ll /Applications                    # List installed apps
 open -a "Microsoft Remote Desktop"
 ```
 
-Copy text to clippbord:
+## Copy text to clipboard
 
 ```sh
 cat example.txt \| pbcopy
@@ -128,12 +126,6 @@ chmod 775 rider
 ## Safari
 
 Clear local storage: **Web inspector** → **Storage** → **Clear local storage**
-
-## Shortcuts
-
-| Shortcut | Meaning                   |
-| -------- | ------------------------- |
-|          | Print apostrophe sign `’` |
 
 ## Sublime Text
 
