@@ -31,7 +31,7 @@
 
 ## Books
 
-- [IT books](books/it-books.md)
+- [Books](books/books.md)
 
 ## Tools
 
