@@ -2,7 +2,7 @@
 
 ## Graphviz
 
-- [↑ Graphviz](https://graphviz.org)
+- [↑ Graphviz](https://graphviz.org).
 
 ```dot
 digraph DiagramName {
@@ -23,9 +23,9 @@ digraph DiagramName {
 
 ## PlantUML
 
-- [↑ PlantUML](https://plantuml.com)
+[↑ PlantUML](https://plantuml.com).
 
-- [↑ PlantUML Server](https://github.com/plantuml/plantuml-server)
+[↑ PlantUML Server](https://github.com/plantuml/plantuml-server).
 
 ```bash
 docker run -d -p 7077:8080 plantuml/plantuml-server:jetty
