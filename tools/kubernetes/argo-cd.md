@@ -16,7 +16,7 @@ Project's [↑ GitHub repository](https://github.com/argoproj/argo-cd).
 4. The GitOps team reviews the pull request and merges approved changes to the main branch, triggering a webhook that notifies Argo CD of the change.
 5. Argo CD copies the repository and compares the desired application’s state with the Kubernetes cluster’s current state, applying the necessary changes to the cluster configuration.
 6. Kubernetes controllers reconcile the required changes to the cluster resources until it reaches the target configuration.
-7. Argo CD tracks the change’s progress and reports the application as “in sync” when the cluster matches the desired state.
+7. Argo CD tracks the change’s progress and reports the application as "in sync" when the cluster matches the desired state.
 8. ArgoCD can also work in the opposite direction to monitor changes to the Kubernetes cluster, rolling them back if they do not match the current Git configuration.
 
 [↑ What Is a GitOps Workflow?](https://codefresh.io/learn/gitops/gitops-workflow-vs-traditional-workflow-what-is-the-difference/)

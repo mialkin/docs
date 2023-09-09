@@ -33,7 +33,7 @@ Most hooks support tag scoping. Use tag scoping to restrict hooks to only those 
 
 ## Scoped bindings
 
-Bindings (step definitions, hooks) are global for the entire SpecFlow project. This means that step definitions bound to a very generic step text (e.g. “When I save the changes”) become challenging to implement. The general solution for this problem is to phrase the scenario steps in a way that the context is clear (e.g. “When I save the book details”).
+Bindings (step definitions, hooks) are global for the entire SpecFlow project. This means that step definitions bound to a very generic step text (e.g. "When I save the changes") become challenging to implement. The general solution for this problem is to phrase the scenario steps in a way that the context is clear (e.g. "When I save the book details").
 
 In some cases however, it is necessary to restrict when step definitions or hooks are executed based on certain conditions. SpecFlow's [↑ scoped bindings](https://docs.specflow.org/projects/specflow/en/latest/Bindings/Scoped-Step-Definitions.html) can be used for this purpose.
 

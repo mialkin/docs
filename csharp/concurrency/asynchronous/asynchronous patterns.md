@@ -112,7 +112,7 @@ Consume the EAP by converting it to TAP using `TaskCompletionSource<T>`.
 
 ## Continuation Passing Style (CPS)
 
-This is a pattern that is much more common in other languages, particularly JavaScript and TypeScript as used by Node.js developers. In this pattern, each asynchronous operation takes a callback delegate that is invoked when the operation completes, either successfully or with error. A variant of this pattern uses _two_ callback delegates, one for success and one for error. This kind of callback is called a “continuation,” and the continuation is passed as a parameter, hence the name “continuation passing style.” This pattern was never common in the .NET world, but there are a few older open source libraries that used it.
+This is a pattern that is much more common in other languages, particularly JavaScript and TypeScript as used by Node.js developers. In this pattern, each asynchronous operation takes a callback delegate that is invoked when the operation completes, either successfully or with error. A variant of this pattern uses _two_ callback delegates, one for success and one for error. This kind of callback is called a "continuation", and the continuation is passed as a parameter, hence the name "continuation passing style". This pattern was never common in the .NET world, but there are a few older open source libraries that used it.
 
 The Continuation Passing Style pattern can be recognized by these characteristics:
 

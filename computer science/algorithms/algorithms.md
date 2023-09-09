@@ -16,7 +16,7 @@ A **binary search** is a search algorithm that finds the position of a target va
 
 Binary search is a *divide and conquer* algorithm. Like all divide-and-conquer algorithms, binary search first divides a large array into two smaller subarrays and then recursively or iteratively operates the subarrays. But instead of working on both subarrays, it discards one subarray and continues on the second subarray. This decision of discarding one subarray is made in just one comparison.
 
-Binary search reduces the search space to half at each step. By search space, we mean a subarray of the given array where the target value is located (if present in the array). Initially, the search space is the entire array, and binary search redefines the search space at every step of the algorithm by using the property of the array that it is sorted. It does so by comparing the mid-value in the search space to the target value. If the target value matches the middle element, its position in the array is returned; otherwise, it discards half of the search space based on the comparison result.
+Binary search reduces the search space to half at each step. By search space, we mean a subarray of the given array where the target value is located, if present in the array. Initially, the search space is the entire array, and binary search redefines the search space at every step of the algorithm by using the property of the array that it is sorted. It does so by comparing the mid-value in the search space to the target value. If the target value matches the middle element, its position in the array is returned; otherwise, it discards half of the search space based on the comparison result.
 
 C# implementation:
 
@@ -61,11 +61,11 @@ int middle = right - (right - left) / 2;
 
 ## Breadth-first search
 
-A **breadth-first search** (**BFS**) is an algorithm for *traversing* or *searching*  a tree or graph data structures. The algorithm starts at the root node (selecting some arbitrary node as the root node in the case of a graph) and explores all nodes at the present depth prior to moving on to the nodes at the next depth level. Extra memory, usually a queue, is needed to keep track of the child nodes that were encountered but not yet explored.
+A **breadth-first search** or **BFS** is an algorithm for *traversing* or *searching*  a tree or graph data structures. The algorithm starts at the root node, selecting some arbitrary node as the root node in the case of a graph, and explores all nodes at the present depth prior to moving on to the nodes at the next depth level. Extra memory, usually a queue, is needed to keep track of the child nodes that were encountered but not yet explored.
 
 ## Bubble sort
 
-Each pass of bubble sort steps through the list to be sorted compares each pair of adjacent items and swaps them if they are in the wrong order. At the end of each pass, the next largest element will “Bubble” up to its correct position. These passes through the list are repeated until no swaps are needed, which indicates that the list is sorted. In the worst-case, we might end up making an `n - 1` pass, where `n` is the input size.
+Each pass of bubble sort steps through the list to be sorted compares each pair of adjacent items and swaps them if they are in the wrong order. At the end of each pass, the next largest element will "Bubble" up to its correct position. These passes through the list are repeated until no swaps are needed, which indicates that the list is sorted. In the worst-case, we might end up making an `n - 1` pass, where `n` is the input size.
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Bubble-sort-example-300px.gif">
 

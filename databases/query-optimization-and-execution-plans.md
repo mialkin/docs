@@ -59,7 +59,7 @@ The most important thing is to understand how a database engine processes a quer
 
 If you practice "thinking like a database" long enough, it will become a natural way of thinking, and you will be able to write queries correctly right away, often without the need for future optimization.
 
-Writing a database query is different from writing application code using imperative languages. SQL is a declarative language, which means that we specify the desired outcome, but do not specify an execution path. Since two queries yielding the same result may be executed differently, utilizing different resources and taking a different amount of time, optimization and “thinking like a database” are core parts of SQL development.
+Writing a database query is different from writing application code using imperative languages. SQL is a declarative language, which means that we specify the desired outcome, but do not specify an execution path. Since two queries yielding the same result may be executed differently, utilizing different resources and taking a different amount of time, optimization and "thinking like a database" are core parts of SQL development.
 
 ## Postgres Air database
 

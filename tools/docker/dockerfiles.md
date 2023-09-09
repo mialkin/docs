@@ -11,7 +11,7 @@ RUN make /app
 CMD python /app/app.py
 ```
 
-Each instruction above creates one layer. When you run an image and generate a container, you add a new writable layer (the “container layer”) on top of the underlying layers. All changes made to the running container, such as writing new files, modifying existing files, and deleting files, are written to this thin writable container layer.
+Each instruction above creates one layer. When you run an image and generate a container, you add a new writable layer (the "container layer") on top of the underlying layers. All changes made to the running container, such as writing new files, modifying existing files, and deleting files, are written to this thin writable container layer.
 
 ### Understand build context
 
