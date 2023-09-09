@@ -63,7 +63,6 @@
   - [kubectl](tools/kubernetes/kubectl.md)
   - [Kustomize](tools/kubernetes/kustomize.md)
   - [microk8s](tools/kubernetes/microk8s/microk8s.md)
-- [MC](tools/mc.md)
 - [Prometheus](tools/prometheus/prometheus.md)
   - [PromQL](tools/prometheus/promql.md)
 - [RabbitMQ](tools/rabbitmq/rabbitmq.md)
