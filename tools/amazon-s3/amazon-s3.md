@@ -28,7 +28,7 @@ We recommend that you use multipart upload in the following ways:
 
 ## Downloading an object
 
-[↑ `GetObject`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
+[↑ `GetObject`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html).
 
 ## REST API
 
