@@ -80,12 +80,12 @@
 - [Nginx](unix/nginx.md)
 - [Shell](unix/shell/shell.md)
   - [Shell scripting](unix/shell/shell%20scripting.md)
-- [Tools](unix/tools.md)
-  - [crontab](unix/crontab.md)
-  - [gpg](unix/gpg.md)
-  - [ssh](unix/ssh.md)
-  - [tmux](unix/tmux.md)
-  - [vim](unix/vim.md)
+- [Tools](unix/tools/tools.md)
+  - [crontab](unix/tools/crontab.md)
+  - [gpg](unix/tools/gpg.md)
+  - [ssh](unix/tools/ssh.md)
+  - [tmux](unix/tools/tmux.md)
+  - [vim](unix/tools/vim.md)
 - [Ubuntu](unix/ubuntu.md)
 - [User management](unix/user-managment.md)
 
@@ -240,7 +240,7 @@
   - [AES](security/aes.md)
 - [TLS](security/tls/tls.md)
 - Web
-  - [↑ Cross-site request forgery (XSRF or CSRF)](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
+  - [↑ Cross-site request forgery, XSRF or CSRF](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
   - [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
 
 ## Computer science
