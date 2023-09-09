@@ -109,6 +109,8 @@
 - [↑ Cloud Desing Patterns](https://learn.microsoft.com/en-us/azure/architecture/patterns/)
 - [↑ Distributed Systems lecture series](https://www.youtube.com/playlist?list=PLeKd45zvjcDFUEv_ohr_HdUFe97RItdiB)
 - [↑ AsyncAPI & event-driven architecture](https://www.asyncapi.com/)
+- [↑ Lock-free коллекции в .NET 6](https://www.youtube.com/watch?v=-fTrew8atpk)
+  - [↑ Посмотреть доклады по .NET на канале IT и т.д.](https://www.youtube.com/@IT_i_td/videos)
 
 ## Programming
 
