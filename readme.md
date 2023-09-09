@@ -245,8 +245,8 @@
 
 ## Computer science
 
-- [Algorithms](computer%20science/algorithms/algorithms.md)
-- [Data structures](computer%20science/data%20structures/data%20structures.md)
+- [Algorithms](computer-science/algorithms/algorithms.md)
+- [Data structures](computer-science/data-structures/data-structures.md)
 
 ## Python
 

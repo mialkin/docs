@@ -1,6 +1,6 @@
-# Data Structures
+# Data structures
 
-- [Data Structures](#data-structures)
+- [Data structures](#data-structures)
   - [Array](#array)
   - [Graph](#graph)
   - [Hash table or hash map](#hash-table-or-hash-map)
@@ -88,4 +88,4 @@ A **binary search tree** or **BST** is a binary tree where the left child contai
 
 ## Data structure complexities
 
-<img src="data%20structure%20complexities.png" width="850px">
+<img src="data-structure-complexities.png" width="850px">

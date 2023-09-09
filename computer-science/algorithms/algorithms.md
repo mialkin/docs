@@ -95,11 +95,11 @@ A **depth-first search** (**DFS**) is an algorithm for *traversing* or *searchin
 
 ## Selection sort
 
-The idea is to divide the array into two subsets —– sorted subset and unsorted subset. Initially, the sorted subset is empty, and the unsorted subset is the entire input list. The algorithm proceeds by finding the smallest (or largest, depending on sorting order) element in the unsorted subset, swapping it with the leftmost unsorted element (putting it in sorted subset), and moving the subset boundaries one element to the right.
+The idea is to divide the array into two subsets — sorted subset and unsorted subset. Initially, the sorted subset is empty, and the unsorted subset is the entire input list. The algorithm proceeds by finding the smallest, or largest, depending on sorting order, element in the unsorted subset, swapping it with the leftmost unsorted element. putting it in sorted subset, and moving the subset boundaries one element to the right.
 
 Visual demonstration:
 
-<img src="selection%20sort.png" width="200px">
+<img src="selection-sort.png" width="200px">
 
 C# implementation:
 
@@ -122,7 +122,7 @@ public void Sort(int[] array)
 
 ## Sorting complexities
 
-<img src="array%20sorting%20complexities.png" width="550px">
+<img src="array-sorting-complexities.png" width="550px">
 
 ## Links
 
