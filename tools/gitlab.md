@@ -48,9 +48,9 @@ A **`.gitlab-ci.yml`** is a file that contains the CI/CD configuration.
 
 The scripts of CI/CD  are grouped into *jobs*, and jobs run as part of a larger *pipeline*. You can group multiple independent jobs into *stages* that run in a defined order. The CI/CD configuration needs at least one job that is not hidden.
 
-[↑ The `.gitlab-ci.yml` file](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html)
+[↑ The `.gitlab-ci.yml` file](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html).
 
-[↑ Development guide for GitLab CI templates](https://gitlab.com/gitlab-org/gitlab/-/tree/master/lib/gitlab/ci/templates)
+[↑ Development guide for GitLab CI templates](https://gitlab.com/gitlab-org/gitlab/-/tree/master/lib/gitlab/ci/templates).
 
 To use GitLab CI/CD, you need:
 
@@ -66,7 +66,7 @@ A GitLab CI/CD pipeline configuration includes:
 - Global keywords that configure pipeline behavior.
 - Job keywords that configure jobs behavior
 
-[↑ .gitlab-ci.yml keyword reference](https://docs.gitlab.com/ee/ci/yaml/)
+[↑ .gitlab-ci.yml keyword reference](https://docs.gitlab.com/ee/ci/yaml/).
 
 ### Runners
 
@@ -78,7 +78,7 @@ A **job** is the instructions that a runner has to execute.
 
 When you commit the file to your repository, the runner runs your jobs.
 
-[↑ Jobs](https://docs.gitlab.com/ee/ci/jobs)
+[↑ Jobs](https://docs.gitlab.com/ee/ci/jobs).
 
 #### Hidden jobs
 
@@ -99,7 +99,7 @@ You can use hidden jobs that start with `.` as templates for reusable configurat
 
 A **pipeline** is a collection of jobs split into different *stages*.
 
-[↑ Pipelines](https://docs.gitlab.com/ee/ci/pipelines/)
+[↑ Pipelines](https://docs.gitlab.com/ee/ci/pipelines/).
 
 #### Merge request pipelines
 
@@ -124,7 +124,7 @@ Merge request pipelines:
 - Have access to more predefined variables.
 - Do not have access to protected variables or protected runners.
 
-[↑ Merge request pipelines](https://docs.gitlab.com/ee/ci/pipelines/merge_request_pipelines.html)
+[↑ Merge request pipelines](https://docs.gitlab.com/ee/ci/pipelines/merge_request_pipelines.html).
 
 #### Downstream pipelines
 
@@ -156,7 +156,7 @@ CI/CD variables are a type of environment variable. You can use them to:
 
 You can use [↑ predefined CI/CD variables](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html) or define custom.
 
-[↑ GitLab CI/CD variables](https://docs.gitlab.com/ee/ci/variables)
+[↑ GitLab CI/CD variables](https://docs.gitlab.com/ee/ci/variables).
 
 ### Caches
 
@@ -166,13 +166,13 @@ Use cache for dependencies, like packages you download from the internet. Cache 
 
 Both caches and *artifacts* define their paths relative to the project directory, and can't link to files outside it.
 
-[↑ Caching](https://docs.gitlab.com/ee/ci/caching)
+[↑ Caching](https://docs.gitlab.com/ee/ci/caching).
 
 As we know a pipeline is a set of stages and each stage can have one or more jobs. Jobs work on a distributed farm of runners. When we start a pipeline, a random runner with free resources executes the needed job. The GitLab-runner is the agent that can run jobs. For simplicity, let's consider Docker as an executor for all runners.
 
 Each job starts with a clean slate and doesn't know the results of the previous one. If you don't use cache and artifacts, the runner will have to go to the internet or local registry and download the necessary packages when installing project dependencies.
 
-[↑ GitLab CI: Cache and Artifacts explained by example](https://dev.to/drakulavich/gitlab-ci-cache-and-artifacts-explained-by-example-2opi)
+[↑ GitLab CI: Cache and Artifacts explained by example](https://dev.to/drakulavich/gitlab-ci-cache-and-artifacts-explained-by-example-2opi).
 
 ### Artifacts
 
@@ -202,7 +202,7 @@ The service image can run any application, but the most common use case is to ru
 - PostgreSQL
 - Redis
 
-[↑ Services](https://docs.gitlab.com/ee/ci/services)
+[↑ Services](https://docs.gitlab.com/ee/ci/services).
 
 ### Docker
 
@@ -295,14 +295,14 @@ The SSH executor is added for completeness, but it's the least supported among a
 
 The Custom executor allows you to specify your own execution environments. When GitLab Runner does not provide an executor (for example, LXC containers), you are able to provide your own executables to GitLab Runner to provision and clean up any environment you want to use.
 
-[↑ Executors](https://docs.gitlab.com/runner/executors)
+[↑ Executors](https://docs.gitlab.com/runner/executors).
 
 ### Monitoring runners
 
 You can use Prometheus to monitor your runners. You can view things like the number of currently-running jobs and how much CPU your runners are using.
 
-[↑ GitLab Runner](https://docs.gitlab.com/runner)
+[↑ GitLab Runner](https://docs.gitlab.com/runner).
 
 ## Releases
 
-[↑ Releases](https://docs.gitlab.com/ee/user/project/releases/)
+[↑ Releases](https://docs.gitlab.com/ee/user/project/releases/).
