@@ -1,10 +1,10 @@
 # Environment variables
 
-Global **environment variables** are available to all processes and they are named in uppercase, with words joined by underscore (\_), e.g., JAVA_HOME.
+Global **environment variables** are available to all processes and they are named in uppercase, with words joined by underscore `_`, e.g., `JAVA_HOME`.
 
 ## Locals
 
-Local variables aka **locals** are available to the current process only and they are in lowercase.
+Local variables aka *locals* are available to the current process only and they are in lowercase.
 
 ## Commands
 
@@ -19,7 +19,7 @@ Local variables aka **locals** are available to the current process only and the
 
 ## macOS variables set by user
 
-Environment variables set like this are only stored temporally. When you exit the running instance of bash by exiting the terminal, they get discarded. To save them permanentally, open the file:
+Environment variables set like this are only stored temporally. When you exit the running instance of bash by exiting the terminal, they get discarded. To save them permanently, open the file:
 
 ```bash
 cd
