@@ -4,7 +4,7 @@
 
 Elasticsearch provides near real-time search and analytics for all types of data.
 
-[↑ Welcome to Elastic Docs](https://www.elastic.co/guide/index.html)
+[↑ Welcome to Elastic Docs](https://www.elastic.co/guide/index.html).
 
 ## Table of contents
 
@@ -225,7 +225,7 @@ An analyzer must have exactly one tokenizer.
 
 A **token filter** is a thing that receives the token stream and may add, remove, or change tokens.
 
-For example, a [↑ lowercase token filter](https://www.elastic.co/guide/en/elasticsearch/reference/master/analysis-lowercase-tokenfilter.html) converts all tokens to lowercase, a stop token filter removes common words (*stop words*) like the from the token stream, and a synonym token filter introduces synonyms into the token stream.
+For example, a [↑ lowercase token filter](https://www.elastic.co/guide/en/elasticsearch/reference/master/analysis-lowercase-tokenfilter.html) converts all tokens to lowercase, a stop token filter removes common words, *stop words*, like the from the token stream, and a synonym token filter introduces synonyms into the token stream.
 
 Token filters are not allowed to change the position or character offsets of each token.
 
