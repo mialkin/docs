@@ -162,9 +162,9 @@ git rebase --abort
 - Wrap the body at 72 characters
 - Use the body to explain _what_ and _why_ vs. _how_
 
-[↑ How to Write a Git Commit Message.pdf](How%20to%20Write%20a%20Git%20Commit%20Message.pdf)
+PDF: [How to Write a Git Commit Message](how-to-write-a-git-commit-message.pdf).
 
-[↑ How to Write a Git Commit Message — Original Article](https://chris.beams.io/posts/git-commit)
+[↑ How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit) — original article.
 
 ## Fetching vs pulling
 
@@ -243,7 +243,7 @@ git stash show -p
 git stash show -p stash@{n}  ## show specific stash
 ```
 
-[↑ Git stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash)
+[↑ Git stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash).
 
 ## Change commit date
 
@@ -263,7 +263,7 @@ GIT_AUTHOR_DATE=$(date -d "...") GIT_COMMITTER_DATE="$GIT_AUTHOR_DATE" git commi
 
 Above `date -d "..."` can be exact date like `2019-01-01 12:40:04` or relative like `24 days ago`.
 
-The author date on a commit is preserved on rebase / cherry-pick etc, but the committer date is changed.
+The author date on a commit is preserved on rebase/cherry-pick etc, but the committer date is changed.
 
 As the "Pro Git Book" explains: "The author is the person who originally wrote the work, whereas the committer is the person who last applied the work".
 
