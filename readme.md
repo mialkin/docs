@@ -87,7 +87,7 @@
   - [tmux](unix/tmux.md)
   - [vim](unix/vim.md)
 - [Ubuntu](unix/ubuntu.md)
-- [User management](unix/user%20managment.md)
+- [User management](unix/user-managment.md)
 
 ## Databases
 

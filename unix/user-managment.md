@@ -1,6 +1,20 @@
-# User managment
+# User management
 
-## Creating
+## Table of contents
+
+- [User management](#user-management)
+  - [Table of contents](#table-of-contents)
+  - [Create](#create)
+  - [Switch](#switch)
+  - [List](#list)
+  - [Delete](#delete)
+  - [Elevate permissions](#elevate-permissions)
+  - [Groups](#groups)
+  - [Add password to user](#add-password-to-user)
+  - [Add to `sudo` group](#add-to-sudo-group)
+  - [Allow to connect via SSH](#allow-to-connect-via-ssh)
+
+## Create
 
 Create a new user `sammy`:
 
@@ -8,25 +22,25 @@ Create a new user `sammy`:
 sudo adduser sammy --disabled-password
 ```
 
-The `--disabled-password` option will not set a password, meaning no password is legal, but login is still possible (for example with SSH RSA keys).
+The `--disabled-password` option will not set a password, meaning no password is legal, but login is still possible, for example with SSH RSA keys.
 
-## Switching
+## Switch
 
-To switch to a user `sammy` that was created without password, run:
+Switch to a user `sammy` that was created without password:
 
 ```bash
 sudo -u sammy -s
 ```
 
-To exit run:
+Exit:
 
 ```bash
 exit
 ```
 
-## Listing
+## List
 
-To find out if a user with name `sammy` exists run:
+Find out if a user with name `sammy` exists:
 
 ```bash
 getent passwd | grep sammy
@@ -40,17 +54,15 @@ less /etc/passwd
 
 Each line in the file has seven fields delimited by colons that contain the following information:
 
-- User name.
-- Encrypted password (`x` means that the password is stored in the `/etc/shadow` file).
-- User ID number (UID).
-- User's group ID number (GID).
-- Full name of the user (GECOS).
-- User home directory.
-- Login shell (defaults to `/bin/bash`).
+- Username
+- Encrypted password; `x` means that the password is stored in the `/etc/shadow` file
+- User ID number, UID
+- User's group ID number, GID
+- Full name of the user, GECOS
+- User home directory
+- Login shell, defaults to `/bin/bash`
 
-If you want to find out how many users accounts you have on your system, pipe the `getent passwd` output to the `wc` command:
-
-## Deleting
+## Delete
 
 Delete user with its data including `/home/sammy` folder:
 
@@ -60,7 +72,7 @@ sudo userdel -r sammy
 
 ## Elevate permissions
 
-To elevate yourself to super use run:
+Elevate yourself to superuser:
 
 ```bash
 sudo -i
@@ -99,7 +111,7 @@ sudo passwd sammy
 usermod -aG sudo sammy
 ```
 
-## Allowing to connect via SSH
+## Allow to connect via SSH
 
 Being logged in as a new user create new `.ssh` directory:
 
@@ -119,14 +131,14 @@ Recursively remove all "group" and "other" permissions for the ~/.ssh/ directory
 chmod -R go= ~/.ssh
 ```
 
-If you're using the root account to set up keys for a user account, it's also important that the ~/.ssh directory belongs to the user and not to root:
+If you're using the root account to set up keys for a user account, it's also important that the `~/.ssh` directory belongs to the user and not to root:
 
 ```bash
 chown -R sammy:sammy ~/.ssh
 ```
 
-Test connection by running:
+Test connection:
 
 ```bash
-ssh sammy@yoursite.xyz
+ssh sammy@domain.xyz
 ```
