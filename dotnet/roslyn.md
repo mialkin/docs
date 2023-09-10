@@ -1,7 +1,5 @@
 # Code analysis
 
-## Code analysis
-
 [↑ Overview of .NET source code analysis](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview)
 
 *Roslyn* analyzers inspect your C# or Visual Basic code for *code quality* and *style issues*.
@@ -15,7 +13,6 @@
 ## Table of contents
 
 - [Code analysis](#code-analysis)
-  - [Code analysis](#code-analysis-1)
   - [Table of contents](#table-of-contents)
   - [Code analyzers](#code-analyzers)
   - [Code analysis vs EditorConfig file](#code-analysis-vs-editorconfig-file)
@@ -74,6 +71,6 @@ Available rule categories: `Design`, `Documentation`, `Globalization`, `Portabil
 
 Code-style language rules affect how various constructs of .NET programming languages, for example, modifiers, and parentheses, are used. The rules fall into the following categories:
 
-- .NET style rules: Rules that apply to both C# and Visual Basic. The option names for these rules start with the prefix `dotnet_style_`.
-- C# style rules: Rules that are specific to C# code. The option names for these rules start with the prefix `csharp_style_`.
-- Visual Basic style rules: Rules that are specific to Visual Basic code. The option names for these rules start with the prefix `visual_basic_style_`.
+- .NET style rules: Rules that apply to both C# and Visual Basic. The option names for these rules start with the prefix `dotnet_style_`
+- C# style rules: Rules that are specific to C# code. The option names for these rules start with the prefix `csharp_style_`
+- Visual Basic style rules: Rules that are specific to Visual Basic code. The option names for these rules start with the prefix `visual_basic_style_`

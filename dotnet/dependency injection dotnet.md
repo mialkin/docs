@@ -11,7 +11,7 @@
   - [Scope scenarios](#scope-scenarios)
   - [Links](#links)
 
-.NET provides a built-in **service container**, `IServiceProvider`, in which registration of services with the concrete types takes place. Services are typically registered at the app's start-up, and appended to an `IServiceCollection`. Once all services are added, you use `BuildServiceProvider` to create the service container.
+.NET provides a built-in *service container*, `IServiceProvider`, in which registration of services with the concrete types takes place. Services are typically registered at the app's start-up, and appended to an `IServiceCollection`. Once all services are added, you use `BuildServiceProvider` to create the service container.
 
 `IServiceCollection` is a collection of `ServiceDescriptor` objects:
 
@@ -96,4 +96,4 @@ To achieve scoping services within implementations of `IHostedService`, such as 
 
 ## Links
 
-[↑ Dependency injection in .NET](https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection)
+[↑ Dependency injection in .NET](https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection).

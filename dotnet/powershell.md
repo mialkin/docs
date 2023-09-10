@@ -42,4 +42,4 @@ PowerShell is a cross-platform task automation and configuration management fram
 
 ## Links
 
-- [↑ Learn PowerShell in Y minutes](https://learnxinyminutes.com/docs/powershell/)
+[↑ Learn PowerShell in Y minutes](https://learnxinyminutes.com/docs/powershell/).
