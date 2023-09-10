@@ -14,7 +14,7 @@ Aggregation differs from ordinary composition in that it does not imply ownershi
 
 Composition is usually implemented such that an object contains another object.
 
-[Link ↑](https://en.wikipedia.org/wiki/Object_composition#Aggregation)
+[↑ Link](https://en.wikipedia.org/wiki/Object_composition#Aggregation).
 
 ## StackExchange
 
@@ -75,7 +75,7 @@ UML notations for different kinds of dependencies between two objects:
 
 From the book "Head First Object-Oriented Analysis & Design": <sup>1</sup>
 
-<img src="cheat%20sheet.png" height="350">
+<img src="cheat-sheet.png" height="350">
 
 [Link ↑](https://softwareengineering.stackexchange.com/questions/61376/aggregation-vs-composition)
 

@@ -172,14 +172,14 @@
 
 ## Programming
 
-- [Aggregation and composition](programming/aggregation%20and%20composition/aggregation%20and%20composition.md)
-- [Cyclomatic complexity](programming/cyclomatic%20complexity.md)
+- [Aggregation and composition](programming/aggregation-and-composition/aggregation-and-composition.md)
+- [Cyclomatic complexity](programming/cyclomatic-complexity.md)
 - [↑ DTOs vs POCOs/POJOs](https://ardalis.com/dto-or-poco)
 - [EditorConfig](programming/editorconfig.md)
 - [Feature flags](programming/feature-flags.md)
-- [Function parameters vs arguments](programming/function%20parameters%20vs%20arguments.md)
+- [Function parameters vs arguments](programming/function-parameters-vs-arguments.md)
 - [Idempotence](programming/idempotence.md)
-- [Inversion of control, IoC](programming/ioc/inversion%20of%20control.md)
+- [Inversion of control, IoC](programming/ioc/inversion-of-control.md)
 - [Initiatives, epics, stories](programming/initiatives-epics-stories/initiatives-epics-stories.md)
 - [Makefile](programming/makefile.md)
 - [Marshalling](programming/marshalling.md)
@@ -187,7 +187,7 @@
 - [Reviewing merge requests](programming/reviewing-merge-requests.md)
 - [Scrum](programming/scrum/scrum.md)
 - [Serialization](programming/serialization.md)
-- [Time zones vs offsets](programming/time%20zones%20vs%20offsets.md)
+- [Time zones vs offsets](programming/time-zones-vs-offsets.md)
 - [Upstream and downstream](programming/upstream-and-downstream/upstream-and-downstream.md)
 - [YAML](programming/yaml.md)
 

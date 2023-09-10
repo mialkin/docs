@@ -18,20 +18,20 @@
 
 **Scrum** is a framework utilizing an *agile* mindset for developing, delivering, and sustaining complex products.
 
-In scrum the development procces is broken into small pieces:
+In scrum the development process is broken into small pieces:
 
 1. We do just enough planning to get started with building the minimal feature set.
 2. We build what was planned.
 3. We test.
 4. We review that small feature set and get it ready to ship.
 
-When cycle from above is complete we end up with a *potentially shippable product*. This proccess usually happens in period of time of 1–3 weeks and repeated time and time again. You end up with several incremented releases called *sprints*. You keep repeating this sprints until your product is feature complete.
+When cycle from above is complete we end up with a *potentially shippable product*. This process usually happens in period of time of 1–3 weeks and repeated time and time again. You end up with several incremented releases called *sprints*. You keep repeating this sprints until your product is feature complete.
 
 > "Potentially shippable" means that the *product owner* can decide if it is ready to ship or there are any additional features needed before it ships.
 
 Sometimes you end up shipping your product after the second sprint, or the third, or the fourth, or even further, but you eventually end up with shipping product.
 
-**Sprint** is a 1 to 3 weeks timebox during which happen several incremented releases. The outcome of the sprint is a *potentially shippable product*.
+**Sprint** is a 1 to 3 weeks time box during which happen several incremented releases. The outcome of the sprint is a *potentially shippable product*.
 
 > At the end of the sprint a *sprint review* and *sprint retrospective* meetings occur.
 
@@ -49,7 +49,7 @@ There are 3 key roles in scrum that are needed to make framework work well:
 
 ### Scrum master
 
-**Scrum master** is a servant leader of the team responsible for protecting the team and the proccess, running the meetings and keeping things going.
+**Scrum master** is a servant leader of the team responsible for protecting the team and the process, running the meetings and keeping things going.
 
 ### Team
 
@@ -77,7 +77,7 @@ This way of phrasing a user story allows the product owner to specify the right 
 
 ### Sprint backlog
 
-**Sprint backlog** is a place where the highest priority user stories go. They get estimated for size and are commited to for the next sprint.
+**Sprint backlog** is a place where the highest priority user stories go. They get estimated for size and are committed to for the next sprint.
 
 ### Burndown chart
 
@@ -105,14 +105,14 @@ At the end of the sprint *sprint review* and *retrospective* occur.
 
 **Sprint review** is a meeting where the team demonstrates the completed work to the product owner.
 
-**Retrospective** is a meeting after sprint review where the team discusses what they can do to improve the proccess going forward.
+**Retrospective** is a meeting after sprint review where the team discusses what they can do to improve the process going forward.
 
 ## Workflow
 
 Repeat this workflow for each sprint:
 
-<img src="scrum%20backlog.jpg" />
+<img src="scrum-backlog.jpg" />
 
 ## Scrum vs Kanban
 
-<img src="scrum%20vs%20kanban.jpg" />
+<img src="scrum-vs-kanban.jpg" />
