@@ -87,6 +87,6 @@ Deep after: 1, 1
 
 ## See also
 
-[Object.MemberwiseClone method](https://docs.microsoft.com/en-us/dotnet/api/system.object.memberwiseclone)
+[↑ `Object.MemberwiseClone` method](https://docs.microsoft.com/en-us/dotnet/api/system.object.memberwiseclone).
 
-[ICloneable.Clone method](https://docs.microsoft.com/en-us/dotnet/api/system.icloneable.clone)
+[↑ `ICloneable.Clone` method](https://docs.microsoft.com/en-us/dotnet/api/system.icloneable.clone).

@@ -81,4 +81,4 @@ Fast
 
 ## See also
 
-[Composition over inheritance](../composition%20over%20inheritance.md)
+[↑ Composition over inheritance](../composition-over-inheritance.md).

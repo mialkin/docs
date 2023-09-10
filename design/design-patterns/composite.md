@@ -1,6 +1,7 @@
 # Composite
 
-The **Composite** is a structural software desing pattern that composes objects into tree structures to represent part-whole hierarchies.
+The **Composite** is a structural software design pattern that composes objects into tree structures to represent part-whole hierarchies.
+
 Composite lets clients treat individual objects and compositions of objects uniformly.
 
 ## Participants

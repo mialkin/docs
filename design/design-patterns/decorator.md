@@ -1,6 +1,6 @@
 # Decorator
 
-The **Decorator** is a structural software desing pattern that attaches additional responsibilities to an object dynamically. Decorators provides a flexible alternative to subclassing for extending functionality.
+The **Decorator** is a structural software design pattern that attaches additional responsibilities to an object dynamically. Decorators provides a flexible alternative to subclassing for extending functionality.
 
 ## Participants
 
@@ -85,4 +85,4 @@ Decorator acts again
 
 ## See also
 
-[Differences between Proxy and Decorator pattern](https://stackoverflow.com/questions/18618779/differences-between-proxy-and-decorator-pattern)
+[↑ Differences between Proxy and Decorator pattern](https://stackoverflow.com/questions/18618779/differences-between-proxy-and-decorator-pattern).

@@ -6,9 +6,9 @@ The **State** is is a behavioral software design pattern that allows an object t
 
 * **Context**
   * defines the interface of interest to clients.
-  * maintains an instance of a ConcreteState subclass that defines thecurrent state.
+  * maintains an instance of a ConcreteState subclass that defines the current state.
 * **State**
-  * defines an interface for encapsulating the behavior associated with aparticular state of the Context.
+  * defines an interface for encapsulating the behavior associated with a particular state of the Context.
 * **ConcreteState subclasses**
   * each subclass implements a behavior associated with a state of the Context.
 

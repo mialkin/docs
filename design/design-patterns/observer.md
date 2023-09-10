@@ -97,7 +97,7 @@ Subject notified observer 2
 
 ## .NET interfaces
 
-[↑ `IObservable<T>` interface](https://docs.microsoft.com/en-us/dotnet/api/system.iobservable-1)
+[↑ `IObservable<T>` interface](https://docs.microsoft.com/en-us/dotnet/api/system.iobservable-1):
 
 ```csharp
 namespace System
@@ -109,7 +109,7 @@ namespace System
 }
 ```
 
-[↑ `IObserver<T>` interface](https://docs.microsoft.com/en-us/dotnet/api/system.iobserver-1)
+[↑ `IObserver<T>` interface](https://docs.microsoft.com/en-us/dotnet/api/system.iobserver-1):
 
 ```csharp
 namespace System
