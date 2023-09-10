@@ -179,7 +179,7 @@
 - [Feature flags](programming/feature-flags.md)
 - [Function parameters vs arguments](programming/function%20parameters%20vs%20arguments.md)
 - [Idempotence](programming/idempotence.md)
-- [Inversion of control (IoC)](programming/ioc/inversion%20of%20control.md)
+- [Inversion of control, IoC](programming/ioc/inversion%20of%20control.md)
 - [Initiatives, epics, stories](programming/initiatives-epics-stories/initiatives-epics-stories.md)
 - [Makefile](programming/makefile.md)
 - [Marshalling](programming/marshalling.md)
@@ -338,7 +338,7 @@
     - [`event`](csharp/keywords/event.md)
   - Contextual keywords
     - [`yield`](csharp/keywords/yield.md)
-  - [`ref`, `out`, `in` (parameter modifiers)](csharp/keywords/ref%20out%20in.md)
+  - [`ref`, `out`, `in` parameter modifiers](csharp/keywords/ref%20out%20in.md)
 - Selected classes
   - [`HttpClient`](csharp/libraries/httpclient.md)
   - [`Stopwatch`](csharp/libraries/stopwatch.md)
