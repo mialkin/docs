@@ -67,7 +67,7 @@
   - [PromQL](tools/prometheus/promql.md)
 - [RabbitMQ](tools/rabbitmq/rabbitmq.md)
 - [Redis](tools/redis.md)
-- [Regular expressions](tools/regular%20expressions/regular%20expressions.md)
+- [Regular expressions](tools/regular-expressions/regular-expressions.md)
 - [SonarQube](tools/sonarqube.md)
 - [Unleash](tools/unleash.md)
 - [↑ Zikpin](https://zipkin.io)
