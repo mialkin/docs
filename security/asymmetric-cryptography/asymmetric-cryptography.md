@@ -8,7 +8,7 @@ In a typical public-key infrastructure (PKI) scheme, the certificate issuer is a
 
 The most common format for public key certificates is defined by X.509 standard.
 
-[↑ X.509](https://en.wikipedia.org/wiki/X.509)
+[↑ X.509](https://en.wikipedia.org/wiki/X.509).
 
 ## Public key fingerprint
 
@@ -24,7 +24,7 @@ A public key fingerprint is typically created through the following steps:
 
 When displayed for human inspection, fingerprints are usually encoded into hexadecimal strings.
 
-[↑ Public key fingerprint](https://en.wikipedia.org/wiki/Public_key_fingerprint)
+[↑ Public key fingerprint](https://en.wikipedia.org/wiki/Public_key_fingerprint).
 
 ## Digital signature
 
@@ -43,5 +43,5 @@ A digital signature scheme typically consists of three algorithms:
 Two main properties are required. First, the authenticity of a signature generated from a fixed message and fixed private key can be verified by using the corresponding public key. Secondly, it should be computationally infeasible to generate a valid signature for a party without knowing that party's private key.
 
 <div align="center">
-  <a href="https://www.youtube.com/watch?v=stsWa9A3sOM"><img src="digital%20signature.png" alt="IMAGE ALT TEXT"></a>
+  <a href="https://www.youtube.com/watch?v=stsWa9A3sOM"><img src="digital-signature.png" alt="IMAGE ALT TEXT"></a>
 </div>
