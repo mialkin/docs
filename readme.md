@@ -254,7 +254,7 @@
 
 ## .NET
 
-- [Dependency injection in .NET](dotnet/dependency%20injection%20dotnet.md)
+- [Dependency injection in .NET](dotnet/dependency-injection-dotnet.md)
 - [Dotnet CLI](dotnet/cli.md)
 - [Dotnet tools](dotnet/dotnet-tools/dotnet-tools.md)
   - [`dotnet-ef` tool](dotnet/dotnet-tools/dotnet-ef.md)
@@ -274,14 +274,14 @@
     - [`System.Reactive` aka Rx.NET](dotnet/libraries/reactive/system-reactive.md)
   - [↑ YARP](https://github.com/microsoft/reverse-proxy)
 - Identity management
-  - [Authentication](dotnet/identity%20managment/authentication.md)
-  - [Authorization](dotnet/identity%20managment/authorization.md)
+  - [Authentication](dotnet/identity-managment/authentication.md)
+  - [Authorization](dotnet/identity-managment/authorization.md)
 - [NuGet](dotnet/nuget.md)
 - [OWIN](dotnet/owin.md)
 - [PowerShell](dotnet/powershell.md)
-  - [PowerShell scripting](dotnet/powershell%20scripting.md)
+  - [PowerShell scripting](dotnet/powershell-scripting.md)
 - [Roslyn and Roslyn analyzers](dotnet/roslyn.md)
-- [Secret Manager tool](dotnet/secret%20manager.md)
+- [Secret Manager tool](dotnet/secret-manager.md)
 
 ## ASP.NET
 
