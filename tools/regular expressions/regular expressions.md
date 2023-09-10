@@ -1,10 +1,10 @@
-# Regular expresssions
+# Regular expressions
 
 A **regular expression** is a set of symbols representing a text pattern.
 
 ## Table of contents
 
-- [Regular expresssions](#regular-expresssions)
+- [Regular expressions](#regular-expressions)
   - [Table of contents](#table-of-contents)
   - [Notation](#notation)
   - [Metacharacters](#metacharacters)
@@ -70,7 +70,7 @@ List of metacharacters:
 
 The expression `\e` will match letter `e` in the word "r**e**staurant".
 
-Similary the expression `\a` will match as well: "rest**a**ur**a**nt".
+Similarly the expression `\a` will match as well: "rest**a**ur**a**nt".
 
 On the other hand expressions `\n` and `\t` will not match because they have another meaning — new line and tab accordingly.
 
@@ -78,7 +78,7 @@ On the other hand expressions `\n` and `\t` will not match because they have ano
 
 ## Modes
 
-Modes go right after slashes, they are not a part of regullar expressions, they are modifiers for the way this regular expressions ought to be handled:
+Modes go right after slashes, they are not a part of regular expressions, they are modifiers for the way this regular expressions ought to be handled:
 
 - Standard: `/re/`
 - Global: `/re/g`
@@ -88,7 +88,7 @@ Modes go right after slashes, they are not a part of regullar expressions, they 
 
 ### Standard vs global matching
 
-Standard (non-global) matching: earliest (leftmost) match is always preffered:
+Standard (non-global) matching: earliest (leftmost) match is always preferred:
 
 `/zz/` matches the first set of z's in "pi**zz**azz".
 
