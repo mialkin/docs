@@ -203,10 +203,10 @@
   - [Moq](testing/dotnet-libraries/moq.md)
   - [xUnit](testing/dotnet-libraries/xunit.md)
   - [↑ WireMock.Net](https://www.youtube.com/watch?v=YU3ohofu6UU)
-- [Integration testing](testing/integration%20testing.md)
+- [Integration testing](testing/integration-testing.md)
 - [k6](testing/k6/k6.md)
 - [MockServer](testing/mock-server.md)
-- [Unit testing best practices](testing/unit%20testing%20best%20practices.md)
+- [Unit testing best practices](testing/unit-testing-best-practices.md)
 
 ## Networking
 
