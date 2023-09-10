@@ -224,14 +224,14 @@
 ## Security
 
 - [AD](security/ad/ad.md)
-  - [AD FS](security/ad/ad%20fs.md)
-- [Asymmetric cryptography](security/asymmetric%20cryptography/asymmetric%20cryptography.md)
+  - [AD FS](security/ad/ad-fs.md)
+- [Asymmetric cryptography](security/asymmetric-cryptography/asymmetric-cryptography.md)
 - [Encryption](security/encryption.md)
-- [Generating self-signed certificate](security/generating%20certificate.md)
+- [Generating self-signed certificate](security/generating-certificate.md)
 - [JWT](security/jwt.md)
 - [mTLS](security/mtls.md)
 - [OAuth](security/oauth/oauth.md)
-  - [OAuth flows](security/oauth/oauth%20flows.md)
+  - [OAuth flows](security/oauth/oauth-flows.md)
   - [OpenID Connect](security/oauth/oidc.md)
   - [Tokens](security/oauth/tokens.md)
 - [OpenAPI](security/openapi.md)
