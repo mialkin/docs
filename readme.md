@@ -120,10 +120,10 @@
 - [Loose coupling and high cohesion](design/loose%20coupling%20and%20high%20cohesion.md)
 - [Software design patterns](design/design-patterns/design-patterns.md)
   - Creational
-    - [Abstract Factory](design/design-patterns/abstract-factory.md)
+    - [Abstract factory](design/design-patterns/abstract-factory.md)
     - [Builder](design/design-patterns/builder.md)
     - [Dependency injection](design/design-patterns/dependency-injection.md)
-    - [Factory Method](design/design-patterns/factory-method.md)
+    - [Factory method](design/design-patterns/factory-method.md)
     - [Prototype](design/design-patterns/prototype.md)
     - [Singleton](design/design-patterns/singleton.md)
   - Structural
@@ -135,7 +135,7 @@
     - [Flyweight](design/design-patterns/flyweight.md)
     - [Proxy](design/design-patterns/proxy.md)
   - Behavioral
-    - [Chain of Responsibility](design/design-patterns/chain-of-responsibility.md)
+    - [Chain of responsibility](design/design-patterns/chain-of-responsibility.md)
     - [Command](design/design-patterns/command.md)
     - Interpreter
     - [Iterator](design/design-patterns/iterator.md)
@@ -144,7 +144,7 @@
     - [Observer](design/design-patterns/observer.md)
     - [State](design/design-patterns/state.md)
     - [Strategy](design/design-patterns/strategy.md)
-    - [Template Method](design/design-patterns/template-method.md)
+    - [Template method](design/design-patterns/template-method.md)
     - [Visitor](design/design-patterns/visitor.md)
 - [SOLID](design/solid/solid.md)
   - [Single responsibility principle](design/solid/srp.md)
@@ -153,7 +153,7 @@
   - [Interface segregation principle](design/solid/isp.md)
   - [Dependency inversion principle](design/solid/dip/dip.md)
 - [Technical debt](design/technical%20debt.md)
-- [Tell, Don't Ask](design/tell-dont-ask.md)
+- [Tell, don't ask](design/tell-dont-ask.md)
 - [Transactional outbox and inbox](design/transactional-outbox-and-inbox.md)
 - [Vertical slice architecture](design/vertical-slice-architecture.md)
 

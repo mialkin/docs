@@ -152,5 +152,6 @@ The term CQRS was coined by Greg Young.
 
 ## Links
 
-- [↑ CQRS pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs)
-- [↑ А какие виды CQRS вы знаете?](https://www.youtube.com/watch?v=TnS6PwxHcLg)
+[↑ CQRS pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs).
+
+[↑ А какие виды CQRS вы знаете?](https://www.youtube.com/watch?v=TnS6PwxHcLg).

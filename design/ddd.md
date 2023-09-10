@@ -1,6 +1,6 @@
-# Domain-Driven Design
+# Domain-driven design
 
-- [Domain-Driven Design](#domain-driven-design)
+- [Domain-driven design](#domain-driven-design)
   - [Domain](#domain)
   - [Subdomain](#subdomain)
   - [Domain model](#domain-model)
@@ -21,14 +21,14 @@ The term **domain-driven design** was coined by Eric Evans in his book written i
 
 DDD provides clean representation of the problem in the code that can be readily understood and verified via tests.
 
-With DDD you "divide and conquer" — by separating a problem into separate subdomains each problem can be tackled intependently.
+With DDD you "divide and conquer" — by separating a problem into separate subdomains each problem can be tackled interdependently.
 
 > "While domain-driven design provides many technical benefits, such as maintainability, it should be applied only to complex domains where the model and the linguistic processes provide clear benefits in the communication of complex information, and in the formulation of a common understanding of the domain." Eric Evans, Domain-Driven design
 
 Some scenarios in which DDD is going to be an overkill:
 
 - Application which doesn't need much more than lots of CRUD logic.
-- Application with simple domain but lots of technical challanges.
+- Application with simple domain but lots of technical challenges.
 
 ## Domain
 
@@ -40,7 +40,7 @@ Almost every software domain has multiple **subdomains**.
 
 If it models some aspect of the business that is essential, yet not *core*, it is a **supporting subdomain**.
 
-The business creates a supporting subdomain because it is somewhat specialized. Otherwise, if it captures nothing special to the business, yet is required for the overall business solution, it is a **generic subdomain**. Being supporting or heneric doesn't mean unimportant. These kinds of subdomains are important to the success of the business, yet there is no need for the business to excel in these areas. It's the **core domain** that requires excellence in implementation, since it will provide distinct advantages to the business.
+The business creates a supporting subdomain because it is somewhat specialized. Otherwise, if it captures nothing special to the business, yet is required for the overall business solution, it is a **generic subdomain**. Being supporting or generic doesn't mean unimportant. These kinds of subdomains are important to the success of the business, yet there is no need for the business to excel in these areas. It's the **core domain** that requires excellence in implementation, since it will provide distinct advantages to the business.
 
 Recognizing anemic domains:
 
@@ -116,5 +116,6 @@ A **specification** is another DDD pattern which provides a way to take query lo
 
 ## Videos
 
-- [↑ Domain-Driven Refactoring - Jimmy Bogard - NDC Porto 2022](https://www.youtube.com/watch?v=gxgKgMvPH9I)
-- [↑ Чистая архитектура и Domain-Driven Design](https://www.youtube.com/watch?v=fx6NWIgjH7w)
+[↑ Domain-Driven Refactoring - Jimmy Bogard - NDC Porto 2022](https://www.youtube.com/watch?v=gxgKgMvPH9I).
+
+[↑ Чистая архитектура и Domain-Driven Design](https://www.youtube.com/watch?v=fx6NWIgjH7w).

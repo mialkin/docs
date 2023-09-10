@@ -1,6 +1,6 @@
-# Explicit Dependencies Principle
+# Explicit dependencies principle
 
-The **Explicit Dependencies Principle** states:
+The **Explicit dependencies principle** states:
 
 > Methods and classes should explicitly require (typically through method parameters or constructor parameters) any collaborating objects they need in order to function correctly.
 
@@ -8,9 +8,9 @@ If your classes require other classes to perform their operations, these other c
 
 Classes with implicit dependencies cost more to maintain than those with explicit dependencies. They are more difficult to test because they are more tightly coupled to their collaborators. They are more difficult to analyze for side effects, because the entire class's codebase must be searched for object instantiations or calls to static methods. They are more brittle and more tightly coupled to their collaborators, resulting in more rigid and brittle designs.
 
-Classes with explicit dependencies are more honest. They state very clearly what they require in order to perform their particular function. They tend to follow the Principle of Least Surprise by not affecting parts of the application they didn't explicitly demonstrate they needed to affect. Explicit dependencies can easily be swapped out with other implementations, whether in production or during testing or debugging. This makes them much easier to maintain and far more open to change.
+Classes with explicit dependencies are more honest. They state very clearly what they require in order to perform their particular function. They tend to follow the Principle of least surprise by not affecting parts of the application they didn't explicitly demonstrate they needed to affect. Explicit dependencies can easily be swapped out with other implementations, whether in production or during testing or debugging. This makes them much easier to maintain and far more open to change.
 
-The Explicit Dependencies Principle is closely related to the Dependency Inversion Principle and the Hollywood Principle.
+The Explicit dependencies principle is closely related to the Dependency inversion principle and the Hollywood principle.
 
 Consider the `PersonalizedResponse` class, which can be constructed without any dependencies:
 
@@ -82,7 +82,7 @@ public class PersonalizedResponse
 
 This class is clearly tightly coupled to the file system and the system clock, as well as a particular customer instance via the global `Context` class. If we were to refactor this class to make its dependencies explicit, it might look something like this:
 
-Here is anonther example that complies with Explicit Dependencies Principle:
+Here is another example that complies with Explicit dependencies principle:
 
 ```csharp
 using System;
@@ -178,4 +178,4 @@ In this case, the logging and time dependencies have been pulled into constructo
 
 ## Links
 
-[Explicit Dependencies Principle ↑](https://deviq.com/explicit-dependencies-principle/)
+[↑ Explicit Dependencies Principle](https://deviq.com/explicit-dependencies-principle/).

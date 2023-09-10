@@ -1,6 +1,6 @@
 # DRY, KISS, separation of concerns, YAGNI
 
-## Don't Repeat Yourself (DRY)
+## Don't repeat yourself or DRY
 
 The application should avoid specifying behavior related to a particular concept in multiple places as this practice is a frequent source of errors. At some point, a change in requirements will require changing this behavior. It's likely that at least one instance of the behavior will fail to be updated, and the system will behave inconsistently.
 

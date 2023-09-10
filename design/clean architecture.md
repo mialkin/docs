@@ -1,4 +1,4 @@
-# Clean Architecture
+# Clean architecture
 
 A **clean architecture** is just the latest in a series of names for the same loosely-coupled, dependency-inverted, domain-centric approach to organizing dependencies in an application. You will also find it named [↑ **hexagonal**](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)), **ports and adapters**, or **onion architecture**.
 
@@ -17,7 +17,7 @@ Clean architecture rules:
 
 ## Table of Contents
 
-- [Clean Architecture](#clean-architecture)
+- [Clean architecture](#clean-architecture)
   - [Table of Contents](#table-of-contents)
   - [Core Project](#core-project)
   - [Infrastructure Project](#infrastructure-project)
@@ -107,6 +107,8 @@ It's recommended to create a separate Shared Kernel project and solution if you 
 
 ## YouTube Videos
 
-- [↑ Clean Architecture with ASP.NET Core 6](https://www.youtube.com/watch?v=lkmvnjypENw)
-- [↑ Clean Architecture with ASP.NET Core 3.0 by Jason Taylor](https://www.youtube.com/watch?v=dK4Yb6-LxAk)
-- [↑ Денис Цветцих: «Ты можешь лучше, чем программисты Microsoft»](https://youtu.be/IVm-qTyDor4?t=744)
+[↑ Clean Architecture with ASP.NET Core 6](https://www.youtube.com/watch?v=lkmvnjypENw).
+
+[↑ Clean Architecture with ASP.NET Core 3.0 by Jason Taylor](https://www.youtube.com/watch?v=dK4Yb6-LxAk).
+
+[↑ Денис Цветцих: «Ты можешь лучше, чем программисты Microsoft»](https://youtu.be/IVm-qTyDor4?t=744).

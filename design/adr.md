@@ -1,4 +1,4 @@
-# Architecture decision records, ADRs
+# Architecture decision records or ADRs
 
 An **architecture decision record** or **ADR** is a document that captures an important architectural decision made along with its context and consequences.
 
@@ -12,7 +12,10 @@ All these are within the topic of **architecture knowledge management** or **AKM
 
 ## Links
 
-- [↑ Architecture decision record (ADR)](https://github.com/joelparkerhenderson/architecture-decision-record)
-- [↑ Architecture Decision Records (ADR) as a LOG that answers "WHY?"](https://www.youtube.com/watch?v=6H6zfCNeqek)
-- [↑ Homepage of the ADR GitHub organization](https://adr.github.io)
-- [↑ ADR process](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html)
+[↑ Architecture decision record (ADR)](https://github.com/joelparkerhenderson/architecture-decision-record).
+
+[↑ Architecture Decision Records (ADR) as a LOG that answers "WHY?"](https://www.youtube.com/watch?v=6H6zfCNeqek).
+
+[↑ Homepage of the ADR GitHub organization](https://adr.github.io).
+
+[↑ ADR process](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html).

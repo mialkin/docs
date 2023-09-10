@@ -14,16 +14,16 @@ Two:
 
 ## List of patterns
 
-Creational
+Creational:
 
-- [Abstract Factory](abstract%20factory.md)
+- [Abstract factory](abstract-factory.md)
 - [Builder](builder.md)
-- [Dependency injection](dependency%20injection.md)
-- [Factory Method](factory%20method.md)
+- [Dependency injection](dependency-injection.md)
+- [Factory method](factory-method.md)
 - [Prototype](prototype.md)
 - [Singleton](singleton.md)
 
-Structural
+Structural:
 
 - [Adapter](adapter.md)
 - [Bridge](bridge.md)
@@ -33,9 +33,9 @@ Structural
 - [Flyweight](flyweight.md)
 - [Proxy](proxy.md)
 
-Behavioral
+Behavioral:
 
-- [Chain of Responsibility](chain%20of%20responsibility.md)
+- [Chain of responsibility](chain-of-responsibility.md)
 - [Command](command.md)
 - Interpreter
 - [Iterator](iterator.md)
@@ -44,16 +44,16 @@ Behavioral
 - [Observer](observer.md)
 - [State](state.md)
 - [Strategy](strategy.md)
-- [Template Method](template%20method.md)
+- [Template method](template-method.md)
 - [Visitor](visitor.md)
 
 ## See also
 
-[GoF notation for diagrams](gof%20notation/gof%20notation.md)
+[GoF notation for diagrams](gof-notation/gof-notation.md).
 
 ## Links
 
-[↑ Java Design Patterns](https://java-design-patterns.com)
+[↑ Design Pattern Catalog](https://java-design-patterns.com/patterns/).
 
 <hr>
 

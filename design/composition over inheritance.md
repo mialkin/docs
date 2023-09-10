@@ -6,8 +6,6 @@ An implementation of composition over inheritance typically begins with the crea
 
 > Favor object composition over class inheritance.<sup>1</sup>
 
-[1]: https://en.wikipedia.org/wiki/Design_Patterns
-
 The following C# example demonstrates the principle of using composition and interfaces to achieve code reuse and polymorphism.
 
 ```csharp
@@ -146,7 +144,7 @@ I won't appear.
 
 ## See also
 
-[Strategy pattern](design%20patterns/strategy.md)
+[Strategy pattern](design-patterns/strategy.md).
 
 <hr>
 
