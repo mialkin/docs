@@ -93,9 +93,9 @@
 - [ACID](databases/acid.md)
 - [CTEs](databases/cte.md)
 - [dbdiagram.io](databases/dbdiagram.md)
-- [Isolation levels and read phenomena](databases/isolation%20levels.md)
-- [N + 1 query problem](databases/n%20plus%20one.md)
-- [Natural and surrogate keys](databases/natural%20and%20surrogate%20keys.md)
+- [Isolation levels and read phenomena](databases/isolation-levels.md)
+- [N + 1 query problem](databases/n-plus-one.md)
+- [Natural and surrogate keys](databases/natural-and-surrogate-keys.md)
 - [Online transaction processing, OLTP vs online analytical processing, OLAP](databases/oltp-vs-olap.md)
 - [Optimistic vs pessimistic concurrency](databases/optimistic-vs-pessimistic-concurrency.md)
 - [PL/SQL](databases/oracle/plsql.md)
@@ -103,7 +103,7 @@
 - [Query optimization and execution plans](databases/query-optimization-and-execution-plans.md)
 - [SQL Server](databases/sqlserver/sqlserver.md)
   - [T-SQL](databases/sqlserver/tsql.md)
-- [Window functions](databases/window%20functions.md)
+- [Window functions](databases/window-functions.md)
 
 ## Software architecture and design
 
