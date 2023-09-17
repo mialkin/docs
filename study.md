@@ -156,6 +156,7 @@ for (var i = 0; i < 5; i++) {
   - [↑ When should I use `GC.SuppressFinalize()`?](https://stackoverflow.com/questions/151051/when-should-i-use-gc-suppressfinalize)
   - [↑ Finalizers](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/finalizers)
 - [↑ dotnet-monitor](https://learn.microsoft.com/en-us/dotnet/core/diagnostics/dotnet-monitor)
+- [↑ Pact NET. Consumer driven contract testing](https://github.com/pact-foundation/pact-net)
 
 ## C&#35;
 
