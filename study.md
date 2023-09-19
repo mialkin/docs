@@ -157,6 +157,8 @@ for (var i = 0; i < 5; i++) {
   - [↑ Finalizers](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/finalizers)
 - [↑ dotnet-monitor](https://learn.microsoft.com/en-us/dotnet/core/diagnostics/dotnet-monitor)
 - [↑ Pact NET. Consumer driven contract testing](https://github.com/pact-foundation/pact-net)
+- [↑ Allure framework](https://docs.qameta.io/allure)
+  - [↑ Allure.XUnit](https://github.com/Tinkoff/Allure.XUnit)
 
 ## C&#35;
 

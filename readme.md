@@ -193,7 +193,6 @@
 
 ## Testing
 
-- [↑ Allure framework](https://docs.qameta.io/allure)
 - [BDD](testing/bdd/bdd.md)
   - [Gherkin](testing/bdd/gherkin.md)
   - [SpecFlow](testing/bdd/specflow.md)
