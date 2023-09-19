@@ -179,4 +179,4 @@ Since `ISynchronizeInvoke` implies multiple events in a subscription model, the 
 
 ## More
 
-Take a look at Microsoft documentation: [Asynchronous programming patterns ↑](https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/), it has many interesting information covered.
+Take a look at Microsoft documentation: [↑ Asynchronous programming patterns](https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/), it has many interesting information covered.

@@ -95,7 +95,7 @@ Imagine Consumer 1 prefteched 9 messages from a queue and haven't acknowledged t
 
 ## Prefetch count
 
-There are two prefetch options available, *channel prefetch count* and *consumer prefetch count*.
+There are two prefetch options available, _channel prefetch count_ and _consumer prefetch count_.
 
 The `basic_qos` function contains the global flag. Setting the value to `false` applies the count to each new consumer. Setting the value to `true` applies a channel prefetch count to all consumers. Most APIs set the global flag to `false` by default.
 
@@ -129,7 +129,7 @@ AMQP 0-9-1 connections are typically long-lived. AMQP 0-9-1 is an application le
 
 ## AMQP 0-9-1 methods
 
-AMQP 0-9-1 is structured as a number of **methods**. Methods are operations (like HTTP methods) and have nothing in common with methods in object-oriented programming languages. Protocol methods in AMQP 0-9-1 are grouped into *classes*. Classes are just logical groupings of AMQP methods.
+AMQP 0-9-1 is structured as a number of **methods**. Methods are operations (like HTTP methods) and have nothing in common with methods in object-oriented programming languages. Protocol methods in AMQP 0-9-1 are grouped into _classes_. Classes are just logical groupings of AMQP methods.
 
 Let us take a look at the `exchange` class, a group of methods related to operations on exchanges. It includes the following operations: `exchange.declare`, `exchange.declare-ok`,
 `exchange.delete`, `exchange.delete-ok`.
@@ -152,7 +152,7 @@ kubectl rabbitmq version
 kubectl rabbitmq help
 ```
 
-Install [cluster operator ↑](https://www.rabbitmq.com/kubernetes/operator/operator-overview.html):
+Install [↑ cluster operator](https://www.rabbitmq.com/kubernetes/operator/operator-overview.html):
 
 ```bash
 kubectl rabbitmq install-cluster-operator

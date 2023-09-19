@@ -97,7 +97,7 @@ source .zprofile
 | kubectl scale deployment DEPLOYMENT_NAME --replicas=0                                            | Scale the deployment down to 0 replicas                                                                                                         |
 | kubectl top nodes                                                                                | Show cluster resource usage                                                                                                                     |
 
-[Kubectl cheat sheet ↑](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+[↑ Kubectl cheat sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 
 ## k9s
 

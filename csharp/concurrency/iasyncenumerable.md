@@ -45,5 +45,5 @@ Output:
 
 ## Links
 
-- [IAsyncEnumerable\<T> Interface ↑](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.iasyncenumerable-1*)
-- [Iterating with Async Enumerables in C# 8 ↑](https://docs.microsoft.com/en-us/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8)
+- [↑ IAsyncEnumerable\<T> Interface](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.iasyncenumerable-1*)
+- [↑ Iterating with Async Enumerables in C# 8](https://docs.microsoft.com/en-us/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8)

@@ -131,5 +131,5 @@ struct Point
 
 ## Links
 
-- [Equality operators ↑](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/equality-operators)
-- [How to define value equality for a class or struct ↑](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/how-to-define-value-equality-for-a-type)
+- [↑ Equality operators](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/equality-operators)
+- [↑ How to define value equality for a class or struct](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/how-to-define-value-equality-for-a-type)

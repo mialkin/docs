@@ -21,7 +21,7 @@ public partial class MainWindow : Window
 
             // Reporting using progress.Report
             progress.Report(i * 10);
-            
+
             await Task.Delay(1000);
         }
     }
@@ -34,4 +34,4 @@ For more information, if needed, check out recipe "2.3 Reporting Progress" from 
 
 ## Links
 
-[IProgress\<T> Interface ↑](https://docs.microsoft.com/en-us/dotnet/api/system.iprogress-1)
+[↑ IProgress\<T> Interface](https://docs.microsoft.com/en-us/dotnet/api/system.iprogress-1)

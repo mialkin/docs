@@ -2,11 +2,11 @@
 
 ## ref
 
-`ref` *requires* that the variable be initialized before it is passed.
+`ref` _requires_ that the variable be initialized before it is passed.
 
 ```cs
 // int y; // Error below when calling A.M(ref y): Local variable 'y' might not be initialized before accessing.
-int y = 1; // 
+int y = 1; //
 
 A.M(ref y);
 Console.WriteLine(y); // => 2
@@ -24,8 +24,8 @@ class A
 
 The `out` modifier means that:
 
-* Passed variable's value can't be read by the method *until* it is set inside that method
-* The method *must* set passed variable's value before returning
+- Passed variable's value can't be read by the method _until_ it is set inside that method
+- The method _must_ set passed variable's value before returning
 
 ```cs
 using System;
@@ -100,9 +100,9 @@ void M(in int j)
 
 This addition provides a full vocabulary to express your design intent. Value types are copied when passed to a called method when you don't specify any of the following modifiers in the method signature. Each of these modifiers specifies that a variable is passed by reference, avoiding the copy. Each modifier expresses a different intent:
 
-* `out`: This method sets the value of the argument used as this parameter.
-* `ref`: This method may set the value of the argument used as this parameter.
-* `in`: This method doesn't modify the value of the argument used as this parameter.
+- `out`: This method sets the value of the argument used as this parameter.
+- `ref`: This method may set the value of the argument used as this parameter.
+- `in`: This method doesn't modify the value of the argument used as this parameter.
 
 Add the `in` modifier to pass an argument by reference and declare your design intent to pass arguments by reference to avoid unnecessary copying. You don't intend to modify the object used as that argument.
 
@@ -110,5 +110,5 @@ This practice often improves performance for readonly value types that are large
 
 ## Links
 
-* [out parameter modifier ↑](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/out-parameter-modifier)
-* [Write safe and efficient C# code ↑](https://docs.microsoft.com/en-us/dotnet/csharp/write-safe-efficient-code)
+- [↑ out parameter modifier](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/out-parameter-modifier)
+- [↑ Write safe and efficient C# code](https://docs.microsoft.com/en-us/dotnet/csharp/write-safe-efficient-code)

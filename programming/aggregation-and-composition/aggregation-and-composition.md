@@ -77,7 +77,7 @@ From the book "Head First Object-Oriented Analysis & Design": <sup>1</sup>
 
 <img src="cheat-sheet.png" height="350">
 
-[Link ↑](https://softwareengineering.stackexchange.com/questions/61376/aggregation-vs-composition)
+[↑ Link](https://softwareengineering.stackexchange.com/questions/61376/aggregation-vs-composition)
 
 <hr>
 

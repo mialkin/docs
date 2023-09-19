@@ -345,5 +345,5 @@ set +x
 
 ## Links
 
-- [Learn bash in Y minutes ↑](https://learnxinyminutes.com/docs/bash/)
-- [Bash scripting cheatsheet ↑](https://devhints.io/bash)
+- [↑ Learn bash in Y minutes](https://learnxinyminutes.com/docs/bash/)
+- [↑ Bash scripting cheatsheet](https://devhints.io/bash)

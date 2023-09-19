@@ -25,4 +25,4 @@ class SampleCollection<T>
 
 ## Links
 
-[Indexers (C# Programming Guide) ↑](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/indexers/)
+[↑ Indexers (C# Programming Guide)](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/indexers/)
