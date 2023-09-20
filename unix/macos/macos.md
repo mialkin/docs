@@ -16,6 +16,7 @@
   - [Terminal aliases](#terminal-aliases)
   - [Tree](#tree)
   - [TTL](#ttl)
+  - [Gifox](#gifox)
 
 ## Edit `PATH` environment variable
 
@@ -156,3 +157,7 @@ tree .
 sysctl -w net.inet.ip.ttl           # Get current value
 sudo sysctl -w net.inet.ip.ttl=65   # Set value to 65
 ```
+
+## Gifox
+
+[↑ Gifox](https://gifox.app) is a macOS status bar app for recording, converting, editing and sharing GIFs.
