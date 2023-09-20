@@ -159,6 +159,10 @@ for (var i = 0; i < 5; i++) {
 - [↑ Pact NET. Consumer driven contract testing](https://github.com/pact-foundation/pact-net)
 - [↑ Allure framework](https://docs.qameta.io/allure)
   - [↑ Allure.XUnit](https://github.com/Tinkoff/Allure.XUnit)
+- Data masking
+  - [↑ Destructurama.Attributed](https://github.com/destructurama/attributed)
+  - [↑ Serilog.Enrichers.Sensitive](https://github.com/serilog-contrib/Serilog.Enrichers.Sensitive/tree/master)
+  - [↑ What is data masking?](https://aws.amazon.com/what-is/data-masking/)
 
 ## C&#35;
 
