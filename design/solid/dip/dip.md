@@ -63,7 +63,7 @@ Output:
 
 Diagram that demonstrates dependencies of the above code:
 
-<img src="svg/dip no.svg">
+<img src="svg/dip-no.svg">
 
 ## C# example that takes into account the Dependency Inversion Principle
 
