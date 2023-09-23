@@ -1,6 +1,6 @@
 # Value types
 
-**Value types** and [**reference types**](reference%20types.md) are the two main categories of C# types. A variable of a value type contains an instance of the type. This differs from a variable of a reference type, which contains a reference to an instance of the type.
+**Value types** and [**reference types**](reference-types.md) are the two main categories of C# types. A variable of a value type contains an instance of the type. This differs from a variable of a reference type, which contains a reference to an instance of the type.
 
 If a value type contains a data member of a reference type, only the reference to the instance of the reference type is copied when a value-type instance is copied. Both the copy and original value-type instance have access to the same reference-type instance:
 

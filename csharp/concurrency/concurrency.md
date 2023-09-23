@@ -4,10 +4,10 @@
 
 There are several kinds of concurrency:
 
-- [Asynchronous programming](asynchronous%20programming.md)
-- [Parallel programming](parallel%20programming.md)
-- [Reactive programming](reactive%20programming.md)
-- [Dataflow programming](dataflow%20programming.md)
+- [Asynchronous programming](asynchronous-programming.md)
+- [Parallel programming](parallel-programming.md)
+- [Reactive programming](reactive-programming.md)
+- [Dataflow programming](dataflow-programming.md)
 
 Usually, a mixture of techniques is used when writing a concurrent program. Most applications at least use multithreading (via the thread pool) and asynchronous programming. Feel free to mix and match all the various forms of concurrency, using the appropriate tool for each part of the application.
 

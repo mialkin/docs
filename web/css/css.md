@@ -2,16 +2,16 @@
 
 ## Items
 
-* [Data types](data%20types/data%20types.md)
-  * [Length](data%20types/length.md)
-* Elements
-  * [Replaced elements](elements/replaced%20elements.md)
-* [Grid](grid.md)
-* [Media queries](media%20queries.md)
-* Properties
-  * [line-height](properties/line-height.md)
-* [Selectors](selectors.md)
-* [Units](units.md)
+- [Data types](data-types/data-types.md)
+  - [Length](data-types/length.md)
+- Elements
+  - [Replaced elements](elements/replaced-elements.md)
+- [Grid](grid.md)
+- [Media queries](media-queries.md)
+- Properties
+  - [line-height](properties/line-height.md)
+- [Selectors](selectors.md)
+- [Units](units.md)
 
 ## Links
 
