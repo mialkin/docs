@@ -361,7 +361,7 @@
       - [`delegate`](csharp/types/delegate.md)
       - [`object`](csharp/types/object.md)
         - [Constructors](csharp/types/constructors.md)
-        - [Why override `GetHashCode` when `Equals` is overriden](csharp/types/override-gethashcode.md)
+        - [Why override `GetHashCode` when `Equals` is overridden](csharp/types/override-gethashcode.md)
       - [`record`](csharp/types/record.md)
       - [`string`](csharp/types/string.md)
     - [Nullable reference types](csharp/types/nullable-reference-types.md)
