@@ -288,7 +288,7 @@
 
 ## C&#35;
 
-- [Attributes](csharp/attributes.md)
+- [Attribute](csharp/attribute.md)
   - [Nullable static analysis attributes](csharp/nullable-static-analysis-attributes.md)
 - [Concurrency](csharp/concurrency/concurrency.md)
   - [Asynchronous programming](csharp/concurrency/asynchronous-programming.md)
