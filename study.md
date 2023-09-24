@@ -224,6 +224,7 @@ for (var i = 0; i < 5; i++) {
 - Monads
   - [↑ Monads explained in C#](https://mikhail.io/2016/01/monads-explained-in-csharp/)
   - [↑ The Maybe Monad (C#)](https://www.dotnetcurry.com/patterns-practices/1510/maybe-monad-csharp)
+  - [↑ "Maybe" monad through async/await in C# (No Tasks!)](https://habr.com/ru/articles/458692/)
 - [↑ Autofac](https://github.com/autofac/Autofac)
 - Reflection. Create a separate repository with simple examples of getting class methods and class method's attributes
 - На странице interface в репозитории docs разобрать какие типы данных могут реализовывать интерфейсы
