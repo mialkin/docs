@@ -1,49 +1,56 @@
 # Covariance and contravariance
 
 - [Covariance and contravariance](#covariance-and-contravariance)
-  - [Arrays](#arrays)
-    - [**Covariance**](#covariance)
-  - [Generic type arguments](#generic-type-arguments)
-    - [**Covariance**](#covariance-1)
-    - [**Contravariance**](#contravariance)
+  - [Covariance](#covariance)
+    - [Arrays](#arrays)
+    - [Interfaces](#interfaces)
+  - [Contravariance](#contravariance)
+    - [Interfaces](#interfaces-1)
   - [Delegates](#delegates)
-    - [**Covarinace and contravariance**](#covarinace-and-contravariance)
+    - [Covariance and contravariance](#covariance-and-contravariance-1)
   - [Excerpt from Jeffrey Richter's "CLR via C#" book](#excerpt-from-jeffrey-richters-clr-via-c-book)
   - [Links](#links)
 
-Covariance enables implicit conversion of an array/delegate/generic argument of a more derived type to an array/delegate/generic argument of a less derived type.
+## Covariance
 
-## Arrays
+A **covariance** is a feature that allows to use a more derived type in the context that requires a less derived type.
 
-### **Covariance**
+### Arrays
 
-Covariance for arrays:
+Object array is not type safe and should not be used; it is used here just for demonstration of covariance:
 
 ```csharp
-class Program
+Base[] array =
 {
-    static void Main(string[] args)
-    {
-        Rectangle[] array = { new Square() };
-    }
+    new() { Id = 1 },
+    new Derived { Id = 2, Name = "Second" },
+};
+
+var first = array[0];
+var second = (Derived) array[1];
+
+Console.WriteLine(first.Id);
+Console.WriteLine("{0} {1}", second.Id, second.Name);
+
+class Base
+{
+    public int Id { get; init; }
 }
 
-class Rectangle
+class Derived : Base
 {
-}
-
-class Square : Rectangle
-{
+    public string? Name { get; init; }
 }
 ```
 
-Object `array` is not type safe and should not be used. It is used here just for demonstration of covariance.
+Output:
 
-## Generic type arguments
+```console
+1
+2 Second
+```
 
-Generic type variance is restricted to generic interfaces and generic delegates.
-
-### **Covariance**
+### Interfaces
 
 A covariant interface allows its methods to return more derived types than those specified in the interface:
 
@@ -54,39 +61,32 @@ IEnumerable<object> list = new List<string>();
 Another example which would not work without `out` keyword:
 
 ```csharp
-class Program
-{
-    private delegate int Whatever(int value);
-
-    static void Main(string[] args)
-    {
-        IA<Rectangle> a = new A<Square>();
-    }
-}
+IA<Base> a = new A<Derived>();
 
 interface IA<out T>
 {
-    T Act();
+    T? Act();
 }
 
 class A<T> : IA<T>
 {
-    public T Act()
-    {
-        return default;
-    }
+    public T? Act() => default;
 }
 
-class Rectangle
+class Base
 {
 }
 
-class Square : Rectangle
+class Derived : Base
 {
 }
 ```
 
-### **Contravariance**
+## Contravariance
+
+A **contravariance** is a feature that allows to use a less derived type in the context that requires a more derived type.
+
+### Interfaces
 
 A contravariant interface allows its methods to accept parameters of less derived types than those specified in the interface.
 
@@ -144,7 +144,7 @@ IEnumerable<Object> listObjects = new List<String>();
 
 ## Delegates
 
-### **Covarinace and contravariance**
+### Covariance and contravariance
 
 Covariance and contravariance support for *method groups* <sup>1</sup> allows for matching method signatures with [delegate](types/delegate.md) types. This enables you to assign to delegates not only methods that have matching signatures, but also methods that return more derived types (covariance) or that accept parameters that have less derived types (contravariance) than that specified by the delegate type:
 
@@ -202,8 +202,6 @@ type.
 [↑ Variance in Generic Interfaces](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/covariance-contravariance/variance-in-generic-interfaces)
 
 [↑ Variance in Delegates](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/covariance-contravariance/variance-in-delegates)
-
-<hr>
 
 <sup>1</sup> A **method group** is the name for a set of methods (that might be just one) — i.e. in theory the `ToString` method may have multiple overloads (plus any extension methods): `ToString()`,` ToString(string format)`, etc — hence `ToString` by itself is a "method group".
 
