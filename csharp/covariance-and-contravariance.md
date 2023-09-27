@@ -5,6 +5,8 @@
   - [Invariance](#invariance)
   - [Covariance](#covariance)
     - [Arrays](#arrays)
+      - [Example 1](#example-1)
+      - [Example 2](#example-2)
     - [Interfaces](#interfaces)
   - [Contravariance](#contravariance)
     - [Interfaces](#interfaces-1)
@@ -27,7 +29,21 @@ A **covariance** is a feature that allows to use a more derived type in the cont
 
 ### Arrays
 
+#### Example 1
+
 Object array is not type safe and should not be used; it is used here just for demonstration of covariance:
+
+```csharp
+object[] array = new string[3] { "one", "two", "three" };
+```
+
+More succinct version:
+
+```csharp
+object[] array = { "one", "two", "three" };
+```
+
+#### Example 2
 
 ```csharp
 Base[] array =
