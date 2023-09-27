@@ -1,15 +1,25 @@
-# Covariance and contravariance
+# Variance, invariance, covariance, contravariance
 
-- [Covariance and contravariance](#covariance-and-contravariance)
+- [Variance, invariance, covariance, contravariance](#variance-invariance-covariance-contravariance)
+  - [Variance](#variance)
+  - [Invariance](#invariance)
   - [Covariance](#covariance)
     - [Arrays](#arrays)
     - [Interfaces](#interfaces)
   - [Contravariance](#contravariance)
     - [Interfaces](#interfaces-1)
   - [Delegates](#delegates)
-    - [Covariance and contravariance](#covariance-and-contravariance-1)
+    - [Covariance and contravariance](#covariance-and-contravariance)
   - [Excerpt from Jeffrey Richter's "CLR via C#" book](#excerpt-from-jeffrey-richters-clr-via-c-book)
   - [Links](#links)
+
+## Variance
+
+Covariance and contravariance are collectively referred to as variance.
+
+## Invariance
+
+<https://learn.microsoft.com/en-us/dotnet/standard/generics/covariance-and-contravariance>
 
 ## Covariance
 
@@ -206,3 +216,5 @@ type.
 <sup>1</sup> A **method group** is the name for a set of methods (that might be just one) — i.e. in theory the `ToString` method may have multiple overloads (plus any extension methods): `ToString()`,` ToString(string format)`, etc — hence `ToString` by itself is a "method group".
 
 It is purely a compiler term for "I know what the method name is, but I don't know the signature"; it has no existence at runtime. AFAIK, the only use of a method-group by itself (no brackets etc) is during delegate construction.
+
+<https://metanit.com/sharp/tutorial/3.27.php>
