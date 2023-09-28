@@ -8,6 +8,9 @@
       - [Example 1](#example-1)
       - [Example 2](#example-2)
     - [Interfaces](#interfaces)
+      - [Example 1](#example-1-1)
+      - [Example 2](#example-2-1)
+      - [Example 3](#example-3)
   - [Contravariance](#contravariance)
     - [Interfaces](#interfaces-1)
   - [Delegates](#delegates)
@@ -20,6 +23,8 @@
 Covariance and contravariance are collectively referred to as variance.
 
 ## Invariance
+
+An **invariance** is a feature that allows to only use the type originally specified in the context.
 
 <https://learn.microsoft.com/en-us/dotnet/standard/generics/covariance-and-contravariance>
 
@@ -48,35 +53,52 @@ object[] array = { "one", "two", "three" };
 ```csharp
 Base[] array =
 {
-    new() { Id = 1 },
-    new Derived { Id = 2, Name = "Second" },
+    new(),
+    new Derived()
 };
-
-var first = array[0];
-var second = (Derived) array[1];
-
-Console.WriteLine(first.Id);
-Console.WriteLine("{0} {1}", second.Id, second.Name);
 
 class Base
 {
-    public int Id { get; init; }
 }
 
 class Derived : Base
 {
-    public string? Name { get; init; }
 }
 ```
 
-Output:
+### Interfaces
 
-```console
-1
-2 Second
+#### Example 1
+
+```csharp
+IEnumerable<Base> list = new List<Derived>(); 
 ```
 
-### Interfaces
+#### Example 2
+
+```csharp
+var list = new List<Derived>
+{
+    new()
+};
+
+Base.PrintBases(list);
+
+class Base
+{
+    public static void PrintBases(IEnumerable<Base> bases)
+    {
+        foreach (var @base in bases)
+            Console.WriteLine(@base.GetType());
+    }
+}
+
+class Derived : Base
+{
+}
+```
+
+#### Example 3
 
 A covariant interface allows its methods to return more derived types than those specified in the interface:
 
