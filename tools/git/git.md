@@ -18,6 +18,7 @@
     - [Show](#show)
   - [Change commit date](#change-commit-date)
     - [macOS date](#macos-date)
+  - [Update forked repository from original repository](#update-forked-repository-from-original-repository)
 
 ## Git config
 
@@ -107,7 +108,6 @@ git config user.email
 | git tag -a TAG_NAME COMMIT_HASH                   | Create a new tag for certain commit                                                                                                        |
 | git show TAG_NAME                                 |                                                                                                                                            |
 | git tag -d TAG_NAME                               | Delete tag                                                                                                                                 |
-| vim .git/config                                   | Edit upstreams                                                                                                                             |
 
 ## Push to multiple repositories
 
@@ -281,3 +281,15 @@ or just:
 ```bash
 date -v-28d
 ```
+
+## Update forked repository from original repository
+
+```bash
+git remote add upstream ssh://example.com/some-project/original-repository.git
+git remote -v
+git fetch upstream master
+git checkout feature/ABC-123-branch
+git rebase upstream/master
+```
+
+[↑ How to Update Fork Repo From Original Repo](https://levelup.gitconnected.com/how-to-update-fork-repo-from-original-repo-b853387dd471).
