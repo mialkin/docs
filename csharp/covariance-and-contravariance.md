@@ -4,7 +4,6 @@
 
 - [Variance, invariance, covariance, contravariance](#variance-invariance-covariance-contravariance)
   - [Table of contents](#table-of-contents)
-  - [Variance](#variance)
   - [Invariance](#invariance)
   - [Covariance](#covariance)
     - [Arrays](#arrays)
@@ -16,14 +15,11 @@
       - [Example 3](#example-3)
   - [Contravariance](#contravariance)
     - [Interfaces](#interfaces-1)
+      - [Example 1](#example-1-2)
+  - [Variance](#variance)
   - [Delegates](#delegates)
     - [Covariance and contravariance](#covariance-and-contravariance)
-  - [Excerpt from Jeffrey Richter's "CLR via C#" book](#excerpt-from-jeffrey-richters-clr-via-c-book)
   - [Links](#links)
-
-## Variance
-
-*Covariance* and *contravariance* are collectively referred to as **variance**.
 
 ## Invariance
 
@@ -108,6 +104,8 @@ object[] array = { "one", "two", "three" };
 
 ### Interfaces
 
+A covariant interface allows its methods to return instances of less derived types than those specified in the interface.
+
 #### Example 1
 
 ```csharp
@@ -115,30 +113,6 @@ IEnumerable<Base> list = new List<Derived>();
 ```
 
 #### Example 2
-
-```csharp
-var list = new List<Derived>
-{
-    new()
-};
-
-Base.PrintBases(list);
-
-class Base
-{
-    public static void PrintBases(IEnumerable<Base> bases)
-    {
-        foreach (var @base in bases)
-            Console.WriteLine(@base.GetType());
-    }
-}
-
-class Derived : Base
-{
-}
-```
-
-#### Example 3
 
 ```csharp
 IProvider<Base> provider = new Provider<Derived>();
@@ -166,6 +140,30 @@ class Derived : Base
 }
 ```
 
+#### Example 3
+
+```csharp
+var list = new List<Derived>
+{
+    new()
+};
+
+Base.PrintBases(list);
+
+class Base
+{
+    public static void PrintBases(IEnumerable<Base> bases)
+    {
+        foreach (var @base in bases)
+            Console.WriteLine(@base.GetType());
+    }
+}
+
+class Derived : Base
+{
+}
+```
+
 ## Contravariance
 
 A **contravariance** is a feature that allows to use a less derived type in the context that requires a more derived type.
@@ -174,56 +172,52 @@ A **contravariance** is a feature that allows to use a less derived type in the 
 
 A contravariant interface allows its methods to accept parameters of less derived types than those specified in the interface.
 
-Here is an example which would not work without `in` keyword:
+#### Example 1
 
 ```csharp
-class Program
+IProvider<Derived> provider = new Provider<Base>();
+
+interface IProvider<in T>
 {
-    static void Main(string[] args)
+    // T Get(); // Invalid variance: contravariant type parameter 'T' is used in covariant position. Method return type must be output-safe
+    void Update(T item);
+}
+
+class Provider<T> : IProvider<T> where T : new()
+{
+    public void Update(T item)
     {
-        IA<Square> a = new A<Rectangle>();
     }
 }
 
-interface IA<in T>
-{
-    void Act(T t);
-}
-
-class A<T> : IA<T>
-{
-    public void Act(T t)
-    {
-
-    }
-}
-
-class Rectangle
+class Base
 {
 }
 
-class Square : Rectangle
+class Derived : Base
 {
 }
 ```
+
+## Variance
+
+*Covariance* and *contravariance* are collectively referred to as **variance**.
 
 Variance in generic interfaces is supported for reference types only. Value types do not support variance. For example, `IEnumerable<int>` cannot be implicitly converted to `IEnumerable<object>`, because integers are represented by a value type:
 
 ```csharp
-IEnumerable<int> integers = new List<int>();
+IEnumerable<int> list = new List<int>();
 // The following statement generates a compiler error
-// IEnumerable<object> objects = integers;
+// IEnumerable<object> list = new List<int>();
 ```
 
-It is also important to remember that classes that implement variant interfaces are still invariant. For example, although `List<T>` implements the covariant interface `IEnumerable<T>`, you cannot implicitly convert to `List<Object>`. This is illustrated in the following code example:
+It is also important to remember that classes that implement variant interfaces are still invariant. For example, although `List<T>` implements the covariant interface `IEnumerable<T>`, you cannot implicitly convert to `List<object>`. This is illustrated in the following code example:
 
 ```csharp
-// The following line generates a compiler error
-// because classes are invariant.
-// List<Object> list = new List<String>();
+IEnumerable<object> listObjects = new List<string>();
 
-// You can use the interface object instead.
-IEnumerable<Object> listObjects = new List<String>();
+// The following line generates a compiler error because classes are invariant
+// List<object> list = new List<string>();
 ```
 
 ## Delegates
@@ -268,18 +262,6 @@ Output:
 Passed type: Square
 Output type: Square
 ```
-
-## Excerpt from Jeffrey Richter's "CLR via C#" book
-
-- **Invariant** Meaning that the generic type parameter cannot be changed. I have shown only
-invariant generic type parameters so far in this chapter.
-- **Contra-variant** Meaning that the generic type parameter can change from a class to a
-class derived from it. In C#, you indicate contra-variant generic type parameters with the in
-keyword. Contra-variant generic type parameters can appear only in input positions such as a
-method’s argument.
-- **Covariant** Meaning that the generic type argument can change from a class to one of its
-base classes. In C#, you indicate covariant generic type parameters with the out keyword. Covariant generic type parameters can appear only in output positions such as a method’s return
-type.
 
 ## Links
 
