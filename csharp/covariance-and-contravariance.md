@@ -23,7 +23,7 @@
 
 ## Variance
 
-Covariance and contravariance are collectively referred to as variance.
+*Covariance* and *contravariance* are collectively referred to as **variance**.
 
 ## Invariance
 
@@ -294,3 +294,5 @@ type.
 It is purely a compiler term for "I know what the method name is, but I don't know the signature"; it has no existence at runtime. AFAIK, the only use of a method-group by itself (no brackets etc) is during delegate construction.
 
 <https://metanit.com/sharp/tutorial/3.27.php>
+
+[↑ How to use target typing and covariant returns in C# 9](https://www.infoworld.com/article/3613548/how-to-use-target-typing-and-covariant-returns-in-c-9.html)
