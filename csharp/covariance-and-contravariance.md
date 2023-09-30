@@ -1,6 +1,9 @@
 # Variance, invariance, covariance, contravariance
 
+## Table of contents
+
 - [Variance, invariance, covariance, contravariance](#variance-invariance-covariance-contravariance)
+  - [Table of contents](#table-of-contents)
   - [Variance](#variance)
   - [Invariance](#invariance)
   - [Covariance](#covariance)
@@ -28,6 +31,37 @@ An **invariance** is a feature that allows to only use the type originally speci
 
 <https://learn.microsoft.com/en-us/dotnet/standard/generics/covariance-and-contravariance>
 
+```csharp
+IProvider<T> provider = new Provider<Derived>();
+
+interface IProvider<T>
+{
+    T Get();
+    void Update(T item);
+}
+
+
+class Provider<T> : IProvider<T> where T : new()
+{
+    public T Get()
+    {
+        return new T();
+    }
+
+    public void Update(T item)
+    {
+    }
+}
+
+class Base
+{
+}
+
+class Derived : Base
+{
+}
+```
+
 ## Covariance
 
 A **covariance** is a feature that allows to use a more derived type in the context that requires a less derived type.
@@ -35,20 +69,6 @@ A **covariance** is a feature that allows to use a more derived type in the cont
 ### Arrays
 
 #### Example 1
-
-Object array is not type safe and should not be used; it is used here just for demonstration of covariance:
-
-```csharp
-object[] array = new string[3] { "one", "two", "three" };
-```
-
-More succinct version:
-
-```csharp
-object[] array = { "one", "two", "three" };
-```
-
-#### Example 2
 
 ```csharp
 Base[] array =
@@ -64,6 +84,20 @@ class Base
 class Derived : Base
 {
 }
+```
+
+#### Example 2
+
+Object array is not type safe and should not be used; it is used here just for demonstration of covariance:
+
+```csharp
+object[] array = new string[3] { "one", "two", "three" };
+```
+
+More succinct version:
+
+```csharp
+object[] array = { "one", "two", "three" };
 ```
 
 ### Interfaces
@@ -100,26 +134,22 @@ class Derived : Base
 
 #### Example 3
 
-A covariant interface allows its methods to return more derived types than those specified in the interface:
-
 ```csharp
-IEnumerable<object> list = new List<string>();
-```
+IProvider<Base> provider = new Provider<Derived>();
 
-Another example which would not work without `out` keyword:
-
-```csharp
-IA<Base> a = new A<Derived>();
-
-interface IA<out T>
+interface IProvider<out T>
 {
-    T? Act();
+    T Get();
 }
 
-class A<T> : IA<T>
+class Provider<T> : IProvider<T> where T : new()
 {
-    public T? Act() => default;
+    public T Get()
+    {
+        return new T();
+    }
 }
+
 
 class Base
 {
@@ -246,6 +276,8 @@ base classes. In C#, you indicate covariant generic type parameters with the out
 type.
 
 ## Links
+
+[↑ C# Covariance](https://www.csharptutorial.net/csharp-tutorial/csharp-covariance/)
 
 [↑ Variance in Generic Interfaces](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/covariance-contravariance/variance-in-generic-interfaces)
 
