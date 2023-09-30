@@ -32,14 +32,13 @@ An **invariance** is a feature that allows to only use the type originally speci
 <https://learn.microsoft.com/en-us/dotnet/standard/generics/covariance-and-contravariance>
 
 ```csharp
-IProvider<T> provider = new Provider<Derived>();
+IProvider<Derived> provider = new Provider<Derived>();
 
 interface IProvider<T>
 {
     T Get();
     void Update(T item);
 }
-
 
 class Provider<T> : IProvider<T> where T : new()
 {
@@ -60,6 +59,13 @@ class Base
 class Derived : Base
 {
 }
+```
+
+In the example above both of these lines would not compile:
+
+```csharp
+IProvider<Base> provider = new Provider<Derived>(); // Cannot convert initializer type 'Provider<Derived>' to target type 'IProvider<Base>'
+IProvider<Derived> provider2 = new Provider<Base>(); // Cannot convert initializer type 'Provider<Base>' to target type 'IProvider<Derived>'
 ```
 
 ## Covariance
@@ -140,6 +146,7 @@ IProvider<Base> provider = new Provider<Derived>();
 interface IProvider<out T>
 {
     T Get();
+    // void Update(T item); // Invalid variance: covariant type parameter 'T' is used in contravariant position. Parameter must be input-safe
 }
 
 class Provider<T> : IProvider<T> where T : new()
@@ -149,7 +156,6 @@ class Provider<T> : IProvider<T> where T : new()
         return new T();
     }
 }
-
 
 class Base
 {
