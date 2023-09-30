@@ -296,3 +296,5 @@ It is purely a compiler term for "I know what the method name is, but I don't kn
 <https://metanit.com/sharp/tutorial/3.27.php>
 
 [↑ How to use target typing and covariant returns in C# 9](https://www.infoworld.com/article/3613548/how-to-use-target-typing-and-covariant-returns-in-c-9.html)
+
+[↑ Covariance and contravariance in generics](https://learn.microsoft.com/en-us/dotnet/standard/generics/covariance-and-contravariance)
