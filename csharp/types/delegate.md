@@ -60,68 +60,36 @@ Represents a multicast delegate; that is, a delegate that can have more than one
 public abstract class MulticastDelegate : Delegate
 ```
 
-A useful property of delegate objects is that multiple objects can be assigned to one delegate instance by using the `+` operator. The multicast delegate contains a list of the assigned delegates. When the multicast delegate is called, it invokes the delegates in the list, in order:
+A useful property of delegate objects is that multiple objects can be assigned to one delegate instance by using the `+` operator. The multicast delegate contains a list of the assigned delegates. When the multicast delegate is called, it invokes the delegates in the list, in order. Only delegates of the same type can be combined.
+
+The `-` operator can be used to remove a component delegate from a multicast delegate.
 
 ```csharp
-using System;
+Print print = message => Console.WriteLine(message + "lambda function");
+print += LocalPrintFunction;
 
-class Program
+print("Printing from ");
+
+void LocalPrintFunction(string message)
 {
-    private delegate int Whatever(int value);
-
-    static void Main(string[] args)
-    {
-        Whatever d = x =>
-        {
-            Console.WriteLine($"x + 1 called with x = {x}");
-            return x + 1;
-        };
-
-        d += x =>
-        {
-            Console.WriteLine($"x * 2 called with x = {x}");
-            return x * 2;
-        };
-
-        int result = d.Invoke(3);
-        int result2 = d.Invoke(5);
-
-        Console.WriteLine(result);
-        Console.WriteLine(result2);
-
-        int result3 = d.Invoke(3);
-        int result4 = d.Invoke(5);
-
-        Console.WriteLine(result3);
-        Console.WriteLine(result4);
-    }
+    Console.WriteLine(message + "local function");
 }
+
+delegate void Print(string str);
 ```
 
 Output:
 
 ```output
-x + 1 called with x = 3
-x * 2 called with x = 3
-x + 1 called with x = 5
-x * 2 called with x = 5
-6
-10
-x + 1 called with x = 3
-x * 2 called with x = 3
-x + 1 called with x = 5
-x * 2 called with x = 5
-6
-10
+Printing from lambda function
+Printing from local function
 ```
-
-Only delegates of the same type can be combined.
-
-The `-` operator can be used to remove a component delegate from a multicast delegate:
 
 ## Remarks
 
-The `Delegate` class is the base class for delegate types. However, only the system and compilers can derive explicitly from the `Delegate` class or from the `MulticastDelegate` class. It is also not permissible to derive a new type from a delegate type. The `Delegate` class is not considered a delegate type; it is a class used to derive delegate types.
+`MulticastDelegate` is a special class. Compilers and other tools can derive from this class, but you cannot derive from it explicitly. The same is true of the `Delegate` class.
+
+The `Delegate` class is the base class for delegate types. The `Delegate` class is not considered a delegate type; it is a class used to derive delegate types.
 
 ## Links
 
