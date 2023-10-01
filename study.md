@@ -254,6 +254,7 @@ for (var i = 0; i < 5; i++) {
 - Как реализованы дженерики в C#?
 - [MessagePack](https://github.com/neuecc/MessagePack-CSharp)
 - .NET channels <https://www.youtube.com/watch?v=gT06qvQLtJ0>, <https://www.youtube.com/watch?v=E0Ld7ZgE4oY>
+- What is the difference between `dynamic` and `object` keywords
 
 ## ASP.NET
 
