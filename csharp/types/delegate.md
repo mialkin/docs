@@ -1,6 +1,12 @@
-# Delegate
+# `delegate`
 
-A **delegate** is a *type* that represents references to methods with a particular parameter list and return type.
+The `delegate` is a reference type that represents references to methods with a particular parameter list and return type.
+
+A **delegate** is a code, a class, that the compiler generates when you use the `delegate` keyword.
+
+You define a **delegate type** using syntax that is similar to defining a method signature; you just add the `delegate` keyword to the definition.
+
+[↑ Every](https://learn.microsoft.com/en-us/dotnet/csharp/delegate-class#delegate-and-multicastdelegate-classes) delegate you work with is derived from `MulticastDelegate`.
 
 When you instantiate a delegate, you can associate its instance with any method with a compatible signature and return type. You can invoke, or call, the method through the delegate instance:
 
@@ -46,7 +52,7 @@ delegate int GetStringLength(string str);
 
 ## Table of contents
 
-- [Delegate](#delegate)
+- [`delegate`](#delegate)
   - [Table of contents](#table-of-contents)
   - [`MulticastDelegate`](#multicastdelegate)
   - [Remarks](#remarks)
@@ -84,6 +90,8 @@ Output:
 Printing from lambda function
 Printing from local function
 ```
+
+[↑ Is there a Delegate which isn't a MulticastDelegate in C#?](https://stackoverflow.com/questions/4711118/is-there-a-delegate-which-isnt-a-multicastdelegate-in-c)
 
 ## Remarks
 
