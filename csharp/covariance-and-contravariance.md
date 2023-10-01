@@ -1,8 +1,8 @@
-# Variance, invariance, covariance, contravariance
+# Invariance, covariance, contravariance, variance
 
 ## Table of contents
 
-- [Variance, invariance, covariance, contravariance](#variance-invariance-covariance-contravariance)
+- [Invariance, covariance, contravariance, variance](#invariance-covariance-contravariance-variance)
   - [Table of contents](#table-of-contents)
   - [Invariance](#invariance)
   - [Covariance](#covariance)
@@ -21,8 +21,6 @@
     - [Delegates](#delegates-1)
       - [Example 1](#example-1-4)
   - [Variance](#variance)
-  - [Delegates](#delegates-2)
-    - [Covariance and contravariance](#covariance-and-contravariance)
   - [Links](#links)
 
 ## Invariance
@@ -107,6 +105,10 @@ object[] array = { "one", "two", "three" };
 ### Interfaces
 
 A covariant interface allows its methods to return instances of less derived types than those specified in the interface.
+
+At the time a covariant interface is defined, we do not know what type of object will be returned in its method.
+
+The `out` keyword in the interface definition indicates that this interface will be covariant
 
 #### Example 1
 
@@ -253,9 +255,11 @@ class Derived : Base
 }
 ```
 
+[↑ Using Variance in Delegates (C#)](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/covariance-contravariance/using-variance-in-delegates).
+
 ## Variance
 
-*Covariance* and *contravariance* are collectively referred to as **variance**.
+Covariance and contravariance are collectively referred to as **variance**.
 
 Variance in generic interfaces is supported for reference types only. Value types do not support variance. For example, `IEnumerable<int>` cannot be implicitly converted to `IEnumerable<object>`, because integers are represented by a value type:
 
@@ -274,62 +278,11 @@ IEnumerable<object> listObjects = new List<string>();
 // List<object> list = new List<string>();
 ```
 
-## Delegates
-
-### Covariance and contravariance
-
-Covariance and contravariance support for *method groups* <sup>1</sup> allows for matching method signatures with [delegate](types/delegate.md) types. This enables you to assign to delegates not only methods that have matching signatures, but also methods that return more derived types (covariance) or that accept parameters that have less derived types (contravariance) than that specified by the delegate type:
-
-```csharp
-using System;
-
-class Program
-{
-    private delegate Rectangle MyDelegate(Square square);
-
-    static void Main(string[] args)
-    {
-        MyDelegate d = D;
-        Type output = d.Invoke(new Square()).GetType();
-        Console.WriteLine($"Output type: {output}");
-    }
-
-    private static Square D(Rectangle rectangle)
-    {
-        Console.WriteLine($"Passed type: {rectangle.GetType()}");
-        return new Square();
-    }
-}
-
-class Rectangle
-{
-}
-
-class Square : Rectangle
-{
-}
-```
-
-Output:
-
-```output
-Passed type: Square
-Output type: Square
-```
-
-[↑ Using Variance in Delegates (C#)](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/covariance-contravariance/using-variance-in-delegates).
-
 ## Links
 
 [↑ C# Covariance](https://www.csharptutorial.net/csharp-tutorial/csharp-covariance/).
 
 [↑ Variance in Generic Interfaces](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/covariance-contravariance/variance-in-generic-interfaces).
-
-[↑ Variance in Delegates](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/covariance-contravariance/variance-in-delegates).
-
-<sup>1</sup> A **method group** is the name for a set of methods (that might be just one) — i.e. in theory the `ToString` method may have multiple overloads (plus any extension methods): `ToString()`, `ToString(string format)`, etc — hence `ToString` by itself is a "method group".
-
-It is purely a compiler term for "I know what the method name is, but I don't know the signature"; it has no existence at runtime. AFAIK, the only use of a method-group by itself (no brackets etc) is during delegate construction.
 
 <https://metanit.com/sharp/tutorial/3.27.php>
 
