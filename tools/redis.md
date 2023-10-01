@@ -63,11 +63,11 @@ docker exec -it YOUR_REDIS_CONTAINER_NAME redis-cli
 | flushall                    | Flushes everything                                                               |
 | get KEY                     | Gets value by key                                                                |
 | getset KEY VALUE            | Gets old value and sets new                                                      |
-| hget HASHSET_NAME KEY       | Gets value inside hashset by key                                                 |
-| hgetall HASHSET_NAME        | Gets all key/values for the hashset                                              |
-| hkeys NAME                  | Gets all keys from hashset                                                       |
-| hset HASHSET_NAME KEY VALUE | Creates hashset and sets key and value inside of it                              |
-| hvalues NAME                | Gets all values from hashset                                                     |
+| hget HASH_NAME KEY          | Gets value inside has by key                                                     |
+| hgetall HASH_NAME           | Gets all key/values for the hash                                                 |
+| hkeys NAME                  | Gets all keys from hash                                                          |
+| hset HASH_NAME KEY VALUE    | Creates hash and sets key and value inside of it                                 |
+| hvalues NAME                | Gets all values from hash                                                        |
 | incr KEY                    | Increments value by 1                                                            |
 | incr counter                | Creates `counter` key and sets its value to 1                                    |
 | keys PATTERN                | Returns all the keys satifying certain pattern                                   |
