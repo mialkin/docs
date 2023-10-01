@@ -362,8 +362,8 @@
       - [`object`](csharp/types/object.md)
         - [Constructors](csharp/types/constructors.md)
         - [Override `GetHashCode` when `Equals` is overridden](csharp/types/override-gethashcode.md)
-      - [`record`](csharp/types/record.md)
       - [`string`](csharp/types/string.md)
+    - [`record`](csharp/types/record.md)
     - [Nullable reference types](csharp/types/nullable-reference-types.md)
 
 ## Miscellaneous
