@@ -14,7 +14,7 @@
       - [Example 2](#example-2-1)
       - [Example 3](#example-3)
     - [Delegates](#delegates)
-  - [Example 1](#example-1-2)
+      - [Example 1](#example-1-2)
   - [Contravariance](#contravariance)
     - [Interfaces](#interfaces-1)
       - [Example 1](#example-1-3)
@@ -172,7 +172,7 @@ class Derived : Base
 
 A covariance in delegates means that delegates can be used with methods that have return types that are derived from the return type in the delegate signature.
 
-## Example 1
+#### Example 1
 
 ```csharp
 Print print = PrintLocal;
