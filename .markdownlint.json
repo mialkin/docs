@@ -1,6 +1,11 @@
 {
   "line_length": false,
   "no-inline-html": {
-    "allowed_elements": [ "img" ]
+    "allowed_elements": [
+      "img"
+    ]
+  },
+  "no-duplicate-header": {
+    "allow_different_nesting": true
   }
 }
