@@ -359,6 +359,7 @@
   - [Reference types](csharp/types/reference-types.md)
     - Built-in reference types
       - [`delegate`](csharp/types/delegate.md)
+      - [`dynamic`](csharp/types/dynamic.md)
       - [`object`](csharp/types/object.md)
         - [Constructors](csharp/types/constructors.md)
         - [Override `GetHashCode` when `Equals` is overridden](csharp/types/override-gethashcode.md)
