@@ -56,6 +56,7 @@
 - [↑ Covering indexes](https://www.red-gate.com/simple-talk/databases/sql-server/learn/using-covering-indexes-to-improve-query-performance/)
 - [↑ SQL Server and Azure SQL index architecture and design guide](https://learn.microsoft.com/en-us/sql/relational-databases/sql-server-index-design-guide)
 - [↑ `ConcurrencyCheck` attribute](https://www.entityframeworktutorial.net/code-first/concurrencycheck-dataannotations-attribute-in-code-first.aspx)
+  - <https://metanit.com/sharp/entityframeworkcore/2.11.php>
 - [↑ NoSQL: виды, особенности и применение](https://cloud.yandex.ru/blog/posts/2022/10/nosql)
 - Define what full text search is, how it works and define [↑ inverted index](https://en.wikipedia.org/wiki/Inverted_index)
 - WITH (NOLOCK)
