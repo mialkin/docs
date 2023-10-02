@@ -366,6 +366,7 @@
       - [`string`](csharp/types/string.md)
     - `class`
     - `interface`
+      - Interface vs abstract class
     - [`record`](csharp/types/record.md)
     - [Nullable reference types](csharp/types/nullable-reference-types.md)
 
