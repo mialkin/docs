@@ -7,6 +7,7 @@
   - [Push to multiple repositories](#push-to-multiple-repositories)
   - [.gitignore](#gitignore)
   - [Rebase](#rebase)
+  - [Merge](#merge)
   - [Naming commits](#naming-commits)
   - [Fetching vs pulling](#fetching-vs-pulling)
     - [Fetching](#fetching)
@@ -151,6 +152,14 @@ Cancel rebase:
 
 ```bash
 git rebase --abort
+```
+
+## Merge
+
+Cancel merge:
+
+```bash
+git merge --abort
 ```
 
 ## Naming commits
