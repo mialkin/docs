@@ -19,6 +19,7 @@
   - [Change commit date](#change-commit-date)
     - [macOS date](#macos-date)
   - [Update forked repository from original repository](#update-forked-repository-from-original-repository)
+  - [`git log` format](#git-log-format)
 
 ## Git config
 
@@ -293,3 +294,20 @@ git rebase upstream/master
 ```
 
 [↑ How to Update Fork Repo From Original Repo](https://levelup.gitconnected.com/how-to-update-fork-repo-from-original-repo-b853387dd471).
+
+## `git log` format
+
+Open `.gitconfig` file:
+
+```bash
+vim ~/.gitconfig
+```
+
+Add the following lines:
+
+```text
+[format]
+	pretty = format:%C(yellow)%h %C(cyan)%ad %C(cyan)%d %Creset%s %C(red)%aN
+```
+
+[↑ The shortest possible output from git log containing author and date](https://stackoverflow.com/questions/1441010/the-shortest-possible-output-from-git-log-containing-author-and-date).
