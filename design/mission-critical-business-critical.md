@@ -17,9 +17,13 @@
     - [Uptime](#uptime-2)
     - [Examples](#examples-2)
   - [Business operational, BO](#business-operational-bo)
+    - [Signs](#signs-3)
     - [Uptime](#uptime-3)
+    - [Examples](#examples-3)
   - [Office productivity, OP](#office-productivity-op)
+    - [Signs](#signs-4)
     - [Uptime](#uptime-4)
+    - [Examples](#examples-4)
 
 ## Mission critical, MC
 
@@ -83,12 +87,31 @@
 
 ## Business operational, BO
 
+### Signs
+
+- Services important for employees not involved in direct customer service: call center, company's representatives
+
 ### Uptime
 
 99.5% or 7 minutes 12 seconds daily.
 
+### Examples
+
+- Jira
+- Confluence
+
 ## Office productivity, OP
+
+### Signs
+
+- Services/systems that have a full-fledged alternative solution that does not lose functionality
+- Affects employee convenience, but not customer convenience
+- Affects internal background processes that are acceptable to stop for a weekend or 1-2 business days
 
 ### Uptime
 
 95% or 1 hour 12 minutes daily.
+
+### Examples
+
+- HR portal
