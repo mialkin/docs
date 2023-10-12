@@ -89,7 +89,7 @@
 
 ### Signs
 
-- Services important for employees not involved in direct customer service: call center, company's representatives
+- Systems important for employees not involved in direct customer services: call center, company's representatives
 
 ### Uptime
 
@@ -104,9 +104,9 @@
 
 ### Signs
 
-- Services/systems that have a full-fledged alternative solution that does not lose functionality
-- Affects employee convenience, but not customer convenience
-- Affects internal background processes that are acceptable to stop for a weekend or 1-2 business days
+- Systems that have a full-fledged alternative solutions
+- Downtime affects employee convenience, but not customer convenience
+- Downtime affects internal background processes that are acceptable to stop for a weekend or 1-2 business days
 
 ### Uptime
 
