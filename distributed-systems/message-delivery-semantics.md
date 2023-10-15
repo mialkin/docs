@@ -16,4 +16,4 @@ In "at least once" delivery semantics it is acceptable to deliver a message more
 
 **Exactly once** – this is what people actually want, each message is delivered once and only once.
 
-In 'exactly one' delivery semantics, a message must be delivered only once and no message should be lost. This is the most difficult delivery semantic of all. Applications adopting exactly once semantics may have lower throughput and higher latency than the other two semantic systems we've looked at.
+In "exactly one" delivery semantics, a message must be delivered only once and no message should be lost. This is the most difficult delivery semantic of all. Applications adopting exactly once semantics may have lower throughput and higher latency than the other two semantic systems we've looked at.
