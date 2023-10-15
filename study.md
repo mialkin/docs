@@ -112,6 +112,7 @@
 - [↑ AsyncAPI & event-driven architecture](https://www.asyncapi.com/)
 - [↑ Lock-free коллекции в .NET 6](https://www.youtube.com/watch?v=-fTrew8atpk)
   - [↑ Посмотреть доклады по .NET на канале IT и т.д.](https://www.youtube.com/@IT_i_td/videos)
+- Define what loosely-coupled monolith is and what is distributed monolith https://codeopinion.com/loosely-coupled-monolith/
 
 ## Programming
 
