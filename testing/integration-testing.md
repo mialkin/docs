@@ -4,7 +4,7 @@ Integration tests ensure that an application's components function correctly at 
 
 ASP.NET Core supports integration tests using a unit test framework with a test web host and an in-memory test server.
 
-[↑ Integration tests in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests)
+[↑ Integration tests in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests).
 
 ## Introduction to integration tests
 
