@@ -207,6 +207,7 @@
 - [Integration testing](testing/integration-testing.md)
 - [k6](testing/k6/k6.md)
 - [MockServer](testing/mock-server.md)
+- [Test types: unit, integration, functional, end-to-end, acceptance, performance, smoke](testing/test-types.md)
 - [Test automation](testing/test-automation.md)
 - [Unit testing best practices](testing/unit-testing-best-practices.md)
 
