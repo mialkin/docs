@@ -6,9 +6,9 @@ TBD is a common practice among DevOps teams and part of the DevOps lifecycle sin
 
 ## Gitflow vs trunk-based development
 
-[Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) is an alternative Git branching model that uses long-lived feature branches and multiple primary branches. Gitflow has more, longer-lived branches and larger commits than trunk-based development. Under this model, developers create a feature branch and delay merging it to the main trunk branch until the feature is complete. These long-lived feature branches require more collaboration to merge as they have a higher risk of deviating from the trunk branch and introducing conflicting updates. 
+[↑ Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) is an alternative Git branching model that uses long-lived feature branches and multiple primary branches. Gitflow has more, longer-lived branches and larger commits than trunk-based development. Under this model, developers create a feature branch and delay merging it to the main trunk branch until the feature is complete. These long-lived feature branches require more collaboration to merge as they have a higher risk of deviating from the trunk branch and introducing conflicting updates.
 
-Gitflow also has separate primary branch lines for development, hotfixes, features, and releases. There are different strategies for merging commits between these branches. Since there are more branches to juggle and manage, there is often more complexity that requires additional planning sessions and review from the team. 
+Gitflow also has separate primary branch lines for development, hotfixes, features, and releases. There are different strategies for merging commits between these branches. Since there are more branches to juggle and manage, there is often more complexity that requires additional planning sessions and review from the team.
 
 Trunk-based development is far more simplified since it focuses on the main branch as the source of fixes and releases. In trunk-based development the main branch is assumed to always be stable, without issues, and ready to deploy.
 
