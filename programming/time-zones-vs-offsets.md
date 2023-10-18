@@ -29,3 +29,5 @@ The `DateTimeOffset` type includes all of the functionality of the `DateTime` ty
 [↑ Noda Time .NET library](https://nodatime.org/).
 
 [↑ Entity Framework Community Standup - Noda Time](https://www.youtube.com/watch?v=ZLJLfImuFqM).
+
+[↑ What's wrong with DateTime anyway?](https://blog.nodatime.org/2011/08/what-wrong-with-datetime-anyway.html)
