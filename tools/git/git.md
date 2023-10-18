@@ -74,42 +74,44 @@ git config user.email
 
 ## Commands
 
-| Command                                           | Description                                                                                                                                |
-| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| git branch -d BRANCH_NAME                         | Delete local branch                                                                                                                        |
-| git branch -m NEW_NAME                            | Rename branch                                                                                                                              |
-| git branch -r                                     | List all remote branches                                                                                                                   |
-| git checkout -b NEW_BRANCH                        | Create new branch from current                                                                                                             |
-| git cherry-pick COMMIT_HASH                       | Cherry pick commit                                                                                                                         |
-| git cherry-pick -n COMMIT_HASH                    | Cherry pick without commit                                                                                                                 |
-| git commit --amend -m "An updated commit message" | Modify the most recent commit                                                                                                              |
-| git config --list                                 | Show all config sections                                                                                                                   |
-| git config --list --show-origin                   | Show where settings are defined (global, user, repo, etc...)                                                                               |
-| git config SETTING_NAME                           | Check what current settings are (in this case username)                                                                                    |
-| git config user.name                              | Check current value of `username` setting                                                                                                  |
-| git config user.name "John Doe"                   | Set local user name                                                                                                                        |
-| git config user.email your@email.com              | Set local user email                                                                                                                       |
-| git config --global user.email your@email.com     | Set global user email                                                                                                                      |
-| git log --oneline                                 | Print only commits subject line (without body)                                                                                             |
-| git mv README README.md                           | Rename/move file preserving history                                                                                                        |
-| git mv folder folder2                             | Rename/move folder preserving history                                                                                                      |
-| git push REMOTE_NAME -u BRANCH_NAME               | Push local branch to remote                                                                                                                |
-| git push REMOTE_NAME --delete BRANCH_NAME         | Delete remote branch                                                                                                                       |
-| git push REMOTE_NAME TAG_NAME                     | Push certain tag to remote                                                                                                                 |
-| git push REMOTE_NAME --tags                       | Push all tags to the remote server that are not already there                                                                              |
-| git remote add REMOTE_NAME REMOTE_URL             | Add a remote                                                                                                                               |
-| git remote remove REMOTE_NAME                     | Remove remote                                                                                                                              |
-| git remote set-url REMOTE_NAME REMOTE_URL         | Replace old remote URL with new one                                                                                                        |
-| git remote -v                                     | Display list of remotes with origins                                                                                                       |
-| git rm --cached FILENAME                          | Remove a file from cache                                                                                                                   |
-| git rm -fr --cached FOLDER_NAME                   | Removes caches of FOLDER_NAME folder. You can use dot (`.`) instead of folder                                                              |
-| git shortlog                                      | Summarizes git log so that each commit will be grouped by author and title                                                                 |
-| git tag                                           | List tags                                                                                                                                  |
+| Command                                           | Description                                                                     |
+| ------------------------------------------------- | ------------------------------------------------------------------------------- |
+| git branch -d BRANCH_NAME                         | Delete local branch                                                             |
+| git branch -m NEW_NAME                            | Rename branch                                                                   |
+| git branch -r                                     | List all remote branches                                                        |
+| git branch -a -v                                  | List all branches verbose                                                       |
+| git checkout -b NEW_BRANCH                        | Create new branch from current and check it out                                 |
+| git checkout BRANCH_NAME                          | Switch to existing branch                                                       |
+| git cherry-pick COMMIT_HASH                       | Cherry pick commit                                                              |
+| git cherry-pick -n COMMIT_HASH                    | Cherry pick without commit                                                      |
+| git commit --amend -m "An updated commit message" | Modify the most recent commit                                                   |
+| git config --list                                 | Show all config sections                                                        |
+| git config --list --show-origin                   | Show where settings are defined (global, user, repo, etc...)                    |
+| git config SETTING_NAME                           | Check what current settings are (in this case username)                         |
+| git config user.name                              | Check current value of `username` setting                                       |
+| git config user.name "John Doe"                   | Set local user name                                                             |
+| git config user.email your@email.com              | Set local user email                                                            |
+| git config --global user.email your@email.com     | Set global user email                                                           |
+| git log --oneline                                 | Print only commits subject line (without body)                                  |
+| git mv README README.md                           | Rename/move file preserving history                                             |
+| git mv folder folder2                             | Rename/move folder preserving history                                           |
+| git push REMOTE_NAME -u BRANCH_NAME               | Push local branch to remote                                                     |
+| git push REMOTE_NAME --delete BRANCH_NAME         | Delete remote branch                                                            |
+| git push REMOTE_NAME TAG_NAME                     | Push certain tag to remote                                                      |
+| git push REMOTE_NAME --tags                       | Push all tags to the remote server that are not already there                   |
+| git remote add REMOTE_NAME REMOTE_URL             | Add a remote                                                                    |
+| git remote remove REMOTE_NAME                     | Remove remote                                                                   |
+| git remote set-url REMOTE_NAME REMOTE_URL         | Replace old remote URL with new one                                             |
+| git remote -v                                     | Display list of remotes with origins                                            |
+| git rm --cached FILENAME                          | Remove a file from cache                                                        |
+| git rm -fr --cached FOLDER_NAME                   | Removes caches of FOLDER_NAME folder. You can use dot (`.`) instead of folder   |
+| git shortlog                                      | Summarizes git log so that each commit will be grouped by author and title      |
+| git tag                                           | List tags                                                                       |
 | git tag TAG_NAME                                  | Create a [↑ lightweight](https://git-scm.com/book/en/v2/Git-Basics-Tagging) tag |
-| git tag -a TAG_NAME -m 'Switch to Postgres'       | Create an annotated tag with message                                                                                                       |
-| git tag -a TAG_NAME COMMIT_HASH                   | Create a new tag for certain commit                                                                                                        |
-| git show TAG_NAME                                 |                                                                                                                                            |
-| git tag -d TAG_NAME                               | Delete tag                                                                                                                                 |
+| git tag -a TAG_NAME -m 'Switch to Postgres'       | Create an annotated tag with message                                            |
+| git tag -a TAG_NAME COMMIT_HASH                   | Create a new tag for certain commit                                             |
+| git show TAG_NAME                                 |                                                                                 |
+| git tag -d TAG_NAME                               | Delete tag                                                                      |
 
 ## Push to multiple repositories
 
