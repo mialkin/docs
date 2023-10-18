@@ -21,3 +21,11 @@ The `DateTimeOffset` structure represents a date and time value, together with a
 The `DateTimeOffset` type includes all of the functionality of the `DateTime` type along with time zone awareness.
 
 [↑ Choose between DateTime, DateTimeOffset, TimeSpan, and TimeZoneInfo](https://docs.microsoft.com/en-us/dotnet/standard/datetime/choosing-between-datetime#the-datetimeoffset-structure).
+
+## Links
+
+[↑ Joda Time Java library](https://www.joda.org/joda-time).
+
+[↑ Noda Time .NET library](https://nodatime.org/).
+
+[↑ Entity Framework Community Standup - Noda Time](https://www.youtube.com/watch?v=ZLJLfImuFqM).
