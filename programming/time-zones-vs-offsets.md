@@ -31,3 +31,5 @@ The `DateTimeOffset` type includes all of the functionality of the `DateTime` ty
 [↑ Entity Framework Community Standup - Noda Time](https://www.youtube.com/watch?v=ZLJLfImuFqM).
 
 [↑ What's wrong with DateTime anyway?](https://blog.nodatime.org/2011/08/what-wrong-with-datetime-anyway.html)
+
+[↑ Just store UTC? Handling Time Zones & Daylight Saving](https://www.youtube.com/watch?v=Bxf_HMs7SeQ).
