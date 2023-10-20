@@ -8,6 +8,8 @@ Test automation can automate some repetitive but necessary tasks in a formalized
 
 [↑ Test automation](https://en.wikipedia.org/wiki/Test_automation).
 
+[↑ Playwright](https://playwright.dev).
+
 [↑ Selenium](https://github.com/SeleniumHQ/).
 
 [↑ A beginner's guide to Page Object Model (POM) and Page Factory](https://qatestblog.hashnode.dev/qa-tester-beginner-series-a-beginners-guide-to-page-object-model-pom-and-page-factory).
