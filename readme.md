@@ -168,7 +168,6 @@
 - [Observability: logs, metrics, traces](distributed-systems/observability/observability.md)
   - [Instrumentation guidelines](distributed-systems/observability/instrumentation-guidelines.md)
   - [OpenTelemetry](distributed-systems/observability/opentelemetry.md)
-- [Transactional outbox and inbox](distributed-systems/transactional-outbox-and-inbox.md)
 - [Two-phase commit protocol, 2PC](distributed-systems/2pc.md)
 
 ## Programming

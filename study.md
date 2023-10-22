@@ -257,7 +257,7 @@ for (var i = 0; i < 5; i++) {
 - Разобрать C# AggregateException, посоздавать таких исключений, применить метод  AggregateException.Flatten (страница 32 Стивена Клири)
 - [↑ Adventure in learning Go for a C# dev! - Ken Faulkner](https://www.youtube.com/watch?v=0ghHBPNe6g4)
 - Как реализованы дженерики в C#?
-- [↑MessagePack](https://github.com/neuecc/MessagePack-CSharp)
+- [↑ MessagePack](https://github.com/neuecc/MessagePack-CSharp)
 - .NET channels <https://www.youtube.com/watch?v=gT06qvQLtJ0>, <https://www.youtube.com/watch?v=E0Ld7ZgE4oY>
 - What is the difference between `dynamic` and `object` keywords
 - [↑ Why C# structs do no support inheritance](https://pragmateek.com/why-c-structs-do-no-support-inheritance/)
