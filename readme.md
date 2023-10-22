@@ -70,7 +70,7 @@
 - [Regular expressions](tools/regular-expressions/regular-expressions.md)
 - [SonarQube](tools/sonarqube.md)
 - [Unleash](tools/unleash.md)
-- [↑ Zikpin](https://zipkin.io)
+- [↑ Zipkin](https://zipkin.io)
 
 ## Unix
 
@@ -168,6 +168,7 @@
 - [Observability: logs, metrics, traces](distributed-systems/observability/observability.md)
   - [Instrumentation guidelines](distributed-systems/observability/instrumentation-guidelines.md)
   - [OpenTelemetry](distributed-systems/observability/opentelemetry.md)
+- [↑ System design interviews](https://www.youtube.com/@IGotAnOffer-Engineering/videos)
 - [Two-phase commit protocol, 2PC](distributed-systems/2pc.md)
 
 ## Programming
