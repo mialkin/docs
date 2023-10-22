@@ -1,4 +1,4 @@
-# IEnumerable\<T>
+# `IEnumerable<T>`
 
 ```csharp
 using System;
@@ -12,7 +12,7 @@ foreach (var item in list)
 }
 ```
 
-**ILSpy** gives this output for the code above:
+[↑ ILSpy](https://github.com/icsharpcode/ILSpy) or <https://sharplab.io> gives this output for the code above:
 
 ```csharp
 // Warning: Some assembly references could not be resolved automatically. This might lead to incorrect decompilation of some parts,
