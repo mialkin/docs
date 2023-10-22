@@ -214,6 +214,7 @@ for (var i = 0; i < 5; i++) {
 - [↑ Async/await и механизм реализации в C# 5.0](https://habr.com/ru/articles/260217)
 - [↑ Compile code programmatically by using C# compiler](https://learn.microsoft.com/en-us/troubleshoot/developer/visualstudio/csharp/language-compilers/compile-code-using-compiler)
 - Just-In-Time IL code generation
+- Try use [↑ ILSpy built with Avalonia](https://github.com/icsharpcode/AvaloniaILSpy)
 - [↑ Reflection and Reflection.Emit in C#](https://www.c-sharpcorner.com/UploadFile/puranindia/reflection-and-reflection-emit-in-C-Sharp)
 - Generate code from created expression tree for some mapper. Use generated code to map 2 objects
 - [↑ Пишем код, когда пишем код: сорс-генераторы](https://habr.com/ru/companies/tinkoff/articles/766916/)
