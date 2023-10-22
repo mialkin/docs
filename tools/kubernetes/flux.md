@@ -1,6 +1,6 @@
 # Flux
 
-[↑ Flux](https://fluxcd.io/flux) is a tool for keeping Kubernetes clusters in sync with sources of configuration (like Git repositories), and automating updates to configuration when there is new code to deploy.
+[↑ Flux](https://fluxcd.io/flux) is a tool for keeping Kubernetes clusters in sync with sources of configuration, like Git repositories, and automating updates to configuration when there is new code to deploy.
 
 ## Table of contents
 
@@ -180,4 +180,4 @@ flux create kustomization dictionary-api \
 
 ## Automate image updates to Git
 
-[↑ Automate image updates to Git](https://fluxcd.io/flux/guides/image-update)
+[↑ Automate image updates to Git](https://fluxcd.io/flux/guides/image-update).

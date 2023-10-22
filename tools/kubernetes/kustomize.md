@@ -21,4 +21,4 @@ kustomize create --autodetect --recursive
 
 ## Commands
 
-[↑ Commands](https://kubectl.docs.kubernetes.io/references/kustomize/cmd)
+[↑ Commands](https://kubectl.docs.kubernetes.io/references/kustomize/cmd).
