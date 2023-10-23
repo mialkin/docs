@@ -81,6 +81,7 @@
   - [↑ Распределенный трейсинг OpenTelemetry вместо логирования всего подряд](https://dotnext.ru/talks/968f0bdc6f7a44b4b868c665d57dcaa5/)
 - Architectural patterns
   - [↑ Event Sourcing](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing)
+    - [↑ Event Sourcing: как мы ускорили SQL проекции с 7 часов до 7 минут](https://highload.ru/moscow/2023/abstracts/10083)
     - [↑ EventSourcing.NetCore](https://github.com/oskardudycz/EventSourcing.NetCore)
   - [↑ Repository](https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application)
   - Microservices related patterns
