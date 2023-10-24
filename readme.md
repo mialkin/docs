@@ -214,6 +214,7 @@
 
 ## Networking
 
+- [Egress vs ingress](networking/egress-vs-ingress.md)
 - [GraphQL](networking/graphql.md)
 - [gRPC](networking/grpc.md)
 - [Internet](networking/internet.md)
