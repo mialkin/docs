@@ -4,11 +4,13 @@
 
 Examples of infrastructure: compute instances, storage, networking, DNS entries, SaaS features, etc.
 
-## How does Terraform work?
+## Providers
 
 Terraform creates and manages resources on cloud platforms and other services through their application programming interfaces (APIs). Providers enable Terraform to work with virtually any platform or service with an accessible API.
 
 [↑ HashiCorp](https://www.hashicorp.com) and the Terraform community have already written thousands of providers to manage many different types of resources and services. You can find all publicly available providers on the Terraform Registry, including Amazon Web Services (AWS), Azure, Google Cloud Platform (GCP), Kubernetes, Helm, GitHub, Splunk, DataDog, and many more.
+
+## Terraform workflow
 
 The core Terraform workflow consists of three stages:
 
