@@ -20,6 +20,7 @@
     - [Change isolation level](#change-isolation-level)
     - [Read uncommitted isolation level](#read-uncommitted-isolation-level)
     - [Read committed isolation level](#read-committed-isolation-level)
+  - [Rework](#rework)
 
 An **isolation level** represents a particular locking strategy employed in the database system to avoid *read phenomena*.
 
@@ -102,7 +103,7 @@ Locks are acquired for reading and modifying the database. Locks are released af
 
 Locks are obtained for reading and modifying the database. Locks on all modified objects are held until EOT. Locks obtained for reading data are held until EOT. Locks on non-modified access structures (such as indexes and hashing structures) are released after reading.
 
-Уровень, при котором читающая транзакция «не видит» изменения данных, которые были ею ранее прочитаны. При этом никакая другая транзакция не может изменять данные, читаемые текущей транзакцией, пока та не окончена.
+The level at which the reading transaction "does not see" changes to the data it has previously read. In this case, no other transaction can change the data read by the current transaction until it is finished.
 
 ### Serializable
 
@@ -147,16 +148,10 @@ services:
       - 8080:8080
 ```
 
-Run container:
+Run container and connect to MySQL:
 
 ```bash
 docker-compose -f mysql-docker-compose.yml up
-watch docker ps -a
-```
-
-Connect to MySQL:
-
-```bash
 docker exec -it mysql mysql -uroot -p
 ```
 
@@ -467,3 +462,15 @@ mysql> select * from accounts;
 |  3 | three |     100 | USD      | 2020-09-06 15:09:38 |
 +----+-------+---------+----------+---------------------+
 ```
+
+## Rework
+
+MySQL print current transaction unique ID?
+
+The `status` command shows current connection ID.
+
+Does `update` command create transaction implicitly? Is isolation level for such a command the same as isolation level of its session?
+
+Does `NOLOCK` set isolation level to read committed or uncommitted? Neither?
+
+Types of locks in relational databases. What does it mean to acquire lock?
