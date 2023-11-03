@@ -191,6 +191,7 @@
 - [Serialization](programming/serialization.md)
 - [Time zones vs offsets](programming/time-zones-vs-offsets.md)
 - [Trunk-based development, TBD](programming/trunk-based-development.md)
+- [Unicode](programming/unicode.md)
 - [Upstream and downstream](programming/upstream-and-downstream/upstream-and-downstream.md)
 - [YAML](programming/yaml.md)
 
