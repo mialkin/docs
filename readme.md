@@ -363,6 +363,7 @@
     - [Boxing and unboxing](csharp/types/boxing-and-unboxing.md)
     - [Enumeration types](csharp/types/enum.md)
     - [Structure types](csharp/types/struct.md)
+      - [`char`](csharp/types/char.md)
     - Tuple types
     - [`ValueType` class](csharp/types/value-type-class.md)
   - [Reference types](csharp/types/reference-types.md)
