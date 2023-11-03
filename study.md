@@ -167,6 +167,7 @@ for (var i = 0; i < 5; i++) {
   - [↑ Destructurama.Attributed](https://github.com/destructurama/attributed)
   - [↑ Serilog.Enrichers.Sensitive](https://github.com/serilog-contrib/Serilog.Enrichers.Sensitive/tree/master)
   - [↑ What is data masking?](https://aws.amazon.com/what-is/data-masking/)
+- Consider implementing in a project [The NEW Way of Validating Settings in .NET 8](https://www.youtube.com/watch?v=mO0fwvnnzbU)?
 
 ## C&#35;
 
