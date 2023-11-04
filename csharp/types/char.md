@@ -7,4 +7,3 @@ The default value of the char type is `\0`, that is, [↑ U+0000](https://www.co
 ## Links
 
 [↑ char (C# reference)](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/char).
-
