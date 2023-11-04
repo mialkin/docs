@@ -10,4 +10,4 @@ Version [↑ 15.1](https://www.unicode.org/versions/Unicode15.1.0/) of the stand
 
 [↑ Character encoding in .NET](https://learn.microsoft.com/en-us/dotnet/standard/base-types/character-encoding-introduction).
 
-[↑ What is the difference between UTF-8 and Unicode?](https://stackoverflow.com/questions/643694/what-is-the-difference-between-utf-8-and-unicode)
+[↑ What is the difference between UTF-8 and Unicode?](https://stackoverflow.com/questions/643694/what-is-the-difference-between-utf-8-and-unicode).
