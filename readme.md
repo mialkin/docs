@@ -374,7 +374,7 @@
       - [`object`](csharp/types/object.md)
         - [Constructors](csharp/types/constructors.md)
         - [Override `GetHashCode` when `Equals` is overridden](csharp/types/override-gethashcode.md)
-      - [`string`](csharp/types/string.md)
+      - [`string`](csharp/types/string/string.md)
     - `class`
     - `interface`
       - Interface vs abstract class

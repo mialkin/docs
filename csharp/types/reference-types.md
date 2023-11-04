@@ -11,7 +11,7 @@ C# also provides the following built-in reference types:
 - [`delegate`](delegate.md)
 - `dynamic`
 - [`object`](object.md)
-- [`string`](string.md)
+- [`string`](string/string.md)
 
 ## Links
 
