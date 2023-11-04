@@ -8,11 +8,9 @@ The default value of the `char` type is `\0`, that is, [↑ U+0000](https://www.
 
 ## Literals
 
-A **literal** is a value that is used by the variables.
-
 You can specify a `char` value with:
 
-- a character literal
+- a character [literal](/csharp/literal.md)
 - a Unicode escape sequence, which is `\u` followed by the four-symbol hexadecimal representation of a character code
 - a hexadecimal escape sequence, which is `\x` followed by the hexadecimal representation of a character code
 
@@ -31,8 +29,6 @@ Console.WriteLine('\x411');     // Б
 Console.WriteLine('\x0411');    // Б
 Console.WriteLine((char)1041);  // Б
 ```
-
-[↑ C# Literals](https://www.geeksforgeeks.org/c-sharp-literals/).
 
 ## Links
 

@@ -346,6 +346,7 @@
   - Contextual keywords
     - [`yield`](csharp/keywords/yield.md)
   - [`ref`, `out`, `in` parameter modifiers](csharp/keywords/ref-out-in.md)
+- [Literal](csharp/literal.md)
 - Selected classes
   - [`HttpClient`](csharp/libraries/httpclient.md)
   - [↑ `PeriodicTimer`](https://www.youtube.com/watch?v=J4JL4zR_l-0)
