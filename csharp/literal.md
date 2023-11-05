@@ -100,6 +100,25 @@ Console.WriteLine(x == y); // True
 
 ### Floating-point
 
+Floating-point literal is a literal that has an integer part, a decimal point, a fractional part, and an exponent part. These can be represented either in decimal form or exponential form.
+
+```csharp
+double x = 3.14145;
+double y = 314145E-5;
+double z = 784f;
+
+Console.WriteLine(x); // 3,14145
+Console.WriteLine(y); // 3,14145
+Console.WriteLine(z); // 784
+```
+
+By default, every floating-point literal is of double type and hence we can’t assign directly to float variable. But we can specify floating-point literal as float type by suffixed with `f` or `F`.
+
+```csharp
+// float f = 3.14145;   // Won't work
+float f = 3.14145F;     // Works
+```
+
 ### Character
 
 ### String
