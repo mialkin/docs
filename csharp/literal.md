@@ -25,6 +25,31 @@ A **literal** is a value that is used by the variables.
 
 A literal of integer type is known as the integer literal. It can be decimal, octal, hexadecimal, or binary constant. No prefix is required for the decimal numbers. A suffix can also be used with the integer literals like `U` or `u` are used for unsigned numbers while `l` or `L` are used for long numbers. By default, every literal is of `int` type.
 
+> You can use the lowercase letter `l` as a suffix. However, this generates a compiler warning because the letter `l` can be confused with the digit 1. Use `L` for clarity
+
+Unsigned integer, `unit`, literal:
+
+```csharp
+unit x = 304U;
+Console.WriteLine(x); // 304
+```
+
+Long, `long`, literal:
+
+```csharp
+long x = 3078L;
+Console.WriteLine(x); // 3078
+```
+
+Unsigned long, `ulong`, literal:
+
+```csharp
+ulong x = 965UL;
+Console.WriteLine(x); // 965
+```
+
+[↑ Integral numeric types (C# reference)](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types).
+
 #### Decimal literal
 
 Decimal literal, base 10:
@@ -43,7 +68,7 @@ Octal literal, base 8:
 const int octalNumber = 012;
 Console.WriteLine(octalNumber); // 12
 
-// Octal to decimal conversion:
+// Octal to decimal conversion
 int decimalRepresentation = Convert.ToInt32(value: octalNumber.ToString(), fromBase: 8);
 Console.WriteLine(decimalRepresentation); // 10
 ```
@@ -56,8 +81,8 @@ Hexadecimal literal, base 16:
 // The hexadecimal number should be prefixed with 0X or 0x
 // Allowed digits are 0-9 and characters are a-f
 // Both uppercase and lowercase characters can be used
-int x = 0X123FacE;
-int y = 0x123Face;
+int x = 0x123Face;
+int y = 0X123FacE;
 
 Console.WriteLine(x); // 19135182
 Console.WriteLine(x == y); // True
@@ -66,8 +91,11 @@ Console.WriteLine(x == y); // True
 #### Binary literal
 
 ```csharp
+// The binary number should be prefixed with 0b or 0B
 int x = 0b101;
+int y = 0B101;
 Console.WriteLine(x); // 5
+Console.WriteLine(x == y); // True
 ```
 
 ### Floating-point
@@ -76,9 +104,30 @@ Console.WriteLine(x); // 5
 
 ### String
 
+```csharp
+string s1 = "Hello";
+string s2 = @"Hello!";
+string s3 = @"Hello";
+
+Console.WriteLine(ReferenceEquals(s1, s2)); // False
+Console.WriteLine(ReferenceEquals(s2, s3)); // False
+Console.WriteLine(ReferenceEquals(s1, s3)); // True
+```
+
 ### Null
 
+The `null` keyword is a literal that represents a null reference, one that does not refer to any object. `null` is the default value of reference-type variables.
+
+```csharp
+int? x = null;
+```
+
 ### Boolean
+
+```csharp
+bool x = true;
+bool y = false;
+```
 
 ## Links
 
