@@ -4,29 +4,26 @@ The `object` keyword is an alias for [↑ `System.Object`](https://learn.microso
 
 In C# type system all types, predefined and user-defined, reference types and value types, inherit directly or indirectly from `System.Object`.
 
-
 An **object** is a block of memory that has been allocated and configured according to the definition of its type.
 
 An object is an instance of a class.
-
 
 ## Table of contents
 
 - [`object`](#object)
   - [Table of contents](#table-of-contents)
   - [Methods](#methods)
-    - [Equals(Object)](#equalsobject)
-    - [Equals(Object, Object)](#equalsobject-object)
-    - [Finalize()](#finalize)
-    - [GetHashCode](#gethashcode)
-    - [GetType()](#gettype)
-    - [MemberwiseClone()](#memberwiseclone)
-    - [ReferenceEquals(Object, Object)](#referenceequalsobject-object)
-    - [ToString()](#tostring)
+    - [`Equals`](#equals)
+    - [`Finalize`](#finalize)
+    - [`GetHashCode`](#gethashcode)
+    - [`GetType`](#gettype)
+    - [`MemberwiseClone`](#memberwiseclone)
+    - [`ReferenceEquals`](#referenceequals)
+    - [`ToString`](#tostring)
 
 ## Methods
 
-### Equals(Object)
+### `Equals`
 
 Determines whether two object instances are equal.
 
@@ -34,13 +31,11 @@ Determines whether two object instances are equal.
 
 [↑ C# difference between `==` and `Equals()`](https://stackoverflow.com/questions/814878/c-sharp-difference-between-and-equals).
 
-### Equals(Object, Object)
-
-### Finalize()
+### `Finalize`
 
 [↑ Object.Finalize Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.finalize).
 
-### GetHashCode
+### `GetHashCode`
 
 `GetHashCode` is intended to serve as a hash function for the object. Based on the contents of the object, the hash function will return a suitable value with a relatively random distribution over the various inputs.
 
@@ -51,11 +46,11 @@ Objects (& especially value classes) should override this method.
 
 [↑ Object.GetHashCode Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode).
 
-### GetType()
+### `GetType`
 
 [↑ Object.GetType Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.gettype).
 
-### MemberwiseClone()
+### `MemberwiseClone`
 
 Creates a shallow copy of the current `Object`.
 
@@ -117,7 +112,7 @@ class C
 }
 ```
 
-### ReferenceEquals(Object, Object)
+### `ReferenceEquals`
 
 Determines whether the specified `Object` instances are the same instance.
 
@@ -146,7 +141,7 @@ Unlike the `Equals` method and the equality operator, the `ReferenceEquals` meth
 
 [↑ Object.ReferenceEquals(Object, Object) Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.referenceequals).
 
-### ToString()
+### `ToString`
 
 Returns a string that represents the current object.
 
