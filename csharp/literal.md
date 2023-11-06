@@ -121,6 +121,28 @@ float f = 3.14145F;     // Works
 
 ### Character
 
+For character data types we can specify literals in 3 ways:
+
+Single quote:
+
+```csharp
+char x = 'a';
+```
+
+Unicode representation:
+
+```csharp
+char x = '\u0061';
+Console.WriteLine(x); // a
+```
+
+Escape sequence:
+
+```csharp
+char x = '\n'; // New line
+char x = '\v'; // Vertical bar
+```
+
 ### String
 
 ```csharp
