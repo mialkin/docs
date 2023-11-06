@@ -69,6 +69,18 @@ namespace System.Runtime.CompilerServices
 }
 ```
 
+Some versions of the .NET runtime automatically intern the empty string at runtime, some do not:
+
+```csharp
+object obj = "";
+string str1 = "";
+string str2 = string.Empty;
+
+Console.WriteLine(obj == str1); // True
+Console.WriteLine(str1 == str2); // True
+Console.WriteLine(obj == str2); // Sometimes True, sometimes False!
+```
+
 ## Intern pool
 
 .NET has the concept of an "intern pool". It's basically just a set of strings, but it makes sure that every time you reference the same string literal, you get a reference to the same string.
