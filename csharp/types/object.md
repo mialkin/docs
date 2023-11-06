@@ -1,18 +1,28 @@
 # Object
 
-- [Object](#object)
-  - [Equals(Object)](#equalsobject)
-  - [Equals(Object, Object)](#equalsobject-object)
-  - [Finalize()](#finalize)
-  - [GetHashCode()](#gethashcode)
-  - [GetType()](#gettype)
-  - [MemberwiseClone()](#memberwiseclone)
-  - [ReferenceEquals(Object, Object)](#referenceequalsobject-object)
-  - [ToString()](#tostring)
+An **object** is a block of memory that has been allocated and configured according to the definition of its type.
+
+An object is an instance of a class.
 
 The `object` type is an alias for `System.Object` in .NET. In the unified type system of C#, all types, predefined and user-defined, reference types and value types, inherit directly or indirectly from `System.Object`.
 
-## Equals(Object)
+## Table of contents
+
+- [Object](#object)
+  - [Table of contents](#table-of-contents)
+  - [Methods](#methods)
+    - [Equals(Object)](#equalsobject)
+    - [Equals(Object, Object)](#equalsobject-object)
+    - [Finalize()](#finalize)
+    - [GetHashCode](#gethashcode)
+    - [GetType()](#gettype)
+  - [MemberwiseClone()](#memberwiseclone)
+    - [ReferenceEquals(Object, Object)](#referenceequalsobject-object)
+    - [ToString()](#tostring)
+
+## Methods
+
+### Equals(Object)
 
 Determines whether two object instances are equal.
 
@@ -20,17 +30,24 @@ Determines whether two object instances are equal.
 
 [↑ C# difference between `==` and `Equals()`](https://stackoverflow.com/questions/814878/c-sharp-difference-between-and-equals).
 
-## Equals(Object, Object)
+### Equals(Object, Object)
 
-## Finalize()
+### Finalize()
 
 [↑ Object.Finalize Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.finalize).
 
-## GetHashCode()
+### GetHashCode
+
+`GetHashCode` is intended to serve as a hash function for the object. Based on the contents of the object, the hash function will return a suitable value with a relatively random distribution over the various inputs.
+
+The default implementation returns the sync block index for instance of an object.
+Calling it on the same object multiple times will return the same value, so
+it will technically meet the needs of a hash function, but it's less than ideal.
+Objects (& especially value classes) should override this method.
 
 [↑ Object.GetHashCode Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode).
 
-## GetType()
+### GetType()
 
 [↑ Object.GetType Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.gettype).
 
@@ -96,7 +113,7 @@ class C
 }
 ```
 
-## ReferenceEquals(Object, Object)
+### ReferenceEquals(Object, Object)
 
 Determines whether the specified `Object` instances are the same instance.
 
@@ -125,7 +142,7 @@ Unlike the `Equals` method and the equality operator, the `ReferenceEquals` meth
 
 [↑ Object.ReferenceEquals(Object, Object) Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.referenceequals).
 
-## ToString()
+### ToString()
 
 Returns a string that represents the current object.
 
