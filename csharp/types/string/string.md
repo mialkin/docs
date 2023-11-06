@@ -12,6 +12,7 @@ It's recommended to use `string` alias as it works even without `using System;`.
   - [String as a collection of `char`s](#string-as-a-collection-of-chars)
   - [`StringInfo`](#stringinfo)
   - [Passing string to a method](#passing-string-to-a-method)
+  - [String interpolation](#string-interpolation)
 
 ## String
 
@@ -67,4 +68,14 @@ void Act(string h, ref string w)
 }
 
 Console.WriteLine( $"{hello} {world}"); // hello world!
+```
+
+## String interpolation
+
+A **string interpolation** is a feature in C# that allows to insert variables or expressions into string literals. This feature provides a concise way to create formatted strings, rather than concatenating multiple strings together.
+
+```csharp
+string name = "John";
+string message = $"Hello {name}!";
+Console.WriteLine(message); // Hello John!
 ```
