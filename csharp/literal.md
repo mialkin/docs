@@ -84,8 +84,8 @@ Hexadecimal literal, base 16:
 int x = 0x123Face;
 int y = 0X123FacE;
 
-Console.WriteLine(x); // 19135182
-Console.WriteLine(x == y); // True
+Console.WriteLine(x);       // 19135182
+Console.WriteLine(x == y);  // True
 ```
 
 #### Binary literal
@@ -94,8 +94,8 @@ Console.WriteLine(x == y); // True
 // The binary number should be prefixed with 0b or 0B
 int x = 0b101;
 int y = 0B101;
-Console.WriteLine(x); // 5
-Console.WriteLine(x == y); // True
+Console.WriteLine(x);       // 5
+Console.WriteLine(x == y);  // True
 ```
 
 ### Floating-point
