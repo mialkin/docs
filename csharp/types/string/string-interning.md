@@ -1,17 +1,17 @@
 # String interning and `string.Empty`
 
-A **string interning** is an optimization that ensures that only one string object is created by the CLR for all instances of identical string [literals](/csharp/literal.md) inside compilation unit.
+A **string interning** is a compiler optimization that ensures that only one string object is created by the CLR for all instances of identical string [literals](/csharp/literal.md) inside compilation unit.
 
 Here's a curious program fragment:
 
 ```csharp
 object obj = "Int32";
 string str1 = "Int32";
-string str2 = typeof(int).Name; // "Int32"
+string str2 = typeof(int).Name;     // "Int32"
 
-Console.WriteLine(obj == str1); // true
-Console.WriteLine(str1 == str2);// true
-Console.WriteLine(obj == str2); // false !
+Console.WriteLine(obj == str1);     // true
+Console.WriteLine(str1 == str2);    // true
+Console.WriteLine(obj == str2);     // false!
 ```
 
 Surely if A equals B, and B equals C, then A equals C; that's the transitive property of equality. It appears to have been thoroughly violated here.
@@ -62,6 +62,12 @@ namespace System.Runtime.CompilerServices
     }
 }
 ```
+
+## Intern pool
+
+.NET has the concept of an "intern pool". It's basically just a set of strings, but it makes sure that every time you reference the same string literal, you get a reference to the same string.
+
+As well as literals being automatically interned, you can intern strings manually with the [↑ `Intern`](https://learn.microsoft.com/en-us/dotnet/api/system.string.intern) method, and check whether or not there is already an interned string with the same character sequence in the pool using the [↑ `IsInterned`](https://learn.microsoft.com/en-us/dotnet/api/system.string.isinterned) method. This somewhat unintuitively returns a string rather than a boolean — if an equal string is in the pool, a reference to that string is returned. Otherwise, null is returned. Likewise, the `Intern` method returns a reference to an interned string — either the string you passed in if was already in the pool, or a newly created interned string, or an equal string which was already in the pool.
 
 ## Links
 
