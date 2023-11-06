@@ -1,6 +1,6 @@
 # `string`
 
-The `string` keyword is an alias for [↑ `String`](https://learn.microsoft.com/en-us/dotnet/api/system.string); therefore, `String` and `string` are equivalent.
+The `string` keyword is an alias for [↑ `System.String`](https://learn.microsoft.com/en-us/dotnet/api/system.string) type; therefore, `System.String` and `string` are equivalent.
 
 It's recommended to use `string` alias as it works even without `using System;`.
 
