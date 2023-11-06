@@ -7,11 +7,17 @@ Here's a curious program fragment:
 ```csharp
 object obj = "Int32";
 string str1 = "Int32";
-string str2 = typeof(int).Name;     // "Int32"
+string str2 = typeof(int).Name; // "Int32"
 
-Console.WriteLine(obj == str1);     // true
-Console.WriteLine(str1 == str2);    // true
-Console.WriteLine(obj == str2);     // false!
+Console.WriteLine(obj == str1); // True
+Console.WriteLine(str1 == str2); // True
+Console.WriteLine(obj == str2); // False!
+
+/*
+Console.WriteLine(ReferenceEquals(obj, str1)); // True
+Console.WriteLine(ReferenceEquals(str1, str2)); // False
+Console.WriteLine(ReferenceEquals(obj, str2)); // False
+*/
 ```
 
 Surely if A equals B, and B equals C, then A equals C; that's the transitive property of equality. It appears to have been thoroughly violated here.
