@@ -376,7 +376,7 @@
         - [Override `GetHashCode` when `Equals` is overridden](csharp/types/override-gethashcode.md)
       - [`string`](csharp/types/string/string.md)
         - [String interning and `string.Empty`](csharp/types/string/string-interning.md)
-    - `class`
+    - [`class`](csharp/types/class.md)
     - `interface`
       - Interface vs abstract class
     - [`record`](csharp/types/record.md)
