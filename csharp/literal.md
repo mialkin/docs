@@ -155,6 +155,8 @@ Console.WriteLine(ReferenceEquals(s2, s3)); // False
 Console.WriteLine(ReferenceEquals(s1, s3)); // True
 ```
 
+See also: [String interning](/csharp/types/string/string-interning.md).
+
 ### Null
 
 The `null` keyword is a literal that represents a null reference, one that does not refer to any object. `null` is the default value of reference-type variables.
