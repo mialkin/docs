@@ -1,14 +1,18 @@
-# Object
+# `object`
+
+The `object` keyword is an alias for [↑ `System.Object`](https://learn.microsoft.com/en-us/dotnet/api/system.object) type; therefore, `System.Object` and `object` are equivalent.
+
+In C# type system all types, predefined and user-defined, reference types and value types, inherit directly or indirectly from `System.Object`.
+
 
 An **object** is a block of memory that has been allocated and configured according to the definition of its type.
 
 An object is an instance of a class.
 
-The `object` type is an alias for `System.Object` in .NET. In the unified type system of C#, all types, predefined and user-defined, reference types and value types, inherit directly or indirectly from `System.Object`.
 
 ## Table of contents
 
-- [Object](#object)
+- [`object`](#object)
   - [Table of contents](#table-of-contents)
   - [Methods](#methods)
     - [Equals(Object)](#equalsobject)
@@ -16,7 +20,7 @@ The `object` type is an alias for `System.Object` in .NET. In the unified type s
     - [Finalize()](#finalize)
     - [GetHashCode](#gethashcode)
     - [GetType()](#gettype)
-  - [MemberwiseClone()](#memberwiseclone)
+    - [MemberwiseClone()](#memberwiseclone)
     - [ReferenceEquals(Object, Object)](#referenceequalsobject-object)
     - [ToString()](#tostring)
 
@@ -51,7 +55,7 @@ Objects (& especially value classes) should override this method.
 
 [↑ Object.GetType Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.gettype).
 
-## MemberwiseClone()
+### MemberwiseClone()
 
 Creates a shallow copy of the current `Object`.
 
