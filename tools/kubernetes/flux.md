@@ -10,15 +10,15 @@
   - [Install or upgrade Flux](#install-or-upgrade-flux)
   - [Uninstall Flux](#uninstall-flux)
   - [Commands](#commands)
-  - [Core concepts](#core-concepts)
-    - [Source](#source)
-    - [Kustomization](#kustomization)
-    - [Reconciliation](#reconciliation)
   - [GitLab](#gitlab)
   - [GitHub](#github)
   - [Repository structure](#repository-structure)
   - [Setting up application](#setting-up-application)
   - [Automate image updates to Git](#automate-image-updates-to-git)
+  - [Core concepts](#core-concepts)
+    - [Source](#source)
+    - [Kustomization](#kustomization)
+    - [Reconciliation](#reconciliation)
 
 ## Installation
 
@@ -67,30 +67,6 @@ Note that the `uninstall` command will not remove any Kubernetes objects or Helm
 | `flux delete source git SOURCE_NAME`            | Delete a `GitRepository` source               |
 | `flux stats`                                    | Stats of Flux reconciles                      |
 | `flux version`                                  |                                               |
-
-## Core concepts
-
-### Source
-
-A **source** defines the origin of a repository containing the desired state of the system and the requirements to obtain it.
-
-The origin of the source is checked for changes on a defined interval, if there is a newer version available that matches the criteria, a new artifact is produced.
-
-All sources are specified as [↑ custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) in a Kubernetes cluster, examples of sources are [`↑ GitRepository`](https://fluxcd.io/flux/components/source/gitrepositories), `OCIRepository`, `HelmRepository` and `Bucket` resources.
-
-### Kustomization
-
-A `Kustomization` custom resource represents a local set of Kubernetes resources that Flux is supposed to reconcile in the cluster. The reconciliation runs every five minutes by default, but this can be changed with `.spec.interval`.
-
-### Reconciliation
-
-Reconciliation refers to ensuring that a given state (e.g. application running in the cluster, infrastructure) matches a desired state declaratively defined somewhere (e.g. a Git repository).
-
-There are various examples of these in Flux:
-
-- `HelmRelease` reconciliation: ensures the state of the Helm release matches what is defined in the resource, performs a release if this is not the case (including revision changes of a HelmChart resource).
-- [↑ `Bucket`](https://fluxcd.io/flux/components/source/buckets/) reconciliation: downloads and archives the contents of the declared bucket on a given interval and stores this as an artifact, records the observed revision of the artifact and the artifact itself in the status of resource.
-- `Kustomization` reconciliation: ensures the state of the application deployed on a cluster matches the resources defined in a Git repository or S3 bucket.
 
 ## GitLab
 
@@ -181,3 +157,27 @@ flux create kustomization dictionary-api \
 ## Automate image updates to Git
 
 [↑ Automate image updates to Git](https://fluxcd.io/flux/guides/image-update).
+
+## Core concepts
+
+### Source
+
+A **source** defines the origin of a repository containing the desired state of the system and the requirements to obtain it.
+
+The origin of the source is checked for changes on a defined interval, if there is a newer version available that matches the criteria, a new artifact is produced.
+
+All sources are specified as [↑ custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) in a Kubernetes cluster, examples of sources are [`↑ GitRepository`](https://fluxcd.io/flux/components/source/gitrepositories), `OCIRepository`, `HelmRepository` and `Bucket` resources.
+
+### Kustomization
+
+A `Kustomization` custom resource represents a local set of Kubernetes resources that Flux is supposed to reconcile in the cluster. The reconciliation runs every five minutes by default, but this can be changed with `.spec.interval`.
+
+### Reconciliation
+
+Reconciliation refers to ensuring that a given state (e.g. application running in the cluster, infrastructure) matches a desired state declaratively defined somewhere (e.g. a Git repository).
+
+There are various examples of these in Flux:
+
+- `HelmRelease` reconciliation: ensures the state of the Helm release matches what is defined in the resource, performs a release if this is not the case (including revision changes of a HelmChart resource).
+- [↑ `Bucket`](https://fluxcd.io/flux/components/source/buckets/) reconciliation: downloads and archives the contents of the declared bucket on a given interval and stores this as an artifact, records the observed revision of the artifact and the artifact itself in the status of resource.
+- `Kustomization` reconciliation: ensures the state of the application deployed on a cluster matches the resources defined in a Git repository or S3 bucket.
