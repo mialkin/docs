@@ -138,7 +138,7 @@ flux bootstrap github \
 
 ## Repository structure
 
-[↑ Repo per app](hhttps://fluxcd.io/flux/guides/repository-structure/#repo-per-app).
+[↑ Repo per app](https://fluxcd.io/flux/guides/repository-structure/#repo-per-app).
 
 ## Setting up application
 
