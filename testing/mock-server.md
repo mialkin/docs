@@ -107,6 +107,17 @@ MockServer UI: <http://localhost:2020/mockserver/dashboard>.
 
 [↑  mock-server](https://github.com/mialkin/mock-server).
 
+## Mock server for .NET
+
+[↑ WireMock.Net](https://github.com/WireMock-Net/WireMock.Net).
+
+Advantages of WireMock.Net over MockServer:
+
+- Arguably less prone to runtime failures. More stable work
+- Native for .NET: no need to run a separate container, it's possible to see what's going on under the hood during debug, no obligation to use REST for communication
+- Consumes less resources in runtime
+- The most popular native client for .NET
+
 ## Links
 
 [↑ JSON examples](https://github.com/mock-server/mockserver/blob/master/mockserver-examples/json_examples.md).
