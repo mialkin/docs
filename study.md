@@ -261,6 +261,7 @@ for (var i = 0; i < 5; i++) {
 - [↑ Adventure in learning Go for a C# dev! - Ken Faulkner](https://www.youtube.com/watch?v=0ghHBPNe6g4)
 - Как реализованы дженерики в C#?
 - [↑ MessagePack](https://github.com/neuecc/MessagePack-CSharp)
+  - MessagePack vs Apache Avro
 - .NET channels <https://www.youtube.com/watch?v=gT06qvQLtJ0>, <https://www.youtube.com/watch?v=E0Ld7ZgE4oY>
 - What is the difference between `dynamic` and `object` keywords
 - [↑ Why C# structs do no support inheritance](https://pragmateek.com/why-c-structs-do-no-support-inheritance/)
