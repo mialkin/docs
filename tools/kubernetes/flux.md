@@ -150,7 +150,7 @@ flux create kustomization dictionary-api \
   --source=dictionary-api \
   --path="./deploy/manifests" \
   --prune=true \
-  --interval=10m0s \
+  --interval=5m0s \
   --export > ./clusters/zotac/dictionary-api/dictionary-api-kustomization.yaml
 ```
 
