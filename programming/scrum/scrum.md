@@ -15,6 +15,7 @@
     - [Sprint review](#sprint-review)
   - [Workflow](#workflow)
   - [Scrum vs Kanban](#scrum-vs-kanban)
+  - [Planning poker](#planning-poker)
 
 **Scrum** is a framework utilizing an *agile* mindset for developing, delivering, and sustaining complex products.
 
@@ -116,3 +117,9 @@ Repeat this workflow for each sprint:
 ## Scrum vs Kanban
 
 <img src="scrum-vs-kanban.jpg" />
+
+## Planning poker
+
+**Planning poker**, also called **Scrum poker**, is a consensus-based, gamified technique for estimating, mostly used for [↑ timeboxing](https://en.wikipedia.org/wiki/Timeboxing) in [↑ Agile principles](https://en.wikipedia.org/wiki/Agile_software_development#Agile_principles). In planning poker, members of the group make estimates by playing numbered cards face-down to the table, instead of speaking them aloud. The cards are revealed, and the estimates are then discussed. By hiding the figures in this way, the group can avoid the cognitive bias of [↑ anchoring](https://en.wikipedia.org/wiki/Anchoring_effect), where the first number spoken aloud sets a precedent for subsequent estimates.
+
+[↑ Planning Poker Online](https://planningpokeronline.com/) is a web implementation of planning poker for agile teams.
