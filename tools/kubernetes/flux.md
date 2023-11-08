@@ -121,13 +121,13 @@ flux bootstrap github \
 Clone Flux repository. From its root folder run:
 
 ```bash
-mkdir dictionary-api
+mkdir clusters/zotac/dictionary-api
 
 flux create source git dictionary-api \
   --url=https://github.com/mialkin/dictionary-api \
   --branch=main \
-  --interval=30s \
-  --export > ./clusters/zotac/dictionary-api-source.yaml
+  --interval=1m0s \
+  --export > ./clusters/zotac/dictionary-api/dictionary-api-source.yaml
 ```
 
 ```bash
@@ -142,7 +142,7 @@ Start watching kustomization:
 flux get kustomizations --watch
 ```
 
-In separate terminal run:
+Again, from the root folder of Flux repository, but in a separate terminal, run:
 
 ```bash
 flux create kustomization dictionary-api \
@@ -150,8 +150,8 @@ flux create kustomization dictionary-api \
   --source=dictionary-api \
   --path="./deploy/manifests" \
   --prune=true \
-  --interval=5m \
-  --export > ./clusters/zotac/dictionary-api-kustomization.yaml
+  --interval=10m0s \
+  --export > ./clusters/zotac/dictionary-api/dictionary-api-kustomization.yaml
 ```
 
 ## Automate image updates to Git
