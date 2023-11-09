@@ -14,7 +14,7 @@
   - [GitHub](#github)
   - [Repository structure](#repository-structure)
   - [Setting up application](#setting-up-application)
-  - [Automate image updates to Git](#automate-image-updates-to-git)
+  - [Image update automation](#image-update-automation)
   - [Core concepts](#core-concepts)
     - [Source](#source)
     - [Kustomization](#kustomization)
@@ -154,9 +154,11 @@ flux create kustomization dictionary-api \
   --export > ./clusters/zotac/dictionary-api/dictionary-api-kustomization.yaml
 ```
 
-## Automate image updates to Git
+## Image update automation
 
 [↑ Automate image updates to Git](https://fluxcd.io/flux/guides/image-update).
+
+[↑ Image Policies](https://fluxcd.io/flux/components/image/imagepolicies).
 
 ## Core concepts
 
