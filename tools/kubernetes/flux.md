@@ -11,7 +11,6 @@
   - [Uninstall Flux](#uninstall-flux)
   - [Commands](#commands)
   - [GitLab](#gitlab)
-  - [GitHub](#github)
   - [Repository structure](#repository-structure)
   - [Setting up application](#setting-up-application)
   - [Reconciliation](#reconciliation)
@@ -79,41 +78,26 @@ Export your GitLab personal access token as an environment variable:
 
 ```bash
 export GITLAB_TOKEN=<your-token>
+export GITLAB_USERNAME=<your-username>
 ```
 
 Run the bootstrap for a repository on your personal GitLab account:
 
 ```bash
 flux bootstrap gitlab \
-  --owner=my-gitlab-username \
-  --repository=my-repository \
+  --components-extra=image-reflector-controller,image-automation-controller \
+  --deploy-token-auth \
+  --owner=$GITLAB_USERNAME \
+  --repository=flux \
   --branch=main \
-  --path=clusters/my-cluster \
-  --token-auth \
+  --path=clusters/zotac \
+  --read-write-key \
   --personal
 ```
+
+To regenerate the deploy key, delete the `flux-system` secret from the cluster and re-run the bootstrap command using a valid GitLab PAT.
 
 [↑ Flux bootstrap for GitLab](https://fluxcd.io/flux/installation/bootstrap/gitlab/).
-
-## GitHub
-
-Export your username and your [↑ access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token):
-
-```bash
-export GITHUB_TOKEN=<your-token>
-export GITHUB_USER=<your-username>
-```
-
-Install Flux onto your cluster:
-
-```bash
-flux bootstrap github \
-  --owner=$GITHUB_USER \
-  --repository=fleet-infra \
-  --branch=main \
-  --path=./clusters/my-cluster \
-  --personal
-```
 
 ## Repository structure
 
@@ -189,6 +173,14 @@ flux create image policy dictionary-api \
 --image-ref=dictionary-api \
 --select-semver=">=1.0.0" \
 --export > ./clusters/zotac/dictionary-api/dictionary-api-policy.yaml
+```
+
+```bash
+flux get image repository dictionary-api
+```
+
+```bash
+kubectl -n flux-system describe imagerepositories dictionary-api
 ```
 
 [↑ Image Policies](https://fluxcd.io/flux/components/image/imagepolicies).
