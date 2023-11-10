@@ -14,11 +14,12 @@
   - [GitHub](#github)
   - [Repository structure](#repository-structure)
   - [Setting up application](#setting-up-application)
+  - [Reconciliation](#reconciliation)
   - [Image update automation](#image-update-automation)
+    - [Configure image scanning](#configure-image-scanning)
   - [Core concepts](#core-concepts)
     - [Source](#source)
     - [Kustomization](#kustomization)
-    - [Reconciliation](#reconciliation)
 
 ## Installation
 
@@ -92,6 +93,8 @@ flux bootstrap gitlab \
   --personal
 ```
 
+[↑ Flux bootstrap for GitLab](https://fluxcd.io/flux/installation/bootstrap/gitlab/).
+
 ## GitHub
 
 Export your username and your [↑ access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token):
@@ -154,9 +157,39 @@ flux create kustomization dictionary-api \
   --export > ./clusters/zotac/dictionary-api/dictionary-api-kustomization.yaml
 ```
 
+## Reconciliation
+
+Reconciliation refers to ensuring that a given state matches a desired state declaratively defined somewhere.
+
+Tell Flux to pull and apply the changes or wait one minute for Flux to detect the changes on its own:
+
+```bash
+flux reconcile kustomization flux-system --with-source
+```
+
 ## Image update automation
 
 [↑ Automate image updates to Git](https://fluxcd.io/flux/guides/image-update).
+
+### Configure image scanning
+
+Create an `ImageRepository` to tell Flux which container registry to scan for new tags:
+
+```csharp
+flux create image repository dictionary-api \
+--image=mialkin/dictionary-api \
+--interval=5m \
+--export > ./clusters/zotac/dictionary-api/dictionary-api-registry.yaml
+```
+
+Create an `ImagePolicy` to tell Flux which semver range to use when filtering tags:
+
+```bash
+flux create image policy dictionary-api \
+--image-ref=dictionary-api \
+--select-semver=">=1.0.0" \
+--export > ./clusters/zotac/dictionary-api/dictionary-api-policy.yaml
+```
 
 [↑ Image Policies](https://fluxcd.io/flux/components/image/imagepolicies).
 
@@ -173,13 +206,3 @@ All sources are specified as [↑ custom resources](https://kubernetes.io/docs/c
 ### Kustomization
 
 A `Kustomization` custom resource represents a local set of Kubernetes resources that Flux is supposed to reconcile in the cluster. The reconciliation runs every five minutes by default, but this can be changed with `.spec.interval`.
-
-### Reconciliation
-
-Reconciliation refers to ensuring that a given state (e.g. application running in the cluster, infrastructure) matches a desired state declaratively defined somewhere (e.g. a Git repository).
-
-There are various examples of these in Flux:
-
-- `HelmRelease` reconciliation: ensures the state of the Helm release matches what is defined in the resource, performs a release if this is not the case (including revision changes of a HelmChart resource).
-- [↑ `Bucket`](https://fluxcd.io/flux/components/source/buckets/) reconciliation: downloads and archives the contents of the declared bucket on a given interval and stores this as an artifact, records the observed revision of the artifact and the artifact itself in the status of resource.
-- `Kustomization` reconciliation: ensures the state of the application deployed on a cluster matches the resources defined in a Git repository or S3 bucket.
