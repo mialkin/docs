@@ -166,6 +166,18 @@ flux create image repository dictionary-api \
 --export > ./clusters/zotac/dictionary-api/dictionary-api-registry.yaml
 ```
 
+Get a list of `ImageRepository` objects:
+
+```bash
+flux get image repository dictionary-api
+```
+
+Display a list of ten latest tags scanned by the `ImageRepository`:
+
+```bash
+kubectl -n flux-system describe imagerepositories dictionary-api
+```
+
 Create an `ImagePolicy` to tell Flux which semver range to use when filtering tags:
 
 ```bash
@@ -175,12 +187,10 @@ flux create image policy dictionary-api \
 --export > ./clusters/zotac/dictionary-api/dictionary-api-policy.yaml
 ```
 
-```bash
-flux get image repository dictionary-api
-```
+Get a list of `ImagePolicy` objects:
 
 ```bash
-kubectl -n flux-system describe imagerepositories dictionary-api
+flux get image policy dictionary-api
 ```
 
 [↑ Image Policies](https://fluxcd.io/flux/components/image/imagepolicies).
