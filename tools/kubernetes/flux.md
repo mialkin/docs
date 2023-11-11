@@ -16,6 +16,7 @@
   - [Reconciliation](#reconciliation)
   - [Image update automation](#image-update-automation)
     - [Configure image scanning](#configure-image-scanning)
+    - [Configure image updates](#configure-image-updates)
   - [Core concepts](#core-concepts)
     - [Source](#source)
     - [Kustomization](#kustomization)
@@ -194,6 +195,27 @@ flux get image policy dictionary-api
 ```
 
 [↑ Image Policies](https://fluxcd.io/flux/components/image/imagepolicies).
+
+### Configure image updates
+
+```bash
+flux create image update flux-system \
+--interval=30m \
+--git-repo-ref=flux-system \
+--git-repo-path="./clusters/my-cluster" \
+--checkout-branch=main \
+--push-branch=main \
+--author-name=fluxcdbot \
+--author-email=fluxcdbot@users.noreply.github.com \
+--commit-template="{{range .Updated.Images}}{{println .}}{{end}}" \
+--export > ./clusters/my-cluster/flux-system-automation.yaml
+```
+
+Get `ImageUpdateAutomation` status
+
+```bash
+flux get images update
+```
 
 ## Core concepts
 
