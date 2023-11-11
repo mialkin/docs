@@ -1,21 +1,26 @@
 # CQRS
 
-**Command (and) Query Responsibility Segregation** or **CQRS** is a  a pattern that separates read and write operations for a data store.
+**Command and Query Responsibility Segregation**, **CQRS**, is a pattern that separates read and write operations for a data store.
+
+CQRS requires commands to only modify data and queries to only read it.
+
+The term CQRS was coined by [↑ Greg Young](https://www.youtube.com/watch?v=JHGkaShoyNs).
+
+[↑ CQRS Documents](https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf) by Greg Young.
 
 ## Table of contents
 
 - [CQRS](#cqrs)
   - [Table of contents](#table-of-contents)
   - [What kinds of CQRS do you know?](#what-kinds-of-cqrs-do-you-know)
-    - [Horizontal (classical) and vertical architectures](#horizontal-classical-and-vertical-architectures)
-      - [Horizontal organization](#horizontal-organization)
+    - [Classical horizontal and vertical architectures](#classical-horizontal-and-vertical-architectures)
+      - [Classical horizontal organization](#classical-horizontal-organization)
       - [Vertical organization](#vertical-organization)
     - [Advantages of handlers over services](#advantages-of-handlers-over-services)
       - [A handler is much smaller than a service](#a-handler-is-much-smaller-than-a-service)
       - [A handler does not have code of other business operations](#a-handler-does-not-have-code-of-other-business-operations)
       - [A handler follows SRP principle which states that class should have one reason to change](#a-handler-follows-srp-principle-which-states-that-class-should-have-one-reason-to-change)
       - [Handlers have less dependencies](#handlers-have-less-dependencies)
-    - [What is CQRS](#what-is-cqrs)
     - [Will CQRS help with load growth?](#will-cqrs-help-with-load-growth)
     - [Evolving CQRS](#evolving-cqrs)
     - [Myths about CQRS](#myths-about-cqrs)
@@ -24,25 +29,23 @@
 
 ## What kinds of CQRS do you know?
 
-Excerpts from the video [↑ А какие виды CQRS вы знаете?](https://www.youtube.com/watch?v=TnS6PwxHcLg).
-
 Key points:
 
-- CQRS is simple
-- CQRS has many advantages compared to traditional service approach
-- CQRS fits for different kinds of projects: you can use it for different stacks and in different domains
+- CQRS is simple (пояснить)
+- CQRS has many advantages compared to traditional service approach (пояснить)
+- CQRS fits for different kinds of projects: you can use it for different stacks and in different domains (пояснить)
 
-### Horizontal (classical) and vertical architectures
+### Classical horizontal and vertical architectures
 
 There are two ways to organize application layer, aka Interactors in Clean Architecture:
 
-- Horizontal, classical way
+- Classical horizontal way
   - Services
 - Vertical
   - CQRS handlers
   - Vertical slices
 
-#### Horizontal organization
+#### Classical horizontal organization
 
 With classical horizontal application layer organization we create a separate service for each entity in our domain and each public method of this service is a business operation: create order, get orders, etc:
 
@@ -127,14 +130,6 @@ Architecture based on handlers expands by adding new handlers and not by rewriti
 #### Handlers have less dependencies
 
 Handler has only dependencies it needs for implementing one business operation. It's a rare thing to see more than 5 dependencies inside of a handler. For a service to have 10 or more dependencies is a normal thing.
-
-### What is CQRS
-
-CQRS is when commands can only change the data, queries can only read it.
-
-The term CQRS was coined by Greg Young.
-
-[↑ CQRS Documents by Greg Young](https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf).
 
 ### Will CQRS help with load growth?
 
