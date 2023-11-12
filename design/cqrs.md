@@ -16,9 +16,10 @@ The term CQRS was coined by [↑ Greg Young](https://www.youtube.com/watch?v=JHG
     - [Classical horizontal service architecture vs vertical architectures](#classical-horizontal-service-architecture-vs-vertical-architectures)
       - [Advantages of handlers over services](#advantages-of-handlers-over-services)
         - [A handler is much smaller than a service](#a-handler-is-much-smaller-than-a-service)
-        - [A handler does not have code of other business operations](#a-handler-does-not-have-code-of-other-business-operations)
         - [A handler follows SRP principle](#a-handler-follows-srp-principle)
-        - [Handlers have less dependencies](#handlers-have-less-dependencies)
+        - [A handler does not have code of other business operations](#a-handler-does-not-have-code-of-other-business-operations)
+        - [A handler has less dependencies than a service](#a-handler-has-less-dependencies-than-a-service)
+      - [Dependencies between business operations become explicit](#dependencies-between-business-operations-become-explicit)
     - [Will CQRS help with high load?](#will-cqrs-help-with-high-load)
     - [Evolving CQRS](#evolving-cqrs)
     - [Myths about CQRS](#myths-about-cqrs)
@@ -47,22 +48,11 @@ There are two ways to organize application layer, aka Interactors in Clean Archi
 
 #### Advantages of handlers over services
 
-- A handler is much smaller than a service
-- A handler does not have code of other business operations
-- A handler follows SRP principle
-- Handlers have less dependencies
-
 ##### A handler is much smaller than a service
 
 The largest handlers can reach 500 lines of code. It's still several times less than number of lines in a service. Normally handler is much less than 500 lines of code. For a service to have from few hundreds to few thousands lines of code is an usual thing.
 
 It's much easier to maintain a small handler with well-defined scope of responsibility than a big service.
-
-##### A handler does not have code of other business operations
-
-Handlers are independent from each other. All the code of a business operation will be in one place, in one class — in a handler.
-
-On the other hand operations can be spread across multiple services. One service can call other services. Operations inside a service get fragmented.
 
 ##### A handler follows SRP principle
 
@@ -70,9 +60,19 @@ The SRP principle states that a module should have one, and only one, reason to 
 
 Architecture based on handlers expands by adding new handlers and not by rewriting existing handlers.
 
-##### Handlers have less dependencies
+##### A handler does not have code of other business operations
 
-Handler has only dependencies it needs for implementing one business operation. It's a rare thing to see more than 5 dependencies inside of a handler. For a service to have 10 or more dependencies is a normal thing.
+Handlers are independent from each other. All the code of a business operation will be in one place, in one class — in a handler.
+
+On the other hand operations can be spread across multiple services. One service can call other services. Operations inside a service get fragmented.
+
+##### A handler has less dependencies than a service
+
+It's a rare thing to see more than 5 dependencies inside of a handler. It's because handler has only dependencies it needs for implementing its business operation. For a service to have 10 or more dependencies is a usual thing.
+
+#### Dependencies between business operations become explicit
+
+In CQRS community there is an argument: is it ok to call a command or a query from inside handler or not? Spoiler: it's ok. BTW in services community there is no such an argument at all.
 
 ### Will CQRS help with high load?
 
