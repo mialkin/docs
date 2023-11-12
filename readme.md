@@ -12,7 +12,7 @@
 
 - [Documenting notes](#documenting-notes)
   - [Table of contents](#table-of-contents)
-  - [Books](#books)
+  - [Books and blogs](#books-and-blogs)
   - [Tools](#tools)
   - [Unix](#unix)
   - [Databases](#databases)
@@ -29,7 +29,7 @@
   - [C#](#c)
   - [Miscellaneous](#miscellaneous)
 
-## Books
+## Books and blogs
 
 - [Books](books/books.md)
 - [Blogs](blogs.md)
