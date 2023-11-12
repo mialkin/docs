@@ -19,7 +19,7 @@ The term CQRS was coined by [↑ Greg Young](https://www.youtube.com/watch?v=JHG
         - [A handler follows SRP principle](#a-handler-follows-srp-principle)
         - [A handler does not have code of other business operations](#a-handler-does-not-have-code-of-other-business-operations)
         - [A handler has less dependencies than a service](#a-handler-has-less-dependencies-than-a-service)
-      - [Dependencies between business operations become explicit](#dependencies-between-business-operations-become-explicit)
+        - [Dependencies between business operations become explicit](#dependencies-between-business-operations-become-explicit)
     - [Will CQRS help with high load?](#will-cqrs-help-with-high-load)
     - [Evolving CQRS](#evolving-cqrs)
     - [Myths about CQRS](#myths-about-cqrs)
@@ -70,7 +70,7 @@ On the other hand operations can be spread across multiple services. One service
 
 It's a rare thing to see more than 5 dependencies inside of a handler. It's because handler has only dependencies it needs for implementing its business operation. For a service to have 10 or more dependencies is a usual thing.
 
-#### Dependencies between business operations become explicit
+##### Dependencies between business operations become explicit
 
 In CQRS community there is an argument: is it ok to call a command or a query from inside handler or not? Spoiler: it's ok. BTW in services community there is no such an argument at all.
 
