@@ -32,6 +32,7 @@
 ## Books
 
 - [Books](books/books.md)
+- [Blogs](blogs.md)
 
 ## Tools
 
