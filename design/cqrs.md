@@ -81,6 +81,50 @@ With handlers there will be more infrastructural code. You'll have more classes:
 
 ### Will CQRS help with high load?
 
+Read-only database context:
+
+```csharp
+public interface IReadOnlyDatabaseContext
+{
+    DbSet<Order> Orders { get; }
+}
+```
+
+Read-only database context above:
+
+- Has no `SaveChangesAsync` method
+- Connection string points to database slave nodes
+- Is used inside query handlers
+
+Write database context:
+
+```csharp
+public interface IDatabaseContext : IReadOnlyDatabaseContext
+{
+    Task<int> SaveChangesAsync(CancellationToken cancellationToken);
+}
+```
+
+Write database context above:
+
+- Connection string points to database master node
+- Is used inside command handlers
+
+Implementation:
+
+```csharp
+internal class DatabaseContext : DbContext, IDatabaseContext
+{
+    public DbSet<Order> Orders { get; set; }
+
+#pragma warning disable CS8618
+    public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
+#pragma warning restore CS8618
+    {
+    }
+}
+```
+
 ### Evolving CQRS
 
 ### Myths about CQRS
