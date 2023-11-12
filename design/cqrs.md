@@ -20,6 +20,7 @@ The term CQRS was coined by [↑ Greg Young](https://www.youtube.com/watch?v=JHG
         - [A handler does not have code of other business operations](#a-handler-does-not-have-code-of-other-business-operations)
         - [A handler has less dependencies than a service](#a-handler-has-less-dependencies-than-a-service)
         - [Dependencies between business operations become explicit](#dependencies-between-business-operations-become-explicit)
+      - [Disadvantages of handlers](#disadvantages-of-handlers)
     - [Will CQRS help with high load?](#will-cqrs-help-with-high-load)
     - [Evolving CQRS](#evolving-cqrs)
     - [Myths about CQRS](#myths-about-cqrs)
@@ -73,6 +74,10 @@ It's a rare thing to see more than 5 dependencies inside of a handler. It's beca
 ##### Dependencies between business operations become explicit
 
 In CQRS community there is an argument: is it ok to call a command or a query from inside handler or not? Spoiler: it's ok. BTW in services community there is no such an argument at all.
+
+#### Disadvantages of handlers
+
+With handlers there will be more infrastructural code. You'll have more classes: commands, handlers. For each handler you'll have to specify constructor and pass its dependencies. You have to get used to it and it's not a problem overall.
 
 ### Will CQRS help with high load?
 
