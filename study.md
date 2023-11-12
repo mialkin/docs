@@ -42,6 +42,7 @@
 - Vault secrets webhook
   - [↑ Inject secrets directly into Pods from Vault revisited](https://banzaicloud.com/blog/inject-secrets-into-pods-vault-revisited/)
   - [↑ Kubernetes Meetup Yekaterinburg 001](https://www.youtube.com/watch?v=YUJRVu66ld8&t=1953s)
+- [↑ dotnet format](https://github.com/dotnet/format) tool
 
 ## Databases
 
