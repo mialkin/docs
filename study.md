@@ -267,6 +267,7 @@ for (var i = 0; i < 5; i++) {
 - .NET channels <https://www.youtube.com/watch?v=gT06qvQLtJ0>, <https://www.youtube.com/watch?v=E0Ld7ZgE4oY>
 - What is the difference between `dynamic` and `object` keywords
 - [↑ Why C# structs do no support inheritance](https://pragmateek.com/why-c-structs-do-no-support-inheritance/)
+- Use [↑ `HashCode.Combine`](https://stackoverflow.com/a/51716512/1833895)
 
 ## ASP.NET
 
