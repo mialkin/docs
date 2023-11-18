@@ -34,6 +34,10 @@ With PATCH, you only need to pass in the data of the field that you want to upda
 
 In a weather app, we could use PATCH to update the rainfall for a specified day in a specified city.
 
+A PATCH is not necessarily idempotent, although it can be. Contrast this with PUT; which is always idempotent. For example if an auto-incrementing counter field is an integral part of the resource, then a PUT will naturally overwrite it, since it overwrites everything, but not necessarily so for PATCH.
+
+[↑ PATCH](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PATCH).
+
 ## Links
 
 [↑ HTTP Request Methods – Get vs Put vs Post Explained with Code Examples](https://www.freecodecamp.org/news/http-request-methods-explained/)
