@@ -121,6 +121,7 @@
 - [Explicit dependencies principle](design/explicit-dependencies-principle.md)
 - [Loose coupling and high cohesion](design/loose-coupling-and-high-cohesion.md)
 - [Mission critical, business critical, business operational, office productivity](design/mission-critical-business-critical.md)
+- [Principle of least astonishment](design/principle-of-least-astonishment.md)
 - [Software design patterns](design/design-patterns/design-patterns.md)
   - Creational
     - [Abstract factory](design/design-patterns/abstract-factory.md)
