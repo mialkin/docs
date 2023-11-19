@@ -2,6 +2,19 @@
 
 When two objects are equal they _must_ return the same hash code, but reverse is not necessary: two object may return the same hash code, but they can be not equal.
 
+## Table of contents
+
+- [Override `GetHashCode` when `Equals` is overridden](#override-gethashcode-when-equals-is-overridden)
+  - [Table of contents](#table-of-contents)
+  - [Dictionary](#dictionary)
+  - [Examples](#examples)
+    - [Class](#class)
+    - [Record](#record)
+    - [Structure](#structure)
+  - [Links](#links)
+
+## Dictionary
+
 If you override `Equals` method you must also override `GetHashCode` method, because if you don't than two objects which are in fact equal will likely end up residing in different buckets inside of `Dictionary<TKey,TValue>` of `HashSet<T>`. Therefore you will have multiple equal keys in your dictionary or hash table.
 
 Below `GetHashCode` will be called twice: right before `a1` and `a2` are added into the dictionary; and `Equals` will be called once: before `a2` is added:
@@ -48,6 +61,115 @@ string str1 = dict[a1];
 first it will call `GetHashCode` on `a1` key to figure out bucket's index. Then it will call `Equals` on `a1`'s and `a2`'s keys that are already in the bucket. Since `Equals` returns always `false`, then it will raise "The given key 'A' was not present in the dictionary" exception.
 
 Also take a look at [↑ `HashCode.Combine`](https://docs.microsoft.com/en-us/dotnet/api/system.hashcode.combine) method that combines several values into a single hash code.
+
+## Examples
+
+### Class
+
+```csharp
+var user1 = new User("Bob", new DateOnly(1990, 10, 5));
+var user2 = new User("Bob", new DateOnly(2000, 10, 5));
+var user3 = new User("Bob", new DateOnly(1990, 10, 5));
+
+Console.WriteLine(user1.GetHashCode()); // 2007968221
+Console.WriteLine(user2.GetHashCode()); // -2132409190
+Console.WriteLine(user3.GetHashCode()); // 2007968221
+
+Console.WriteLine(user1 == user3); // True
+Console.WriteLine(Equals(user1, user3)); // True
+Console.WriteLine(ReferenceEquals(user1, user3)); // False
+
+class User
+{
+    public User(string name, DateOnly dateOfBirth)
+    {
+        Name = name;
+        DateOfBirth = dateOfBirth;
+    }
+
+    public string Name { get; init; }
+    public DateOnly DateOfBirth { get; init; }
+
+    public override bool Equals(object? obj)
+    {
+        return obj is User other && Equals(other);
+    }
+
+    private bool Equals(User other)
+    {
+        return Name == other.Name && DateOfBirth.Equals(other.DateOfBirth);
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(Name, DateOfBirth);
+    }
+    
+    public static bool operator ==(User lhs, User rhs)
+    {
+        return lhs.Equals(rhs);
+    }
+
+    public static bool operator !=(User lhs, User rhs)
+    {
+        return !lhs.Equals(rhs);
+    }
+}
+```
+
+### Record
+
+```csharp
+var customer1 = new Customer("John", new DateOnly(1990, 10, 5));
+var customer2 = new Customer("John", new DateOnly(1990, 10, 5));
+
+Console.WriteLine(customer1.GetHashCode()); // 802341848
+Console.WriteLine(customer2.GetHashCode()); // 802341848
+
+Console.WriteLine(customer1 == customer2); // True
+Console.WriteLine(customer1.Equals(customer2)); // True
+Console.WriteLine(ReferenceEquals(customer1, customer2)); // False
+
+record Customer(string Name, DateOnly BirthDate);
+```
+
+### Structure
+
+```csharp
+var user1 = new User("Bob", new DateOnly(1990, 10, 5));
+var user2 = new User("Bob", new DateOnly(2000, 10, 5));
+var user3 = new User("Bob", new DateOnly(1990, 10, 5));
+
+Console.WriteLine(user1.GetHashCode()); // 1075247716
+Console.WriteLine(user2.GetHashCode()); // 1075247716
+Console.WriteLine(user3.GetHashCode()); // 1075247716
+
+Console.WriteLine(user1 == user3); // True
+Console.WriteLine(Equals(user1, user3)); // True
+Console.WriteLine(ReferenceEquals(user1, user3)); // False. Warning: 'Object.ReferenceEquals' is always false because it is called with value type
+
+struct User
+{
+    public User(string name, DateOnly dateOfBirth)
+    {
+        Name = name;
+        DateOfBirth = dateOfBirth;
+    }
+
+    public string Name { get; init; }
+    public DateOnly DateOfBirth { get; init; }
+
+    public static bool operator ==(User lhs, User rhs)
+    {
+        return lhs.Equals(rhs);
+    }
+
+    public static bool operator !=(User lhs, User rhs)
+    {
+        return !lhs.Equals(rhs);
+    }
+}
+```
 
 ## Links
 
