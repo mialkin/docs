@@ -105,14 +105,14 @@ class User
         return HashCode.Combine(Name, DateOfBirth);
     }
     
-    public static bool operator ==(User lhs, User rhs)
+    public static bool operator ==(User left, User right)
     {
-        return lhs.Equals(rhs);
+        return left.Equals(right);
     }
 
-    public static bool operator !=(User lhs, User rhs)
+    public static bool operator !=(User left, User right)
     {
-        return !lhs.Equals(rhs);
+        return !left.Equals(right);
     }
 }
 ```
@@ -159,14 +159,14 @@ struct User
     public string Name { get; init; }
     public DateOnly DateOfBirth { get; init; }
 
-    public static bool operator ==(User lhs, User rhs)
+    public static bool operator ==(User left, User right)
     {
-        return lhs.Equals(rhs);
+        return left.Equals(right);
     }
 
-    public static bool operator !=(User lhs, User rhs)
+    public static bool operator !=(User left, User right)
     {
-        return !lhs.Equals(rhs);
+        return !left.Equals(right);
     }
 }
 ```
