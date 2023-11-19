@@ -336,12 +336,13 @@
   - [Threads and threading](csharp/concurrency/threads-and-threading.md)
   - Exercises
     - [Downloading web pages](csharp/concurrency/exercises/downloading-pages.md)
-- [Invariance, covariance, contravariance, variance](csharp/invariance-covariance-contravariance-variance.md)
+- [↑ Exceptions for flow control in C#](https://enterprisecraftsmanship.com/posts/exceptions-for-flow-control/)
 - [Expression tree](csharp/expression-tree.md)
 - [Extension methods](csharp/extension-methods.md)
   - [Extension methods guidelines](csharp/extension-methods-guidelines.md)
 - [`IEnumerable<T>`](csharp/ienumerable.md)
 - [Indexers](csharp/indexers.md)
+- [Invariance, covariance, contravariance, variance](csharp/invariance-covariance-contravariance-variance.md)
 - [Keywords](csharp/keywords/keywords.md)
   - Modifiers
     - [`event`](csharp/keywords/event.md)
