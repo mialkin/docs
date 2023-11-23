@@ -26,12 +26,12 @@ for (var i = 0; i < 5; i++)
 }
 
 guids.ForEach(x => Console.WriteLine(cache.Get(x)));
-Console.WriteLine("Before collection");
+Console.WriteLine("====Before collection====");
 
 GC.Collect(0);
 
 guids.ForEach(x => Console.WriteLine(cache.Get(x) ?? "Value is null"));
-Console.WriteLine("After collection");
+Console.WriteLine("====After collection====");
 
 public class Cache
 {
@@ -49,19 +49,21 @@ public class Cache
 }
 ```
 
+Output:
+
 ```console
-1513 Walsh Groves Suite 468
-657 Wunsch Turnpike Apt. 447
-69456 Narciso Mountain Apt. 789
-9956 Genoveva Brook Suite 495
-006 Luigi Cove Suite 230
-Before collection
+070 Brook Rapid Apt. 584
+199 Runte Hollow Suite 243
+44636 Sauer Oval Suite 502
+4162 Adams Manor Suite 685
+954 Valerie Crossroad Apt. 719
+====Before collection====
 Value is null
 Value is null
 Value is null
 Value is null
-006 Luigi Cove Suite 230
-After collection
+954 Valerie Crossroad Apt. 719
+====After collection====
 ```
 
 ## Links
