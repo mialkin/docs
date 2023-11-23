@@ -68,6 +68,21 @@
 - T-SQL table variables vs temporary tables
 - Create a deadlock. "Forget" on purpose to commit transaction and see what happens. Try using different isolation levels. <https://www.sqlservercentral.com/forums/topic/what-happens-with-uncommitted-transactions>. Are there any built-in timeouts for transaction to commit?
 - [↑ drop table vs truncate table](https://www.google.com/search?q=drop+table+vs+truncate+table)
+- Преимущества и недостатки хранимых процедур и триггеров
+- [↑ Nested loop join](https://www.google.com/search?q=nested+loop+join)
+- Какие недостатки есть у индексов, какое негативное влияние они оказывают
+- Как асинхронно создать индекс
+- Умение делать оптимистические и пессимистические блокировки
+- Шардирование и секционирование и какие проблемы эти техники решают
+- Схема репликации master-slave
+- Устройство индексов (B-tree, LSM-Tree.)
+- Как делать префиксный и полнотекстовый поиск в базе, как устроены индексы в этом случае
+- Что такое Materialized view
+- Зачем нужно денормализовывать данные
+- Что такое курсоры
+- Привести пример аналитических функций и объяснить как их использовать
+- Что такое стратегии JOIN (LOOP | HASH | MERGE JOIN)
+- 
 
 ## Software architecture and design
 
@@ -270,6 +285,9 @@ for (var i = 0; i < 5; i++) {
 - What is the difference between `dynamic` and `object` keywords
 - [↑ Why C# structs do no support inheritance](https://pragmateek.com/why-c-structs-do-no-support-inheritance/)
 - Use [↑ `HashCode.Combine`](https://stackoverflow.com/a/51716512/1833895)
+- EF Core
+  - [↑ Eager, Lazy and Explicit Loading with Entity Framework Core](https://blog.jetbrains.com/dotnet/2023/09/21/eager-lazy-and-explicit-loading-with-entity-framework-core/)
+  - Implement one-to-one, one-to-many, many-to-many in <https://github.com/mialkin/postgres>
 
 ## ASP.NET
 
