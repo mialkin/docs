@@ -8,7 +8,7 @@
 
 **Asynchronous programming** is a form of concurrency that uses _futures_ or _callbacks_ to avoid unnecessary threads.
 
-A **future** (or _promise_) is a type that represents some operation that will complete in the future.
+A **future** or **promise** is a type that represents some operation that will complete in the future.
 
 **Asynchronous operation** is some operation that is started that will complete some time later. While the operation is in progress, it doesn't block the original thread; the thread that starts the operation is free to do other work.
 
