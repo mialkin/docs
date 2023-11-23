@@ -28,7 +28,7 @@ for (var i = 0; i < 5; i++)
 guids.ForEach(x => Console.WriteLine(cache.Get(x)));
 Console.WriteLine("====Before collection====");
 
-GC.Collect(0);
+GC.Collect();
 
 guids.ForEach(x => Console.WriteLine(cache.Get(x) ?? "Value is null"));
 Console.WriteLine("====After collection====");
