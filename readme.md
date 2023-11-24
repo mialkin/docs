@@ -364,13 +364,13 @@
   - [Equality operator](csharp/operators/equality-operator.md)
   - [Lambda expressions](csharp/operators/lambda-expressions.md)
 - Types
-  - [Value types](csharp/types/value-types.md)
+  - [Value types](csharp/types/value-types/value-types.md)
     - [Boxing and unboxing](csharp/types/boxing-and-unboxing.md)
-    - [Enumeration types](csharp/types/enum.md)
+    - [Enumeration types](csharp/types/value-types/enumeration-types.md)
     - [Structure types](csharp/types/struct.md)
       - [`char`](csharp/types/char.md)
     - Tuple types
-    - [`ValueType` class](csharp/types/value-type-class.md)
+    - [`ValueType` class](csharp/types/value-types/valuetype-class.md)
   - [Reference types](csharp/types/reference-types.md)
     - Built-in reference types
       - [`delegate`](csharp/types/delegate.md)
