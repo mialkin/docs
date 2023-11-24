@@ -32,7 +32,7 @@ In Prometheus's expression language, an expression or sub-expression can evaluat
 - Scalar
 - String
 
-Depending on the use-case (e.g. when graphing vs. displaying the output of an expression), only some of these types are legal as the result from a user-specified expression.
+Depending on the use-case (e.g. when graphing vs displaying the output of an expression), only some of these types are legal as the result from a user-specified expression.
 
 ### Instant vector
 

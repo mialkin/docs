@@ -4,7 +4,7 @@
 
 - [Tokens](#tokens)
   - [Table of contents](#table-of-contents)
-  - [Tokens vs. Cookies](#tokens-vs-cookies)
+  - [Tokens vs Cookies](#tokens-vs-cookies)
   - [JSON Web Token (JWT)](#json-web-token-jwt)
     - [Token structure](#token-structure)
     - [Signing algorithms](#signing-algorithms)
@@ -12,7 +12,7 @@
   - [Access token](#access-token)
   - [ID token](#id-token)
 
-## Tokens vs. Cookies
+## Tokens vs Cookies
 
 Web apps are typically single-page apps (such as Angular, Ember, and Backbone) or native mobile apps (such as iOS, and Android). Web apps consume APIs (written in Node, Ruby, ASP.NET, or a mix of those) and benefit from token-based authentication. Web APIs are traditional server-side applications that use cookie-based authentication.
 

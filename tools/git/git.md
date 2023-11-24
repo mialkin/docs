@@ -172,7 +172,7 @@ git merge --abort
 - Do not end the subject line with a period
 - Use the imperative mood in the subject line
 - Wrap the body at 72 characters
-- Use the body to explain _what_ and _why_ vs. _how_
+- Use the body to explain _what_ and _why_ vs _how_
 
 PDF: [How to Write a Git Commit Message](how-to-write-a-git-commit-message.pdf).
 
