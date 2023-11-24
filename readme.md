@@ -171,6 +171,7 @@
 - [Observability: logs, metrics, traces](distributed-systems/observability/observability.md)
   - [Instrumentation guidelines](distributed-systems/observability/instrumentation-guidelines.md)
   - [OpenTelemetry](distributed-systems/observability/opentelemetry.md)
+- [SLA vs SLO vs SLI](distributed-systems/sla-vs-slo-vs-sli.md)
 - [↑ System design interviews](https://www.youtube.com/@IGotAnOffer-Engineering/videos)
 - [Two-phase commit protocol, 2PC](distributed-systems/2pc.md)
 
