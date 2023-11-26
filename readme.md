@@ -310,6 +310,7 @@
     - [Execution context](csharp/concurrency/asynchronous/execution-context.md)
     - [Reporting task's progress](csharp/concurrency/asynchronous/reporting-progress.md)
     - [Returning variable of `Task` type](csharp/concurrency/asynchronous/returning-task.md)
+    - [`ThreadLocal<T>`](csharp/concurrency/asynchronous/threadlocal.md)
     - [`ValueTask<T>`](csharp/concurrency/asynchronous/valuetask.md)
   - Asynchronous streams
     - [`IAsyncEnumerable<T>` interface](csharp/concurrency/iasyncenumerable.md)
