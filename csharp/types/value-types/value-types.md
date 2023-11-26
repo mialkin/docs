@@ -68,3 +68,7 @@ A value type can be one of the two following kinds:
 - an *enumeration type*, which is defined by a set of named constants and represents a choice or a combination of choices
 
 A nullable value type `T?` represents all values of its underlying value type `T` and an additional `null` value.
+
+## Links
+
+[↑ Value types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types).
