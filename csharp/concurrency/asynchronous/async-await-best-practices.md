@@ -54,7 +54,7 @@ One notable exception to this is if you know that the first `await` will always 
 
 You wouldn't, unless you were using it purely as an indication that you were purposefully not using `ConfigureAwait(false)`, e.g. to silence static analysis warnings or the like. `ConfigureAwait(true)` does nothing meaningful. When comparing `await task` with `await task.ConfigureAwait(true)`, they're functionally identical. If you see `ConfigureAwait(true)` in production code, you can delete it without ill effect.
 
-The `ConfigureAwait` method accepts a Boolean because there are some niche situations in which you want to pass in a variable to control the configuration. But the 99% use case is with a hardcoded false argument value, `ConfigureAwait(false)`.
+The `ConfigureAwait` method accepts a Boolean because there are some niche situations in which you want to pass in a variable to control the configuration. But the 99% use case is with a hardcoded `false` argument value, `ConfigureAwait(false)`.
 
 ## Links
 
