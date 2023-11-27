@@ -368,6 +368,8 @@
   - [Value types](csharp/types/value-types/value-types.md)
     - [Boxing and unboxing](csharp/types/boxing-and-unboxing.md)
     - [Enumeration types](csharp/types/value-types/enumeration-types.md)
+    - [↑ `ref` structure types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/ref-struct)
+      - [`Span<T>`](csharp/types/value-types/span.md)
     - [Structure types](csharp/types/struct.md)
       - [`char`](csharp/types/char.md)
     - Tuple types
