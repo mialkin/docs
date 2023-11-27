@@ -164,6 +164,8 @@
 ## Distributed systems
 
 - Distributed system patterns
+  - Data consistency
+    - [Saga](distributed-systems/patterns/data-consistency/saga.md)
   - Reliability
     - Resiliency
       - [Retry](distributed-systems/patterns/reliability/retry.md)
