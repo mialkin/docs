@@ -6,6 +6,23 @@ Feature flags determine at runtime which portions of code are executed. This all
 
 At the most basic level, they take the form of simple conditionals that determine the code path that will be executed.
 
+## How not to forget to turn on a feature flag
+
+- Create a task in a backlog
+- Set a deadline for the task
+- In task description specify important information that is necessary for turning feature flag on
+- Definition of done
+  - Feature flag is turned on by default
+  - Activation strategy is turned off
+
+## When to delete code that's no longer used
+
+- Create a task in a backlog
+- Definition of done
+  - Old code is removed
+  - Activation strategy is done and removed
+  - Feature flag is removed from administrative UI
+
 ## .NET client
 
 [↑ Unleash FeatureToggle Client for .Net](https://docs.getunleash.io/reference/sdks/dotnetv).
