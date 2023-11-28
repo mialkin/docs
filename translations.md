@@ -263,9 +263,6 @@
 * **Script** — сценарий
 * **Semaphore** — семафор
 * **Separation of concerns** — разделение ответственностей
-* **Service level agreement** (SLA) — соглашение об уровне обслуживания
-* **Service level indicator** (SLI) — показатель уровня обслуживания
-* **Service level objective** (SLO) — требование к уровню обслуживания
 * **Service worker** — служебный сценарий, a browser script that runs in the background separately from a web page, intercepting network requests, caching or retrieving resources from the cache, and delivering push messages.
 * **Sidecar** — расширение
 * **Signaled state** — сигнальное состояние
@@ -274,6 +271,9 @@
 * **Shallow copy** — поверхностная копия
 * **Sharding** — сегментирование
 * **Shared state** — общее состояние
+* **SLA** — соглашение об уровне обслуживания, коротко *соглашение*
+* **SLO** — требование к уровню обслуживания, коротко *целевое значение*
+* **SLI** — показатель уровня обслуживания, коротко *индикатор*
 * **Spinlock** — спин-блокировка
 * **Stateless** — без запоминания/сохранения состояния
 * **Structural design pattern** — Структурный шаблон проектирования
