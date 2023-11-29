@@ -12,12 +12,8 @@ Why does it provide at-least-once and not exactly-once? Writing to the database 
 
 ## Links
 
-[↑ How to Deliver Event Messages Successfully | Outbox Pattern](https://www.youtube.com/watch?v=vM-WNyEiNk8).
-
-[↑ Outbox, Inbox patterns and delivery guarantees explained](https://event-driven.io/en/outbox_inbox_patterns_and_delivery_guarantees_explained).
-
-[↑ Inbox Pattern & Duplicate detection](https://awesome-architecture.com/cloud-design-patterns/inbox-pattern).
-
-[↑ Microservices 101: Transactional Outbox and Inbox](https://softwaremill.com/microservices-101).
-
 [↑ Pattern: Transactional outbox](https://microservices.io/patterns/data/transactional-outbox.html).
+
+[↑ Outbox pattern with Hibernate](https://thorben-janssen.com/outbox-pattern-hibernate/).
+
+[↑ Transactional outbox pattern step by step with Spring and Kotlin](https://dev.to/aleksk1ng/transactional-outbox-pattern-step-by-step-with-spring-and-kotlin-3gkd).
