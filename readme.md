@@ -83,10 +83,10 @@
   - [Shell scripting](unix/shell/shell-scripting.md)
 - [Tools](unix/tools/tools.md)
   - [crontab](unix/tools/crontab.md)
-  - [gpg](unix/tools/gpg.md)
-  - [ssh](unix/tools/ssh.md)
+  - [GPG](unix/tools/gpg.md)
+  - [SSH](unix/tools/ssh.md)
   - [tmux](unix/tools/tmux.md)
-  - [vim](unix/tools/vim.md)
+  - [Vim](unix/tools/vim.md)
 - [Ubuntu](unix/ubuntu.md)
 - [User management](unix/user-managment.md)
 

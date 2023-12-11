@@ -1,34 +1,33 @@
-# Secure Shell (SSH)
+# Secure Shell, SSH
 
-- [Secure Shell (SSH)](#secure-shell-ssh)
-  - [On client](#on-client)
-    - [List existing keys](#list-existing-keys)
-    - [Generate new key](#generate-new-key)
+The **Secure Shell** or **SSH** is a cryptographic network protocol for operating network services securely over an unsecured network.
+
+## Table of contents
+
+- [Secure Shell, SSH](#secure-shell-ssh)
+  - [Table of contents](#table-of-contents)
+  - [SSH client](#ssh-client)
+    - [List existing SSH keys](#list-existing-ssh-keys)
+    - [Generate new pair of keys](#generate-new-pair-of-keys)
     - [Get public key](#get-public-key)
     - [Copy public key to server](#copy-public-key-to-server)
     - [Connect to server](#connect-to-server)
     - [`known_hosts` file](#known_hosts-file)
     - [Use multiple keys](#use-multiple-keys)
-  - [On server](#on-server)
+  - [SSH server](#ssh-server)
     - [Disable password authentication](#disable-password-authentication)
     - [Change SSH port](#change-ssh-port)
     - [List failed SSH login attempts](#list-failed-ssh-login-attempts)
 
-The **Secure Shell** (**SSH**) is a cryptographic network protocol for operating network services securely over an unsecured network.
+## SSH client
 
-## On client
-
-### List existing keys
-
-List existing SSH keys:
+### List existing SSH keys
 
 ```bash
 ls -al ~/.ssh
 ```
 
-### Generate new key
-
-Generate a new key pair:
+### Generate new pair of keys
 
 ```bash
 cd ~/.ssh
@@ -124,7 +123,7 @@ Host myother realname2.example.org
     User remoteusername2
 ```
 
-## On server
+## SSH server
 
 ### Disable password authentication
 
@@ -168,7 +167,7 @@ and locate the line:
 #Port 22
 ```
 
-Then, uncomment (Remove the leading`#` character) it and change the value with an appropriate port number (for example, 22000):
+Then uncomment it by removing the leading`#` character and change the value with an appropriate port number for example, 22000:
 
 ```text
 Port 22000
