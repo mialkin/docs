@@ -2,7 +2,6 @@
 
 - [macOS](#macos)
   - [Edit `PATH` environment variable](#edit-path-environment-variable)
-  - [Finder](#finder)
   - [Flush DNS cache](#flush-dns-cache)
   - [`hosts` file](#hosts-file)
   - [Install developers' applications](#install-developers-applications)
@@ -10,13 +9,17 @@
   - [Key repeating](#key-repeating)
   - [Run application](#run-application)
   - [Copy text to clipboard](#copy-text-to-clipboard)
-  - [Rider](#rider)
-  - [Safari](#safari)
-  - [Sublime Text](#sublime-text)
+  - [Applications](#applications)
+    - [Finder](#finder)
+    - [Gifox](#gifox)
+    - [Keka](#keka)
+    - [Rectangle](#rectangle)
+    - [Rider](#rider)
+    - [Safari](#safari)
+    - [Sublime Text](#sublime-text)
+    - [Visual Studio Code](#visual-studio-code)
   - [Terminal aliases](#terminal-aliases)
-  - [Tree](#tree)
   - [TTL](#ttl)
-  - [Gifox](#gifox)
 
 ## Edit `PATH` environment variable
 
@@ -37,19 +40,6 @@ Save file and source it:
 ```zsh
 source .zshrc
 ```
-
-## Finder
-
-Always show hidden files in Finder:
-
-```zsh
-defaults write com.apple.Finder AppleShowAllFiles true
-killall Finder
-```
-
-Set `Downloads` as default folder:
-
-<img src="macos-finder.png" width="400px">
 
 ## Flush DNS cache
 
@@ -101,7 +91,34 @@ open -a "Microsoft Remote Desktop"
 cat example.txt \| pbcopy
 ```
 
-## Rider
+## Applications
+
+### Finder
+
+Always show hidden files in Finder:
+
+```zsh
+defaults write com.apple.Finder AppleShowAllFiles true
+killall Finder
+```
+
+Set `Downloads` as default folder:
+
+<img src="macos-finder.png" width="400px">
+
+### Gifox
+
+[↑ Gifox](https://gifox.app) is a macOS status bar app for recording, converting, editing and sharing GIFs.
+
+### Keka
+
+[↑ Keka](https://www.keka.io) is a macOS file archiver.
+
+### Rectangle
+
+[↑ Rectangle](https://rectangleapp.com) is an application that allows to move and resize windows in macOS using keyboard shortcuts or snap areas.
+
+### Rider
 
 Create file:
 
@@ -124,15 +141,19 @@ Change access mode:
 chmod 775 rider
 ```
 
-## Safari
+### Safari
 
 Clear local storage: **Web inspector** → **Storage** → **Clear local storage**
 
-## Sublime Text
+### Sublime Text
 
 ```bash
 echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"' >> ~/.zprofile
 ```
+
+### Visual Studio Code
+
+[↑ Install `code` command in PATH](https://stackoverflow.com/questions/29955500/code-is-not-working-in-on-the-command-line-for-visual-studio-code-on-os-x-ma).
 
 ## Terminal aliases
 
@@ -144,20 +165,9 @@ alias cls='clear'
 alias python='python3'
 ```
 
-## Tree
-
-```bash
-brew install tree
-tree .
-```
-
 ## TTL
 
 ```bash
 sysctl -w net.inet.ip.ttl           # Get current value
 sudo sysctl -w net.inet.ip.ttl=65   # Set value to 65
 ```
-
-## Gifox
-
-[↑ Gifox](https://gifox.app) is a macOS status bar app for recording, converting, editing and sharing GIFs.
