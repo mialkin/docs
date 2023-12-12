@@ -13,6 +13,7 @@
     - [Finder](#finder)
     - [Gifox](#gifox)
     - [Keka](#keka)
+    - [Mos](#mos)
     - [Rectangle](#rectangle)
     - [Rider](#rider)
     - [Safari](#safari)
@@ -113,6 +114,10 @@ Set `Downloads` as default folder:
 ### Keka
 
 [↑ Keka](https://www.keka.io) is a macOS file archiver.
+
+### Mos
+
+[↑ Mos](https://mos.caldis.me) is a lightweight tool used to smooth scrolling and set scroll direction independently for your mouse on macOS.
 
 ### Rectangle
 
