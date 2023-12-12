@@ -47,7 +47,9 @@ cat ~/.ssh/id_rsa.pub | pbcopy
 ### Copy public key to server
 
 ```bash
-ssh-copy-id -i ~/.ssh/gitlab remote_username@remote_host
+ssh-copy-id -i ~/.ssh/id_rsa.pub remote_username@remote_host
+# Then try to authenticate via SSH:
+# ssh remote_username@remote_host
 ```
 
 This logs into the server host, and copies keys to the server, and configures them to grant access by adding them to the `authorized_keys` file. The copying may ask for a password or other authentication for the server.
