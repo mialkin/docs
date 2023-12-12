@@ -1,7 +1,12 @@
 # kubectl
 
+The **kubectl** command line tool lets you control Kubernetes clusters.
+
+## Table of contents
+
 - [kubectl](#kubectl)
-  - [Alias](#alias)
+  - [Table of contents](#table-of-contents)
+  - [Installation](#installation)
   - [Commands](#commands)
   - [k9s](#k9s)
   - [Multiple clusters](#multiple-clusters)
@@ -11,18 +16,10 @@
   - [Extract secret to YAML](#extract-secret-to-yaml)
   - [DNS lookup](#dns-lookup)
 
-The **kubectl** command line tool lets you control Kubernetes clusters.
-
-Kubernetes supports multiple virtual clusters backed by the same physical cluster. These virtual clusters are called _namespaces_.
-
-## Alias
-
-Short alias for `kubectl` command:
+## Installation
 
 ```bash
-cd
-echo "alias k=kubectl" >> .zprofile
-source .zprofile
+brew install kubectl
 ```
 
 ## Commands
