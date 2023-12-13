@@ -5,6 +5,7 @@
 - [microk8s](#microk8s)
   - [Table of contents](#table-of-contents)
   - [Installation](#installation)
+  - [Uninstall](#uninstall)
   - [Upgrade cluster](#upgrade-cluster)
   - [List installed addons](#list-installed-addons)
   - [Turn on addons you need](#turn-on-addons-you-need)
@@ -28,6 +29,12 @@ Print out `.kube/config` file:
 
 ```bash
 microk8s config
+```
+
+## Uninstall
+
+```bash
+sudo snap remove microk8s
 ```
 
 ## Upgrade cluster
@@ -71,7 +78,8 @@ Use IP range: `192.168.0.100-192.168.0.150`.
 
 Make sure that a service got external IP:
 
-```yaml
+```bash
+cat <<EOF | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -105,9 +113,12 @@ spec:
       targetPort: 80
   externalTrafficPolicy: Local
   type: LoadBalancer
+EOF
 ```
 
 As you can see if service has `LoadBalancer` type MetalLB automatically assigns external IP to such a service. This is also the case with, for example, Istio ingress gateway.
+
+[↑ Setup External Access for Kubernetes Applications](https://www.youtube.com/watch?v=k8bxtsWe9qw).
 
 ## Access Kubernetes API from remote client
 
