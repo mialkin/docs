@@ -9,11 +9,10 @@
   - [Upgrade cluster](#upgrade-cluster)
   - [List installed addons](#list-installed-addons)
   - [Turn on addons you need](#turn-on-addons-you-need)
-    - [Istio](#istio)
     - [Dashboard](#dashboard)
     - [Prometheus](#prometheus)
-  - [Run dashboard](#run-dashboard)
   - [MetalLB](#metallb)
+    - [Istio](#istio)
   - [Access Kubernetes API from remote client](#access-kubernetes-api-from-remote-client)
   - [Update expired certificates](#update-expired-certificates)
 
@@ -56,17 +55,17 @@ microk8s status
 
 ## Turn on addons you need
 
-### Istio
-
-```bash
-#microk8s enable community
-microk8s enable istio
-```
-
 ### Dashboard
 
 ```bash
 microk8s enable dashboard
+```
+
+Run dashboard:
+
+```bash
+kubectl proxy
+# http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy
 ```
 
 ### Prometheus
@@ -75,16 +74,11 @@ microk8s enable dashboard
 microk8s enable prometheus
 ```
 
-## Run dashboard
-
-```bash
-kubectl proxy
-# http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy
-```
-
 ## MetalLB
 
-Enable [↑ MetaLB](https://metallb.universe.tf):
+You need [↑ MetalLB](https://metallb.universe.tf) so that Istio ingress gateway were able to acquire `LoadBalancer`'s external IP. Otherwise it will stay stuck in pending state.
+
+Enable MetalLB:
 
 ```bash
 microk8s enable metallb
@@ -137,6 +131,13 @@ EOF
 As you can see if service has `LoadBalancer` type MetalLB automatically assigns external IP to such a service. This is also the case with, for example, Istio ingress gateway.
 
 [↑ Setup External Access for Kubernetes Applications](https://www.youtube.com/watch?v=k8bxtsWe9qw).
+
+### Istio
+
+```bash
+#microk8s enable community
+microk8s enable istio
+```
 
 ## Access Kubernetes API from remote client
 
