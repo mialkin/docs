@@ -11,8 +11,9 @@
   - [Turn on addons you need](#turn-on-addons-you-need)
     - [Istio](#istio)
     - [MetalLB](#metallb)
+    - [Certificate manager](#certificate-manager)
+    - [Observability](#observability)
     - [Dashboard](#dashboard)
-    - [Prometheus](#prometheus)
   - [Access Kubernetes API from remote client](#access-kubernetes-api-from-remote-client)
   - [Update expired certificates](#update-expired-certificates)
 
@@ -120,6 +121,18 @@ As you can see if service has `LoadBalancer` type MetalLB automatically assigns 
 
 [↑ Setup External Access for Kubernetes Applications](https://www.youtube.com/watch?v=k8bxtsWe9qw).
 
+### Certificate manager
+
+```bash
+microk8s enable cert-manager
+```
+
+### Observability
+
+```bash
+microk8s enable observability
+```
+
 ### Dashboard
 
 ```bash
@@ -131,12 +144,6 @@ Run dashboard:
 ```bash
 kubectl proxy
 # http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy
-```
-
-### Prometheus
-
-```bash
-microk8s enable prometheus
 ```
 
 ## Access Kubernetes API from remote client
