@@ -14,7 +14,7 @@
   - [Watch temperature](#watch-temperature)
     - [CPU](#cpu)
     - [SSD](#ssd)
-  - [Enable/disable GUI](#enabledisable-gui)
+  - [Enable/disable GUI for Ubuntu Desktop](#enabledisable-gui-for-ubuntu-desktop)
   - [Enable/disable Wi-Fi](#enabledisable-wi-fi)
 
 ## Set up aliases
@@ -86,7 +86,7 @@ Restart session.
 ### CPU
 
 ```bash
-sudo apt install lm-sensors 
+sudo apt install lm-sensors
 yes yes | sudo sensors-detect
 sudo service kmod start
 
@@ -97,17 +97,19 @@ watch sensors # see temperature values updating each second
 
 ```bash
 sudo apt update
-wget http://archive.ubuntu.com/ubuntu/pool/universe/h/hddtemp/hddtemp_0.3-beta15-54_amd64.deb  
+wget http://archive.ubuntu.com/ubuntu/pool/universe/h/hddtemp/hddtemp_0.3-beta15-54_amd64.deb
 sudo apt install hddtemp
 
 sudo watch hddtemp /dev/sda
 ```
 
-## Enable/disable GUI
+## Enable/disable GUI for Ubuntu Desktop
 
 ```bash
 sudo systemctl status gdm
 sudo systemctl stop gdm
+#sudo systemctl disable gdm
+#sudo systemctl enable gdm
 sudo systemctl start gdm
 ```
 
