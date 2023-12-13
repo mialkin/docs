@@ -14,6 +14,8 @@
   - [Watch temperature](#watch-temperature)
     - [CPU](#cpu)
     - [SSD](#ssd)
+  - [Enable/disable GUI](#enabledisable-gui)
+  - [Enable/disable Wi-Fi](#enabledisable-wi-fi)
 
 ## Set up aliases
 
@@ -99,4 +101,19 @@ wget http://archive.ubuntu.com/ubuntu/pool/universe/h/hddtemp/hddtemp_0.3-beta15
 sudo apt install hddtemp
 
 sudo watch hddtemp /dev/sda
+```
+
+## Enable/disable GUI
+
+```bash
+sudo systemctl status gdm
+sudo systemctl stop gdm
+sudo systemctl start gdm
+```
+
+## Enable/disable Wi-Fi
+
+```bash
+nmcli radio wifi on
+#nmcli radio wifi off
 ```
