@@ -9,6 +9,9 @@
   - [Upgrade cluster](#upgrade-cluster)
   - [List installed addons](#list-installed-addons)
   - [Turn on addons you need](#turn-on-addons-you-need)
+    - [Istio](#istio)
+    - [Dashboard](#dashboard)
+    - [Prometheus](#prometheus)
   - [Run dashboard](#run-dashboard)
   - [MetalLB](#metallb)
   - [Access Kubernetes API from remote client](#access-kubernetes-api-from-remote-client)
@@ -53,8 +56,23 @@ microk8s status
 
 ## Turn on addons you need
 
+### Istio
+
 ```bash
-microk8s enable dns ingress dashboard prometheus
+#microk8s enable community
+microk8s enable istio
+```
+
+### Dashboard
+
+```bash
+microk8s enable dashboard
+```
+
+### Prometheus
+
+```bash
+microk8s enable prometheus
 ```
 
 ## Run dashboard
