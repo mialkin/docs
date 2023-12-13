@@ -134,6 +134,26 @@ Set fetch remote:
 git remote set-url origin git@gitlab.com:mialkin/YOUR_REPOSITORY_NAME.git
 ```
 
+Example of resulting config:
+
+```text
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = git@github.com:mialkin/YOUR_REPOSITORY_NAME.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+	pushurl = git@github.com:mialkin/YOUR_REPOSITORY_NAME.git
+	pushurl = git@gitlab.com:mialkin/YOUR_REPOSITORY_NAME.git
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
+```
+
 ## .gitignore
 
 ```gitignore
