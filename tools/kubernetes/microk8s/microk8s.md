@@ -9,10 +9,10 @@
   - [Upgrade cluster](#upgrade-cluster)
   - [List installed addons](#list-installed-addons)
   - [Turn on addons you need](#turn-on-addons-you-need)
+    - [Istio](#istio)
+    - [MetalLB](#metallb)
     - [Dashboard](#dashboard)
     - [Prometheus](#prometheus)
-  - [MetalLB](#metallb)
-    - [Istio](#istio)
   - [Access Kubernetes API from remote client](#access-kubernetes-api-from-remote-client)
   - [Update expired certificates](#update-expired-certificates)
 
@@ -55,26 +55,14 @@ microk8s status
 
 ## Turn on addons you need
 
-### Dashboard
+### Istio
 
 ```bash
-microk8s enable dashboard
+#microk8s enable community
+microk8s enable istio
 ```
 
-Run dashboard:
-
-```bash
-kubectl proxy
-# http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy
-```
-
-### Prometheus
-
-```bash
-microk8s enable prometheus
-```
-
-## MetalLB
+### MetalLB
 
 You need [↑ MetalLB](https://metallb.universe.tf) so that Istio ingress gateway were able to acquire `LoadBalancer`'s external IP. Otherwise it will stay stuck in pending state.
 
@@ -88,7 +76,7 @@ Use IP range: `192.168.0.100-192.168.0.150`.
 
 > Your WiFi router should include this range in its DHCP server's range: `DHCP Start IP Address`/`DHCP End IP Address`.
 
-Make sure that a service got external IP:
+Make sure, if needed, that a service got external IP:
 
 ```bash
 cat <<EOF | kubectl apply -f -
@@ -132,11 +120,23 @@ As you can see if service has `LoadBalancer` type MetalLB automatically assigns 
 
 [↑ Setup External Access for Kubernetes Applications](https://www.youtube.com/watch?v=k8bxtsWe9qw).
 
-### Istio
+### Dashboard
 
 ```bash
-#microk8s enable community
-microk8s enable istio
+microk8s enable dashboard
+```
+
+Run dashboard:
+
+```bash
+kubectl proxy
+# http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy
+```
+
+### Prometheus
+
+```bash
+microk8s enable prometheus
 ```
 
 ## Access Kubernetes API from remote client
