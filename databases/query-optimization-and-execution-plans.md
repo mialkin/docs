@@ -19,6 +19,7 @@ SQL is a *declarative language*. That means that when we write a SQL query, we d
   - [Query processing overview](#query-processing-overview)
     - [Compilation](#compilation)
     - [Optimization and execution](#optimization-and-execution)
+  - [Links](#links)
 
 ## Database optimizer
 
@@ -128,3 +129,9 @@ Neither of these transformations is straightforward; a logical operation can be 
 The output of the optimizer is an expression containing physical operations. This expression is called a (**physical**) **execution plan**. For that reason, the PostgreSQL optimizer is called the **query planner**.
 
 Finally, the query execution plan is interpreted by the **query execution engine**, frequently referred to as the **executor** in the PostgreSQL community, and output is returned to the client application.
+
+## Links
+
+[↑ Execution Plan Basics](https://www.red-gate.com/simple-talk/databases/sql-server/performance-sql-server/execution-plan-basics/).
+
+[↑ Exploring Query Plans in SQL](https://www.red-gate.com/simple-talk/databases/sql-server/database-administration-sql-server/exploring-query-plans-in-sql/).

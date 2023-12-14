@@ -19,3 +19,5 @@ For most simple scenarios, `Monitor` (via `lock`) is fine.
 ## Links
 
 [↑ Monitor Class](https://docs.microsoft.com/en-us/dotnet/api/system.threading.monitor)
+
+[↑ Is it OK to use a string as a lock object?](https://stackoverflow.com/questions/12804879/is-it-ok-to-use-a-string-as-a-lock-object).
