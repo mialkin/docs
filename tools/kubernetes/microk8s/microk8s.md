@@ -133,6 +133,8 @@ microk8s enable cert-manager
 microk8s enable observability
 ```
 
+Grafana default username: `admin`; default password: `prom-operator`.
+
 ### Dashboard
 
 ```bash
