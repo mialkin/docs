@@ -11,8 +11,10 @@
   - [Copy text to clipboard](#copy-text-to-clipboard)
   - [Applications](#applications)
     - [Finder](#finder)
+    - [Fluor](#fluor)
     - [Gifox](#gifox)
     - [Keka](#keka)
+    - [Lunar](#lunar)
     - [Mos](#mos)
     - [Rectangle](#rectangle)
     - [Rider](#rider)
@@ -107,13 +109,29 @@ Set `Downloads` as default folder:
 
 <img src="macos-finder.png" width="400px">
 
+### Fluor
+
+[↑ Fluor](https://github.com/Pyroh/Fluor) is a macOS application for switching Fn keys' mode based on active application.
+
+```bash
+brew install --cask fluor
+```
+
 ### Gifox
 
-[↑ Gifox](https://gifox.app) is a macOS status bar app for recording, converting, editing and sharing GIFs.
+[↑ Gifox](https://gifox.app) is a macOS status bar application for recording, converting, editing and sharing GIFs.
 
 ### Keka
 
 [↑ Keka](https://www.keka.io) is a macOS file archiver.
+
+### Lunar
+
+[↑ Lunar](https://github.com/alin23/Lunar) is a macOS application for controlling monitors.
+
+```bash
+brew install --cask lunar
+```
 
 ### Mos
 
