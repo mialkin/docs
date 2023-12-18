@@ -19,6 +19,7 @@
     - [Rectangle](#rectangle)
     - [Rider](#rider)
     - [Safari](#safari)
+    - [SensibleSideButtons](#sensiblesidebuttons)
     - [Sublime Text](#sublime-text)
     - [Visual Studio Code](#visual-studio-code)
   - [Terminal aliases](#terminal-aliases)
@@ -167,6 +168,10 @@ chmod 775 rider
 ### Safari
 
 Clear local storage: **Web inspector** → **Storage** → **Clear local storage**
+
+### SensibleSideButtons
+
+[↑ SensibleSideButtons](https://sensible-side-buttons.archagon.net).
 
 ### Sublime Text
 
