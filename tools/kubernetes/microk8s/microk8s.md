@@ -9,6 +9,7 @@
   - [Upgrade cluster](#upgrade-cluster)
   - [List installed addons](#list-installed-addons)
   - [Turn on addons you need](#turn-on-addons-you-need)
+    - [Hostpath Storage](#hostpath-storage)
     - [Istio](#istio)
     - [MetalLB](#metallb)
     - [Certificate manager](#certificate-manager)
@@ -55,6 +56,14 @@ microk8s status
 ```
 
 ## Turn on addons you need
+
+### Hostpath Storage
+
+```bash
+microk8s enable hostpath-storage
+```
+
+[↑ Addon: Hostpath Storage](https://microk8s.io/docs/addon-hostpath-storage).
 
 ### Istio
 
