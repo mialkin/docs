@@ -16,7 +16,6 @@
     - [Dashboard](#dashboard)
   - [Access Kubernetes API from remote client](#access-kubernetes-api-from-remote-client)
   - [Update expired certificates](#update-expired-certificates)
-  - [Port forward services](#port-forward-services)
 
 ## Installation
 
@@ -189,23 +188,3 @@ sudo microk8s.refresh-certs --cert front-proxy-client.crt
 Do not forget to delete existing context from `~/.kube/config` client folder and replace it with `.kube/config` from Kubernetes cluster.
 
 [↑ Microk8s: Unable to connect to the server: x509: certificate has expired or is not yet valid](https://dev.to/boris/microk8s-unable-to-connect-to-the-server-x509-certificate-has-expired-or-is-not-yet-valid-2b73).
-
-## Port forward services
-
-```bash
-touch port-forward.sh
-chmod +x port-forward.sh
-```
-
-```sh
-kubectl port-forward --namespace observability svc/kube-prom-stack-grafana 7100:80 &
-kubectl port-forward --namespace observability svc/kube-prom-stack-kube-prome-prometheus 7200:9090 &
-kubectl port-forward --namespace observability svc/kube-prom-stack-kube-prome-alertmanager 7300:9093 &
-```
-
-Run:
-
-```bash
-./port-forward.sh
-ps -ef | grep port-forward  # List
-```
