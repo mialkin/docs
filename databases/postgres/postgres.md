@@ -134,7 +134,7 @@ docker exec -i CONTAINER_NAME pg_restore -U USERNAME -v -d database_name < /User
 version: "3.8"
 services:
     db:
-        image: postgres
+        image: postgres:16.1
         container_name: postgres
         restart: unless-stopped
         ports:
