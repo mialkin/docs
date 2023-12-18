@@ -63,7 +63,7 @@ microk8s status
 microk8s enable hostpath-storage
 ```
 
-[↑ Addon: Hostpath Storage](https://microk8s.io/docs/addon-hostpath-storage).
+By default, the hostpath provisioner will store all volume data under `/var/snap/microk8s/common/default-storage`. It is possible to change this path via the use of custom storage classes, [↑ by specifying](https://microk8s.io/docs/addon-hostpath-storage) the `pvDir` parameter.
 
 ### Istio
 
