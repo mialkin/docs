@@ -169,7 +169,6 @@
   - [↑ FIRST Principles as Solid Rules for Tests](https://dzone.com/articles/first-principles-solid-rules-for-tests)
   - [↑ F.I.R.S.T Principles of Unit Testing](https://github.com/tekguard/Principles-of-Unit-Testing)
 [↑ HighLoad++](https://tinkoff.ktalk.ru/recordings/Z11VfgwKXpCHLRQrJs7u)
-Try [↑ Writerside](https://www.jetbrains.com/writerside/).
 
 ## JavaScript
 
