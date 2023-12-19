@@ -191,6 +191,7 @@ for (var i = 0; i < 5; i++) {
   - [↑ CLRium #5: Курс "Garbage Collector"](https://www.youtube.com/watch?v=DVnmGW6964o)
   - [↑ Pinned Object Heap в .NET 5](https://habr.com/ru/post/593441/)
   - [↑ Memory leaks](https://github.com/sebastienros/memoryleak)
+  - Learn dotMemory and dotTrace
   - `WaitForPendingFinalizers`
   - [↑ When should I use `GC.SuppressFinalize()`?](https://stackoverflow.com/questions/151051/when-should-i-use-gc-suppressfinalize)
   - [↑ Finalizers](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/finalizers)
