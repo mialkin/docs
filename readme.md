@@ -72,6 +72,7 @@
 - [SonarQube](tools/sonarqube.md)
 - [Terraform](tools/terraform.md)
 - [Unleash](tools/unleash.md)
+- [Vault](tools/vault.md)
 - [↑ Zipkin](https://zipkin.io)
 
 ## Unix
