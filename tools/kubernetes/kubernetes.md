@@ -16,19 +16,19 @@
   - [Replicaset](#replicaset)
   - [Secret](#secret)
   - [Service](#service)
-  - [`ClusterIP`, `NodePort`, `LoadBalancer`](#clusterip-nodeport-loadbalancer)
+  - [Service Account](#service-account)
 
 ## Configmap
 
 A **configmap** is an object used to store non-confidential data in key-value pairs. [Pods](#pod) can consume configmap as environment variables, command-line arguments, or as configuration files in a volume.
 
-[↑ ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap)
+[↑ ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap).
 
 ## Deployment
 
 A **deployment** is an object that provides declarative updates for [pods](#pod) and [replicasets](#replicaset).
 
-[↑ Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment)
+[↑ Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment).
 
 ## Ingress
 
@@ -38,7 +38,7 @@ Ingress exposes HTTP and HTTPS routes from outside the cluster to services withi
 
 Ingress may provide load balancing, SSL termination and name-based virtual hosting.
 
-[↑ Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress)
+[↑ Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress).
 
 ## Ingress resource
 
@@ -48,7 +48,7 @@ An **ingress resource** is an object with a set of routing rules.
 
 An **ingress controller** is just another [pod](#pod) running in Kubernetes that is responsible for reading the [ingress resource](#ingress-resource) information and processing that data accordingly.
 
-[↑ Ingress Controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers)
+[↑ Ingress Controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers).
 
 ## Namespace
 
@@ -58,13 +58,13 @@ Names of resources need to be unique within a namespace, but not across namespac
 
 Namespace-based scoping is applicable only for namespaced objects like `Deployment`, `Service`, and not for cluster-wide objects like `StorageClass`, `Node`, `PersistentVolumes`.
 
-[↑ Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces)
+[↑ Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces).
 
 ## Pod
 
 A **pod** is a group of one or more containers, with shared storage and network resources, and a specification for how to run the containers.
 
-[↑ Pod](https://kubernetes.io/docs/concepts/workloads/pods)
+[↑ Pod](https://kubernetes.io/docs/concepts/workloads/pods).
 
 ## Replicaset
 
@@ -72,7 +72,7 @@ A **replicaset** is an object that maintains a stable set of replica [pods](#pod
 
 As such, it is often used to guarantee the availability of a specified number of identical pods.
 
-[↑ ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset)
+[↑ ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset).
 
 ## Secret
 
@@ -80,14 +80,18 @@ A **secret** is an object that contains a small amount of sensitive data such as
 
 Secrets are similar to [configmaps](#configmap) but are specifically intended to hold confidential data.
 
-[↑ Secrets](https://kubernetes.io/docs/concepts/configuration/secret)
+[↑ Secrets](https://kubernetes.io/docs/concepts/configuration/secret).
 
 ## Service
 
 A **service** is an object that defines a logical set of [pods](#pod) and a policy by which to access them.
 
-[↑ Service](https://kubernetes.io/docs/concepts/services-networking/service)
+[↑ Service](https://kubernetes.io/docs/concepts/services-networking/service).
 
-## `ClusterIP`, `NodePort`, `LoadBalancer`
+## Service Account
 
-[↑ StackOverflow answer](https://stackoverflow.com/questions/41509439/whats-the-difference-between-clusterip-nodeport-and-loadbalancer-service-types)
+A **service account** is an object that provides an identity for processes that run in a [pod](#pod).
+
+A process inside a pod can use the identity of its associated service account to authenticate to the cluster's API server.
+
+[↑ Managing Service Accounts](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin).

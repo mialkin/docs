@@ -10,6 +10,7 @@
     - [Path](#path)
     - [Secret engine](#secret-engine)
     - [Vault Agent](#vault-agent)
+  - [Kubernetes](#kubernetes)
   - [Run](#run)
     - [Docker locally](#docker-locally)
     - [On Kubernetes](#on-kubernetes)
@@ -26,7 +27,7 @@ In Vault, everything is path based. This means that every operation that is perf
 
 ### Secret engine
 
-A **secret engine** is a component which store, generate, or encrypt data.
+A **secret engine** is a component that stores, generates, or encrypts data.
 
 Secrets engines are enabled at a [path](#path) in Vault. When a request comes to Vault, the router automatically routes anything with the route prefix to the secrets engine. In this way, each secrets engine defines its own paths and properties. To the user, secrets engines behave similar to a virtual filesystem, supporting operations like read, write, and delete.
 
@@ -41,6 +42,10 @@ A **Vault Agent** is a client-side daemon that makes requests to Vault on behalf
 Vault clients like human users, applications, etc., must authenticate with Vault and get a client token to make API requests. Because tokens have time-to-live, TTL, the clients must renew the token's TTL or re-authenticate to Vault based on its TTL. Vault Agent authenticates with Vault and manage the token's lifecycle so that the client application doesn't have to.
 
 [↑ Vault Agent quick start](https://developer.hashicorp.com/vault/tutorials/vault-agent/agent-quick-start).
+
+## Kubernetes
+
+Vault provides [↑ Kubernetes auth method](https://developer.hashicorp.com/vault/docs/auth/kubernetes) to authenticate the clients using a [↑ Kubernetes Service Account](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin) Token.
 
 ## Run
 
