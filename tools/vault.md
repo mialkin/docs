@@ -10,6 +10,9 @@
     - [Path](#path)
     - [Secret engine](#secret-engine)
     - [Vault Agent](#vault-agent)
+    - [Seal/unseal](#sealunseal)
+      - [Shamir seals](#shamir-seals)
+    - [Sealing](#sealing)
   - [Kubernetes](#kubernetes)
   - [Run](#run)
     - [Docker locally](#docker-locally)
@@ -42,6 +45,30 @@ A **Vault Agent** is a client-side daemon that makes requests to Vault on behalf
 Vault clients like human users, applications, etc., must authenticate with Vault and get a client token to make API requests. Because tokens have time-to-live, TTL, the clients must renew the token's TTL or re-authenticate to Vault based on its TTL. Vault Agent authenticates with Vault and manage the token's lifecycle so that the client application doesn't have to.
 
 [↑ Vault Agent quick start](https://developer.hashicorp.com/vault/tutorials/vault-agent/agent-quick-start).
+
+### Seal/unseal
+
+When a Vault server is started, it starts in a *sealed* state. In this state, Vault is configured to know where and how to access the physical storage, but doesn't know how to decrypt any of it.
+
+*Unsealing* is the process of obtaining the plaintext *root key* necessary to read the decryption key to decrypt the data, allowing access to the Vault. Prior to unsealing, almost no operations are possible with Vault.
+
+The data stored by Vault is encrypted. Vault needs the *encryption key* in order to decrypt the data. The encryption key is also stored with the data in the *keyring*, but encrypted with another encryption key known as the *root key*.
+
+Therefore, to decrypt the data, Vault must decrypt the encryption key which requires the root key. Unsealing is the process of getting access to this root key. The root key is stored alongside all other Vault data, but is encrypted by yet another mechanism: the *unseal key*.
+
+To recap: most Vault data is encrypted using the encryption key in the keyring; the keyring is encrypted by the root key; and the root key is encrypted by the unseal key.
+
+#### Shamir seals
+
+The default Vault config uses a Shamir seal. Instead of distributing the unseal key as a single key to an operator, Vault uses an algorithm known as [↑ Shamir's secret sharing](https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing) to split the key into shares. A certain threshold of shares is required to reconstruct the unseal key, which is then used to decrypt the root key.
+
+This is the *unseal process*: the shares are added one at a time, in any order, until enough shares are present to reconstruct the key and decrypt the root key.
+
+### Sealing
+
+There is also an API to seal the Vault. This will throw away the root key in memory and require another unseal process to restore it. Sealing only requires a single operator with root privileges.
+
+This way, if there is a detected intrusion, the Vault data can be locked quickly to try to minimize damages. It can't be accessed again without access to the root key shares.
 
 ## Kubernetes
 
