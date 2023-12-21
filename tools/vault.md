@@ -58,6 +58,8 @@ Therefore, to decrypt the data, Vault must decrypt the encryption key which requ
 
 To recap: most Vault data is encrypted using the encryption key in the keyring; the keyring is encrypted by the root key; and the root key is encrypted by the unseal key.
 
+[↑ Seal/Unseal](https://developer.hashicorp.com/vault/docs/concepts/seal).
+
 #### Shamir seals
 
 The default Vault config uses a Shamir seal. Instead of distributing the unseal key as a single key to an operator, Vault uses an algorithm known as [↑ Shamir's secret sharing](https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing) to split the key into shares. A certain threshold of shares is required to reconstruct the unseal key, which is then used to decrypt the root key.
