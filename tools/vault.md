@@ -17,6 +17,7 @@
   - [Run](#run)
     - [Docker locally](#docker-locally)
     - [On Kubernetes](#on-kubernetes)
+    - [Homebrew](#homebrew)
 
 ## Components
 
@@ -96,3 +97,30 @@ The main Vault use case with relevance to Kubernetes is its secret management ca
 The Vault Helm chart is the recommended way to install and configure Vault on Kubernetes.
 
 By default, the chart runs in standalone mode. This mode uses a single Vault server with a file storage backend. This is a less secure and less resilient installation that is NOT appropriate for a production setup.
+
+### Homebrew
+
+Install the HashiCorp tap, a repository of all HashiCorp Homebrew packages:
+
+```bash
+brew tap hashicorp/tap
+```
+
+Install Vault:
+
+```bash
+brew install hashicorp/tap/vault
+```
+
+To start Vault now and restart at login:
+
+```bash
+brew services start hashicorp/tap/vault
+```
+  
+Or, if you don't want/need a background service you can just run:
+
+```bash
+vault server -dev
+```
+
