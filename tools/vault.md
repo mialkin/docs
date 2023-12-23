@@ -18,6 +18,10 @@
     - [Docker locally](#docker-locally)
     - [On Kubernetes](#on-kubernetes)
     - [Homebrew](#homebrew)
+  - [Vault Agent with Kubernetes](#vault-agent-with-kubernetes)
+    - [Start a Vault server](#start-a-vault-server)
+    - [Start minikube](#start-minikube)
+    - [Next](#next)
 
 ## Components
 
@@ -124,3 +128,44 @@ Or, if you don't want/need a background service you can just run:
 vault server -dev
 ```
 
+## Vault Agent with Kubernetes
+
+[↑ Vault Agent with Kubernetes](https://developer.hashicorp.com/vault/tutorials/vault-agent/agent-kubernetes).
+
+### Start a Vault server
+
+1\. Start a Vault dev server which listens for requests locally at `0.0.0.0:8200` with `root` as the root token ID:
+
+```bash
+vault server \
+-dev \
+-dev-root-token-id root \
+-dev-listen-address 0.0.0.0:8200
+```
+
+Setting the `-dev-listen-address` to `0.0.0.0:8200` overrides the default address of a Vault dev server `127.0.0.1:8200` and enables Vault to be addressable by the Kubernetes cluster and its pods because it binds to a shared network.
+
+2\. Export an environment variable for the vault CLI to address the Vault server.
+
+```bash
+export VAULT_ADDR=http://0.0.0.0:8200
+```
+
+### Start minikube
+
+```bash
+#cd ~/Downloads
+#curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64
+minikube config set driver docker
+minikube start
+#minikube start --driver=docker
+#minikube delete
+```
+
+### Next
+
+```bash
+git clone https://github.com/hashicorp/learn-vault-agent.git
+cd learn-vault-agent/vault-agent-k8s-demo
+kubectl apply --filename vault-auth-service-account.yaml
+```
