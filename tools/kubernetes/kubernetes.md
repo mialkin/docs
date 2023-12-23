@@ -14,11 +14,12 @@
   - [Ingress controller](#ingress-controller)
   - [Namespace](#namespace)
   - [Pod](#pod)
-  - [Replicaset](#replicaset)
+  - [Replica set](#replica-set)
   - [Role](#role)
+  - [Role binding](#role-binding)
   - [Secret](#secret)
   - [Service](#service)
-  - [Service Account](#service-account)
+  - [Service account](#service-account)
 
 ## Cluster role
 
@@ -36,7 +37,7 @@ A **configmap** is an object used to store non-confidential data in key-value pa
 
 ## Deployment
 
-A **deployment** is an object that provides declarative updates for [pods](#pod) and [replicasets](#replicaset).
+A **deployment** is an object that provides declarative updates for [pods](#pod) and [replica sets](#replica-set).
 
 [↑ Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment).
 
@@ -76,9 +77,9 @@ A **pod** is a group of one or more containers, with shared storage and network 
 
 [↑ Pod](https://kubernetes.io/docs/concepts/workloads/pods).
 
-## Replicaset
+## Replica set
 
-A **replicaset** is an object that maintains a stable set of replica [pods](#pod) running at any given time.
+A **replica set** is an object that maintains a stable set of replica [pods](#pod) running at any given time.
 
 As such, it is often used to guarantee the availability of a specified number of identical pods.
 
@@ -91,6 +92,14 @@ A **role** is an object that sets permissions within a particular namespace; whe
 If you want to define a role cluster-wide, use a [cluster role](#cluster-role).
 
 [↑ Using RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
+
+## Role binding
+
+A **role binding** is an object that grants the permissions defined in a role to a user or set of users.
+
+Role binding holds a list of *subjects*: users, groups, or service accounts, and a reference to the role being granted.
+
+A RoleBinding grants permissions within a specific namespace whereas
 
 ## Secret
 
@@ -106,10 +115,16 @@ A **service** is an object that defines a logical set of [pods](#pod) and a poli
 
 [↑ Service](https://kubernetes.io/docs/concepts/services-networking/service).
 
-## Service Account
+## Service account
 
 A **service account** is an object that provides an identity for processes that run in a [pod](#pod).
 
 A process inside a pod can use the identity of its associated service account to authenticate to the cluster's API server.
 
+Service accounts are tied to a set of credentials stored as [secrets](#secret), which are mounted into pods allowing in-cluster processes to talk to the Kubernetes API.
+
+Service accounts are bound to specific namespaces, and created automatically by the API server or manually through API calls.
+
 [↑ Managing Service Accounts](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin).
+
+[↑ Authenticating](https://kubernetes.io/docs/reference/access-authn-authz/authentication/).
