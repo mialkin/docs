@@ -22,6 +22,10 @@
     - [Start a Vault server](#start-a-vault-server)
     - [Start minikube](#start-minikube)
     - [Next](#next)
+    - [Install the Vault Helm chart](#install-the-vault-helm-chart)
+    - [Set a secret in Vault](#set-a-secret-in-vault)
+    - [Configure Kubernetes authentication](#configure-kubernetes-authentication)
+    - [Define a Kubernetes service account](#define-a-kubernetes-service-account)
 
 ## Components
 
@@ -169,3 +173,65 @@ git clone https://github.com/hashicorp/learn-vault-agent.git
 cd learn-vault-agent/vault-agent-k8s-demo
 kubectl apply --filename vault-auth-service-account.yaml
 ```
+
+### Install the Vault Helm chart
+
+```bash
+helm repo add hashicorp https://helm.releases.hashicorp.com
+helm repo update
+helm install vault hashicorp/vault --set "server.dev.enabled=true"
+```
+
+### Set a secret in Vault
+
+```bash
+# The `vault-0` pod runs a Vault server in development mode.
+# The `vault-agent-injector` pod performs the injection based on the annotations
+# present or patched on a deployment.
+kubectl exec -it vault-0 -- /bin/sh
+vault secrets enable -path=internal kv-v2
+vault kv put internal/database/config username="db-readonly-username" password="db-secret-password"
+vault kv get internal/database/config
+exit
+```
+
+### Configure Kubernetes authentication
+
+```bash
+kubectl exec -it vault-0 -- /bin/sh
+
+# Enable the Kubernetes authentication method
+vault auth enable kubernetes
+
+# Configure the Kubernetes authentication method to use the location of the Kubernetes API
+vault write auth/kubernetes/config \
+      kubernetes_host="https://$KUBERNETES_PORT_443_TCP_ADDR:443"
+```
+
+```bash
+# Write out the policy named `internal-app` that enables the read capability for secrets 
+# at path `internal/data/database/config`
+vault policy write internal-app - <<EOF
+path "internal/data/database/config" {
+   capabilities = ["read"]
+}
+EOF
+```
+
+```bash
+# Create a Kubernetes authentication role named `internal-app`
+vault write auth/kubernetes/role/internal-app \
+      bound_service_account_names=internal-app \
+      bound_service_account_namespaces=default \
+      policies=internal-app \
+      ttl=24h
+
+exit
+```
+
+The role connects the Kubernetes service account, `internal-app`, and namespace, `default`, with the Vault policy, `internal-app`. The tokens returned after authentication are valid for 24 hours.
+
+### Define a Kubernetes service account
+
+A service account provides an identity for processes that run in a Pod. With this identity we will be able to run the application within the cluster.
+
