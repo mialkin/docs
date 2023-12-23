@@ -7,6 +7,7 @@
 - [Kubernetes](#kubernetes)
   - [Table of contents](#table-of-contents)
   - [Cluster role](#cluster-role)
+  - [Cluster role binding](#cluster-role-binding)
   - [Configmap](#configmap)
   - [Deployment](#deployment)
   - [Ingress](#ingress)
@@ -28,6 +29,12 @@ A **cluster role** is an object that sets cluster-wide permissions.
 If you want to define a role within a namespace, use a [role](#role).
 
 [↑ Using RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
+
+## Cluster role binding
+
+A **cluster role binding** is an object that grants permissions cluster-wide.
+
+A [role binding](#role-binding) grants permissions within a specified namespace.
 
 ## Configmap
 
@@ -87,7 +94,7 @@ As such, it is often used to guarantee the availability of a specified number of
 
 ## Role
 
-A **role** is an object that sets permissions within a particular namespace; when you create a Role, you have to specify the namespace it belongs in.
+A **role** is an object that sets permissions within a particular namespace; when you create a role, you have to specify the namespace it belongs to.
 
 If you want to define a role cluster-wide, use a [cluster role](#cluster-role).
 
@@ -95,11 +102,11 @@ If you want to define a role cluster-wide, use a [cluster role](#cluster-role).
 
 ## Role binding
 
-A **role binding** is an object that grants the permissions defined in a role to a user or set of users.
+A **role binding** is an object that grants the permissions defined in a role to a user or set of users within a specific namespace.
 
 Role binding holds a list of *subjects*: users, groups, or service accounts, and a reference to the role being granted.
 
-A RoleBinding grants permissions within a specific namespace whereas
+A [cluster role binding](#cluster-role-binding) grants permissions cluster-wide.
 
 ## Secret
 
