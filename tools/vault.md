@@ -18,14 +18,16 @@
     - [Docker locally](#docker-locally)
     - [On Kubernetes](#on-kubernetes)
     - [Homebrew](#homebrew)
-  - [Vault Agent with Kubernetes](#vault-agent-with-kubernetes)
-    - [Start a Vault server](#start-a-vault-server)
+  - [Injecting secrets into Kubernetes pods via Vault Agent containers](#injecting-secrets-into-kubernetes-pods-via-vault-agent-containers)
+    - [Clone GitHub repository](#clone-github-repository)
     - [Start minikube](#start-minikube)
     - [Next](#next)
     - [Install the Vault Helm chart](#install-the-vault-helm-chart)
     - [Set a secret in Vault](#set-a-secret-in-vault)
     - [Configure Kubernetes authentication](#configure-kubernetes-authentication)
     - [Define a Kubernetes service account](#define-a-kubernetes-service-account)
+    - [Launch an application](#launch-an-application)
+    - [Inject secrets into the pod](#inject-secrets-into-the-pod)
 
 ## Components
 
@@ -100,6 +102,8 @@ docker run --cap-add=IPC_LOCK -e 'VAULT_LOCAL_CONFIG={"storage": {"file": {"path
 
 The main Vault use case with relevance to Kubernetes is its secret management capabilities. Vault can store API keys, database credentials, environmental variables and more.
 
+[↑ Vault on Kubernetes deployment guide](https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-raft-deployment-guide).
+
 [↑ Run Vault on Kubernetes](https://developer.hashicorp.com/vault/docs/platform/k8s/helm/run).
 
 The Vault Helm chart is the recommended way to install and configure Vault on Kubernetes.
@@ -132,27 +136,15 @@ Or, if you don't want/need a background service you can just run:
 vault server -dev
 ```
 
-## Vault Agent with Kubernetes
+## Injecting secrets into Kubernetes pods via Vault Agent containers
 
-[↑ Vault Agent with Kubernetes](https://developer.hashicorp.com/vault/tutorials/vault-agent/agent-kubernetes).
+[↑ Injecting secrets into Kubernetes pods via Vault Agent containers](https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-sidecar).
 
-### Start a Vault server
-
-1\. Start a Vault dev server which listens for requests locally at `0.0.0.0:8200` with `root` as the root token ID:
+### Clone GitHub repository
 
 ```bash
-vault server \
--dev \
--dev-root-token-id root \
--dev-listen-address 0.0.0.0:8200
-```
-
-Setting the `-dev-listen-address` to `0.0.0.0:8200` overrides the default address of a Vault dev server `127.0.0.1:8200` and enables Vault to be addressable by the Kubernetes cluster and its pods because it binds to a shared network.
-
-2\. Export an environment variable for the vault CLI to address the Vault server.
-
-```bash
-export VAULT_ADDR=http://0.0.0.0:8200
+git clone https://github.com/hashicorp-education/learn-vault-kubernetes-sidecar.git
+cd learn-vault-kubernetes-sidecar
 ```
 
 ### Start minikube
@@ -212,10 +204,11 @@ vault write auth/kubernetes/config \
 # Write out the policy named `internal-app` that enables the read capability for secrets 
 # at path `internal/data/database/config`
 vault policy write internal-app - <<EOF
-path "internal/data/database/config" {
+path "*" {
    capabilities = ["read"]
 }
 EOF
+# path "internal/data/database/config"
 ```
 
 ```bash
@@ -235,3 +228,50 @@ The role connects the Kubernetes service account, `internal-app`, and namespace,
 
 A service account provides an identity for processes that run in a Pod. With this identity we will be able to run the application within the cluster.
 
+```bash
+# Get all the service accounts in the default namespace
+kubectl get serviceaccounts
+
+# Create a Kubernetes service account named `internal-app` in the default namespace
+kubectl create sa internal-app
+```
+
+The name of the service account here aligns with the name assigned to the `bound_service_account_names` field when the `internal-app` role was created.
+
+### Launch an application
+
+```bash
+# Apply the deployment defined in `deployment-orgchart.yaml` file
+kubectl apply --filename deployment-orgchart.yaml
+kubectl get pods
+```
+
+The name of this deployment is `orgchart`. The `spec.template.spec.serviceAccountName` defines the service account `internal-app` to run this container.
+
+```bash
+# Verify that no secrets are written to the `orgchart` container in the `orgchart` pod
+kubectl exec \
+$(kubectl get pod -l app=orgchart -o jsonpath="{.items[0].metadata.name}") \
+--container orgchart -- ls /vault/secrets
+```
+
+The output displays that there is no such file or directory named `/vault/secrets`:
+
+```console
+ls: /vault/secrets: No such file or directory
+command terminated with exit code 1
+```
+
+### Inject secrets into the pod
+
+The deployment is running the pod with the `internal-app` Kubernetes service account in the default namespace. The Vault Agent Injector only modifies a deployment if it contains a specific set of annotations. An existing deployment may have its definition patched to include the necessary annotations.
+
+```bash
+# Patch the orgchart deployment defined in patch-inject-secrets.yaml
+kubectl patch deployment orgchart --patch "$(cat patch-inject-secrets.yaml)"
+
+# Display the secret written to the `orgchart` container in the `orgchart` pod
+kubectl exec \
+      $(kubectl get pod -l app=orgchart -o jsonpath="{.items[0].metadata.name}") \
+      -c orgchart -- cat /vault/secrets/database-config.txt
+```
