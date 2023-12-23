@@ -6,6 +6,7 @@
 
 - [Kubernetes](#kubernetes)
   - [Table of contents](#table-of-contents)
+  - [Cluster role](#cluster-role)
   - [Configmap](#configmap)
   - [Deployment](#deployment)
   - [Ingress](#ingress)
@@ -14,9 +15,18 @@
   - [Namespace](#namespace)
   - [Pod](#pod)
   - [Replicaset](#replicaset)
+  - [Role](#role)
   - [Secret](#secret)
   - [Service](#service)
   - [Service Account](#service-account)
+
+## Cluster role
+
+A **cluster role** is an object that sets cluster-wide permissions.
+
+If you want to define a role within a namespace, use a [role](#role).
+
+[↑ Using RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 ## Configmap
 
@@ -73,6 +83,14 @@ A **replicaset** is an object that maintains a stable set of replica [pods](#pod
 As such, it is often used to guarantee the availability of a specified number of identical pods.
 
 [↑ ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset).
+
+## Role
+
+A **role** is an object that sets permissions within a particular namespace; when you create a Role, you have to specify the namespace it belongs in.
+
+If you want to define a role cluster-wide, use a [cluster role](#cluster-role).
+
+[↑ Using RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 ## Secret
 
