@@ -14,6 +14,7 @@ The **kubectl** command line tool lets you control Kubernetes clusters.
   - [Create secret from literals](#create-secret-from-literals)
   - [Decode base64 string](#decode-base64-string)
   - [Extract secret to YAML](#extract-secret-to-yaml)
+  - [Debug or test pod inside Kubernetes cluster](#debug-or-test-pod-inside-kubernetes-cluster)
   - [DNS lookup](#dns-lookup)
 
 ## Installation
@@ -152,6 +153,26 @@ echo QWxhZGRpbjpvcGVuIHNlc2FtZQ== | base64 --decode
 ```bash
 kubectl get secret SECRET_NAME -o=yaml
 ```
+
+## Debug or test pod inside Kubernetes cluster
+
+```bash
+kubectl run \
+-it \
+--tty \
+--rm debug \
+--image=alpine \
+-n mialkin \
+--restart=Never -- sh
+
+apk update && apk add curl # Install curl
+apk add busybox-extras # Install telnet
+
+curl dictionary-api.dictionary.svc.cluster.local/index.html
+telnet postgres.tools.svc.cluster.local 5432
+```
+
+[↑ Create the various debug or test pod inside kubernetes cluster](https://medium.com/@shambhand2020/create-the-various-debug-or-test-pod-inside-kubernetes-cluster-e4862c767b96).
 
 ## DNS lookup
 
