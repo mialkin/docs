@@ -150,8 +150,9 @@ cd learn-vault-kubernetes-sidecar
 ### Start minikube
 
 ```bash
-#cd ~/Downloads
-#curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64
+cd ~/Downloads
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64
+sudo install minikube-darwin-amd64 /usr/local/bin/minikube
 minikube config set driver docker
 minikube start
 #minikube start --driver=docker
