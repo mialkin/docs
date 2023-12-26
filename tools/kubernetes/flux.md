@@ -6,227 +6,60 @@
 
 - [Flux](#flux)
   - [Table of contents](#table-of-contents)
-  - [Installation](#installation)
-  - [Install or upgrade Flux](#install-or-upgrade-flux)
-  - [Uninstall Flux](#uninstall-flux)
+  - [Install](#install)
+  - [Uninstall](#uninstall)
   - [Commands](#commands)
-  - [GitLab](#gitlab)
-  - [Repository structure](#repository-structure)
-  - [Setting up application](#setting-up-application)
-  - [Reconciliation](#reconciliation)
-  - [Image update automation](#image-update-automation)
-    - [Configure image scanning](#configure-image-scanning)
-    - [Configure image updates](#configure-image-updates)
   - [Core concepts](#core-concepts)
     - [Source](#source)
     - [Kustomization](#kustomization)
+  - [GitLab](#gitlab)
 
-## Installation
-
-[↑ Installation](https://fluxcd.io/flux/installation/)
-
-Install Flux CLI:
+## Install
 
 ```bash
 brew install fluxcd/tap/flux
 # brew upgrade fluxcd/tap/flux
-```
 
-Check if your Kubernetes cluster has everything needed to run Flux:
-
-```bash
+# Check if your Kubernetes cluster has everything needed to run Flux
 flux check --pre
 ```
 
-## Install or upgrade Flux
-
-For testing purposes you can install Flux onto Kubernetes cluster without storing its manifests in a Git repository:
+## Uninstall
 
 ```bash
-flux install
+brew uninstall fluxcd/tap/flux
 ```
 
-## Uninstall Flux
-
-[↑ Uninstall](https://fluxcd.io/flux/installation/#uninstall) Flux from Kubernetes cluster:
-
-```bash
-flux uninstall
-```
-
-Note that the `uninstall` command will not remove any Kubernetes objects or Helm releases that were reconciled on the cluster by Flux. It is safe to uninstall Flux and rerun the bootstrap, any existing workloads will not be affected.
+Note that the uninstall command will not remove any Kubernetes objects or Helm releases that were reconciled on the cluster by Flux. It is safe to uninstall Flux and rerun the bootstrap, any existing workloads will not be affected.
 
 ## Commands
 
-| Command                                         | Description                                   |
-| ----------------------------------------------- | --------------------------------------------- |
-| `flux get sources all`                          | Get all source statuses                       |
-| `flux get sources git`                          | List `GitRepository` sources and their status |
-| `flux get kustomizations`                       | Get `Kustomization` statuses                  |
-| `flux suspend kustomization KUSTOMIZATION_NAME` | Suspend reconciliation of `Kustomization`     |
-| `flux delete kustomization KUSTOMIZATION_NAME`  | Delete a `Kustomization` resource             |
-| `flux delete source git SOURCE_NAME`            | Delete a `GitRepository` source               |
-| `flux stats`                                    | Stats of Flux reconciles                      |
-| `flux version`                                  |                                               |
-
-## GitLab
-
-The `bootstrap gitlab` command creates a GitLab repository if one doesn't exist and commits the Flux components manifests to specified branch. Then it configures the target cluster to synchronize with that repository by setting up an SSH deploy key or by using token-based authentication.
-
-Generate a [↑ personal access token](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html) that grants complete read/write access to the GitLab API.
-
-Export your GitLab personal access token as an environment variable:
-
-```bash
-export GITLAB_TOKEN=<your-token>
-export GITLAB_USERNAME=<your-username>
-```
-
-Run the bootstrap for a repository on your personal GitLab account:
-
-```bash
-flux bootstrap gitlab \
-  --components-extra=image-reflector-controller,image-automation-controller \
-  --deploy-token-auth \
-  --owner=$GITLAB_USERNAME \
-  --repository=flux \
-  --branch=main \
-  --path=clusters/zotac \
-  --read-write-key \
-  --personal
-```
-
-To regenerate the deploy key, delete the `flux-system` secret from the cluster and re-run the bootstrap command using a valid GitLab PAT.
-
-[↑ Flux bootstrap for GitLab](https://fluxcd.io/flux/installation/bootstrap/gitlab/).
-
-## Repository structure
-
-[↑ Repo per app](https://fluxcd.io/flux/guides/repository-structure/#repo-per-app).
-
-## Setting up application
-
-Clone Flux repository. From its root folder run:
-
-```bash
-mkdir clusters/zotac/dictionary-api
-
-flux create source git dictionary-api \
-  --url=https://github.com/mialkin/dictionary-api \
-  --branch=main \
-  --interval=1m0s \
-  --export > ./clusters/zotac/dictionary-api/dictionary-api-source.yaml
-```
-
-```bash
-git add .
-git commit -am "Add GitRepository source"
-git push
-```
-
-Start watching kustomization:
-
-```bash
-flux get kustomizations --watch
-```
-
-Again, from the root folder of Flux repository, but in a separate terminal, run:
-
-```bash
-flux create kustomization dictionary-api \
-  --target-namespace=dictionary \
-  --source=dictionary-api \
-  --path="./deploy/manifests" \
-  --prune=true \
-  --interval=5m0s \
-  --export > ./clusters/zotac/dictionary-api/dictionary-api-kustomization.yaml
-```
-
-## Reconciliation
-
-Reconciliation refers to ensuring that a given state matches a desired state declaratively defined somewhere.
-
-Tell Flux to pull and apply the changes or wait one minute for Flux to detect the changes on its own:
-
-```bash
-flux reconcile kustomization flux-system --with-source
-```
-
-## Image update automation
-
-[↑ Automate image updates to Git](https://fluxcd.io/flux/guides/image-update).
-
-### Configure image scanning
-
-Create an `ImageRepository` to tell Flux which container registry to scan for new tags:
-
-```csharp
-flux create image repository dictionary-api \
---image=mialkin/dictionary-api \
---interval=5m \
---export > ./clusters/zotac/dictionary-api/dictionary-api-registry.yaml
-```
-
-Get a list of `ImageRepository` objects:
-
-```bash
-flux get image repository dictionary-api
-```
-
-Display a list of ten latest tags scanned by the `ImageRepository`:
-
-```bash
-kubectl -n flux-system describe imagerepositories dictionary-api
-```
-
-Create an `ImagePolicy` to tell Flux which semver range to use when filtering tags:
-
-```bash
-flux create image policy dictionary-api \
---image-ref=dictionary-api \
---select-semver=">=1.0.0" \
---export > ./clusters/zotac/dictionary-api/dictionary-api-policy.yaml
-```
-
-Get a list of `ImagePolicy` objects:
-
-```bash
-flux get image policy dictionary-api
-```
-
-[↑ Image Policies](https://fluxcd.io/flux/components/image/imagepolicies).
-
-### Configure image updates
-
-```bash
-flux create image update flux-system \
---interval=30m \
---git-repo-ref=flux-system \
---git-repo-path="./clusters/my-cluster" \
---checkout-branch=main \
---push-branch=main \
---author-name=fluxcdbot \
---author-email=fluxcdbot@users.noreply.github.com \
---commit-template="{{range .Updated.Images}}{{println .}}{{end}}" \
---export > ./clusters/my-cluster/flux-system-automation.yaml
-```
-
-Get `ImageUpdateAutomation` status
-
-```bash
-flux get images update
-```
+| Command                                                | Description                                   |
+| ------------------------------------------------------ | --------------------------------------------- |
+| flux get image policy                                  |                                               |
+| flux get image repository NAME                         |                                               |
+| flux get images update                                 |                                               |
+| flux get kustomizations                                | Get `Kustomization` statuses                  |
+| flux get kustomizations --watch                        | Start watching kustomizations                 |
+| flux get sources all                                   | Get all source statuses                       |
+| flux get sources git                                   | List `GitRepository` sources and their status |
+| flux suspend kustomization KUSTOMIZATION_NAME          | Suspend reconciliation of `Kustomization`     |
+| flux delete kustomization KUSTOMIZATION_NAME           | Delete a `Kustomization` resource             |
+| flux delete source git SOURCE_NAME                     | Delete a `GitRepository` source               |
+| flux reconcile kustomization flux-system --with-source | Pull and apply the changes                    |
+| flux stats                                             | Stats of Flux reconciles                      |
+| flux version                                           |                                               |
 
 ## Core concepts
 
 ### Source
 
-A **source** defines the origin of a repository containing the desired state of the system and the requirements to obtain it.
-
-The origin of the source is checked for changes on a defined interval, if there is a newer version available that matches the criteria, a new artifact is produced.
+A **source** defines the origin of a repository containing the desired state of the system and the requirements to obtain it. The origin of the source is checked for changes on a defined interval, if there is a newer version available that matches the criteria, a new artifact is produced.
 
 All sources are specified as [↑ custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) in a Kubernetes cluster, examples of sources are [`↑ GitRepository`](https://fluxcd.io/flux/components/source/gitrepositories), `OCIRepository`, `HelmRepository` and `Bucket` resources.
 
 ### Kustomization
 
 A `Kustomization` custom resource represents a local set of Kubernetes resources that Flux is supposed to reconcile in the cluster. The reconciliation runs every five minutes by default, but this can be changed with `.spec.interval`.
+
+## GitLab
