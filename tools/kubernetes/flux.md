@@ -36,6 +36,7 @@ Note that the uninstall command will not remove any Kubernetes objects or Helm r
 
 | Command                                                | Description                                   |
 | ------------------------------------------------------ | --------------------------------------------- |
+| flux get all                                           |                                               |
 | flux get image policy                                  |                                               |
 | flux get image repository NAME                         |                                               |
 | flux get images update                                 |                                               |
@@ -129,7 +130,7 @@ git push origin main
 # Tell Flux to pull and apply the changes or wait one minute for Flux to detect the changes on its own:
 flux reconcile kustomization flux-system --with-source
 
-kubectl port-forward podinfo-5cdb854ffc-tl2mg 9898:9898 
+kubectl port-forward podinfo-5cdb854ffc-tl2mg 9898:9898
 ```
 
 Create `ImageRepository` and `ImagePolicy`:
@@ -151,8 +152,8 @@ Edit the `podinfo-deployment.yaml` file and add a marker to tell Flux which poli
 ```yaml
 spec:
   containers:
-  - name: podinfod
-    image: ghcr.io/stefanprodan/podinfo:5.0.0 # {"$imagepolicy": "flux-system:podinfo"}
+    - name: podinfod
+      image: ghcr.io/stefanprodan/podinfo:5.0.0 # {"$imagepolicy": "flux-system:podinfo"}
 ```
 
 Push changes and make sure they have been applied:
