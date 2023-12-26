@@ -63,3 +63,118 @@ All sources are specified as [↑ custom resources](https://kubernetes.io/docs/c
 A `Kustomization` custom resource represents a local set of Kubernetes resources that Flux is supposed to reconcile in the cluster. The reconciliation runs every five minutes by default, but this can be changed with `.spec.interval`.
 
 ## GitLab
+
+```bash
+# Bootstrap repository
+flux bootstrap git \
+--components-extra=image-reflector-controller,image-automation-controller \
+--url=ssh://git@gitlab.com/mialkin/flux \
+--branch=main \
+--private-key-file=/Users/aleksei/.ssh/id_rsa \
+--path=clusters/microk8s
+
+# Clone bootstrapped repository
+cd ~/Downloads
+git clone git@gitlab.com:mialkin/flux.git
+cd flux
+
+# Add .gitignore file
+cat <<EOF > .gitignore
+.idea/
+EOF
+```
+
+Create `Deployment` for [↑ podinfo](https://github.com/stefanprodan/podinfo) application:
+
+```bash
+cat <<EOF > ./clusters/microk8s/podinfo-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: podinfo
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: podinfo
+  template:
+    metadata:
+      labels:
+        app: podinfo
+    spec:
+      containers:
+        - name: podinfod
+          image: ghcr.io/stefanprodan/podinfo:5.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 9898
+              protocol: TCP
+EOF
+
+git add -A && \
+git commit -m "Add podinfo deployment" && \
+git push origin main
+
+# Tell Flux to pull and apply the changes or wait one minute for Flux to detect the changes on its own:
+flux reconcile kustomization flux-system --with-source
+
+kubectl port-forward podinfo-5cdb854ffc-tl2mg 9898:9898 
+```
+
+Create `ImageRepository` and `ImagePolicy`:
+
+```bash
+flux create image repository podinfo \
+--image=ghcr.io/stefanprodan/podinfo \
+--interval=1m \
+--export > ./clusters/microk8s/podinfo-registry.yaml
+
+flux create image policy podinfo \
+--image-ref=podinfo \
+--select-semver=5.0.x \
+--export > ./clusters/microk8s/podinfo-policy.yaml
+```
+
+Edit the `podinfo-deployment.yaml` file and add a marker to tell Flux which policy to use when updating the container image:
+
+```yaml
+spec:
+  containers:
+  - name: podinfod
+    image: ghcr.io/stefanprodan/podinfo:5.0.0 # {"$imagepolicy": "flux-system:podinfo"}
+```
+
+Push changes and make sure they have been applied:
+
+```bash
+git add -A && \
+git commit -m "Add podinfo image scan" && \
+git push origin main
+
+flux reconcile kustomization flux-system --with-source
+
+flux get image repository podinfo && \
+flux get image policy podinfo
+```
+
+Create `ImageUpdateAutomation`:
+
+```bash
+flux create image update flux-system \
+--interval=1m \
+--git-repo-ref=flux-system \
+--git-repo-path="./clusters/microk8s" \
+--checkout-branch=main \
+--push-branch=main \
+--author-name=fluxcdbot \
+--author-email=fluxcdbot@mialkin.ru \
+--commit-template="{{range .Updated.Images}}{{println .}}{{end}}" \
+--export > ./clusters/microk8s/flux-system-automation.yaml
+
+git add -A && \
+git commit -m "Add image updates automation" && \
+git push origin main
+
+flux reconcile kustomization flux-system --with-source
+```
