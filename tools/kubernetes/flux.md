@@ -64,13 +64,23 @@ A `Kustomization` custom resource represents a local set of Kubernetes resources
 
 ## GitLab
 
+Generate pair of keys for GitLab:
+
 ```bash
-# Bootstrap repository
+cd ~/.ssh
+ssh-keygen -f gitlab
+
+# Add public key in GitLab profile: https://gitlab.com/-/profile/keys
+```
+
+Bootstrap repository:
+
+```bash
 flux bootstrap git \
 --components-extra=image-reflector-controller,image-automation-controller \
 --url=ssh://git@gitlab.com/mialkin/flux \
 --branch=main \
---private-key-file=/Users/aleksei/.ssh/id_rsa \
+--private-key-file=/Users/aleksei/.ssh/gitlab \
 --path=clusters/microk8s
 
 # Clone bootstrapped repository
