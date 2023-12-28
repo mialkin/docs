@@ -1,5 +1,13 @@
 # TLS
 
+The **Transport Layer Security** or **TLS** is an encryption protocol in wide use on the Internet. TLS, which was formerly called SSL, authenticates the server in a client-server connection and encrypts communications between client and server so that external parties cannot spy on the communications.
+
+There are three important things to understand about how TLS works:
+
+- Public key and private key
+- TLS certificate
+- TLS handshake
+
 ## Table of contents
 
 - [TLS](#tls)
@@ -14,15 +22,7 @@
   - [How does a TLS handshake work?](#how-does-a-tls-handshake-work)
   - [4 session keys](#4-session-keys)
   - [Understanding cipher suite](#understanding-cipher-suite)
-  - [Links](#links)
-
-The **Transport Layer Security** or **TLS** is an encryption protocol in wide use on the Internet. TLS, which was formerly called SSL, authenticates the server in a client-server connection and encrypts communications between client and server so that external parties cannot spy on the communications.
-
-There are three important things to understand about how TLS works:
-
-- Public key and private key
-- TLS certificate
-- TLS handshake
+  - [TLS termination](#tls-termination)
 
 ## Public key and private key
 
@@ -54,6 +54,8 @@ Thus, TLS starts with asymmetric encryption (with two keys) and moves to symmetr
 A **session key** is any encryption key used to symmetrically encrypt one communication session only. In other words, it's a temporary key that is only used once, during one stretch of time, for encrypting and decrypting data; future conversations between the two parties would be encrypted with different session keys. A session key is like a password that someone resets every time they log in.
 
 In TLS, the two communicating parties (the client and the server) generate 4 session keys at the start of any communication session, during the TLS handshake. The official [↑ RFC for TLS](https://datatracker.ietf.org/doc/html/rfc5246) does not actually call these keys "session keys", but functionally that's exactly what they are.
+
+[↑ Session keys and TLS handshakes](https://www.cloudflare.com/learning/ssl/what-is-a-session-key).
 
 ## Session
 
@@ -112,7 +114,7 @@ TLS connection sits over TCP and is encrypting HTTP before it gets sent over.
 
 Take a look at the certificate of the https://www.nottingham.ac.uk website inside Firefox browser:
 
-<img src="cipher suite.png" alt="drawing" width="700"/>
+<img src="cipher-suite.png" alt="drawing" width="700"/>
 
  You'll find there following string:
 
@@ -133,8 +135,14 @@ The handshake is **TLS_ECDHE_RSA**. When we are done with handshake part, then t
 
 Here is an example of another cipher suite:
 
-<img src="another cipher suite.png" alt="drawing" width="600"/>
+<img src="another-cipher-suite.png" alt="drawing" width="600"/>
 
-## Links
+## TLS termination
 
-[↑ Session keys and TLS handshakes](https://www.cloudflare.com/learning/ssl/what-is-a-session-key)
+**TLS termination** is a process of decrypting traffic before it's passed on another server such as gateway API.
+
+When used with a load balancer, TLS can be terminated at the load balancer or encrypted traffic can be passed directly to gateway API and TLS terminated there.
+
+Which method is selected is largely a matter of preference. When TLS is terminated at the load balancer then decisions can be made about the traffic based on the information itself. Sophisticated load balancers provide such functionality. Often its a benefit to the back end server to terminate TLS at the load balancer. For example to conserve CPU performance and then not requiring decryption by the back end.
+
+[↑ Manage SSL/TLS termination](https://help.okta.com/oag/en-us/content/topics/access-gateway/manage-tls-termination.htm).
