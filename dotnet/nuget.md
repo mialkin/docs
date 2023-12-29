@@ -11,6 +11,7 @@
 - [NuGet](#nuget)
   - [Table of contents](#table-of-contents)
   - [NuGet package](#nuget-package)
+    - [Set NuGet package name and version](#set-nuget-package-name-and-version)
     - [Build NuGet package](#build-nuget-package)
     - [Acquire API key](#acquire-api-key)
     - [Publish package](#publish-package)
@@ -22,6 +23,18 @@
 A **NuGet package** is a single ZIP file with the `.nupkg` extension that contains compiled code, i.e. DLLs, other files related to that code, and a descriptive manifest that includes information like the package's version number.
 
 [↑ Quickstart: Create and publish a NuGet package using Visual Studio (Windows only)](https://learn.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-visual-studio?tabs=netcore-cli).
+
+### Set NuGet package name and version
+
+```xml
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    ...
+    ...
+    <PackageId>Your.Package.Name</PackageId>
+    <Version>1.2.3</Version>
+  </PropertyGroup>
+```
 
 ### Build NuGet package
 
