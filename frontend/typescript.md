@@ -6,6 +6,17 @@ TypeScript is designed for the development of large applications and transpiles 
 
 A [↑ transpiler](https://en.wikipedia.org/wiki/Source-to-source_compiler) or **transcompiler** is a type of translator that takes the source code of a program written in a programming language as its input and produces an equivalent source code in the same or a different programming language.
 
+## Table of contents
+
+- [TypeScript](#typescript)
+  - [Table of contents](#table-of-contents)
+  - [ECMAScript](#ecmascript)
+  - [`tsconfig.json` file](#tsconfigjson-file)
+    - [`include`](#include)
+    - [`exclude`](#exclude)
+    - [`compilerOptions`](#compileroptions)
+      - [`target`](#target)
+
 ## ECMAScript
 
 [↑ ECMAScript](https://en.wikipedia.org/wiki/ECMAScript) is a standard for scripting languages, including JavaScript, [↑ JScript](https://en.wikipedia.org/wiki/JScript), and [↑ ActionScript](https://en.wikipedia.org/wiki/ActionScript).
@@ -22,12 +33,20 @@ The `tsconfig.json` file specifies the root files and the compiler options requi
 
 ### `include`
 
-[↑ `include`](https://www.typescriptlang.org/tsconfig#include) specifies an array of filenames or patterns to include in the program. These filenames are resolved relative to the directory containing the `tsconfig.json` file.
+The [↑ `include`](https://www.typescriptlang.org/tsconfig#include) setting specifies an array of filenames or patterns to include in the program. These filenames are resolved relative to the directory containing the `tsconfig.json` file.
 
 ### `exclude`
 
-[↑ `exclude`](https://www.typescriptlang.org/tsconfig#exclude) specifies an array of filenames or patterns that should be skipped when resolving [`include`](#include).
+The [↑ `exclude`](https://www.typescriptlang.org/tsconfig#exclude) setting specifies an array of filenames or patterns that should be skipped when resolving [`include`](#include).
 
 ### `compilerOptions`
 
-[↑ `compilerOptions`](https://www.typescriptlang.org/tsconfig#compilerOptions) makes up the bulk of TypeScript's configuration and it covers how the language should work.
+The [↑ `compilerOptions`](https://www.typescriptlang.org/tsconfig#compilerOptions) setting makes up the bulk of TypeScript's configuration and it covers how the language should work.
+
+#### `target`
+
+The `target` setting changes which JS features are downleveled and which are left intact. For example, an arrow function `() => this` will be turned into an equivalent `function` expression if `target` is `ES5` or lower.
+
+You might choose to set a lower target if your code is deployed to older environments, or a higher target if your code is guaranteed to run in newer environments.
+
+Modern browsers support all ES6 features, so `ES6` is a good choice.
