@@ -27,6 +27,7 @@
   - [.NET](#net)
   - [ASP.NET](#aspnet)
   - [C#](#c)
+  - [Frontend](#frontend)
   - [Miscellaneous](#miscellaneous)
 
 ## Books and blogs
@@ -391,6 +392,10 @@
       - Interface vs abstract class
     - [`record`](csharp/types/record.md)
     - [Nullable reference types](csharp/types/nullable-reference-types.md)
+
+## Frontend
+
+- [TypeScript](frontend/typescript.md)
 
 ## Miscellaneous
 
