@@ -45,7 +45,7 @@ The [↑ `compilerOptions`](https://www.typescriptlang.org/tsconfig#compilerOpti
 
 #### `target`
 
-The `target` setting changes which JS features are downleveled and which are left intact. For example, an arrow function `() => this` will be turned into an equivalent `function` expression if `target` is `ES5` or lower.
+The [↑ `target`](https://www.typescriptlang.org/tsconfig#target) setting changes which JS features are downleveled and which are left intact. For example, an arrow function `() => this` will be turned into an equivalent `function` expression if `target` is `ES5` or lower.
 
 You might choose to set a lower target if your code is deployed to older environments, or a higher target if your code is guaranteed to run in newer environments.
 
