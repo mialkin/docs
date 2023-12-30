@@ -396,6 +396,7 @@
 ## Frontend
 
 - [Next.js](frontend/next-js.md)
+- [Node.js](frontend/node-js.md)
 - [TypeScript](frontend/typescript.md)
 
 ## Miscellaneous
