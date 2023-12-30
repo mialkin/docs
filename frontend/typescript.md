@@ -16,6 +16,7 @@ A [↑ transpiler](https://en.wikipedia.org/wiki/Source-to-source_compiler) or *
     - [`exclude`](#exclude)
     - [`compilerOptions`](#compileroptions)
       - [`target`](#target)
+  - [`.ts` and `.tsx` extensions](#ts-and-tsx-extensions)
 
 ## ECMAScript
 
@@ -50,3 +51,9 @@ The [↑ `target`](https://www.typescriptlang.org/tsconfig#target) setting chang
 You might choose to set a lower target if your code is deployed to older environments, or a higher target if your code is guaranteed to run in newer environments.
 
 Modern browsers support all ES6 features, so `ES6` is a good choice.
+
+## `.ts` and `.tsx` extensions
+
+The `.ts` extension is used fo pure TypeScript files.
+
+The `.tsx` extension is used for TypeScript files that contain [↑ JSX](https://react.dev/learn/writing-markup-with-jsx).
