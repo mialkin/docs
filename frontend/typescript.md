@@ -56,4 +56,6 @@ Modern browsers support all ES6 features, so `ES6` is a good choice.
 
 The `.ts` extension is used fo pure TypeScript files.
 
-The `.tsx` extension is used for TypeScript files that contain [↑ JSX](https://react.dev/learn/writing-markup-with-jsx).
+The `.tsx` extension is used for TypeScript files that contain *JSX*.
+
+[↑ JSX](https://react.dev/learn/writing-markup-with-jsx) is a syntax extension for JavaScript that lets you write HTML-like markup inside a JavaScript file. Although there are other ways to write components, most React developers prefer the conciseness of JSX, and most codebases use it.
