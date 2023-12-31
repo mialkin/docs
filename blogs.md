@@ -6,10 +6,6 @@
 - [↑ Milan Jovanović](https://www.youtube.com/@MilanJovanovicTech)
 - [↑ Raw Coding](https://www.youtube.com/@RawCoding)
 - [↑ CodeOpinion](https://www.youtube.com/channel/UC3RKA4vunFAfrfxiJhPEplw)
-- [↑ В офисе](https://www.youtube.com/@vofise/videos)
-- [↑ Anton Nazarov](https://www.youtube.com/@m0rtymerr)
-- [↑ Yegor Bugayenko](https://www.youtube.com/@yegor256)
-- [↑ Gleb Mikheev](https://www.youtube.com/@GlebMikheev_)
 
 ## Text blog
 
