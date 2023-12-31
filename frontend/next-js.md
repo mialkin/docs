@@ -8,6 +8,7 @@
   - [Table of contents](#table-of-contents)
   - [React](#react)
   - [`next.config.js` file](#nextconfigjs-file)
+  - [Installation](#installation)
 
 ## React
 
@@ -21,8 +22,16 @@ A key advantage of React is that it only rerenders those parts of the page that 
 
 The [↑ `next.config.js`](https://nextjs.org/docs/pages/api-reference/next-config-js) is a configuration file in the root of your project directory that configures Next.js.
 
-`next.config.js` is a regular Node.js *module*, not a JSON file. It gets used by the Next.js server and build phases, and it's not included in the browser build.
+`next.config.js` is a regular Node.js *module*. It gets used by the Next.js server and build phases, and it's not included in the browser build.
 
 A [↑ module](https://www.tutorialsteacher.com/nodejs/nodejs-modules) in Node.js is a simple or complex functionality organized in single or multiple JavaScript files which can be reused throughout the Node.js application.
 
 Each module in Node.js has its own context, so it cannot interfere with other modules or pollute global scope. Also, each module can be placed in a separate `.js` file under a separate folder.
+
+## Installation
+
+The easiest way to get started with Next.js is by using [↑ `create-next-app`](https://nextjs.org/docs/app/api-reference/create-next-app) CLI tool:
+
+```bash
+npx create-next-app@latest
+```

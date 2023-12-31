@@ -13,6 +13,9 @@ Node.js runs on the [↑ V8](https://en.wikipedia.org/wiki/V8_(JavaScript_engine
       - [`name`](#name)
       - [`version`](#version)
       - [`private`](#private)
+      - [`scripts`](#scripts)
+      - [`dependencies`](#dependencies)
+      - [`devDependencies`](#devdependencies)
 
 ## npm
 
@@ -30,6 +33,8 @@ The `package.json` file contains descriptive and functional metadata about a pro
 
 The file provides the npm package manager with various information to help identify the project and handle dependencies.
 
+The `npm init` command walks you through creating a `package.json` file.
+
 #### `name`
 
 The [↑ `name`](https://docs.npmjs.com/cli/v10/configuring-npm/package-json#name) property is a descriptive field that identifies a project. The combination of a project `name` and `version` forms a unique identifier for a package.
@@ -42,6 +47,18 @@ The [↑ `version`](https://docs.npmjs.com/cli/v10/configuring-npm/package-json#
 
 #### `private`
 
-If you set [↑ `private`](https://docs.npmjs.com/cli/v10/configuring-npm/package-json#private) property to `true` npm will refuse to publish package to registry.
+The [↑ `private`](https://docs.npmjs.com/cli/v10/configuring-npm/package-json#private) property set to `true` disallows npm to publish package to registry.
 
 This is a way to prevent accidental publication of private repositories.
+
+#### `scripts`
+
+The [↑ `scripts`](https://docs.npmjs.com/cli/v10/using-npm/scripts) property is a dictionary containing script commands that are run at various times in the lifecycle of your package. The key is the lifecycle event, and the value is the command to run at that point.
+
+#### `dependencies`
+
+The [↑ `dependencies`](https://docs.npmjs.com/cli/v10/configuring-npm/package-json#dependencies ) property is a simple object that maps a package name to a version range.
+
+#### `devDependencies`
+
+The [↑ `devDependencies`](https://docs.npmjs.com/cli/v10/configuring-npm/package-json#devdependencies) property specifies those packages in the `package.json` file that you need only for project development purposes.
