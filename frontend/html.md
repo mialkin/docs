@@ -1,3 +1,5 @@
+# HTML
+
 # Viewport
 
 A **viewport** represents a polygonal (normally rectangular) area in computer graphics that is currently being viewed. In web browser terms, it refers to the part of the document you're viewing which is currently visible in its window (or the screen, if the document is being viewed in full screen mode). Content outside the viewport is not visible onscreen until scrolled into view.
@@ -35,4 +37,3 @@ viweport изменяется при масштабировании.
 Не задавать элементам большую фиксированную ширину (больше минимально возможной ширины экрана, например 300 пикселей на экране мобильного телефона)
 
 Использовать CSS Media Queries для определения различных стилей под большие и маленькие экраны.
-
