@@ -16,6 +16,11 @@ Node.js runs on the [↑ V8](https://en.wikipedia.org/wiki/V8_(JavaScript_engine
       - [`scripts`](#scripts)
       - [`dependencies`](#dependencies)
       - [`devDependencies`](#devdependencies)
+    - [Packages](#packages)
+      - [`eslint`](#eslint)
+      - [`eslint-config-next`](#eslint-config-next)
+      - [Babel](#babel)
+    - [Scope](#scope)
 
 ## npm
 
@@ -62,3 +67,23 @@ The [↑ `dependencies`](https://docs.npmjs.com/cli/v10/configuring-npm/package-
 #### `devDependencies`
 
 The [↑ `devDependencies`](https://docs.npmjs.com/cli/v10/configuring-npm/package-json#devdependencies) property specifies those packages in the `package.json` file that you need only for project development purposes.
+
+### Packages
+
+#### `eslint`
+
+[↑ ESLint](https://eslint.org) is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code
+
+#### `eslint-config-next`
+
+The [↑ `eslint-config-next`](https://nextjs.org/docs/app/building-your-application/configuring/eslint) package includes everything you need to have an optimal out-of-the-box linting experience in Next.js.
+
+#### Babel
+
+[↑ Babel](https://babeljs.io) is a JavaScript compiler.
+
+Babel is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current and older browsers or environments.
+
+### Scope
+
+A [↑ scope](https://docs.npmjs.com/cli/v9/using-npm/scope) is a way of grouping related packages together, and also affect a few things about the way npm treats the package.
