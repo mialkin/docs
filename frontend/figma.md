@@ -31,8 +31,12 @@ A [↑ layout grid](https://help.figma.com/hc/en-us/articles/360040450513-Create
 ## Glossary
 
 - [↑ Alignment](https://en.wikipedia.org/wiki/Typographic_alignment). [↑ Выключка](https://ru.wikipedia.org/wiki/Выключка)
-- [↑ Leading](https://en.wikipedia.org/wiki/Leading). Line spacing. [↑ Интерлиньяж](https://ru.wikipedia.org/wiki/Интерлиньяж)
+- [↑ Kerning](https://en.wikipedia.org/wiki/Kerning). [↑ Кернинг](https://ru.wikipedia.org/wiki/Кернинг)
+- [↑ Leading](https://en.wikipedia.org/wiki/Leading) or line spacing. [↑ Интерлиньяж](https://ru.wikipedia.org/wiki/Интерлиньяж)
+- [↑ Letter spacing](https://en.wikipedia.org/wiki/Letter_spacing) or tracking. [↑ Трекинг](https://ru.wikipedia.org/wiki/Трекинг_(типографика))
 
 ## Links
 
-[↑ Behance](https://www.behance.net), the world's largest creative network for showcasing and discovering creative work.
+- [↑ Behance](https://www.behance.net), the world's largest creative network for showcasing and discovering creative work
+- [↑ Pinterest](https://www.pinterest.com) – discover recipes, home ideas, style inspiration and other ideas to try
+- [↑ Dribbble](https://dribbble.com) is a self-promotion and social networking platform for digital designers. It serves as a design portfolio platform, jobs and recruiting site, and is one of the largest platforms for designers to share their work online
