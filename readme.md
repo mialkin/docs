@@ -162,6 +162,7 @@
 - [Technical debt](design/technical-debt.md)
 - [Tell, don't ask](design/tell-dont-ask.md)
 - [Transactional outbox and inbox](design/transactional-outbox-and-inbox.md)
+- [↑ Utility inheritance](https://enterprisecraftsmanship.com/posts/when-inheritance-is-not-an-inheritance)
 - [Vertical slice architecture](design/vertical-slice-architecture.md)
 
 ## Distributed systems
