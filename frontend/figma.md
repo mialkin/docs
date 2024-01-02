@@ -9,6 +9,8 @@
   - [Canvas](#canvas)
   - [Frame](#frame)
     - [Layout grid](#layout-grid)
+  - [Glossary](#glossary)
+  - [Links](#links)
 
 ## Canvas
 
@@ -25,3 +27,12 @@ You can nest frames within other frames.
 ### Layout grid
 
 A [↑ layout grid](https://help.figma.com/hc/en-us/articles/360040450513-Create-layout-grids-with-grids-columns-and-rows) is a thing that helps to align objects within a frame.
+
+## Glossary
+
+- [↑ Alignment](https://en.wikipedia.org/wiki/Typographic_alignment). [↑ Выключка](https://ru.wikipedia.org/wiki/Выключка)
+- [↑ Leading](https://en.wikipedia.org/wiki/Leading). Line spacing. [↑ Интерлиньяж](https://ru.wikipedia.org/wiki/Интерлиньяж)
+
+## Links
+
+[↑ Behance](https://www.behance.net), the world's largest creative network for showcasing and discovering creative work.
