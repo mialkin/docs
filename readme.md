@@ -189,6 +189,7 @@
 - [EditorConfig](programming/editorconfig.md)
 - [Feature flags](programming/feature-flags.md)
 - [Function parameters vs arguments](programming/function-parameters-vs-arguments.md)
+- [Functional programming](programming/functional-programming.md)
 - [Idempotence](programming/idempotence.md)
 - [Inversion of control, IoC](programming/ioc/inversion-of-control.md)
 - [Initiatives, epics, stories](programming/initiatives-epics-stories/initiatives-epics-stories.md)
