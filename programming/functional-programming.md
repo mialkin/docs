@@ -16,6 +16,7 @@ The **functional programming** is programming with *mathematical functions*.
     - [Side effect](#side-effect)
   - [Importance of immutability](#importance-of-immutability)
   - [Immutability limitations](#immutability-limitations)
+  - [Exceptions and readability](#exceptions-and-readability)
   - [Outline](#outline)
 
 ## Mathematical function
@@ -115,6 +116,14 @@ Working with immutable data implies that instead of mutating existing objects, y
 In most cases, especially in typical enterprise software, you don't need to worry about that, but in some situations this does matter. That's especially true when you work with relatively large classes or classes that are mutated often. There is not much of native language support in C# to maintain immutability in such situations and it might become quite cumbersome to create a copy of such a class on every change. If this is the case in your particular situation, it might be just fine to leave such classes mutable. Mutable state is not something we can eliminate entirely. We should try to minimize it as much as possible, but we will never be able to reduce it to zero.
 
 There are also some techniques that might help you to gather the best of the two worlds. An example of such a technique is implemented immutable collections, a special NuGet package [↑ System.Collections.Immutable](https://www.nuget.org/packages/system.collections.immutable/) you can download and use if you need genuine immutability for your collections. Here is an example of it.
+
+## Exceptions and readability
+
+Methods that employ exceptions to control the program flow are not mathematical functions because exceptions hide the actual outcome of the operation the method performs.
+
+Use of exceptions is often equated with the use of the `goto` operator. Exceptions allow you to quickly jump from any method right to the catch block and that is exactly what the `goto` is for. In fact, exceptions perform even worse because the `goto` statement doesn't allow for jumping outside the particular method, whereas with exceptions you can cross multiple layers of your code base with ease.
+
+All of these makes methods that employ exceptions to control the program flow dishonest. To fix that we need to lift all possible outcomes of a particular method to a signature level. It means that instead of throwing an exception we need to return some value that would signalize an error inside the method.
 
 ## Outline
 
