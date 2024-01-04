@@ -204,7 +204,6 @@ for (var i = 0; i < 5; i++) {
   - [↑ Serilog.Enrichers.Sensitive](https://github.com/serilog-contrib/Serilog.Enrichers.Sensitive/tree/master)
   - [↑ What is data masking?](https://aws.amazon.com/what-is/data-masking/)
 - Consider implementing in a project [The NEW Way of Validating Settings in .NET 8](https://www.youtube.com/watch?v=mO0fwvnnzbU)?
-- [↑ Applying Functional Principles in C# 6](https://www.pluralsight.com/courses/csharp-applying-functional-principles). [↑ Repository](https://github.com/vkhorikov/FuntionalPrinciplesCsharp/tree/master)
 
 ## C&#35;
 
@@ -236,7 +235,6 @@ for (var i = 0; i < 5; i++) {
 - [↑ Local functions](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/local-functions)
 - [↑ Grouping assertions with `AssertionScope`](https://ardalis.com/grouping-assertions-in-tests/)
 - [↑ volatile (C# Reference)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/volatile)
-- [↑ Introduction to Functional Programming in F#](https://docs.microsoft.com/en-us/dotnet/fsharp/introduction-to-functional-programming/)
 - async lock
 - [↑ `AsyncLocal<T>`](https://code-maze.com/charp-difference-between-returning-and-awaiting-a-task/)
 - [↑ How Async/Await Really Works in C#](https://devblogs.microsoft.com/dotnet/how-async-await-really-works/)
