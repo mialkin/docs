@@ -18,7 +18,8 @@ The **functional programming** is programming with *mathematical functions*.
     - [Immutability limitations](#immutability-limitations)
   - [Exceptions and readability](#exceptions-and-readability)
     - [Use cases for exceptions](#use-cases-for-exceptions)
-  - [Fail fast principle](#fail-fast-principle)
+    - [Fail fast principle](#fail-fast-principle)
+    - [Where to catch exceptions](#where-to-catch-exceptions)
   - [Outline](#outline)
 
 ## Mathematical function
@@ -137,7 +138,7 @@ All validations fall to the non-exceptional category because validation logic, b
 
 You can think of the validation process as a filtration you perform before you pass the incoming data forward to the main classes. The filtration isn't something exceptional, it's an ordinary routine and you shouldn't use exceptions to implement it. However, if your filters are incomplete and there is some incorrect data sneaking in in the form of messages the main class send to each other, that would no longer be an ordinary situation and you should use exceptions to show that something went wrong and the use case you didn't take into account had appeared.
 
-## Fail fast principle
+### Fail fast principle
 
 Fail fast principle stands for stopping the current operation as soon as any unexpected situation occurs. It might appear counterintuitive at first, but adhering to this principle generally results in a more stable software.
 
@@ -177,6 +178,32 @@ First of all, it allows you to shorten the feedback loop and reveal problems wit
 Secondly with the fail fast principle you gain a confidence that the software works as intended. You might have heard about some strongly typed functional languages, the type system is so strict that if you manage to compile a program written in such a language then it will most likely work correctly. You may say the same about a program written with the fail fast principle in mind. If such program is still running, it most likely does its job as intended.
 
 And finally, this principle helps protect the persistence state. As mentioned earlier, if you allow the software to continue working in the event of failure, it may come into an invalid state and more importantly save that state to the database. This in turn leads to a bigger problem, data corruption, which cannot be solved just by restarting the application.
+
+### Where to catch exceptions
+
+Exceptions should be used for stating a bug in your code base and they should be allowed to propagate and stop the current operation entirely. It doesn't mean we shouldn't catch exceptions at all.
+
+It's true that excessive use of try catch statements is a design smell, but there still are two valid use cases for them.
+
+The first one is a generic exception handler on the top most level of your application's execution stack:
+
+```csharp
+public static void Main()
+{
+    try {
+        StartApplication();
+    }
+    catch (Exception exception) {
+        LogException(exception);
+        ShowGenericApology();
+        Environment.FailFast(null);
+    }
+}
+```
+
+You can use it to log the exception details and shut the operation down. In many frameworks you already have a built in generic exception handler and it's a good idea to use one. You shouldn't use this handler as a place where you decide how to react on a particular exception. If an exception got here, there is nothing you can do about it. So the best you can do at this point is log it and show the user a polite apology. After that, the current operation should be stopped.
+
+The second use case for exceptions come into play when you work with 3rd party libraries. It's pretty common that the library throws exceptions when it faces a situation it cannot handle. A situation that is exceptional for a 3rd party library might be expected by your application and it's perfectly fine to handle the exception the library throws in this case. The guideline here is that such exceptions should be caught at the lowest level possible. Using a generic exception handler leads to situations where you swallow unexpected exceptions, often leaving your application in an inconsistent state.
 
 ## Outline
 
