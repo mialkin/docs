@@ -4,7 +4,7 @@ The **functional programming** is programming with *mathematical functions*.
 
 ## Mathematical function
 
-The best way to think of a mathematical function is as of a pipe that transforms any value we pass into it. A mathematical function doesn't leave any marks in the outside world about its existence.
+The best way to think of a mathematical function is as of a pipe that transforms any value we pass into it to another value. A mathematical function doesn't leave any marks in the outside world about its existence.
 
 Mathematical function must meet the following two requirements:
 
