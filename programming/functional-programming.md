@@ -15,6 +15,7 @@ The **functional programming** is programming with *mathematical functions*.
     - [State](#state)
     - [Side effect](#side-effect)
   - [Importance of immutability](#importance-of-immutability)
+  - [Immutability limitations](#immutability-limitations)
   - [Outline](#outline)
 
 ## Mathematical function
@@ -99,11 +100,21 @@ On the other hand, when you operate immutable data only, you force yourself to r
 
 The practice of using immutable data makes the code more readable because we don't have to fall down to the method's implementation details in order to reason about the program flow.
 
-Aside from code readability, this approach has other merits as well. First of all, with immutable classes we need to validate the *invariants* only once in the constructor. Once we've created an instance of an immutable class we can be absolutely sure it resides in a valid state. Also immutability automatically makes the code thread safe. So we don't have to worry about synchronization and race conditions.
+Aside from code readability, this approach has other merits as well. First of all, with immutable classes we need to validate the *invariants* only once in the constructor. Once we've created an instance of an immutable class we can be absolutely sure it resides in a valid state.
+
+Also immutability makes code thread safe. So we don't have to worry about synchronization and race conditions.
 
 An **invariant** is a condition that must be held true at all times. For example, a triangle is a concept that has 3 edges. The `edges.Count == 3` condition is inherently true for all triangles.
 
 [↑ Validation vs Invariants](https://khorikov.org/posts/2022-06-06-validation-vs-invariants/).
+
+## Immutability limitations
+
+Working with immutable data implies that instead of mutating existing objects, you need to create new ones. It sometimes means extensive memory and CPU usage and that may hit performance of your application.
+
+In most cases, especially in typical enterprise software, you don't need to worry about that, but in some situations this does matter. That's especially true when you work with relatively large classes or classes that are mutated often. There is not much of native language support in C# to maintain immutability in such situations and it might become quite cumbersome to create a copy of such a class on every change. If this is the case in your particular situation, it might be just fine to leave such classes mutable. Mutable state is not something we can eliminate entirely. We should try to minimize it as much as possible, but we will never be able to reduce it to zero.
+
+There are also some techniques that might help you to gather the best of the two worlds. An example of such a technique is implemented immutable collections, a special NuGet package [↑ System.Collections.Immutable](https://www.nuget.org/packages/system.collections.immutable/) you can download and use if you need genuine immutability for your collections. Here is an example of it.
 
 ## Outline
 
