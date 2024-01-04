@@ -15,8 +15,9 @@ The **functional programming** is programming with *mathematical functions*.
     - [State](#state)
     - [Side effect](#side-effect)
   - [Importance of immutability](#importance-of-immutability)
-  - [Immutability limitations](#immutability-limitations)
+    - [Immutability limitations](#immutability-limitations)
   - [Exceptions and readability](#exceptions-and-readability)
+    - [Use cases for exceptions](#use-cases-for-exceptions)
   - [Outline](#outline)
 
 ## Mathematical function
@@ -109,7 +110,7 @@ An **invariant** is a condition that must be held true at all times. For example
 
 [↑ Validation vs Invariants](https://khorikov.org/posts/2022-06-06-validation-vs-invariants/).
 
-## Immutability limitations
+### Immutability limitations
 
 Working with immutable data implies that instead of mutating existing objects, you need to create new ones. It sometimes means extensive memory and CPU usage and that may hit performance of your application.
 
@@ -124,6 +125,16 @@ Methods that employ exceptions to control the program flow are not mathematical 
 Use of exceptions is often equated with the use of the `goto` operator. Exceptions allow you to quickly jump from any method right to the catch block and that is exactly what the `goto` is for. In fact, exceptions perform even worse because the `goto` statement doesn't allow for jumping outside the particular method, whereas with exceptions you can cross multiple layers of your code base with ease.
 
 All of these makes methods that employ exceptions to control the program flow dishonest. To fix that we need to lift all possible outcomes of a particular method to a signature level. It means that instead of throwing an exception we need to return some value that would signalize an error inside the method.
+
+### Use cases for exceptions
+
+Always prefer using the return values over exceptions and use exceptions to state an exceptional situation in your code.
+
+Exceptions should signalize a bug in your code base, a situation you cannot recover from. Exceptions shouldn't be used in the situation you expect to happen.
+
+All validations fall to the non-exceptional category because validation logic, by its definition, expects incoming data to be incorrect. You expect users to enter incorrect data and you expect your APIs to be used in improper ways. Those checks should always take place on the boundaries of your domain model.
+
+You can think of the validation process as a filtration you perform before you pass the incoming data forward to the main classes. The filtration isn't something exceptional, it's an ordinary routine and you shouldn't use exceptions to implement it. However, if your filters are incomplete and there is some incorrect data sneaking in in the form of messages the main class send to each other, that would no longer be an ordinary situation and you should use exceptions to show that something went wrong and the use case you didn't take into account had appeared.
 
 ## Outline
 
