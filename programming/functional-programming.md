@@ -2,6 +2,8 @@
 
 The **functional programming** is programming with *mathematical functions*.
 
+[↑ Functional Extensions for C#](https://github.com/vkhorikov/CSharpFunctionalExtensions).
+
 ## Table of contents
 
 - [Functional programming](#functional-programming)
