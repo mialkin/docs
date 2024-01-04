@@ -2,6 +2,18 @@
 
 The **functional programming** is programming with *mathematical functions*.
 
+## Table of contents
+
+- [Functional programming](#functional-programming)
+  - [Table of contents](#table-of-contents)
+  - [Mathematical function](#mathematical-function)
+  - [Why](#why)
+  - [Vocabulary](#vocabulary)
+    - [Immutability](#immutability)
+    - [State](#state)
+    - [Side effect](#side-effect)
+  - [Outline](#outline)
+
 ## Mathematical function
 
 The best way to think of a mathematical function is as of a pipe that transforms any value we pass into it to another value. A mathematical function doesn't leave any marks in the outside world about its existence.
@@ -53,6 +65,26 @@ Every method in our code base, if written as a mathematical function, can be con
 With honest method signatures we don't have to fall down to the methods implementation or refer to the documentation to see if there is something else we need to consider before using it. The signature itself tells us what can happen after we call it.
 
 Unit testing of such code also becomes much easier. It comes down to a couple of lines where you need to provide an input failure and check that the result is the one you expected. No need to create complex text doubles, such as mocks, and maintain them later on.
+
+## Vocabulary
+
+### Immutability
+
+The term **immutability** applied to data structure, such as a class, means that the object of this class cannot change during their lifetime.
+
+There are several types of immutability with their own nuances, but they are not essential for us right now. For the most part we can say that a class is either mutable, meaning that its instances can change in some way or another, or immutable, meaning that once we create an instance of that class we cannot modify it later on.
+
+### State
+
+A **state** represents data that changes over time.
+
+It's important to understand that state is not just data that compromises a class, state is a subset of this data that changes during its lifetime. An immutable class doesn't have any state in that sense, only mutable classes do.
+
+### Side effect
+
+A **side effect** is a change that is made to some state.
+
+An operation leaves a side effect if it mutates an instance of a class, updates a file on the disk or saves some data to the database.
 
 ## Outline
 
