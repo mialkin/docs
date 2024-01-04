@@ -18,6 +18,7 @@ The **functional programming** is programming with *mathematical functions*.
     - [Immutability limitations](#immutability-limitations)
   - [Exceptions and readability](#exceptions-and-readability)
     - [Use cases for exceptions](#use-cases-for-exceptions)
+  - [Fail fast principle](#fail-fast-principle)
   - [Outline](#outline)
 
 ## Mathematical function
@@ -135,6 +136,47 @@ Exceptions should signalize a bug in your code base, a situation you cannot reco
 All validations fall to the non-exceptional category because validation logic, by its definition, expects incoming data to be incorrect. You expect users to enter incorrect data and you expect your APIs to be used in improper ways. Those checks should always take place on the boundaries of your domain model.
 
 You can think of the validation process as a filtration you perform before you pass the incoming data forward to the main classes. The filtration isn't something exceptional, it's an ordinary routine and you shouldn't use exceptions to implement it. However, if your filters are incomplete and there is some incorrect data sneaking in in the form of messages the main class send to each other, that would no longer be an ordinary situation and you should use exceptions to show that something went wrong and the use case you didn't take into account had appeared.
+
+## Fail fast principle
+
+Fail fast principle stands for stopping the current operation as soon as any unexpected situation occurs. It might appear counterintuitive at first, but adhering to this principle generally results in a more stable software.
+
+For now, let's look at the opposite practice, fail silently.
+
+```csharp
+public void ProcessItems(List<Item> items)
+{
+   foreach (Item item in items)
+   {
+       try {
+           Process(item); 
+       }
+       catch (Expcetion exception) {
+           Logger.Log(exception);
+       }
+   }
+}
+```
+
+How often do we encounter a code like this one? I bet a lot. The approach used in this example seems compelling at first. Here we process each item in a separate try catch block and that allows us to isolate them so that an exception taking place inside the process method doesn't interrupt the processing of the other items.
+
+A generic `try/catch` block makes the software feel more stable. The problem with this approach, however, is that it hides potential issues, instead of revealing problems with the software we mask them and thus extend the feedback loop. If something goes wrong with the application it wouldn't be obvious, the incorrect behavior is not hidden from the eyes of the developers and the end users and may stay unnoticed for a long time. Moreover, the application's persistent state may get corrupted if the code continues executing after an error takes place.
+
+It turns out that the best way to deal with unexpected situations is to let the code fail. And unexpected situation always means a bug in the code base and thus cannot be handled or fixed at runtime, it can only be fixed by the developer, so there is no point in continuing the operation in this case.
+
+In practice the way you stop the current operation should depend on the type of the software you develop. In some cases, adhering to the fail fast principle means you need to shut down the application entirely, of course, with a polite apology and a proper login of the exception details.
+
+There are cases where you don't have to kill the whole process though, if the software is inherently stateless, meaning that it doesn't store any state in memory between the operations, it might be just fine to hold only the operation the error took place in and let the application continue working. An example here is a web server. A request it processes usually don't leave any marks in the service memory, so we don't have to shut down the server itself, only the failed request.
+
+Another good example would be a background job that fires once in some period of time. When you start applying this practice, application crashes might seem overwhelming at first, especially if you work on a code base whose developers didn't stick to the fail fast principle before. But if you don't give up and fix all the code causing those failovers, you will benefit from this practice greatly.
+
+The advantages you gain from the fail fast principle fall into three categories.
+
+First of all, it allows you to shorten the feedback loop and reveal problems with your code base on early stages. It's hard to overestimate how important that is. The cost of fixing a bug found while software is still under development is an order of magnitude less than when it's in production. You are able to avoid a lot of expensive problems just with this simple practice at hand.
+
+Secondly with the fail fast principle you gain a confidence that the software works as intended. You might have heard about some strongly typed functional languages, the type system is so strict that if you manage to compile a program written in such a language then it will most likely work correctly. You may say the same about a program written with the fail fast principle in mind. If such program is still running, it most likely does its job as intended.
+
+And finally, this principle helps protect the persistence state. As mentioned earlier, if you allow the software to continue working in the event of failure, it may come into an invalid state and more importantly save that state to the database. This in turn leads to a bigger problem, data corruption, which cannot be solved just by restarting the application.
 
 ## Outline
 
