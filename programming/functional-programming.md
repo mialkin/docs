@@ -14,6 +14,7 @@ The **functional programming** is programming with *mathematical functions*.
     - [Immutability](#immutability)
     - [State](#state)
     - [Side effect](#side-effect)
+  - [Importance of immutability](#importance-of-immutability)
   - [Outline](#outline)
 
 ## Mathematical function
@@ -87,6 +88,22 @@ It's important to understand that state is not just data that compromises a clas
 A **side effect** is a change that is made to some state.
 
 An operation leaves a side effect if it mutates an instance of a class, updates a file on the disk or saves some data to the database.
+
+## Importance of immutability
+
+Mutable operations make your code dishonest. The signature off such a method no longer tells us what the actual result of the operation is and that hinders our ability to reason about the code. In order to validate your assumptions about the code you are writing, not only do you have to look at the methods signature itself, but you also need to fall down to the implementation details and see if this method leaves some side effect that you didn't expect.
+
+Overall code with data structures that change over time is harder to debug and is more error prone. It brings even more problems in multi-threaded application where you can have all sorts of race conditions.
+
+On the other hand, when you operate immutable data only, you force yourself to reveal hidden side effects by stating them in the method signature and thus making it honest.
+
+The practice of using immutable data makes the code more readable because we don't have to fall down to the method's implementation details in order to reason about the program flow.
+
+Aside from code readability, this approach has other merits as well. First of all, with immutable classes we need to validate the *invariants* only once in the constructor. Once we've created an instance of an immutable class we can be absolutely sure it resides in a valid state. Also immutability automatically makes the code thread safe. So we don't have to worry about synchronization and race conditions.
+
+An **invariant** is a condition that must be held true at all times. For example, a triangle is a concept that has 3 edges. The `edges.Count == 3` condition is inherently true for all triangles.
+
+[↑ Validation vs Invariants](https://khorikov.org/posts/2022-06-06-validation-vs-invariants/).
 
 ## Outline
 
