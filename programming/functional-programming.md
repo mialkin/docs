@@ -20,6 +20,7 @@ The **functional programming** is programming with *mathematical functions*.
     - [Use cases for exceptions](#use-cases-for-exceptions)
     - [Fail fast principle](#fail-fast-principle)
     - [Where to catch exceptions](#where-to-catch-exceptions)
+  - [Monad](#monad)
   - [Outline](#outline)
 
 ## Mathematical function
@@ -204,6 +205,12 @@ public static void Main()
 You can use it to log the exception details and shut the operation down. In many frameworks you already have a built in generic exception handler and it's a good idea to use one. You shouldn't use this handler as a place where you decide how to react on a particular exception. If an exception got here, there is nothing you can do about it. So the best you can do at this point is log it and show the user a polite apology. After that, the current operation should be stopped.
 
 The second use case for exceptions come into play when you work with 3rd party libraries. It's pretty common that the library throws exceptions when it faces a situation it cannot handle. A situation that is exceptional for a 3rd party library might be expected by your application and it's perfectly fine to handle the exception the library throws in this case. The guideline here is that such exceptions should be caught at the lowest level possible. Using a generic exception handler leads to situations where you swallow unexpected exceptions, often leaving your application in an inconsistent state.
+
+## Monad
+
+A **monad** is an "amplifier" of types that obeys certain rules and which has certain operations provided.
+
+[↑ Monad in plain English](https://stackoverflow.com/questions/2704652/monad-in-plain-english-for-the-oop-programmer-with-no-fp-background).
 
 ## Outline
 
