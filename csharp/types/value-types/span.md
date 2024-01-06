@@ -8,6 +8,8 @@ A `Span<T>` represents a contiguous region of arbitrary memory. A `Span<T>` inst
 
 ## Links
 
+[↑ A brief overview of `Span<T>`](https://www.youtube.com/watch?v=byvoPD15CXs).
+
 [↑ `Span<T>` structure](https://learn.microsoft.com/en-us/dotnet/api/system.span-1).
 
 [↑ `Span<T>` on YouTube](https://www.youtube.com/results?search_query=nick+chapsas+span).
