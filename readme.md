@@ -290,9 +290,6 @@
   - [ReactiveX](dotnet/libraries/reactive/reactive-x.md)
     - [`System.Reactive` aka Rx.NET](dotnet/libraries/reactive/system-reactive.md)
   - [↑ YARP](https://github.com/microsoft/reverse-proxy)
-- Identity management
-  - [Authentication](dotnet/identity-managment/authentication.md)
-  - [Authorization](dotnet/identity-managment/authorization.md)
 - [NuGet](dotnet/nuget.md)
 - [OWIN](dotnet/owin.md)
 - [PowerShell](dotnet/powershell.md)
@@ -302,6 +299,9 @@
 
 ## ASP.NET
 
+- Identity management
+  - [Authentication](aspnet/identity-managment/authentication.md)
+  - [Authorization](aspnet/identity-managment/authorization.md)
 - [Middleware](aspnet/middleware.md)
 
 ## C&#35;
