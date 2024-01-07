@@ -2,6 +2,14 @@
 
 Authentication is the process of determining user's identity. Authentication may create *one or more identities* for the current user.
 
+## Table of contents
+
+- [Authentication](#authentication)
+  - [Table of contents](#table-of-contents)
+  - [Authentication service](#authentication-service)
+  - [Authentication handler](#authentication-handler)
+  - [Schema](#schema)
+
 ## Authentication service
 
  In ASP.NET Core, authentication is handled by the `IAuthenticationService`, which is used by authentication middleware. The authentication service uses registered *authentication handlers* to complete authentication-related actions, like:
