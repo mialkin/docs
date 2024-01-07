@@ -1,6 +1,6 @@
 # Authorization
 
-**Authorization** is the process of determining whether a user has access to a resource.
+An **authorization** is the process of determining whether a user has access to a resource.
 
 Authorization is orthogonal and independent from authentication. However, authorization requires an authentication mechanism.
 

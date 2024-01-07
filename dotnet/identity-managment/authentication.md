@@ -1,6 +1,8 @@
 # Authentication
 
-Authentication is the process of determining user's identity. Authentication may create *one or more identities* for the current user.
+An **authentication** is the process of determining user's identity.
+
+Authentication may create *one or more identities* for the current user.
 
 ## Table of contents
 
