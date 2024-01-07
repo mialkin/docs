@@ -9,11 +9,12 @@ Authorization is orthogonal and independent from authentication. However, author
 - [Authorization](#authorization)
   - [Table of contents](#table-of-contents)
   - [Authorization types](#authorization-types)
-  - [Simple authorization](#simple-authorization)
-  - [Role-based authorization](#role-based-authorization)
-  - [Claims-based authorization](#claims-based-authorization)
-  - [Policy-based authorization](#policy-based-authorization)
+    - [Simple](#simple)
+    - [Role-based](#role-based)
+    - [Claims-based](#claims-based)
+    - [Policy-based](#policy-based)
     - [Requirements](#requirements)
+  - [Links](#links)
 
 ## Authorization types
 
@@ -26,7 +27,7 @@ ASP.NET Core authorization provides following authorization types:
 - Resource-based
 - View-based
 
-## Simple authorization
+### Simple
 
 Authorization in ASP.NET Core is controlled with `AuthorizeAttribute` class and its various parameters. In its most basic form, applying the `[Authorize]` attribute to a controller or action limits access to that component to the authenticated users.
 
@@ -47,7 +48,7 @@ public class AccountController : Controller
 }
 ```
 
-## Role-based authorization
+### Role-based
 
 When an identity is created it may belong to one or more *roles*. How these roles are created and managed depends on the backing store of the authorization process. Roles are exposed to the developer through the `IsInRole` method on the `ClaimsPrincipal` class.
 
@@ -55,7 +56,7 @@ When user is logged in, all user roles are added as claims with claims type bein
 
 And when you execute `IPrincipal.IsInRole("SuperAdmin")` the framework actually checks if the claim with type `ClaimTypes.Role` and value `SuperAdmin` is present on the user.
 
-## Claims-based authorization
+### Claims-based
 
 When an identity is created it may be assigned one or more *claims* issued by a trusted party. A claim is a name-value pair that represents what the subject is, not what the subject can do. Claims based authorization, at its simplest, checks the value of a claim and allows access to a resource based upon that value.
 
@@ -65,7 +66,7 @@ Claims in code specify claims which the current user must possess, and optionall
 
 The simplest type of claim policy looks for the presence of a claim and doesn't check the value.
 
-## Policy-based authorization
+### Policy-based
 
 Underneath the covers, role-based authorization and claims-based authorization use:
 
@@ -109,3 +110,6 @@ If an authorization policy contains multiple authorization requirements, all req
 
 > A requirement doesn't need to have data or properties.
 
+## Links
+
+[↑ Introduction to authorization in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/introduction).
