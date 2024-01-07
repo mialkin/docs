@@ -11,6 +11,7 @@ Authentication may create *one or more identities* for the current user.
   - [Authentication service](#authentication-service)
   - [Authentication handler](#authentication-handler)
   - [Schema](#schema)
+  - [Links](#links)
 
 ## Authentication service
 
@@ -58,3 +59,7 @@ There is no automatic probing of schemes. If the default scheme is not specified
 ```text
 InvalidOperationException: No authenticationScheme was specified, and there was no DefaultAuthenticateScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
 ```
+
+## Links
+
+[↑ Overview of ASP.NET Core authentication](https://learn.microsoft.com/en-us/aspnet/core/security/authentication).
