@@ -13,19 +13,12 @@ Authorization is orthogonal and independent from authentication. However, author
     - [Role-based](#role-based)
     - [Claims-based](#claims-based)
     - [Policy-based](#policy-based)
-    - [Requirements](#requirements)
+      - [Requirements](#requirements)
+    - [Resource-based](#resource-based)
+    - [View-based](#view-based)
   - [Links](#links)
 
 ## Authorization types
-
-ASP.NET Core authorization provides following authorization types:
-
-- Simple
-- Role-based
-- Claims-based
-- Policy-based
-- Resource-based
-- View-based
 
 ### Simple
 
@@ -92,7 +85,7 @@ Above an "AtLeast21" policy is created. It has a single requirement, that of a m
 
 Apply policies to controllers by using the [Authorize] attribute with the policy name:
 
-### Requirements
+#### Requirements
 
 An **authorization requirement** is a collection of data parameters that a policy can use to evaluate the current user principal. In our "AtLeast21" policy, the requirement is a single parameter — the minimum age. A requirement implements `IAuthorizationRequirement`, which is an empty marker interface. A parameterized minimum age requirement could be implemented as follows:
 
@@ -109,6 +102,14 @@ public class MinimumAgeRequirement : IAuthorizationRequirement
 If an authorization policy contains multiple authorization requirements, all requirements must pass in order for the policy evaluation to succeed. In other words, multiple authorization requirements added to a single authorization policy are treated on an *AND* basis.
 
 > A requirement doesn't need to have data or properties.
+
+### Resource-based
+
+[↑ Resource-based authorization in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/resourcebased).
+
+### View-based
+
+[↑ View-based authorization in ASP.NET Core MVC](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/views).
 
 ## Links
 
