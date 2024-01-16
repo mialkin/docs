@@ -85,6 +85,7 @@
   - [Shell scripting](unix/shell/shell-scripting.md)
 - [Tools](unix/tools/tools.md)
   - [crontab](unix/tools/crontab.md)
+  - [curl](unix/tools/curl.md)
   - [GPG](unix/tools/gpg.md)
   - [SSH](unix/tools/ssh.md)
   - [tmux](unix/tools/tmux.md)

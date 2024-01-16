@@ -4,7 +4,6 @@
   - [apt](#apt)
   - [chmod](#chmod)
   - [chown](#chown)
-  - [curl](#curl)
     - [Download a file](#download-a-file)
     - [POST (HTTP)](#post-http)
   - [dd](#dd)
@@ -78,15 +77,6 @@ Modes:
 | Command                        | Description                    |
 | ------------------------------ | ------------------------------ |
 | chown -R USER_NAME FOLDER_NAME | Change the owner of the folder |
-
-## curl
-
-| Command                                   | Description                                     |
-| ----------------------------------------- | ----------------------------------------------- |
-| curl `https://www.example.com`            | Get the main page from a web-server             |
-| curl -i `https://www.example.com`         | Include protocol response headers in the output |
-| curl -H "Host: sub.domain.com" 120.7.3.15 | Passing header value                            |
-| curl -v `https://www.example.com`         | Get verbose fetching                            |
 
 ### Download a file
 
