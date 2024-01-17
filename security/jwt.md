@@ -24,4 +24,3 @@ Some algorithms:
 
 - **RS256**, RSA Signature with SHA-256, is an asymmetric algorithm, which means that there are two keys: one public key and one private key that must be kept secret. Authentication server has the private key used to generate the signature, and the consumer of the JWT retrieves a public key from the metadata endpoints provided by authentication server and uses it to validate the JWT signature
 - **HS256**, HMAC with SHA-256, is a symmetric algorithm, which means that there is only one private key that must be kept secret, and it is shared between the two parties. Since the same key is used both to generate the signature and to validate it, care must be taken to ensure that the key is not compromised. This private key, or secret, is created when you register your Application, Client Secret or API Signing Secret, and choose the HS256 signing algorithm
-
