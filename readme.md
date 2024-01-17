@@ -251,7 +251,7 @@
 - [OAuth](security/oauth/oauth.md)
   - [OAuth flows](security/oauth/oauth-flows.md)
   - [OpenID Connect](security/oauth/oidc.md)
-  - [Tokens](security/oauth/tokens.md)
+  - [Tokens](security/oauth/authentication-tokens.md)
 - [OpenAPI](security/openapi.md)
 - Symmetric cryptography
   - [AES](security/aes.md)
