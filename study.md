@@ -322,6 +322,7 @@ for (var i = 0; i < 5; i++) {
 - [↑ Introducing the Identity API endpoints](https://andrewlock.net/exploring-the-dotnet-8-preview-introducing-the-identity-api-endpoints/)
 - [↑ Scheduled or Delayed Messages in Wolverine](https://jeremydmiller.com/2023/09/06/scheduled-or-delayed-messages-in-wolverine/)
   - [↑ Wolverine](https://wolverine.netlify.app/)
+- [↑ Session affinity](https://microsoft.github.io/reverse-proxy/articles/session-affinity.html)
 
 ## Computer science
 
