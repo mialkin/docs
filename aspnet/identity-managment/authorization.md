@@ -41,6 +41,8 @@ public class AccountController : Controller
 }
 ```
 
+[↑ Simple authorization in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/simple).
+
 ### Role-based
 
 When an identity is created it may belong to one or more *roles*. How these roles are created and managed depends on the backing store of the authorization process. Roles are exposed to the developer through the `IsInRole` method on the `ClaimsPrincipal` class.

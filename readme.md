@@ -373,7 +373,7 @@
   - [Lambda expressions](csharp/operators/lambda-expressions.md)
 - Types
   - [Value types](csharp/types/value-types/value-types.md)
-    - [Boxing and unboxing](csharp/types/boxing-and-unboxing.md)
+    - [Boxing and unboxing](csharp/types/value-types/boxing-and-unboxing.md)
     - [Enumeration types](csharp/types/value-types/enumeration-types.md)
     - [↑ `ref` structure types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/ref-struct)
       - [`Span<T>`](csharp/types/value-types/span.md)
@@ -391,8 +391,7 @@
       - [`string`](csharp/types/string/string.md)
         - [String interning and `string.Empty`](csharp/types/string/string-interning.md)
     - [`class`](csharp/types/class.md)
-    - `interface`
-      - Interface vs abstract class
+    - [↑ `interface`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface)
     - [`record`](csharp/types/record.md)
     - [Nullable reference types](csharp/types/nullable-reference-types.md)
 
