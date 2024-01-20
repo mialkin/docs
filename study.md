@@ -208,7 +208,6 @@ for (var i = 0; i < 5; i++) {
 ## C&#35;
 
 - [↑ Access modifiers](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/access-modifiers)
-- See IL of `yield` [↑ What concrete type does 'yield return' return?](https://stackoverflow.com/questions/3454395/what-concrete-type-does-yield-return-return)
 - Closure in C#
 - [↑ Expression trees](https://tyrrrz.me/blog/expression-trees)
   - [↑ Expression Trees in C#](https://code-maze.com/csharp-expression-trees)
