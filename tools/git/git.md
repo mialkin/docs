@@ -21,6 +21,7 @@
     - [macOS date](#macos-date)
   - [Update forked repository from original repository](#update-forked-repository-from-original-repository)
   - [`git log` format](#git-log-format)
+  - [Git hooks](#git-hooks)
 
 ## Git config
 
@@ -342,3 +343,17 @@ Add the following lines:
 ```
 
 [↑ The shortest possible output from git log containing author and date](https://stackoverflow.com/questions/1441010/the-shortest-possible-output-from-git-log-containing-author-and-date).
+
+## Git hooks
+
+A **Git hook** is a script that runs automatically every time a particular event occurs in a Git repository.
+
+Git hook scripts are useful for identifying simple issues before submission to code review. By running on every commit hooks automatically point out issues in code such as missing semicolons, trailing whitespace, and debug statements. By pointing these issues out before code review, this allows a code reviewer to focus on the architecture of a change while not wasting time with trivial style nitpicks.
+
+Hooks can reside in either local or server-side repositories, and they are only executed in response to actions in that repository.
+
+Hooks reside in the `.git/hooks` directory of every Git repository. Git automatically populates this directory with example scripts when you initialize a repository.
+
+To "install" a hook, all you have to do is remove the `.sample` extension. Hooks need to be executable, so you may need to change the file permissions of the script if you're creating it from scratch.
+
+[↑ Git hooks](https://www.atlassian.com/git/tutorials/git-hooks).
