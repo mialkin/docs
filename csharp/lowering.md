@@ -13,6 +13,7 @@ A **lowering** is a transformation, done by compiler, of high-level language fea
     - [`foreach List<T>`](#foreach-listt)
     - [`i++ + ++i`](#i--i)
     - [`yield return`](#yield-return)
+    - [`lock`](#lock)
   - [Links](#links)
 
 ## Examples
@@ -265,6 +266,32 @@ internal class NumberProvider
 ```
 
 [↑ Iterator block implementation details: auto-generated state machines](https://csharpindepth.com/Articles/IteratorBlockImplementation).
+
+### `lock`
+
+```csharp
+var locker = new object();
+
+lock (locker)
+{
+    Console.WriteLine("Hello, World!");
+}
+```
+
+```csharp
+object obj = new object();
+bool lockTaken = false;
+try
+{
+    Monitor.Enter(obj, ref lockTaken);
+    Console.WriteLine("Hello, World!");
+}
+finally
+{
+    if (lockTaken)
+      Monitor.Exit(obj);
+}
+```
 
 ## Links
 
