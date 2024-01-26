@@ -18,3 +18,7 @@
 | <kbd>⌘ N</kbd>                    | New...                      |
 | <kbd>⌘ ⇧ N</kbd>                  | New Solution...             |
 | <kbd>⌘ ⇧ W</kbd>                  | Close All Tabs              |
+
+## Settings
+
+Check [↑ Enable external source debug](https://youtrack.jetbrains.com/issue/RIDER-33772/Debugger-does-not-stop-at-breakpoints-set-in-decompiled-code-of-external-library).
