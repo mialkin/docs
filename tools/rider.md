@@ -16,3 +16,5 @@
 | <kbd>⌥ ⇧ ↓</kbd>                  | Next Method                 |
 | <kbd>⌥ ⇧ ↑</kbd>                  | Previous Method             |
 | <kbd>⌘ N</kbd>                    | New...                      |
+| <kbd>⌘ ⇧ N</kbd>                  | New Solution...             |
+| <kbd>⌘ ⇧ W</kbd>                  | Close All Tabs              |
