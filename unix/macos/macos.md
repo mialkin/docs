@@ -10,6 +10,7 @@
     - [Mos](#mos)
     - [Rectangle](#rectangle)
     - [Rider](#rider)
+      - [`rider` command](#rider-command)
     - [Safari](#safari)
     - [SensibleSideButtons](#sensiblesidebuttons)
     - [Sublime Text](#sublime-text)
@@ -71,6 +72,8 @@ brew install --cask lunar
 [↑ Rectangle](https://rectangleapp.com) is an application that allows to move and resize windows in macOS using keyboard shortcuts or snap areas.
 
 ### Rider
+
+#### `rider` command
 
 Create file:
 

@@ -70,6 +70,7 @@
 - [RabbitMQ](tools/rabbitmq/rabbitmq.md)
 - [Redis](tools/redis.md)
 - [Regular expressions](tools/regular-expressions/regular-expressions.md)
+- [Rider](tools/rider.md)
 - [SonarQube](tools/sonarqube.md)
 - [Terraform](tools/terraform.md)
 - [Unleash](tools/unleash.md)
