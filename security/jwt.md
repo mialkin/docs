@@ -45,14 +45,14 @@ The JSON data structure of the JWK format allows for easy, web-native exchange o
 
 ```json
 {
-    "kty": "EC", 
-    "use": "sig",
-    "crv": "P-256",
-    "kid": "01H1SG7BX197N040C0MHTDV1HR",
-    "x": "SEfcECpwqQg-vZ6Lv99RyV0Qkatngz1RV25nI5SOrPg",
-    "y": "YU2PRA6pXZ62OW_XuzjJqplqmBUtBwT2pKUZUVxUYfc",
-    "alg": "ES256"
-} 
+  "kty": "EC",
+  "use": "sig",
+  "crv": "P-256",
+  "kid": "01H1SG7BX197N040C0MHTDV1HR",
+  "x": "SEfcECpwqQg-vZ6Lv99RyV0Qkatngz1RV25nI5SOrPg",
+  "y": "YU2PRA6pXZ62OW_XuzjJqplqmBUtBwT2pKUZUVxUYfc",
+  "alg": "ES256"
+}
 ```
 
 ## JSON Web Key Set, JWKS
@@ -60,22 +60,25 @@ The JSON data structure of the JWK format allows for easy, web-native exchange o
 A **JWKS** is a JSON object that represents a set of JWKs. It must contain a "keys" member and an array of JWKs. JSON Web Key Sets enable identity providers to support and expose more than one public key under a well-known resource. The following example JWK Set format contains two public cryptographic keys – one using an Elliptic Curve (EC) algorithm and a second one using an RSA algorithm:
 
 ```json
-{"keys": 
-    [{
-        "kty": "EC", 
-        "use": "sig",
-        "crv": "P-256",
-        "kid": "01H1SG7BX197N040C0MHTDV1HR",
-        "x": "SEfcECpwqQg-vZ6Lv99RyV0Qkatngz1RV25nI5SOrPg",
-        "y": "YU2PRA6pXZ62OW_XuzjJqplqmBUtBwT2pKUZUVxUYfc",
-        "alg": "ES256"
-    }, {
-        "kty":"RSA",
-        "n": "1qrQCTst3RF04aMC9Ye_kGbsE0sftL4FOtB_WrzBDOFdrfVwLfflQuPX5kJ-0iYv9r2mjD5YIDy8b-iJKwevb69ISeoOrmL3tj6MStJesbbRRLVyFIm_6L7alHhZVyqHQtMKX7IaNndrfebnLReGntuNk76XCFxBBnRaIzAWnzr3WN4UPBt84A0KF74pei17dlqHZJ2HB2CsYbE9Ort8m7Vf6hwxYzFtCvMCnZil0fCtk2OQ73l6egcvYO65DkAJibFsC9xAgZaF-9GYRlSjMPd0SMQ8yU9i3W7beT00Xw6C0FYA9JAYaGaOvbT87l_6ZkAksOMuvIPD_jNVfTCPLQ",
-        "e":"AQAB",
-        "alg":"RS256",
-        "kid":"01H1SGVCX7GKBGE2J2QMQREAGN"
-    }]
+{
+  "keys": [
+    {
+      "kty": "EC",
+      "use": "sig",
+      "crv": "P-256",
+      "kid": "01H1SG7BX197N040C0MHTDV1HR",
+      "x": "SEfcECpwqQg-vZ6Lv99RyV0Qkatngz1RV25nI5SOrPg",
+      "y": "YU2PRA6pXZ62OW_XuzjJqplqmBUtBwT2pKUZUVxUYfc",
+      "alg": "ES256"
+    },
+    {
+      "kty": "RSA",
+      "n": "1qrQCTst3RF04aMC9Ye_kGbsE0sftL4FOtB_WrzBDOFdrfVwLfflQuPX5kJ-0iYv9r2mjD5YIDy8b-iJKwevb69ISeoOrmL3tj6MStJesbbRRLVyFIm_6L7alHhZVyqHQtMKX7IaNndrfebnLReGntuNk76XCFxBBnRaIzAWnzr3WN4UPBt84A0KF74pei17dlqHZJ2HB2CsYbE9Ort8m7Vf6hwxYzFtCvMCnZil0fCtk2OQ73l6egcvYO65DkAJibFsC9xAgZaF-9GYRlSjMPd0SMQ8yU9i3W7beT00Xw6C0FYA9JAYaGaOvbT87l_6ZkAksOMuvIPD_jNVfTCPLQ",
+      "e": "AQAB",
+      "alg": "RS256",
+      "kid": "01H1SGVCX7GKBGE2J2QMQREAGN"
+    }
+  ]
 }
 ```
 
