@@ -15,3 +15,4 @@
 | <kbd>⌥ ↑</kbd>                    | Move Line Up                |
 | <kbd>⌥ ⇧ ↓</kbd>                  | Next Method                 |
 | <kbd>⌥ ⇧ ↑</kbd>                  | Previous Method             |
+| <kbd>⌘ N</kbd>                    | New...                      |
