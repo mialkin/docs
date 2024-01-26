@@ -122,6 +122,7 @@ Set up aliases in `~/.zshrc` file:
 alias ll='ls -la'
 alias cls='clear'
 alias python='python3'
+alias dotwatch='dotnet watch --no-hot-reload'
 ```
 
 ## TTL
