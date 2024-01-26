@@ -5,7 +5,8 @@
 | Shortcut                          | Description                 |
 | --------------------------------- | --------------------------- |
 | <kbd>⌘ 1 </kbd>                   | Terminal                    |
-| <kbd>⌘ 2 </kbd>                   | Open in Terminal            |
+| <kbd>⌘ ⇧ 1 </kbd>                 | Open in Terminal            |
+| <kbd>⌘ 2 </kbd>                   | dotMemory Profiler          |
 | <kbd>⌘ 3 </kbd>                   | Git                         |
 | <kbd>⌥ ⇧ F </kbd>                 | Reformat Code               |
 | <kbd>⌘ E, C </kbd>                | Reformat and Cleanup...     |
