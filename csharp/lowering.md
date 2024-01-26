@@ -9,8 +9,9 @@ A **lowering** is a transformation, done by compiler, of high-level language fea
   - [Examples](#examples)
     - [`var`](#var)
     - [`using`](#using)
-    - [`foreach` array](#foreach-array)
-    - [`foreach List<T>`](#foreach-listt)
+    - [`foreach`](#foreach)
+      - [Array](#array)
+      - [`List<T>`](#listt)
     - [`i++ + ++i`](#i--i)
     - [`yield return`](#yield-return)
     - [`lock`](#lock)
@@ -50,7 +51,9 @@ finally
 }
 ```
 
-### `foreach` array
+### `foreach`
+
+#### Array
 
 ```csharp
 var list = new[] { 1, 2 };
@@ -64,7 +67,7 @@ for (int index = 0; index < numArray.Length; ++index)
     Console.WriteLine(numArray[index]);
 ```
 
-### `foreach List<T>`
+#### `List<T>`
 
 ```csharp
 var list = new List<string> { "One", "Two", "Three" };
