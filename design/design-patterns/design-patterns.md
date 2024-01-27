@@ -37,7 +37,7 @@ Behavioral:
 
 - [Chain of responsibility](chain-of-responsibility.md)
 - [Command](command.md)
-- Interpreter
+- [Interpreter](interpreter.md)
 - [Iterator](iterator.md)
 - [Mediator](mediator.md)
 - [Memento](memento.md)
