@@ -7,6 +7,7 @@
   - [HTML](#html)
     - [`.item`](#item)
     - [`.item*2`](#item2)
+    - [`.box>.text*4`](#boxtext4)
     - [`main.main`](#mainmain)
     - [`.grid-item.footer`](#grid-itemfooter)
     - [`lorem3`](#lorem3)
@@ -31,6 +32,17 @@
 ```html
 <div class="item"></div>
 <div class="item"></div>
+```
+
+### `.box>.text*4`
+
+```html
+<div class="box">
+  <div class="text"></div>
+  <div class="text"></div>
+  <div class="text"></div>
+  <div class="text"></div>
+</div>
 ```
 
 ### `main.main`
