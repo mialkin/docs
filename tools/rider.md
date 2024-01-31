@@ -21,7 +21,7 @@
 | <kbd>⌘ N</kbd>                    | New...                             |
 | <kbd>⌘ ⇧ N</kbd>                  | New Solution...                    |
 | <kbd>⌘ ⇧ W</kbd>                  | Close All Tabs                     |
-| <kbd>⌘ →</kbd>                    | Split and Move Right               |
+| <kbd>⌘ \\</kbd>                   | Split and Move Right               |
 
 ## Settings
 
