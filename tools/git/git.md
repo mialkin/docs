@@ -22,6 +22,7 @@
   - [Update forked repository from original repository](#update-forked-repository-from-original-repository)
   - [`git log` format](#git-log-format)
   - [Git hooks](#git-hooks)
+  - [Custom `git-init` script](#custom-git-init-script)
 
 ## Git config
 
@@ -357,3 +358,26 @@ Hooks reside in the `.git/hooks` directory of every Git repository. Git automati
 To "install" a hook, all you have to do is remove the `.sample` extension. Hooks need to be executable, so you may need to change the file permissions of the script if you're creating it from scratch.
 
 [↑ Git hooks](https://www.atlassian.com/git/tutorials/git-hooks).
+
+## Custom `git-init` script
+
+```bash
+#!/bin/bash
+
+if [ $# -eq 0 ]
+  then
+    echo "Supply repository name"
+    exit 1
+fi
+
+USERNAME=bob
+REPOSITORY_NAME=$1
+
+cat <<EOF >> ./.git/config
+[remote "origin"]
+	url = git@github.com:${USERNAME}/${REPOSITORY_NAME}.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+	pushurl = git@github.com:${USERNAME}/${REPOSITORY_NAME}.git
+	pushurl = git@gitlab.com:${USERNAME}/${REPOSITORY_NAME}.git
+EOF
+```
