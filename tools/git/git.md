@@ -22,7 +22,9 @@
   - [Update forked repository from original repository](#update-forked-repository-from-original-repository)
   - [`git log` format](#git-log-format)
   - [Git hooks](#git-hooks)
-  - [Custom `git-init` script](#custom-git-init-script)
+  - [Custom scripts](#custom-scripts)
+    - [`git-init`](#git-init)
+    - [`git-create`](#git-create)
 
 ## Git config
 
@@ -359,7 +361,9 @@ To "install" a hook, all you have to do is remove the `.sample` extension. Hooks
 
 [↑ Git hooks](https://www.atlassian.com/git/tutorials/git-hooks).
 
-## Custom `git-init` script
+## Custom scripts
+
+### `git-init`
 
 ```bash
 #!/bin/bash
@@ -375,9 +379,34 @@ REPOSITORY_NAME=$1
 
 cat <<EOF >> ./.git/config
 [remote "origin"]
-	url = git@github.com:${USERNAME}/${REPOSITORY_NAME}.git
-	fetch = +refs/heads/*:refs/remotes/origin/*
-	pushurl = git@github.com:${USERNAME}/${REPOSITORY_NAME}.git
-	pushurl = git@gitlab.com:${USERNAME}/${REPOSITORY_NAME}.git
+  url = git@github.com:${USERNAME}/${REPOSITORY_NAME}.git
+  fetch = +refs/heads/*:refs/remotes/origin/*
+  pushurl = git@github.com:${USERNAME}/${REPOSITORY_NAME}.git
+  pushurl = git@gitlab.com:${USERNAME}/${REPOSITORY_NAME}.git
+  pushurl = git@gitflic.ru:${USERNAME}/${REPOSITORY_NAME}.git
 EOF
+```
+
+### `git-create`
+
+```bash
+#!/bin/bash
+
+if [ $# -eq 0 ]
+  then
+    echo "Supply repository name"
+    exit 1
+fi
+
+REPOSITORY_NAME=$1
+
+############################### GitHub ###############################
+
+curl -L \
+  -X POST \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/user/repos \
+  -d "{\"name\":\"${REPOSITORY_NAME}\",\"private\":false\"}"
 ```
