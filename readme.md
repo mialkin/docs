@@ -251,10 +251,7 @@
 - [Generating self-signed certificate](security/generating-certificate.md)
 - [JWT](security/jwt.md)
 - [mTLS](security/mtls.md)
-- [OAuth](security/oauth/oauth.md)
-  - [OAuth flows](security/oauth/oauth-flows.md)
-  - [OpenID Connect](security/oauth/oidc.md)
-  - [Tokens](security/oauth/authentication-tokens.md)
+- [OAuth, OpenID Connect, access tokens](security/oauth/oauth.md)
 - [OpenAPI](security/openapi.md)
 - Symmetric cryptography
   - [AES](security/aes.md)
