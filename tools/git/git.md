@@ -405,8 +405,17 @@ REPOSITORY_NAME=$1
 curl -L \
   -X POST \
   -H "Accept: application/vnd.github+json" \
-  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" \
   -H "X-GitHub-Api-Version: 2022-11-28" \
   https://api.github.com/user/repos \
   -d "{\"name\":\"${REPOSITORY_NAME}\",\"private\":false\"}"
+
+############################### GitLab ###############################
+
+curl \
+--request POST \
+--header "PRIVATE-TOKEN: GITLAB_ACCESS_TOKEN" \
+--header "Content-Type: application/json" \
+--data "{\"name\": \"${REPOSITORY_NAME}\"}" \
+--url "https://gitlab.com/api/v4/projects/"
 ```
