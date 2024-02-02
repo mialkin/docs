@@ -1,23 +1,17 @@
 # Shell scripting
 
-See where bash is by typing `which bash`. `#` is for "sharp" and `!` is for "bang" and `#!` is called "shebang". The form of a shebang interpreter directive is as follows:
+A **shell script** is a computer program designed to be run by a Unix shell, a command-line interpreter.
 
-```bash
-#!interpreter [optional-arg]
-```
+The various dialects of shell scripts are considered to be scripting languages.
 
-in which interpreter is an absolute path to an executable program. The optional argument is a string representing a single argument.
-
-White space after `#!` is optional:
-
-```bash
-#!/bin/bash
-```
+Typical operations performed by shell scripts include file manipulation, program execution, and printing text.
 
 ## Table of contents
 
 - [Shell scripting](#shell-scripting)
   - [Table of contents](#table-of-contents)
+  - [Shebang](#shebang)
+  - [Folder for user scripts](#folder-for-user-scripts)
   - [Executing script](#executing-script)
   - [Output text](#output-text)
   - [Variables](#variables)
@@ -34,6 +28,35 @@ White space after `#!` is optional:
   - [Pass arguments to script](#pass-arguments-to-script)
   - [Debug](#debug)
   - [Links](#links)
+
+## Shebang
+
+`#` is for "sharp" and `!` is for "bang" and `#!` is called "shebang". 
+
+The form of a shebang interpreter directive is as follows:
+
+```bash
+#!interpreter [optional-arg]
+```
+
+in which interpreter is an absolute path to an executable program. The optional argument is a string representing a single argument.
+
+White space after `#!` is optional:
+
+```bash
+#!/bin/bash
+```
+
+See where bash is by typing `which bash`.
+
+## Folder for user scripts
+
+Conventional place, and this directory should be empty on fresh installs:
+
+```bash
+cd /usr/local/bin
+touch script.sh
+```
 
 ## Executing script
 
