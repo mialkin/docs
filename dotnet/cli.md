@@ -32,6 +32,7 @@ The dotnet CLI is a cross-platform toolchain for developing, building, running, 
 | dotnet msbuild                         | Build a project and all of its dependencies; allows access to a fully functional MSBuild                              |
 | dotnet new                             | Create a new project, configuration file, or solution based on the specified template                                 |
 | dotnet new --list                      | List of all installed templates                                                                                       |
+| dotnet new solution --name=MySolution  | Create new solution                                                                                                   |
 | dotnet pack                            | Build the project and create NuGet packages. The result of this command is a NuGet package (that is, a _.nupkg_ file) |
 | dotnet publish                         | Publish the application and its dependencies to a folder for deployment to a hosting system                           |
 | dotnet restore                         | Restore the dependencies and tools of a project <sup>1</sup>                                                          |
