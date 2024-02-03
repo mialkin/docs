@@ -374,16 +374,18 @@ if [ $# -eq 0 ]
     exit 1
 fi
 
+git init
+
 USERNAME=bob
 REPOSITORY_NAME=$1
 
 cat <<EOF >> ./.git/config
 [remote "origin"]
-  url = git@github.com:${USERNAME}/${REPOSITORY_NAME}.git
-  fetch = +refs/heads/*:refs/remotes/origin/*
-  pushurl = git@github.com:${USERNAME}/${REPOSITORY_NAME}.git
-  pushurl = git@gitlab.com:${USERNAME}/${REPOSITORY_NAME}.git
-  pushurl = git@gitflic.ru:${USERNAME}/${REPOSITORY_NAME}.git
+	url = git@github.com:${USERNAME}/${REPOSITORY_NAME}.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+	pushurl = git@github.com:${USERNAME}/${REPOSITORY_NAME}.git
+	pushurl = git@gitlab.com:${USERNAME}/${REPOSITORY_NAME}.git
+	pushurl = git@gitflic.ru:${USERNAME}/${REPOSITORY_NAME}.git
 EOF
 ```
 
@@ -400,18 +402,26 @@ fi
 
 REPOSITORY_NAME=$1
 
-############################### GitHub ###############################
+############################### GitFlic ###############################
+curl \
+--request POST \
+--header "Authorization: token GITFLIC_ACCESS_TOKEN" \
+--header "Content-Type: application/json" \
+--data "{\"title\": \"${REPOSITORY_NAME}\", \"isPrivate\": \"true\"}" \
+--url "https://api.gitflic.ru/project"
 
-curl -L \
-  -X POST \
-  -H "Accept: application/vnd.github+json" \
-  -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
-  https://api.github.com/user/repos \
-  -d "{\"name\":\"${REPOSITORY_NAME}\",\"private\":false\"}"
+############################### GitHub ###############################
+curl \
+--location \
+--request POST \
+--header "Accept: application/vnd.github+json" \
+--header "Authorization: Bearer GITHUB_ACCESS_TOKEN" \
+--header "X-GitHub-Api-Version: 2022-11-28" \
+--data "{\"name\":\"${REPOSITORY_NAME}\",\"private\":false\"}" \
+--url "https://api.github.com/user/repos"
+
 
 ############################### GitLab ###############################
-
 curl \
 --request POST \
 --header "PRIVATE-TOKEN: GITLAB_ACCESS_TOKEN" \
