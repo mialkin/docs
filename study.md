@@ -22,6 +22,7 @@
   - <https://code-maze.com/schedule-jobs-with-quartz-net>
   - <https://www.quartz-scheduler.net/documentation/quartz-3.x/quick-start.html#nuget-package>
   - <https://blog.vfrz.fr/quartz-asp-net-core-3-0/>
+- Hangfire
 - [↑ MassTransit](https://www.youtube.com/@PhatBoyG/videos)
 - [↑ MongoDB](https://www.mongodb.com)
 - Kafka
@@ -29,11 +30,6 @@
   - [↑ Kafka producer delivery semantics](https://medium.com/@sdjemails/kafka-producer-delivery-semantics-be863c727d3f)
   - [↑ Can Your Kafka Consumers Handle a Poison Pill?](https://www.confluent.io/blog/spring-kafka-can-your-kafka-consumers-handle-a-poison-pill/)
   - [↑ Apache Kafka: устройство, плюсы, минусы и границы применимости](https://www.youtube.com/watch?v=eHxOX3YYxGc)
-- Postgres
-  - [↑ Selecting for Share and Update in PostgreSQL](https://shiroyasha.io/selecting-for-share-and-update-in-postgresql.html)
-  - [↑ SKIP LOCKED](https://www.2ndquadrant.com/en/blog/what-is-select-skip-locked-for-in-postgresql-9-5/)
-  - [↑ Group by, Having](https://www.postgresql.org/docs/9.4/tutorial-agg.html)
-  - Разобрать задачи с HAVING
 - [↑ Serilog `LogContext`](https://github.com/serilog/serilog/wiki/Enrichment)
 - [↑ ASP.NET Core SignalR Tutorials](https://www.youtube.com/playlist?list=PLOeFnOV9YBa7nzzuXnThdfsyY06AuCP5V)
 - [↑ Refit](https://github.com/reactiveui/refit) and [↑ RestSharp](https://github.com/restsharp/RestSharp) and [↑ RestEase](https://github.com/canton7/RestEase)
@@ -98,6 +94,11 @@
   - Сделать пагинацию в случаях различных join-ов
   - Стратегии разрешения конфликтов репликации
   - Подход Change Data Capture, способы его реализации
+- Postgres
+  - [↑ Selecting for Share and Update in PostgreSQL](https://shiroyasha.io/selecting-for-share-and-update-in-postgresql.html)
+  - [↑ SKIP LOCKED](https://www.2ndquadrant.com/en/blog/what-is-select-skip-locked-for-in-postgresql-9-5/)
+  - [↑ Group by, Having](https://www.postgresql.org/docs/9.4/tutorial-agg.html)
+  - Разобрать задачи с HAVING
 
 ## Software architecture and design
 
@@ -132,7 +133,6 @@
 - [↑ Disposable pattern](https://medium.com/@mypascal2000/disposable-patterns-ffa2145619e2)
   - [↑ Implement a Dispose method](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose)
 - CAP theorem
-- MapReduce
 - Saga
   - [↑ Пример микросервисной архитектуры с Saga на MassTransit](https://habr.com/ru/post/664962/)
 - [↑ Vertical Slice Architecture - Jimmy Bogard](https://www.youtube.com/watch?v=SUiWfhAhgQw)
