@@ -115,6 +115,7 @@
 
 - [Anti-patterns](design/anti-patterns.md)
 - [Architectural decision records, ADRs](design/adr.md)
+- [CAP theorem](design/cap-theorem.md)
 - [Choreography vs orchestration](design/choreography-vs-orchestration.md)
 - [Clean architecture](design/clean-architecture.md)
 - [Composition over inheritance](design/composition-over-inheritance.md)
