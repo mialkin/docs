@@ -22,6 +22,7 @@
 | <kbd>⌘ ⇧ N</kbd>                  | New Solution...                    |
 | <kbd>⌘ ⇧ W</kbd>                  | Close All Tabs                     |
 | <kbd>⌘ \\</kbd>                   | Split and Move Right               |
+| <kbd>⌘ ⌥ \\</kbd>                 | Move To Opposite Group             |
 
 ## Settings
 
