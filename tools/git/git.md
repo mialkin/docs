@@ -374,8 +374,6 @@ if [ $# -eq 0 ]
     exit 1
 fi
 
-git init
-
 USERNAME=bob
 REPOSITORY_NAME=$1
 
@@ -386,6 +384,9 @@ cat <<EOF >> ./.git/config
 	pushurl = git@github.com:${USERNAME}/${REPOSITORY_NAME}.git
 	pushurl = git@gitlab.com:${USERNAME}/${REPOSITORY_NAME}.git
 	pushurl = git@gitflic.ru:${USERNAME}/${REPOSITORY_NAME}.git
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
 EOF
 ```
 
