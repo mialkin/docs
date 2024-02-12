@@ -247,18 +247,18 @@
 
 - [AD](security/ad/ad.md)
   - [AD FS](security/ad/ad-fs.md)
-- [Asymmetric, aka public-key, cryptography](security/asymmetric-cryptography.md)
 - [↑ Cross-site request forgery, XSRF or CSRF](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
 - [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
-- [Encryption](security/encryption.md)
-- [Generating self-signed certificate](security/generating-certificate.md)
+- [Cryptography](security/cryptography/cryptography.md)
+  - [Asymmetric, aka public-key, cryptography](security/cryptography/asymmetric/asymmetric-cryptography.md)
+    - [Generating self-signed certificate](security/cryptography/asymmetric/generating-certificate.md)
+  - [mTLS](security/mtls.md)
+  - Symmetric cryptography
+    - [AES](security/cryptography/symmetric/aes.md)
+  - [TLS](security/cryptography/asymmetric/tls/tls.md)
 - [JWT](security/jwt.md)
-- [mTLS](security/mtls.md)
 - [OAuth, OpenID Connect, authentication tokens](security/oauth.md)
 - [OpenAPI](security/openapi.md)
-- Symmetric cryptography
-  - [AES](security/aes.md)
-- [TLS](security/tls/tls.md)
 
 ## Computer science
 

@@ -1,8 +1,14 @@
-# Encryption
+# Cryptography
+
+**Cryptography**, or **cryptology** is the practice and study of techniques for secure communication in the presence of adversarial behavior.
+
+More generally, cryptography is about constructing and analyzing protocols that prevent third parties or the public from reading private messages.
+
+## Encryption
 
 An **encryption** is the process of scrambling data by use of a *cryptographic key*.
 
-A **cryptographic key** is a string of characters used within an encryption algorithm for altering data so that it appears random. Like a physical key, it locks (encrypts) data so that only someone with the right key can unlock (decrypt) it.
+A **cryptographic key** is a string of characters used within an encryption algorithm for altering data so that it appears random. Like a physical key, it locks (encrypts) data so that only someone with the right key can unlock, decrypt, it.
 
 A **plaintext** is the original data that needs to be encrypted.
 
