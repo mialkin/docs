@@ -2,13 +2,13 @@
 
 ## Public key certificate
 
-In cryptography, a **public key certificate**, also known as a **digital certificate** or identity certificate, is an electronic document used to prove the ownership of a public key. The certificate includes information about the key, information about the identity of its owner (called the subject), and the digital signature of an entity that has verified the certificate's contents (called the issuer). If the signature is valid, and the software examining the certificate trusts the issuer, then it can use that key to communicate securely with the certificate's subject.
+A **public key certificate**, also known as a **digital certificate** or **identity certificate**, is an electronic document used to prove the ownership of a public key.
 
-In a typical public-key infrastructure (PKI) scheme, the certificate issuer is a certificate authority (CA), usually a company that charges customers to issue certificates for them.
+The certificate includes information about the key, information about the identity of its owner, called the **subject**, and the digital signature of an entity that has verified the certificate's contents, called the **issuer**. If the signature is valid, and the software examining the certificate trusts the issuer, then it can use that key to communicate securely with the certificate's subject.
 
-The most common format for public key certificates is defined by X.509 standard.
+In a typical public-key infrastructure, PKI, scheme, the certificate issuer is a certificate authority, CA, usually a company that charges customers to issue certificates for them.
 
-[↑ X.509](https://en.wikipedia.org/wiki/X.509).
+The most common format for public key certificates is defined by [↑ X.509](https://en.wikipedia.org/wiki/X.509) standard.
 
 ## Public key fingerprint
 
