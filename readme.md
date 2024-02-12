@@ -247,7 +247,7 @@
 
 - [AD](security/ad/ad.md)
   - [AD FS](security/ad/ad-fs.md)
-- [Asymmetric, aka public-key, cryptography](security/asymmetric-cryptography/asymmetric-cryptography.md)
+- [Asymmetric, aka public-key, cryptography](security/asymmetric-cryptography.md)
 - [↑ Cross-site request forgery, XSRF or CSRF](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
 - [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
 - [Encryption](security/encryption.md)

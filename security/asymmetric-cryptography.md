@@ -4,7 +4,16 @@
 
 Key pairs are generated with cryptographic algorithms based on mathematical problems termed [↑ one-way functions](https://en.wikipedia.org/wiki/One-way_function).
 
-Security of public-key cryptography depends on keeping the private key secret; the public key can be openly distributed without compromising security
+Security of public-key cryptography depends on keeping the private key secret; the public key can be openly distributed without compromising security.
+
+## Table of contents
+
+- [Asymmetric cryptography](#asymmetric-cryptography)
+  - [Table of contents](#table-of-contents)
+  - [Public key certificate](#public-key-certificate)
+  - [Public key fingerprint](#public-key-fingerprint)
+    - [Using public key fingerprints for key authentication](#using-public-key-fingerprints-for-key-authentication)
+  - [Digital signature](#digital-signature)
 
 ## Public key certificate
 
@@ -22,11 +31,11 @@ In public-key cryptography, a **public key fingerprint** is a short sequence of 
 
 A public key fingerprint is typically created through the following steps:
 
-* A public key, and optionally some additional data, is encoded into a sequence of bytes.
+- A public key, and optionally some additional data, is encoded into a sequence of bytes.
 
-* If desired, the hash function output can be truncated to provide a shorter, more convenient fingerprint.
+- If desired, the hash function output can be truncated to provide a shorter, more convenient fingerprint.
 
-* This process produces a short fingerprint which can be used to authenticate a much larger public key. For example, whereas a typical RSA public key will be 1024 bits in length or longer, typical MD5 or SHA-1 fingerprints are only 128 or 160 bits in length.
+- This process produces a short fingerprint which can be used to authenticate a much larger public key. For example, whereas a typical RSA public key will be 1024 bits in length or longer, typical MD5 or SHA-1 fingerprints are only 128 or 160 bits in length.
 
 When displayed for human inspection, fingerprints are usually encoded into hexadecimal strings.
 
@@ -50,14 +59,12 @@ Digital signatures can also provide non-repudiation, meaning that the signer can
 
 A digital signature scheme typically consists of three algorithms:
 
-* A key generation algorithm that selects a private key uniformly at random from a set of possible private keys. The algorithm outputs the private key and a corresponding public key.
+- A key generation algorithm that selects a private key uniformly at random from a set of possible private keys. The algorithm outputs the private key and a corresponding public key.
 
-* A signing algorithm that, given a message and a private key, produces a signature.
+- A signing algorithm that, given a message and a private key, produces a signature.
 
-* A signature verifying algorithm that, given the message, public key and signature, either accepts or rejects the message's claim to authenticity.
+- A signature verifying algorithm that, given the message, public key and signature, either accepts or rejects the message's claim to authenticity.
 
 Two main properties are required. First, the authenticity of a signature generated from a fixed message and fixed private key can be verified by using the corresponding public key. Secondly, it should be computationally infeasible to generate a valid signature for a party without knowing that party's private key.
 
-<div align="center">
-  <a href="https://www.youtube.com/watch?v=stsWa9A3sOM"><img src="digital-signature.png" alt="IMAGE ALT TEXT"></a>
-</div>
+[↑ Digital Signatures and Digital Certificates](https://www.youtube.com/watch?v=stsWa9A3sOM).
