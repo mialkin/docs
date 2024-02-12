@@ -1,5 +1,11 @@
 # Asymmetric cryptography
 
+**Public-key cryptography**, or **asymmetric cryptography**, is the field of cryptographic systems that use pairs of related keys. Each key pair consists of a **public key** and a corresponding **private key**.
+
+Key pairs are generated with cryptographic algorithms based on mathematical problems termed [↑ one-way functions](https://en.wikipedia.org/wiki/One-way_function).
+
+Security of public-key cryptography depends on keeping the private key secret; the public key can be openly distributed without compromising security
+
 ## Public key certificate
 
 A **public key certificate**, also known as a **digital certificate** or **identity certificate**, is an electronic document used to prove the ownership of a public key.
@@ -16,13 +22,23 @@ In public-key cryptography, a **public key fingerprint** is a short sequence of 
 
 A public key fingerprint is typically created through the following steps:
 
-* A public key (and optionally some additional data) is encoded into a sequence of bytes.
+* A public key, and optionally some additional data, is encoded into a sequence of bytes.
 
 * If desired, the hash function output can be truncated to provide a shorter, more convenient fingerprint.
 
 * This process produces a short fingerprint which can be used to authenticate a much larger public key. For example, whereas a typical RSA public key will be 1024 bits in length or longer, typical MD5 or SHA-1 fingerprints are only 128 or 160 bits in length.
 
 When displayed for human inspection, fingerprints are usually encoded into hexadecimal strings.
+
+### Using public key fingerprints for key authentication
+
+When a public key is received over an untrusted channel, such as the Internet, the recipient often wishes to authenticate the public key. Fingerprints can help accomplish this, since their small size allows them to be passed over trusted channels where public keys won't easily fit.
+
+For example, if Alice wishes to authenticate a public key as belonging to Bob, she can contact Bob over the phone or in person and ask him to read his fingerprint to her, or give her a scrap of paper with the fingerprint written down. Alice can then check that this trusted fingerprint matches the fingerprint of the public key. Exchanging and comparing values like this is much easier if the values are short fingerprints instead of long public keys.
+
+Fingerprints can also be useful when automating the exchange or storage of key authentication data. For example, if key authentication data needs to be transmitted through a protocol or stored in a database where the size of a full public key is a problem, then exchanging or storing fingerprints may be a more viable solution.
+
+In addition, fingerprints can be queried with search engines in order to ensure that the public key that a user just downloaded can be seen by third party search engines. If the search engine returns hits referencing the fingerprint linked to the proper site(s), one can feel more confident that the key is not being injected by an attacker, such as a Man-in-the-middle attack.
 
 [↑ Public key fingerprint](https://en.wikipedia.org/wiki/Public_key_fingerprint).
 
