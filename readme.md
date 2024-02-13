@@ -292,7 +292,7 @@
 
 ## ASP.NET
 
-- [Authentication, Authorization](aspnet/authentication-authorization.md)
+- [Authentication, authorization](aspnet/authentication-authorization.md)
 - [Middleware](aspnet/middleware.md)
 
 ## C&#35;

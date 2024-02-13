@@ -1,8 +1,8 @@
-# Authentication, Authorization
+# Authentication, authorization
 
 ## Table of contents
 
-- [Authentication, Authorization](#authentication-authorization)
+- [Authentication, authorization](#authentication-authorization)
   - [Table of contents](#table-of-contents)
   - [Authentication](#authentication)
     - [Authentication service](#authentication-service)
