@@ -1,4 +1,60 @@
-# Shell scripting
+# Shell and shell scripting
+
+## Table of contents
+
+- [Shell and shell scripting](#shell-and-shell-scripting)
+  - [Table of contents](#table-of-contents)
+  - [Shell](#shell)
+    - [Bash](#bash)
+    - [Bash commands](#bash-commands)
+  - [Shell scripting](#shell-scripting)
+    - [Shebang](#shebang)
+    - [Folder for user scripts](#folder-for-user-scripts)
+    - [Executing script](#executing-script)
+    - [Output text](#output-text)
+    - [Variables](#variables)
+      - [Default value](#default-value)
+      - [Variable interpolation](#variable-interpolation)
+    - [User input](#user-input)
+    - [Conditions](#conditions)
+    - [Integer comparison](#integer-comparison)
+    - [File conditions](#file-conditions)
+    - [`case` statement](#case-statement)
+    - [`for` loop](#for-loop)
+    - [`while` loop](#while-loop)
+    - [Functions](#functions)
+    - [Pass arguments to script](#pass-arguments-to-script)
+    - [Debug](#debug)
+    - [Links](#links)
+
+## Shell
+
+In computing, a **shell** is a user interface for access to an operating system's services. In general, operating system shells use either a command-line interface, CLI or graphical user interface, GUI, depending on a computer's role and particular operation. It is named a shell because it is the outermost layer around the operating system.
+
+Command-line shells require the user to be familiar with commands and their calling syntax, and to understand concepts about the shell-specific scripting language, for example, bash.
+
+### Bash
+
+**Bash**, GNU Bourne-Again Shell, is an sh-compatible command language interpreter that executes commands read from the standard input or from a file. Bash also incorporates useful features from the Korn and C shells, ksh and csh.
+
+### Bash commands
+
+| Command             | Description                                                                                                                                       |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| bash                | Switch to a bash or different shell type its name at the terminal                                                                                 |
+| cat /etc/shells     | Available shells                                                                                                                                  |
+| cat /etc/\*-release | Display OS name and version                                                                                                                       |
+| echo $#             | `$#` is a special variable in bash, that expands to the number<br/> of arguments (positional parameters) i.e. `$1`, `$2` ... passed to the script |
+| echo $?             | Print exit status of previously executed command                                                                                                  |
+| echo $0             | Print the name of currently used shell                                                                                                            |
+| echo $SHELL         | Display what shell the terminal opened with                                                                                                       |
+| export VAR=VAL      | Mark a shell variable for export to child processes                                                                                               |
+| first \|\| second   | If the exit status of the first command is not 0, then execute<br/> the second command (exit 2)                                                   |
+| hostnamectl         | OS info                                                                                                                                           |
+| lsb_release -a      | Print certain LSB (Linux Standard Base) and<br/> distribution-specific information                                                                |
+| uname -a            | Kernel version                                                                                                                                    |
+
+## Shell scripting
 
 A **shell script** is a computer program designed to be run by a Unix shell, a command-line interpreter.
 
@@ -6,30 +62,7 @@ The various dialects of shell scripts are considered to be scripting languages.
 
 Typical operations performed by shell scripts include file manipulation, program execution, and printing text.
 
-## Table of contents
-
-- [Shell scripting](#shell-scripting)
-  - [Table of contents](#table-of-contents)
-  - [Shebang](#shebang)
-  - [Folder for user scripts](#folder-for-user-scripts)
-  - [Executing script](#executing-script)
-  - [Output text](#output-text)
-  - [Variables](#variables)
-    - [Default value](#default-value)
-    - [Variable interpolation](#variable-interpolation)
-  - [User input](#user-input)
-  - [Conditions](#conditions)
-  - [Integer comparison](#integer-comparison)
-  - [File conditions](#file-conditions)
-  - [`case` statement](#case-statement)
-  - [`for` loop](#for-loop)
-  - [`while` loop](#while-loop)
-  - [Functions](#functions)
-  - [Pass arguments to script](#pass-arguments-to-script)
-  - [Debug](#debug)
-  - [Links](#links)
-
-## Shebang
+### Shebang
 
 `#` is for "sharp" and `!` is for "bang" and `#!` is called "shebang". 
 
@@ -49,7 +82,7 @@ White space after `#!` is optional:
 
 See where bash is by typing `which bash`.
 
-## Folder for user scripts
+### Folder for user scripts
 
 Conventional place, and this directory should be empty on fresh installs:
 
@@ -58,7 +91,7 @@ cd /usr/local/bin
 touch script.sh
 ```
 
-## Executing script
+### Executing script
 
 ```bash
 # Add execution permission to user:
@@ -70,7 +103,7 @@ chmod 100 script.sh
 # You can also use bash script.sh or sh script.sh
 ```
 
-## Output text
+### Output text
 
 Single line:
 
@@ -102,7 +135,7 @@ you can use
 double quotes as well"
 ```
 
-## Variables
+### Variables
 
 Variables by convention should be uppercase. Only letters, numbers and underscore is allowed in the name of the variable:
 
@@ -123,7 +156,7 @@ Curly braces work too:
 echo "My name is ${NAME}"
 ```
 
-### Default value
+#### Default value
 
 If variable is not set or null, use default:
 
@@ -140,7 +173,7 @@ echo ${NAME:=Default value is Aleksei}
 echo $NAME
 ```
 
-### Variable interpolation
+#### Variable interpolation
 
 ```bash
 FILE_NAME="logs"
@@ -148,7 +181,7 @@ echo "$HOME/${FILE_NAME}_2021.txt"  # /Users/aleksei/logs_2021.txt
 echo "$HOME/$FILE_NAME_2021.txt"    # /Users/aleksei/.txt
 ```
 
-## User input
+### User input
 
 Reading user input into a variable:
 
@@ -157,7 +190,7 @@ read -p "Enter your name: " NAME
 echo Hello $NAME, nice to meet you!
 ```
 
-## Conditions
+### Conditions
 
 Simple `if` statement:
 
@@ -198,7 +231,7 @@ else
 fi
 ```
 
-## Integer comparison
+### Integer comparison
 
 You can use `-eq`, `-ne`, `-gt`, `-ge`, `-lt`, `-le` for comparison:
 
@@ -228,7 +261,7 @@ else
 fi
 ```
 
-## File conditions
+### File conditions
 
 ```bash
 FILE="test.txt"
@@ -252,7 +285,7 @@ fi
 | -w   | True if the file is writable                                                                      |
 | -x   | True if the file is an executable                                                                 |
 
-## `case` statement
+### `case` statement
 
 ```bash
 read -p "Are you 21 or over? Y/N " ANSWER
@@ -269,7 +302,7 @@ case "$ANSWER" in
 esac
 ```
 
-## `for` loop
+### `for` loop
 
 Simple `for` loop:
 
@@ -295,7 +328,7 @@ done
 rm new-1.txt new-2.txt new-3.txt
 ```
 
-## `while` loop
+### `while` loop
 
 Read through a file line by line:
 
@@ -313,7 +346,7 @@ Run command infinitely with 2 seconds delay after each iteration:
 while true; do foo; sleep 2; done
 ```
 
-## Functions
+### Functions
 
 Simple function:
 
@@ -335,7 +368,7 @@ function greet() {
 greet "John" "36"
 ```
 
-## Pass arguments to script
+### Pass arguments to script
 
 ```bash
 #!/bin/bash
@@ -348,7 +381,7 @@ fi
 echo $1
 ```
 
-## Debug
+### Debug
 
 Either run entire script with `-x`:
 
@@ -366,7 +399,7 @@ set -x
 set +x
 ```
 
-## Links
+### Links
 
 - [↑ Learn bash in Y minutes](https://learnxinyminutes.com/docs/bash/)
 - [↑ Bash scripting cheatsheet](https://devhints.io/bash)
