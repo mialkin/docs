@@ -249,7 +249,7 @@
 - [↑ Cross-site request forgery, XSRF or CSRF](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
 - [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
 - [Cryptography](security/cryptography/cryptography.md)
-  - [Asymmetric, aka public-key, cryptography](security/cryptography/asymmetric/asymmetric-cryptography.md)
+  - [Asymmetric cryptography](security/cryptography/asymmetric/asymmetric-cryptography.md)
     - [Generating self-signed certificate](security/cryptography/asymmetric/generating-certificate.md)
   - Symmetric cryptography
     - [AES](security/cryptography/symmetric/aes.md)
