@@ -251,10 +251,9 @@
 - [Cryptography](security/cryptography/cryptography.md)
   - [Asymmetric, aka public-key, cryptography](security/cryptography/asymmetric/asymmetric-cryptography.md)
     - [Generating self-signed certificate](security/cryptography/asymmetric/generating-certificate.md)
-  - [mTLS](security/cryptography/mtls.md)
   - Symmetric cryptography
     - [AES](security/cryptography/symmetric/aes.md)
-  - [TLS](security/cryptography/tls/tls.md)
+  - [TLS, mTLS](security/cryptography/tls/tls.md)
 - [JWT](security/jwt.md)
 - [OAuth, OpenID Connect, authentication tokens](security/oauth.md)
 - [OpenAPI](security/openapi.md)
