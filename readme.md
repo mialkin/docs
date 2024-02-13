@@ -292,9 +292,7 @@
 
 ## ASP.NET
 
-- Identity management
-  - [Authentication](aspnet/identity-managment/authentication.md)
-  - [Authorization](aspnet/identity-managment/authorization.md)
+- [Authentication, Authorization](aspnet/authentication-authorization.md)
 - [Middleware](aspnet/middleware.md)
 
 ## C&#35;
