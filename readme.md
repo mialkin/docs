@@ -32,8 +32,7 @@
 
 ## Books and blogs
 
-- [Books](books/books.md)
-- [Blogs](blogs.md)
+- [IT books and blogs](books-blogs/books-blogs.md)
 
 ## Tools
 
