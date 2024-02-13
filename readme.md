@@ -214,12 +214,8 @@
 
 - [BDD, Gherkin, SpecFlow](testing/bdd.md)
 - Dotnet libraries
-  - [AutoFixture](testing/dotnet-libraries/autofixture.md)
-  - [Fluent Assertions](testing/dotnet-libraries/fluent-assertions.md)
-  - [Moq](testing/dotnet-libraries/moq.md)
-  - [↑ Playwright](https://github.com/microsoft/playwright)
-  - [xUnit](testing/dotnet-libraries/xunit.md)
-  - [↑ WireMock.Net](https://www.youtube.com/watch?v=YU3ohofu6UU)
+  - [AutoFixture, Fluent Assertions, Moq, xUnit](testing/autofixture.md)
+  - [↑ Playwright](https://github.com/microsoft/playwright), [↑ WireMock.Net](https://www.youtube.com/watch?v=YU3ohofu6UU)
 - [k6](testing/k6/k6.md)
 - [MockServer](testing/mock-server.md)
 - [Test types: unit, integration, functional, end-to-end, acceptance, performance, smoke](testing/test-types.md)
