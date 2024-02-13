@@ -236,6 +236,7 @@
 - [gRPC](networking/grpc.md)
 - [Internet](networking/internet.md)
 - [IP](networking/ip.md)
+- [OpenAPI](networking/openapi.md)
 - [OSI](networking/osi.md)
 - [Ports](networking/ports.md)
 - [POST vs PUT vs PATCH](networking/post-vs-put-vs-patch.md)
@@ -256,7 +257,6 @@
   - [TLS, mTLS](security/cryptography/tls/tls.md)
 - [JWT](security/jwt.md)
 - [OAuth, OpenID Connect, authentication tokens](security/oauth.md)
-- [OpenAPI](security/openapi.md)
 
 ## Computer science
 
