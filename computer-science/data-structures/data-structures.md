@@ -12,13 +12,14 @@
     - [B-tree](#b-tree)
     - [Binary tree](#binary-tree)
     - [Binary search tree, BST](#binary-search-tree-bst)
+      - [AVL tree](#avl-tree)
   - [Data structure complexities](#data-structure-complexities)
 
 ## Array
 
 ## Graph
 
- A **graph** is a structure amounting to a set of objects in which some pairs of the objects are in some sense "related". The objects correspond to mathematical abstractions called **vertices**, also called *nodes* or *points*, and each of the related pairs of vertices is called an **edge**, also called *link* or *line*.
+A **graph** is a structure amounting to a set of objects in which some pairs of the objects are in some sense "related". The objects correspond to mathematical abstractions called **vertices**, also called *nodes* or *points*, and each of the related pairs of vertices is called an **edge**, also called *link* or *line*.
 
 ## Hash table or hash map
 
@@ -74,18 +75,22 @@ When adding new values to the B-tree, we try to add data "lower down", at the ma
 
 ### Binary tree
 
-A **binary tree** is a tree where each node has up to two leaves.
-
-```text
-  1
- / \
-2   3
-```
+A **binary tree** is a tree data structure in which each node has at most two children, referred to as the *left child* and the *right child*. That is, it is a [↑ m-ary tree](https://en.wikipedia.org/wiki/M-ary_tree) with `k = 2`.
 
 ### Binary search tree, BST
 
-A **binary search tree** or **BST** is a binary tree where the left child contains only nodes with values less than the parent node, and where the right child only contains nodes with values greater than or equal to the parent. BSTs are used for searching.
+A **binary search tree** or **BST**, also called an **ordered** or **sorted binary tree**, is a *rooted* binary tree data structure with the key of each internal node being greater than all the keys in the respective node's left subtree and less than the ones in its right subtree.
+
+A **rooted tree** is a tree in which one vertex has been designated the root.
+
+BSTs are used for searching.
+
+A binary search tree of size 9 and depth 3, with 8 at the root:
+
+<img src="binary-search-tree.png" width="200px" alt="Binary search tree"/>
+
+#### AVL tree
 
 ## Data structure complexities
 
-<img src="data-structure-complexities.png" width="850px">
+<img src="data-structure-complexities.png" width="850px" alt="Data structure complexities table">
