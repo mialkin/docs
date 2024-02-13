@@ -1,4 +1,4 @@
-# AD and AD FS
+# AD, AD FS
 
 ## Active Directory
 
