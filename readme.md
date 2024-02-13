@@ -212,9 +212,7 @@
 
 ## Testing
 
-- [BDD](testing/bdd/bdd.md)
-  - [Gherkin](testing/bdd/gherkin.md)
-  - [SpecFlow](testing/bdd/specflow.md)
+- [BDD, Gherkin, SpecFlow](testing/bdd.md)
 - Dotnet libraries
   - [AutoFixture](testing/dotnet-libraries/autofixture.md)
   - [Fluent Assertions](testing/dotnet-libraries/fluent-assertions.md)
