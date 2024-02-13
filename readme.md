@@ -245,8 +245,7 @@
 
 ## Security
 
-- [AD](security/ad/ad.md)
-  - [AD FS](security/ad/ad-fs.md)
+- [AD, AD FS](security/ad.md)
 - [↑ Cross-site request forgery, XSRF or CSRF](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
 - [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
 - [Cryptography](security/cryptography/cryptography.md)
