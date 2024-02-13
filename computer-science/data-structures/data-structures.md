@@ -19,7 +19,7 @@
 
 ## Graph
 
-A **graph** is a structure amounting to a set of objects in which some pairs of the objects are in some sense "related". The objects correspond to mathematical abstractions called **vertices**, also called *nodes* or *points*, and each of the related pairs of vertices is called an **edge**, also called *link* or *line*.
+A **graph** is a structure amounting to a set of objects in which some pairs of the objects are in some sense "related". The objects correspond to mathematical abstractions called **vertices**, also called _nodes_ or _points_, and each of the related pairs of vertices is called an **edge**, also called _link_ or _line_.
 
 ## Hash table or hash map
 
@@ -35,7 +35,7 @@ A **graph** is a structure amounting to a set of objects in which some pairs of 
 
 A **tree** is just a restricted form of a graph that has direction, parent/child relationships, and don't contain cycles. They fit with in the category of directed acyclic graphs, DAGs. So trees are DAGs with the restriction that a child can only have one parent.
 
-A **tree** is an abstract data type that represents a hierarchical tree structure with a set of connected *nodes*.
+A **tree** is an abstract data type that represents a hierarchical tree structure with a set of connected _nodes_.
 
 A **node** is a structure which may contain data and connections to other nodes, sometimes called **edges** or **links**.
 
@@ -69,17 +69,23 @@ The difference between B-trees and regular trees is that each node in a B-tree c
 
 When adding new values to the B-tree, we try to add data "lower down", at the maximum depth node.
 
-[↑ Introduction of B-Tree](https://www.geeksforgeeks.org/introduction-of-b-tree-2).
+[↑ B-tree](https://en.wikipedia.org/wiki/B-tree).
 
 [↑ B-дерево](https://www.youtube.com/watch?v=WXXetwePSRk)
 
 ### Binary tree
 
-A **binary tree** is a tree data structure in which each node has at most two children, referred to as the *left child* and the *right child*. That is, it is a [↑ m-ary tree](https://en.wikipedia.org/wiki/M-ary_tree) with `k = 2`.
+A **binary tree** is a tree data structure in which each node has at most two children, referred to as the _left child_ and the _right child_. That is, it is a [↑ m-ary tree](https://en.wikipedia.org/wiki/M-ary_tree) with `k = 2`.
+
+A labeled binary tree of size 9 (the number of nodes in the tree) and height 3 (the height of a tree defined as the number of edges or links from the top-most or root node to the farthest leaf node), with a root node whose value is 1:
+
+<img src="binary-tree.svg" width="200px" alt="Binary tree"/>
+
+The above tree is unbalanced and not sorted.
 
 ### Binary search tree, BST
 
-A **binary search tree** or **BST**, also called an **ordered** or **sorted binary tree**, is a *rooted* binary tree data structure with the key of each internal node being greater than all the keys in the respective node's left subtree and less than the ones in its right subtree.
+A **binary search tree** or **BST**, also called an **ordered** or **sorted binary tree**, is a _rooted_ binary tree data structure with the key of each internal node being greater than all the keys in the respective node's left subtree and less than the ones in its right subtree.
 
 A **rooted tree** is a tree in which one vertex has been designated the root.
 
