@@ -71,7 +71,9 @@ When adding new values to the B-tree, we try to add data "lower down", at the ma
 
 [↑ B-tree](https://en.wikipedia.org/wiki/B-tree).
 
-[↑ B-дерево](https://www.youtube.com/watch?v=WXXetwePSRk)
+[↑ B-дерево](https://www.youtube.com/watch?v=WXXetwePSRk).
+
+[↑ B-Tree индекс и его производные в PostgreSQL](https://habr.com/ru/companies/quadcode/articles/696498/).
 
 ### Binary tree
 
