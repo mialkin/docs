@@ -50,6 +50,13 @@ In general, no. If the first `await task.ConfigureAwait(false)` involves a task 
 
 One notable exception to this is if you know that the first `await` will always complete asynchronously and the thing being awaited will invoke its callback in an environment free of a custom `SynchronizationContext` or a `TaskScheduler`.
 
+## Why would I want to use `ConfigureAwait(false)`?
+
+`ConfigureAwait(false)` is used to avoid forcing the callback to be invoked on the original context or scheduler. This has a few benefits:
+
+- Performance improvements
+- Avoiding potential deadlocks
+
 ## Why would I want to use `ConfigureAwait(true)`?
 
 You wouldn't, unless you were using it purely as an indication that you were purposefully not using `ConfigureAwait(false)`, e.g. to silence static analysis warnings or the like. `ConfigureAwait(true)` does nothing meaningful. When comparing `await task` with `await task.ConfigureAwait(true)`, they're functionally identical. If you see `ConfigureAwait(true)` in production code, you can delete it without ill effect.

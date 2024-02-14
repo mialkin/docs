@@ -84,7 +84,7 @@ async Task DoSomethingAsync()
 
 The `await` keyword is not limited to working with tasks; it can work with any kind of awaitable that follows a certain pattern. As an example, the Base Class Library includes the `ValueTask<T>` type, which reduces memory allocations if the result is commonly synchronous; for example, if the result can be read from an in-memory cache. `ValueTask<T>` is not directly convertible to `Task<T>`, but it does follow the awaitable pattern, so you can directly `await` it. There are other examples, and you can build your own, but most of the time `await` will take a Task or `Task<TResult>`.
 
-There are two basic ways to create a `Task` instance. Some tasks represent actual code that a CPU has to execute; these computational tasks should be created by calling `Task.Run` or `TaskFactory.StartNew` if you need them to run on a particular scheduler). Other tasks represent a notification; these kinds of event-based tasks are created by `TaskCompletionSource<TResult>` or one of its shortcuts. Most I/O tasks use `TaskCompletionSource<TResult>`.
+There are two basic ways to create a `Task` instance. Some tasks represent actual code that a CPU has to execute; these computational tasks should be created by calling `Task.Run` or `TaskFactory.StartNew` if you need them to run on a particular scheduler. Other tasks represent a notification; these kinds of event-based tasks are created by `TaskCompletionSource<TResult>` or one of its shortcuts. Most I/O tasks use `TaskCompletionSource<TResult>`.
 
 ## Deadlock
 
