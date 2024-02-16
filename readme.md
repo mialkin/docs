@@ -239,8 +239,9 @@
 ## Security
 
 - [AD, AD FS](security/ad.md)
-- [↑ Cross-site request forgery, XSRF or CSRF](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
-- [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
+- [↑ DotNet Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DotNet_Security_Cheat_Sheet.html)
+  - [↑ Cross-site request forgery, XSRF or CSRF](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
+  - [↑ Cross-site scripting XSS](https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting)
 - [Cryptography](security/cryptography/cryptography.md)
   - [Asymmetric cryptography](security/cryptography/asymmetric/asymmetric-cryptography.md)
     - [Generating self-signed certificate](security/cryptography/asymmetric/generating-certificate.md)
