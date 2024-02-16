@@ -1,4 +1,6 @@
-# CORS
+# CORS, HSTS
+
+## CORS
 
 **Cross-Origin Resource Sharing** or **CORS** is a security feature implemented by web browsers to restrict web pages from making requests to a different *origin* than the one that served the page.
 
@@ -12,7 +14,7 @@ If the server allows the request, it responds with additional CORS headers indic
 
 CORS helps prevent certain types of cross-site request forgery (CSRF) attacks by enforcing restrictions on cross-origin requests. It's an important security mechanism for modern web applications that rely on APIs and cross-origin communication.
 
-## Examples
+### Examples
 
 An example of *some* headers sent to server during `OPTIONS` [↑ preflight](https://developer.mozilla.org/en-US/docs/Glossary/Preflight_request) request:
 
@@ -35,3 +37,15 @@ Access-Control-Allow-Origin: http://localhost:3001
 ```
 
 By default, CORS does not include cookies on cross-origin requests.
+
+## HSTS
+
+**HTTP Strict Transport Security** or **HSTS** is a web security policy mechanism that helps to protect websites against certain types of attacks, particularly those that involve the interception of secure communication channels.
+
+When a website implements HSTS, it tells web browsers that it should only be accessed using HTTPS (HTTP over SSL/TLS). This means that even if a user types "http://" in the address bar, the browser will automatically convert it to "https://" before making the request to the server.
+
+HSTS helps to prevent attacks like SSL-stripping, where an attacker could downgrade a secure connection to an insecure one. By enforcing HTTPS, HSTS ensures that all communication between the browser and the server is encrypted and secure.
+
+Additionally, HSTS can specify a duration for which the policy is in effect, preventing even the initial insecure connection attempts during that time. This helps to further strengthen security by ensuring that users cannot bypass the secure connection requirement.
+
+[↑ Enforce HTTPS in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/security/enforcing-ssl).
