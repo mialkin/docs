@@ -2,8 +2,11 @@
 
 - [PostgreSQL](#postgresql)
   - [Installation](#installation)
-    - [Local installation](#local-installation)
-      - [Access from Kubernetes pods](#access-from-kubernetes-pods)
+    - [macOS](#macos)
+      - [Running](#running)
+      - [Connecting first time](#connecting-first-time)
+    - [Ubuntu](#ubuntu)
+      - [Access locally installed Postgres from Kubernetes pods](#access-locally-installed-postgres-from-kubernetes-pods)
     - [Docker run](#docker-run)
     - [Restore backup](#restore-backup)
     - [docker-compose](#docker-compose)
@@ -17,7 +20,40 @@
 
 ## Installation
 
-### Local installation
+### macOS
+
+```bash
+brew install postgresql@16
+```
+
+#### Running
+
+```bash
+# If you need to have postgresql@16 first in your PATH, run:
+echo 'export PATH="/usr/local/opt/postgresql@16/bin:$PATH"' >> ~/.zshrc
+
+# To start postgresql@16 now and restart at login:
+brew services start postgresql@16
+
+# Or, if you don't want/need a background service you can just run:
+LC_ALL="C" /usr/local/opt/postgresql@16/bin/postgres -D /usr/local/var/postgresql@16
+```
+
+#### Connecting first time
+
+```bash
+psql postgres
+```
+
+Create `postgres` user as superuser:
+
+```bash
+createuser -s postgres
+```
+
+Restart PostgreSQL.
+
+### Ubuntu
 
 ```bash
 sudo apt install postgresql postgresql-contrib
@@ -64,7 +100,7 @@ ALTER USER dictionary PASSWORD 'dictionary';
 \q
 ```
 
-#### Access from Kubernetes pods
+#### Access locally installed Postgres from Kubernetes pods
 
 Enable the DNS and host-access addons:
 
