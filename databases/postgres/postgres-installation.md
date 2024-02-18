@@ -1,5 +1,19 @@
 # PostgreSQL installation
 
+## Table of contents
+
+- [PostgreSQL installation](#postgresql-installation)
+  - [Table of contents](#table-of-contents)
+  - [macOS](#macos)
+    - [Running](#running)
+    - [Connecting first time](#connecting-first-time)
+  - [Ubuntu](#ubuntu)
+    - [Access locally installed Postgres from Kubernetes pods](#access-locally-installed-postgres-from-kubernetes-pods)
+  - [Docker run](#docker-run)
+    - [Restore database from backup](#restore-database-from-backup)
+  - [docker-compose](#docker-compose)
+  - [Kubernetes](#kubernetes)
+
 ## macOS
 
 ```bash
