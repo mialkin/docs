@@ -105,7 +105,7 @@
 - [PL/SQL](databases/oracle/plsql.md)
 - [PostgreSQL](databases/postgres/postgres.md)
   - [PostgreSQL installation](databases/postgres/postgres-installation.md)
-  - [`psql`, SQL](databases/postgres/psql-sql.md)
+  - [psql, SQL](databases/postgres/psql-sql.md)
 - [Replication, sharding, partitioning](databases/replication-sharding-partitioning.md)
 - [Query optimization and execution plans](databases/query-optimization-and-execution-plans.md)
 - [SQL Server](databases/sqlserver/sqlserver.md)

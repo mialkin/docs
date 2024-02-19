@@ -1,12 +1,12 @@
-# `psql`, SQL
+# psql, SQL
 
 ## Table of contents
 
-- [`psql`, SQL](#psql-sql)
+- [psql, SQL](#psql-sql)
   - [Table of contents](#table-of-contents)
   - [psql](#psql)
     - [Docker](#docker)
-    - [Commands](#commands)
+    - [Meta-commands](#meta-commands)
   - [SQL](#sql)
     - [Create database](#create-database)
     - [Shortcuts](#shortcuts)
@@ -14,7 +14,7 @@
 
 ## psql
 
-[↑ `psql`](https://postgrespro.ru/docs/postgresql/16/app-psql?lang=en) is a terminal-based front-end to PostgreSQL. It enables you to type in queries interactively, issue them to PostgreSQL, and see the query results.
+[↑ psql](https://postgrespro.ru/docs/postgresql/16/app-psql?lang=en) is a terminal-based front-end to PostgreSQL. It enables you to type in queries interactively, issue them to PostgreSQL, and see the query results.
 
 ### Docker
 
@@ -22,9 +22,11 @@
 docker exec -it postgres psql -U postgres
 ```
 
-### Commands
+### Meta-commands
 
-| Command          | Description                             |
+Anything you enter in psql that begins with an unquoted backslash is a psql **meta-command** that is processed by psql itself. These commands make psql more useful for administration or scripting. Meta-commands are often called **slash** or **backslash commands**.
+
+| Meta-command     | Description                             |
 | ---------------- | --------------------------------------- |
 | \\?              | Show available commands                 |
 | \c               | Show current database name              |
