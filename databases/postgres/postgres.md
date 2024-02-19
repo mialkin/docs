@@ -13,6 +13,7 @@ When this program is running, we call it a **PostgreSQL server**, or **instance*
     - [System catalog](#system-catalog)
       - [`oid`](#oid)
     - [Schemas](#schemas)
+    - [Tablespaces](#tablespaces)
     - [Relations](#relations)
     - [Files and forks](#files-and-forks)
     - [Pages](#pages)
@@ -32,6 +33,12 @@ SHOW data_directory;
 SELECT setting
 FROM pg_settings
 WHERE name = 'data_directory';
+```
+
+For Postgres 16, installed on macOS with `brew install postgresql@16`, `PGDATA` directory is:
+
+```text
+/usr/local/var/postgresql@16
 ```
 
 After cluster initialization, `PGDATA` contains three identical databases:
@@ -87,9 +94,30 @@ SHOW search_path;
 
 [↑ schemas](https://postgrespro.ru/docs/postgresql/15/ddl-schemas?lang=en).
 
+### Tablespaces
+
+Unlike databases and schemas, which determine logical distribution of objects, **tablespaces** define physical data layout. A tablespace is virtually a directory in a file system. You can distribute your data between tablespaces in such a way that archive data is stored on slow disks, while the data that is being actively updated goes to fast disks.
+
+One and the same tablespace can be used by different databases, and each database can store data in several tablespaces. It means that logical structure and physical data layout do not depend on each other.
+
+Each database has the so-called **default tablespace**. All database objects are created in this tablespace unless another location is specified. [System catalog](#system-catalog) objects related to this database are also stored there.
+
+During cluster initialization, two tablespaces are created:
+
+**pg_default** is located in the `PGDATA/base` directory; it is used as the default tablespace unless another tablespace is explicitly selected for this purpose.
+
+**pg_global** is located in the `PGDATA/global` global directory; it stores system catalog objects that are common to the whole cluster.
+
+When creating a custom tablespace, you can specify any directory; PostgreSQL will create a symbolic link to this location in the `PGDATA/pg_tblspc` directory. In fact, all paths used by PostgreSQL are relative to the `PGDATA` directory, which allows you to move it to a different location (provided that you have stopped the server, of course).
+
+The illustration below puts together [databases](#databases), [schemas](#schemas), and tablespaces. Here the `postgres` database uses tablespace `xyzzy` as the default one, whereas the `template1` database uses `pg_default`. Various database objects are shown at the intersections of tablespaces and schemas.
+
+<img src="images/0 tablespaces.png" width="600" alt="tablespaces" />
+
 ### Relations
 
 For all of their differences, *tables* and *indexes* — the most important database objects — have one thing in common: they consist of rows. This point is quite self-evident when we think of tables, but it is equally true for �-tree nodes, which contain indexed values and references to other nodes or table rows.
+
 Some other objects also have the same structure; for example, sequences (virtual- ly one-row tables) and materialized views (which can be thought of as tables that “keep” the corresponding queries). Besides, there are regular views, which do not
 store any data but otherwise are very similar to tables.
 
