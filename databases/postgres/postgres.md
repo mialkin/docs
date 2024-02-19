@@ -112,7 +112,7 @@ When creating a custom tablespace, you can specify any directory; PostgreSQL wil
 
 The illustration below puts together [databases](#databases), [schemas](#schemas), and tablespaces. Here the `postgres` database uses tablespace `xyzzy` as the default one, whereas the `template1` database uses `pg_default`. Various database objects are shown at the intersections of tablespaces and schemas.
 
-<img src="images/0 tablespaces.png" width="600" alt="tablespaces" />
+<img src="images/0-tablespaces.png" width="600" alt="tablespaces" />
 
 ### Relations
 
@@ -128,13 +128,42 @@ The system catalog table for relations was originally called `pg_relation`, but 
 
 All information associated with a relation is stored in several different **forks**, each containing data of a particular type.
 
-At first, a fork is represented by a single file. Its filename consists of a numeric ID (`oid`), which can be extended by a suffix that corresponds to the fork’s type.
+At first, a fork is represented by a single file. Its filename consists of a numeric ID (`oid`), which can be extended by a suffix that corresponds to the fork's type.
+
+The file grows over time, and when its size reaches 1 GB, another file of this fork is created (such files are sometimes called **segments**). The sequence number of the segment is added to the end of its filename.
+
+The file size limit of 1 GB was historically established to support various file systems that could not handle large files. You can change this limit when building PostgreSQL (`./configure --with-segsize`).
+
+Thus, a single relation is represented on disk by several files. Even a small table without indexes will have at least three files, by the number of mandatory forks.
+
+Each [tablespace](#tablespaces) directory (except for `pg_global`) contains separate subdirectories for particular databases. All files of the objects belonging to the same tablespace and database are located in the same subdirectory. You must take it into account because too many files in a single directory may not be handled well by file systems.
+
+[↑ Database File Layout](https://postgrespro.ru/docs/postgresql/16/storage-file-layout?lang=en).
+
+<img src="images/0-forks.png" width="600" alt="tablespaces" />
+
+There are several standard types of forks.
+
+The **main fork** represents actual data: table rows or index rows. This fork is available for any relations (except for views, which contain no data).
+
+The **initialization fork** is available only for unlogged tables (created with the `UNLOGGED` clause) and their indexes. Such objects are the same as regular ones, except that any actions performed on them are not written into the write-ahead log. It makes these operations considerably faster, but you will not be able to restore consistent data in case of a failure. Therefore, PostgreSQL simply deletes all forks of such objects during recovery and overwrites the main fork with the initialization fork, thus creating a dummy file.
+
+[↑The Initialization Fork](https://postgrespro.ru/docs/postgresql/16/storage-init?lang=en).
+
+The **free space map** keeps track of available space within pages. Its volume changes all the time, growing after vacuuming and getting smaller when new row versions appear. The free space map is used to quickly find a page that can accommodate new data being inserted.
+
+[↑ Free Space Map](https://postgrespro.ru/docs/postgresql/16/storage-fsm?lang=en).
+
+The **visibility map** can quickly show whether a page needs to be vacuumed or frozen. For this purpose, it provides two bits for each table page.
+
+[↑ Visibility Map](https://postgrespro.ru/docs/postgresql/16/storage-vm?lang=en).
 
 ### Pages
 
 To facilitate I/O, all files are logically split into **pages** (or **blocks**), which represent the minimum amount of data that can be read or written. Consequently, many internal PostgreSQL algorithms are tuned for page processing.
 
-The page size is usually � k�. It can be configured to some extent (up to �� k�), but only at build time (./configure --with-blocksize), and nobody usually does it. Once built and launched, the instance can work only with pages of the same size; it is impossible to create tablespaces that support different page sizes.
+The page size is usually 8 KB. It can be configured to some extent (up to 32 KB), but only at build time (`./configure --with-blocksize`), and nobody usually does it. Once built and launched, the instance can work only with pages of the same size; it is impossible to create tablespaces that support different page sizes.
+
 Regardless of the fork they belong to, all the files are handled by the server in roughly the same way. Pages are first moved to the buffer cache (where they can be read and updated by processes) and then flushed back to disk as required.
 
 ### TOAST
