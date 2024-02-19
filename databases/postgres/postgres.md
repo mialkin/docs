@@ -116,12 +116,13 @@ The illustration below puts together [databases](#databases), [schemas](#schemas
 
 ### Relations
 
-For all of their differences, *tables* and *indexes* — the most important database objects — have one thing in common: they consist of rows. This point is quite self-evident when we think of tables, but it is equally true for �-tree nodes, which contain indexed values and references to other nodes or table rows.
+For all of their differences, *tables* and *indexes* — the most important database objects — have one thing in common: they consist of rows. This point is quite self-evident when we think of tables, but it is equally true for B-tree nodes, which contain indexed values and references to other nodes or table rows.
 
-Some other objects also have the same structure; for example, sequences (virtual- ly one-row tables) and materialized views (which can be thought of as tables that “keep” the corresponding queries). Besides, there are regular views, which do not
-store any data but otherwise are very similar to tables.
+Some other objects also have the same structure; for example, **sequences** (virtually one-row tables) and **materialized views** (which can be thought of as tables that "remember" the corresponding queries). Besides, there are regular **views**, which do not store any data but otherwise are very similar to tables.
 
 In PostgreSQL, all these objects are referred to by the generic term **relation**.
+
+The system catalog table for relations was originally called `pg_relation`, but following the object orientation trend, it was soon renamed to `pg_class`, which we are now used to. Its columns still have the `REL` prefix though.
 
 ### Files and forks
 
@@ -131,7 +132,8 @@ At first, a fork is represented by a single file. Its filename consists of a num
 
 ### Pages
 
-To facilitate I/O, all files are logically split into **pages** (or **blocks**), which represent the minimum amount of data that can be read or written. Consequently, many internal Postgre��� algorithms are tuned for page processing.
+To facilitate I/O, all files are logically split into **pages** (or **blocks**), which represent the minimum amount of data that can be read or written. Consequently, many internal PostgreSQL algorithms are tuned for page processing.
+
 The page size is usually � k�. It can be configured to some extent (up to �� k�), but only at build time (./configure --with-blocksize), and nobody usually does it. Once built and launched, the instance can work only with pages of the same size; it is impossible to create tablespaces that support different page sizes.
 Regardless of the fork they belong to, all the files are handled by the server in roughly the same way. Pages are first moved to the buffer cache (where they can be read and updated by processes) and then flushed back to disk as required.
 
