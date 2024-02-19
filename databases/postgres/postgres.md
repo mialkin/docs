@@ -25,14 +25,12 @@ When this program is running, we call it a **PostgreSQL server**, or **instance*
 
 Data managed by PostgreSQL is stored in databases. A single PostgreSQL instance can serve several databases at a time; together they are called a **database cluster**.
 
-To be able to use the cluster, you must first *initialize* (create) it. The directory that contains all the files related to the cluster is usually called `PGDATA`, after the name of the environment variable pointing to this directory.
+To be able to use the cluster, you must first _initialize_ (create) it. The directory that contains all the files related to the cluster is usually called `PGDATA`, after the name of the environment variable pointing to this directory.
 
 ```sql
 SHOW data_directory;
 --- or
-SELECT setting
-FROM pg_settings
-WHERE name = 'data_directory';
+SELECT setting FROM pg_settings WHERE name = 'data_directory';
 ```
 
 For Postgres 16, installed on macOS with `brew install postgresql@16`, `PGDATA` directory is:
@@ -116,7 +114,7 @@ The illustration below puts together [databases](#databases), [schemas](#schemas
 
 ### Relations
 
-For all of their differences, *tables* and *indexes* — the most important database objects — have one thing in common: they consist of rows. This point is quite self-evident when we think of tables, but it is equally true for B-tree nodes, which contain indexed values and references to other nodes or table rows.
+For all of their differences, _tables_ and _indexes_ — the most important database objects — have one thing in common: they consist of rows. This point is quite self-evident when we think of tables, but it is equally true for B-tree nodes, which contain indexed values and references to other nodes or table rows.
 
 Some other objects also have the same structure; for example, **sequences** (virtually one-row tables) and **materialized views** (which can be thought of as tables that "remember" the corresponding queries). Besides, there are regular **views**, which do not store any data but otherwise are very similar to tables.
 
@@ -167,3 +165,69 @@ The page size is usually 8 KB. It can be configured to some extent (up to 32 KB)
 Regardless of the fork they belong to, all the files are handled by the server in roughly the same way. Pages are first moved to the buffer cache (where they can be read and updated by processes) and then flushed back to disk as required.
 
 ### TOAST
+
+Each row must fit a single page: there is no way to continue a row on the next page. To store long rows, PostgreSQL uses a special mechanism called **TOAST** (The Oversized Attributes Storage Technique).
+
+[↑ TOAST](https://postgrespro.ru/docs/postgresql/16/storage-toast?lang=en).
+
+TOAST implies several strategies. You can move long attribute values into a separate service table, having sliced them into smaller "toasts." Another option is to compress a long value in such a way that the row fits the page. Or you can do both: first compress the value, and then slice and move it.
+
+If the main table contains potentially long attributes, a separate TOAST table is created for it right away, one for all the attributes. For example, if a table has a column of the numeric or text type, a TOAST table will be created even if this column will never store any long values.
+
+For indexes, the TOAST mechanism can offer only compression; moving long at- tributes into a separate table is not supported. It limits the size of the keys that can be indexed (the actual implementation depends on a particular operator class).
+
+By default, the TOAST strategy is selected based on the data type of a column. The easiest way to review the used strategies is to run the `\d+` command in psql.
+
+PostgreSQL supports the following strategies:
+
+**plain** means that TOAST is not used (this strategy is applied to data types that are known to be “short,” such as the integer type).
+
+**extended** allows both compressing attributes and storing them in a separate TOAST table.
+
+**external** implies that long attributes are stored in the TOAST table in an uncompressed state.
+
+**main** requires long attributes to be compressed first; they will be moved to the TOAST table only if compression did not help.
+
+In general terms, the algorithm looks as follows. PostgreSQL aims at having at least four rows in a page. So if the size of the row exceeds one fourth of the page, excluding the header (for a standard-size page it is about 2000 bytes), we must apply the TOAST mechanism to some of the values. Following the workflow described below, we stop as soon as the row length does not exceed the threshold anymore:
+
+1\. First of all, we go through attributes with external and extended strategies, starting from the longest ones. Extended attributes get compressed, and if the resulting value (on its own, without taking other attributes into account) exceeds one fourth of the page, it is moved to the TOAST table right away. External attributes are handled in the same way, except that the compression stage is skipped.
+
+2\. If the row still does not fit the page after the first pass, we move the remaining attributes that use external or extended strategies into the TOAST table, one by one.
+
+3\. If it did not help either, we try to compress the attributes that use the main strategy, keeping them in the table page.
+
+4\. If the row is still not short enough, the main attributes are moved into the TOAST table.
+
+The threshold value is 2000 bytes, but it can be redefined at the table level using the `toast_tuple_target` storage parameter.
+
+It may sometimes be useful to change the default strategy for some of the columns. If it is known in advance that the data in a particular column cannot be compressed (for example, the column stores JPEG images), you can set the external strategy for this column; it allows you to avoid futile attempts to compress the data. The strategy can be changed as follows:
+
+```sql
+ALTER TABLE TABLE_NAME ALTER COLUMN COLUMN_NAME SET STORAGE external;
+```
+
+TOAST tables reside in a separate schema called `pg_toast`; it is not included into the search path, so TOAST tables are usually hidden. For temporary tables, `pg_toast_temp_N` schemas are used, by analogy with `pg_temp_N`.
+
+Example of `SELECT` query against TOAST table:
+
+```sql
+SELECT chunk_id,
+       chunk_seq,
+       LENGTH(chunk_data),
+       LEFT(ENCODE(chunk_data, 'escape')::text, 10) || '...' || RIGHT(ENCODE(chunk_data, 'escape')::text, 10)
+FROM pg_toast.pg_toast_16521;
+```
+
+| chunk_id | chunk_seq | length | ?column?                |
+| -------- | --------- | ------ | ----------------------- |
+| 16526    | 0         | 1996   | RPVJKKFUXP...AWADGUMQYX |
+| 16526    | 1         | 1996   | BOMXWYHTIR...QCUGCSBZHM |
+| 16526    | 2         | 1008   | FAAIUDYLKC...HDBYJIKNOY |
+
+We can see that the characters are sliced into chunks. The chunk size is selected in such a way that the page of the TOAST table can accommodate four rows. This value varies a little from version to version depending on the size of the page header.
+
+When a long attribute is accessed, PostgreSQL automatically restores the original value and returns it to the client; it all happens seamlessly for the application. If long attributes do not participate in the query, the TOAST table will not be read at all. It is one of the reasons why you should avoid using the asterisk in production solutions.
+
+If the client queries one of the first chunks of a long value, PostgreSQL will read the required chunks only, even if the value has been compressed.
+
+Nevertheless, data compression and slicing require a lot of resources; the same goes for restoring the original values. That's why it is not a good idea to keep bulky data in PostgreSQL, especially if this data is being actively used and does not require transactional logic (like scanned accounting documents). A potentially better alternative is to store such data in the file system, keeping in the database only the names of the corresponding files. But then the database system cannot guarantee data consistency.
