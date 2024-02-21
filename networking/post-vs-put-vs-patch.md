@@ -38,6 +38,10 @@ A PATCH is not necessarily idempotent, although it can be. Contrast this with PU
 
 [↑ PATCH](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PATCH).
 
+## Idempotence
+
+Idempotence is an important property of some HTTP methods, ensuring that executing the same request multiple times produces the same result as if it was performed only once. GET, HEAD, PUT, DELETE, OPTIONS, and TRACE are idempotent methods, meaning they are safe to be retried or executed multiple times without causing unintended side effects. In contrast, POST and PATCH are generally considered non-idempotent, as their outcomes may vary with each request.
+
 ## Links
 
 [↑ HTTP Request Methods – Get vs Put vs Post Explained with Code Examples](https://www.freecodecamp.org/news/http-request-methods-explained/)
