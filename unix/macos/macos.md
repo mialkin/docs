@@ -6,6 +6,7 @@
     - [Fluor](#fluor)
     - [Gifox](#gifox)
     - [Keka](#keka)
+    - [LosslessCut](#losslesscut)
     - [Lunar](#lunar)
     - [Mos](#mos)
     - [Rectangle](#rectangle)
@@ -54,6 +55,10 @@ brew install --cask fluor
 ### Keka
 
 [↑ Keka](https://www.keka.io) is a macOS file archiver.
+
+### LosslessCut
+
+[↑ LosslessCut](https://github.com/mifi/lossless-cut) is an application that cuts the data stream and directly copies it over.
 
 ### Lunar
 
