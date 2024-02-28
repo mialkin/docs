@@ -1,4 +1,6 @@
-# Design patterns
+# Gang of Four book design patterns
+
+[↑ Design Patterns: Elements of Reusable Object-Oriented Software](https://www.amazon.com/gp/product/0201633612).
 
 One:
 
@@ -50,10 +52,6 @@ Behavioral:
 ## See also
 
 [GoF notation for diagrams](gof-notation/gof-notation.md).
-
-## Links
-
-[↑ Design Pattern Catalog](https://java-design-patterns.com/patterns/).
 
 <hr>
 
