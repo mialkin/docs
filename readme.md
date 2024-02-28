@@ -106,6 +106,7 @@
 - [PostgreSQL](databases/postgres/postgres.md)
   - [PostgreSQL installation](databases/postgres/postgres-installation.md)
   - [psql, SQL](databases/postgres/psql-sql.md)
+  - [PostgreSQL isolation levels](databases/postgres/postgres-isolation-levels.md)
 - [Replication, sharding, partitioning](databases/replication-sharding-partitioning.md)
 - [Query optimization and execution plans](databases/query-optimization-and-execution-plans.md)
 - [SQL Server](databases/sqlserver/sqlserver.md)
