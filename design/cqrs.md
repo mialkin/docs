@@ -21,8 +21,7 @@ The term CQRS was coined by [↑ Greg Young](https://www.youtube.com/watch?v=JHG
       - [Disadvantages of handlers](#disadvantages-of-handlers)
     - [Will CQRS help with high load?](#will-cqrs-help-with-high-load)
       - [Implementation](#implementation)
-    - [Evolving CQRS](#evolving-cqrs)
-    - [Myths about CQRS](#myths-about-cqrs)
+    - [CQRS myths](#cqrs-myths)
   - [CQRS and event sourcing](#cqrs-and-event-sourcing)
   - [Classical horizontal service organization](#classical-horizontal-service-organization)
   - [Vertical organization](#vertical-organization)
@@ -125,9 +124,28 @@ internal class ReadOnlyDatabaseContext(IDatabaseContext databaseContext) : IRead
 }
 ```
 
-### Evolving CQRS
+### CQRS myths
 
-### Myths about CQRS
+1\. Query is not allowed to change state: it can't even write logs.
+
+It's a myth, because in query we must not change the state of the domain model, but we can:
+
+- Write logs
+- Gather metrics
+- Update cache, etc.
+
+2\. Query can read only _read model_.
+
+> A **read model** is a thing from where CQRS query reads its data. Examples:
+>
+> - Materialized view
+> - Denormalized data that's update asynchronously in the background
+> - JSON stored in database
+> - Any specialized store, for example, Elasticsearch
+>
+> Generally speaking a read model is a storage that is updated asynchronously. In this case you have some lag between the time when you had written something to database and when you can read this thing from database.
+
+It's a myth, because query can also read domain model, but it must not change it.
 
 ## CQRS and event sourcing
 
