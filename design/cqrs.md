@@ -2,11 +2,9 @@
 
 **Command and Query Responsibility Segregation** or **CQRS** is a pattern that separates read and write operations for a data store.
 
-CQRS requires commands to only modify data and queries to only read it.
+CQRS requires commands to modify data and queries to only read it.
 
-The term CQRS was coined by [↑ Greg Young](https://www.youtube.com/watch?v=JHGkaShoyNs).
-
-[↑ CQRS Documents](https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf) by Greg Young.
+The term CQRS was coined by [↑ Greg Young](https://www.youtube.com/watch?v=JHGkaShoyNs). [↑ CQRS Documents](https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf) by Greg Young.
 
 ## Table of contents
 
@@ -22,30 +20,23 @@ The term CQRS was coined by [↑ Greg Young](https://www.youtube.com/watch?v=JHG
         - [Dependencies between business operations become explicit](#dependencies-between-business-operations-become-explicit)
       - [Disadvantages of handlers](#disadvantages-of-handlers)
     - [Will CQRS help with high load?](#will-cqrs-help-with-high-load)
+      - [Implementation](#implementation)
     - [Evolving CQRS](#evolving-cqrs)
     - [Myths about CQRS](#myths-about-cqrs)
   - [CQRS and event sourcing](#cqrs-and-event-sourcing)
-  - [Links](#links)
   - [Classical horizontal service organization](#classical-horizontal-service-organization)
   - [Vertical organization](#vertical-organization)
 
 ## What kinds of CQRS do you know?
 
-Key points:
-
-- CQRS is simple (пояснить)
-- CQRS has many advantages compared to traditional service approach (пояснить)
-- CQRS fits for different kinds of projects: you can use it for different stacks and in different domains (пояснить)
+[↑ А какие виды CQRS вы знаете?](https://www.youtube.com/watch?v=TnS6PwxHcLg).
 
 ### Classical horizontal service architecture vs vertical architectures
 
 There are two ways to organize application layer, aka Interactors in Clean Architecture:
 
-- Classical horizontal service way
-  - Services
-- Vertical
-  - CQRS handlers
-  - Vertical slices
+- Horizontal way: services
+- Vertical way: CQRS handlers, [↑ vertical slices](https://www.jimmybogard.com/vertical-slice-architecture/)
 
 #### Advantages of handlers over services
 
@@ -57,7 +48,7 @@ It's much easier to maintain a small handler with well-defined scope of responsi
 
 ##### A handler follows SRP principle
 
-The SRP principle states that a module should have one, and only one, reason to change.  A handler is responsible for one business operation, so it complies with the SRP principle.e.
+The SRP principle states that a module should have one, and only one, reason to change. A handler is responsible for one business operation, so it complies with the SRP principle.e.
 
 Architecture based on handlers expands by adding new handlers and not by rewriting existing handlers.
 
@@ -81,7 +72,7 @@ With handlers there will be more infrastructural code. You'll have more classes:
 
 ### Will CQRS help with high load?
 
-Read-only database context:
+`IReadOnlyDatabaseContext.cs`:
 
 ```csharp
 public interface IReadOnlyDatabaseContext
@@ -96,7 +87,7 @@ Read-only database context above:
 - Connection string points to database slave nodes
 - Is used inside query handlers
 
-Write database context:
+`IDatabaseContext.cs`:
 
 ```csharp
 public interface IDatabaseContext : IReadOnlyDatabaseContext
@@ -110,18 +101,27 @@ Write database context above:
 - Connection string points to database master node
 - Is used inside command handlers
 
-Implementation:
+#### Implementation
+
+`DatabaseContext.cs`:
 
 ```csharp
 internal class DatabaseContext : DbContext, IDatabaseContext
 {
     public DbSet<Order> Orders { get; set; }
 
-#pragma warning disable CS8618
     public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
-#pragma warning restore CS8618
     {
     }
+}
+```
+
+`ReadOnlyDatabaseContext.cs`:
+
+```csharp
+internal class ReadOnlyDatabaseContext(IDatabaseContext databaseContext) : IReadOnlyDatabaseContext
+{
+    public IQueryable<Word> Orders => databaseContext.Orders.AsNoTracking();
 }
 ```
 
@@ -136,12 +136,6 @@ internal class DatabaseContext : DbContext, IDatabaseContext
 [↑ Greg Young - CQRS and Event Sourcing - Code on the Beach 2014](https://youtu.be/JHGkaShoyNs?t=60).
 
 > I have been talking about CQRS and event source subjects for a very, very long time. The first time I talked about this was in 2006 at Q Con San Francisco.
-
-## Links
-
-[↑ CQRS pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs).
-
-[↑ А какие виды CQRS вы знаете?](https://www.youtube.com/watch?v=TnS6PwxHcLg).
 
 ## Classical horizontal service organization
 
@@ -176,7 +170,7 @@ With this approach for each business operation a command or a query is created w
 
 ```csharp
 public class GetOrdersQuery
-{    
+{
 }
 
 public class GetOrdersQueryHandler
