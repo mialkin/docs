@@ -160,6 +160,7 @@
       - [Strategy](design/design-patterns/strategy.md)
       - [Template method](design/design-patterns/template-method.md)
       - [Visitor](design/design-patterns/visitor.md)
+- [Specification](design/design-patterns/specification.md)
 - [SOLID](design/solid/solid.md)
   - [Single responsibility principle](design/solid/srp.md)
   - [Open-closed principle](design/solid/ocp.md)
