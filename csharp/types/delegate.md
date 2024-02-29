@@ -31,7 +31,12 @@ Because `MyDelegateType` is a _type_ defined with `delegate` keyword you can put
 
 ## Delegate
 
-A **delegate** is an instance of a delegate type.
+The word **delegate**, depending on context, can mean one of two things:
+
+1. An instance of a delegate type
+2. Delegate type
+
+Usually by saying "delegate" they mean the second thing — delegate type.
 
 ## Variance in delegates
 
