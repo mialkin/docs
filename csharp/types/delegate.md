@@ -1,6 +1,6 @@
 # `delegate`
 
-The `delegate` is a keyword used to define a *delegate type*.
+The `delegate` is a keyword used to define a _delegate type_.
 
 ## Table of contents
 
@@ -13,10 +13,13 @@ The `delegate` is a keyword used to define a *delegate type*.
     - [Returning value](#returning-value)
   - [Remarks](#remarks)
   - [Connection to `event` keyword](#connection-to-event-keyword)
+  - [Connection to lambda expressions](#connection-to-lambda-expressions)
 
 ## Delegate type
 
-You define a **delegate type** using syntax that is similar to defining a method signature, you just add the `delegate` keyword to the definition:
+A **delegate type** is a reference type that can be used to encapsulate a named or an anonymous method. Delegates are similar to function pointers in C++; however, delegates are type-safe and secure.
+
+You define a delegate type using syntax that is similar to defining a method signature, you just add the `delegate` keyword to the definition:
 
 `MyDelegateType.cs`:
 
@@ -24,7 +27,7 @@ You define a **delegate type** using syntax that is similar to defining a method
 public delegate int MyDelegateType(int x, int y);
 ```
 
-Because `MyDelegateType` is a *type* defined with `delegate` keyword you can put it in a separate `MyDelegateType.cs` file, as you would do, for example, with a user-defined type using `class`, `interface`, `enum` or any other keyword.
+Because `MyDelegateType` is a _type_ defined with `delegate` keyword you can put it in a separate `MyDelegateType.cs` file, as you would do, for example, with a user-defined type using `class`, `interface`, `enum` or any other keyword.
 
 ## Delegate
 
@@ -75,6 +78,42 @@ Printing from local function
 
 The behaviour of a multicast delegate when invoked is as follows: the methods that the delegate object points to are invoked in sequence in the order that they were added to the delegate, and the return value of the delegate is the return value of the last method invoked – all the others are discarded.
 
+`MyDelegateType.cs`:
+
+```csharp
+// Define delegate type
+public delegate string MyDelegateType(int x, int y);
+```
+
+`Program.cs`:
+
+```csharp
+// Create delegate
+MyDelegateType instance = (x, y) =>
+{
+    Console.WriteLine("Adding tilda");
+    return x.ToString() + '~' + y;
+};
+
+instance += (x, y) =>
+{
+    Console.WriteLine("Adding dash");
+    return x.ToString() + '-' + y;
+};
+
+// Call delegate
+var result = instance(10, 20);
+Console.WriteLine(result);
+```
+
+This outputs, as you can see below, only `10-20` since `10~20` is discarded:
+
+```console
+Adding tilda
+Adding dash
+10-20
+```
+
 ## Remarks
 
 `MulticastDelegate` is a special class. Compilers and other tools can derive from this class, but you cannot derive from it explicitly. The same is true of the `Delegate` class.
@@ -84,3 +123,7 @@ The `Delegate` class is the base class for delegate types. The `Delegate` class 
 ## Connection to `event` keyword
 
 Delegates are the basis for [events](/csharp/keywords/event.md).
+
+## Connection to lambda expressions
+
+[Lambda expressions](/csharp/operators/lambda-expressions.md) in certain contexts are compiled to delegate types.
