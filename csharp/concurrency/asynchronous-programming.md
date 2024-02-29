@@ -3,9 +3,11 @@
 - [Asynchronous programming](#asynchronous-programming)
   - [Synchronization context](#synchronization-context)
     - [Example](#example)
+  - [Awaitable types](#awaitable-types)
+  - [Create task](#create-task)
   - [Deadlock](#deadlock)
-  - [Task.Yield()](#taskyield)
-  - [async void](#async-void)
+  - [`Task.Yield(`)](#taskyield)
+  - [`async void`](#async-void)
 
 **Asynchronous programming** is a form of concurrency that uses _futures_ or _callbacks_ to avoid unnecessary threads.
 
@@ -17,7 +19,7 @@ Asynchronous programming has two primary benefits. The first benefit is for end-
 
 Both benefits of asynchronous programming derive from the same underlying aspect: asynchronous programming frees up a thread. For GUI programs, asynchronous programming frees up the UI thread; this permits the GUI application to remain responsive to user input. For server applications, asynchronous programming frees up request threads; this permits the server to use its threads to serve more requests.
 
-> "Asynchronous" means not waiting for something to complete (e.g., sending data over the network to another node), and not making any assumptions about how long it is going to take.<sup>1</sup>
+> "Asynchronous" means not waiting for something to complete, e.g., sending data over the network to another node, and not making any assumptions about how long it is going to take.<sup>1</sup>
 
 Modern asynchronous .NET applications use two keywords: `async` and `await`. The `async` keyword is added to a method declaration, and performs a double purpose:
 
@@ -82,9 +84,17 @@ async Task DoSomethingAsync()
 }
 ```
 
+## Awaitable types
+
 The `await` keyword is not limited to working with tasks; it can work with any kind of awaitable that follows a certain pattern. As an example, the Base Class Library includes the `ValueTask<T>` type, which reduces memory allocations if the result is commonly synchronous; for example, if the result can be read from an in-memory cache. `ValueTask<T>` is not directly convertible to `Task<T>`, but it does follow the awaitable pattern, so you can directly `await` it. There are other examples, and you can build your own, but most of the time `await` will take a Task or `Task<TResult>`.
 
-There are two basic ways to create a `Task` instance. Some tasks represent actual code that a CPU has to execute; these computational tasks should be created by calling `Task.Run` or `TaskFactory.StartNew` if you need them to run on a particular scheduler. Other tasks represent a notification; these kinds of event-based tasks are created by `TaskCompletionSource<TResult>` or one of its shortcuts. Most I/O tasks use `TaskCompletionSource<TResult>`.
+[↑ Await anything](https://devblogs.microsoft.com/pfxteam/await-anything/).
+
+## Create task
+
+There are two basic ways to create a `Task` instance. Some tasks represent actual code that a CPU has to execute; these computational tasks should be created by calling `Task.Run` or `TaskFactory.StartNew` if you need them to run on a particular scheduler.
+
+Other tasks represent a notification; these kinds of event-based tasks are created by `TaskCompletionSource<TResult>` or one of its shortcuts. Most I/O tasks use `TaskCompletionSource<TResult>`.
 
 ## Deadlock
 
@@ -111,7 +121,7 @@ async Task WaitAsync()
 
 The code in this example will deadlock if called from a UI or ASP.NET Classic context because both of those contexts only allow one thread in at a time. `Deadlock` will call `WaitAsync`, which begins the delay. `Deadlock` then synchronously waits for that method to complete, blocking the context thread. When the delay completes, `await` attempts to resume `WaitAsync` within the captured context, but it cannot because there's already a thread blocked in the context, and the context only allows one thread at a time. Deadlock can be prevented two ways: you can use `ConfigureAwait(false)` within `WaitAsync` which causes `await` to ignore its context, or you can `await` the call to `WaitAsync` making `Deadlock` into an `async` method.
 
-## Task.Yield()
+## `Task.Yield(`)
 
 You can use `await Task.Yield();` in an asynchronous method to force the method to complete asynchronously. If there is a current synchronization context, this will post the remainder of the method's execution back to that context.
 
@@ -142,7 +152,7 @@ Output:
 7
 ```
 
-## async void
+## `async void`
 
 The problem with calling async void is that you don't even get the task back. You have no way of knowing when the function's task has completed. You can't `await` an `async void` function too.
 
