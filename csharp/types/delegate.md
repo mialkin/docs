@@ -1,66 +1,44 @@
 # `delegate`
 
-The `delegate` is a reference type that represents references to methods with a particular parameter list and return type.
+The `delegate` is a keyword used to define a *delegate type*.
 
 ## Table of contents
 
 - [`delegate`](#delegate)
   - [Table of contents](#table-of-contents)
+  - [Delegate type](#delegate-type)
+  - [Delegate](#delegate-1)
+  - [Variance in delegates](#variance-in-delegates)
   - [`MulticastDelegate`](#multicastdelegate)
+    - [Returning value](#returning-value)
   - [Remarks](#remarks)
-  - [Links](#links)
+  - [Connection to `event` keyword](#connection-to-event-keyword)
 
-A **delegate** is a code, a class, that the compiler generates when you use the `delegate` keyword.
+## Delegate type
 
-You define a **delegate type** using syntax that is similar to defining a method signature; you just add the `delegate` keyword to the definition.
+You define a **delegate type** using syntax that is similar to defining a method signature, you just add the `delegate` keyword to the definition:
 
-[↑ Every](https://learn.microsoft.com/en-us/dotnet/csharp/delegate-class#delegate-and-multicastdelegate-classes) delegate you work with is derived from `MulticastDelegate`.
-
-When you instantiate a delegate, you can associate its instance with any method with a compatible signature and return type. You can invoke, or call, the method through the delegate instance:
+`MyDelegateType.cs`:
 
 ```csharp
-PerformCalculation function = (x, y) => x + y;
-
-var result = function(1, 2);
-Console.WriteLine(result);
-
-delegate int PerformCalculation(int x, int y);
+public delegate int MyDelegateType(int x, int y);
 ```
 
-Delegates are used to pass methods as arguments to other methods. Event handlers are nothing more than methods that are invoked through delegates. You create a custom method, and a class, such as a windows control, can call your method when a certain event occurs.
+Because `MyDelegateType` is a *type* defined with `delegate` keyword you can put it in a separate `MyDelegateType.cs` file, as you would do, for example, with a user-defined type using `class`, `interface`, `enum` or any other keyword.
 
-Delegates are similar to C++ function pointers, but delegates are fully object-oriented, and unlike C++ pointers to member functions, delegates encapsulate both an object instance and a method.
+## Delegate
 
-Delegates can be chained together; for example, multiple methods can be called on a single event.
+A **delegate** is an instance of a delegate type.
 
-Methods do not have to match the delegate type exactly. For more information, see [variance in delegates](../invariance-covariance-contravariance-variance.md).
+## Variance in delegates
 
-The declaration of a delegate type is similar to a method signature. It has a return value and any number of parameters of any type:
-
-```csharp
-public delegate int Delegate(int x, int y);
-```
-
-Delegates are the basis for [events](../keywords/event.md). A delegate can be instantiated by associating it either with a named or anonymous method.
-
-```csharp
-GetStringLength delegate1 = x => x.Length;
-GetStringLength delegate2 = GetLength;
-
-Console.WriteLine(delegate1("Summer"));
-Console.WriteLine(delegate2("Fall"));
-
-int GetLength(string @string)
-{
-    return @string.Length;
-}
-
-delegate int GetStringLength(string str);
-```
+Methods do not have to match the delegate type exactly. See [variance in delegates](../invariance-covariance-contravariance-variance.md).
 
 ## `MulticastDelegate`
 
-Represents a multicast delegate; that is, a delegate that can have more than one element in its invocation list:
+[↑ Every](https://learn.microsoft.com/en-us/dotnet/csharp/delegate-class#delegate-and-multicastdelegate-classes) delegate you work with is derived from `MulticastDelegate`.
+
+`MulticastDelegate` represents a multicast delegate; that is, a delegate that can have more than one element in its invocation list:
 
 ```csharp
 public abstract class MulticastDelegate : Delegate
@@ -93,14 +71,16 @@ Printing from local function
 
 [↑ Is there a Delegate which isn't a MulticastDelegate in C#?](https://stackoverflow.com/questions/4711118/is-there-a-delegate-which-isnt-a-multicastdelegate-in-c)
 
+### Returning value
+
+The behaviour of a multicast delegate when invoked is as follows: the methods that the delegate object points to are invoked in sequence in the order that they were added to the delegate, and the return value of the delegate is the return value of the last method invoked – all the others are discarded.
+
 ## Remarks
 
 `MulticastDelegate` is a special class. Compilers and other tools can derive from this class, but you cannot derive from it explicitly. The same is true of the `Delegate` class.
 
 The `Delegate` class is the base class for delegate types. The `Delegate` class is not considered a delegate type; it is a class used to derive delegate types.
 
-## Links
+## Connection to `event` keyword
 
-[↑ Delegates and Events](https://csharpindepth.com/Articles/Events).
-
-[↑ Delegate Class](https://docs.microsoft.com/en-us/dotnet/api/system.delegate).
+Delegates are the basis for [events](/csharp/keywords/event.md).
