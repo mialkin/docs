@@ -147,6 +147,20 @@ It's a myth, because in query we must not change the state of the domain model, 
 
 It's a myth, because query can also read domain model, but it must not change it.
 
+3\. Command can read only domain model.
+
+It's a myth — command can query read model as well. Keep in mind though that because of the lag you may not get inside of the command the latest write from read model.
+
+Although reading read model from command is a myth it's better not to do it.
+
+4\. Command can not return value.
+
+Other variations of this myth:
+
+- Command must return `void`
+- Command can return some ID of operation but it must not return any data.
+- Command is an asynchronous operation. For example you trigger report build inside of a command and than you wait until report is formed and sent to your email asynchronously.
+
 ## CQRS and event sourcing
 
 > Everyone always talks about CQRS and event sourcing when, really, it's event sourcing and CQRS. When I first started teaching people about CQRS and event sourcing it was advantageous to teach them CQRS first, and then teach them event sourcing. You can use CQRS without event sourcing, but with event sourcing you must use CQRS.

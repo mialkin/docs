@@ -51,7 +51,6 @@
 - Window function
 - [↑ Apache Cassandra](https://cassandra.apache.org/_/cassandra-basics.html)
 - [↑ Performance benchmarks of PostgreSQL .NET with Npgsql, Dapper, and Entity Framework Core](https://michaelscodingspot.com/npgsql-dapper-efcore-performance/)
-- [↑ B-дерево](https://www.youtube.com/watch?v=WXXetwePSRk)
 - [↑ Конспект доклада «Как стать классным спецом по бд» (HL2018, Data Egret, Илья Космодемьянский)](https://habr.com/ru/amp/publications/429508/)
 - [↑ Covering indexes](https://www.red-gate.com/simple-talk/databases/sql-server/learn/using-covering-indexes-to-improve-query-performance/)
 - [↑ SQL Server and Azure SQL index architecture and design guide](https://learn.microsoft.com/en-us/sql/relational-databases/sql-server-index-design-guide)
