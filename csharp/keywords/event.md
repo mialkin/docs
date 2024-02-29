@@ -1,14 +1,17 @@
-# Event
+# `event`
 
-- [Event](#event)
+The `event` keyword is used to declare an event in a *publisher* class.
+
+Events enable a class or object to notify other classes or objects when something of interest occurs. The class that sends, or raises, the event is called the *publisher* and the classes that receive (or handle) the event are called *subscribers*.
+
+## Table of contents
+
+- [`event`](#event)
+  - [Table of contents](#table-of-contents)
   - [EventArgs Class](#eventargs-class)
   - [Example](#example)
   - [event vs delegate](#event-vs-delegate)
   - [Links](#links)
-
-The `event` keyword is used to declare an event in a *publisher* class.
-
-Events enable a class or object to notify other classes or objects when something of interest occurs. The class that sends (or raises) the event is called the _publisher_ and the classes that receive (or handle) the event are called _subscribers_.
 
 All events in the .NET class library are based on the `EventHandler` [delegate](delegate.md), which is defined as follows:
 

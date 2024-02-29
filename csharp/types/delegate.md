@@ -2,6 +2,14 @@
 
 The `delegate` is a reference type that represents references to methods with a particular parameter list and return type.
 
+## Table of contents
+
+- [`delegate`](#delegate)
+  - [Table of contents](#table-of-contents)
+  - [`MulticastDelegate`](#multicastdelegate)
+  - [Remarks](#remarks)
+  - [Links](#links)
+
 A **delegate** is a code, a class, that the compiler generates when you use the `delegate` keyword.
 
 You define a **delegate type** using syntax that is similar to defining a method signature; you just add the `delegate` keyword to the definition.
@@ -49,14 +57,6 @@ int GetLength(string @string)
 
 delegate int GetStringLength(string str);
 ```
-
-## Table of contents
-
-- [`delegate`](#delegate)
-  - [Table of contents](#table-of-contents)
-  - [`MulticastDelegate`](#multicastdelegate)
-  - [Remarks](#remarks)
-  - [Links](#links)
 
 ## `MulticastDelegate`
 

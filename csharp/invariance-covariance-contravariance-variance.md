@@ -21,7 +21,6 @@
     - [Delegates](#delegates-1)
       - [Example 1](#example-1-4)
   - [Variance](#variance)
-  - [Links](#links)
 
 ## Invariance
 
@@ -277,42 +276,3 @@ IEnumerable<object> listObjects = new List<string>();
 // The following line generates a compiler error because classes are invariant
 // List<object> list = new List<string>();
 ```
-
-## Links
-
-[↑ C# Covariance](https://www.csharptutorial.net/csharp-tutorial/csharp-covariance/).
-
-[↑ Variance in Generic Interfaces](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/covariance-contravariance/variance-in-generic-interfaces).
-
-<https://metanit.com/sharp/tutorial/3.27.php>
-
-[↑ How to use target typing and covariant returns in C# 9](https://www.infoworld.com/article/3613548/how-to-use-target-typing-and-covariant-returns-in-c-9.html).
-
-[↑ Covariance and contravariance in generics](https://learn.microsoft.com/en-us/dotnet/standard/generics/covariance-and-contravariance).
-
-
-https://web.archive.org/web/20140626123445/http://adamnathan.co.uk/?p=75
-
-При создании ковариантного интерфейса надо учитывать, что универсальный параметр может использоваться только в качестве типа значения, возвращаемого методами интерфейса. Но не может использоваться в качестве типа аргументов метода или ограничения методов интерфейса.
-
-универсальный параметр контрвариантного типа может применяться только к аргументам метода, но не может применяться к возвращаемому результату метода.
-
-Совмещение ковариантности и контравариантности
-
-
-interface IMessenger<in T, out K>
-{
-    void SendMessage(T message);
-    K WriteMessage(string text);
-}
-class SimpleMessenger : IMessenger<Message, EmailMessage>
-{
-    public void SendMessage(Message message)
-    {
-        Console.WriteLine($"Отправляется сообщение: {message.Text}");
-    }
-    public EmailMessage WriteMessage(string text)
-    {
-        return new EmailMessage($"Email: {text}");
-    }
-}
