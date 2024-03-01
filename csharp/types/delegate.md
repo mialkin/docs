@@ -58,18 +58,25 @@ A useful property of delegate objects is that multiple objects can be assigned t
 
 The `-` operator can be used to remove a component delegate from a multicast delegate.
 
+`PrintingDelegate.cs`:
+
 ```csharp
-Print print = message => Console.WriteLine(message + "lambda function");
-print += LocalPrintFunction;
+delegate void PrintingDelegate(string message);
+```
 
-print("Printing from ");
+`Program.cs`:
 
+```csharp
 void LocalPrintFunction(string message)
 {
     Console.WriteLine(message + "local function");
 }
 
-delegate void Print(string str);
+PrintingDelegate printingDelegate = message => Console.WriteLine(message + "lambda function");
+printingDelegate += LocalPrintFunction;
+
+printingDelegate("Printing from ");
+
 ```
 
 Output:

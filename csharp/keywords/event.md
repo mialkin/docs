@@ -24,3 +24,9 @@ You can subscribe to `event` and to `delegate`. You can raise `event` and call `
 You can also overwrite `delegate` with `=` operator, while with `event` you can use only `+=` and `-=`. To remove all subscribers from event you need to set event variable to `null`. A `null` reference is the canonical way of representing an empty invocation list, effectively.
 
 You can write a public method on the class you want the event to fire from and fire the event when it is called. You can then call this method from whatever user of your class. Of course, this ruins encapsulation and is bad design.
+
+Field-like events and public fields of delegate types look similar, but are actually very different.
+
+An event is fundamentally like a property — it's a pair of [↑ `add`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/add)/[↑ `remove`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/remove) methods (instead of the `get`/`set` of a property). When you declare a field-like event (i.e. one where you don't specify the `add`/`remove` bits yourself) a public event is created, and a private backing field. This lets you raise the event privately, but allow public subscription. With a public delegate field, *anyone* can remove other people's event handlers, raise the event themselves, etc — it's an encapsulation disaster.
+
+[↑ Why do we need the "event" keyword while defining events?](https://stackoverflow.com/questions/3028724/why-do-we-need-the-event-keyword-while-defining-events).
