@@ -12,6 +12,7 @@ The `event` keyword is used to declare an _event_ in a _publisher class_.
   - [Example](#example)
   - [`EventHandler` delegate](#eventhandler-delegate)
   - [`EventHandler<TEventArgs>` delegate](#eventhandlerteventargs-delegate)
+  - [Using MediatR for sending/receiving events](#using-mediatr-for-sendingreceiving-events)
 
 ## Event
 
@@ -234,3 +235,7 @@ War and Peace
 Received printed event
 Duration: '00:00:50'
 ```
+
+## Using MediatR for sending/receiving events
+
+[↑ Are events in C# even relevant anymore?](https://www.youtube.com/watch?v=NmmpXcMxCjY).
