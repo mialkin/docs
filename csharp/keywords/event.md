@@ -1,21 +1,21 @@
 # `event`
 
-The `event` keyword is used to declare an event in a *publisher class*.
+The `event` keyword is used to declare an *event* in a *publisher class*.
 
 ## Table of contents
 
 - [`event`](#event)
   - [Table of contents](#table-of-contents)
-  - [General](#general)
+  - [Event](#event-1)
   - [`event` vs `delegate`](#event-vs-delegate)
 
-## General
+## Event
+
+An **event** is a special kind of [multicast delegate](/csharp/types/delegate.md#multicastdelegate) that can only be invoked from within the class, or derived classes, or `struct` where they are declared, the publisher class.  If other classes or structures subscribe to the event, their event handler methods will be called when the publisher class raises the event.
 
 Events enable a class or object to notify other classes or objects when something of interest occurs.
 
 The class that raises the event is called **publisher** and the classes that handle the event are called **subscribers**.
-
-Events are a special kind of multicast [delegate](/csharp/types/delegate.md) that can only be invoked from within the class, or derived classes, or structure where they are declared, i.e. in the publisher class. If other classes or structures subscribe to the event, their event handler methods will be called when the publisher class raises the event.
 
 ## `event` vs `delegate`
 

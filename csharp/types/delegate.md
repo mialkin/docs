@@ -33,7 +33,7 @@ Because `MyDelegateType` is a _type_ defined with `delegate` keyword you can put
 
 The word **delegate**, depending on context, can mean one of two things:
 
-1. An instance of a delegate type
+1. An instance or a variable of a delegate type
 2. Delegate type
 
 Usually by saying "delegate" they mean the second thing — delegate type.
@@ -45,6 +45,8 @@ Methods do not have to match the delegate type exactly. See [variance in delegat
 ## `MulticastDelegate`
 
 [↑ Every](https://learn.microsoft.com/en-us/dotnet/csharp/delegate-class#delegate-and-multicastdelegate-classes) delegate you work with is derived from `MulticastDelegate`.
+
+[↑ Is there a Delegate which isn't a MulticastDelegate in C#?](https://stackoverflow.com/questions/4711118/is-there-a-delegate-which-isnt-a-multicastdelegate-in-c).
 
 `MulticastDelegate` represents a multicast delegate; that is, a delegate that can have more than one element in its invocation list:
 
@@ -76,8 +78,6 @@ Output:
 Printing from lambda function
 Printing from local function
 ```
-
-[↑ Is there a Delegate which isn't a MulticastDelegate in C#?](https://stackoverflow.com/questions/4711118/is-there-a-delegate-which-isnt-a-multicastdelegate-in-c)
 
 ### Returning value
 
