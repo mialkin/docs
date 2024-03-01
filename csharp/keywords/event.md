@@ -37,6 +37,30 @@ An event is fundamentally like a property — it's a pair of [↑ `add`](https:/
 
 ## Event names guidelines
 
+Events always refer to some action, either one that is happening or one that has occurred. Therefore, as with methods, events are named with verbs, and verb tense is used to indicate the time when the event is raised.
+
+✔️ DO name events with a verb or a verb phrase.
+
+Examples include `Clicked`, `Painting`, `DroppedDown`, and so on.
+
+✔️ DO give events names with a concept of before and after, using the present and past tenses.
+
+For example, a close event that is raised before a window is closed would be called `Closing`, and one that is raised after the window is closed would be called `Closed`.
+
+❌ DO NOT use "Before" or "After" prefixes or postfixes to indicate pre- and post-events. Use present and past tenses as just described.
+
+✔️ DO name event handlers (delegates used as types of events) with the "EventHandler" suffix, as shown in the following example:
+
+```csharp
+public delegate void ClickedEventHandler(object sender, ClickedEventArgs e);
+```
+
+✔️ DO use two parameters named `sender` and `e` in event handlers.
+
+The `sender` parameter represents the object that raised the event. The `sender` parameter is typically of type `object`, even if it is possible to employ a more specific type.
+
+✔️ DO name event argument classes with the "EventArgs" suffix.
+
 [↑ Names of Events](https://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-type-members#names-of-events).
 
 ## Example
@@ -133,19 +157,19 @@ public delegate void EventHandler<TEventArgs>(object? sender, TEventArgs e);
 
 If your event does generate data, you must use the generic `EventHandler<TEventArgs>` delegate class:
 
-`PrintingEvent.cs`:
+`PrintingEventArgs.cs`:
 
 ```csharp
-public class PrintingEvent(string message) : EventArgs
+public class PrintingEventArgs(string message) : EventArgs
 {
     public string Message { get; private set; } = message;
 }
 ```
 
-`PrintedEvent.cs`:
+`PrintedEventArgs.cs`:
 
 ```csharp
-public class PrintedEvent(TimeSpan duration) : EventArgs
+public class PrintedEventArgs(TimeSpan duration) : EventArgs
 {
     public TimeSpan Duration { get; private set; } = duration;
 }
@@ -156,17 +180,17 @@ public class PrintedEvent(TimeSpan duration) : EventArgs
 ```csharp
 public class Printer
 {
-    public event EventHandler<PrintingEvent>? Printing;
-    public event EventHandler<PrintedEvent>? Printed;
+    public event EventHandler<PrintingEventArgs>? Printing;
+    public event EventHandler<PrintedEventArgs>? Printed;
 
     protected virtual void OnPrinting(string message)
     {
-        Printing?.Invoke(this, new PrintingEvent(message));
+        Printing?.Invoke(this, new PrintingEventArgs(message));
     }
 
     protected virtual void OnPrinted(TimeSpan duration)
     {
-        Printed?.Invoke(this, new PrintedEvent(duration));
+        Printed?.Invoke(this, new PrintedEventArgs(duration));
     }
 
     public void Print(string text)
@@ -186,16 +210,16 @@ public class Printer
 ```csharp
 var printer = new Printer();
 
-printer.Printing += (sender, printingEvent) =>
+printer.Printing += (sender, printingEventArgs) =>
 {
     Console.WriteLine("Received printing event");
-    Console.WriteLine($"Printing text: \'{printingEvent.Message}\'");
+    Console.WriteLine($"Printing text: \'{printingEventArgs.Message}\'");
 };
 
-printer.Printed += (sender, printedEvent) =>
+printer.Printed += (sender, printedEventArgs) =>
 {
     Console.WriteLine("Received printed event");
-    Console.WriteLine($"Duration: \'{printedEvent.Duration}\'");
+    Console.WriteLine($"Duration: \'{printedEventArgs.Duration}\'");
 };
 
 printer.Print("War and Peace");
