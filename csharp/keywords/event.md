@@ -10,6 +10,8 @@ The `event` keyword is used to declare an *event* in a *publisher class*.
   - [`event` vs `delegate`](#event-vs-delegate)
   - [Names of events guidelines](#names-of-events-guidelines)
   - [Example](#example)
+  - [`EventHandler` delegate](#eventhandler-delegate)
+  - [`EventHandler<TEventArgs>` delegate](#eventhandlerteventargs-delegate)
 
 ## Event
 
@@ -111,4 +113,22 @@ Printing text: 'War and Peace'
 War and Peace
 Received printed event
 Duration: '00:00:42'
+```
+
+## `EventHandler` delegate
+
+The `EventHandler` delegate is a predefined delegate that specifically represents an event handler method for an event that does not generate data:
+
+```csharp
+public delegate void EventHandler(object? sender, EventArgs e);
+```
+
+If the event does not generate event data, the second parameter is simply the value of the [↑ `EventArgs.Empty`](https://learn.microsoft.com/en-us/dotnet/api/system.eventargs.empty) field. Otherwise, the second parameter is a type derived from `EventArgs` and supplies any fields or properties needed to hold the event data.
+
+## `EventHandler<TEventArgs>` delegate
+
+If your event does generate data, you must use the generic `EventHandler<TEventArgs>` delegate class:
+
+```csharp
+public delegate void EventHandler<TEventArgs>(object? sender, TEventArgs e);
 ```

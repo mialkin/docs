@@ -17,7 +17,9 @@ The `delegate` is a keyword used to define a _delegate type_.
 
 ## Delegate type
 
-A **delegate type** is a reference type that can be used to encapsulate a named or an anonymous method. Delegates are similar to function pointers in C++; however, delegates are type-safe and secure.
+A **delegate type** is a reference type that defines a signature, that is, the return value type and parameter list types for a method.
+
+You can use the delegate type to declare a variable that can refer to any method with the same signature as the delegate.
 
 You define a delegate type using syntax that is similar to defining a method signature, you just add the `delegate` keyword to the definition:
 
