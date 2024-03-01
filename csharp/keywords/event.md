@@ -1,6 +1,6 @@
 # `event`
 
-The `event` keyword is used to declare an *event* in a *publisher class*.
+The `event` keyword is used to declare an _event_ in a _publisher class_.
 
 ## Table of contents
 
@@ -8,14 +8,14 @@ The `event` keyword is used to declare an *event* in a *publisher class*.
   - [Table of contents](#table-of-contents)
   - [Event](#event-1)
   - [`event` vs `delegate`](#event-vs-delegate)
-  - [Names of events guidelines](#names-of-events-guidelines)
+  - [Event names guidelines](#event-names-guidelines)
   - [Example](#example)
   - [`EventHandler` delegate](#eventhandler-delegate)
   - [`EventHandler<TEventArgs>` delegate](#eventhandlerteventargs-delegate)
 
 ## Event
 
-An **event** is a special kind of [multicast delegate](/csharp/types/delegate.md#multicastdelegate) that can only be invoked from within the class, or derived classes, or `struct` where they are declared, the publisher class.  If other classes or structures subscribe to the event, their event handler methods will be called when the publisher class raises the event.
+An **event** is a special kind of [multicast delegate](/csharp/types/delegate.md#multicastdelegate) that can only be invoked from within the class, or derived classes, or `struct` where they are declared, the publisher class. If other classes or structures subscribe to the event, their event handler methods will be called when the publisher class raises the event.
 
 Events enable a class or object to notify other classes or objects when something of interest occurs.
 
@@ -31,11 +31,11 @@ You can write a public method on the class you want the event to fire from and f
 
 Field-like events and public fields of delegate types look similar, but are actually very different.
 
-An event is fundamentally like a property — it's a pair of [↑ `add`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/add)/[↑ `remove`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/remove) methods (instead of the `get`/`set` of a property). When you declare a field-like event (i.e. one where you don't specify the `add`/`remove` bits yourself) a public event is created, and a private backing field. This lets you raise the event privately, but allow public subscription. With a public delegate field, *anyone* can remove other people's event handlers, raise the event themselves, etc — it's an encapsulation disaster.
+An event is fundamentally like a property — it's a pair of [↑ `add`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/add)/[↑ `remove`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/remove) methods (instead of the `get`/`set` of a property). When you declare a field-like event (i.e. one where you don't specify the `add`/`remove` bits yourself) a public event is created, and a private backing field. This lets you raise the event privately, but allow public subscription. With a public delegate field, _anyone_ can remove other people's event handlers, raise the event themselves, etc — it's an encapsulation disaster.
 
 [↑ Why do we need the "event" keyword while defining events?](https://stackoverflow.com/questions/3028724/why-do-we-need-the-event-keyword-while-defining-events).
 
-## Names of events guidelines
+## Event names guidelines
 
 [↑ Names of Events](https://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-type-members#names-of-events).
 
@@ -86,8 +86,6 @@ public class Printer
 `Program.cs`:
 
 ```csharp
-using Events.Delegates.General;
-
 var printer = new Printer();
 
 printer.Printing += (sender, text) =>
@@ -127,8 +125,88 @@ If the event does not generate event data, the second parameter is simply the va
 
 ## `EventHandler<TEventArgs>` delegate
 
-If your event does generate data, you must use the generic `EventHandler<TEventArgs>` delegate class:
+The `EventHandler<TEventArgs>` delegate represents the method that will handle an event when the event provides data:
 
 ```csharp
 public delegate void EventHandler<TEventArgs>(object? sender, TEventArgs e);
+```
+
+If your event does generate data, you must use the generic `EventHandler<TEventArgs>` delegate class:
+
+`PrintingEvent.cs`:
+
+```csharp
+public class PrintingEvent(string message) : EventArgs
+{
+    public string Message { get; private set; } = message;
+}
+```
+
+`PrintedEvent.cs`:
+
+```csharp
+public class PrintedEvent(TimeSpan duration) : EventArgs
+{
+    public TimeSpan Duration { get; private set; } = duration;
+}
+```
+
+`Printer.cs`:
+
+```csharp
+public class Printer
+{
+    public event EventHandler<PrintingEvent>? Printing;
+    public event EventHandler<PrintedEvent>? Printed;
+
+    protected virtual void OnPrinting(string message)
+    {
+        Printing?.Invoke(this, new PrintingEvent(message));
+    }
+
+    protected virtual void OnPrinted(TimeSpan duration)
+    {
+        Printed?.Invoke(this, new PrintedEvent(duration));
+    }
+
+    public void Print(string text)
+    {
+        OnPrinting(text);
+
+        Console.WriteLine(text);
+
+        var duration = TimeSpan.FromSeconds(Random.Shared.Next(1, 60));
+        OnPrinted(duration);
+    }
+}
+```
+
+`Program.cs`:
+
+```csharp
+var printer = new Printer();
+
+printer.Printing += (sender, printingEvent) =>
+{
+    Console.WriteLine("Received printing event");
+    Console.WriteLine($"Printing text: \'{printingEvent.Message}\'");
+};
+
+printer.Printed += (sender, printedEvent) =>
+{
+    Console.WriteLine("Received printed event");
+    Console.WriteLine($"Duration: \'{printedEvent.Duration}\'");
+};
+
+printer.Print("War and Peace");
+```
+
+Output:
+
+```console
+Received printing event
+Printing text: 'War and Peace'
+War and Peace
+Received printed event
+Duration: '00:00:50'
 ```
