@@ -2,9 +2,7 @@
 
 **Event sourcing** is a pattern for tracking changes to application state, stored as a sequence of events.
 
-Each change is associated with an event, which contains the timestamp and nature of the specific change.
-
-Event sourcing is an approach to designing software that puts a greater emphasis on how data evolves over time. It captures the journey, rather than just the destination. This allows systems based on event sourcing to have access to richer data that can be used for analytical purposes, but also to help develop new features.
+Event sourcing puts a greater emphasis on how data evolves over time. It captures the journey, rather than just the destination. This allows systems based on event sourcing to have access to richer data that can be used for analytical purposes, but also to help develop new features.
 
 ## Table of contents
 
