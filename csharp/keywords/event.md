@@ -8,6 +8,8 @@ The `event` keyword is used to declare an *event* in a *publisher class*.
   - [Table of contents](#table-of-contents)
   - [Event](#event-1)
   - [`event` vs `delegate`](#event-vs-delegate)
+  - [Names of events guidelines](#names-of-events-guidelines)
+  - [Example](#example)
 
 ## Event
 
@@ -30,3 +32,83 @@ Field-like events and public fields of delegate types look similar, but are actu
 An event is fundamentally like a property — it's a pair of [↑ `add`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/add)/[↑ `remove`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/remove) methods (instead of the `get`/`set` of a property). When you declare a field-like event (i.e. one where you don't specify the `add`/`remove` bits yourself) a public event is created, and a private backing field. This lets you raise the event privately, but allow public subscription. With a public delegate field, *anyone* can remove other people's event handlers, raise the event themselves, etc — it's an encapsulation disaster.
 
 [↑ Why do we need the "event" keyword while defining events?](https://stackoverflow.com/questions/3028724/why-do-we-need-the-event-keyword-while-defining-events).
+
+## Names of events guidelines
+
+[↑ Names of Events](https://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-type-members#names-of-events).
+
+## Example
+
+`PrintingEventHandler.cs`:
+
+```csharp
+public delegate void PrintingEventHandler(object sender, string text);
+```
+
+`PrintedEventHandler.cs`:
+
+```csharp
+public delegate void PrintedEventHandler(object sender, TimeSpan duration);
+```
+
+`Printer.cs`:
+
+```csharp
+public class Printer
+{
+    public event PrintingEventHandler? Printing;
+    public event PrintedEventHandler? Printed;
+
+    protected virtual void OnPrinting(string message)
+    {
+        Printing?.Invoke(this, message);
+    }
+
+    protected virtual void OnPrinted(TimeSpan duration)
+    {
+        Printed?.Invoke(this, duration);
+    }
+
+    public void Print(string text)
+    {
+        OnPrinting(text);
+
+        Console.WriteLine(text);
+
+        var duration = TimeSpan.FromSeconds(Random.Shared.Next(1, 60));
+        OnPrinted(duration);
+    }
+}
+```
+
+`Program.cs`:
+
+```csharp
+using Events.Delegates.General;
+
+var printer = new Printer();
+
+printer.Printing += (sender, text) =>
+{
+    Console.WriteLine("Received printing event");
+    Console.WriteLine($"Printing text: \'{text}\'");
+};
+
+printer.Printed += (sender, duration) =>
+{
+    Console.WriteLine("Received printed event");
+    Console.WriteLine($"Duration: \'{duration}\'");
+};
+
+printer.Print("War and Peace");
+```
+
+Output:
+
+```console
+Received printing event
+Printing text: 'War and Peace'
+War and Peace
+Received printed event
+Duration: '00:00:42'
+```
