@@ -25,6 +25,7 @@
     - [Functions](#functions)
     - [Pass arguments to script](#pass-arguments-to-script)
     - [Debug](#debug)
+    - [macOS terminal](#macos-terminal)
     - [Links](#links)
 
 ## Shell
@@ -397,6 +398,24 @@ or wrap areas that you want to see what's happening with them with `set -x` and 
 set -x
 ..code to debug...
 set +x
+```
+
+### macOS terminal
+
+Open terminal and run commands:
+
+```bash
+#!/bin/bash
+
+osascript -e 'tell app "Terminal" to do script "cd ~/app-ui/ &&
+clear &&
+npm run dev
+"'
+
+osascript -e 'tell app "Terminal" to do script "cd ~/app-api/src/App.Api/ &&
+clear &&
+dotwatch
+"'
 ```
 
 ### Links
