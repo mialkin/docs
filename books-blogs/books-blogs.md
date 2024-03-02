@@ -23,13 +23,13 @@
 
 #### Clean Architecture: A Craftsman's Guide to Software Structure and Design
 
-<img src="clean-architecture.jpg" width="300px" />
+<img src="clean-architecture.jpg" width="300px" alt="Clean architecture book cover" />
 
 [↑ Amazon](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164).
 
 #### Design Patterns: Elements of Reusable Object-Oriented Software
 
-<img src="design-patterns.jpg" width="300px" />
+<img src="design-patterns.jpg" width="300px" alt="Design Patterns book cover" />
 
 [↑ Amazon](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612). [↑ Ozon](https://www.ozon.ru/product/patterny-obektno-orientirovannogo-proektirovaniya-211432335).
 
@@ -37,19 +37,19 @@
 
 #### Concurrency in C&#35;
 
-<img src="concurrency-in-csharp.jpg" width="300px" />
+<img src="concurrency-in-csharp.jpg" width="300px" alt="Concurrency in C# book cover" />
 
 [↑ Amazon](https://www.amazon.com/Concurrency-Cookbook-Asynchronous-Multithreaded-Programming/dp/149205450X).
 
 #### Threading in C&#35;
 
-<img src="threading-in-csharp.jpg" width="400px" />
+<img src="threading-in-csharp.jpg" width="400px" alt="Threading in C# book cover" />
 
 <https://www.albahari.com/threading>
 
 #### Unit Testing Principles, Practices, and Patterns
 
-<img src="khorikov-unit-testing.jpg" width="300px" />
+<img src="khorikov-unit-testing.jpg" width="300px" alt="Unit Testing Principles, Practices, and Patterns book cover" />
 
 [↑ Amazon](https://www.amazon.com/Unit-Testing-Principles-Practices-Patterns-ebook/dp/B09782L692). [↑ Ozon](https://www.ozon.ru/product/printsipy-yunit-testirovaniya-horikov-vladimir-211424826).
 
