@@ -11,8 +11,8 @@ An **expression** is a sequence of *operators* and *operands*.
   - [Operators](#operators)
   - [Operands](#operands)
   - [Create](#create)
-  - [Create expression tree from lambda expression](#create-expression-tree-from-lambda-expression)
   - [Immutability](#immutability)
+  - [Create expression tree from lambda expression](#create-expression-tree-from-lambda-expression)
   - [Links](#links)
 
 ## Operators
@@ -48,19 +48,23 @@ To create expression trees by using the API, use the [↑ `Expression`](https://
 
 You can compile and run code represented by expression trees. This enables dynamic modification of executable code, the execution of LINQ queries in various databases, and the creation of dynamic queries.
 
+The definition of "executing an expression tree" is specific to a query provider. For example, it may involve translating the expression tree to a query language appropriate for an underlying data source.
+
+## Immutability
+
+Expression trees are immutable. If you want to modify an expression tree, you must construct a new expression tree by copying the existing one and replacing nodes in it.
+
 ## Create expression tree from lambda expression
 
-When a lambda expression is assigned to a variable of type `Expression<TDelegate>`, the compiler emits code to build an expression tree that represents the lambda expression.
+When a [lambda expression](/csharp/operators/lambda-expressions.md) is assigned to a variable of type `Expression<TDelegate>`, the compiler emits code to build an expression tree that represents the lambda expression.
 
-The C# compiler can generate expression trees only from expression lambdas: single-line lambdas. It cannot parse statement lambdas: multi-line lambdas.
+The C# compiler can generate expression trees only from expression lambdas — single-line lambdas:
 
 ```csharp
 Expression<Func<int, bool>> lambda = number => number < 5;
 ```
 
-## Immutability
-
-Expression trees are immutable. If you want to modify an expression tree, you must construct a new expression tree by copying the existing one and replacing nodes in it.
+The C# compiler cannot parse statement lambdas — multi-line lambdas.
 
 ## Links
 

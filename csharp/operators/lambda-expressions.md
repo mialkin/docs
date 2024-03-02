@@ -1,6 +1,6 @@
 # Lambda expressions
 
-A lambda expression is an expression of any of the following two forms:
+A **lambda expression** is an expression of any of the following two forms:
 
 1\. _Expression lambda_ that has an expression as its body:
 
