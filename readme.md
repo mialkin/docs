@@ -289,7 +289,6 @@
   - [Polly](dotnet/libraries/polly.md)
   - [ReactiveX](dotnet/libraries/reactive/reactive-x.md)
     - [`System.Reactive` aka Rx.NET](dotnet/libraries/reactive/system-reactive.md)
-  - [↑ YARP](https://github.com/microsoft/reverse-proxy)
 - [NuGet](dotnet/nuget.md)
 - [OWIN](dotnet/owin.md)
 - [PowerShell](dotnet/powershell.md)
