@@ -162,9 +162,11 @@ Other variations of this myth:
 - Command can return some ID of operation but it must not return any data.
 - Command is an asynchronous operation. For example you trigger report build inside of a command and than you wait until report is formed and sent to your email asynchronously.
 
+[↑ Мифы CQRS](https://youtu.be/TnS6PwxHcLg?si=-KY3vW7eQHXsk65w&t=1470).
+
 ## CQRS vs CQS
 
-Command and Query Responsibility Segregation, CQRS, originated with [Bertrand Meyer](https://en.wikipedia.org/wiki/Bertrand_Meyer)'s [↑ Command and Query Separation Principle](https://en.wikipedia.org/wiki/Command–query_separation). Wikipedia defines the principle as:
+Command and Query Responsibility Segregation, CQRS, originated with [↑ Bertrand Meyer](https://en.wikipedia.org/wiki/Bertrand_Meyer)'s [↑ Command and Query Separation Principle](https://en.wikipedia.org/wiki/Command–query_separation). Wikipedia defines the principle as:
 
 > It states that every method should either be a command that performs an action, or a query that returns data to the caller, but not both. In other words, asking a question should not change the answer. More formally, methods should return a value only if they are referentially transparent and hence possess no side effects.
 
