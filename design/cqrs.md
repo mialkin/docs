@@ -22,7 +22,7 @@ The term CQRS was coined by [↑ Greg Young](https://www.youtube.com/watch?v=JHG
     - [Will CQRS help with high load?](#will-cqrs-help-with-high-load)
       - [Implementation](#implementation)
     - [CQRS myths](#cqrs-myths)
-  - [CQRS cs CQS](#cqrs-cs-cqs)
+  - [CQRS vs CQS](#cqrs-vs-cqs)
   - [CQRS and event sourcing](#cqrs-and-event-sourcing)
   - [Classical horizontal service organization](#classical-horizontal-service-organization)
   - [Vertical organization](#vertical-organization)
@@ -162,7 +162,7 @@ Other variations of this myth:
 - Command can return some ID of operation but it must not return any data.
 - Command is an asynchronous operation. For example you trigger report build inside of a command and than you wait until report is formed and sent to your email asynchronously.
 
-## CQRS cs CQS
+## CQRS vs CQS
 
 Command and Query Responsibility Segregation, CQRS, originated with [Bertrand Meyer](https://en.wikipedia.org/wiki/Bertrand_Meyer)'s [↑ Command and Query Separation Principle](https://en.wikipedia.org/wiki/Command–query_separation). Wikipedia defines the principle as:
 
