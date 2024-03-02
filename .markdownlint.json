@@ -2,7 +2,9 @@
   "line_length": false,
   "no-inline-html": {
     "allowed_elements": [
-      "img"
+      "img",
+      "hr",
+      "sup"
     ]
   },
   "no-duplicate-heading": {

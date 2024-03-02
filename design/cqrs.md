@@ -177,7 +177,7 @@ Basically it boils down to: if you have a return value you cannot mutate state. 
 Command and Query Responsibility Segregation was originally considered just to be an extension of this concept. For a long time it was discussed simply as CQS at a higher level. Eventually after much confusion between the two concepts it was correctly deemed to be a different pattern.
 
 Command and Query Responsibility Segregation uses the same definition of Commands and Queries that Meyer used and maintains the viewpoint that they should be pure. The fundamental difference is that in CQRS objects are split into two objects, one containing the Commands one containing the
-Queries.
+Queries.<sup>1</sup>
 
 ## CQRS and event sourcing
 
@@ -254,3 +254,7 @@ With this approach folder structure is going to be as follows:
 Also we use the same model, for reading and writing data; model in DDD sense. Commands return values.
 
 Described above approach is also know as [↑ Vertical Slice Architecture](https://jimmybogard.com/vertical-slice-architecture), the term coined by Jimmy Bogard.
+
+<hr>
+
+<sup>1</sup> CQRS Documents by Greg Young, page 17.
