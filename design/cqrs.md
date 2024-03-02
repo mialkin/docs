@@ -22,6 +22,7 @@ The term CQRS was coined by [↑ Greg Young](https://www.youtube.com/watch?v=JHG
     - [Will CQRS help with high load?](#will-cqrs-help-with-high-load)
       - [Implementation](#implementation)
     - [CQRS myths](#cqrs-myths)
+  - [CQRS cs CQS](#cqrs-cs-cqs)
   - [CQRS and event sourcing](#cqrs-and-event-sourcing)
   - [Classical horizontal service organization](#classical-horizontal-service-organization)
   - [Vertical organization](#vertical-organization)
@@ -160,6 +161,21 @@ Other variations of this myth:
 - Command must return `void`
 - Command can return some ID of operation but it must not return any data.
 - Command is an asynchronous operation. For example you trigger report build inside of a command and than you wait until report is formed and sent to your email asynchronously.
+
+## CQRS cs CQS
+
+Command and Query Responsibility Segregation, CQRS, originated with [Bertrand Meyer](https://en.wikipedia.org/wiki/Bertrand_Meyer)'s [↑ Command and Query Separation Principle](https://en.wikipedia.org/wiki/Command–query_separation). Wikipedia defines the principle as:
+
+> It states that every method should either be a command that performs an action, or a query that returns data to the caller, but not both. In other words, asking a question should not change the answer. More formally, methods should return a value only if they are referentially transparent and hence possess no side effects.
+
+Basically it boils down to: if you have a return value you cannot mutate state. If you mutate state your return type must be void. There can be some issues with this. Martin Fowler [↑ shows](https://martinfowler.com/bliki/CommandQuerySeparation.html) one example on the [↑ bliki](https://martinfowler.com/bliki/WhatIsaBliki.html) with:
+
+> Meyer likes to use command-query separation absolutely, but there are exceptions. Popping a stack is a good example of a modifier that modifies state. Meyer correctly says that you can avoid having this method, but it is a useful idiom. So I prefer to follow this principle when I can, but I'm prepared to break it to get my pop.
+
+Command and Query Responsibility Segregation was originally considered just to be an extension of this concept. For a long time it was discussed simply as CQS at a higher level. Eventually after much confusion between the two concepts it was correctly deemed to be a different pattern.
+
+Command and Query Responsibility Segregation uses the same definition of Commands and Queries that Meyer used and maintains the viewpoint that they should be pure. The fundamental difference is that in CQRS objects are split into two objects, one containing the Commands one containing the
+Queries.
 
 ## CQRS and event sourcing
 
