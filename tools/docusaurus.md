@@ -6,8 +6,8 @@ Docusaurus builds a single-page application with fast client-side navigation, le
 
 Docusaurus provides out-of-the-box documentation features but can be used to create any kind of site: personal website, product, blog, marketing landing pages, etc.
 
+## Installation
+
 ```bash
-brew update
-brew upgrade node
 npx create-docusaurus@latest my-website classic
 ```
