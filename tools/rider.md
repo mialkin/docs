@@ -26,6 +26,7 @@
 | <kbd>⌘ \\</kbd>                    | Split and Move Right                 |
 | <kbd>⌘ ⌥ \\</kbd>                  | Move To Opposite Group               |
 | <kbd>⌘ K</kbd>                     | Clear Terminal                       |
+| <kbd>⌘ ⇧ W</kbd>                   | Close All Tabs                       |
 
 ## Settings
 
