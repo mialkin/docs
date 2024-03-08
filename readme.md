@@ -300,7 +300,7 @@
 
 - [Authentication, authorization](aspnet/authentication-authorization.md)
 - [Middleware](aspnet/middleware.md)
-- [SignalR, WebSocket, HTTP polling](aspnet/signalr.md)
+- [SignalR, WebSocket, server-sent events, HTTP polling](aspnet/signalr.md)
 
 ## C&#35;
 
