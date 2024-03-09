@@ -11,7 +11,7 @@
 
 ## SignalR
 
-**SignalR** is an open-source library that simplifies adding real-time web functionality to apps
+[↑ SignalR](https://learn.microsoft.com/en-us/aspnet/core/signalr/introduction) is an open-source library that simplifies adding real-time web functionality to applications.
 
 SignalR supports the following techniques for handling real-time communication (in order of graceful fallback):
 
