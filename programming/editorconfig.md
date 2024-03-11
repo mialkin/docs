@@ -17,6 +17,7 @@
   - [.NET](#net)
     - [`dotnet format`](#dotnet-format)
       - [Commands](#commands)
+      - [Rule prefixes](#rule-prefixes)
     - [Other](#other)
 
 ## Why use EditorConfig
@@ -120,6 +121,17 @@ Preferences will be read from an `.editorconfig` file, if present, otherwise a d
 | `dotnet format --verify-no-changes` | Formats but does not save. Returns a non-zero exit code if any files would have been changed |
 
 [↑ dotnet .editorconfig](https://github.com/dotnet/format/blob/main/.editorconfig).
+
+#### Rule prefixes
+
+| Analyzer                | Prefix |
+| ----------------------- | ------ |
+| StyleCop.Analyzers      | `SA`   |
+| SonarAnalyzers.CSharp   | `S`    |
+| NET.CodeAnalyzers       | `CA`   |
+| Visual Studio.Analyzers | `IDE`  |
+
+[↑ Severity levels](https://learn.microsoft.com/en-us/visualstudio/code-quality/use-roslyn-analyzers).
 
 ### Other
 
