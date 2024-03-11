@@ -114,9 +114,9 @@ Preferences will be read from an `.editorconfig` file, if present, otherwise a d
 
 | Command                             | Description                                                                                  |
 | ----------------------------------- | -------------------------------------------------------------------------------------------- |
-| `dotnet format whitespace`          | Runs only formatting rules associated with whitespace formatting                             |
-| `dotnet format style`               | Runs only formatting rules associated with code style formatting                             |
-| `dotnet format analyzers`           | Runs only formatting rules associated with analyzers                                         |
+| `dotnet format whitespace`          | Fixes whitespace                                                                             |
+| `dotnet format style`               | Runs code style analyzers                                                                    |
+| `dotnet format analyzers`           | Runs third-party analyzers                                                                   |
 | `dotnet format --verify-no-changes` | Formats but does not save. Returns a non-zero exit code if any files would have been changed |
 
 [↑ dotnet .editorconfig](https://github.com/dotnet/format/blob/main/.editorconfig).
