@@ -14,6 +14,7 @@
   - [Examples of use](#examples-of-use)
   - [File format](#file-format)
   - [Wildcard patterns](#wildcard-patterns)
+  - [.NET](#net)
 
 ## Why use EditorConfig
 
@@ -97,3 +98,17 @@ Special characters recognized in section names for wildcard matching:
 | {num1..num2}      | Matches any integer numbers between `num1` and `num2`, where `num1` and `num2` can be either positive or negative |
 
 Special characters can be escaped with a backslash so they won't be interpreted as wildcard patterns.
+
+## .NET
+
+[↑ dotnet-format](https://github.com/dotnet/format).
+
+[↑ dotnet .editorconfig](https://github.com/dotnet/format/blob/main/.editorconfig).
+
+[↑ Prettier-style line breaking](https://github.com/dotnet/format/issues/246).
+
+[↑ CSharpier](https://csharpier.com), [↑ Rider plugin](https://plugins.jetbrains.com/plugin/18243-csharpier).
+
+[↑ Overview of .NET source code analysis](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview).
+
+[↑ Support Roslyn properties in editorconfig](https://youtrack.jetbrains.com/issue/RIDER-51400/Support-roslyn-properties-in-editorconfig).
