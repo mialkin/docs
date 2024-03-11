@@ -15,6 +15,9 @@
   - [File format](#file-format)
   - [Wildcard patterns](#wildcard-patterns)
   - [.NET](#net)
+    - [`dotnet format`](#dotnet-format)
+      - [Commands](#commands)
+    - [Other](#other)
 
 ## Why use EditorConfig
 
@@ -101,9 +104,24 @@ Special characters can be escaped with a backslash so they won't be interpreted 
 
 ## .NET
 
-[↑ dotnet-format](https://github.com/dotnet/format).
+### `dotnet format`
+
+[↑ `dotnet format`](https://github.com/dotnet/format) is a code formatter that applies style preferences to a project or solution.
+
+Preferences will be read from an `.editorconfig` file, if present, otherwise a default set of preferences will be used.
+
+#### Commands
+
+| Command                             | Description                                                                                  |
+| ----------------------------------- | -------------------------------------------------------------------------------------------- |
+| `dotnet format whitespace`          | Runs only formatting rules associated with whitespace formatting                             |
+| `dotnet format style`               | Runs only formatting rules associated with code style formatting                             |
+| `dotnet format analyzers`           | Runs only formatting rules associated with analyzers                                         |
+| `dotnet format --verify-no-changes` | Formats but does not save. Returns a non-zero exit code if any files would have been changed |
 
 [↑ dotnet .editorconfig](https://github.com/dotnet/format/blob/main/.editorconfig).
+
+### Other
 
 [↑ Prettier-style line breaking](https://github.com/dotnet/format/issues/246).
 
