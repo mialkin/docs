@@ -274,7 +274,8 @@
 - [Dependency injection in .NET](dotnet/dependency-injection-dotnet.md)
 - [Dotnet CLI](dotnet/cli.md)
 - [Dotnet tools](dotnet/dotnet-tools/dotnet-tools.md)
-  - [`dotnet-ef` tool](dotnet/dotnet-tools/dotnet-ef.md)
+  - [`dotnet-ef`](dotnet/dotnet-tools/dotnet-ef.md)
+  - [`dotnet-format`](dotnet/dotnet-tools/dotnet-format.md)
 - Dotnet libraries
   - [BenchmarkDotNet](dotnet/libraries/benchmarkdotnet.md)
   - [Bogus](dotnet/libraries/bogus.md)
