@@ -17,6 +17,8 @@
   - [.NET](#net)
     - [`dotnet format`](#dotnet-format)
       - [Commands](#commands)
+    - [Analyzers](#analyzers)
+      - [Microsoft.VisualStudio.Threading.Analyzers](#microsoftvisualstudiothreadinganalyzers)
       - [Rule prefixes](#rule-prefixes)
     - [Other](#other)
 
@@ -121,6 +123,14 @@ Preferences will be read from an `.editorconfig` file, if present, otherwise a d
 | `dotnet format --verify-no-changes` | Formats but does not save. Returns a non-zero exit code if any files would have been changed |
 
 [↑ dotnet .editorconfig](https://github.com/dotnet/format/blob/main/.editorconfig).
+
+### Analyzers
+
+#### Microsoft.VisualStudio.Threading.Analyzers
+
+- [↑ Microsoft.VisualStudio.Threading.Analyzers](https://github.com/microsoft/vs-threading/blob/main/doc/analyzers/installation.md).
+
+You may want to use this analyzer because of the problem with `Async` in interfaces: [↑ link 1](https://github.com/dotnet/roslyn/issues/40050), [↑ link 2](https://youtrack.jetbrains.com/issue/RSRP-486739).
 
 #### Rule prefixes
 
