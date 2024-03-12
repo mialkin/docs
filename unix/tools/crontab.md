@@ -29,7 +29,3 @@ To watch `cron`'s logs run:
 ```bash
 tail -f /var/log/syslog
 ```
-
-## See also
-
-* [In the shell, what does “ 2>&1 ” mean?](https://stackoverflow.com/questions/818255/in-the-shell-what-does-21-mean)
