@@ -9,10 +9,12 @@
   - [Cluster role](#cluster-role)
   - [Cluster role binding](#cluster-role-binding)
   - [Configmap](#configmap)
+  - [Cron job](#cron-job)
   - [Deployment](#deployment)
   - [Ingress](#ingress)
   - [Ingress resource](#ingress-resource)
   - [Ingress controller](#ingress-controller)
+  - [Job](#job)
   - [Namespace](#namespace)
   - [Pod](#pod)
   - [Replica set](#replica-set)
@@ -42,6 +44,14 @@ A **configmap** is an object used to store non-confidential data in key-value pa
 
 [↑ ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap).
 
+## Cron job
+
+A **cron job** creates [jobs](#job) on a repeating schedule.
+
+Cron job is meant for performing regular scheduled actions such as backups, report generation, and so on. One `CronJob` object is like one line of a [crontab](/unix/tools/crontab.md) file on a Unix system. It runs a job periodically on a given schedule, written in cron format.
+
+[↑ CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/).
+
 ## Deployment
 
 A **deployment** is an object that provides declarative updates for [pods](#pod) and [replica sets](#replica-set).
@@ -67,6 +77,12 @@ An **ingress resource** is an object with a set of routing rules.
 An **ingress controller** is just another [pod](#pod) running in Kubernetes that is responsible for reading the [ingress resource](#ingress-resource) information and processing that data accordingly.
 
 [↑ Ingress Controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers).
+
+## Job
+
+A **job** creates one or more [pods](#pod) and will continue to retry execution of the pods until a specified number of them successfully terminate.
+
+[↑ Job](https://kubernetes.io/docs/concepts/workloads/controllers/job/).
 
 ## Namespace
 
