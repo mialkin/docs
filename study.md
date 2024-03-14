@@ -167,7 +167,7 @@
 - F.I.R.S.T. Principles
   - [↑ FIRST Principles as Solid Rules for Tests](https://dzone.com/articles/first-principles-solid-rules-for-tests)
   - [↑ F.I.R.S.T Principles of Unit Testing](https://github.com/tekguard/Principles-of-Unit-Testing)
-[↑ HighLoad++](https://tinkoff.ktalk.ru/recordings/Z11VfgwKXpCHLRQrJs7u)
+    [↑ HighLoad++](https://tinkoff.ktalk.ru/recordings/Z11VfgwKXpCHLRQrJs7u)
 
 ## JavaScript
 
@@ -290,7 +290,7 @@ for (var i = 0; i < 5; i++) {
   - <https://devblogs.microsoft.com/pfxteam/processing-tasks-as-they-complete/>
   - <https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/chaining-tasks-by-using-continuation-tasks>
 - [↑ Concurrency Visualizer](https://docs.microsoft.com/en-us/visualstudio/profiling/concurrency-visualizer)
-- Разобрать C# AggregateException, посоздавать таких исключений, применить метод  AggregateException.Flatten (страница 32 Стивена Клири)
+- Разобрать C# AggregateException, посоздавать таких исключений, применить метод AggregateException.Flatten (страница 32 Стивена Клири)
 - [↑ Adventure in learning Go for a C# dev! - Ken Faulkner](https://www.youtube.com/watch?v=0ghHBPNe6g4)
 - Как реализованы дженерики в C#?
 - [↑ MessagePack](https://github.com/neuecc/MessagePack-CSharp)
@@ -341,10 +341,7 @@ for (var i = 0; i < 5; i++) {
 
 ## Разобрать
 
-- https://andrewlock.net/5-new-mvc-features-in-dotnet-7/
-- https://moduscreate.com/blog/microservices-databases-migrations/
 - https://www.postgresql.org/docs/current/rules-materializedviews.html
-- https://www.theserverside.com/answer/Your-near-zero-downtime-microservices-migration-pattern
 - https://www.oreilly.com/library/view/microservices-antipatterns-and/9781492042716/ch01.html
 - https://habr.com/ru/companies/ozontech/articles/708274/
 - https://highload.ru/spb/2022/abstracts/9317
