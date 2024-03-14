@@ -26,6 +26,7 @@ The **crontab**, short from cron table, is a file which contains the schedule of
 | `*/5 * * * *` | Every 5 minutes                             |
 | `0 * * * *`   | At minute 0                                 |
 | `0 1 * * *`   | Every day at 01:00 AM                       |
+| `0 0 */2 * *` | Every 2 days at 12:00 AM                    |
 | `* 5 * * *`   | Every minute, between 05:00 AM and 05:59 AM |
 | `0 */2 * * *` | Every 2 hours at the begging of the hour    |
 | `* * 5 * *`   | Every minute, on day 5 of the month         |

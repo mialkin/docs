@@ -24,6 +24,7 @@
   - [Key repeating](#key-repeating)
   - [Run application](#run-application)
   - [Copy text to clipboard](#copy-text-to-clipboard)
+  - [User scripts folder](#user-scripts-folder)
 
 ## Applications
 
@@ -179,4 +180,22 @@ open -a "Microsoft Remote Desktop"
 
 ```sh
 cat example.txt \| pbcopy
+```
+
+## User scripts folder
+
+```bash
+ll /usr/local/bin
+```
+
+Check if folder is in `PATH` environment variable:
+
+```bash
+echo "$PATH" | tr ':' '\n'
+```
+
+Add path if it's not there:
+
+```bash
+echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.zshrc
 ```
