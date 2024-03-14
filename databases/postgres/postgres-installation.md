@@ -4,25 +4,28 @@
 
 - [PostgreSQL installation, `pg_dump`](#postgresql-installation-pg_dump)
   - [Table of contents](#table-of-contents)
-  - [macOS](#macos)
-    - [Running](#running)
-    - [Connecting first time](#connecting-first-time)
-  - [Ubuntu](#ubuntu)
-    - [Access locally installed Postgres from Kubernetes pods](#access-locally-installed-postgres-from-kubernetes-pods)
-  - [Docker run](#docker-run)
+  - [Installation](#installation)
+    - [macOS](#macos)
+      - [Running](#running)
+      - [Connecting first time](#connecting-first-time)
+    - [Ubuntu](#ubuntu)
+      - [Access locally installed Postgres from Kubernetes pods](#access-locally-installed-postgres-from-kubernetes-pods)
+    - [Docker run](#docker-run)
     - [Restore database from backup](#restore-database-from-backup)
-  - [docker-compose](#docker-compose)
-  - [Kubernetes](#kubernetes)
+    - [docker-compose](#docker-compose)
+    - [Kubernetes](#kubernetes)
   - [`pg_dump`](#pg_dump)
   - [`pg_restore`](#pg_restore)
 
-## macOS
+## Installation
+
+### macOS
 
 ```bash
 brew install postgresql@16
 ```
 
-### Running
+#### Running
 
 ```bash
 # If you need to have postgresql@16 first in your PATH, run:
@@ -35,7 +38,7 @@ brew services start postgresql@16
 LC_ALL="C" /usr/local/opt/postgresql@16/bin/postgres -D /usr/local/var/postgresql@16
 ```
 
-### Connecting first time
+#### Connecting first time
 
 ```bash
 psql postgres
@@ -49,7 +52,7 @@ createuser -s postgres
 
 Restart PostgreSQL.
 
-## Ubuntu
+### Ubuntu
 
 ```bash
 sudo apt install postgresql postgresql-contrib
@@ -96,7 +99,7 @@ ALTER USER dictionary PASSWORD 'dictionary';
 \q
 ```
 
-### Access locally installed Postgres from Kubernetes pods
+#### Access locally installed Postgres from Kubernetes pods
 
 Enable the DNS and host-access addons:
 
@@ -145,7 +148,7 @@ Try to connect to database:
 psql postgresql://dictionary@10.0.1.1:5432/dictionary?sslmode=disable
 ```
 
-## Docker run
+### Docker run
 
 Starting a postgresql instance. The default `postgres` user and database are created in the entrypoint with [↑ initdb](https://www.postgresql.org/docs/13/app-initdb.html):
 
@@ -160,7 +163,7 @@ docker exec -it postgres psql -U postgres
 docker exec -i CONTAINER_NAME pg_restore -U USERNAME -v -d database_name < /Users/j.doe/Downloads/name.backup
 ```
 
-## docker-compose
+### docker-compose
 
 ```yaml
 version: "3.8"
@@ -181,7 +184,7 @@ services:
             - 8080:8080
 ```
 
-## Kubernetes
+### Kubernetes
 
 Install Postgres with [↑ Bitmani helm chart](https://bitnami.com/stack/postgresql/helm):
 
