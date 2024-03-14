@@ -47,6 +47,38 @@ The **crontab**, short from cron table, is a file which contains the schedule of
 | crontab -u user2 -l | Show crontab for user2      |
 | sudo crontab -l     | Show crontab for root       |
 
+## Add cron job
+
+```bash
+cd /usr/local/bin
+touch my_script.sh
+chmod 744 my_script.sh 
+vim my_script.sh
+```
+
+`my_script.sh` file:
+
+```bash
+#!/bin/bash
+
+current_date_time="`date "+%Y-%m-%d %H:%M:%S"`";
+echo $current_date_time >> /Users/user/Downloads/echo.txt;
+```
+
+```bash
+crontab -e
+```
+
+Add this line to opened editor, save and close:
+
+```text
+* * * * * /usr/local/bin/my_script;
+```
+
+```bash
+crontab -l
+```
+
 ## Logs
 
 To watch `cron`'s logs run:
