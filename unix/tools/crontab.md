@@ -2,15 +2,9 @@
 
 The **cron** is a daemon to execute scheduled commands.
 
-The **crontab** (CRON TABle) is a file which contains the schedule of cron entries to be run and at specified times. File location varies by operating systems
+The **crontab**, short from cron table, is a file which contains the schedule of cron entries to be run and at specified times. File location varies by operating systems.
 
-Command | Description
--|-
-crontab -l | Display the current crontab
-crontab -r | Remove the current crontab
-crontab -e | Edit the current crontab
-crontab -u user2 -l | Show crontab for user2
-sudo crontab -l | Show crontab for root
+## Semantics
 
 <pre>
 # ┌───────────── minute (0 - 59)
@@ -23,6 +17,18 @@ sudo crontab -l | Show crontab for root
 # │ │ │ │ │
 # * * * * * command to execute
 </pre>
+
+## Commands
+
+| Command             | Description                 |
+| ------------------- | --------------------------- |
+| crontab -l          | Display the current crontab |
+| crontab -e          | Edit the current crontab    |
+| crontab -r          | Remove the current crontab  |
+| crontab -u user2 -l | Show crontab for user2      |
+| sudo crontab -l     | Show crontab for root       |
+
+## Logs
 
 To watch `cron`'s logs run:
 
