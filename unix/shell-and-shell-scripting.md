@@ -25,7 +25,7 @@
     - [Functions](#functions)
     - [Pass arguments to script](#pass-arguments-to-script)
     - [Debug](#debug)
-    - [macOS terminal](#macos-terminal)
+    - [Open terminal in macOS](#open-terminal-in-macos)
     - [Links](#links)
 
 ## Shell
@@ -400,7 +400,7 @@ set -x
 set +x
 ```
 
-### macOS terminal
+### Open terminal in macOS
 
 Open terminal and run commands:
 
