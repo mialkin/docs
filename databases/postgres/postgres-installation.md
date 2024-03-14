@@ -1,8 +1,8 @@
-# PostgreSQL installation
+# PostgreSQL installation, `pg_dump`
 
 ## Table of contents
 
-- [PostgreSQL installation](#postgresql-installation)
+- [PostgreSQL installation, `pg_dump`](#postgresql-installation-pg_dump)
   - [Table of contents](#table-of-contents)
   - [macOS](#macos)
     - [Running](#running)
@@ -13,6 +13,8 @@
     - [Restore database from backup](#restore-database-from-backup)
   - [docker-compose](#docker-compose)
   - [Kubernetes](#kubernetes)
+  - [`pg_dump`](#pg_dump)
+  - [`pg_restore`](#pg_restore)
 
 ## macOS
 
@@ -191,4 +193,33 @@ To get information needed to connect to database run:
 
 ```bash
 helm status postgres
+```
+
+## `pg_dump`
+
+```bash
+pg_dump \
+--host=localhost \
+--port=MY_PORT \
+--dbname=MY_DATABASE \
+--username=MY_USERNAME \
+> MY_DATABASE.sql
+```
+
+```bash
+PGPASSWORD="MY_PASSWORD" pg_dump \
+-Fc \
+--host=localhost \
+--port=MY_PORT \
+--dbname=MY_DATABASE \
+--username=MY_USERNAME \
+> MY_DATABASE.dump
+```
+
+## `pg_restore`
+
+```bash
+pg_restore \
+--dbname=MY_DATABASE \
+MY_DATABASE.dump
 ```
