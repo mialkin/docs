@@ -1,8 +1,8 @@
-# PostgreSQL installation, `pg_dump`
+# PostgreSQL installation, `pg_dump`, `pg_restore`
 
 ## Table of contents
 
-- [PostgreSQL installation, `pg_dump`](#postgresql-installation-pg_dump)
+- [PostgreSQL installation, `pg_dump`, `pg_restore`](#postgresql-installation-pg_dump-pg_restore)
   - [Table of contents](#table-of-contents)
   - [Installation](#installation)
     - [macOS](#macos)
@@ -11,7 +11,6 @@
     - [Ubuntu](#ubuntu)
       - [Access locally installed Postgres from Kubernetes pods](#access-locally-installed-postgres-from-kubernetes-pods)
     - [Docker run](#docker-run)
-    - [Restore database from backup](#restore-database-from-backup)
     - [docker-compose](#docker-compose)
     - [Kubernetes](#kubernetes)
   - [`pg_dump`](#pg_dump)
@@ -153,14 +152,13 @@ psql postgresql://dictionary@10.0.1.1:5432/dictionary?sslmode=disable
 Starting a postgresql instance. The default `postgres` user and database are created in the entrypoint with [↑ initdb](https://www.postgresql.org/docs/13/app-initdb.html):
 
 ```bash
-docker run --name postgres -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:5432 postgres
+docker run \
+--name postgres \
+-e POSTGRES_PASSWORD=mysecretpassword \
+-d \
+-p 5432:5432 postgres
+
 docker exec -it postgres psql -U postgres
-```
-
-### Restore database from backup
-
-```bash
-docker exec -i CONTAINER_NAME pg_restore -U USERNAME -v -d database_name < /Users/j.doe/Downloads/name.backup
 ```
 
 ### docker-compose
@@ -225,4 +223,12 @@ PGPASSWORD="MY_PASSWORD" pg_dump \
 pg_restore \
 --dbname=MY_DATABASE \
 MY_DATABASE.dump
+```
+
+```bash
+docker exec \
+--interactive CONTAINER_NAME pg_restore \
+--username=MY_USERNAME \
+--verbose \
+--dbname=MY_DATABASE < /Users/username/Downloads/MY_DATABASE.dump
 ```
