@@ -25,11 +25,13 @@ The **crontab**, short from cron table, is a file which contains the schedule of
 | `* * * * *`   | Every minute                                |
 | `*/5 * * * *` | Every 5 minutes                             |
 | `0 * * * *`   | At minute 0                                 |
-| `5 5 * * *`   | At 05:05 AM                                 |
+| `0 1 * * *`   | Every day at 01:00 AM                       |
 | `* 5 * * *`   | Every minute, between 05:00 AM and 05:59 AM |
 | `* * 5 * *`   | Every minute, on day 5 of the month         |
 | `* * * 5 *`   | Every minute, only in May                   |
 | `* * * 5 1`   | Every minute, only on Monday, only in May   |
+| `0 0 * * 1`   | Every Monday at 12:00 AM                    |
+| `0 0 1 * *`   | Every first day of the month at 12:00 AM    |
 
 [↑ Why does cron only offer minute granularity?](https://superuser.com/questions/620807/why-does-cron-only-offer-minute-granularity).
 
