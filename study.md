@@ -303,6 +303,8 @@ for (var i = 0; i < 5; i++) {
   - [↑ Eager, Lazy and Explicit Loading with Entity Framework Core](https://blog.jetbrains.com/dotnet/2023/09/21/eager-lazy-and-explicit-loading-with-entity-framework-core/)
   - Implement one-to-one, one-to-many, many-to-many in <https://github.com/mialkin/postgres>
 - [↑ `SearchValues<T>`](https://www.youtube.com/watch?v=IzDMg916t98)
+- [↑ Tutorial: Write your first analyzer and code fix](https://learn.microsoft.com/en-us/dotnet/csharp/roslyn-sdk/tutorials/how-to-write-csharp-analyzer-code-fix)
+  - [↑ Menees.Analyzers](https://github.com/menees/Analyzers/tree/master)
 
 ## ASP.NET
 
