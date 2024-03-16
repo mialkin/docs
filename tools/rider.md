@@ -30,4 +30,6 @@
 
 ## Settings
 
-Check [↑ Enable external source debug](https://youtrack.jetbrains.com/issue/RIDER-33772/Debugger-does-not-stop-at-breakpoints-set-in-decompiled-code-of-external-library).
+[↑ Enable external source debug](https://youtrack.jetbrains.com/issue/RIDER-33772/Debugger-does-not-stop-at-breakpoints-set-in-decompiled-code-of-external-library).
+
+[↑ Inline hint](https://www.jetbrains.com/help/rider/Inlay_Hints.html).
