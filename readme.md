@@ -132,6 +132,7 @@
 - [Mission critical, business critical, business operational, office productivity](design/mission-critical-business-critical.md)
 - [↑ Premature generalization](https://wiki.c2.com/?PrematureGeneralization)
 - [Principle of least astonishment](design/principle-of-least-astonishment.md)
+- [Repository, unit of work](design/repository-unit-of-work.md)
 - Software design patterns
   - [Dependency injection](design/design-patterns/dependency-injection.md)
   - [GoF book patterns](design/design-patterns/design-patterns.md)
