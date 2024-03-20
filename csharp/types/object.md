@@ -57,7 +57,7 @@ The [↑ `GetType`](https://learn.microsoft.com/en-us/dotnet/api/system.object.g
 
 ### `MemberwiseClone`
 
-Creates a shallow copy of the current `object`.
+The [↑ `MemberwiseClone`](https://learn.microsoft.com/en-us/dotnet/api/system.object.memberwiseclone) method creates a shallow copy of the current `object`.
 
 ```csharp
 protected object MemberwiseClone ();
