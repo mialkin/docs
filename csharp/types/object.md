@@ -6,7 +6,7 @@ In C# type system all types, predefined and user-defined, reference types and va
 
 An **object** is a block of memory that has been allocated and configured according to the definition of its type.
 
-An object is an instance of a class.
+An **object** is an instance of a class.
 
 ## Table of contents
 
@@ -25,34 +25,39 @@ An object is an instance of a class.
 
 ### `Equals`
 
-Determines whether two object instances are equal.
-
-[↑ Object.Equals Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.equals).
+The [↑ `Equals`](https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-object-equals) method determines whether two object instances are equal.
 
 [↑ C# difference between `==` and `Equals()`](https://stackoverflow.com/questions/814878/c-sharp-difference-between-and-equals).
 
 ### `Finalize`
 
-[↑ Object.Finalize Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.finalize).
+The [↑ `Finalize`](https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-object-finalize) method allows an object to try to free resources and perform other cleanup operations before it is reclaimed by garbage collection.
 
 ### `GetHashCode`
 
-`GetHashCode` is intended to serve as a hash function for the object. Based on the contents of the object, the hash function will return a suitable value with a relatively random distribution over the various inputs.
+The [↑ `GetHashCode`](https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-object-gethashcode) method provides a hash code for algorithms that need quick checks of object equality.
 
-The default implementation returns the sync block index for instance of an object.
-Calling it on the same object multiple times will return the same value, so
-it will technically meet the needs of a hash function, but it's less than ideal.
-Objects (& especially value classes) should override this method.
+```csharp
+public virtual int GetHashCode() => RuntimeHelpers.GetHashCode(this);
+```
 
-[↑ Object.GetHashCode Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode).
+A hash code is a numeric value that is used to insert and identify an object in a hash-based collection, such as the `Dictionary<TKey,TValue>` class, the `Hashtable` class, or a type derived from the [↑ `DictionaryBase`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.dictionarybase) class.
+
+Two objects that are equal return hash codes that are equal. However, the reverse is not true: equal hash codes do not imply object equality, because different (unequal) objects can have identical hash codes.
+
+If you override the `GetHashCode` method, you should also override `Equals`, and vice versa. If your overridden `Equals` method returns `true` when two objects are tested for equality, your overridden `GetHashCode` method must return the same value for the two objects.
+
+The `GetHashCode` method can be overridden by a derived type. If `GetHashCode` is not overridden, hash codes for reference types are computed by calling the`Object.GetHashCode` method of the base class, which computes a hash code based on an object's reference. In other words, two objects for which the [`ReferenceEquals`](#referenceequals) method returns true have identical hash codes.
+
+If value types do not override `GetHashCode`, the [↑ `ValueType.GetHashCode`](https://learn.microsoft.com/en-us/dotnet/api/system.valuetype.gethashcode) method of the base class uses reflection to compute the hash code based on the values of the type's fields. In other words, value types whose fields have equal values have equal hash codes.
 
 ### `GetType`
 
-[↑ Object.GetType Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.gettype).
+The [↑ `GetType`](https://learn.microsoft.com/en-us/dotnet/api/system.object.gettype) method gets the [↑ type declaration](https://learn.microsoft.com/en-us/dotnet/api/system.type) of the current instance.
 
 ### `MemberwiseClone`
 
-Creates a shallow copy of the current `Object`.
+Creates a shallow copy of the current `object`.
 
 ```csharp
 protected object MemberwiseClone ();
@@ -114,48 +119,18 @@ class C
 
 ### `ReferenceEquals`
 
-Determines whether the specified `Object` instances are the same instance.
+The [↑ `ReferenceEquals`](https://learn.microsoft.com/en-us/dotnet/api/system.object.referenceequals) method determines whether the specified `object` instances are the same instance.
 
 ```csharp
-public static bool ReferenceEquals (object objA, object objB);
+public static bool ReferenceEquals(object? objA, object? objB) => objA == objB;
 ```
 
-Returns `true` if `objA` is the same instance as `objB` or if both are `null`; otherwise, `false`:
-
-```csharp
-using System.Runtime.CompilerServices;
-
-namespace System
-{
-    public partial class Object
-    {
-        public static bool ReferenceEquals(object? objA, object? objB)
-        {
-            return objA == objB;
-        }
-    }
-}
-```
-
-Unlike the `Equals` method and the equality operator, the `ReferenceEquals` method cannot be overridden. Because of this, if you want to test two object references for equality and you are unsure about the implementation of the `Equals` method, you can call the `ReferenceEquals` method.
-
-[↑ Object.ReferenceEquals(Object, Object) Method](https://docs.microsoft.com/en-us/dotnet/api/system.object.referenceequals).
+Unlike the [`Equals`](#equals) method and the equality operator, the `ReferenceEquals` method cannot be overridden. Because of this, if you want to test two object references for equality and you are unsure about the implementation of the `Equals` method, you can call the `ReferenceEquals` method.
 
 ### `ToString`
 
-Returns a string that represents the current object.
+The [↑ `ToString`](https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-object-tostring) method returns a string that represents the current object.
 
 ```csharp
-namespace System
-{
-    public partial class Object
-    {
-        // Returns a String which represents the object instance.  The default
-        // for an object is to return the fully qualified name of the class.
-        public virtual string? ToString()
-        {
-            return GetType().ToString();
-        }
-    }
-}
+public virtual string? ToString() => this.GetType().ToString();
 ```

@@ -2,6 +2,8 @@
 
 When two objects are equal they _must_ return the same hash code, but reverse is not necessary: two object may return the same hash code, but they can be not equal.
 
+ For more information about overriding GetHashCode, see the [↑ "Notes to Inheritors"](https://learn.microsoft.com/en-us/dotnet/api/system.object.gethashcode#notes-to-inheritors) section.
+
 ## Table of contents
 
 - [Override `GetHashCode` when `Equals` is overridden](#override-gethashcode-when-equals-is-overridden)
