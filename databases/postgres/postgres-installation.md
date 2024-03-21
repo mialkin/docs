@@ -5,18 +5,40 @@
 - [PostgreSQL installation, `pg_dump`, `pg_restore`](#postgresql-installation-pg_dump-pg_restore)
   - [Table of contents](#table-of-contents)
   - [Installation](#installation)
+    - [`docker-compose.yml` file](#docker-composeyml-file)
     - [macOS](#macos)
       - [Running](#running)
       - [Connecting first time](#connecting-first-time)
     - [Ubuntu](#ubuntu)
       - [Access locally installed Postgres from Kubernetes pods](#access-locally-installed-postgres-from-kubernetes-pods)
     - [Docker run](#docker-run)
-    - [docker-compose](#docker-compose)
     - [Kubernetes](#kubernetes)
   - [`pg_dump`](#pg_dump)
   - [`pg_restore`](#pg_restore)
 
 ## Installation
+
+### `docker-compose.yml` file
+
+```yaml
+version: "3.8"
+
+services:
+  database:
+    image: postgres:16.2
+    container_name: postgres
+    restart: unless-stopped
+    ports:
+      - "8420:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+```
+
+```bash
+docker exec -it postgres psql -U postgres
+```
 
 ### macOS
 
@@ -159,27 +181,6 @@ docker run \
 -p 5432:5432 postgres
 
 docker exec -it postgres psql -U postgres
-```
-
-### docker-compose
-
-```yaml
-version: "3.8"
-services:
-    db:
-        image: postgres:16.1
-        container_name: postgres
-        restart: unless-stopped
-        ports:
-            - 5432:5432
-        environment:
-            POSTGRES_PASSWORD: mysecretpassword
-
-    adminer:
-        image: adminer
-        restart: unless-stopped
-        ports:
-            - 8080:8080
 ```
 
 ### Kubernetes

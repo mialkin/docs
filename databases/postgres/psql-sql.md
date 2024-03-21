@@ -5,7 +5,6 @@
 - [psql, SQL](#psql-sql)
   - [Table of contents](#table-of-contents)
   - [psql](#psql)
-    - [Docker](#docker)
     - [Meta-commands](#meta-commands)
   - [SQL](#sql)
     - [Create database](#create-database)
@@ -15,12 +14,6 @@
 ## psql
 
 [↑ psql](https://postgrespro.ru/docs/postgresql/16/app-psql?lang=en) is a terminal-based front-end to PostgreSQL. It enables you to type in queries interactively, issue them to PostgreSQL, and see the query results.
-
-### Docker
-
-```bash
-docker exec -it postgres psql -U postgres
-```
 
 ### Meta-commands
 
