@@ -11,7 +11,6 @@
       - [Connecting first time](#connecting-first-time)
     - [Ubuntu](#ubuntu)
       - [Access locally installed Postgres from Kubernetes pods](#access-locally-installed-postgres-from-kubernetes-pods)
-    - [Docker run](#docker-run)
     - [Kubernetes](#kubernetes)
   - [`pg_dump`](#pg_dump)
   - [`pg_restore`](#pg_restore)
@@ -34,6 +33,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
+    volumes:
+      - ./volumes/postgres:/var/lib/postgresql/data
 ```
 
 ```bash
@@ -167,20 +168,6 @@ Try to connect to database:
 
 ```bash
 psql postgresql://dictionary@10.0.1.1:5432/dictionary?sslmode=disable
-```
-
-### Docker run
-
-Starting a postgresql instance. The default `postgres` user and database are created in the entrypoint with [↑ initdb](https://www.postgresql.org/docs/13/app-initdb.html):
-
-```bash
-docker run \
---name postgres \
--e POSTGRES_PASSWORD=mysecretpassword \
--d \
--p 5432:5432 postgres
-
-docker exec -it postgres psql -U postgres
 ```
 
 ### Kubernetes
