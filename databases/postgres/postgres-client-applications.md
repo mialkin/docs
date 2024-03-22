@@ -1,55 +1,95 @@
-# psql, SQL
+# PostgreSQL client applications
+
+[↑ PostgreSQL client applications](https://postgrespro.ru/docs/postgresql/16/reference-client?lang=en).
 
 ## Table of contents
 
-- [psql, SQL](#psql-sql)
+- [PostgreSQL client applications](#postgresql-client-applications)
   - [Table of contents](#table-of-contents)
-  - [psql](#psql)
+  - [`psql`](#psql)
     - [Meta-commands](#meta-commands)
-  - [SQL](#sql)
-    - [Create database](#create-database)
-    - [Shortcuts](#shortcuts)
-  - [JSON](#json)
+  - [`pg_dump`](#pg_dump)
+  - [`dropdb`](#dropdb)
+  - [`pg_restore`](#pg_restore)
 
-## psql
+## `psql`
 
-[↑ psql](https://postgrespro.ru/docs/postgresql/16/app-psql?lang=en) is a terminal-based front-end to PostgreSQL. It enables you to type in queries interactively, issue them to PostgreSQL, and see the query results.
+[↑ `psql`](https://postgrespro.ru/docs/postgresql/16/app-psql?lang=en) is a terminal-based front-end to PostgreSQL.
 
 ### Meta-commands
 
-Anything you enter in psql that begins with an unquoted backslash is a psql **meta-command** that is processed by psql itself. These commands make psql more useful for administration or scripting. Meta-commands are often called **slash** or **backslash commands**.
+Anything you enter in `psql` that begins with an unquoted backslash is a `psql` _meta-command_ that is processed by `psql` itself.
 
-| Meta-command     | Description                             |
-| ---------------- | --------------------------------------- |
-| \\?              | Show available commands                 |
-| \c               | Show current database name              |
-| \c DATABASE_NAME | Switch connection to the database       |
-| \d TABLE_NAME    | Describe table                          |
-| \dn              | List schemas                            |
-| \dt              | List all tables in the current database |
-| \l               | List all databases                      |
-| \q               | Quit psql                               |
+Meta-commands are often called _slash commands_ or _backslash commands_.
 
-## SQL
+| Meta-command       | Description                                           |
+| ------------------ | ----------------------------------------------------- |
+| `\\?`              | Show available commands                               |
+| `\c`               | Show current database name                            |
+| `\c DATABASE_NAME` | Switch connection to the database                     |
+| `\d TABLE_NAME`    | Describe table                                        |
+| `\dn`              | List schemas                                          |
+| `\dt`              | List all tables in the current database               |
+| `\l`               | List all databases                                    |
+| `\q`               | Quit psql                                             |
+| `\! clear`         | As an alternative use `Ctrl + L` or `\! cls` commands |
 
-### Create database
+## `pg_dump`
 
-When you get a connection to PostgreSQL it is always to a particular database. To access a different database, you must get a new connection.
+Dump a database called `MY_DATABASE` into an SQL-script file:
 
-Using `\c` in psql closes the old connection and acquires a new one, using the specified database and/or credentials. You get a whole new back-end process and everything.
-
-```sql
-create database DATABASE_NAME;
-select current_database(); -- Display current database name
-drop database if exists DATABASE_NAME; -- if exists is optional
+```bash
+PGPASSWORD="MY_PASSWORD" pg_dump \
+--host=localhost \
+--port=MY_PORT \
+--username=MY_USERNAME \
+--verbose \
+MY_DATABASE \
+> MY_DATABASE.sql
 ```
 
-### Shortcuts
+Dump a database into a custom-format archive file:
 
-| Shortcut | Description                                                         |
-| -------- | ------------------------------------------------------------------- |
-| Ctrl + L | Clear screen. As an alternative use `\! clear` or `\! cls` commands |
+```bash
+PGPASSWORD="MY_PASSWORD" pg_dump \
+-Fc \
+--host=localhost \
+--port=MY_PORT \
+--username=MY_USERNAME \
+--verbose \
+MY_DATABASE \
+> MY_DATABASE.dump
+```
 
-## JSON
+[↑ `pg_dump`](https://postgrespro.ru/docs/postgresql/16/app-pgdump?lang=en).
 
-[↑ Querying JSON columns](https://www.npgsql.org/efcore/mapping/json.html#querying-json-columns)
+## `dropdb`
+
+```bash
+docker exec \
+--interactive CONTAINER_NAME \
+dropdb \
+--username=MY_USERNAME \
+MY_DATABASE
+```
+
+[↑ `dropdb`](https://postgrespro.ru/docs/postgresql/16/app-dropdb?lang=en).
+
+## `pg_restore`
+
+```bash
+pg_restore \
+--dbname=MY_DATABASE \
+MY_DATABASE.dump
+```
+
+```bash
+docker exec \
+--interactive CONTAINER_NAME \
+pg_restore \
+--username=MY_USERNAME \
+--verbose \
+--dbname=MY_DATABASE < /Users/username/Downloads/MY_DATABASE.dump
+```
+
+[↑ `pg_restore`](https://postgrespro.ru/docs/postgresql/16/app-pgrestore?lang=en).

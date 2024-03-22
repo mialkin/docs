@@ -1,8 +1,8 @@
-# PostgreSQL installation, client applications
+# PostgreSQL
 
 ## Table of contents
 
-- [PostgreSQL installation, client applications](#postgresql-installation-client-applications)
+- [PostgreSQL](#postgresql)
   - [Table of contents](#table-of-contents)
   - [Installation](#installation)
     - [`docker-compose.yml` file](#docker-composeyml-file)
@@ -12,10 +12,6 @@
     - [Ubuntu](#ubuntu)
       - [Access locally installed Postgres from Kubernetes pods](#access-locally-installed-postgres-from-kubernetes-pods)
     - [Kubernetes](#kubernetes)
-  - [Client applications](#client-applications)
-    - [`pg_dump`](#pg_dump)
-    - [`dropdb`](#dropdb)
-    - [`pg_restore`](#pg_restore)
 
 ## Installation
 
@@ -185,67 +181,3 @@ To get information needed to connect to database run:
 ```bash
 helm status postgres
 ```
-
-## Client applications
-
-[↑ PostgreSQL client applications](https://postgrespro.ru/docs/postgresql/16/reference-client?lang=en).
-
-### `pg_dump`
-
-Dump a database called `MY_DATABASE` into an SQL-script file:
-
-```bash
-PGPASSWORD="MY_PASSWORD" pg_dump \
---host=localhost \
---port=MY_PORT \
---username=MY_USERNAME \
---verbose \
-MY_DATABASE \
-> MY_DATABASE.sql
-```
-
-Dump a database into a custom-format archive file:
-
-```bash
-PGPASSWORD="MY_PASSWORD" pg_dump \
--Fc \
---host=localhost \
---port=MY_PORT \
---username=MY_USERNAME \
---verbose \
-MY_DATABASE \
-> MY_DATABASE.dump
-```
-
-[↑ `pg_dump`](https://postgrespro.ru/docs/postgresql/16/app-pgdump?lang=en).
-
-### `dropdb`
-
-```bash
-docker exec \
---interactive CONTAINER_NAME \
-dropdb \
---username=MY_USERNAME \
-MY_DATABASE
-```
-
-[↑ `dropdb`](https://postgrespro.ru/docs/postgresql/16/app-dropdb?lang=en).
-
-### `pg_restore`
-
-```bash
-pg_restore \
---dbname=MY_DATABASE \
-MY_DATABASE.dump
-```
-
-```bash
-docker exec \
---interactive CONTAINER_NAME \
-pg_restore \
---username=MY_USERNAME \
---verbose \
---dbname=MY_DATABASE < /Users/username/Downloads/MY_DATABASE.dump
-```
-
-[↑ `pg_restore`](https://postgrespro.ru/docs/postgresql/16/app-pgrestore?lang=en).
