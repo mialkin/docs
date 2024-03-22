@@ -103,7 +103,7 @@
 - [Optimistic vs pessimistic concurrency](databases/optimistic-vs-pessimistic-concurrency.md)
 - [PL/SQL](databases/oracle/plsql.md)
 - [PostgreSQL](databases/postgres/postgres.md)
-  - [PostgreSQL installation, `pg_dump`, `pg_restore`](databases/postgres/postgres-installation.md)
+  - [PostgreSQL installation, client applications](databases/postgres/postgres-installation.md)
   - [psql, SQL](databases/postgres/psql-sql.md)
   - [PostgreSQL isolation levels](databases/postgres/postgres-isolation-levels.md)
 - [Replication, sharding, partitioning](databases/replication-sharding-partitioning.md)
