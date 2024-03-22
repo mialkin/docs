@@ -5,7 +5,7 @@
 - [PostgreSQL](#postgresql)
   - [Table of contents](#table-of-contents)
   - [Installation](#installation)
-    - [`docker-compose.yml` file](#docker-composeyml-file)
+    - [Docker](#docker)
     - [macOS](#macos)
       - [Running](#running)
       - [Connecting first time](#connecting-first-time)
@@ -15,7 +15,9 @@
 
 ## Installation
 
-### `docker-compose.yml` file
+### Docker
+
+`docker-compose.yml` file:
 
 ```yaml
 version: "3.8"
