@@ -1,4 +1,4 @@
-# PostgreSQL
+# PostgreSQL data organization
 
 [↑ PostgreSQL](https://www.postgresql.org/about/) is a program that belongs to the class of database management systems.
 
@@ -6,22 +6,19 @@ When this program is running, we call it a **PostgreSQL server**, or **instance*
 
 ## Table of contents
 
-- [PostgreSQL](#postgresql)
+- [PostgreSQL data organization](#postgresql-data-organization)
   - [Table of contents](#table-of-contents)
-  - [Data organization](#data-organization)
-    - [Databases](#databases)
-    - [System catalog](#system-catalog)
-      - [`oid`](#oid)
-    - [Schemas](#schemas)
-    - [Tablespaces](#tablespaces)
-    - [Relations](#relations)
-    - [Files and forks](#files-and-forks)
-    - [Pages](#pages)
-    - [TOAST](#toast)
+  - [Databases](#databases)
+  - [System catalog](#system-catalog)
+    - [`oid`](#oid)
+  - [Schemas](#schemas)
+  - [Tablespaces](#tablespaces)
+  - [Relations](#relations)
+  - [Files and forks](#files-and-forks)
+  - [Pages](#pages)
+  - [TOAST](#toast)
 
-## Data organization
-
-### Databases
+## Databases
 
 Data managed by PostgreSQL is stored in databases. A single PostgreSQL instance can serve several databases at a time; together they are called a **database cluster**.
 
@@ -48,7 +45,7 @@ database with a different encoding; it must never be modified.
 
 **postgres** is a regular database that you can use at your discretion.
 
-### System catalog
+## System catalog
 
 Metadata of all cluster objects (such as tables, indexes, data types, or functions) is stored in tables that belong to the **system catalog**.
 
@@ -58,7 +55,7 @@ Names of all system catalog tables begin with `pg_`, like in `pg_database`. Colu
 
 [↑ system catalog](https://postgrespro.ru/docs/postgresql/15/catalogs?lang=en).
 
-#### `oid`
+### `oid`
 
 In all system catalog tables, the column declared as the primary key is called `oid` (object identifier); its type, which is also called `oid`, is a 32-bit integer.
 
@@ -66,7 +63,7 @@ In all system catalog tables, the column declared as the primary key is called `
 >
 > [↑ `GetNewOidWithIndex` function](https://git.postgresql.org/gitweb/?p=postgresql.git;a=blob;f=src/backend/catalog/catalog.c;hb=REL_16_STABLE).
 
-### Schemas
+## Schemas
 
 **Schemas** are namespaces that store all objects of a database.
 
@@ -92,7 +89,7 @@ SHOW search_path;
 
 [↑ schemas](https://postgrespro.ru/docs/postgresql/15/ddl-schemas?lang=en).
 
-### Tablespaces
+## Tablespaces
 
 Unlike databases and schemas, which determine logical distribution of objects, **tablespaces** define physical data layout. A tablespace is virtually a directory in a file system. You can distribute your data between tablespaces in such a way that archive data is stored on slow disks, while the data that is being actively updated goes to fast disks.
 
@@ -112,7 +109,7 @@ The illustration below puts together [databases](#databases), [schemas](#schemas
 
 <img src="images/0-tablespaces.png" width="600" alt="tablespaces" />
 
-### Relations
+## Relations
 
 For all of their differences, _tables_ and _indexes_ — the most important database objects — have one thing in common: they consist of rows. This point is quite self-evident when we think of tables, but it is equally true for B-tree nodes, which contain indexed values and references to other nodes or table rows.
 
@@ -122,7 +119,7 @@ In PostgreSQL, all these objects are referred to by the generic term **relation*
 
 The system catalog table for relations was originally called `pg_relation`, but following the object orientation trend, it was soon renamed to `pg_class`, which we are now used to. Its columns still have the `REL` prefix though.
 
-### Files and forks
+## Files and forks
 
 All information associated with a relation is stored in several different **forks**, each containing data of a particular type.
 
@@ -156,7 +153,7 @@ The **visibility map** can quickly show whether a page needs to be vacuumed or f
 
 [↑ Visibility Map](https://postgrespro.ru/docs/postgresql/16/storage-vm?lang=en).
 
-### Pages
+## Pages
 
 To facilitate I/O, all files are logically split into **pages** (or **blocks**), which represent the minimum amount of data that can be read or written. Consequently, many internal PostgreSQL algorithms are tuned for page processing.
 
@@ -164,7 +161,7 @@ The page size is usually 8 KB. It can be configured to some extent (up to 32 KB)
 
 Regardless of the fork they belong to, all the files are handled by the server in roughly the same way. Pages are first moved to the buffer cache (where they can be read and updated by processes) and then flushed back to disk as required.
 
-### TOAST
+## TOAST
 
 Each row must fit a single page: there is no way to continue a row on the next page. To store long rows, PostgreSQL uses a special mechanism called **TOAST** (The Oversized Attributes Storage Technique).
 
