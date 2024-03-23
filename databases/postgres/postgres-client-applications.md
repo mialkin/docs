@@ -10,6 +10,7 @@
     - [Meta-commands](#meta-commands)
   - [`pg_dump`](#pg_dump)
   - [`dropdb`](#dropdb)
+  - [`createdb`](#createdb)
   - [`pg_restore`](#pg_restore)
 
 ## `psql`
@@ -75,21 +76,30 @@ MY_DATABASE
 
 [↑ `dropdb`](https://postgrespro.ru/docs/postgresql/16/app-dropdb?lang=en).
 
-## `pg_restore`
+## `createdb`
 
 ```bash
-pg_restore \
---dbname=MY_DATABASE \
-MY_DATABASE.dump
+docker exec \
+--interactive CONTAINER_NAME \
+createdb \
+--username=MY_USERNAME \
+MY_DATABASE
 ```
+
+[↑ `createdb`](https://postgrespro.ru/docs/postgresql/16/app-createdb?lang=en).
+
+## `pg_restore`
+
+Restore dump into fresh database, created in advance with [`createdb`](#createdb):
 
 ```bash
 docker exec \
 --interactive CONTAINER_NAME \
 pg_restore \
 --username=MY_USERNAME \
+--dbname=MY_DATABASE \
 --verbose \
---dbname=MY_DATABASE < /Users/username/Downloads/MY_DATABASE.dump
+< MY_DATABASE.dump
 ```
 
 [↑ `pg_restore`](https://postgrespro.ru/docs/postgresql/16/app-pgrestore?lang=en).
