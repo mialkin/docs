@@ -40,9 +40,10 @@ Meta-commands are often called _slash commands_ or _backslash commands_.
 Dump a database called `MY_DATABASE` into an SQL-script file:
 
 ```bash
-PGPASSWORD="MY_PASSWORD" pg_dump \
+PGPASSWORD="MY_PASSWORD" \
+pg_dump \
 --host=localhost \
---port=MY_PORT \
+--port=1234 \
 --username=MY_USERNAME \
 --verbose \
 MY_DATABASE \
@@ -52,10 +53,11 @@ MY_DATABASE \
 Dump a database into a custom-format archive file:
 
 ```bash
-PGPASSWORD="MY_PASSWORD" pg_dump \
+PGPASSWORD="MY_PASSWORD" \
+pg_dump \
 -Fc \
 --host=localhost \
---port=MY_PORT \
+--port=1234 \
 --username=MY_USERNAME \
 --verbose \
 MY_DATABASE \
@@ -66,9 +68,21 @@ MY_DATABASE \
 
 ## `dropdb`
 
+Regular:
+
 ```bash
-docker exec \
---interactive CONTAINER_NAME \
+PGPASSWORD="MY_PASSWORD" \
+dropdb \
+--host=localhost \
+--port=1234 \
+--username=MY_USERNAME \
+MY_DATABASE
+```
+
+Inside Docker:
+
+```bash
+docker exec --interactive --tty CONTAINER_NAME \
 dropdb \
 --username=MY_USERNAME \
 MY_DATABASE
@@ -78,9 +92,21 @@ MY_DATABASE
 
 ## `createdb`
 
+Regular:
+
 ```bash
-docker exec \
---interactive CONTAINER_NAME \
+PGPASSWORD="MY_PASSWORD" \
+createdb \
+--host=localhost \
+--port=1234 \
+--username=MY_USERNAME \
+MY_DATABASE
+```
+
+Inside Docker:
+
+```bash
+docker exec --interactive --tty CONTAINER_NAME \
 createdb \
 --username=MY_USERNAME \
 MY_DATABASE
@@ -90,11 +116,25 @@ MY_DATABASE
 
 ## `pg_restore`
 
-Restore dump into fresh database, created in advance with [`createdb`](#createdb):
+Restore dump to database, beforehand deleted with [`dropdb`](#dropdb) and recreated with [`createdb`](#createdb).
+
+Regular:
 
 ```bash
-docker exec \
---interactive CONTAINER_NAME \
+PGPASSWORD="MY_PASSWORD" \
+pg_restore \
+--host=localhost \
+--port=1234 \
+--username=MY_USERNAME \
+--dbname=MY_DATABASE \
+--verbose \
+< MY_DATABASE.dump
+```
+
+Inside Docker:
+
+```bash
+docker exec --interactive --tty CONTAINER_NAME \
 pg_restore \
 --username=MY_USERNAME \
 --dbname=MY_DATABASE \
