@@ -29,9 +29,9 @@
 ## Aliases
 
 ```bash
-echo "alias ll='ls -la'" >> ~/.zshrc
-echo "alias cls='clear'" >> ~/.zshrc
-echo "alias python='python3'" >> ~/.zshrc
+echo "alias ll='ls -la'" >> ~/.zshrc && \
+echo "alias cls='clear'" >> ~/.zshrc && \
+echo "alias python='python3'" >> ~/.zshrc && \
 echo "alias dotwatch='dotnet watch --no-hot-reload'" >> ~/.zshrc
 ```
 
