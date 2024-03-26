@@ -1,6 +1,7 @@
 # macOS
 
 - [macOS](#macos)
+  - [Aliases](#aliases)
   - [Applications](#applications)
     - [Finder](#finder)
     - [Fluor](#fluor)
@@ -16,7 +17,6 @@
     - [SensibleSideButtons](#sensiblesidebuttons)
     - [Sublime Text](#sublime-text)
     - [Visual Studio Code](#visual-studio-code)
-  - [Terminal aliases](#terminal-aliases)
   - [TTL](#ttl)
   - [Flush DNS cache](#flush-dns-cache)
   - [Install developers' applications](#install-developers-applications)
@@ -26,13 +26,22 @@
   - [Copy text to clipboard](#copy-text-to-clipboard)
   - [User scripts folder](#user-scripts-folder)
 
+## Aliases
+
+```bash
+echo "alias ll='ls -la'" >> ~/.zshrc
+echo "alias cls='clear'" >> ~/.zshrc
+echo "alias python='python3'" >> ~/.zshrc
+echo "alias dotwatch='dotnet watch --no-hot-reload'" >> ~/.zshrc
+```
+
 ## Applications
 
 ### Finder
 
 Always show hidden files in Finder:
 
-```zsh
+```bash
 defaults write com.apple.Finder AppleShowAllFiles true
 killall Finder
 ```
@@ -120,17 +129,6 @@ echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PA
 
 [↑ Install `code` command in PATH](https://stackoverflow.com/questions/29955500/code-is-not-working-in-on-the-command-line-for-visual-studio-code-on-os-x-ma).
 
-## Terminal aliases
-
-Set up aliases in `~/.zshrc` file:
-
-```zsh
-alias ll='ls -la'
-alias cls='clear'
-alias python='python3'
-alias dotwatch='dotnet watch --no-hot-reload'
-```
-
 ## TTL
 
 ```bash
@@ -140,7 +138,7 @@ sudo sysctl -w net.inet.ip.ttl=65   # Set value to 65
 
 ## Flush DNS cache
 
-```zsh
+```bash
 sudo killall -HUP mDNSResponder
 ```
 
@@ -160,7 +158,7 @@ curl ifconfig.me
 
 Enable key repeating:
 
-```zsh
+```bash
 defaults write -g ApplePressAndHoldEnabled -bool false
 ```
 

@@ -20,6 +20,7 @@
 ## Set up aliases
 
 ```bash
+echo "alias ll='ls -la'" >> ~/.bashrc
 echo "alias cls='clear'" >> ~/.bashrc
 ```
 
