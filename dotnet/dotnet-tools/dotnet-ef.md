@@ -12,7 +12,7 @@
 
 ## Installation
 
-```zsh
+```bash
 dotnet tool install dotnet-ef --global
 ```
 

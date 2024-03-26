@@ -102,13 +102,13 @@ brew install kubectl
 
 Installation:
 
-```zsh
+```bash
 brew install k9s
 ```
 
 Update:
 
-```zsh
+```bash
 brew upgrade k9s
 ```
 
