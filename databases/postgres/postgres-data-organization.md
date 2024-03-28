@@ -27,13 +27,21 @@ To be able to use the cluster, you must first _initialize_ (create) it. The dire
 ```sql
 SHOW data_directory;
 --- or
-SELECT setting FROM pg_settings WHERE name = 'data_directory';
+SELECT setting
+FROM pg_settings
+WHERE name = 'data_directory';
 ```
 
 For Postgres 16, installed on macOS with `brew install postgresql@16`, `PGDATA` directory is:
 
 ```text
 /usr/local/var/postgresql@16
+```
+
+For PostgreSQL image based on Debian, the directory is:
+
+```text
+/var/lib/postgresql/data
 ```
 
 After cluster initialization, `PGDATA` contains three identical databases:
@@ -57,7 +65,7 @@ Names of all system catalog tables begin with `pg_`, like in `pg_database`. Colu
 
 ### `oid`
 
-In all system catalog tables, the column declared as the primary key is called `oid` (object identifier); its type, which is also called `oid`, is a 32-bit integer.
+In all [system catalog](#system-catalog) tables, the column declared as the primary key is called `oid` (object identifier); its type, which is also called `oid`, is a 32-bit integer.
 
 > The implementation of `oid` object identifiers is virtually the same as that of sequences, but it appeared in PostgreSQL much earlier. What makes it special is that the generated unique IDs issued by a common counter are used in different tables of the system catalog. When an assigned ID exceeds the maximum value, the counter is reset. To ensure that all values in a particular table are unique, the next issued `oid` is checked by the unique index; if it is already used in this table, the counter is incremented, and the check is repeated.
 >
