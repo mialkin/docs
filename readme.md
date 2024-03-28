@@ -106,6 +106,7 @@
   - [Client applications](databases/postgres/postgres-client-applications.md)
   - [Isolation levels](databases/postgres/postgres-isolation-levels.md)
   - [Data organization](databases/postgres/postgres-data-organization.md)
+  - [Types of indexes](databases/postgres/types-of-indexes.md)
 - [Replication, sharding, partitioning](databases/replication-sharding-partitioning.md)
 - [Query optimization and execution plans](databases/query-optimization-and-execution-plans.md)
 - [SQL Server](databases/sqlserver/sqlserver.md)
