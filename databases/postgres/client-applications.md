@@ -30,8 +30,9 @@ Meta-commands are often called _slash commands_ or _backslash commands_.
 | `\c DATABASE_NAME` | Switch connection to the database                     |
 | `\d TABLE_NAME`    | Describe table                                        |
 | `\dn`              | List schemas                                          |
-| `\dt`              | List all tables in the current database               |
-| `\l`               | List all databases                                    |
+| `\dt` or `\dt+`    | List all tables in the current database               |
+| `\du`              | List roles                                            |
+| `\l` or `l+`       | List all databases                                    |
 | `\q`               | Quit psql                                             |
 | `\! clear`         | As an alternative use `Ctrl + L` or `\! cls` commands |
 
