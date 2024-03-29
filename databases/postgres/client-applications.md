@@ -8,6 +8,7 @@
   - [Table of contents](#table-of-contents)
   - [`psql`](#psql)
     - [Meta-commands](#meta-commands)
+    - [Create role](#create-role)
   - [`pg_dump`](#pg_dump)
   - [`dropdb`](#dropdb)
   - [`createdb`](#createdb)
@@ -35,6 +36,15 @@ Meta-commands are often called _slash commands_ or _backslash commands_.
 | `\l` or `l+`       | List all databases                                    |
 | `\q`               | Quit psql                                             |
 | `\! clear`         | As an alternative use `Ctrl + L` or `\! cls` commands |
+
+### Create role
+
+[↑ `CREATE ROLE`](https://postgrespro.ru/docs/postgresql/16/sql-createrole?lang=en).
+
+```sql
+SELECT * FROM pg_user;
+SELECT * FROM pg_roles;
+```
 
 ## `pg_dump`
 

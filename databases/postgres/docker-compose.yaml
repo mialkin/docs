@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16.1
+    container_name: internals
+    environment:
+      POSTGRES_DB: internals
+      POSTGRES_USER: internals
+      POSTGRES_PASSWORD: internals
+    ports:
+      - 3040:5432
+    volumes:
+      - ./volumes/postgres:/var/lib/postgresql/data
