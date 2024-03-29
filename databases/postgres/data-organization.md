@@ -119,17 +119,19 @@ The illustration below puts together [databases](#databases), [schemas](#schemas
 
 ## Relations
 
-For all of their differences, _tables_ and _indexes_ — the most important database objects — have one thing in common: they consist of rows. This point is quite self-evident when we think of tables, but it is equally true for B-tree nodes, which contain indexed values and references to other nodes or table rows.
+For all of their differences, _tables_ and _indexes_ — the most important database objects — have one thing in common: they consist of rows. This point is quite self-evident when we think of tables, but it is equally true for [B-tree](types-of-indexes.md#b-tree) nodes, which contain indexed values and references to other nodes or table rows.
 
 Some other objects also have the same structure; for example, **sequences** (virtually one-row tables) and **materialized views** (which can be thought of as tables that "remember" the corresponding queries). Besides, there are regular **views**, which do not store any data but otherwise are very similar to tables.
 
 In PostgreSQL, all these objects are referred to by the generic term **relation**.
 
+In my opinion, it is not a happy term because it confuses database tables with "genuine" relations defined in the relational theory. Here we can feel the academic legacy of the project and the inclination of its founder, Michael Stonebraker, to see everything as a relation. In one of his works, he even introduced the concept of an “ordered relation” to denote a table in which the order of rows is defined by an index.
+
 The system catalog table for relations was originally called `pg_relation`, but following the object orientation trend, it was soon renamed to `pg_class`, which we are now used to. Its columns still have the `REL` prefix though.
 
 ## Files and forks
 
-All information associated with a relation is stored in several different **forks**, each containing data of a particular type.
+All information associated with a [relation](#relations) is stored in several different **forks**, each containing data of a particular type.
 
 At first, a fork is represented by a single file. Its filename consists of a numeric ID (`oid`), which can be extended by a suffix that corresponds to the fork's type.
 
@@ -148,6 +150,8 @@ Each [tablespace](#tablespaces) directory (except for `pg_global`) contains sepa
 There are several standard types of forks.
 
 The **main fork** represents actual data: table rows or index rows. This fork is available for any relations (except for views, which contain no data).
+
+Files of the main fork are named by their numeric IDs, which are stored as `relfilenode` values in the `pg_class` table.
 
 The **initialization fork** is available only for unlogged tables (created with the `UNLOGGED` clause) and their indexes. Such objects are the same as regular ones, except that any actions performed on them are not written into the write-ahead log. It makes these operations considerably faster, but you will not be able to restore consistent data in case of a failure. Therefore, PostgreSQL simply deletes all forks of such objects during recovery and overwrites the main fork with the initialization fork, thus creating a dummy file.
 
