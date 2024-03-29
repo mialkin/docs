@@ -20,7 +20,7 @@
 `docker-compose.yml` file:
 
 ```yaml
-version: "3.8"
+version: "3.9"
 
 services:
   database:

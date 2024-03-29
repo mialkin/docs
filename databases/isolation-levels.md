@@ -125,7 +125,7 @@ Save this as `mysql-docker-compose.yml` file:
 
 ```yaml
 # Use root/example as user/password credentials
-version: "3.1"
+version: "3.9"
 
 services:
   mysql:
