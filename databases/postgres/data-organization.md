@@ -153,11 +153,32 @@ The **main fork** represents actual data: table rows or index rows. This fork is
 
 Files of the main fork are named by their numeric IDs, which are stored as `relfilenode` values in the `pg_class` table.
 
+Let's take a look at the path to a file that belongs to a table created in the `pg_default` tablespace inside test database with name `internals`:
+
+```sql
+CREATE UNLOGGED TABLE t
+(
+    a integer,
+    b numeric,
+    c text,
+    d json
+);
+
+INSERT INTO t
+VALUES (1, 2.0, 'foo', '{}');
+
+SELECT pg_relation_filepath('t');
+
+-- base/16384/16394
+```
+
+The base directory corresponds to the `pg_default` tablespace, the next subdirectory is used for the database, and it is here that we find the file we are looking for:
+
 The **initialization fork** is available only for unlogged tables (created with the `UNLOGGED` clause) and their indexes. Such objects are the same as regular ones, except that any actions performed on them are not written into the write-ahead log. It makes these operations considerably faster, but you will not be able to restore consistent data in case of a failure. Therefore, PostgreSQL simply deletes all forks of such objects during recovery and overwrites the main fork with the initialization fork, thus creating a dummy file.
 
 [↑The Initialization Fork](https://postgrespro.ru/docs/postgresql/16/storage-init?lang=en).
 
-The **free space map** keeps track of available space within pages. Its volume changes all the time, growing after vacuuming and getting smaller when new row versions appear. The free space map is used to quickly find a page that can accommodate new data being inserted.
+The **free space map** keeps track of available space within [pages](#pages). Its volume changes all the time, growing after vacuuming and getting smaller when new row versions appear. The free space map is used to quickly find a page that can accommodate new data being inserted.
 
 [↑ Free Space Map](https://postgrespro.ru/docs/postgresql/16/storage-fsm?lang=en).
 
