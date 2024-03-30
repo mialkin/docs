@@ -7,3 +7,5 @@ In programming languages, a **closure**, also **lexical closure** or **function 
 <https://medium.com/swlh/the-magic-of-c-closures-9c6e3fff6ff9>
 
 <https://www.linkedin.com/pulse/c-interview-questions-you-might-get-what-closure-artem-naruzhnii/>
+
+<https://chat.openai.com/c/3cec0a36-f0b4-424a-9c8c-709b19a84be4>
