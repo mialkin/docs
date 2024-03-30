@@ -9,3 +9,5 @@ In programming languages, a **closure**, also **lexical closure** or **function 
 <https://www.linkedin.com/pulse/c-interview-questions-you-might-get-what-closure-artem-naruzhnii/>
 
 <https://chat.openai.com/c/3cec0a36-f0b4-424a-9c8c-709b19a84be4>
+
+[↑ How do closures work behind the scenes? (C#)](https://stackoverflow.com/questions/1928636/how-do-closures-work-behind-the-scenes-c).
