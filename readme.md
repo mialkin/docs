@@ -307,6 +307,7 @@
 ## C&#35;
 
 - [Attribute](csharp/attribute.md)
+- [Closure](csharp/closure.md)
 - [Concurrency](csharp/concurrency/concurrency.md)
   - [Asynchronous programming](csharp/concurrency/asynchronous-programming.md)
     - [Asynchronous patterns](csharp/concurrency/asynchronous/asynchronous-patterns.md)
