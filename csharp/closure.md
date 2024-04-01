@@ -2,7 +2,25 @@
 
 A **closure** is a *first-class function* that captures *free variables* from its surrounding environment.
 
-A **first class function** is a function which programming language treats as a first class data type. It means that you can assign a function to a variable, pass it around, and invoke it. In C# we can create a first class function using anonymous methods:
+A **first-class function** is a function which programming language treats as a first-class data type. It means that you can assign a function to a variable, pass it around, and invoke it.
+
+In C# we can create a first-class function using anonymous delegate:
+
+```csharp
+var addFive = delegate(int input)
+{
+    return input + 5;
+};
+```
+
+or using lambda expression:
+
+```csharp
+Func<int, int> addFive = input =>
+{
+    return input + 5;
+};
+```
 
 A **free variable** is a variable referenced in a function which is not a parameter of the function or a local variable of the function. It might look like this:
 
