@@ -1,6 +1,19 @@
 # Closure
 
-In programming languages, a **closure**, also **lexical closure** or **function closure**, is a technique for implementing lexically scoped name binding in a language with first-class functions. Operationally, a closure is a record storing a function together with an environment. The environment is a mapping associating each free variable of the function (variables that are used locally, but defined in an enclosing scope) with the value or reference to which the name was bound when the closure was created. Unlike a plain function, a closure allows the function to access those captured variables through the closure's copies of their values or references, even when the function is invoked outside their scope.
+A **closure** is a *first-class function* that captures *free variables* from its surrounding environment.
+
+A **first class function** is a function which programming language treats as a first class data type. It means that you can assign a function to a variable, pass it around, and invoke it. In C# we can create a first class function using anonymous methods:
+
+A **free variable** is a variable referenced in a function which is not a parameter of the function or a local variable of the function. It might look like this:
+
+```csharp
+var five = 5;
+
+Func<int, int> addFive = input =>
+{
+    return input + five;
+};
+```
 
 <https://www.simplethread.com/c-closures-explained/>
 
