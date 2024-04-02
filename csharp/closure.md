@@ -40,15 +40,15 @@ Func<int, int> addFive = input =>
 3\) local function:
 
 ```csharp
-var hello = SayHello();
+var addFive = AddFive();
 
-Action<string> SayHello()
+Func<int, int> AddFive()
 {
     return Local;
 
-    void Local(string name)
+    int Local(int input)
     {
-        Console.WriteLine($"Hello, {name}!");
+        return input + 5;
     }
 }
 ```
