@@ -19,29 +19,43 @@ Operationally, a closure is a record storing a function together with an environ
 1\)
 
 ```csharp
-var addFiveAndIncrement = AddFiveAndIncrement();
+int five = 5;
 
-Console.WriteLine(addFiveAndIncrement(10));
-Console.WriteLine(addFiveAndIncrement(10));
-Console.WriteLine(addFiveAndIncrement(10));
-
-Func<int, int> AddFiveAndIncrement()
+var action = () =>
 {
-    var delta = 5;
+    Console.WriteLine(five++);
+};
 
-    int Local(int input)
-    {
-        delta++;
-        return input + delta;
-    }
-    
-    return Local;
-}
+action();
+action();
 
 // Output:
-// 16
-// 17
-// 18
+// 5
+// 6
+```
+
+[Lowered](/csharp/lowering.md) version of what C# compiler [↑ generates](https://sharplab.io/#v2:EYLgtghglgdgNAExAagD4AEBMBGAsAKAPQGYACLUgYVIG8DSHyz0AWUgWQAoBKW+xgbAAupAGZQAbgFNSAXlIBWANwF+AhhIgAnUhADGQqAHsYc0jzkA+Nerr51D8tgCcncdOTJuK+44C+PjYC+oYmPD6OugbGMOE2fgR+QA) behind the scene:
+
+```csharp
+[CompilerGenerated]
+private sealed class <>c__DisplayClass0_0
+{
+    public int five;
+
+    internal void <M>b__0()
+    {
+        Console.WriteLine(five++);
+    }
+}
+
+public void M()
+{
+    <>c__DisplayClass0_0 <>c__DisplayClass0_ = new <>c__DisplayClass0_0();
+    <>c__DisplayClass0_.five = 5;
+    Action action = new Action(<>c__DisplayClass0_.<M>b__0);
+    action();
+    action();
+}
 ```
 
 2\)
@@ -153,6 +167,5 @@ Func<int, int> addFive = input =>
 
 <https://www.linkedin.com/pulse/c-interview-questions-you-might-get-what-closure-artem-naruzhnii/>
 
-<https://chat.openai.com/c/3cec0a36-f0b4-424a-9c8c-709b19a84be4>
 
 [↑ How do closures work behind the scenes? (C#)](https://stackoverflow.com/questions/1928636/how-do-closures-work-behind-the-scenes-c).

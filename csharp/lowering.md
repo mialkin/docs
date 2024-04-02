@@ -15,6 +15,7 @@ A **lowering** is a transformation, done by compiler, of high-level language fea
     - [`i++ + ++i`](#i--i)
     - [`yield return`](#yield-return)
     - [`lock`](#lock)
+    - [Closures](#closures)
   - [Links](#links)
 
 ## Examples
@@ -296,12 +297,16 @@ finally
 }
 ```
 
+### Closures
+
+See [Closure](/csharp/closure.md).
+
 ## Links
+
+[↑ https://sharplab.io — a .NET code playground](https://sharplab.io).
 
 [↑ C# Lowering](https://steven-giesel.com/blogPost/69dc05d1-9c8a-4002-9d0a-faf4d2375bce).
 
 [↑ Lowering in the C# Compiler (and what happens when you misuse it)](https://mattwarren.org/2017/05/25/Lowering-in-the-C-Compiler/).
 
 [↑ Lowering in C# and the ability to predict code performance](https://www.youtube.com/watch?v=3oGBMGDRXVw).
-
-[↑ https://sharplab.io — a .NET code playground](https://sharplab.io).
