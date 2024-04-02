@@ -1,4 +1,4 @@
-# When to use a thread-safe collection
+# Thread-safe collections
 
 The following sections provide general guidance about when to use a thread-safe collection versus its non-thread-safe equivalent that has a user-provided lock around its read and write operations. Because performance may vary depending on many factors, the guidance is not specific and is not necessarily valid in all circumstances. If performance is very important, then the best way to determine which collection type to use is to measure performance based on representative computer configurations and loads. This document uses the following terms:
 
@@ -10,7 +10,7 @@ The following sections provide general guidance about when to use a thread-safe 
 
 ## Table of contents
 
-- [When to use a thread-safe collection](#when-to-use-a-thread-safe-collection)
+- [Thread-safe collections](#thread-safe-collections)
   - [Table of contents](#table-of-contents)
   - [`ConcurrentQueue<T>` vs `Queue<T>`](#concurrentqueuet-vs-queuet)
   - [`ConcurrentStack<T>` vs `Stack<T>`](#concurrentstackt-vs-stackt)
