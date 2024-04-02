@@ -2,14 +2,12 @@
 
 A **closure** is a [first-class function](#first-class-function) that captures [free variables](#free-variable) from its surrounding scope.
 
-Operationally, a closure is a record storing a function together with an environment : a mapping associating each free variable of the function (variables that are used locally, but defined in an enclosing scope) with the value or storage location to which the name was bound when the closure was created. A closure — unlike a plain function — allows the function to access those captured variables through the closure's reference to them, even when the function is invoked outside their scope.
-
 ## Table of contents
 
 - [Closure](#closure)
   - [Table of contents](#table-of-contents)
   - [Examples](#examples)
-  - [How does it work?](#how-does-it-work)
+  - [Closures and memory allocation](#closures-and-memory-allocation)
   - [First-class function](#first-class-function)
   - [Free variable](#free-variable)
   - [Links](#links)
@@ -23,39 +21,8 @@ int five = 5;
 
 var action = () =>
 {
-    Console.WriteLine(five++);
+    Console.WriteLine(five);
 };
-
-action();
-action();
-
-// Output:
-// 5
-// 6
-```
-
-[Lowered](/csharp/lowering.md) version of what C# compiler [↑ generates](https://sharplab.io/#v2:EYLgtghglgdgNAExAagD4AEBMBGAsAKAPQGYACLUgYVIG8DSHyz0AWUgWQAoBKW+xgbAAupAGZQAbgFNSAXlIBWANwF+AhhIgAnUhADGQqAHsYc0jzkA+Nerr51D8tgCcncdOTJuK+44C+PjYC+oYmPD6OugbGMOE2fgR+QA) behind the scene:
-
-```csharp
-[CompilerGenerated]
-private sealed class <>c__DisplayClass0_0
-{
-    public int five;
-
-    internal void <M>b__0()
-    {
-        Console.WriteLine(five++);
-    }
-}
-
-public void M()
-{
-    <>c__DisplayClass0_0 <>c__DisplayClass0_ = new <>c__DisplayClass0_0();
-    <>c__DisplayClass0_.five = 5;
-    Action action = new Action(<>c__DisplayClass0_.<M>b__0);
-    action();
-    action();
-}
 ```
 
 2\)
@@ -100,11 +67,55 @@ foreach (var action in actions)
 // 0 1 2 3 4 5 6 7 8 9 
 ```
 
-## How does it work?
+## Closures and memory allocation
 
-C# compiler detects when a delegate forms a closure which is passed out of the current scope and it promotes the delegate, and the associated local variables into a compiler generated class. 
+Operationally, a closure is a record storing a function together with an environment.
 
-This way, it simply needs a bit of compiler trickery to pass around an instance of the compiler generated class, so each time we invoke the delegate we are actually calling the method on this class. Once we are no longer holding a reference to this delegate, the class can be garbage collected and it all works exactly as it is supposed to!
+Let's say we have this code:
+
+```csharp
+int five = 5;
+
+var action = () =>
+{
+    Console.WriteLine(five++);
+};
+
+action();
+action();
+
+// Output:
+// 5
+// 6
+```
+
+[Lowered](/csharp/lowering.md) version of C# code [↑ generated](https://sharplab.io/#v2:EYLgtghglgdgNAExAagD4AEBMBGAsAKAPQGYACLUgYVIG8DSHyz0AWUgWQAoBKW+xgbAAupAGZQAbgFNSAXlIBWANwF+AhhIgAnUhADGQqAHsYc0jzkA+Nerr51D8tgCcncdOTJuK+44C+PjYC+oYmPD6OugbGMOE2fgR+QA) by compiler :
+
+```csharp
+[CompilerGenerated]
+private sealed class <>c__DisplayClass0_0
+{
+    public int five;
+
+    internal void <M>b__0()
+    {
+        Console.WriteLine(five++);
+    }
+}
+
+public void M()
+{
+    <>c__DisplayClass0_0 <>c__DisplayClass0_ = new <>c__DisplayClass0_0();
+    <>c__DisplayClass0_.five = 5;
+    Action action = new Action(<>c__DisplayClass0_.<M>b__0);
+    action();
+    action();
+}
+```
+
+[↑ How do closures work behind the scenes? (C#)](https://stackoverflow.com/questions/1928636/how-do-closures-work-behind-the-scenes-c).
+
+[↑ C# Interview Questions You Might Get: "What are closures?"](https://www.linkedin.com/pulse/c-interview-questions-you-might-get-what-closure-artem-naruzhnii/).
 
 ## First-class function
 
@@ -164,8 +175,3 @@ Func<int, int> addFive = input =>
 [↑ A Simple Explanation of C# Closures](https://www.simplethread.com/c-closures-explained).
 
 [↑ The magic of C# Closures](https://medium.com/swlh/the-magic-of-c-closures-9c6e3fff6ff9).
-
-<https://www.linkedin.com/pulse/c-interview-questions-you-might-get-what-closure-artem-naruzhnii/>
-
-
-[↑ How do closures work behind the scenes? (C#)](https://stackoverflow.com/questions/1928636/how-do-closures-work-behind-the-scenes-c).
