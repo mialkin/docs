@@ -34,18 +34,18 @@ brew install helm
 
 ## Commands
 
-| Command                                      | Description                                                                      |
-| -------------------------------------------- | -------------------------------------------------------------------------------- |
-| helm delete RELEASE_NAME                     | Uninstall a release                                                              |
-| helm install RELEASE_NAME CHART_NAME         | Install a chart                                                                  |
-| helm list                                    | List releases                                                                    |
-| helm pull REPOSITORY_NAME/CHART_NAME         | Download a chart from a repository and (optionally) unpack it in local directory |
-| helm repo add REPOSITORY_NAME REPOSITORY_URL | Add chart repository                                                             |
-| helm repo list                               | List chart repositories                                                          |
-| helm repo remove REPOSITORY_NAME             | Remove repository                                                                |
-| helm repo update                             | Update information of available charts locally from chart repositories           |
-| helm show values REPOSITORY_NAME/CHART_NAME  | Display configurable options before installing chart                             |
-| helm status RELEASE_NAME                     | Display status of the release's stated, for example during installation          |
+| Command                                       | Description                                                                      |
+| --------------------------------------------- | -------------------------------------------------------------------------------- |
+| helm install RELEASE_NAME CHART_NAME          | Install a chart                                                                  |
+| helm list --all-namespaces                    | List releases                                                                    |
+| helm pull REPOSITORY_NAME/CHART_NAME          | Download a chart from a repository and (optionally) unpack it in local directory |
+| helm repo add REPOSITORY_NAME REPOSITORY_URL  | Add chart repository                                                             |
+| helm repo list                                | List chart repositories                                                          |
+| helm repo remove REPOSITORY_NAME              | Remove repository                                                                |
+| helm repo update                              | Update information of available charts locally from chart repositories           |
+| helm show values REPOSITORY_NAME/CHART_NAME   | Display configurable options before installing chart                             |
+| helm status RELEASE_NAME                      | Display status of the release's stated, for example during installation          |
+| helm uninstall RELEASE_NAME -n NAMESPACE_NAME | Uninstall a release                                                              |
 
 ## Creating chart
 
