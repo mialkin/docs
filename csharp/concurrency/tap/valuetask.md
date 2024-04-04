@@ -11,7 +11,7 @@ public ValueTask<int> MethodAsync()
 {
     if (CanBehaveSynchronously)
         return new ValueTask<int>(13);
-    
+
     return new ValueTask<int>(SlowMethodAsync());
 }
 
@@ -21,6 +21,14 @@ private Task<int> SlowMethodAsync();
 The non generic version of `ValueTask` is not recommended for most scenarios.
 
 Most of your methods should return `Task<TResult>`, since consuming `Task<TResult>` has fewer pitfalls than consuming `ValueTask<TResult>`.
+
+## Restrictions
+
+A `ValueTask` or `ValueTask<TResult>` may only be awaited once.
+
+Synchronously getting results from a `ValueTask` or `ValueTask<TResult>` may only be done once, after the `ValueTask` has completed, and that same cannot be awaited or converted to a task.
+
+When your code calls a method returning `ValueTask` or `ValueTask<TResult>`, it should either immediately `await` that `ValueTask` or immediately call `AsTask` to convert it to a `Task`. This simple guideline doesn't cover all the advanced scenarios, but most applications will never need to do more than that.
 
 ## Links
 
