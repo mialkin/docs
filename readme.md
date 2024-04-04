@@ -346,6 +346,7 @@
   - [↑ Which collection interface to use?](https://enterprisecraftsmanship.com/posts/which-collection-interface-to-use/)
 - Exceptions
   - [↑ Exceptions for flow control: why not?](https://enterprisecraftsmanship.com/posts/exceptions-for-flow-control/)
+- [Expression](csharp/expression.md)
 - [Expression tree](csharp/expression-tree.md)
 - [Extension methods](csharp/extension-methods.md)
   - [Extension methods guidelines](csharp/extension-methods-guidelines.md)
