@@ -345,7 +345,8 @@
     - [Downloading web pages](csharp/concurrency/exercises/downloading-pages.md)
 - Collections
   - [↑ Which collection interface to use?](https://enterprisecraftsmanship.com/posts/which-collection-interface-to-use/)
-- [↑ Exceptions for flow control in C#](https://enterprisecraftsmanship.com/posts/exceptions-for-flow-control/)
+- Exceptions
+  - [↑ Exceptions for flow control: why not?](https://enterprisecraftsmanship.com/posts/exceptions-for-flow-control/)
 - [Expression tree](csharp/expression-tree.md)
 - [Extension methods](csharp/extension-methods.md)
   - [Extension methods guidelines](csharp/extension-methods-guidelines.md)
