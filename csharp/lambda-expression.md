@@ -1,6 +1,6 @@
 # Lambda expression
 
-A **lambda expression**, or just **lambda** for short, is an anonymous function that contains an [expression](/csharp/expression.md) or a sequence of statements.
+A **lambda expression**, or just **lambda** for short, is an anonymous function that contains an [expression](/csharp/expression.md) or a sequence of [statements](/csharp/statement.md).
 
 A lambda expression with an expression on the right side of the => operator is called an expression lambda.
 
