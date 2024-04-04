@@ -2,6 +2,10 @@
 
 The `class` is a keyword that is used to declare *classes*.
 
-A **class** is a data structure that may contain data members (constants and fields), function members (methods, properties, events, indexers, operators, instance constructors, finalizers, and static constructors), and nested types.
+Class types support *inheritance* — mechanism whereby a derived class can extend and specialize a base class.
 
-Class types support inheritance. An **inheritance** is mechanism whereby a derived class can extend and specialize a base class.
+A **class** is a data structure that may contain:
+
+1) data members: constants and fields
+2) function members: methods, properties, events, indexers, operators, instance constructors, finalizers, and static constructors
+3) nested types.
