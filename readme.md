@@ -316,7 +316,6 @@
     - [Awaiting multiple tasks](csharp/concurrency/asynchronous/awaiting-multiple-tasks.md)
     - [Exceptions handling with `async` and `await`](csharp/concurrency/asynchronous/exceptions.md)
     - [Execution context](csharp/concurrency/asynchronous/execution-context.md)
-    - [Returning variable of `Task` type](csharp/concurrency/asynchronous/returning-task.md)
     - [`ThreadLocal<T>`](csharp/concurrency/asynchronous/threadlocal.md)
   - Asynchronous streams
     - [`IAsyncEnumerable<T>` interface](csharp/concurrency/iasyncenumerable.md)
