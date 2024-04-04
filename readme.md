@@ -371,6 +371,7 @@
   - [Dispose pattern](csharp/memory/dispose-pattern.md)
 - Operators
   - [Equality operator](csharp/operators/equality-operator.md)
+- [Statement](csharp/statement.md)
 - Types
   - [Value types](csharp/types/value-types/value-types.md)
     - [Boxing and unboxing](csharp/types/value-types/boxing-and-unboxing.md)
