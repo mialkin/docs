@@ -358,6 +358,7 @@
   - Contextual keywords
     - [`yield`](csharp/keywords/yield.md)
   - [`ref`, `out`, `in` parameter modifiers](csharp/keywords/ref-out-in.md)
+- [Lambda expression](csharp/lambda-expression.md)
 - [Literal](csharp/literal.md)
 - [Lowering in C#](csharp/lowering.md)
 - Selected classes
@@ -368,9 +369,8 @@
   - [`GC`](csharp/memory/gc.md)
   - [`WeakReference`](csharp/memory/weak-reference.md)
   - [Dispose pattern](csharp/memory/dispose-pattern.md)
-- Operators and expressions
+- Operators
   - [Equality operator](csharp/operators/equality-operator.md)
-  - [Lambda expressions](csharp/operators/lambda-expressions.md)
 - Types
   - [Value types](csharp/types/value-types/value-types.md)
     - [Boxing and unboxing](csharp/types/value-types/boxing-and-unboxing.md)

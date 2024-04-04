@@ -1,6 +1,14 @@
-# Lambda expressions
+# Lambda expression
 
-A **lambda expression**, or just **lambda** for short, is an expression of any of the following two forms:
+A **lambda expression**, or just **lambda** for short, is an anonymous function that contains an [expression](/csharp/expression.md) or a sequence of statements.
+
+A lambda expression with an expression on the right side of the => operator is called an expression lambda.
+
+It's often used to create delegates or expression tree types.
+
+Lambda expressions are particularly useful for writing LINQ query expressions.
+
+
 
 1\. _Expression lambda_ that has an expression as its body:
 
