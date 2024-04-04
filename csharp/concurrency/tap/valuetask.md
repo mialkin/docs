@@ -22,4 +22,8 @@ The non generic version of `ValueTask` is not recommended for most scenarios.
 
 Most of your methods should return `Task<TResult>`, since consuming `Task<TResult>` has fewer pitfalls than consuming `ValueTask<TResult>`.
 
+## Links
+
 [↑ `ValueTask<TResult>` structure](https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.valuetask-1).
+
+[↑ Understanding the Whys, Whats, and Whens of ValueTask](https://devblogs.microsoft.com/dotnet/understanding-the-whys-whats-and-whens-of-valuetask/).
