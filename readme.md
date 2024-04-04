@@ -319,7 +319,6 @@
     - [Reporting task's progress](csharp/concurrency/asynchronous/reporting-progress.md)
     - [Returning variable of `Task` type](csharp/concurrency/asynchronous/returning-task.md)
     - [`ThreadLocal<T>`](csharp/concurrency/asynchronous/threadlocal.md)
-    - [`ValueTask<T>`](csharp/concurrency/asynchronous/valuetask.md)
   - Asynchronous streams
     - [`IAsyncEnumerable<T>` interface](csharp/concurrency/iasyncenumerable.md)
   - [Parallel programming](csharp/concurrency/parallel-programming.md)
@@ -339,6 +338,8 @@
       - [`Barrier`](csharp/concurrency/synchronization-primitives/barrier.md)
       - [`CountdownEvent`](csharp/concurrency/synchronization-primitives/contdownevent.md)
       - [`EventWaitHandle`, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`](csharp/concurrency/synchronization-primitives/eventwaithandle.md)
+  - Task-based asynchronous pattern, TAP
+    - [`ValueTask<T>`](csharp/concurrency/tap/valuetask.md)
   - [Thread](csharp/concurrency/thread.md)
   - Exercises
     - [Downloading web pages](csharp/concurrency/exercises/downloading-pages.md)
