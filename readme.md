@@ -316,7 +316,6 @@
     - [Awaiting multiple tasks](csharp/concurrency/asynchronous/awaiting-multiple-tasks.md)
     - [Exceptions handling with `async` and `await`](csharp/concurrency/asynchronous/exceptions.md)
     - [Execution context](csharp/concurrency/asynchronous/execution-context.md)
-    - [Reporting task's progress](csharp/concurrency/asynchronous/reporting-progress.md)
     - [Returning variable of `Task` type](csharp/concurrency/asynchronous/returning-task.md)
     - [`ThreadLocal<T>`](csharp/concurrency/asynchronous/threadlocal.md)
   - Asynchronous streams
@@ -339,6 +338,7 @@
       - [`CountdownEvent`](csharp/concurrency/synchronization-primitives/contdownevent.md)
       - [`EventWaitHandle`, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`](csharp/concurrency/synchronization-primitives/eventwaithandle.md)
   - Task-based asynchronous pattern, TAP
+    - [Reporting progress](csharp/concurrency/tap/reporting-progress.md)
     - [`ValueTask`, `ValueTask<TResult>` structures](csharp/concurrency/tap/valuetask.md)
   - [Thread](csharp/concurrency/thread.md)
   - Exercises
