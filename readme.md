@@ -325,10 +325,8 @@
   - [Parallel programming](csharp/concurrency/parallel-programming.md)
   - [Dataflow programming](csharp/concurrency/dataflow-programming.md)
   - [Reactive programming](csharp/concurrency/reactive-programming.md)
-  - [Cancellation](csharp/concurrency/cancellation.md)
   - [Collections](csharp/concurrency/collections/collections.md)
     - [Thread-safe collections. `BlockingCollection<T>`, `ConcurrentBag<T>`, `ConcurrentDictionary<TKey,TValue>`, `ConcurrentQueue<T>`, `ConcurrentStack<T>`](csharp/concurrency/collections/thread-safe-collections.md)
-    - [↑ Which collection interface to use?](https://enterprisecraftsmanship.com/posts/which-collection-interface-to-use/)
   - [Synchronization](csharp/concurrency/synchronization.md)
   - Synchronization primitives
     - [`Interlocked`](csharp/concurrency/synchronization-primitives/interlocked.md)
@@ -344,6 +342,8 @@
   - [Threads and threading](csharp/concurrency/threads-and-threading.md)
   - Exercises
     - [Downloading web pages](csharp/concurrency/exercises/downloading-pages.md)
+- Collections
+  - [↑ Which collection interface to use?](https://enterprisecraftsmanship.com/posts/which-collection-interface-to-use/)
 - [↑ Exceptions for flow control in C#](https://enterprisecraftsmanship.com/posts/exceptions-for-flow-control/)
 - [Expression tree](csharp/expression-tree.md)
 - [Extension methods](csharp/extension-methods.md)
