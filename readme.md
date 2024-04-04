@@ -339,7 +339,7 @@
       - [`Barrier`](csharp/concurrency/synchronization-primitives/barrier.md)
       - [`CountdownEvent`](csharp/concurrency/synchronization-primitives/contdownevent.md)
       - [`EventWaitHandle`, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`](csharp/concurrency/synchronization-primitives/eventwaithandle.md)
-  - [Threads and threading](csharp/concurrency/threads-and-threading.md)
+  - [Thread](csharp/concurrency/thread.md)
   - Exercises
     - [Downloading web pages](csharp/concurrency/exercises/downloading-pages.md)
 - Collections
