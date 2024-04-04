@@ -339,7 +339,7 @@
       - [`CountdownEvent`](csharp/concurrency/synchronization-primitives/contdownevent.md)
       - [`EventWaitHandle`, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`](csharp/concurrency/synchronization-primitives/eventwaithandle.md)
   - Task-based asynchronous pattern, TAP
-    - [`ValueTask<T>`](csharp/concurrency/tap/valuetask.md)
+    - [`ValueTask`, `ValueTask<TResult>` structures](csharp/concurrency/tap/valuetask.md)
   - [Thread](csharp/concurrency/thread.md)
   - Exercises
     - [Downloading web pages](csharp/concurrency/exercises/downloading-pages.md)
