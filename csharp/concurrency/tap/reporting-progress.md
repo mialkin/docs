@@ -1,37 +1,28 @@
-# Reporting task's progress
+# Reporting progress
 
-Example:
+If you need to respond to progress while an operation is executing use the provided [↑ `IProgress<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.iprogress-1) and [↑ `Progress<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.progress-1) types.
+
+Your `async` method should take an `IProgress<T>` argument; the `T` is whatever type of progress you need to report:
 
 ```csharp
-public partial class MainWindow : Window
+var workProgress = new Progress<double>();
+workProgress.ProgressChanged += (sender, value) => Console.WriteLine($"Progress: {Math.Round(value, 2)}%");
+
+await DoWorkAsync(workProgress);
+
+async Task DoWorkAsync(IProgress<double>? progress = null)
 {
-    private async void Button_Click(object sender, RoutedEventArgs e)
+    for (int i = 0; i < 7; i++)
     {
-        var progress = new Progress<int>(x => MyProgressBar.Value = x);
+        await Task.Delay(500);
 
-        await Task.Run(() => DoWork(progress));
-    }
+        var completionPercentage = (double)(i + 1) / 7 * 100;
 
-    private async Task DoWork(IProgress<int> progress)
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            // Reporting using Dispatcher.Invoke
-            // Dispatcher.Invoke(() => MyLabel.Content = i * 10);
-
-            // Reporting using progress.Report
-            progress.Report(i * 10);
-
-            await Task.Delay(1000);
-        }
+        progress?.Report(completionPercentage);
     }
 }
 ```
 
-## More information
+By convention, the `IProgress<T>` parameter may be `null` if the caller doesn't need progress reports, so be sure to check for this in your `async` method.
 
-For more information, if needed, check out recipe "2.3 Reporting Progress" from "Concurrency in C#" by Steven Cleary.
-
-## Links
-
-[↑ IProgress\<T> Interface](https://docs.microsoft.com/en-us/dotnet/api/system.iprogress-1)
+`IProgress<T>` is not exclusively for asynchronous code; both progress and cancellation can (and should) be used in long-running synchronous code as well.
