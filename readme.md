@@ -312,7 +312,6 @@
   - [Asynchronous programming](csharp/concurrency/asynchronous-programming.md)
     - [Asynchronous patterns](csharp/concurrency/asynchronous/asynchronous-patterns.md)
     - [`Async`/`await` best practices](csharp/concurrency/asynchronous/async-await-best-practices.md)
-    - [Awaiting multiple tasks](csharp/concurrency/asynchronous/awaiting-multiple-tasks.md)
     - [Exceptions handling with `async` and `await`](csharp/concurrency/asynchronous/exceptions.md)
     - [Execution context](csharp/concurrency/asynchronous/execution-context.md)
     - [`ThreadLocal<T>`](csharp/concurrency/asynchronous/threadlocal.md)
