@@ -1,6 +1,6 @@
-# Lambda expression
+# Lambda expression, anonymous function
 
-A **lambda expression**, or just **lambda** for short, is an anonymous function that contains an [expression](/csharp/expression.md) or a sequence of [statements](/csharp/statement.md).
+A **lambda expression**, or just **lambda** for short, is an [anonymous function](#anonymous-function) that contains an [expression](/csharp/expression.md) or a sequence of [statements](/csharp/statement.md).
 
 The [↑ lambda declaration operator `=>`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-operator) is used to separate the lambda's parameter list from its body.
 
@@ -14,6 +14,24 @@ A **statement lambda** is a a lambda expression that has a [statement](/csharp/s
 
 ```csharp
 (input parameters) => { sequence of statements }
+```
+
+## Anonymous function
+
+An **anonymous function** is a function that is defined without a name.
+
+Anonymous function is typically used when you need to pass a small piece of logic as an argument to another function, such as in LINQ queries, event handling, or asynchronous programming. Anonymous functions are useful when you don't want to create a separate named method for a simple operation.
+
+The `delegate` operator creates an anonymous function that can be converted to a delegate type:
+
+```csharp
+Func<int, int, int> sum = delegate (int a, int b) { return a + b; }
+```
+
+Lambda expressions provide a more concise and expressive way to create an anonymous function:
+
+```csharp
+Func<int, int, int> sum = (a, b) => a + b;
 ```
 
 ## Usage

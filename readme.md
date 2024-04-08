@@ -356,7 +356,7 @@
   - Contextual keywords
     - [`yield`](csharp/keywords/yield.md)
   - [`ref`, `out`, `in` parameter modifiers](csharp/keywords/ref-out-in.md)
-- [Lambda expression](csharp/lambda-expression.md)
+- [Lambda expression, anonymous function](csharp/lambda-expression.md)
 - [Literal](csharp/literal.md)
 - [Lowering in C#](csharp/lowering.md)
 - Selected classes
