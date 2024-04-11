@@ -332,7 +332,7 @@
       - [`CountdownEvent`](csharp/concurrency/synchronization-primitives/contdownevent.md)
       - [`EventWaitHandle`, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`](csharp/concurrency/synchronization-primitives/eventwaithandle.md)
   - Task-based asynchronous pattern, TAP
-    - [Reporting progress](csharp/concurrency/tap/reporting-progress.md)
+    - Synchronization context
     - [`ValueTask`, `ValueTask<TResult>` structures](csharp/concurrency/tap/valuetask.md)
   - [Thread, thread pool](csharp/concurrency/thread.md)
   - Exercises
@@ -366,6 +366,7 @@
   - [Dispose pattern](csharp/memory/dispose-pattern.md)
 - Operators
   - [Equality operator](csharp/operators/equality-operator.md)
+- [Reporting progress](csharp/reporting-progress.md)
 - [Statement](csharp/statement.md)
 - Types
   - [Value types](csharp/types/value-types/value-types.md)
