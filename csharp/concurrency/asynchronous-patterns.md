@@ -1,5 +1,7 @@
 # Asynchronous patterns: TAP, APM, EAP, CPS
 
+[↑ Asynchronous programming patterns](https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/).
+
 ## Table of contents
 
 - [Asynchronous patterns: TAP, APM, EAP, CPS](#asynchronous-patterns-tap-apm-eap-cps)
@@ -10,7 +12,6 @@
   - [Continuation Passing Style (CPS)](#continuation-passing-style-cps)
   - [Custom async patterns](#custom-async-patterns)
   - [`ISynchronizeInvoke`](#isynchronizeinvoke)
-  - [More](#more)
 
 ## Task-Based Asynchronous Pattern (TAP)
 
@@ -179,7 +180,3 @@ class MyHttpClient
 ```
 
 Since `ISynchronizeInvoke` implies multiple events in a subscription model, the proper way to consume these components is to translate those events to an observable stream, either using `FromEvent` or `Observable.Create`.
-
-## More
-
-Take a look at Microsoft documentation: [↑ Asynchronous programming patterns](https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/), it has many interesting information covered.
