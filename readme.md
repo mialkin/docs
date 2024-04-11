@@ -318,7 +318,6 @@
   - Asynchronous streams
     - [`IAsyncEnumerable<T>` interface](csharp/concurrency/iasyncenumerable.md)
   - [Parallel programming](csharp/concurrency/parallel-programming.md)
-  - [Dataflow programming](csharp/concurrency/dataflow-programming.md)
   - [Reactive programming](csharp/concurrency/reactive-programming.md)
   - [Collections](csharp/concurrency/collections/collections.md)
     - [Thread-safe collections. `BlockingCollection<T>`, `ConcurrentBag<T>`, `ConcurrentDictionary<TKey,TValue>`, `ConcurrentQueue<T>`, `ConcurrentStack<T>`](csharp/concurrency/collections/thread-safe-collections.md)
