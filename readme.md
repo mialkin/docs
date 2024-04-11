@@ -313,12 +313,12 @@
     - [Asynchronous patterns](csharp/concurrency/asynchronous/asynchronous-patterns.md)
     - [`Async`/`await` best practices](csharp/concurrency/asynchronous/async-await-best-practices.md)
     - [Exceptions handling with `async` and `await`](csharp/concurrency/asynchronous/exceptions.md)
-    - [Execution context](csharp/concurrency/asynchronous/execution-context.md)
     - [`ThreadLocal<T>`](csharp/concurrency/asynchronous/threadlocal.md)
   - Asynchronous streams
     - [`IAsyncEnumerable<T>` interface](csharp/concurrency/iasyncenumerable.md)
   - [Collections](csharp/concurrency/collections/collections.md)
     - [Thread-safe collections. `BlockingCollection<T>`, `ConcurrentBag<T>`, `ConcurrentDictionary<TKey,TValue>`, `ConcurrentQueue<T>`, `ConcurrentStack<T>`](csharp/concurrency/collections/thread-safe-collections.md)
+  - [Execution context](csharp/concurrency/execution-context.md)
   - [Synchronization](csharp/concurrency/synchronization.md)
   - [Synchronization context](csharp/concurrency/synchronization-context.md)
   - Synchronization primitives
