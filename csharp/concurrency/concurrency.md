@@ -6,16 +6,11 @@
 
 - [Concurrency](#concurrency)
   - [Table of contents](#table-of-contents)
-  - [Kinds of concurrency](#kinds-of-concurrency)
   - [Concurrency vs parallelism](#concurrency-vs-parallelism)
-  - [Multithreaded programming](#multithreaded-programming)
+  - [Kinds of concurrency](#kinds-of-concurrency)
+    - [Asynchronous programming](#asynchronous-programming)
+      - [Synchronization context](#synchronization-context)
   - [References](#references)
-
-## Kinds of concurrency
-
-There are several kinds of concurrency: [asynchronous programming](asynchronous-programming.md), [parallel programming](parallel-programming.md), [reactive programming](reactive-programming.md), [dataflow programming](dataflow-programming.md)
-
-Usually, a mixture of techniques is used when writing a concurrent program. Most applications at least use multithreading, via the thread pool, and asynchronous programming.
 
 ## Concurrency vs parallelism
 
@@ -31,18 +26,46 @@ Concurrency is about structuring things, so that you can, *maybe*, use paralleli
 
 In order to make concurrency work, you have to add this idea of *communication*. Concurrency gives you a way to structure program into independent pieces, but then you have to coordinate those pieces. And to make that work you need some form of communication. Tony Hoare in 1978 wrote a paper called "Communicating sequential processes" which is truly one of the greatest papers in computer science.<sup>2</sup>
 
-## Multithreaded programming
+## Kinds of concurrency
 
-A *thread* is an independent executor. Each process has multiple threads in it, and each of those threads can be doing different things simultaneously. Each thread has its own independent stack but shares the same memory with all the other threads in a process. In some applications, there is one thread that is special. For example, user interface applications have a single special UI thread, and Console applications have a single special main thread.
+There are several kinds of concurrency: [asynchronous programming](asynchronous-programming.md), [parallel programming](parallel-programming.md), [reactive programming](reactive-programming.md), [dataflow programming](dataflow-programming.md)
 
-Every .NET application has a *thread pool*. The thread pool maintains a number of *worker threads* that are waiting to execute whatever work you have for them to do. The thread pool is responsible for determining how many threads are in the thread pool at any time. There are dozens of configuration settings you can play with to modify this behavior, but I recommend that you leave it alone; the thread pool has been carefully tuned to cover the vast majority of real-world scenarios. There is almost no need for you to ever create a new thread yourself. The only time you should ever create a `Thread` instance is if you need an STA thread for COM interop.
+Usually, a mixture of techniques is used when writing a concurrent program. Most applications at least use multithreading, via the thread pool, and asynchronous programming.
 
-A thread is a low-level abstraction. The thread pool is a slightly higher level of abstraction; when code queues work to the thread pool, the thread pool itself will take care of creating a thread if necessary. The abstractions covered in this book are higher still: parallel and dataflow processing queues work to the thread pool as necessary. Code using these higher abstractions is easier to get right than code using low-level abstractions.
+### Asynchronous programming
 
-For this reason, the `Thread` and `BackgroundWorker` types are not covered at all in this book. They have had their time, and that time is over.<sup>3</sup>
+**Asynchronous programming** is a form of concurrency that uses _futures_ or _callbacks_ to avoid unnecessary threads.
+
+A **future** or **promise** is a type that represents some operation that will complete in the future.
+
+**Asynchronous operation** is some operation that is started that will complete some time later. While the operation is in progress, it doesn't block the original thread; the thread that starts the operation is free to do other work.
+
+Asynchronous programming has two primary benefits. The first benefit is for end-user GUI programs: asynchronous programming enables responsiveness. The second benefit is for server-side programs: asynchronous programming enables scalability.
+
+Both benefits of asynchronous programming derive from the same underlying aspect: asynchronous programming frees up a thread. For GUI programs, asynchronous programming frees up the UI thread; this permits the GUI application to remain responsive to user input. For server applications, asynchronous programming frees up request threads; this permits the server to use its threads to serve more requests.
+
+> "Asynchronous" means not waiting for something to complete, e.g., sending data over the network to another node, and not making any assumptions about how long it is going to take.<sup>1</sup>
+
+Modern asynchronous .NET applications use two keywords: `async` and `await`. The `async` keyword is added to a method declaration, and performs a double purpose:
+
+1. Enables the `await` keyword within that method.
+2. Signals the compiler to generate a state machine for that method, similar to how `yield return` works.
+
+An `async` method may return `Task<TResult>` if it returns a value, `Task` if it doesn't return a value, or any other "task-like" type, such as `ValueTask`. In addition, an `async` method may return `IAsyncEnumerable<T>` or `IAsyncEnumerator<T>` if it returns multiple values in an enumeration. The task-like types represent futures; they can notify the calling code when the `async` method completes. Older asynchronous APIs use callbacks or events instead of futures.
+
+#### Synchronization context
+
+A **synchronization context** is a mechanism that manages the execution context for asynchronous operations. It helps control how asynchronous callbacks are marshaled between threads. The synchronization context ensures that code scheduled to run on a specific context executes within that context, which is important for scenarios involving user interfaces, where updates to the UI must occur on the UI thread.
+
+The `SynchronizationContext` class is a part of the .NET framework and is designed to provide a way to capture and propagate the execution context. It defines methods like `Post` and `Send` that allow you to send delegates for execution on a specific synchronization context.
+
+For example, in UI applications, like those built using WPF or WinForms, there is typically a synchronization context associated with the UI thread. When asynchronous operations complete, and you need to update the UI based on the results, the synchronization context helps ensure that the UI updates are performed on the UI thread. This is crucial because UI elements are not thread-safe, and updating them from a background thread can lead to unpredictable behavior.
+
+In modern C# asynchronous programming, the `async` and `await` keywords handle synchronization context automatically in many cases. However, it's essential to understand synchronization context when dealing with custom or advanced asynchronous scenarios or when working with older asynchronous patterns that don't inherently support the `async/await` model.
+
 
 ## References
 
-<sup>1, 3</sup> Stephen Cleary, Concurrency in C# Cookbook: Asynchronous, Parallel, and Multithreaded Programming, Second edition (O'Reilly Media, 2019).
+<sup>1</sup> Stephen Cleary, Concurrency in C# Cookbook: Asynchronous, Parallel, and Multithreaded Programming, Second edition (O'Reilly Media, 2019).
 
 <sup>2</sup> Rob Pike, Concurrency Is Not Parallelism, [↑ talk at Heroku conference](https://vimeo.com/49718712), 2003.
