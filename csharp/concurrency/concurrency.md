@@ -16,6 +16,7 @@
       - [Implementing data parallelism](#implementing-data-parallelism)
       - [Implementing task parallelism](#implementing-task-parallelism)
       - [Error handling](#error-handling)
+  - [Reactive programming](#reactive-programming)
   - [Dataflow programming](#dataflow-programming)
     - [Dataflow vs System.Reactive](#dataflow-vs-systemreactive)
     - [Dataflow vs actor frameworks](#dataflow-vs-actor-frameworks)
@@ -53,7 +54,7 @@ Asynchronous programming has two primary benefits. The first benefit is for end-
 
 Both benefits of asynchronous programming derive from the same underlying aspect: asynchronous programming frees up a thread. For GUI programs, asynchronous programming frees up the UI thread; this permits the GUI application to remain responsive to user input. For server applications, asynchronous programming frees up request threads; this permits the server to use its threads to serve more requests.
 
-> "Asynchronous" means not waiting for something to complete, e.g., sending data over the network to another node, and not making any assumptions about how long it is going to take.<sup>1</sup>
+> "Asynchronous" means not waiting for something to complete, e.g., sending data over the network to another node, and not making any assumptions about how long it is going to take.<sup>3</<sup>
 
 Modern asynchronous .NET applications use two keywords: `async` and `await`. The `async` keyword is added to a method declaration, and performs a double purpose:
 
@@ -83,11 +84,11 @@ Parallel processing uses [multithreading](#multithreading) to maximize the use o
 **Multithreading** is a form of concurrency that uses multiple threads of execution.
 
 Multithreading refers to literally using multiple threads. As demonstrated in many recipes in this book, multithreading is *one* form of concurrency, but certainly not the only one. In fact, direct use of low-level threading types has almost no purpose in a modern application; higher-level abstractions are more powerful and more efficient than old-school multithreading. For that reason, I'll minimize my coverage of outdated techniques. None of the multithreading recipes in this book use the
-`Thread` or `BackgroundWorker` types; they have been replaced with superior alternatives.<sup>1</sup>
+`Thread` or `BackgroundWorker` types; they have been replaced with superior alternatives.<sup>4</sup>
 
-**WARNING:** As soon as you type `new Thread()`, it's over; your project already has legacy code.<sup>2</sup>
+**WARNING:** As soon as you type `new Thread()`, it's over; your project already has legacy code.
 
-But don't get the idea that multithreading is dead! Multithreading lives on in the [thread pool](thread.md), a useful place to queue work that automatically adjusts itself according to demand. In turn, the thread pool enables another important form of concurrency: *parallel processing*.<sup>3</sup>
+But don't get the idea that multithreading is dead! Multithreading lives on in the [thread pool](thread.md), a useful place to queue work that automatically adjusts itself according to demand. In turn, the thread pool enables another important form of concurrency: *parallel processing*.
 
 #### Parallel processing
 
@@ -126,6 +127,16 @@ Task parallelism should strive to be independent, just like data parallelism. Th
 
 Error handling is similar for all kinds of parallelism. Because operations are proceeding in parallel, it's possible for multiple exceptions to occur, so they are wrapped up in an `AggregateException` that's thrown to your code. This behavior is consistent across `Parallel.ForEach`, `Parallel.Invoke`, `Task.Wait`, etc.
 
+## Reactive programming
+
+Another form of concurrency is *reactive programming*. Asynchronous programming implies that the application will start an operation that will complete once at a later time. Reactive programming is closely related to asynchronous programming but is built on *asynchronous events* instead of *asynchronous operations*. Asynchronous events may not have an actual "start", may happen at any time, and may be raised multiple times. One example is user input.
+
+**Reactive programming** is a declarative style of programming where the application reacts to events.
+
+> Reactive programming isn't necessarily concurrent, but it is closely related to concurrency, so this book covers the basics.<sup>5</sup>
+
+Usually, a mixture of techniques is used when writing a concurrent program. Most applications at least use multithreading (via the thread pool) and asynchronous programming.
+
 ## Dataflow programming
 
 TPL Dataflow is capable of handling any kind of _mesh_. You can define forks, joins, and loops in a mesh, and TPL Dataflow will handle them appropriately. Most of the time, though, TPL Dataflow meshes are used as a pipeline.
@@ -150,6 +161,6 @@ If you're familiar with actor frameworks, TPL Dataflow will seem to share simila
 
 ## References
 
-<sup>1</sup> Stephen Cleary, Concurrency in C# Cookbook: Asynchronous, Parallel, and Multithreaded Programming, Second edition (O'Reilly Media, 2019).
+<sup>1, 3, 4, 5</sup> Stephen Cleary, Concurrency in C# Cookbook: Asynchronous, Parallel, and Multithreaded Programming, Second edition (O'Reilly Media, 2019).
 
 <sup>2</sup> Rob Pike, Concurrency Is Not Parallelism, [↑ talk at Heroku conference](https://vimeo.com/49718712), 2003.
