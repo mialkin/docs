@@ -38,13 +38,13 @@ In order to make concurrency work, you have to add this idea of *communication*.
 
 ## Kinds of concurrency
 
-There are several kinds of concurrency: [asynchronous programming](asynchronous-programming.md), [parallel programming](parallel-programming.md), [reactive programming](reactive-programming.md), [dataflow programming](dataflow-programming.md)
+There are several kinds of concurrency: [asynchronous programming](#asynchronous-programming), [parallel programming](#parallel-programming), [reactive programming](#reactive-programming), [dataflow programming](#dataflow-programming)
 
 Usually, a mixture of techniques is used when writing a concurrent program. Most applications at least use multithreading, via the thread pool, and asynchronous programming.
 
 ## Asynchronous programming
 
-**Asynchronous programming** is a form of concurrency that uses _futures_ or _callbacks_ to avoid unnecessary threads.
+**Asynchronous programming** is a form of concurrency that uses *futures* or *callbacks* to avoid unnecessary threads.
 
 A **future** or **promise** is a type that represents some operation that will complete in the future.
 
@@ -139,9 +139,9 @@ Usually, a mixture of techniques is used when writing a concurrent program. Most
 
 ## Dataflow programming
 
-TPL Dataflow is capable of handling any kind of _mesh_. You can define forks, joins, and loops in a mesh, and TPL Dataflow will handle them appropriately. Most of the time, though, TPL Dataflow meshes are used as a pipeline.
+TPL Dataflow is capable of handling any kind of *mesh*. You can define forks, joins, and loops in a mesh, and TPL Dataflow will handle them appropriately. Most of the time, though, TPL Dataflow meshes are used as a pipeline.
 
-The basic building unit of a dataflow mesh is a _dataflow block_. A block can either be a _target block_ (receiving data), a _source block_ (producing data), or both. Source blocks can be linked to target blocks to create the mesh. It's possible to break links and create new blocks and add them to the mesh _while_ there is data flowing through it, but that is a very advanced scenario.
+The basic building unit of a dataflow mesh is a *dataflow block*. A block can either be a *target block* (receiving data), a *source block* (producing data), or both. Source blocks can be linked to target blocks to create the mesh. It's possible to break links and create new blocks and add them to the mesh *while* there is data flowing through it, but that is a very advanced scenario.
 
 Target blocks have buffers for the data they receive. Having buffers enables them to accept new data items even if they aren't ready to process them yet; this keeps data flowing through the mesh.
 
