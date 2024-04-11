@@ -1,12 +1,15 @@
-# Asynchronous patterns
+# Asynchronous patterns: TAP, APM, EAP, CPS
 
-- [Asynchronous patterns](#asynchronous-patterns)
+## Table of contents
+
+- [Asynchronous patterns: TAP, APM, EAP, CPS](#asynchronous-patterns-tap-apm-eap-cps)
+  - [Table of contents](#table-of-contents)
   - [Task-Based Asynchronous Pattern (TAP)](#task-based-asynchronous-pattern-tap)
   - [Asynchronous Programming Model (APM)](#asynchronous-programming-model-apm)
   - [Event-Based Asynchronous Programming (EAP)](#event-based-asynchronous-programming-eap)
   - [Continuation Passing Style (CPS)](#continuation-passing-style-cps)
   - [Custom async patterns](#custom-async-patterns)
-  - [ISynchronizeInvoke](#isynchronizeinvoke)
+  - [`ISynchronizeInvoke`](#isynchronizeinvoke)
   - [More](#more)
 
 ## Task-Based Asynchronous Pattern (TAP)
@@ -153,7 +156,7 @@ class MyHttpClient
 
 `TaskCompletionSource<T>` is the only way to consume custom asynchronous patterns.
 
-## ISynchronizeInvoke
+## `ISynchronizeInvoke`
 
 All the previous patterns are for asynchronous operations that are started, and once they start, they complete once. Some components follow a subscription model: they represent a push-based stream of events rather than a single operation that starts once and completes once.
 

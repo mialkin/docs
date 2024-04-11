@@ -310,7 +310,7 @@
 - [Closure](csharp/closure.md)
 - [Concurrency](csharp/concurrency/concurrency.md)
   - [Asynchronous programming](csharp/concurrency/asynchronous-programming.md)
-    - [Asynchronous patterns](csharp/concurrency/asynchronous/asynchronous-patterns.md)
+    - [Asynchronous patterns: TAP, APM, EAP, CPS](csharp/concurrency/asynchronous/asynchronous-patterns.md)
     - [`Async`/`await` best practices](csharp/concurrency/asynchronous/async-await-best-practices.md)
     - [Exceptions handling with `async` and `await`](csharp/concurrency/asynchronous/exceptions.md)
     - [`ThreadLocal<T>`](csharp/concurrency/asynchronous/threadlocal.md)
