@@ -39,7 +39,7 @@ In order to make concurrency work, you have to add this idea of *communication*.
 
 There are several kinds of concurrency: [asynchronous programming](#asynchronous-programming), [parallel programming](#parallel-programming), [reactive programming](#reactive-programming), [dataflow programming](#dataflow-programming)
 
-Usually, a mixture of techniques is used when writing a concurrent program. Most applications at least use multithreading, via the thread pool, and asynchronous programming.
+Usually, a mixture of techniques is used when writing a concurrent program. Most applications at least use [multithreading](#multithreading), via the [thread pool](thread.md), and asynchronous programming.
 
 ## Asynchronous programming
 
