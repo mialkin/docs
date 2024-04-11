@@ -1,4 +1,4 @@
-# Thread
+# Thread, thread pool
 
 A **thread** is an independent executor, a basic unit to which an operating system allocates processor time.
 
@@ -12,12 +12,10 @@ In some applications, there is one thread that is special. For example, user int
 
 By default, a .NET program is started with a single thread, often called the *primary thread*. However, it can create additional threads to execute code in parallel or concurrently with the primary thread. These threads are often called *worker threads*.
 
-[↑ Threads and threading](https://learn.microsoft.com/en-us/dotnet/standard/threading/threads-and-threading).
+## Table of contents
 
-## Table of content
-
-- [Thread](#thread)
-  - [Table of content](#table-of-content)
+- [Thread, thread pool](#thread-thread-pool)
+  - [Table of contents](#table-of-contents)
   - [Thead context](#thead-context)
   - [Thread pool](#thread-pool)
   - [References](#references)
@@ -33,6 +31,12 @@ Multiple threads can run in the context of a process. All threads of a process s
 Every .NET application has a *thread pool*. The thread pool maintains a number of *worker threads* that are waiting to execute whatever work you have for them to do. The thread pool is responsible for determining how many threads are in the thread pool at any time. There are dozens of configuration settings you can play with to modify this behavior, but I recommend that you leave it alone; the thread pool has been carefully tuned to cover the vast majority of real-world scenarios. There is almost no need for you to ever create a new thread yourself. The only time you should ever create a `Thread` instance is if you need an STA thread for COM interop.
 
 A thread is a low-level abstraction. The thread pool is a slightly higher level of abstraction; when code queues work to the thread pool, the thread pool itself will take care of creating a thread if necessary. The abstractions covered in this book are higher still: parallel and dataflow processing queues work to the thread pool as necessary. Code using these higher abstractions is easier to get right than code using low-level abstractions. For this reason, the `Thread` and `BackgroundWorker` types are not covered at all in this book. They have had their time, and that time is over.<sup>1</sup>
+
+Usually, you don't have to worry about how the work is handled by the thread pool. Data and task parallelism use dynamically adjusting partitioners to divide work among worker threads. The thread pool increases its thread count as necessary. The thread pool has a single work queue, and each threadpool thread also has its own work queue. When a threadpool thread queues additional work, it sends it to its own queue first because the work is usually related to the current work item; this behavior encourages threads to work on their own work, and maximizes cache hits. If another thread doesn't have work to do, it'll steal work from another thread's queue.
+
+As long as your tasks are not extremely short, they should work well with the default settings: *tasks should neither be extremely short, nor extremely long*.
+
+If your tasks are too short, then the overhead of breaking up the data into tasks and scheduling those tasks on the thread pool becomes significant. If your tasks are too long, then the thread pool cannot dynamically adjust its work balancing efficiently. It's difficult to determine how short is too short and how long is too long; it really depends on the problem being solved and the approximate capabilities of the hardware. As a general rule, I try to make my tasks as short as possible without running into performance issues (you'll see your performance suddenly degrade when your tasks are too short). Even better, instead of using tasks directly, use the `Parallel` type or PLINQ. These higher-level forms of parallelism have partitioning built in to handle this automatically for you (and adjust as necessary at runtime).
 
 ## References
 

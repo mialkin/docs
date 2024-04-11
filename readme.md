@@ -317,7 +317,6 @@
     - [`ThreadLocal<T>`](csharp/concurrency/asynchronous/threadlocal.md)
   - Asynchronous streams
     - [`IAsyncEnumerable<T>` interface](csharp/concurrency/iasyncenumerable.md)
-  - [Parallel programming](csharp/concurrency/parallel-programming.md)
   - [Reactive programming](csharp/concurrency/reactive-programming.md)
   - [Collections](csharp/concurrency/collections/collections.md)
     - [Thread-safe collections. `BlockingCollection<T>`, `ConcurrentBag<T>`, `ConcurrentDictionary<TKey,TValue>`, `ConcurrentQueue<T>`, `ConcurrentStack<T>`](csharp/concurrency/collections/thread-safe-collections.md)
@@ -336,7 +335,7 @@
   - Task-based asynchronous pattern, TAP
     - [Reporting progress](csharp/concurrency/tap/reporting-progress.md)
     - [`ValueTask`, `ValueTask<TResult>` structures](csharp/concurrency/tap/valuetask.md)
-  - [Thread](csharp/concurrency/thread.md)
+  - [Thread, thread pool](csharp/concurrency/thread.md)
   - Exercises
     - [Downloading web pages](csharp/concurrency/exercises/downloading-pages.md)
 - Collections
