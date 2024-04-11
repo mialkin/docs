@@ -320,6 +320,7 @@
   - [Collections](csharp/concurrency/collections/collections.md)
     - [Thread-safe collections. `BlockingCollection<T>`, `ConcurrentBag<T>`, `ConcurrentDictionary<TKey,TValue>`, `ConcurrentQueue<T>`, `ConcurrentStack<T>`](csharp/concurrency/collections/thread-safe-collections.md)
   - [Synchronization](csharp/concurrency/synchronization.md)
+  - [Synchronization context](csharp/concurrency/synchronization-context.md)
   - Synchronization primitives
     - [`Interlocked`](csharp/concurrency/synchronization-primitives/interlocked.md)
     - [`Monitor`](csharp/concurrency/synchronization-primitives/monitor.md)
@@ -332,7 +333,6 @@
       - [`CountdownEvent`](csharp/concurrency/synchronization-primitives/contdownevent.md)
       - [`EventWaitHandle`, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`](csharp/concurrency/synchronization-primitives/eventwaithandle.md)
   - Task-based asynchronous pattern, TAP
-    - Synchronization context
     - [`ValueTask`, `ValueTask<TResult>` structures](csharp/concurrency/tap/valuetask.md)
   - [Thread, thread pool](csharp/concurrency/thread.md)
   - Exercises
@@ -366,7 +366,7 @@
   - [Dispose pattern](csharp/memory/dispose-pattern.md)
 - Operators
   - [Equality operator](csharp/operators/equality-operator.md)
-- [Reporting progress](csharp/reporting-progress.md)
+- [Reporting progress with `IProgress<T>`](csharp/reporting-progress.md)
 - [Statement](csharp/statement.md)
 - Types
   - [Value types](csharp/types/value-types/value-types.md)
