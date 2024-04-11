@@ -1,15 +1,5 @@
 # Async/await best practices
 
-## Practical advices
-
-- Avoid `.Result()` and `.Wait()`. Use `await` for _asynchronous_ code and `.GetAwaiter().GetResult()` for _synchronous_ code. `.GetAwaiter().GetResult()` is effectively the same as `.Wait()`, it's going to block, but it will unwrap the exception, if the exception is thrown inside running method.
-
-- Use `.ConfigureAwait(false)` when the calling thread isn't needed. Most business logic does not need to return to the calling thread.
-
-- Avoid `return await`. When `await` is only used in the `return` statement, return the `Task` instead, but don't do this inside of `try/catch` or `using()` blocks.
-
-[↑ Is awaiting a Task instead of returning it directly in C# actually slower?](https://www.youtube.com/watch?v=Q2zDatDVnO0)
-
 ## When should I use `ConfigureAwait(false)`?
 
 It depends: are you implementing application-level code or general-purpose library code?

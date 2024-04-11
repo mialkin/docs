@@ -309,6 +309,7 @@
 - [Attribute](csharp/attribute.md)
 - [Closure](csharp/closure.md)
 - [Concurrency](csharp/concurrency/concurrency.md)
+  - [`async`/`await`](csharp/concurrency/async-await.md)
   - [Asynchronous patterns: TAP, APM, EAP, CPS](csharp/concurrency/asynchronous-patterns.md)
   - [Asynchronous programming](csharp/concurrency/asynchronous-programming.md)
     - [`Async`/`await` best practices](csharp/concurrency/asynchronous/async-await-best-practices.md)
