@@ -1,4 +1,4 @@
-# Reporting progress
+# Reporting progress with `IProgress<T>`
 
 If you need to respond to progress while an operation is executing use the provided [↑ `IProgress<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.iprogress-1) and [↑ `Progress<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.progress-1) types.
 
