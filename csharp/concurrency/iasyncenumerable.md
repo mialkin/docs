@@ -1,49 +1,54 @@
-# `IAsyncEnumerable\<T>` interface
+# `IAsyncEnumerable<T>`
 
-Exposes an enumerator that provides asynchronous iteration over values of a specified type.
+[↑ `IAsyncEnumerable<T>`](https://learn.microsoft.com/ru-ru/dotnet/api/system.collections.generic.iasyncenumerable-1) interface exposes an enumerator that provides asynchronous iteration over values of a specified type.
 
-```csahrp
+```csharp
 public interface IAsyncEnumerable<out T>
+{
+    IAsyncEnumerator<T> GetAsyncEnumerator(CancellationToken cancellationToken = default);
+}
+```
+
+```csharp
+public interface IAsyncEnumerator<out T> : IAsyncDisposable
+{
+    ValueTask<bool> MoveNextAsync();
+    T Current { get; }
+}
+```
+
+```csharp
+public interface IAsyncDisposable
+{
+    ValueTask DisposeAsync();
+}
 ```
 
 ## Example
 
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-IAsyncEnumerable<string> result = A();
-
-await foreach (string word in result)
+await foreach (var number in GetNumbersAsync())
 {
-    Console.Write(DateTime.Now.ToUniversalTime() + " : ");
-    Console.WriteLine(word);
+    Console.WriteLine(number);
 }
 
-static async IAsyncEnumerable<string> A()
+static async IAsyncEnumerable<int> GetNumbersAsync()
 {
-    var words = new List<string> {"un", "deux", "trois", "quatre", "cinq"};
-
-    foreach (string word in words)
+    for (int i = 1; i <= 5; i++)
     {
         await Task.Delay(1000);
-        yield return word;
+        yield return i;
     }
 }
-```
+// Output:
+// 1
+// 2
+// 3
+// 4
+// 5
 
-Output:
-
-```output
-11/20/2020 14:37:57 : un
-11/20/2020 14:37:58 : deux
-11/20/2020 14:37:59 : trois
-11/20/2020 14:38:00 : quatre
-11/20/2020 14:38:01 : cinq
 ```
 
 ## Links
 
-- [↑ IAsyncEnumerable\<T> Interface](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.iasyncenumerable-1*)
-- [↑ Iterating with Async Enumerables in C# 8](https://docs.microsoft.com/en-us/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8)
+[↑ Iterating with Async Enumerables in C# 8](https://docs.microsoft.com/en-us/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8).
