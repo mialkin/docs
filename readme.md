@@ -319,7 +319,7 @@
   - [Execution context](csharp/concurrency/execution-context.md)
   - [`IAsyncEnumerable<T>`](csharp/concurrency/iasyncenumerable.md)
   - [Synchronization](csharp/concurrency/synchronization.md)
-  - [Synchronization context](csharp/concurrency/synchronization-context.md)
+  - [Synchronization context, ConfigureAwait](csharp/concurrency/synchronization-context.md)
   - Synchronization primitives
     - [`Interlocked`](csharp/concurrency/synchronization-primitives/interlocked.md)
     - [`Monitor`](csharp/concurrency/synchronization-primitives/monitor.md)
