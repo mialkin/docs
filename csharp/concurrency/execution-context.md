@@ -2,9 +2,13 @@
 
 The [↑ `ExecutionContext`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.executioncontext) class provides a single container for all information relevant to a logical thread of execution.
 
-In the synchronous world, each thread keeps ambient information in a _thread-local storage_<sup>1</sup>. It can be security-related information, culture-specific data, or something else. When 3 methods are called sequentially in one thread this information flows naturally between all of them. But this is no longer true for asynchronous methods. Each "section" of an asynchronous method can be executed in different threads that makes thread-local information unusable.
+In the synchronous world, each thread keeps ambient information in a *thread-local storage*. It can be security-related information, culture-specific data, or something else. When 3 methods are called sequentially in one thread this information flows naturally between all of them. But this is no longer true for asynchronous methods. Each "section" of an asynchronous method can be executed in different threads that makes thread-local information unusable.
 
-Execution context keeps the information for one logical _flow of control_<sup>3</sup> even when it spans multiple threads.
+A **thread-local storage** is a mechanism by which each thread in a given multithreaded process allocates storage for thread-specific data.
+
+Execution context keeps the information for one logical *flow of control* even when it spans multiple threads.
+
+A **flow of control** is the order in which individual statements, instructions or function calls are executed or evaluated.
 
 Methods like `Task.Run` or `ThreadPool.QueueUserWorkItem` do this automatically. `Task.Run` method captures `ExecutionContext` from the invoking thread and stores it with the `Task` instance. When the `TaskScheduler` associated with the task runs a given delegate, it runs it via `ExecutionContext.Run` using the stored context.
 
@@ -92,12 +96,6 @@ After first await: 42
 Inside UnsafeOnCompleted: 0
 After second await: 42
 ```
-
-## Footnotes
-
-1. The **thread-local storage** is a mechanism by which each thread in a given multithreaded process allocates storage for thread-specific data.
-
-2. The **flow of control** is the order in which individual statements, instructions or function calls are executed or evaluated.
 
 ## Execution context vs synchronization context
 
