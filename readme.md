@@ -328,12 +328,11 @@
       - [`Barrier`](csharp/concurrency/synchronization-primitives/barrier.md)
       - [`CountdownEvent`](csharp/concurrency/synchronization-primitives/contdownevent.md)
       - [`EventWaitHandle`, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`](csharp/concurrency/synchronization-primitives/eventwaithandle.md)
-  - Task-based asynchronous pattern, TAP
-    - [`ValueTask`, `ValueTask<TResult>`](csharp/concurrency/tap/valuetask.md)
   - [Thread, thread pool](csharp/concurrency/thread.md)
   - [`ThreadLocal<T>`](csharp/concurrency/threadlocal.md)
   - Exercises
     - [Downloading web pages](csharp/concurrency/exercises/downloading-pages.md)
+  - [`ValueTask`, `ValueTask<TResult>`](csharp/concurrency/valuetask.md)
 - Collections
   - [↑ Which collection interface to use?](https://enterprisecraftsmanship.com/posts/which-collection-interface-to-use/)
 - Exceptions
