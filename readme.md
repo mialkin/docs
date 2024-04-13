@@ -341,7 +341,6 @@
 - [Expression](csharp/expression.md)
 - [Expression tree](csharp/expression-tree.md)
 - [Extension methods](csharp/extension-methods.md)
-  - [Extension methods guidelines](csharp/extension-methods-guidelines.md)
 - [Indexers](csharp/indexers.md)
 - [Invariance, covariance, contravariance, variance](csharp/invariance-covariance-contravariance-variance.md)
 - [Keywords](csharp/keywords/keywords.md)
