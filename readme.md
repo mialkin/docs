@@ -311,8 +311,6 @@
 - [Concurrency](csharp/concurrency/concurrency.md)
   - [`async`/`await`](csharp/concurrency/async-await.md)
   - [Asynchronous patterns: TAP, APM, EAP, CPS](csharp/concurrency/asynchronous-patterns.md)
-  - Asynchronous programming
-    - [`ThreadLocal<T>`](csharp/concurrency/asynchronous/threadlocal.md)
   - [Collections](csharp/concurrency/collections/collections.md)
     - [Thread-safe collections. `BlockingCollection<T>`, `ConcurrentBag<T>`, `ConcurrentDictionary<TKey,TValue>`, `ConcurrentQueue<T>`, `ConcurrentStack<T>`](csharp/concurrency/collections/thread-safe-collections.md)
   - [Execution context](csharp/concurrency/execution-context.md)
@@ -333,6 +331,7 @@
   - Task-based asynchronous pattern, TAP
     - [`ValueTask`, `ValueTask<TResult>`](csharp/concurrency/tap/valuetask.md)
   - [Thread, thread pool](csharp/concurrency/thread.md)
+  - [`ThreadLocal<T>`](csharp/concurrency/asynchronous/threadlocal.md)
   - Exercises
     - [Downloading web pages](csharp/concurrency/exercises/downloading-pages.md)
 - Collections
