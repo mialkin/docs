@@ -1,6 +1,6 @@
 # Execution context
 
-## Content
+The [↑ `ExecutionContext`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.executioncontext) class provides a single container for all information relevant to a logical thread of execution.
 
 In the synchronous world, each thread keeps ambient information in a _thread-local storage_<sup>1</sup>. It can be security-related information, culture-specific data, or something else. When 3 methods are called sequentially in one thread this information flows naturally between all of them. But this is no longer true for asynchronous methods. Each "section" of an asynchronous method can be executed in different threads that makes thread-local information unusable.
 
@@ -98,6 +98,10 @@ After second await: 42
 1. The **thread-local storage** is a mechanism by which each thread in a given multithreaded process allocates storage for thread-specific data.
 
 2. The **flow of control** is the order in which individual statements, instructions or function calls are executed or evaluated.
+
+## Execution context vs synchronization context
+
+https://devblogs.microsoft.com/pfxteam/executioncontext-vs-synchronizationcontext/
 
 ## Links
 
