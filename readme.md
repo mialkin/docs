@@ -331,7 +331,7 @@
   - Task-based asynchronous pattern, TAP
     - [`ValueTask`, `ValueTask<TResult>`](csharp/concurrency/tap/valuetask.md)
   - [Thread, thread pool](csharp/concurrency/thread.md)
-  - [`ThreadLocal<T>`](csharp/concurrency/asynchronous/threadlocal.md)
+  - [`ThreadLocal<T>`](csharp/concurrency/threadlocal.md)
   - Exercises
     - [Downloading web pages](csharp/concurrency/exercises/downloading-pages.md)
 - Collections
