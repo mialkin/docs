@@ -340,7 +340,7 @@
   - [↑ Exceptions for flow control: why not?](https://enterprisecraftsmanship.com/posts/exceptions-for-flow-control/)
 - [Expression](csharp/expression.md)
 - [Expression tree](csharp/expression-tree.md)
-- [Extension methods](csharp/extension-methods.md)
+- [Extension method](csharp/extension-method.md)
 - [Indexers](csharp/indexers.md)
 - [Invariance, covariance, contravariance, variance](csharp/invariance-covariance-contravariance-variance.md)
 - [Keywords](csharp/keywords/keywords.md)
