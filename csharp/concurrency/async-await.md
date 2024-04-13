@@ -9,6 +9,7 @@
   - [Awaitable types](#awaitable-types)
   - [Create task](#create-task)
   - [Deadlock](#deadlock)
+  - [Exceptions handling](#exceptions-handling)
   - [Links](#links)
 
 ## Practical advices
@@ -114,6 +115,87 @@ async Task WaitAsync()
 ```
 
 The code in this example will deadlock if called from a UI or ASP.NET Classic context because both of those contexts only allow one thread in at a time. `Deadlock` will call `WaitAsync`, which begins the delay. `Deadlock` then synchronously waits for that method to complete, blocking the context thread. When the delay completes, `await` attempts to resume `WaitAsync` within the captured context, but it cannot because there's already a thread blocked in the context, and the context only allows one thread at a time. Deadlock can be prevented two ways: you can use `ConfigureAwait(false)` within `WaitAsync` which causes `await` to ignore its context, or you can `await` the call to `WaitAsync` making `Deadlock` into an `async` method.
+
+## Exceptions handling
+
+Error handling is natural with `async` and `await`. In the code snippet that follows, `PossibleExceptionAsync` may throw a `NotSupportedException`, but `TrySomethingAsync` can catch the exception naturally. The caught exception has its stack trace properly preserved and isn't artificially wrapped in a `TargetInvocationException` or `AggregateException`:
+
+```csharp
+async Task TrySomethingAsync()
+{
+    try
+    {
+        await PossibleExceptionAsync();
+    }
+    catch (NotSupportedException ex)
+    {
+        LogException(ex);
+        throw;
+    }
+}
+```
+
+When an `async` method throws (or propagates) an exception, the exception is placed on its returned `Task` and the `Task` is completed. When that `Task` is awaited, the await operator will retrieve that exception and (re)throw it in a way such that its original stack trace is preserved. Thus, code such as the following example would work as expected if `PossibleExceptionAsync` was an `async` method:
+
+```csharp
+async Task TrySomethingAsync()
+{
+    // The exception will end up on the Task, not thrown directly.
+    Task task = PossibleExceptionAsync();
+
+    try
+    {
+        // The Task's exception will be raised here, at the await.
+        await task;
+    }
+    catch (NotSupportedException ex)
+    {
+        LogException(ex);
+        throw;
+    }
+}
+```
+
+The following program exits successfully without catching exception:
+
+```csharp
+try
+{
+    Task.Run(() => throw new Exception());
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+}
+```
+
+Catches exception:
+
+```csharp
+try
+{
+    await Task.Run(() => throw new Exception());
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+}
+```
+
+Also catches exception:
+
+```csharp
+try
+{
+    Task.Run(() => throw new Exception())
+        .GetAwaiter()
+        .GetResult();
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+}
+```
 
 ## Links
 
