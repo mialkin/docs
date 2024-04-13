@@ -311,7 +311,7 @@
 - [Concurrency](csharp/concurrency/concurrency.md)
   - [`async`/`await`](csharp/concurrency/async-await.md)
   - [Asynchronous patterns: TAP, APM, EAP, CPS](csharp/concurrency/asynchronous-patterns.md)
-  - [Asynchronous programming](csharp/concurrency/asynchronous-programming.md)
+  - Asynchronous programming
     - [Exceptions handling with `async` and `await`](csharp/concurrency/asynchronous/exceptions.md)
     - [`ThreadLocal<T>`](csharp/concurrency/asynchronous/threadlocal.md)
   - [Collections](csharp/concurrency/collections/collections.md)
