@@ -6,6 +6,7 @@
   - [Table of contents](#table-of-contents)
   - [`ThreadLocal<T>`](#threadlocalt)
   - [`AsyncLocal<T>`](#asynclocalt)
+    - [Example](#example)
   - [`[ThreadStatic]`](#threadstatic)
 
 ## `ThreadLocal<T>`
@@ -53,7 +54,70 @@ threadId.Dispose();
 
 A **flow of control** is the order in which individual statements, instructions or function calls are executed or evaluated.
 
-The following example uses the `AsyncLocal<T>` class to persist a string value across an asynchronous flow. It also contrasts the use of `AsyncLocal<T>` with [`ThreadLocal<T>`](threadlocal.md).
+Because the task-based asynchronous programming model tends to abstract the use of threads, `AsyncLocal<T>`instances can be used to persist data across threads.
+
+The `AsyncLocal<T>` class also provides optional notifications when the value associated with the current thread changes, either because it was explicitly changed by setting the `Value` property, or implicitly changed when the thread encountered an await or other context transition.
+
+### Example
+
+By definition, `AsyncLocal` represents ambient data that is local to a given asynchronous control flow, such as an asynchronous method. However, this contextual data flows down the asynchronous call stack, not the opposite:
+
+```csharp
+AsyncLocal<string> context = new();
+const string parentValue = "Parent";
+const string childValue = "Child";
+
+async Task ParentTaskAsync()
+{
+    context.Value = parentValue;
+    Debug.Assert(parentValue == context.Value);
+
+    await ChildTaskAsync();
+    Debug.Assert(parentValue == context.Value);
+}
+
+async Task ChildTaskAsync()
+{
+    Debug.Assert(parentValue == context.Value);
+    context.Value = childValue;
+    await Task.Yield();
+    Debug.Assert(childValue == context.Value);
+}
+
+await ParentTaskAsync();
+```
+
+However, if we use a non-async child task, it behaves just like a normal synchronous method:
+
+```csharp
+AsyncLocal<string> context = new();
+const string parentValue = "Parent";
+const string childValue = "Child";
+
+async Task ParentTaskAsync()
+{
+    context.Value = parentValue;
+    Debug.Assert(parentValue == context.Value);
+
+    await ChildTaskAsync();
+    Debug.Assert(childValue == context.Value);
+}
+
+Task ChildTaskAsync()
+{
+    Debug.Assert(parentValue == context.Value);
+    context.Value = childValue;
+    Debug.Assert(childValue == context.Value);
+
+    return Task.CompletedTask;
+}
+
+await ParentTaskAsync();
+```
+
+This time, value changes inside the child affect the parent `Task` as well.
+
+[↑ Difference Between Returning and Awaiting a Task in C#](https://code-maze.com/charp-difference-between-returning-and-awaiting-a-task/).
 
 ## `[ThreadStatic]`
 
