@@ -234,7 +234,6 @@ for (var i = 0; i < 5; i++) {
 - [↑ Grouping assertions with `AssertionScope`](https://ardalis.com/grouping-assertions-in-tests/)
 - [↑ volatile (C# Reference)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/volatile)
 - async lock
-- [↑ `AsyncLocal<T>`](https://code-maze.com/charp-difference-between-returning-and-awaiting-a-task/)
 - [↑ How Async/Await Really Works in C#](https://devblogs.microsoft.com/dotnet/how-async-await-really-works/)
 - [↑ Why can't I use the 'await' operator within the body of a `lock` statement?](https://stackoverflow.com/questions/7612602/why-cant-i-use-the-await-operator-within-the-body-of-a-lock-statement)
 - [↑ Weak reference](https://docs.microsoft.com/en-us/dotnet/api/system.weakreference?view=netcore-3.1)
@@ -283,7 +282,6 @@ for (var i = 0; i < 5; i++) {
 - Почему разработчики языка разделили память на стек и кучу?
 - Написать бинарное дерево на C#
 - Написать стек, двусвязный и односвязный список на C#
-- ExecutionContext vs SynchronizationContext <https://devblogs.microsoft.com/pfxteam/executioncontext-vs-synchronizationcontext/>
 - [↑ Async HTTP Server](https://jonlabelle.com/snippets/view/csharp/async-http-server-and-client)
 - Process asynchronous tasks as they complete (C#)
   - <https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/start-multiple-async-tasks-and-process-them-as-they-complete>
