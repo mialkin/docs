@@ -16,11 +16,12 @@ By default, a .NET program is started with a single thread, often called the *pr
 
 - [Thread, thread pool](#thread-thread-pool)
   - [Table of contents](#table-of-contents)
-  - [Thead context](#thead-context)
+  - [Thread context](#thread-context)
   - [Thread pool](#thread-pool)
+  - [Thread preemption](#thread-preemption)
   - [References](#references)
 
-## Thead context
+## Thread context
 
 Each thread has a [↑ scheduling priority](https://learn.microsoft.com/en-us/dotnet/standard/threading/scheduling-threads) and maintains a set of structures the system uses to save the *thread context* when the thread's execution is paused. The thread context includes all the information the thread needs to seamlessly resume execution, including the thread's set of CPU registers and stack.
 
@@ -37,6 +38,12 @@ Usually, you don't have to worry about how the work is handled by the thread poo
 As long as your tasks are not extremely short, they should work well with the default settings: *tasks should neither be extremely short, nor extremely long*.
 
 If your tasks are too short, then the overhead of breaking up the data into tasks and scheduling those tasks on the thread pool becomes significant. If your tasks are too long, then the thread pool cannot dynamically adjust its work balancing efficiently. It's difficult to determine how short is too short and how long is too long; it really depends on the problem being solved and the approximate capabilities of the hardware. As a general rule, I try to make my tasks as short as possible without running into performance issues (you'll see your performance suddenly degrade when your tasks are too short). Even better, instead of using tasks directly, use the `Parallel` type or PLINQ. These higher-level forms of parallelism have partitioning built in to handle this automatically for you (and adjust as necessary at runtime).
+
+## Thread preemption
+
+A **thread preemption** refers to the interruption of a currently executing thread by the operating system's scheduler in order to give execution time to another thread.
+
+When a higher-priority thread becomes ready to run, or when a time slice allocated to a thread expires, the scheduler may preempt the currently running thread and switch to executing the higher-priority thread. This process helps in multitasking environments where multiple threads or processes compete for CPU resources.
 
 ## References
 
