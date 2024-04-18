@@ -25,7 +25,7 @@ The `Exchange` method atomically exchanges the values of the specified variables
     - [`Exchange(Int32, Int32)`](#exchangeint32-int32)
     - [`CompareExchange(Int32, Int32, Int32)`](#compareexchangeint32-int32-int32)
     - [`Decrement(Int32)`](#decrementint32)
-    - [`Or`](#or)
+    - [`Or(Int32, Int32)`](#orint32-int32)
 
 ## Methods
 
@@ -148,17 +148,22 @@ int result = Interlocked.Decrement(ref location); // Returns the decremented val
 Console.WriteLine($"{location}, {result}"); // 0, 0
 ```
 
-### `Or`
+### `Or(Int32, Int32)`
 
-Bitwise "ors" two 32-bit signed integers and replaces the first integer with the result, as an atomic operation.
+Bitwise "ors" two 32-bit signed integers and replaces the first integer with the result, as an atomic operation. Returns the original value as a result.
 
 ```csharp
-int location1 = 12; // 1100
-int value = 5;      // 0101
+// 1100
+var value = 12;
 
+// 5 is 0101 in binary
 // 1100 OR 0101 = 1101 = 13
+var result = Interlocked.Or(ref value, 5);
 
-int result = Interlocked.Or(ref location1, value); // Returns the original value in location1.
+Console.WriteLine(value);
+Console.WriteLine(result);
 
-Console.WriteLine($"{location1}, {value}, {result}"); // 13, 5, 12
+// Output:
+// 13
+//12
 ```
