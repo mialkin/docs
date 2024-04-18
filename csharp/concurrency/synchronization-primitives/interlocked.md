@@ -98,42 +98,53 @@ This method handles an overflow condition by wrapping: if `value` = `Int32.MaxVa
 Sets a 32-bit signed integer to a specified value and returns the original value, as an atomic operation:
 
 ```csharp
-int location1 = 1;
-int value = 2;
+var value = 10;
+var result = Interlocked.Exchange(ref value, 4);
 
-int result = Interlocked.Exchange(ref location1, value);
+Console.WriteLine(value);
+Console.WriteLine(result);
 
-Console.WriteLine($"{result}, {location1}, {value}"); // 1, 2, 2
+// Output:
+// 4
+// 10
 ```
 
 ### `CompareExchange(Int32, Int32, Int32)`
 
-Compares two values for equality and, if they are equal, replaces the first value.
-
-Exchange didn't take place:
+Compares two values for equality and, if they are equal, replaces the first value. Returns the original first value.
 
 ```csharp
-int location1 = 1;  // The destination, whose value is compared with comparand and possibly replaced.
-int value = 2;      // The value that replaces the destination value if the comparison results in equality.
-int comparand = 3;  // The value that is compared to the value at location1.
-
-int result = Interlocked.CompareExchange(ref location1, value, comparand); // The result is the original value in location1.
-
-Console.WriteLine($"{location1}, {value}, {comparand}, {result}");  // 1, 2, 3, 1
+public static int CompareExchange (ref int location1, int value, int comparand);
 ```
 
-If comparand and the value in `location1` are equal, then `value` is stored in `location1`. Otherwise, no operation is performed. The compare and exchange operations are performed as an atomic operation. The return value of `CompareExchange` is the original value in `location1`, whether or not the exchange takes place.
-
-Exchange took place:
+Exchange doesn't take place because 10 is not equal to 30:
 
 ```csharp
-int location1 = 3;  // The destination, whose value is compared with comparand and possibly replaced.
-int value = 2;      // The value that replaces the destination value if the comparison results in equality.
-int comparand = 3;  // The value that is compared to the value at location1.
+var value = 10;
 
-int result = Interlocked.CompareExchange(ref location1, value, comparand); // The result is the original value in location1.
+var result = Interlocked.CompareExchange(ref value, 20, 30);
 
-Console.WriteLine($"{location1}, {value}, {comparand}, {result}");  // 2, 2, 3, 3
+Console.WriteLine(value);
+Console.WriteLine(result);
+
+// Output:
+// 10
+// 10
+```
+
+Exchange takes place:
+
+```csharp
+var value = 10;
+
+var result = Interlocked.CompareExchange(ref value, 20, 10);
+
+Console.WriteLine(value);
+Console.WriteLine(result);
+
+// Output:
+// 20
+// 10
 ```
 
 ### `Decrement(Int32)`
