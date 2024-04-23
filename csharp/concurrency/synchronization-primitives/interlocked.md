@@ -33,26 +33,34 @@ There are more overloaded [↑ methods](https://learn.microsoft.com/en-us/dotnet
 
 ### `Add(Int32, Int32)`
 
-Adds two 32-bit integers and replaces the first integer with the sum, as an atomic operation:
+Adds two 32-bit integers and replaces the first integer with the sum, as an atomic operation. Returns the new value that was stored by this operation.
 
 ```csharp
-int location1 = 1;
-int value = 2;
+int value = 1;
+var result = Interlocked.Add(ref value, 2);
 
-Interlocked.Add(ref location1, value);
-Console.WriteLine($"{location1}, {value}"); // 3, 2
+Console.WriteLine(value);
+Console.WriteLine(result);
+
+// Output:
+// 3
+// 3
 ```
 
-This method handles an overflow condition by wrapping: if the value at `location1` is `Int32.MaxValue` and `value` is `1`, the result is `Int32.MinValue`; if value is `2`, the result is (`Int32.MinValue + 1`); and so on. No exception is thrown:
+This method handles an overflow condition by wrapping. No exception is thrown:
 
 ```csharp
-Console.WriteLine($"{Int32.MinValue}, {Int32.MaxValue}"); // -2147483648, 2147483647
+int value = int.MaxValue;
+var result = Interlocked.Add(ref value, 2);
 
-int location1 = Int32.MaxValue;;
-int value = 2;
+Console.WriteLine(int.MinValue);
+Console.WriteLine(value);
+Console.WriteLine(result);
 
-Interlocked.Add(ref location1, value);
-Console.WriteLine($"{location1}, {value}"); // -2147483647, 2
+// Output:
+// -2147483648
+// -2147483647
+// -2147483647
 ```
 
 ### `And(Int32, Int32)`
@@ -152,11 +160,15 @@ Console.WriteLine(result);
 Decrements a specified variable and stores the result, as an atomic operation.
 
 ```csharp
-int location = 1;
+var value = 5;
+var result = Interlocked.Decrement(ref value);
 
-int result = Interlocked.Decrement(ref location); // Returns the decremented value.
+Console.WriteLine(value);
+Console.WriteLine(result);
 
-Console.WriteLine($"{location}, {result}"); // 0, 0
+// Output:
+// 4
+// 4
 ```
 
 ### `Or(Int32, Int32)`
