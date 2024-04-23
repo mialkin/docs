@@ -50,7 +50,7 @@ Console.WriteLine(result);
 This method handles an overflow condition by wrapping. No exception is thrown:
 
 ```csharp
-int value = int.MaxValue;
+var value = int.MaxValue;
 var result = Interlocked.Add(ref value, 2);
 
 Console.WriteLine(int.MinValue);
@@ -65,17 +65,20 @@ Console.WriteLine(result);
 
 ### `And(Int32, Int32)`
 
-Bitwise "ands" two 32-bit signed integers and replaces the first integer with the result, as an atomic operation. Returns the original value in `location1`.
+Bitwise "ands" two 32-bit signed integers and replaces the first integer with the result, as an atomic operation. Returns the original value.
 
 ```csharp
-int location1 = 12; // 1100
-int value = 7;      // 0111
+var value = 12;
 
 // 1100 AND 0111 = 0100 = 4
+var result = Interlocked.And(ref value, 7);
 
-int result = Interlocked.And(ref location1,value); // result is the original value in location1.
+Console.WriteLine(value);
+Console.WriteLine(result);
 
-Console.WriteLine($"{location1}, {value}, {result}"); // 4, 7, 12
+// Output:
+// 4
+// 12
 ```
 
 ### `Increment(Int32)`
@@ -188,5 +191,5 @@ Console.WriteLine(result);
 
 // Output:
 // 13
-//12
+// 12
 ```
