@@ -1,18 +1,27 @@
 # T-SQL
 
+**Transact-SQL** or **T-SQL** is Microsoft's and Sybase's proprietary extension to the SQL used to interact with relational databases.
+
+T-SQL expands on the SQL standard to include procedural programming, local variables, various support functions for string processing, date processing, mathematics, etc.
+
+## Table of contents
+
 - [T-SQL](#t-sql)
+  - [Table of contents](#table-of-contents)
   - [Variables](#variables)
+    - [Variable declaration](#variable-declaration)
   - [Commands](#commands)
     - [`SET NOCOUNT`](#set-nocount)
-  - [Count](#count)
+  - [Count diffrenet database objects](#count-diffrenet-database-objects)
     - [Count tables in database](#count-tables-in-database)
     - [Count stored procedures in database](#count-stored-procedures-in-database)
     - [Count functions in database](#count-functions-in-database)
   - [Triggers](#triggers)
+  - [Links](#links)
 
 ## Variables
 
-Declare variable:
+### Variable declaration
 
 ```sql
 DECLARE @start VARCHAR(30);   
@@ -27,13 +36,13 @@ WHERE DateLastChanged > @start;
 
 ### `SET NOCOUNT`
 
-Stops the message that shows the count of the number of rows affected by a Transact-SQL statement or stored procedure from being returned as part of the result set.
+Stops the message that shows the count of the number of rows affected by a T-SQL statement or stored procedure from being returned as part of the result set.
 
 ```sql
 SET NOCOUNT { ON | OFF }  
 ```
 
-## Count
+## Count diffrenet database objects
 
 ### Count tables in database
 
@@ -82,3 +91,7 @@ GO
 ALTER TABLE [dbo].[TABLE_NAME] ENABLE TRIGGER [TRIGGER_NAME]
 GO
 ```
+
+## Links
+
+[↑ Loading Millions Of Rows Of Test Data In Seconds](https://www.youtube.com/watch?v=Obsn8nHdnIY).
