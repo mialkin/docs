@@ -1,22 +1,37 @@
 # Microsoft SQL Server
 
+**Microsoft SQL Server**, or **SQL Server** for short, is a proprietary relational database management system developed by Microsoft.
+
 ## Table of contents
 
 - [Microsoft SQL Server](#microsoft-sql-server)
   - [Table of contents](#table-of-contents)
-  - [Installation](#installation)
+  - [Running](#running)
     - [Docker](#docker)
   - [Indexes](#indexes)
     - [Index scan](#index-scan)
     - [Index seek](#index-seek)
     - [Indexes with included columns](#indexes-with-included-columns)
 
-## Installation
+## Running
 
 ### Docker
 
-```bash
-docker run --name sqlserver -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=yourStr@ngPassw0rd" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-latest
+`docker-compose.yaml` file:
+
+```yaml
+version: "3.8"
+
+services:
+  sql-server:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: isolation-levels-sql-server
+    ports:
+      - "3400:1433"
+    environment:
+      ACCEPT_EULA: Y
+      # Use sa/yourStrong(!)Password as user/password credentials
+      MSSQL_SA_PASSWORD: yourStrong(!)Password
 ```
 
 ## Indexes
@@ -31,6 +46,6 @@ Index seek traverses a B-tree and walks through leaf nodes seeking only the matc
 
 ### Indexes with included columns
 
-An index with included columns can greatly improve query performance because all columns in the query are included in the index; The query optimizer can locate all columns values within the index without accessing table or clustered index resulting in fewer disk I/O operations.
+An index with included columns can greatly improve query performance because all columns in the query are included in the index. The query optimizer can locate all columns values within the index without accessing table or clustered index resulting in fewer disk I/O operations.
 
-> When an index contains all the columns referenced by a query, the index is typically referred to as *covering the query*.
+When an index contains all the columns referenced by a query, the index is typically referred to as *covering the query*.
