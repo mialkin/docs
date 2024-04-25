@@ -10,7 +10,9 @@
   - [Commit \& rollback transaction](#commit--rollback-transaction)
   - [Get current isolation levels](#get-current-isolation-levels)
   - [Read uncommitted](#read-uncommitted)
-  - [Add delay](#add-delay)
+    - [Inserting](#inserting)
+  - [Timeout](#timeout)
+  - [Delay](#delay)
 
 ## Running
 
@@ -135,7 +137,7 @@ SELECT *
 FROM simple_bank.accounts;
 ```
 
-Even a query with following predicate will hang:
+Even a query with `WHERE name = 'Alice'` predicate will hang:
 
 ```sql
 -- T2
@@ -146,7 +148,41 @@ FROM simple_bank.accounts
 WHERE name = 'Alice';
 ```
 
-It's possible to specify timeout explicitly to avoid the hang:
+Using any other serialization level up to and including `SERIALIZABLE` also does not prevent hang which is the expected behavior.
+
+### Inserting
+
+```sql
+-- T1
+BEGIN TRANSACTION;
+
+INSERT INTO simple_bank.accounts(name, balance)
+VALUES ('Alex', 100);
+```
+
+This will work:
+
+```sql
+-- T2
+SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+
+SELECT *
+FROM simple_bank.accounts;
+```
+
+But this will hang:
+
+```sql
+-- T2
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+SELECT *
+FROM simple_bank.accounts;
+```
+
+## Timeout
+
+It's possible to specify timeout explicitly using [↑ `SET LOCK_TIMEOUT`](https://learn.microsoft.com/ru-ru/sql/t-sql/statements/set-lock-timeout-transact-sql) to avoid the hang:
 
 ```sql
 SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
@@ -157,9 +193,7 @@ SELECT *
 FROM simple_bank.accounts;
 ```
 
-Using any other serialization level up to `SERIALIZABLE` also does not prevent hang which is the expected behavior.
-
-## Add delay
+## Delay
 
 It's possible to delay execution of a command inside transaction using [↑ `WAITFOR`](https://learn.microsoft.com/en-us/sql/t-sql/language-elements/waitfor-transact-sql) keyword:
 
