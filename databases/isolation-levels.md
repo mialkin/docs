@@ -1,6 +1,11 @@
 # Isolation levels and read phenomena
 
+An **isolation level** is a particular locking strategy employed in the database system to avoid [read phenomena](#read-phenomena) also called *anomalies*.
+
+## Table of contents
+
 - [Isolation levels and read phenomena](#isolation-levels-and-read-phenomena)
+  - [Table of contents](#table-of-contents)
   - [Read phenomena](#read-phenomena)
     - [Dirty reads](#dirty-reads)
     - [Non-repeatable reads](#non-repeatable-reads)
@@ -21,8 +26,6 @@
     - [Read uncommitted isolation level](#read-uncommitted-isolation-level)
     - [Read committed isolation level](#read-committed-isolation-level)
   - [Rework](#rework)
-
-An **isolation level** represents a particular locking strategy employed in the database system to avoid *read phenomena*.
 
 ## Read phenomena
 
