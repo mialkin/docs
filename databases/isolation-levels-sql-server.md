@@ -10,6 +10,7 @@
   - [Commit \& rollback transaction](#commit--rollback-transaction)
   - [Get current isolation levels](#get-current-isolation-levels)
   - [Read uncommitted](#read-uncommitted)
+  - [Add delay](#add-delay)
 
 ## Running
 
@@ -157,3 +158,14 @@ FROM simple_bank.accounts;
 ```
 
 Using any other serialization level up to `SERIALIZABLE` also does not prevent hang which is the expected behavior.
+
+## Add delay
+
+It's possible to delay execution of a command inside transaction using [↑ `WAITFOR`](https://learn.microsoft.com/en-us/sql/t-sql/language-elements/waitfor-transact-sql) keyword:
+
+```sql
+WAITFOR DELAY '00:00:05'; -- 5 seconds
+
+SELECT *
+FROM simple_bank.accounts;
+```
