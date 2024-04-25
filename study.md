@@ -47,7 +47,6 @@
 - Cursor
   - [↑ What are the benefits of using database cursor?](https://stackoverflow.com/questions/3861558/what-are-the-benefits-of-using-database-cursor)
 - Execution plan
-- Window function
 - [↑ Apache Cassandra](https://cassandra.apache.org/_/cassandra-basics.html)
 - [↑ Performance benchmarks of PostgreSQL .NET with Npgsql, Dapper, and Entity Framework Core](https://michaelscodingspot.com/npgsql-dapper-efcore-performance/)
 - [↑ Конспект доклада «Как стать классным спецом по бд» (HL2018, Data Egret, Илья Космодемьянский)](https://habr.com/ru/amp/publications/429508/)

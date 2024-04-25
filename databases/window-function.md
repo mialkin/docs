@@ -1,4 +1,4 @@
-# Window functions
+# Window function
 
 A **window function** is a function that performs a calculation across a set of table rows that are somehow related to the current row.
 

@@ -111,7 +111,7 @@
 - [Query optimization and execution plans](databases/query-optimization-and-execution-plans.md)
 - [SQL Server](databases/sqlserver/sqlserver.md)
   - [T-SQL](databases/sqlserver/tsql.md)
-- [Window functions](databases/window-functions.md)
+- [Window function](databases/window-function.md)
 
 ## Software architecture and design
 
