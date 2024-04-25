@@ -11,6 +11,7 @@
   - [Get current isolation levels](#get-current-isolation-levels)
   - [Read uncommitted](#read-uncommitted)
     - [Inserting](#inserting)
+    - [Deleting](#deleting)
   - [Timeout](#timeout)
   - [Delay](#delay)
 
@@ -170,7 +171,40 @@ SELECT *
 FROM simple_bank.accounts;
 ```
 
-But this will hang:
+This will hang:
+
+```sql
+-- T2
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+SELECT *
+FROM simple_bank.accounts;
+```
+
+### Deleting
+
+```sql
+-- T1
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+BEGIN TRANSACTION;
+
+DELETE
+FROM simple_bank.accounts
+WHERE name = 'Bob';
+```
+
+This will work:
+
+```sql
+-- T2
+SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+
+SELECT *
+FROM simple_bank.accounts;
+```
+
+This will hang:
 
 ```sql
 -- T2
