@@ -52,8 +52,8 @@ CREATE TABLE simple_bank.accounts
 GO
 
 INSERT INTO simple_bank.accounts (name, balance, created_at)
-VALUES ('bob', 100, '2020-09-06 15:09:38'),
-       ('alice', 100, '2020-09-06 15:09:38');
+VALUES ('Bob', 100, '2020-09-06 15:09:38'),
+       ('Alice', 100, '2020-09-06 15:09:38');
 GO
 ```
 
@@ -105,3 +105,55 @@ SELECT simple_bank.cil();
 
 ## Read uncommitted
 
+```sql
+-- T1
+BEGIN TRANSACTION;
+
+UPDATE simple_bank.accounts
+SET balance = 200
+WHERE name = 'Bob';
+```
+
+This query will output 200 as Bob's balance:
+
+```sql
+-- T2
+SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+
+SELECT *
+FROM simple_bank.accounts;
+```
+
+But this query will hang until you cancel it, or until you commit/rollback T1:
+
+```sql
+-- T2
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+SELECT *
+FROM simple_bank.accounts;
+```
+
+Even a query with following predicate will hang:
+
+```sql
+-- T2
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+SELECT *
+FROM simple_bank.accounts
+WHERE name = 'Alice';
+```
+
+It's possible to specify timeout explicitly to avoid the hang:
+
+```sql
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+SET LOCK_TIMEOUT 5000; -- 5 seconds
+
+SELECT *
+FROM simple_bank.accounts;
+```
+
+Using any other serialization level up to `SERIALIZABLE` also does not prevent hang which is the expected behavior.
