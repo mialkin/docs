@@ -6,6 +6,8 @@
   - [Table of contents](#table-of-contents)
   - [Running](#running)
     - [DDL \& DML](#ddl--dml)
+  - [Set isolation level](#set-isolation-level)
+  - [Commit \& rollback transaction](#commit--rollback-transaction)
   - [Get current isolation levels](#get-current-isolation-levels)
   - [Read uncommitted](#read-uncommitted)
 
@@ -55,6 +57,30 @@ VALUES ('bob', 100, '2020-09-06 15:09:38'),
 GO
 ```
 
+## Set isolation level
+
+```sql
+SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
+-- READ COMMITTED
+-- REPEATABLE READ
+-- SNAPSHOT
+-- SERIALIZABLE
+```
+
+## Commit & rollback transaction
+
+```sql
+BEGIN TRANSACTION;
+
+COMMIT TRANSACTION;
+```
+
+```sql
+BEGIN TRANSACTION;
+
+ROLLBACK TRANSACTION;
+```
+
 ## Get current isolation levels
 
 ```sql
@@ -74,7 +100,7 @@ BEGIN
     RETURN @cil
 END
 
-SELECT simple_bank.cil() as current_isolation_level;
+SELECT simple_bank.cil();
 ```
 
 ## Read uncommitted
