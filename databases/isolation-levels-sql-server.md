@@ -6,6 +6,8 @@
   - [Table of contents](#table-of-contents)
   - [Running](#running)
     - [DDL \& DML](#ddl--dml)
+  - [Get current isolation levels](#get-current-isolation-levels)
+  - [Read uncommitted](#read-uncommitted)
 
 ## Running
 
@@ -52,3 +54,28 @@ VALUES ('bob', 100, '2020-09-06 15:09:38'),
        ('alice', 100, '2020-09-06 15:09:38');
 GO
 ```
+
+## Get current isolation levels
+
+```sql
+CREATE FUNCTION simple_bank.cil()
+    RETURNS CHAR(20)
+BEGIN
+    DECLARE @cil CHAR(20);
+    SET @cil = (SELECT CASE transaction_isolation_level
+                           WHEN 0 THEN 'Unspecified'
+                           WHEN 1 THEN 'ReadUncommitted'
+                           WHEN 2 THEN 'ReadCommitted'
+                           WHEN 3 THEN 'Repeatable'
+                           WHEN 4 THEN 'Serializable'
+                           WHEN 5 THEN 'Snapshot' END AS transaction_isolation_level
+                FROM sys.dm_exec_sessions
+                WHERE session_id = @@SPID);
+    RETURN @cil
+END
+
+SELECT simple_bank.cil() as current_isolation_level;
+```
+
+## Read uncommitted
+
