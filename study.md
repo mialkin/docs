@@ -253,7 +253,6 @@ for (var i = 0; i < 5; i++) {
 - [↑ Reflection and Reflection.Emit in C#](https://www.c-sharpcorner.com/UploadFile/puranindia/reflection-and-reflection-emit-in-C-Sharp)
 - Generate code from created expression tree for some mapper. Use generated code to map 2 objects
 - [↑ Пишем код, когда пишем код: сорс-генераторы](https://habr.com/ru/companies/tinkoff/articles/766916/)
-- [↑ Интернирование строк](https://learn.microsoft.com/en-us/dotnet/api/system.string.intern). Как отключить интернирование в коде?
 - Заполнить список экземплярами классов и экземплярами структур и прогнать бенчмарки. Посмотреть где больше памяти отъедается и почему. Есть ли оверхед у структуры vs класс?
 - [↑ CLR via C#](https://www.amazon.com/CLR-via-4th-Developer-Reference/dp/0735667454/) or [↑ The Book of the Runtime](https://github.com/dotnet/runtime/blob/main/docs/design/coreclr/botr/README.md)
 - Почему у структуры нет индекса синхронизации? [↑ Внутреннее устройство ссылочных типов C#](https://professorweb.ru/my/csharp/optimization/level2/2_1.php). Джеффри Рихтер
@@ -278,7 +277,6 @@ for (var i = 0; i < 5; i++) {
 - try { return 1; } finally { return 2; } // Cannot jump out of the finally block
 - Наследование в статических классах. Почему его нет?
 - Разобрать .Cast<>, как реализован?
-- В чем минусы DI?
 - Почему разработчики языка разделили память на стек и кучу?
 - Написать бинарное дерево на C#
 - Написать стек, двусвязный и односвязный список на C#
