@@ -7,8 +7,8 @@
   - [Running](#running)
     - [DDL \& DML](#ddl--dml)
   - [Set isolation level](#set-isolation-level)
-  - [Commit \& rollback transaction](#commit--rollback-transaction)
   - [Get current isolation levels](#get-current-isolation-levels)
+  - [Commit \& rollback transaction](#commit--rollback-transaction)
   - [Read uncommitted](#read-uncommitted)
     - [Inserting](#inserting)
     - [Deleting](#deleting)
@@ -30,20 +30,19 @@ services:
       - "3400:1433"
     environment:
       ACCEPT_EULA: Y
-      # Use sa/yourStrong(!)Password as user/password credentials
       MSSQL_SA_PASSWORD: yourStrong(!)Password
 ```
 
 ### DDL & DML
 
 ```sql
-CREATE DATABASE isolation_levels
+CREATE DATABASE isolation_levels;
 GO
 
 USE isolation_levels;
 GO
 
-CREATE SCHEMA simple_bank
+CREATE SCHEMA simple_bank;
 GO
 
 CREATE TABLE simple_bank.accounts
@@ -52,7 +51,7 @@ CREATE TABLE simple_bank.accounts
     name       NVARCHAR(100)               NOT NULL,
     balance    BIGINT                      NOT NULL,
     created_at DATETIME2 DEFAULT GETDATE() NOT NULL
-)
+);
 GO
 
 INSERT INTO simple_bank.accounts (name, balance, created_at)
@@ -64,25 +63,11 @@ GO
 ## Set isolation level
 
 ```sql
-SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
+SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 -- READ COMMITTED
 -- REPEATABLE READ
 -- SNAPSHOT
 -- SERIALIZABLE
-```
-
-## Commit & rollback transaction
-
-```sql
-BEGIN TRANSACTION;
-
-COMMIT TRANSACTION;
-```
-
-```sql
-BEGIN TRANSACTION;
-
-ROLLBACK TRANSACTION;
 ```
 
 ## Get current isolation levels
@@ -105,6 +90,20 @@ BEGIN
 END
 
 SELECT simple_bank.cil();
+```
+
+## Commit & rollback transaction
+
+```sql
+BEGIN TRANSACTION;
+
+COMMIT TRANSACTION;
+```
+
+```sql
+BEGIN TRANSACTION;
+
+ROLLBACK TRANSACTION;
 ```
 
 ## Read uncommitted
