@@ -15,12 +15,12 @@ The term *window* describes the set of rows on which the function operates. A wi
 
 ## Syntax overview
 
-```text
-function (expression) over 
+```sql
+function (expression) OVER 
 (
-    [ partition by expression_list ]
-    [ order by order_list ]
-    [ rows frame_clause ]
+    [ PARTITION BY expression_list ]
+    [ ORDER BY order_list ]
+    [ ROWS frame_clause ]
 )
 ```
 
