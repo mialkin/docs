@@ -106,6 +106,8 @@ SHOW TRANSACTION ISOLATION LEVEL;
 
 Based on snapshots, PostgreSQL isolation differs from the requirements specified in the standard — in fact, it is even stricter. Dirty reads are forbidden by design. Technically, you can specify the `READ UNCOMMITTED` level, but its behavior will be the same as that of `READ COMMITTED`.
 
+[↑ 13.2. Transaction Isolation](https://www.postgresql.org/docs/16/transaction-iso.html).
+
 ### Updating
 
 ```sql
