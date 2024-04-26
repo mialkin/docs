@@ -9,6 +9,7 @@
   - [Set isolation level](#set-isolation-level)
   - [Commit \& rollback transaction](#commit--rollback-transaction)
   - [Get current isolation levels](#get-current-isolation-levels)
+  - [Summary table](#summary-table)
   - [Read uncommitted](#read-uncommitted)
     - [Updating](#updating)
     - [Inserting](#inserting)
@@ -92,6 +93,15 @@ ROLLBACK;
 SHOW TRANSACTION ISOLATION LEVEL;
 ```
 
+## Summary table
+
+| Isolation level  | Dirty read             | Nonrepeatable read | Phantom read           | Serialization anomaly |
+| ---------------- | ---------------------- | ------------------ | ---------------------- | --------------------- |
+| Read uncommitted | Allowed, but not in PG | Possible           | Possible               | Possible              |
+| Read committed   | Not possible           | Possible           | Possible               | Possible              |
+| Repeatable read  | Not possible           | Not possible       | Allowed, but not in PG | Possible              |
+| Serializable     | Not possible           | Not possible       | Not possible           | Not possible          |
+
 ## Read uncommitted
 
 Based on snapshots, PostgreSQL isolation differs from the requirements specified in the standard — in fact, it is even stricter. Dirty reads are forbidden by design. Technically, you can specify the `READ UNCOMMITTED` level, but its behavior will be the same as that of `READ COMMITTED`.
@@ -107,7 +117,7 @@ SET balance = 200
 WHERE name = 'Bob';
 ```
 
-This will *not* show any changes in Bob's balance:
+This will _not_ show any changes in Bob's balance:
 
 ```sql
 -- T2
@@ -127,7 +137,7 @@ INSERT INTO simple_bank.accounts(name, balance)
 VALUES ('Alex', 100);
 ```
 
-This will *not* show the new inserted row:
+This will _not_ show the new inserted row:
 
 ```sql
 -- T2
@@ -148,7 +158,7 @@ FROM simple_bank.accounts
 WHERE name = 'Alex';
 ```
 
-This will *not* show deleted row:
+This will _not_ show deleted row:
 
 ```sql
 -- T2
