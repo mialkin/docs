@@ -329,6 +329,7 @@
       - [`Barrier`](csharp/concurrency/synchronization-primitives/barrier.md)
       - [`CountdownEvent`](csharp/concurrency/synchronization-primitives/contdownevent.md)
       - [`EventWaitHandle`, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`](csharp/concurrency/synchronization-primitives/eventwaithandle.md)
+  - [Terminology: context switch, critical section, spinning](csharp/concurrency/terminology.md)
   - [Thread, thread pool](csharp/concurrency/thread.md)
   - [`ThreadLocal<T>`, `AsyncLocal<T>`, `[ThreadStatic]`](csharp/concurrency/threadlocal-asynclocal.md)
   - [`ValueTask`, `ValueTask<TResult>`](csharp/concurrency/valuetask.md)
