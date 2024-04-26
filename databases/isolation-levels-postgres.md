@@ -1,8 +1,8 @@
-# Isolation levels in PostgreSQL
+# PostgreSQL isolation levels
 
 ## Table of contents
 
-- [Isolation levels in PostgreSQL](#isolation-levels-in-postgresql)
+- [PostgreSQL isolation levels](#postgresql-isolation-levels)
   - [Table of contents](#table-of-contents)
   - [Running](#running)
     - [DDL \& DML](#ddl--dml)

@@ -1,8 +1,8 @@
-# Isolation levels in SQL Server
+# SQL Server isolation levels
 
 ## Table of contents
 
-- [Isolation levels in SQL Server](#isolation-levels-in-sql-server)
+- [SQL Server isolation levels](#sql-server-isolation-levels)
   - [Table of contents](#table-of-contents)
   - [Running](#running)
     - [DDL \& DML](#ddl--dml)
