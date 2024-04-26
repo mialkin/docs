@@ -10,6 +10,7 @@
   - [Get current isolation levels](#get-current-isolation-levels)
   - [Commit \& rollback transaction](#commit--rollback-transaction)
   - [Read uncommitted](#read-uncommitted)
+    - [Updating](#updating)
     - [Inserting](#inserting)
     - [Deleting](#deleting)
   - [Timeout](#timeout)
@@ -108,6 +109,8 @@ ROLLBACK;
 
 ## Read uncommitted
 
+### Updating
+
 ```sql
 -- T1
 BEGIN TRANSACTION;
@@ -160,7 +163,7 @@ INSERT INTO simple_bank.accounts(name, balance)
 VALUES ('Alex', 100);
 ```
 
-This will work:
+This will work and it will show inserted row:
 
 ```sql
 -- T2
@@ -184,16 +187,14 @@ FROM simple_bank.accounts;
 
 ```sql
 -- T1
-SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
-
 BEGIN TRANSACTION;
 
 DELETE
 FROM simple_bank.accounts
-WHERE name = 'Bob';
+WHERE name = 'Alex';
 ```
 
-This will work:
+This will work and will show that the row was deleted:
 
 ```sql
 -- T2
