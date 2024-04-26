@@ -102,11 +102,15 @@ SHOW TRANSACTION ISOLATION LEVEL;
 | Repeatable read  | Not possible           | Not possible       | Allowed, but not in PG | Possible              |
 | Serializable     | Not possible           | Not possible       | Not possible           | Not possible          |
 
+In PostgreSQL, you can request any of the four standard transaction isolation levels, but internally only three distinct isolation levels are implemented, i.e., PostgreSQL's read uncommitted mode behaves like read committed. This is because it is the only sensible way to map the standard isolation levels to PostgreSQL's multiversion concurrency control architecture.
+
+The table also shows that PostgreSQL's repeatable read implementation does not allow phantom reads. This is acceptable under the SQL standard because the standard specifies which anomalies must not occur at certain isolation levels; higher guarantees are acceptable. The behavior of the available isolation levels is detailed in the following subsections.
+
+[↑ 13.2. Transaction Isolation](https://www.postgresql.org/docs/16/transaction-iso.html).
+
 ## Read uncommitted
 
 Based on snapshots, PostgreSQL isolation differs from the requirements specified in the standard — in fact, it is even stricter. Dirty reads are forbidden by design. Technically, you can specify the `READ UNCOMMITTED` level, but its behavior will be the same as that of `READ COMMITTED`.
-
-[↑ 13.2. Transaction Isolation](https://www.postgresql.org/docs/16/transaction-iso.html).
 
 ### Updating
 
