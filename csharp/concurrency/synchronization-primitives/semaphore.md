@@ -1,4 +1,4 @@
-# Semaphore, `Semaphore`, `SemaphoreSlim`
+# `Semaphore`, `SemaphoreSlim`
 
 A **semaphore** is a variable or abstract data type used to control access to a common resource by multiple processes in a concurrent system such as a multitasking operating system.
 
@@ -12,37 +12,30 @@ The semaphore concept was invented by Dutch computer scientist Edsger Dijkstra i
 
 ## Table of contents
 
-- [Semaphore, `Semaphore`, `SemaphoreSlim`](#semaphore-semaphore-semaphoreslim)
+- [`Semaphore`, `SemaphoreSlim`](#semaphore-semaphoreslim)
   - [Table of contents](#table-of-contents)
   - [`Semaphore`](#semaphore)
-    - [Remarks](#remarks)
   - [`SemaphoreSlim`](#semaphoreslim)
-    - [Remarks](#remarks-1)
     - [Examples](#examples)
       - [Example 1](#example-1)
       - [Example 2](#example-2)
       - [Example 3](#example-3)
-  - [Links](#links)
 
 ## `Semaphore`
 
-s
-
-### Remarks
+The [↑ `Semaphore`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.semaphore) class limits the number of threads that can access a resource or pool of resources concurrently.
 
 Semaphores are of two types: *local semaphores* and *named system semaphores*. If you create a `Semaphore` object using a constructor that accepts a name, it is associated with an operating-system semaphore of that name. Named system semaphores are visible throughout the operating system, and can be used to synchronize the activities of processes. You can create multiple `Semaphore` objects that represent the same named system semaphore, and you can use the `OpenExisting` method to open an existing named system semaphore.
 
 A local semaphore exists only within your process. It can be used by any thread in your process that has a reference to the local `Semaphore` object. Each `Semaphore` object is a separate local semaphore.
 
-Unlike `SemaphoreSlim` class, `Semaphore` doesn't have any asynchornous methods like `WaitAsync()`.
+Unlike [`SemaphoreSlim`](#semaphoreslim) class, `Semaphore` doesn't have any asynchornous methods like `WaitAsync()`.
 
 ## `SemaphoreSlim`
 
-Represents a lightweight alternative to `Semaphore` that limits the number of threads that can access a resource or pool of resources concurrently.
+The [↑ `SemaphoreSlim`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.semaphoreslim) class represents a lightweight alternative to [`Semaphore`](#semaphore) that limits the number of threads that can access a resource or pool of resources concurrently.
 
-### Remarks
-
-Semaphores are of two types: **local semaphores** and **named system semaphores**. Local semaphores are local to an application, system semaphores are visible throughout the operating system and are suitable for inter-process synchronization. The `SemaphoreSlim` is a lightweight alternative to the `Semaphore` class that doesn't use Windows kernel semaphores. Unlike the `Semaphore` class, the `SemaphoreSlim` class doesn't support named system semaphores. You can use it as a local semaphore only. The `SemaphoreSlim` class is the recommended semaphore for synchronization within a single app.
+Unlike the `Semaphore` class, the `SemaphoreSlim` class doesn't support named system semaphores. You can use it as a local semaphore only. The `SemaphoreSlim` class is the recommended semaphore for synchronization within a single app.
 
 ### Examples
 
@@ -142,9 +135,3 @@ async Task DownloadUri()
     }
 }
 ```
-
-## Links
-
-- [↑ Semaphore Class](https://docs.microsoft.com/en-us/dotnet/api/system.threading.semaphore)
-- [↑ SemaphoreSlim Class](https://docs.microsoft.com/en-us/dotnet/api/system.threading.semaphoreslim)
-- [↑ How do I choose between Semaphore and SemaphoreSlim?](https://stackoverflow.com/questions/4154480/how-do-i-choose-between-semaphore-and-semaphoreslim)
