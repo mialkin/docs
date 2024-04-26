@@ -57,7 +57,7 @@ To print `"End"` you need to pass `1` into constructor.
 
 ### Example 2
 
-Let only 3 task at a time to run the body of `DoWorkAsync`:
+Let only 3 tasks at a time to run the body of `DoWorkAsync`:
 
 ```csharp
 var semaphore = new SemaphoreSlim(3);
