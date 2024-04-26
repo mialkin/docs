@@ -1,6 +1,9 @@
-# Terminology
+# Terminology: context switch, critical section, spinning
 
-- [Terminology](#terminology)
+## Table of contents
+
+- [Terminology: context switch, critical section, spinning](#terminology-context-switch-critical-section-spinning)
+  - [Table of contents](#table-of-contents)
   - [Context switch](#context-switch)
   - [Critical section](#critical-section)
   - [Spinning](#spinning)
@@ -8,8 +11,6 @@
 ## Context switch
 
 A **context switch** is the process of storing the state of a process or thread, so that it can be restored and resume execution at a later point.
-
-A **context switch** is the switching of the CPU from one process or thread to another.
 
 ## Critical section
 
