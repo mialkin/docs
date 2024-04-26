@@ -104,7 +104,6 @@
 - [PL/SQL](databases/oracle/plsql.md)
 - [PostgreSQL](databases/postgres/postgres.md)
   - [Client applications](databases/postgres/client-applications.md)
-  - [Isolation levels](databases/postgres/isolation-levels.md)
   - [Data organization](databases/postgres/data-organization.md)
   - [Types of indexes](databases/postgres/types-of-indexes.md)
 - [Replication, sharding, partitioning](databases/replication-sharding-partitioning.md)
