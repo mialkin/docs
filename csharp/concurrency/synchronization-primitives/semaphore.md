@@ -16,10 +16,8 @@ The semaphore concept was invented by Dutch computer scientist Edsger Dijkstra i
   - [Table of contents](#table-of-contents)
   - [`Semaphore`](#semaphore)
   - [`SemaphoreSlim`](#semaphoreslim)
-    - [Examples](#examples)
-      - [Example 1](#example-1)
-      - [Example 2](#example-2)
-      - [Example 3](#example-3)
+    - [Example 1](#example-1)
+    - [Example 2](#example-2)
 
 ## `Semaphore`
 
@@ -37,101 +35,68 @@ The [↑ `SemaphoreSlim`](https://learn.microsoft.com/en-us/dotnet/api/system.th
 
 Unlike the `Semaphore` class, the `SemaphoreSlim` class doesn't support named system semaphores. You can use it as a local semaphore only. The `SemaphoreSlim` class is the recommended semaphore for synchronization within a single app.
 
-### Examples
-
-#### Example 1
+### Example 1
 
 ```csharp
-SemaphoreSlim gate = new SemaphoreSlim(0);
+var semaphore = new SemaphoreSlim(0);
 
-await DoWork();
+await DoWorkAsync();
 
-async Task DoWork()
+async Task DoWorkAsync()
 {
     Console.WriteLine("Start");
-    await gate.WaitAsync();
-    Console.WriteLine("Middle");
+    await semaphore.WaitAsync();
     Console.WriteLine("End");
 }
+
+// Output:
+// Start
 ```
 
-Outputs:
+To print `"End"` you need to pass `1` into constructor.
 
-```output
-Start
-```
+### Example 2
 
-You need to pass `1` into `SemaphoreSlim` constructor to print "Middle" and "End".
-
-#### Example 2
+Let only 3 task at a time to run the body of `DoWorkAsync`:
 
 ```csharp
-SemaphoreSlim gate = new SemaphoreSlim(2);
+var semaphore = new SemaphoreSlim(3);
 
-await DoWork();
+var tasks = new List<Task>();
 
-async Task DoWork()
+for (var i = 0; i < 6; i++)
 {
-    for (int i = 0; i < 10; i++)
-    {
-        Console.WriteLine("Start");
-        await gate.WaitAsync();
-        Console.WriteLine("Middle");
-        Console.WriteLine("End");
-    }
-}
-```
-
-Outputs:
-
-```csharp
-Start
-Middle
-End
-Start
-Middle
-End
-Start
-```
-
-#### Example 3
-
-```csharp
-HttpClient client = new();
-
-var maxParallel = 10;
-var throttler = new SemaphoreSlim(initialCount: maxParallel);
-
-Stopwatch stopWatch = new();
-stopWatch.Start();
-
-List<Task> tasks = new();
-for (int i = 0; i < 100; i++)
-{
-    tasks.Add(DownloadUri());
+    tasks.Add(DoWorkAsync());
 }
 
 await Task.WhenAll(tasks);
 
-stopWatch.Stop();
-
-TimeSpan ts = stopWatch.Elapsed;
-string elapsedTime = $"{ts.Seconds:00}.{ts.Milliseconds}";
-
-Console.WriteLine(elapsedTime); // 02.586
-
-async Task DownloadUri()
+async Task DoWorkAsync()
 {
-    await throttler.WaitAsync();
     try
     {
-        HttpResponseMessage response = await client.GetAsync("https://google.com");
-        response.EnsureSuccessStatusCode();
-        string responseBody = await response.Content.ReadAsStringAsync();
+        await semaphore.WaitAsync();
+        Console.WriteLine("Start");
+        await Task.Delay(5000);
+        Console.WriteLine("End");
     }
     finally
     {
-        throttler.Release();
+        semaphore.Release();
     }
 }
+
+// Output:
+// Start
+// Start
+// Start
+// End
+// End
+// End
+// Start
+// Start
+// Start
+// End
+// End
+// End
 ```
