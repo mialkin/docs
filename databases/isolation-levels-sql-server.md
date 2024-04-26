@@ -97,13 +97,13 @@ SELECT simple_bank.cil();
 ```sql
 BEGIN TRANSACTION;
 
-COMMIT TRANSACTION;
+COMMIT;
 ```
 
 ```sql
 BEGIN TRANSACTION;
 
-ROLLBACK TRANSACTION;
+ROLLBACK;
 ```
 
 ## Read uncommitted
