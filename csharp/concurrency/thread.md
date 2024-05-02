@@ -12,6 +12,28 @@ In some applications, there is one thread that is special. For example, user int
 
 By default, a .NET program is started with a single thread, often called the *primary thread*. However, it can create additional threads to execute code in parallel or concurrently with the primary thread. These threads are often called *worker threads*.
 
+```csharp
+var thread = new Thread(DoWork);
+thread.Start();
+
+Console.WriteLine("Start main thread work. " + Environment.CurrentManagedThreadId);
+thread.Join();
+Console.WriteLine("End main thread work. " + Environment.CurrentManagedThreadId);
+
+void DoWork()
+{
+    Console.WriteLine("Start background thread work. " + Environment.CurrentManagedThreadId);
+    Thread.Sleep(3000);
+    Console.WriteLine("End background thread work. " + Environment.CurrentManagedThreadId);
+}
+
+// Output:
+// Start main thread work. 1
+// Start background thread work. 4
+// End background thread work. 4
+// End main thread work. 1
+```
+
 ## Table of contents
 
 - [Thread, thread pool](#thread-thread-pool)
