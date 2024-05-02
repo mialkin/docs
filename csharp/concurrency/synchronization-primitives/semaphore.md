@@ -15,8 +15,9 @@ The semaphore concept was invented by Dutch computer scientist Edsger Dijkstra i
 - [`Semaphore`, `SemaphoreSlim`](#semaphore-semaphoreslim)
   - [Table of contents](#table-of-contents)
   - [`Semaphore`](#semaphore)
-  - [`SemaphoreSlim`](#semaphoreslim)
     - [Example 1](#example-1)
+  - [`SemaphoreSlim`](#semaphoreslim)
+    - [Example 1](#example-1-1)
     - [Example 2](#example-2)
 
 ## `Semaphore`
@@ -28,6 +29,26 @@ Semaphores are of two types: *local semaphores* and *named system semaphores*. I
 A local semaphore exists only within your process. It can be used by any thread in your process that has a reference to the local `Semaphore` object. Each `Semaphore` object is a separate local semaphore.
 
 Unlike [`SemaphoreSlim`](#semaphoreslim) class, `Semaphore` doesn't have any asynchornous methods like `WaitAsync()`.
+
+### Example 1
+
+```csharp
+var semaphore = new Semaphore(initialCount: 0, maximumCount: 1);
+
+DoWork();
+
+void DoWork()
+{
+    Console.WriteLine("Start");
+    semaphore.WaitOne();
+    Console.WriteLine("End");
+}
+
+// Output:
+// Start
+```
+
+To print `"End"` you have to either set `initialCount` to `1` or call `Semaphore.Release()` before calling `semaphore.WaitOne()`.
 
 ## `SemaphoreSlim`
 
