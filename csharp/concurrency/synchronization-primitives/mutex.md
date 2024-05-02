@@ -11,3 +11,34 @@ The thread that owns a mutex can request the same mutex in repeated calls to `Wa
 Mutexes are of two types: *local mutexes*, which are unnamed, and *named system mutexes*. A local mutex exists only within your process. It can be used by any thread in your process that has a reference to the `Mutex` object that represents the mutex. Each unnamed `Mutex` object represents a separate local mutex.
 
 Named system mutexes are visible throughout the operating system, and can be used to synchronize the activities of processes. You can create a `Mutex` object that represents a named system mutex by using a constructor that accepts a name. The operating-system object can be created at the same time, or it can exist before the creation of the `Mutex` object. You can create multiple `Mutex` objects that represent the same named system mutex, and you can use the `OpenExisting` method to open an existing named system mutex.
+
+```csharp
+var mutex = new Mutex();
+
+var thread1 = new Thread(DoWork);
+var thread2 = new Thread(DoWork);
+
+thread1.Start();
+thread2.Start();
+
+void DoWork()
+{
+    try
+    {
+        mutex.WaitOne();
+        Console.WriteLine("Entering critical section. " + Environment.CurrentManagedThreadId);
+        Thread.Sleep(3000);
+        Console.WriteLine("Leaving critical section. " + Environment.CurrentManagedThreadId);
+    }
+    finally
+    {
+        mutex.ReleaseMutex();
+    }
+}
+
+// Output:
+// Entering critical section. 4
+// Leaving critical section. 4
+// Entering critical section. 5
+// Leaving critical section. 5
+```
