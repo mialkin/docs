@@ -273,29 +273,7 @@ internal class NumberProvider
 
 ### `lock`
 
-```csharp
-var locker = new object();
-
-lock (locker)
-{
-    Console.WriteLine("Hello, World!");
-}
-```
-
-```csharp
-object obj = new object();
-bool lockTaken = false;
-try
-{
-    Monitor.Enter(obj, ref lockTaken);
-    Console.WriteLine("Hello, World!");
-}
-finally
-{
-    if (lockTaken)
-      Monitor.Exit(obj);
-}
-```
+See [`lock`](/csharp/concurrency/synchronization-primitives/monitor-lock-mutex.md#lock).
 
 ### Closures
 

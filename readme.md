@@ -320,8 +320,7 @@
   - [Synchronization context, `ConfigureAwait`](csharp/concurrency/synchronization-context.md)
   - Synchronization primitives
     - [`Interlocked`](csharp/concurrency/synchronization-primitives/interlocked.md)
-    - [`Monitor`](csharp/concurrency/synchronization-primitives/monitor.md)
-    - [`Mutex`](csharp/concurrency/synchronization-primitives/mutex.md)
+    - [`Monitor`, `lock`, `Mutex`](csharp/concurrency/synchronization-primitives/monitor-lock-mutex.md)
     - [`ReaderWriterLockSlim`](csharp/concurrency/synchronization-primitives/readerwriterlockslim.md)
     - [`Semaphore` and `SemaphoreSlim`](csharp/concurrency/synchronization-primitives/semaphore.md)
     - [`SpinLock` and `SpinWait`](csharp/concurrency/synchronization-primitives/spinlock-and-spinwait.md)
