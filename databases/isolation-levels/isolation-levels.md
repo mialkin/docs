@@ -32,7 +32,6 @@ The American National Standards Institute, ANSI, defines four isolation levels:
 
 Although higher isolation levels provide better data consistency, this consistency can be costly in terms of the parallel access provided to users. As isolation level increases, so does the chance that the locking strategy used will create problems with parallel access of data.
 
-
 ## Read phenomena
 
 ### Dirty reads
