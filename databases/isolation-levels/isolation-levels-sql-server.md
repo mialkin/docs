@@ -15,6 +15,8 @@
     - [Updating](#updating)
     - [Inserting](#inserting)
     - [Deleting](#deleting)
+  - [Read committed](#read-committed)
+    - [Updating](#updating-1)
 
 ## Running
 
@@ -144,7 +146,7 @@ SET balance = 200
 WHERE name = 'Bob';
 ```
 
-This query will output 200 as Bob's balance:
+This query will output `200` as Bob's balance:
 
 ```sql
 -- T2
@@ -218,7 +220,7 @@ FROM simple_bank.accounts
 WHERE name = 'Alex';
 ```
 
-This will work and will show that the row was deleted:
+This will *not* block and will show that the row was deleted:
 
 ```sql
 -- T2
@@ -228,7 +230,7 @@ SELECT *
 FROM simple_bank.accounts;
 ```
 
-This will hang:
+This will block:
 
 ```sql
 -- T2
@@ -238,3 +240,39 @@ SELECT *
 FROM simple_bank.accounts;
 ```
 
+## Read committed
+
+### Updating
+
+This query will output `100` as Bob's balance at the first time and `200` the second time:
+
+```sql
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+BEGIN TRANSACTION;
+
+SELECT *
+FROM simple_bank.accounts;
+
+WAITFOR DELAY '00:00:10'; -- 10 seconds
+
+SELECT *
+FROM simple_bank.accounts;
+
+COMMIT;
+```
+
+T2 will not block:
+
+```sql
+-- T2
+BEGIN TRANSACTION;
+
+UPDATE simple_bank.accounts
+SET balance = 200
+WHERE name = 'Bob';
+
+COMMIT;
+```
+
+To avoid non-repeatable read use `REPEATABLE READ` isolation level instead of `READ COMMITTED`. In this case T2 will block until T1 finishes. And T1 will print `100` both times.
