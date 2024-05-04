@@ -203,6 +203,10 @@ BEGIN TRANSACTION;
 
 INSERT INTO simple_bank.accounts(name, balance)
 VALUES ('Alex', 100);
+
+WAITFOR DELAY '00:00:10'; -- 10 seconds
+
+ROLLBACK;
 ```
 
 This will work and it will show inserted row:
@@ -215,9 +219,11 @@ BEGIN TRANSACTION;
 
 SELECT *
 FROM simple_bank.accounts;
+
+COMMIT;
 ```
 
-This will hang:
+This will hang and will *not* show inserted row since T1 hasn't committed. Otherwise it would be a phantom read and `READ COMMITTED` does not prevent phantom reads.
 
 ```sql
 -- T2
@@ -227,6 +233,8 @@ BEGIN TRANSACTION;
 
 SELECT *
 FROM simple_bank.accounts;
+
+COMMIT;
 ```
 
 ### Deleting
