@@ -116,10 +116,14 @@ It's possible to specify timeout explicitly using [↑ `SET LOCK_TIMEOUT`](https
 ```sql
 SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
 
+BEGIN TRANSACTION;
+
 SET LOCK_TIMEOUT 5000; -- 5 seconds
 
 SELECT *
 FROM simple_bank.accounts;
+
+COMMIT;
 ```
 
 ## Delay
@@ -287,6 +291,7 @@ COMMIT;
 This query will output `100` as Bob's balance at the first time and `200` the second time:
 
 ```sql
+-- T1
 SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
 
 BEGIN TRANSACTION;
