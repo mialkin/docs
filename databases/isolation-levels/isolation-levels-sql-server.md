@@ -152,6 +152,8 @@ This query will output `200` as Bob's balance:
 -- T2
 SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 
+BEGIN TRANSACTION;
+
 SELECT *
 FROM simple_bank.accounts;
 ```
@@ -162,6 +164,8 @@ But this query will hang until you cancel it, or until you commit/rollback T1:
 -- T2
 SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
 
+BEGIN TRANSACTION;
+
 SELECT *
 FROM simple_bank.accounts;
 ```
@@ -171,6 +175,8 @@ Even a query with `WHERE name = 'Alice'` predicate will hang:
 ```sql
 -- T2
 SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+BEGIN TRANSACTION;
 
 SELECT *
 FROM simple_bank.accounts
@@ -195,6 +201,8 @@ This will work and it will show inserted row:
 -- T2
 SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 
+BEGIN TRANSACTION;
+
 SELECT *
 FROM simple_bank.accounts;
 ```
@@ -204,6 +212,8 @@ This will hang:
 ```sql
 -- T2
 SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+BEGIN TRANSACTION;
 
 SELECT *
 FROM simple_bank.accounts;
@@ -226,6 +236,8 @@ This will *not* block and will show that the row was deleted:
 -- T2
 SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 
+BEGIN TRANSACTION;
+
 SELECT *
 FROM simple_bank.accounts;
 ```
@@ -235,6 +247,8 @@ This will block:
 ```sql
 -- T2
 SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+BEGIN TRANSACTION;
 
 SELECT *
 FROM simple_bank.accounts;
