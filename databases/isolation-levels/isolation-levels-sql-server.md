@@ -19,6 +19,8 @@
     - [Updating](#updating-1)
     - [Inserting](#inserting-1)
     - [Deleting](#deleting-1)
+  - [Repeatable read](#repeatable-read)
+    - [Updating](#updating-2)
 
 ## Running
 
@@ -381,6 +383,40 @@ BEGIN TRANSACTION;
 DELETE
 FROM simple_bank.accounts
 WHERE name = 'Alex';
+
+COMMIT;
+```
+
+## Repeatable read
+
+### Updating
+
+T1 will output the same result set in both `SELECT` statements and T2 will block until T1 commits:
+
+```sql
+-- T1
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+
+BEGIN TRANSACTION;
+
+SELECT *
+FROM simple_bank.accounts;
+
+WAITFOR DELAY '00:00:10'; -- 10 seconds
+
+SELECT *
+FROM simple_bank.accounts;
+
+COMMIT;
+```
+
+```sql
+-- T2
+BEGIN TRANSACTION;
+
+UPDATE simple_bank.accounts
+SET balance = 200
+WHERE name = 'Bob';
 
 COMMIT;
 ```
