@@ -245,7 +245,11 @@ BEGIN TRANSACTION;
 
 DELETE
 FROM simple_bank.accounts
-WHERE name = 'Alex';
+WHERE name = 'Bob';
+
+WAITFOR DELAY '00:00:10'; -- 10 seconds
+
+ROLLBACK;
 ```
 
 This will *not* block and will show that the row was deleted:
@@ -258,6 +262,8 @@ BEGIN TRANSACTION;
 
 SELECT *
 FROM simple_bank.accounts;
+
+COMMIT;
 ```
 
 This will block:
@@ -270,6 +276,8 @@ BEGIN TRANSACTION;
 
 SELECT *
 FROM simple_bank.accounts;
+
+COMMIT;
 ```
 
 ## Read committed
