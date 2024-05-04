@@ -17,6 +17,8 @@
     - [Deleting](#deleting)
   - [Read committed](#read-committed)
     - [Updating](#updating-1)
+    - [Inserting](#inserting-1)
+    - [Deleting](#deleting-1)
 
 ## Running
 
@@ -288,7 +290,7 @@ COMMIT;
 
 ### Updating
 
-This query will output `100` as Bob's balance at the first time and `200` the second time:
+This query will output `100` as Bob's balance at the first time and `200` the second time, given T2 is run right after T1:
 
 ```sql
 -- T1
@@ -307,8 +309,6 @@ FROM simple_bank.accounts;
 COMMIT;
 ```
 
-T2 will not block:
-
 ```sql
 -- T2
 BEGIN TRANSACTION;
@@ -321,3 +321,66 @@ COMMIT;
 ```
 
 To avoid non-repeatable read use `REPEATABLE READ` isolation level instead of `READ COMMITTED`. In this case T2 will block until T1 finishes. And T1 will print `100` both times.
+
+### Inserting
+
+The second `SELECT` in T1 will output a new row inserted by T2:
+
+```sql
+-- T1
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+BEGIN TRANSACTION;
+
+SELECT *
+FROM simple_bank.accounts;
+
+WAITFOR DELAY '00:00:10'; -- 10 seconds
+
+SELECT *
+FROM simple_bank.accounts;
+
+COMMIT;
+```
+
+```sql
+-- T2
+BEGIN TRANSACTION;
+
+INSERT INTO simple_bank.accounts(name, balance)
+VALUES ('Alex', 100);
+
+COMMIT;
+```
+
+### Deleting
+
+The second `SELECT` in T1 will see less rows because of the `DELETE` in T2:
+
+```sql
+-- T1
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+BEGIN TRANSACTION;
+
+SELECT *
+FROM simple_bank.accounts;
+
+WAITFOR DELAY '00:00:10'; -- 10 seconds
+
+SELECT *
+FROM simple_bank.accounts;
+
+COMMIT;
+```
+
+```sql
+-- T2
+BEGIN TRANSACTION;
+
+DELETE
+FROM simple_bank.accounts
+WHERE name = 'Alex';
+
+COMMIT;
+```
