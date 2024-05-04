@@ -144,6 +144,10 @@ BEGIN TRANSACTION;
 UPDATE simple_bank.accounts
 SET balance = 200
 WHERE name = 'Bob';
+
+WAITFOR DELAY '00:00:10'; -- 10 seconds
+
+ROLLBACK;
 ```
 
 This query will output `200` as Bob's balance:
@@ -156,6 +160,8 @@ BEGIN TRANSACTION;
 
 SELECT *
 FROM simple_bank.accounts;
+
+COMMIT;
 ```
 
 But this query will hang until you cancel it, or until you commit/rollback T1:
@@ -168,6 +174,8 @@ BEGIN TRANSACTION;
 
 SELECT *
 FROM simple_bank.accounts;
+
+COMMIT;
 ```
 
 Even a query with `WHERE name = 'Alice'` predicate will hang:
@@ -181,6 +189,8 @@ BEGIN TRANSACTION;
 SELECT *
 FROM simple_bank.accounts
 WHERE name = 'Alice';
+
+COMMIT;
 ```
 
 Using any other serialization level up to and including `SERIALIZABLE` also does not prevent hang which is the expected behavior.
