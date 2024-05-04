@@ -21,6 +21,8 @@
     - [Deleting](#deleting-1)
   - [Repeatable read](#repeatable-read)
     - [Updating](#updating-2)
+    - [Inserting](#inserting-2)
+    - [Deleting](#deleting-2)
 
 ## Running
 
@@ -417,6 +419,69 @@ BEGIN TRANSACTION;
 UPDATE simple_bank.accounts
 SET balance = 200
 WHERE name = 'Bob';
+
+COMMIT;
+```
+
+### Inserting
+
+`REPEATABLE READ` does not prevent insert related phenomena, so you will see different results in `SELECT`s:
+
+```sql
+-- T1
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+
+BEGIN TRANSACTION;
+
+SELECT *
+FROM simple_bank.accounts;
+
+WAITFOR DELAY '00:00:10'; -- 10 seconds
+
+SELECT *
+FROM simple_bank.accounts;
+
+COMMIT;
+```
+
+```sql
+-- T2
+BEGIN TRANSACTION;
+
+INSERT INTO simple_bank.accounts(name, balance)
+VALUES ('Alex', 100);
+
+COMMIT;
+```
+
+### Deleting
+
+Both `SELECT`s in T1 will the same result sets and T2 will block until T1 commits:
+
+```sql
+-- T1
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+
+BEGIN TRANSACTION;
+
+SELECT *
+FROM simple_bank.accounts;
+
+WAITFOR DELAY '00:00:10'; -- 10 seconds
+
+SELECT *
+FROM simple_bank.accounts;
+
+COMMIT;
+```
+
+```sql
+-- T2
+BEGIN TRANSACTION;
+
+DELETE
+FROM simple_bank.accounts
+WHERE name = 'Alex';
 
 COMMIT;
 ```
