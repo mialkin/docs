@@ -12,17 +12,16 @@
   - [Timeout](#timeout)
   - [Delay](#delay)
   - [Read uncommitted](#read-uncommitted)
-    - [Updating](#updating)
-    - [Inserting](#inserting)
-    - [Deleting](#deleting)
+    - [`UPDATE`](#update)
+    - [`INSERT`](#insert)
+    - [`DELETE`](#delete)
   - [Read committed](#read-committed)
-    - [Updating](#updating-1)
-    - [Inserting](#inserting-1)
-    - [Deleting](#deleting-1)
+    - [`UPDATE`](#update-1)
+    - [`INSERT`](#insert-1)
+    - [`DELETE`](#delete-1)
   - [Repeatable read](#repeatable-read)
-    - [Updating](#updating-2)
-    - [Inserting](#inserting-2)
-    - [Deleting](#deleting-2)
+    - [`UPDATE`, `DELETE`](#update-delete)
+    - [`INSERT`](#insert-2)
   - [Serializable](#serializable)
     - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete)
 
@@ -147,7 +146,9 @@ FROM simple_bank.accounts;
 
 ## Read uncommitted
 
-### Updating
+### `UPDATE`
+
+T2 outputs `200` as Bob's balance (dirty read):
 
 ```sql
 -- T1
@@ -162,8 +163,6 @@ WAITFOR DELAY '00:00:10'; -- 10 seconds
 ROLLBACK;
 ```
 
-This query will output `200` as Bob's balance:
-
 ```sql
 -- T2
 SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
@@ -176,7 +175,7 @@ FROM simple_bank.accounts;
 COMMIT;
 ```
 
-But this query will hang until you cancel it, or until you commit/rollback T1:
+With `READ COMMITTED` T2 blocks until you cancel it, or until you commit/rollback T1:
 
 ```sql
 -- T2
@@ -190,24 +189,11 @@ FROM simple_bank.accounts;
 COMMIT;
 ```
 
-Even a query with `WHERE name = 'Alice'` predicate will hang:
+Using any other serialization level up to and including `SERIALIZABLE` also does not prevent T2 to block which is the expected behavior.
 
-```sql
--- T2
-SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+### `INSERT`
 
-BEGIN TRANSACTION;
-
-SELECT *
-FROM simple_bank.accounts
-WHERE name = 'Alice';
-
-COMMIT;
-```
-
-Using any other serialization level up to and including `SERIALIZABLE` also does not prevent hang which is the expected behavior.
-
-### Inserting
+T2 shows inserted row, although T1 hasn't committed anything:
 
 ```sql
 -- T1
@@ -221,8 +207,6 @@ WAITFOR DELAY '00:00:10'; -- 10 seconds
 ROLLBACK;
 ```
 
-This will work and it will show inserted row:
-
 ```sql
 -- T2
 SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
@@ -235,7 +219,7 @@ FROM simple_bank.accounts;
 COMMIT;
 ```
 
-This will hang and will *not* show inserted row since T1 hasn't committed. Otherwise it would be a phantom read and `READ COMMITTED` does not prevent phantom reads.
+This will hang and will *not* show inserted row since T1 hasn't committed:
 
 ```sql
 -- T2
@@ -249,7 +233,9 @@ FROM simple_bank.accounts;
 COMMIT;
 ```
 
-### Deleting
+### `DELETE`
+
+T2 will *not* block and will show that the row was deleted:
 
 ```sql
 -- T1
@@ -264,8 +250,6 @@ WAITFOR DELAY '00:00:10'; -- 10 seconds
 ROLLBACK;
 ```
 
-This will *not* block and will show that the row was deleted:
-
 ```sql
 -- T2
 SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
@@ -278,7 +262,7 @@ FROM simple_bank.accounts;
 COMMIT;
 ```
 
-This will block:
+T2 with `READ COMMITTED` isolation level will block:
 
 ```sql
 -- T2
@@ -294,9 +278,9 @@ COMMIT;
 
 ## Read committed
 
-### Updating
+### `UPDATE`
 
-This query will output `100` as Bob's balance at the first time and `200` the second time, given T2 is run right after T1:
+T1 outputs `100` as Bob's balance at the first time and `200` the second time (non-repeatable read):
 
 ```sql
 -- T1
@@ -328,7 +312,7 @@ COMMIT;
 
 To avoid non-repeatable read use `REPEATABLE READ` isolation level instead of `READ COMMITTED`. In this case T2 will block until T1 finishes. And T1 will print `100` both times.
 
-### Inserting
+### `INSERT`
 
 The second `SELECT` in T1 will output a new row inserted by T2:
 
@@ -359,7 +343,7 @@ VALUES ('Alex', 100);
 COMMIT;
 ```
 
-### Deleting
+### `DELETE`
 
 The second `SELECT` in T1 will see less rows because of the `DELETE` in T2:
 
@@ -393,9 +377,9 @@ COMMIT;
 
 ## Repeatable read
 
-### Updating
+### `UPDATE`, `DELETE`
 
-T1 will output the same result set in both `SELECT` statements and T2 will block until T1 commits:
+T1 outputs the same result both times while T2 blocks until T1 commits:
 
 ```sql
 -- T1
@@ -422,12 +406,16 @@ UPDATE simple_bank.accounts
 SET balance = 200
 WHERE name = 'Bob';
 
+-- DELETE
+-- FROM simple_bank.accounts
+-- WHERE name = 'Alex';
+
 COMMIT;
 ```
 
-### Inserting
+### `INSERT`
 
-`REPEATABLE READ` does not prevent insert related phenomena, so you will see different results in `SELECT`s:
+`REPEATABLE READ` does not prevent phantom reads, so you will see different results in `SELECT`s:
 
 ```sql
 -- T1
@@ -452,38 +440,6 @@ BEGIN TRANSACTION;
 
 INSERT INTO simple_bank.accounts(name, balance)
 VALUES ('Alex', 100);
-
-COMMIT;
-```
-
-### Deleting
-
-Both `SELECT`s in T1 will the same result sets. T2 blocks until T1 commits:
-
-```sql
--- T1
-SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
-
-BEGIN TRANSACTION;
-
-SELECT *
-FROM simple_bank.accounts;
-
-WAITFOR DELAY '00:00:10'; -- 10 seconds
-
-SELECT *
-FROM simple_bank.accounts;
-
-COMMIT;
-```
-
-```sql
--- T2
-BEGIN TRANSACTION;
-
-DELETE
-FROM simple_bank.accounts
-WHERE name = 'Alex';
 
 COMMIT;
 ```
