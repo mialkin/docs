@@ -23,6 +23,8 @@
     - [Updating](#updating-2)
     - [Inserting](#inserting-2)
     - [Deleting](#deleting-2)
+  - [Serializable](#serializable)
+    - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete)
 
 ## Running
 
@@ -456,7 +458,7 @@ COMMIT;
 
 ### Deleting
 
-Both `SELECT`s in T1 will the same result sets and T2 will block until T1 commits:
+Both `SELECT`s in T1 will the same result sets. T2 blocks until T1 commits:
 
 ```sql
 -- T1
@@ -482,6 +484,47 @@ BEGIN TRANSACTION;
 DELETE
 FROM simple_bank.accounts
 WHERE name = 'Alex';
+
+COMMIT;
+```
+
+## Serializable
+
+### `UPDATE`, `INSERT`, `DELETE`
+
+Both `SELECT`s in T1 will the same result sets  for `UPDATE`, `INSERT` and `DELETE`. T2 blocks until T1 commits:
+
+```sql
+-- T1
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+
+BEGIN TRANSACTION;
+
+SELECT *
+FROM simple_bank.accounts;
+
+WAITFOR DELAY '00:00:10'; -- 10 seconds
+
+SELECT *
+FROM simple_bank.accounts;
+
+COMMIT;
+```
+
+```sql
+-- T2
+BEGIN TRANSACTION;
+
+UPDATE simple_bank.accounts
+SET balance = 200
+WHERE name = 'Bob';
+
+-- INSERT INTO simple_bank.accounts(name, balance)
+-- VALUES ('Alex', 100);
+
+-- DELETE
+-- FROM simple_bank.accounts
+-- WHERE name = 'Alex';
 
 COMMIT;
 ```
