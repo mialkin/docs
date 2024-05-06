@@ -14,14 +14,12 @@
   - [Read uncommitted](#read-uncommitted)
     - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete)
   - [Read committed](#read-committed)
-    - [`UPDATE`](#update)
-    - [`INSERT`](#insert)
-    - [`DELETE`](#delete)
+    - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete-1)
   - [Repeatable read](#repeatable-read)
     - [`UPDATE`, `DELETE`](#update-delete)
-    - [`INSERT`](#insert-1)
+    - [`INSERT`](#insert)
   - [Serializable](#serializable)
-    - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete-1)
+    - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete-2)
 
 ## Running
 
@@ -146,9 +144,11 @@ COMMIT;
 
 ### `UPDATE`, `INSERT`, `DELETE`
 
-On `UPDATE` T2 outputs `200` as Bob's balance — dirty read. On `INSERT` and `DELETE` T2 outputs different number of rows.
+On `UPDATE` T2 outputs `200` as Bob's balance — dirty read.
 
-With `READ COMMITTED` T2 blocks until you commit/rollback T1 or until you cancel T2.
+On `INSERT` and `DELETE` T2 outputs different number of rows — also dirty read.
+
+To avoid dirty read use `READ COMMITTED` for T2. In this case T2 blocks until you commit/rollback T1 or until you cancel T2.
 
 ```sql
 -- T1
@@ -184,9 +184,15 @@ COMMIT;
 
 ## Read committed
 
-### `UPDATE`
+### `UPDATE`, `INSERT`, `DELETE`
 
-T1 outputs `100` as Bob's balance at the first time and `200` the second time (non-repeatable read):
+On `UPDATE` T1 outputs `100` as Bob's balance at the first time and `200` the second time — non-repeatable read. On `INSERT` and `DELETE` T1 sees different number of rows — phantom read.
+
+To avoid non-repeatable read use `REPEATABLE READ` isolation level for T1. In this case T2 will block until T1 finishes. And T1 will print `100` both times.
+
+To avoid phantom read on `DELETE` use `REPEATABLE READ` isolation level for T1.
+
+To avoid phantom read on `INSERT` use `SERIALIZABLE` isolation level for T1.
 
 ```sql
 -- T1
@@ -213,70 +219,12 @@ UPDATE simple_bank.accounts
 SET balance = 200
 WHERE name = 'Bob';
 
-COMMIT;
-```
+-- INSERT INTO simple_bank.accounts(name, balance)
+-- VALUES ('Alex', 100);
 
-To avoid non-repeatable read use `REPEATABLE READ` isolation level instead of `READ COMMITTED`. In this case T2 will block until T1 finishes. And T1 will print `100` both times.
-
-### `INSERT`
-
-The second `SELECT` in T1 will output a new row inserted by T2:
-
-```sql
--- T1
-SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
-
-BEGIN TRANSACTION;
-
-SELECT *
-FROM simple_bank.accounts;
-
-WAITFOR DELAY '00:00:10'; -- 10 seconds
-
-SELECT *
-FROM simple_bank.accounts;
-
-COMMIT;
-```
-
-```sql
--- T2
-BEGIN TRANSACTION;
-
-INSERT INTO simple_bank.accounts(name, balance)
-VALUES ('Alex', 100);
-
-COMMIT;
-```
-
-### `DELETE`
-
-The second `SELECT` in T1 will see less rows because of the `DELETE` in T2:
-
-```sql
--- T1
-SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
-
-BEGIN TRANSACTION;
-
-SELECT *
-FROM simple_bank.accounts;
-
-WAITFOR DELAY '00:00:10'; -- 10 seconds
-
-SELECT *
-FROM simple_bank.accounts;
-
-COMMIT;
-```
-
-```sql
--- T2
-BEGIN TRANSACTION;
-
-DELETE
-FROM simple_bank.accounts
-WHERE name = 'Alex';
+-- DELETE
+-- FROM simple_bank.accounts
+-- WHERE name = 'Alex';
 
 COMMIT;
 ```
@@ -321,7 +269,7 @@ COMMIT;
 
 ### `INSERT`
 
-`REPEATABLE READ` does not prevent phantom reads, so you will see different results in `SELECT`s:
+On `INSERT` `REPEATABLE READ` does not prevent phantom read, so you will see different results in two `SELECT`s:
 
 ```sql
 -- T1
