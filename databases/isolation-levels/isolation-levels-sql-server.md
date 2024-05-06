@@ -119,7 +119,7 @@ ROLLBACK;
 It's possible to delay execution of a command inside transaction using [↑ `WAITFOR`](https://learn.microsoft.com/en-us/sql/t-sql/language-elements/waitfor-transact-sql) keyword:
 
 ```sql
-WAITFOR DELAY '00:00:05'; -- 5 seconds
+WAITFOR DELAY '00:00:10'; -- 10 seconds
 
 SELECT *
 FROM simple_bank.accounts;
@@ -167,7 +167,7 @@ WHERE name = 'Bob';
 
 WAITFOR DELAY '00:00:10'; -- 10 seconds
 
-ROLLBACK;
+ROLLBACK; -- Or COMMIT;
 ```
 
 ```sql
