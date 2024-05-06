@@ -12,18 +12,16 @@
   - [Delay](#delay)
   - [Timeout](#timeout)
   - [Read uncommitted](#read-uncommitted)
+    - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete)
+  - [Read committed](#read-committed)
     - [`UPDATE`](#update)
     - [`INSERT`](#insert)
     - [`DELETE`](#delete)
-  - [Read committed](#read-committed)
-    - [`UPDATE`](#update-1)
-    - [`INSERT`](#insert-1)
-    - [`DELETE`](#delete-1)
   - [Repeatable read](#repeatable-read)
     - [`UPDATE`, `DELETE`](#update-delete)
-    - [`INSERT`](#insert-2)
+    - [`INSERT`](#insert-1)
   - [Serializable](#serializable)
-    - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete)
+    - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete-1)
 
 ## Running
 
@@ -146,9 +144,11 @@ COMMIT;
 
 ## Read uncommitted
 
-### `UPDATE`
+### `UPDATE`, `INSERT`, `DELETE`
 
-T2 outputs `200` as Bob's balance (dirty read):
+On `UPDATE` T2 outputs `200` as Bob's balance — dirty read. On `INSERT` and `DELETE` T2 outputs different number of rows.
+
+With `READ COMMITTED` T2 blocks until you commit/rollback T1 or until you cancel T2.
 
 ```sql
 -- T1
@@ -158,49 +158,12 @@ UPDATE simple_bank.accounts
 SET balance = 200
 WHERE name = 'Bob';
 
-WAITFOR DELAY '00:00:10'; -- 10 seconds
+-- INSERT INTO simple_bank.accounts(name, balance)
+-- VALUES ('Alex', 100);
 
-ROLLBACK;
-```
-
-```sql
--- T2
-SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
-
-BEGIN TRANSACTION;
-
-SELECT *
-FROM simple_bank.accounts;
-
-COMMIT;
-```
-
-With `READ COMMITTED` T2 blocks until you cancel it, or until you commit/rollback T1:
-
-```sql
--- T2
-SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
-
-BEGIN TRANSACTION;
-
-SELECT *
-FROM simple_bank.accounts;
-
-COMMIT;
-```
-
-Using any other serialization level up to and including `SERIALIZABLE` also does not prevent T2 to block which is the expected behavior.
-
-### `INSERT`
-
-T2 shows inserted row, although T1 hasn't committed anything:
-
-```sql
--- T1
-BEGIN TRANSACTION;
-
-INSERT INTO simple_bank.accounts(name, balance)
-VALUES ('Alex', 100);
+-- DELETE
+-- FROM simple_bank.accounts
+-- WHERE name = 'Alex';
 
 WAITFOR DELAY '00:00:10'; -- 10 seconds
 
@@ -210,63 +173,6 @@ ROLLBACK;
 ```sql
 -- T2
 SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
-
-BEGIN TRANSACTION;
-
-SELECT *
-FROM simple_bank.accounts;
-
-COMMIT;
-```
-
-With `READ COMMITTED` isolation level set, T2 will block and will *not* show inserted row since T1 hasn't committed:
-
-```sql
--- T2
-SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
-
-BEGIN TRANSACTION;
-
-SELECT *
-FROM simple_bank.accounts;
-
-COMMIT;
-```
-
-### `DELETE`
-
-T2 will *not* block and will show that the row was deleted:
-
-```sql
--- T1
-BEGIN TRANSACTION;
-
-DELETE
-FROM simple_bank.accounts
-WHERE name = 'Bob';
-
-WAITFOR DELAY '00:00:10'; -- 10 seconds
-
-ROLLBACK;
-```
-
-```sql
--- T2
-SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
-
-BEGIN TRANSACTION;
-
-SELECT *
-FROM simple_bank.accounts;
-
-COMMIT;
-```
-
-T2 with `READ COMMITTED` isolation level will block:
-
-```sql
--- T2
-SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
 
 BEGIN TRANSACTION;
 
