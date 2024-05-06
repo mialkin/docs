@@ -3,6 +3,7 @@
 - [macOS](#macos)
   - [Aliases](#aliases)
   - [Applications](#applications)
+    - [Etcher](#etcher)
     - [Finder](#finder)
     - [Fluor](#fluor)
     - [Gifox](#gifox)
@@ -36,6 +37,10 @@ echo "alias dotwatch='dotnet watch --no-hot-reload'" >> ~/.zshrc
 ```
 
 ## Applications
+
+### Etcher
+
+[↑ Etcher](https://etcher.balena.io) is a cross-platform tool to flash OS images onto SD cards and USB drives safely and easily.
 
 ### Finder
 
