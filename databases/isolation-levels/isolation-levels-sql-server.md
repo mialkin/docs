@@ -9,8 +9,8 @@
   - [Set isolation level](#set-isolation-level)
   - [Get current isolation levels](#get-current-isolation-levels)
   - [Commit \& rollback transaction](#commit--rollback-transaction)
-  - [Timeout](#timeout)
   - [Delay](#delay)
+  - [Timeout](#timeout)
   - [Read uncommitted](#read-uncommitted)
     - [`UPDATE`](#update)
     - [`INSERT`](#insert)
@@ -116,6 +116,17 @@ BEGIN TRANSACTION;
 ROLLBACK;
 ```
 
+## Delay
+
+It's possible to delay execution of a command inside transaction using [↑ `WAITFOR`](https://learn.microsoft.com/en-us/sql/t-sql/language-elements/waitfor-transact-sql) keyword:
+
+```sql
+WAITFOR DELAY '00:00:05'; -- 5 seconds
+
+SELECT *
+FROM simple_bank.accounts;
+```
+
 ## Timeout
 
 It's possible to specify timeout explicitly using [↑ `SET LOCK_TIMEOUT`](https://learn.microsoft.com/ru-ru/sql/t-sql/statements/set-lock-timeout-transact-sql) to avoid the hang:
@@ -131,17 +142,6 @@ SELECT *
 FROM simple_bank.accounts;
 
 COMMIT;
-```
-
-## Delay
-
-It's possible to delay execution of a command inside transaction using [↑ `WAITFOR`](https://learn.microsoft.com/en-us/sql/t-sql/language-elements/waitfor-transact-sql) keyword:
-
-```sql
-WAITFOR DELAY '00:00:05'; -- 5 seconds
-
-SELECT *
-FROM simple_bank.accounts;
 ```
 
 ## Read uncommitted
