@@ -26,7 +26,9 @@ The table also shows that PostgreSQL's repeatable read implementation does not a
   - [Read uncommitted](#read-uncommitted)
     - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete)
   - [Read committed](#read-committed)
-    - [`UPDATE`](#update)
+    - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete-1)
+  - [Repeatable read](#repeatable-read)
+    - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete-2)
 
 ## Running
 
@@ -81,7 +83,6 @@ VALUES ('Bob', 100, '2020-09-06 15:09:38'),
 BEGIN TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 -- READ COMMITTED
 -- REPEATABLE READ
--- SNAPSHOT
 -- SERIALIZABLE
 ```
 
@@ -157,15 +158,56 @@ COMMIT;
 
 ## Read committed
 
-### `UPDATE`
+### `UPDATE`, `INSERT`, `DELETE`
 
 On `UPDATE` T1 shows different values for Bob's balance — non-repeatable read.
 
-On `INSERT` and `DELETE` T1 shows different number of rows — non-repeatable read.
+On `INSERT` and `DELETE` T1 shows different number of rows — phantom read.
 
 ```sql
 -- T1
 BEGIN TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+SELECT *
+FROM simple_bank.accounts;
+
+SELECT pg_sleep(10); -- 10 seconds
+
+SELECT *
+FROM simple_bank.accounts;
+
+COMMIT;
+```
+
+```sql
+-- T2
+BEGIN TRANSACTION;
+
+UPDATE simple_bank.accounts
+SET balance = 200
+WHERE name = 'Bob';
+
+-- INSERT INTO simple_bank.accounts(name, balance)
+-- VALUES ('Alex', 100);
+
+-- DELETE
+-- FROM simple_bank.accounts
+-- WHERE name = 'Alex';
+
+COMMIT;
+```
+
+## Repeatable read
+
+### `UPDATE`, `INSERT`, `DELETE`
+
+On `UPDATE` `REPEATABLE READ` prevents non-repeatable read — T1 reads `100` as Bob's balance both times.
+
+On `INSERT` and `DELETE` `REPEATABLE READ` prevents phantom reads — T1 reads both times the same number of rows.
+
+```sql
+-- T1
+BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ;
 
 SELECT *
 FROM simple_bank.accounts;
