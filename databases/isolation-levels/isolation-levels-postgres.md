@@ -25,6 +25,7 @@ The table also shows that PostgreSQL's repeatable read implementation does not a
   - [Delay](#delay)
   - [Read uncommitted](#read-uncommitted)
     - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete)
+  - [Read committed](#read-committed)
 
 ## Running
 
@@ -138,7 +139,7 @@ WHERE name = 'Bob';
 
 SELECT pg_sleep(10); -- 10 seconds
 
-ROLLBACK;
+ROLLBACK; -- Or COMMIT;
 ```
 
 ```sql
@@ -152,3 +153,6 @@ FROM simple_bank.accounts;
 
 COMMIT;
 ```
+
+## Read committed
+
