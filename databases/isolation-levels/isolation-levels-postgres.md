@@ -24,9 +24,7 @@ The table also shows that PostgreSQL's repeatable read implementation does not a
   - [Commit \& rollback transaction](#commit--rollback-transaction)
   - [Delay](#delay)
   - [Read uncommitted](#read-uncommitted)
-    - [Updating](#updating)
-    - [Inserting](#inserting)
-    - [Deleting](#deleting)
+    - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete)
 
 ## Running
 
@@ -111,7 +109,7 @@ It's possible to delay execution of a command inside transaction using [↑ `pg_
 
 ```sql
 SELECT CURRENT_TIMESTAMP;
-SELECT pg_sleep(5); -- 5 seconds
+SELECT pg_sleep(10); -- 10 seconds
 SELECT CURRENT_TIMESTAMP;
 ```
 
@@ -119,7 +117,9 @@ SELECT CURRENT_TIMESTAMP;
 
 Based on snapshots, PostgreSQL isolation differs from the requirements specified in the standard — in fact, it is even stricter. Dirty reads are forbidden by design. Technically, you can specify the `READ UNCOMMITTED` level, but its behavior will be the same as that of `READ COMMITTED`.
 
-### Updating
+### `UPDATE`, `INSERT`, `DELETE`
+
+On `UPDATE` T2 will output `100` as Bob's balance. On `INSERT` and `DELETE` T2 will not see any changes in rows number.
 
 ```sql
 -- T1
@@ -128,57 +128,27 @@ BEGIN TRANSACTION;
 UPDATE simple_bank.accounts
 SET balance = 200
 WHERE name = 'Bob';
+
+-- INSERT INTO simple_bank.accounts(name, balance)
+-- VALUES ('Alex', 100);
+
+-- DELETE
+-- FROM simple_bank.accounts
+-- WHERE name = 'Alex';
+
+SELECT pg_sleep(10); -- 10 seconds
+
+ROLLBACK;
 ```
-
-This will _not_ show any changes in Bob's balance:
-
-```sql
--- T2
-BEGIN TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
-
-SELECT *
-FROM simple_bank.accounts;
-```
-
-### Inserting
-
-```sql
--- T1
-BEGIN TRANSACTION;
-
-INSERT INTO simple_bank.accounts(name, balance)
-VALUES ('Alex', 100);
-```
-
-This will _not_ show the new inserted row:
 
 ```sql
 -- T2
 SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 
-SELECT *
-FROM simple_bank.accounts;
-```
-
-### Deleting
-
-```sql
--- T1
 BEGIN TRANSACTION;
 
-DELETE
-FROM simple_bank.accounts
-WHERE name = 'Alex';
-```
-
-This will _not_ show deleted row:
-
-```sql
--- T2
-SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
-
 SELECT *
 FROM simple_bank.accounts;
+
+COMMIT;
 ```
-
-
