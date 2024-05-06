@@ -219,7 +219,7 @@ FROM simple_bank.accounts;
 COMMIT;
 ```
 
-This will hang and will *not* show inserted row since T1 hasn't committed:
+With `READ COMMITTED` isolation level set, T2 will block and will *not* show inserted row since T1 hasn't committed:
 
 ```sql
 -- T2
