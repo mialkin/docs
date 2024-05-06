@@ -26,6 +26,7 @@ The table also shows that PostgreSQL's repeatable read implementation does not a
   - [Read uncommitted](#read-uncommitted)
     - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete)
   - [Read committed](#read-committed)
+    - [`UPDATE`](#update)
 
 ## Running
 
@@ -120,7 +121,9 @@ Based on snapshots, PostgreSQL isolation differs from the requirements specified
 
 ### `UPDATE`, `INSERT`, `DELETE`
 
-On `UPDATE` T2 will output `100` as Bob's balance. On `INSERT` and `DELETE` T2 will not see any changes in rows number.
+On `UPDATE` T2 will output `100` as Bob's balance.
+
+On `INSERT` and `DELETE` T2 will not see any changes in number of rows.
 
 ```sql
 -- T1
@@ -144,9 +147,7 @@ ROLLBACK; -- Or COMMIT;
 
 ```sql
 -- T2
-SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
-
-BEGIN TRANSACTION;
+BEGIN TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 
 SELECT *
 FROM simple_bank.accounts;
@@ -156,3 +157,41 @@ COMMIT;
 
 ## Read committed
 
+### `UPDATE`
+
+On `UPDATE` T1 shows different values for Bob's balance — non-repeatable read.
+
+On `INSERT` and `DELETE` T1 shows different number of rows — non-repeatable read.
+
+```sql
+-- T1
+BEGIN TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+SELECT *
+FROM simple_bank.accounts;
+
+SELECT pg_sleep(10); -- 10 seconds
+
+SELECT *
+FROM simple_bank.accounts;
+
+COMMIT;
+```
+
+```sql
+-- T2
+BEGIN TRANSACTION;
+
+UPDATE simple_bank.accounts
+SET balance = 200
+WHERE name = 'Bob';
+
+-- INSERT INTO simple_bank.accounts(name, balance)
+-- VALUES ('Alex', 100);
+
+-- DELETE
+-- FROM simple_bank.accounts
+-- WHERE name = 'Alex';
+
+COMMIT;
+```
