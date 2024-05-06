@@ -1,5 +1,18 @@
 # PostgreSQL isolation levels
 
+In PostgreSQL, you can request any of the four standard transaction isolation levels, but internally only three distinct isolation levels are implemented, i.e., PostgreSQL's read uncommitted mode behaves like read committed. This is because it is the only sensible way to map the standard isolation levels to PostgreSQL's multiversion concurrency control architecture.
+
+The table also shows that PostgreSQL's repeatable read implementation does not allow phantom reads. This is acceptable under the SQL standard because the standard specifies which anomalies must not occur at certain isolation levels; higher guarantees are acceptable. The behavior of the available isolation levels is detailed in the following subsections.
+
+| Isolation level  | Dirty read             | Non-repeatable read | Phantom read           | Serialization anomaly |
+| ---------------- | ---------------------- | ------------------ | ---------------------- | --------------------- |
+| Read uncommitted | Allowed, but not in PG | Possible           | Possible               | Possible              |
+| Read committed   | Not possible           | Possible           | Possible               | Possible              |
+| Repeatable read  | Not possible           | Not possible       | Allowed, but not in PG | Possible              |
+| Serializable     | Not possible           | Not possible       | Not possible           | Not possible          |
+
+[↑ 13.2. Transaction Isolation](https://www.postgresql.org/docs/16/transaction-iso.html).
+
 ## Table of contents
 
 - [PostgreSQL isolation levels](#postgresql-isolation-levels)
@@ -7,14 +20,13 @@
   - [Running](#running)
     - [DDL \& DML](#ddl--dml)
   - [Set isolation level](#set-isolation-level)
-  - [Commit \& rollback transaction](#commit--rollback-transaction)
   - [Get current isolation levels](#get-current-isolation-levels)
-  - [Summary table](#summary-table)
+  - [Commit \& rollback transaction](#commit--rollback-transaction)
+  - [Delay](#delay)
   - [Read uncommitted](#read-uncommitted)
     - [Updating](#updating)
     - [Inserting](#inserting)
     - [Deleting](#deleting)
-  - [Delay](#delay)
 
 ## Running
 
@@ -73,6 +85,12 @@ BEGIN TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 -- SERIALIZABLE
 ```
 
+## Get current isolation levels
+
+```sql
+SHOW TRANSACTION ISOLATION LEVEL;
+```
+
 ## Commit & rollback transaction
 
 ```sql
@@ -87,26 +105,15 @@ BEGIN TRANSACTION;
 ROLLBACK;
 ```
 
-## Get current isolation levels
+## Delay
+
+It's possible to delay execution of a command inside transaction using [↑ `pg_sleep`](https://www.postgresql.org/docs/16/functions-datetime.html#FUNCTIONS-DATETIME-DELAY) function:
 
 ```sql
-SHOW TRANSACTION ISOLATION LEVEL;
+SELECT CURRENT_TIMESTAMP;
+SELECT pg_sleep(5); -- 5 seconds
+SELECT CURRENT_TIMESTAMP;
 ```
-
-## Summary table
-
-| Isolation level  | Dirty read             | Nonrepeatable read | Phantom read           | Serialization anomaly |
-| ---------------- | ---------------------- | ------------------ | ---------------------- | --------------------- |
-| Read uncommitted | Allowed, but not in PG | Possible           | Possible               | Possible              |
-| Read committed   | Not possible           | Possible           | Possible               | Possible              |
-| Repeatable read  | Not possible           | Not possible       | Allowed, but not in PG | Possible              |
-| Serializable     | Not possible           | Not possible       | Not possible           | Not possible          |
-
-In PostgreSQL, you can request any of the four standard transaction isolation levels, but internally only three distinct isolation levels are implemented, i.e., PostgreSQL's read uncommitted mode behaves like read committed. This is because it is the only sensible way to map the standard isolation levels to PostgreSQL's multiversion concurrency control architecture.
-
-The table also shows that PostgreSQL's repeatable read implementation does not allow phantom reads. This is acceptable under the SQL standard because the standard specifies which anomalies must not occur at certain isolation levels; higher guarantees are acceptable. The behavior of the available isolation levels is detailed in the following subsections.
-
-[↑ 13.2. Transaction Isolation](https://www.postgresql.org/docs/16/transaction-iso.html).
 
 ## Read uncommitted
 
@@ -174,12 +181,4 @@ SELECT *
 FROM simple_bank.accounts;
 ```
 
-## Delay
 
-It's possible to delay execution of a command inside transaction using [↑ `pg_sleep`](https://www.postgresql.org/docs/16/functions-datetime.html#FUNCTIONS-DATETIME-DELAY) function:
-
-```sql
-SELECT CURRENT_TIMESTAMP;
-SELECT pg_sleep(5); -- 5 seconds
-SELECT CURRENT_TIMESTAMP;
-```
