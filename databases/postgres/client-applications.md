@@ -145,7 +145,7 @@ pg_restore \
 Inside Docker:
 
 ```bash
-docker exec --interactive --tty CONTAINER_NAME \
+docker exec --interactive CONTAINER_NAME \
 pg_restore \
 --username=MY_USERNAME \
 --dbname=MY_DATABASE \
