@@ -9,6 +9,7 @@
   - [Nested locking](#nested-locking)
   - [`Monitor` vs `Mutex`](#monitor-vs-mutex)
   - [`Mutex`](#mutex)
+  - [When to lock](#when-to-lock)
 
 ## `Monitor`
 
@@ -138,3 +139,7 @@ void DoWork()
 // Entering critical section. 5
 // Leaving critical section. 5
 ```
+
+## When to lock
+
+As a basic rule, you need to lock around accessing *any writable shared field*.
