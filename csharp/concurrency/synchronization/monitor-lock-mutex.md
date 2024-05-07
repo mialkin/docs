@@ -6,6 +6,7 @@
   - [Table of contents](#table-of-contents)
   - [`Monitor`](#monitor)
   - [`lock`](#lock)
+  - [Nested locking](#nested-locking)
   - [`Monitor` vs `Mutex`](#monitor-vs-mutex)
   - [`Mutex`](#mutex)
 
@@ -46,6 +47,44 @@ finally
       Monitor.Exit(obj);
 }
 ```
+
+## Nested locking
+
+A thread can repeatedly lock the same object in a nested, *reentrant*, fashion:
+
+```csharp
+var locker = new object();
+
+lock (locker)
+{
+    lock (locker)
+    {
+        lock (locker)
+        {
+            // Do some work...
+        }
+    }
+}
+```
+
+or:
+
+```csharp
+var locker = new object();
+
+Monitor.Enter(locker);
+Monitor.Enter(locker);
+Monitor.Enter(locker);
+
+// Do some work...
+
+Monitor.Exit(locker);
+Monitor.Exit(locker);
+Monitor.Exit(locker);
+
+```
+
+In these scenarios, the object is unlocked only when the outermost `lock` statement has exited — or a matching number of `Monitor.Exit` statements have executed.
 
 ## `Monitor` vs `Mutex`
 
