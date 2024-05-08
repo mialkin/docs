@@ -16,6 +16,8 @@
 
 ## Install
 
+[↑ Flux installation](https://fluxcd.io/flux/installation).
+
 ```bash
 brew install fluxcd/tap/flux
 # brew upgrade fluxcd/tap/flux
@@ -73,6 +75,8 @@ ssh-keygen -f gitlab
 
 # Add public key in GitLab profile: https://gitlab.com/-/profile/keys
 ```
+
+[↑ Flux bootstrap for Git servers](https://fluxcd.io/flux/installation/bootstrap/generic-git-server/).
 
 Bootstrap repository:
 
