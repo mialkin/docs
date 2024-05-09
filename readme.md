@@ -172,7 +172,7 @@
   - [Dependency inversion principle](design/solid/dip/dip.md)
 - [Technical debt](design/technical-debt.md)
 - [Tell, don't ask](design/tell-dont-ask.md)
-- [Transactional outbox](design/transactional-outbox.md)
+- [Transactional outbox, transactional inbox](design/transactional-outbox.md)
 - [↑ Utility inheritance](https://enterprisecraftsmanship.com/posts/when-inheritance-is-not-an-inheritance)
 - [Vertical slice architecture](design/vertical-slice-architecture.md)
 
