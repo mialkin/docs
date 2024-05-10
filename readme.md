@@ -362,10 +362,10 @@
 - [Statement](csharp/statement.md)
 - Types
   - [Value types, `ValueType`, boxing and unboxing](csharp/types/value-types/value-types.md)
-    - [Enumeration types](csharp/types/value-types/enumeration-types.md)
+    - [Enumeration types](csharp/types/value-types/enum-types.md)
     - [↑ `ref` structure types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/ref-struct)
       - [`Span<T>`](csharp/types/value-types/span.md)
-    - [Structure types](csharp/types/value-types/struct.md)
+    - [Structure types](csharp/types/value-types/struct-types.md)
       - [`char`](csharp/types/value-types/char.md)
     - [↑ Tuple types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples)
   - [Reference types](csharp/types/reference-types.md)
