@@ -8,7 +8,7 @@ If a value type contains a data member of a reference type, only the reference t
 
 A value type can be one of the two following kinds:
 
-- a [structure type](../struct.md), which encapsulates data and related functionality
+- a [structure type](struct.md), which encapsulates data and related functionality
 - an [enumeration type](enumeration-types.md), which is defined by a set of named constants and represents a choice or a combination of choices
 
 ## Table of contents

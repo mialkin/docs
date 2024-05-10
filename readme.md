@@ -365,7 +365,7 @@
     - [Enumeration types](csharp/types/value-types/enumeration-types.md)
     - [↑ `ref` structure types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/ref-struct)
       - [`Span<T>`](csharp/types/value-types/span.md)
-    - [Structure types](csharp/types/struct.md)
+    - [Structure types](csharp/types/value-types/struct.md)
       - [`char`](csharp/types/char.md)
     - Tuple types
   - [Reference types](csharp/types/reference-types.md)
