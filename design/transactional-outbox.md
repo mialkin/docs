@@ -18,4 +18,4 @@ When a new event arrives you open up a database transaction and insert unique ID
 
 Transactional inbox guarantees that possible multiple events with the same ID will be processed at most once.
 
-Column that stores IDs must have `UNIQUE` constraint.
+Column that stores ID must have `UNIQUE` constraint.
