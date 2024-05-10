@@ -361,15 +361,13 @@
 - [Reporting progress with `IProgress<T>`](csharp/reporting-progress.md)
 - [Statement](csharp/statement.md)
 - Types
-  - [Value types](csharp/types/value-types/value-types.md)
-    - [Boxing and unboxing](csharp/types/value-types/boxing-and-unboxing.md)
+  - [Value types, `ValueType`, boxing and unboxing](csharp/types/value-types/value-types.md)
     - [Enumeration types](csharp/types/value-types/enumeration-types.md)
     - [↑ `ref` structure types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/ref-struct)
       - [`Span<T>`](csharp/types/value-types/span.md)
     - [Structure types](csharp/types/struct.md)
       - [`char`](csharp/types/char.md)
     - Tuple types
-    - [`ValueType` class](csharp/types/value-types/valuetype-class.md)
   - [Reference types](csharp/types/reference-types.md)
     - Built-in reference types
       - [`delegate`](csharp/types/delegate.md)
