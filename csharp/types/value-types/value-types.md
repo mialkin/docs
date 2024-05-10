@@ -45,8 +45,6 @@ The concept of boxing and unboxing underlies the C# unified view of the type sys
 
 ### Performance
 
-Boxing and unboxing are computationally expensive processes. When a value type is boxed, an entirely new object must be created. This can take up to 20 times longer than a simple reference assignment. When unboxing, the casting process can take four times as long as an assignment.
+[↑ Boxing and unboxing](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/boxing-and-unboxing) are computationally expensive processes. When a value type is boxed, an entirely new object must be created. This can take up to 20 times longer than a simple reference assignment. When unboxing, the casting process can take four times as long as an assignment.
 
 In generics, such as `List<T>`, value types are still stored on the heap. The difference is that, internally, a `List<int>` makes a single array of integers, and can store the numbers directly. With `ArrayList` you end up storing an array of references to boxed integer values.
-
-[↑ Boxing and Unboxing](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/boxing-and-unboxing).
