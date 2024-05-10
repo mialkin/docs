@@ -367,7 +367,7 @@
       - [`Span<T>`](csharp/types/value-types/span.md)
     - [Structure types](csharp/types/value-types/struct.md)
       - [`char`](csharp/types/value-types/char.md)
-    - Tuple types
+    - [↑ Tuple types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples)
   - [Reference types](csharp/types/reference-types.md)
     - Built-in reference types
       - [`delegate`](csharp/types/delegate.md)
