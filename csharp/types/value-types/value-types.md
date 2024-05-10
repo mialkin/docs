@@ -1,4 +1,4 @@
-# Value types, `ValueType`
+# Value types, `ValueType`, boxing and unboxing
 
 [↑ Value types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types) and [reference types](../reference-types.md) are the two main categories of C# types.
 
@@ -13,7 +13,7 @@ A value type can be one of the two following kinds:
 
 ## Table of contents
 
-- [Value types, `ValueType`](#value-types-valuetype)
+- [Value types, `ValueType`, boxing and unboxing](#value-types-valuetype-boxing-and-unboxing)
   - [Table of contents](#table-of-contents)
   - [`ValueType`](#valuetype)
   - [Boxing and unboxing](#boxing-and-unboxing)
