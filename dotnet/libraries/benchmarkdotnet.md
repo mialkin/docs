@@ -32,7 +32,7 @@ Create a new console application and add NuGet package to it:
 dotnet add package BenchmarkDotNet
 ```
 
-`Parser.cs`:
+Create `DateParser.cs` file:
 
 ```csharp
 public class DateParser
@@ -77,12 +77,9 @@ public class DateParser
 }
 ```
 
-`DateParserBenchmarks.cs`:
+Create `DateParserBenchmarks.cs` file:
 
 ```csharp
-using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Order;
-
 [MemoryDiagnoser]
 [Orderer(SummaryOrderPolicy.FastestToSlowest)]
 [RankColumn]
@@ -123,7 +120,7 @@ public class DateParserBenchmarks
 }
 ```
 
-`Program.cs`
+Add to `Program.cs` file:
 
 ```csharp
 using BenchmarkDotNet.Running;
@@ -136,18 +133,18 @@ BenchmarkRunner.Run<DateParserBenchmarks>();
 Build and run benchmark project:
 
 ```bash
-dotnet build -c Release
-dotnet PATH_TO_PROJECT_DLL_FILE
+dotnet build --configuration Release
+dotnet dotnet bin/Release/net8.0/ConsoleApp1.dll 
 ```
 
 ### Benchmark results
 
-As a result of benchmark project run several files, with different extensions, containing results will be added under `BenchmarkDotNet.Artifacts` folder with contents like this:
+As a result of benchmark project run several files will be added under `BenchmarkDotNet.Artifacts` folder with contents like below. File will have different extensions.
 
-| Method                              |       Mean |     Error |    StdDev | Ratio | Rank |  Gen 0 | Allocated |
-| ----------------------------------- | ---------: | --------: | --------: | ----: | ---: | -----: | --------: |
-| GetYearFromSpanWithManualConversion |   6.922 ns | 0.1398 ns | 0.1239 ns |  0.02 |    1 |      - |         - |
-| GetYearFromSpan                     |  17.700 ns | 0.2097 ns | 0.1859 ns |  0.06 |    2 |      - |         - |
-| GetYearFromSubstring                |  30.559 ns | 0.6229 ns | 0.5522 ns |  0.10 |    3 | 0.0051 |      32 B |
-| GetYearFromSplit                    |  88.605 ns | 1.3126 ns | 1.2279 ns |  0.28 |    4 | 0.0254 |     160 B |
-| GetYearFromDateTime                 | 315.677 ns | 5.3811 ns | 4.7702 ns |  1.00 |    5 |      - |         - |
+| Method                              | Mean       | Error     | StdDev    | Ratio | Rank | Gen0   | Allocated | Alloc Ratio |
+|------------------------------------ |-----------:|----------:|----------:|------:|-----:|-------:|----------:|------------:|
+| GetYearFromSpanWithManualConversion |   6.861 ns | 0.0663 ns | 0.0588 ns |  0.02 |    1 |      - |         - |          NA |
+| GetYearFromSpan                     |  16.067 ns | 0.1350 ns | 0.1197 ns |  0.06 |    2 |      - |         - |          NA |
+| GetYearFromSubstring                |  25.199 ns | 0.3182 ns | 0.2977 ns |  0.09 |    3 | 0.0051 |      32 B |          NA |
+| GetYearFromSplit                    |  81.191 ns | 1.6119 ns | 1.4289 ns |  0.30 |    4 | 0.0254 |     160 B |          NA |
+| GetYearFromDateTime                 | 274.407 ns | 4.7622 ns | 5.0955 ns |  1.00 |    5 |      - |         - |          NA |
