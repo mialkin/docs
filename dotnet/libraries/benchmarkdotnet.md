@@ -81,6 +81,7 @@ Create `DateParserBenchmarks.cs` file:
 
 ```csharp
 [MemoryDiagnoser]
+[ThreadingDiagnoser]
 [Orderer(SummaryOrderPolicy.FastestToSlowest)]
 [RankColumn]
 public class DateParserBenchmarks
@@ -141,10 +142,25 @@ dotnet dotnet bin/Release/net8.0/ConsoleApp1.dll
 
 As a result of benchmark project run several files will be added under `BenchmarkDotNet.Artifacts` folder with contents like below. File will have different extensions.
 
-| Method                              | Mean       | Error     | StdDev    | Ratio | Rank | Gen0   | Allocated | Alloc Ratio |
-|------------------------------------ |-----------:|----------:|----------:|------:|-----:|-------:|----------:|------------:|
-| GetYearFromSpanWithManualConversion |   6.861 ns | 0.0663 ns | 0.0588 ns |  0.02 |    1 |      - |         - |          NA |
-| GetYearFromSpan                     |  16.067 ns | 0.1350 ns | 0.1197 ns |  0.06 |    2 |      - |         - |          NA |
-| GetYearFromSubstring                |  25.199 ns | 0.3182 ns | 0.2977 ns |  0.09 |    3 | 0.0051 |      32 B |          NA |
-| GetYearFromSplit                    |  81.191 ns | 1.6119 ns | 1.4289 ns |  0.30 |    4 | 0.0254 |     160 B |          NA |
-| GetYearFromDateTime                 | 274.407 ns | 4.7622 ns | 5.0955 ns |  1.00 |    5 |      - |         - |          NA |
+```console
+| Method                              | Mean       | Error     | StdDev    | Ratio | Rank | Completed Work Items | Lock Contentions | Gen0   | Allocated | Alloc Ratio |
+|------------------------------------ |-----------:|----------:|----------:|------:|-----:|---------------------:|-----------------:|-------:|----------:|------------:|
+| GetYearFromSpanWithManualConversion |   7.036 ns | 0.1571 ns | 0.2538 ns |  0.03 |    1 |                    - |                - |      - |         - |          NA |
+| GetYearFromSpan                     |  15.826 ns | 0.1822 ns | 0.1615 ns |  0.06 |    2 |                    - |                - |      - |         - |          NA |
+| GetYearFromSubstring                |  25.734 ns | 0.5330 ns | 0.6545 ns |  0.09 |    3 |                    - |                - | 0.0051 |      32 B |          NA |
+| GetYearFromSplit                    |  86.475 ns | 1.5104 ns | 1.4129 ns |  0.31 |    4 |                    - |                - | 0.0254 |     160 B |          NA |
+| GetYearFromDateTime                 | 276.873 ns | 5.5410 ns | 5.4420 ns |  1.00 |    5 |                    - |                - |      - |         - |          NA |
+
+// * Legends *
+  Mean                 : Arithmetic mean of all measurements
+  Error                : Half of 99.9% confidence interval
+  StdDev               : Standard deviation of all measurements
+  Ratio                : Mean of the ratio distribution ([Current]/[Baseline])
+  Rank                 : Relative position of current benchmark mean among all benchmarks (Arabic style)
+  Completed Work Items : The number of work items that have been processed in ThreadPool (per single operation)
+  Lock Contentions     : The number of times there was contention upon trying to take a Monitor's lock (per single operation)
+  Gen0                 : GC Generation 0 collects per 1000 operations
+  Allocated            : Allocated memory per single operation (managed only, inclusive, 1KB = 1024B)
+  Alloc Ratio          : Allocated memory ratio distribution ([Current]/[Baseline])
+  1 ns                 : 1 Nanosecond (0.000000001 sec)
+```
