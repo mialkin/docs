@@ -223,7 +223,7 @@ WHERE name = 'Bob';
 COMMIT;
 ```
 
-By replacing conditions:
+By replacing both conditions, or by replacing just T2's condition,:
 
 ```sql
 WHERE name = 'Bob';

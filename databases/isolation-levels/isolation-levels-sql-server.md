@@ -267,6 +267,49 @@ WHERE name = 'Bob';
 COMMIT;
 ```
 
+On `UPDATE` T2 commits without blocking until T1 commits. After T1 commits the final balance of Bob is `200`:
+
+```sql
+-- T1
+BEGIN TRANSACTION;
+
+UPDATE simple_bank.accounts
+SET balance = balance + 100
+WHERE name = 'Bob';
+
+WAITFOR DELAY '00:00:10'; -- 10 seconds
+
+COMMIT;
+```
+
+```sql
+-- T2
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+BEGIN TRANSACTION;
+
+UPDATE simple_bank.accounts
+SET balance = balance + 100
+WHERE name = 'Bob';
+
+COMMIT;
+```
+
+By replacing both conditions, or by replacing just T2's condition,:
+
+```sql
+WHERE name = 'Bob';
+```
+
+with:
+
+```sql
+WHERE name = 'Bob'
+  AND balance = 100;
+```
+
+we get the same `200` as Bob's balance.
+
 ### `INSERT`
 
 On `INSERT` `REPEATABLE READ` does not prevent phantom read, so you will see different results in two `SELECT`s:
