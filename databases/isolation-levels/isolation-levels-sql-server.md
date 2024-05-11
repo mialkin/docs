@@ -231,44 +231,6 @@ WHERE name = 'Bob';
 COMMIT;
 ```
 
-## Repeatable read
-
-### `UPDATE`, `DELETE`
-
-T1 outputs the same result both times while T2 blocks until T1 commits:
-
-```sql
--- T1
-SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
-
-BEGIN TRANSACTION;
-
-SELECT *
-FROM simple_bank.accounts;
-
-WAITFOR DELAY '00:00:10'; -- 10 seconds
-
-SELECT *
-FROM simple_bank.accounts;
-
-COMMIT;
-```
-
-```sql
--- T2
-BEGIN TRANSACTION;
-
-UPDATE simple_bank.accounts
-SET balance = 200
-WHERE name = 'Bob';
-
--- DELETE
--- FROM simple_bank.accounts
--- WHERE name = 'Alex';
-
-COMMIT;
-```
-
 On `UPDATE` T2 commits without blocking until T1 commits. After T1 commits the final balance of Bob is `200`:
 
 ```sql
@@ -311,6 +273,44 @@ WHERE name = 'Bob'
 ```
 
 we get the same `200` as Bob's balance.
+
+## Repeatable read
+
+### `UPDATE`, `DELETE`
+
+T1 outputs the same result both times while T2 blocks until T1 commits:
+
+```sql
+-- T1
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+
+BEGIN TRANSACTION;
+
+SELECT *
+FROM simple_bank.accounts;
+
+WAITFOR DELAY '00:00:10'; -- 10 seconds
+
+SELECT *
+FROM simple_bank.accounts;
+
+COMMIT;
+```
+
+```sql
+-- T2
+BEGIN TRANSACTION;
+
+UPDATE simple_bank.accounts
+SET balance = 200
+WHERE name = 'Bob';
+
+-- DELETE
+-- FROM simple_bank.accounts
+-- WHERE name = 'Alex';
+
+COMMIT;
+```
 
 ### `INSERT`
 
