@@ -186,7 +186,9 @@ COMMIT;
 
 ### `UPDATE`, `INSERT`, `DELETE`
 
-On `UPDATE` T1 outputs `100` as Bob's balance at the first time and `200` the second time — non-repeatable read. On `INSERT` and `DELETE` T1 sees different number of rows — phantom read.
+On `UPDATE` T1 outputs `100` as Bob's balance at the first time and `200` the second time — non-repeatable read.
+
+On `INSERT` and `DELETE` T1 sees different number of rows — phantom read.
 
 To avoid non-repeatable read use `REPEATABLE READ` isolation level for T1. In this case T2 will block until T1 finishes. And T1 will print `100` both times.
 
