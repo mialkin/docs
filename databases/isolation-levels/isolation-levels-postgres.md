@@ -197,6 +197,47 @@ WHERE name = 'Bob';
 COMMIT;
 ```
 
+On `UPDATE` T2 blocks until T1 commits. The final balance of Bob is `300`:
+
+```sql
+-- T1
+BEGIN TRANSACTION;
+
+UPDATE accounts
+SET balance = balance + 100
+WHERE name = 'Bob';
+
+SELECT PG_SLEEP(10);
+
+COMMIT;
+```
+
+```sql
+-- T2
+BEGIN TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+UPDATE accounts
+SET balance = balance + 100
+WHERE name = 'Bob';
+
+COMMIT;
+```
+
+By replacing conditions:
+
+```sql
+WHERE name = 'Bob';
+```
+
+with:
+
+```sql
+WHERE name = 'Bob'
+  AND balance = 100;
+```
+
+we will get `200` as Bob's balance when both transactions commit.
+
 ## Repeatable read
 
 ### `UPDATE`, `INSERT`, `DELETE`
