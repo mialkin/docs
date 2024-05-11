@@ -231,7 +231,7 @@ WHERE name = 'Bob';
 COMMIT;
 ```
 
-On `UPDATE` T2 commits without blocking until T1 commits. After T1 commits the final balance of Bob is `200`:
+On `UPDATE` T2 blocks until T1 commits. The final balance of Bob is `300`:
 
 ```sql
 -- T1
@@ -272,7 +272,7 @@ WHERE name = 'Bob'
   AND balance = 100;
 ```
 
-we get the same `200` as Bob's balance.
+we will get `200` as Bob's balance when both transactions commit.
 
 ## Repeatable read
 
