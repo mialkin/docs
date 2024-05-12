@@ -1,12 +1,11 @@
-# `class`, `record`
+# `class`, constructors, `record`
 
 ## Table of contents
 
-- [`class`, `record`](#class-record)
+- [`class`, constructors, `record`](#class-constructors-record)
   - [Table of contents](#table-of-contents)
   - [`class`](#class)
   - [Constructors](#constructors)
-    - [Constructor execution order](#constructor-execution-order)
   - [`record`](#record)
     - [Initialization](#initialization)
     - [Non-destructive mutation](#non-destructive-mutation)
@@ -25,9 +24,7 @@ A **class** is a data structure that may contain:
 
 ## Constructors
 
-### Constructor execution order
-
-Non-static and [↑ static constructors](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-constructors):
+Constructor execution order for non-static and [↑ static constructors](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-constructors):
 
 ```csharp
 var derived = new Derived();
