@@ -109,5 +109,3 @@ record Customer(string Name, DateOnly BirthDate);
 ```
 
 The result of a `with` expression is a shallow copy, which means that for a reference property, only the reference to an instance is copied. Both the original record and the copy end up with a reference to the same instance.
-
-[↑ Records (C# reference)](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record#nondestructive-mutation).
