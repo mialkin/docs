@@ -348,9 +348,6 @@
 - [Lambda expression, anonymous function](csharp/lambda-expression.md)
 - [Literal](csharp/literal.md)
 - [Lowering in C#](csharp/lowering.md)
-- Selected classes
-  - [↑ `PeriodicTimer`](https://www.youtube.com/watch?v=J4JL4zR_l-0)
-  - [`Stopwatch`](csharp/libraries/stopwatch.md)
 - Memory
   - [Garbage collector](csharp/memory/garbage-collector.md)
   - [`GC`](csharp/memory/gc.md)
@@ -360,6 +357,7 @@
   - [Equality operator `==`](csharp/operators/equality-operator.md)
 - [Reporting progress with `IProgress<T>`](csharp/reporting-progress.md)
 - [Statement](csharp/statement.md)
+- [`Stopwatch`, `IProgress<T>`](csharp/selected-classes.md), [↑ `PeriodicTimer`](https://www.youtube.com/watch?v=J4JL4zR_l-0)
 - Types
   - [Value types, `ValueType`, boxing and unboxing](csharp/types/value-types/value-types.md)
     - [Enumeration types](csharp/types/value-types/enum-types.md)
