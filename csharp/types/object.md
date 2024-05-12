@@ -1,12 +1,10 @@
 # `object`
 
-The `object` keyword is an alias for [↑ `System.Object`](https://learn.microsoft.com/en-us/dotnet/api/system.object) type; therefore, `System.Object` and `object` are equivalent.
+The `object` keyword is an alias for [↑ `System.Object`](https://learn.microsoft.com/en-us/dotnet/api/system.object) type, therefore `System.Object` and `object` are equivalent.
 
-In C# type system all types, predefined and user-defined, reference types and value types, inherit directly or indirectly from `System.Object`.
+In C# type system all types, predefined and user-defined, [reference types](reference-types.md) and [value types](value-types/value-types.md), inherit directly or indirectly from `System.Object`.
 
 An **object** is a block of memory that has been allocated and configured according to the definition of its type.
-
-An **object** is an instance of a class.
 
 ## Table of contents
 
@@ -51,6 +49,8 @@ The `GetHashCode` method can be overridden by a derived type. If `GetHashCode` i
 
 If value types do not override `GetHashCode`, the [↑ `ValueType.GetHashCode`](https://learn.microsoft.com/en-us/dotnet/api/system.valuetype.gethashcode) method of the base class uses reflection to compute the hash code based on the values of the type's fields. In other words, value types whose fields have equal values have equal hash codes.
 
+See [Override `GetHashCode` when `Equals` is overridden](override-gethashcode.md).
+
 ### `GetType`
 
 The [↑ `GetType`](https://learn.microsoft.com/en-us/dotnet/api/system.object.gettype) method gets the [↑ type declaration](https://learn.microsoft.com/en-us/dotnet/api/system.type) of the current instance.
@@ -66,8 +66,6 @@ protected object MemberwiseClone ();
 Example of usage:
 
 ```csharp
-using System;
-
 A original = new A
 {
     Code = 1,
