@@ -372,8 +372,7 @@
       - [`object`](csharp/types/object.md)
         - [Constructors](csharp/types/constructors.md)
         - [Override `GetHashCode` when `Equals` is overridden](csharp/types/override-gethashcode.md)
-      - [`string`](csharp/types/string/string.md)
-        - [String interning and `string.Empty`](csharp/types/string/string-interning.md)
+      - [`string`, string interning and `string.Empty`](csharp/types/string/string.md)
     - [`class`, `record`](csharp/types/class.md), [↑ `interface`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface)
     - [Nullable reference types](csharp/types/nullable-reference-types.md)
 
