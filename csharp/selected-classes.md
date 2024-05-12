@@ -1,4 +1,6 @@
-# Stopwatch
+# `Stopwatch`
+
+## Stopwatch
 
 A [↑ `Stopwatch`](https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.stopwatch) class provides a set of methods and properties that you can use to accurately measure elapsed time.
 
