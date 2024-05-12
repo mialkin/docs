@@ -356,7 +356,7 @@
   - [`GC`](csharp/memory/gc.md)
   - [`WeakReference`](csharp/memory/weak-reference.md)
   - [Dispose pattern](csharp/memory/dispose-pattern.md)
-- Operators
+- [↑ Operators](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/)
   - [Equality operator `==`](csharp/operators/equality-operator.md)
 - [Reporting progress with `IProgress<T>`](csharp/reporting-progress.md)
 - [Statement](csharp/statement.md)
