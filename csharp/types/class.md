@@ -5,21 +5,67 @@
 - [`class`, `record`](#class-record)
   - [Table of contents](#table-of-contents)
   - [`class`](#class)
+  - [Constructors](#constructors)
+    - [Constructor execution order](#constructor-execution-order)
   - [`record`](#record)
     - [Initialization](#initialization)
     - [Non-destructive mutation](#non-destructive-mutation)
 
 ## `class`
 
-The `class` is a keyword that is used to declare *classes*.
+The `class` is a keyword that is used to declare _classes_.
 
-Class types support *inheritance* — mechanism whereby a derived class can extend and specialize a base class.
+Class types support _inheritance_ — mechanism whereby a derived class can extend and specialize a base class.
 
 A **class** is a data structure that may contain:
 
 1. Data members: constants and fields
 2. Function members: methods, properties, events, indexers, operators, instance constructors, finalizers, and static constructors
 3. Nested types
+
+## Constructors
+
+### Constructor execution order
+
+Non-static and [↑ static constructors](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-constructors):
+
+```csharp
+var derived = new Derived();
+
+class Derived : Base
+{
+    static Derived()
+    {
+        Console.WriteLine("Derived static");
+    }
+
+    public Derived()
+    {
+        Console.WriteLine("Derived non-static");
+    }
+}
+
+class Base
+{
+    static Base()
+    {
+        Console.WriteLine("Base static");
+    }
+
+    public Base()
+    {
+        Console.WriteLine("Base non-static");
+    }
+}
+
+// Output:
+// Derived static
+// Base static
+// Base non-static
+// Derived non-static
+```
+
+[↑ Private constructors](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/private-constructors).
 
 ## `record`
 
@@ -49,7 +95,7 @@ You can create `record` types with immutable properties by using positional para
 ```csharp
 var person = new Person("John", "Smith");
 // person.LastName = "Joneses"; // Not going to work: Init-only property 'Person.LastName' can only be assigned in an
-// object initializer, or on 'this' or 'base' in an instance constructor or an 'init' accessor 
+// object initializer, or on 'this' or 'base' in an instance constructor or an 'init' accessor
 
 public record Person(string FirstName, string LastName);
 ```
