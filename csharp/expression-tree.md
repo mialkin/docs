@@ -1,8 +1,8 @@
 # Expression tree
 
-An **expression tree** is a tree-like data structure in which each node represents an *expression*.
+An [↑ expression tree](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/expression-trees/) is a tree-like data structure in which each node represents an *expression*.
 
-An **expression** is a sequence of *operators* and *operands*.
+An [↑ expression](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/expressions) is a sequence of *operators* and *operands*.
 
 ## Table of contents
 
@@ -13,7 +13,6 @@ An **expression** is a sequence of *operators* and *operands*.
   - [Create](#create)
   - [Immutability](#immutability)
   - [Create expression tree from lambda expression](#create-expression-tree-from-lambda-expression)
-  - [Links](#links)
 
 ## Operators
 
@@ -66,8 +65,3 @@ Expression<Func<int, bool>> lambda = number => number < 5;
 
 The C# compiler cannot parse statement lambdas — multi-line lambdas.
 
-## Links
-
-[↑ Expression trees](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/expression-trees/).
-
-[↑ Expressions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/expressions).
