@@ -22,9 +22,6 @@ If you override `Equals` method you must also override `GetHashCode` method, bec
 Below `GetHashCode` will be called twice: right before `a1` and `a2` are added into the dictionary; and `Equals` will be called once: before `a2` is added:
 
 ```csharp
-using System;
-using System.Collections.Generic;
-
 A a1 = new();
 A a2 = new();
 
