@@ -1,4 +1,15 @@
-# Structure types
+# Structure types, `char`, `Span<T>`
+
+## Table of contents
+
+- [Structure types, `char`, `Span<T>`](#structure-types-char-spant)
+  - [Table of contents](#table-of-contents)
+  - [Structure types](#structure-types)
+    - [Initialization](#initialization)
+  - [`char`](#char)
+  - [`Span<T>`](#spant)
+
+## Structure types
 
 A [↑ structure type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct), or **struct type**, is a [value type](value-types.md) that can encapsulate data and related functionality.
 
@@ -17,7 +28,7 @@ Typically, you use structure types to design small data-centric types that provi
 
 Because structure types have value semantics, we recommend you to define *immutable* structure types.
 
-## Initialization
+### Initialization
 
 Structures's value types initialized with default values, reference types — with `null`s:
 
@@ -49,3 +60,49 @@ struct A
     public int Y;
 }
 ```
+
+## `char`
+
+The `char` type keyword is an alias for [↑ `Char`](https://learn.microsoft.com/en-us/dotnet/api/system.char) structure type that represents a [↑ UTF-16](https://en.wikipedia.org/wiki/UTF-16) code unit.
+
+The value of a `Char` object is its 16-bit numeric, ordinal, value.
+
+The default value of the `char` type is `\0`, that is, [↑ U+0000](https://www.compart.com/en/unicode/U+0000).
+
+You can specify a `char` value with:
+
+- a character [literal](/csharp/literal.md)
+- a Unicode escape sequence, which is `\u` followed by the four-symbol hexadecimal representation of a character code
+- a hexadecimal escape sequence, which is `\x` followed by the hexadecimal representation of a character code
+
+```csharp
+const char cyrillic = 'Б';
+const int integerCyrillic = cyrillic;
+var hexadecimalCyrillic = integerCyrillic.ToString(format: "X"); // Hexadecimal value in string form
+
+Console.WriteLine(cyrillic);            // Б
+Console.WriteLine(integerCyrillic);     // 1041
+Console.WriteLine(hexadecimalCyrillic); // 411
+
+Console.WriteLine('Б');         // Б
+Console.WriteLine('\u0411');    // Б
+Console.WriteLine('\x411');     // Б
+Console.WriteLine('\x0411');    // Б
+Console.WriteLine((char)1041);  // Б
+```
+
+[↑ char (C# reference)](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/char).
+
+## `Span<T>`
+
+`Span<T>` type provides a type-safe and memory-safe representation of a contiguous region of arbitrary memory.
+
+`Span<T>` is a [↑ `ref struct`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/ref-struct) that is allocated on the stack rather than on the managed heap.
+
+A `Span<T>` instance is often used to hold the elements of an array or a portion of an array. Unlike an array, however, a `Span<T>` instance can point to managed memory, native memory, or memory managed on the stack.
+
+[↑ A brief overview of `Span<T>`](https://www.youtube.com/watch?v=byvoPD15CXs).
+
+[↑ `Span<T>` structure](https://learn.microsoft.com/en-us/dotnet/api/system.span-1).
+
+[↑ `Span<T>` on YouTube](https://www.youtube.com/results?search_query=nick+chapsas+span).
