@@ -365,11 +365,11 @@
     - [Enumeration types](csharp/types/value-types/enum-types.md)
     - [Structure types, `char`, `Span<T>`](csharp/types/value-types/struct-types.md), [↑ `ref` structure types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/ref-struct)
     - [↑ Tuple types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples)
-  - [Reference types, nullable reference types](csharp/types/reference-types.md)
+  - [Reference types, nullable reference types](csharp/types/reference-types/reference-types.md)
     - Built-in reference types
-      - [`delegate`](csharp/types/delegate.md)
-      - [`object`, `dynamic`, overriding `GetHashCode` and `Equals`](csharp/types/object.md)
-      - [`string`, string interning and `string.Empty`](csharp/types/string/string.md)
+      - [`delegate`](csharp/types/reference-types/delegate.md)
+      - [`object`, `dynamic`, overriding `GetHashCode` and `Equals`](csharp/types/reference-types/object.md)
+      - [`string`, string interning and `string.Empty`](csharp/types/reference-types/string.md)
     - [`class`, `record`, constructors](csharp/types/class.md), [↑ `interface`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface)
 
 ## Frontend
