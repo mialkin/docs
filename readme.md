@@ -368,7 +368,7 @@
   - [Reference types](csharp/types/reference-types.md)
     - Built-in reference types
       - [`delegate`](csharp/types/delegate.md)
-      - [`object`, overriding `GetHashCode` and `Equals`, `dynamic`](csharp/types/object.md)
+      - [`object`, `dynamic`, overriding `GetHashCode` and `Equals`](csharp/types/object.md)
       - [`string`, string interning and `string.Empty`](csharp/types/string/string.md)
     - [`class`, constructors, `record`](csharp/types/class.md), [↑ `interface`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface)
     - [Nullable reference types](csharp/types/nullable-reference-types.md)

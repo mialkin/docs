@@ -1,18 +1,10 @@
-# `object`, overriding `GetHashCode` and `Equals`, `dynamic`
-
-## `object`
-
-The `object` keyword is an alias for [↑ `System.Object`](https://learn.microsoft.com/en-us/dotnet/api/system.object) type, therefore `System.Object` and `object` are equivalent.
-
-In C# type system all types, predefined and user-defined, [reference types](reference-types.md) and [value types](value-types/value-types.md), inherit directly or indirectly from `System.Object`.
-
-An **object** is a block of memory that has been allocated and configured according to the definition of its type.
+# `object`, `dynamic`, overriding `GetHashCode` and `Equals`
 
 ## Table of contents
 
-- [`object`, overriding `GetHashCode` and `Equals`, `dynamic`](#object-overriding-gethashcode-and-equals-dynamic)
-  - [`object`](#object)
+- [`object`, `dynamic`, overriding `GetHashCode` and `Equals`](#object-dynamic-overriding-gethashcode-and-equals)
   - [Table of contents](#table-of-contents)
+  - [`object`](#object)
     - [Methods](#methods)
       - [`Equals`](#equals)
       - [`Finalize`](#finalize)
@@ -21,13 +13,21 @@ An **object** is a block of memory that has been allocated and configured accord
       - [`MemberwiseClone`](#memberwiseclone)
       - [`ReferenceEquals`](#referenceequals)
       - [`ToString`](#tostring)
+  - [`dynamic`](#dynamic)
   - [Overriding `GetHashCode` and `Equals`](#overriding-gethashcode-and-equals)
     - [Dictionary](#dictionary)
     - [Examples](#examples)
       - [Class](#class)
       - [Record](#record)
       - [Structure](#structure)
-  - [`dynamic`](#dynamic)
+
+## `object`
+
+The `object` keyword is an alias for [↑ `System.Object`](https://learn.microsoft.com/en-us/dotnet/api/system.object) type, therefore `System.Object` and `object` are equivalent.
+
+In C# type system all types, predefined and user-defined, [reference types](reference-types.md) and [value types](value-types/value-types.md), inherit directly or indirectly from `System.Object`.
+
+An **object** is a block of memory that has been allocated and configured according to the definition of its type.
 
 ### Methods
 
@@ -140,6 +140,18 @@ The [↑ `ToString`](https://learn.microsoft.com/en-us/dotnet/fundamentals/runti
 ```csharp
 public virtual string? ToString() => this.GetType().ToString();
 ```
+
+## `dynamic`
+
+The [↑ `dynamic` type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/reference-types#the-dynamic-type) is a *static* type, but an object of type `dynamic` bypasses static type checking.
+
+C# is a [↑ statically-typed](https://en.wikipedia.org/wiki/Type_system#Static_typing), [↑ strongly-typed](https://en.wikipedia.org/wiki/Strong_and_weak_typing) language.
+
+In most cases, an object of `dynamic` type functions like it has type `object`. The `dynamic` type differs from `object` in that operations that contain expressions of type `dynamic` aren't resolved or type checked by the compiler. The compiler packages together information about the operation, and that information is later used to evaluate the operation at run time. As part of the process, variables of type `dynamic` are compiled into variables of type `object`. Therefore, type `dynamic` exists only at compile time, not at run time.
+
+The compiler assumes a `dynamic` element supports any operation. Therefore, you don't have to determine whether the object gets its value from a [↑ COM API](https://en.wikipedia.org/wiki/Component_Object_Model), from a dynamic language such as [↑ IronPython](https://ironpython.net), from the HTML Document Object Model, DOM, from reflection, or from somewhere else in the program. However, if the code isn't valid, errors surface at run time.
+
+[↑ Using type dynamic](https://learn.microsoft.com/en-us/dotnet/csharp/advanced-topics/interop/using-type-dynamic).
 
 ## Overriding `GetHashCode` and `Equals`
 
@@ -301,15 +313,3 @@ struct User
     }
 }
 ```
-
-## `dynamic`
-
-The [↑ `dynamic` type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/reference-types#the-dynamic-type) is a *static* type, but an object of type `dynamic` bypasses static type checking.
-
-C# is a [↑ statically-typed](https://en.wikipedia.org/wiki/Type_system#Static_typing), [↑ strongly-typed](https://en.wikipedia.org/wiki/Strong_and_weak_typing) language.
-
-In most cases, an object of `dynamic` type functions like it has type `object`. The `dynamic` type differs from `object` in that operations that contain expressions of type `dynamic` aren't resolved or type checked by the compiler. The compiler packages together information about the operation, and that information is later used to evaluate the operation at run time. As part of the process, variables of type `dynamic` are compiled into variables of type `object`. Therefore, type `dynamic` exists only at compile time, not at run time.
-
-The compiler assumes a `dynamic` element supports any operation. Therefore, you don't have to determine whether the object gets its value from a [↑ COM API](https://en.wikipedia.org/wiki/Component_Object_Model), from a dynamic language such as [↑ IronPython](https://ironpython.net), from the HTML Document Object Model, DOM, from reflection, or from somewhere else in the program. However, if the code isn't valid, errors surface at run time.
-
-[↑ Using type dynamic](https://learn.microsoft.com/en-us/dotnet/csharp/advanced-topics/interop/using-type-dynamic).
