@@ -1,55 +1,49 @@
-# Equality operator ==
+# Equality operator `==`
 
-- [Equality operator ==](#equality-operator-)
+The [↑ equality operator `==`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/equality-operators#equality-operator-) returns `true` if its operands are equal, `false` otherwise.
+
+## Table of contents
+
+- [Equality operator `==`](#equality-operator-)
+  - [Table of contents](#table-of-contents)
+  - [Value types equality](#value-types-equality)
   - [Reference types equality](#reference-types-equality)
-    - [string](#string)
-    - [struct](#struct)
-  - [Links](#links)
+  - [Record types equality](#record-types-equality)
+    - [String equality](#string-equality)
+    - [Structures equality](#structures-equality)
+
+## Value types equality
+
+Operands of the built-in [value types](/csharp/types/value-types/value-types.md) are equal if their values are equal.
 
 ## Reference types equality
 
-By default, two reference-type operands are equal if they refer to the same object of if both of them are `null`:
-
-```csharp
-A a = new A(5);
-A a2 = new A(5);
-
-Console.WriteLine($"{a == a2}, {a.Equals(a2)}"); // False, False
-a2 = a;
-Console.WriteLine($"{a == a2}, {a.Equals(a2)}"); // True, True
-
-A a3 = null;
-A a4 = null;
-Console.WriteLine($"{a3 == a4}, {object.Equals(a3, a4)}"); // True, True
-
-class A
-{
-    private readonly int _i;
-
-    public A(int i)
-    {
-        _i = i;
-    }
-}
-```
+By default, two [reference type](/csharp/types/reference-types/reference-types.md) operands are equal if they refer to the same object of if both of them are `null`:
 
 If a reference type overloads the `==` operator, use the `Object.ReferenceEquals` method to check if two references of that type refer to the same object.
 
-### string
+## Record types equality
+
+Record types support the `==` and `!=` operators that by default provide value equality semantics. That is, two record operands are equal when both of them are `null` or corresponding values of all fields and auto-implemented properties are equal.
+
+### String equality
+
+Two string operands are equal when both of them are `null` or both string instances are of the same length and have identical characters in each character position:
 
 ```csharp
-string str = "spring";
-string str2 = "spring";
+var s1 = "hello!";
+var s2 = "HeLLo!";
+Console.WriteLine(s1 == s2.ToLower()); // True
 
-Console.WriteLine(str == str2); // True
+Console.WriteLine(s1 == s2); // False
 
-str = null;
-str2 = null;
+string str3 = null;
+string str4 = null;
 
-Console.WriteLine(str == str2); // True
+Console.WriteLine(str3 == str4); // True
 ```
 
-### struct
+### Structures equality
 
 This code will not compile because user-defined `struct` types don't support the `==` operator by default:
 
@@ -72,7 +66,7 @@ struct Point
 }
 ```
 
-For structs, the default implementation of `Object.Equals(Object)` (which is the overridden version in `System.ValueType`) performs a value equality check by using reflection to compare the values of every field in the type:
+For structs, the default implementation of `Object.Equals(Object)`, which is the overridden version in `System.ValueType`, performs a value equality check by using reflection to compare the values of every field in the type:
 
 ```csharp
 Point p1 = new Point(1, 1);
@@ -129,7 +123,4 @@ struct Point
 }
 ```
 
-## Links
-
-- [↑ Equality operators](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/equality-operators)
 - [↑ How to define value equality for a class or struct](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/how-to-define-value-equality-for-a-type)

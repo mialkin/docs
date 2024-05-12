@@ -357,7 +357,7 @@
   - [`WeakReference`](csharp/memory/weak-reference.md)
   - [Dispose pattern](csharp/memory/dispose-pattern.md)
 - Operators
-  - [Equality operator](csharp/operators/equality-operator.md)
+  - [Equality operator `==`](csharp/operators/equality-operator.md)
 - [Reporting progress with `IProgress<T>`](csharp/reporting-progress.md)
 - [Statement](csharp/statement.md)
 - Types
