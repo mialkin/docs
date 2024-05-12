@@ -1,14 +1,14 @@
-# `class`, constructors, `record`
+# `class`, `record`, constructors
 
 ## Table of contents
 
-- [`class`, constructors, `record`](#class-constructors-record)
+- [`class`, `record`, constructors](#class-record-constructors)
   - [Table of contents](#table-of-contents)
   - [`class`](#class)
-  - [Constructors](#constructors)
   - [`record`](#record)
     - [Initialization](#initialization)
     - [Non-destructive mutation](#non-destructive-mutation)
+  - [Constructors](#constructors)
 
 ## `class`
 
@@ -21,48 +21,6 @@ A **class** is a data structure that may contain:
 1. Data members: constants and fields
 2. Function members: methods, properties, events, indexers, operators, instance constructors, finalizers, and static constructors
 3. Nested types
-
-## Constructors
-
-Execution order of non-static and [↑ static constructors](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-constructors):
-
-```csharp
-var derived = new Derived();
-
-class Derived : Base
-{
-    static Derived()
-    {
-        Console.WriteLine("Derived static");
-    }
-
-    public Derived()
-    {
-        Console.WriteLine("Derived non-static");
-    }
-}
-
-class Base
-{
-    static Base()
-    {
-        Console.WriteLine("Base static");
-    }
-
-    public Base()
-    {
-        Console.WriteLine("Base non-static");
-    }
-}
-
-// Output:
-// Derived static
-// Base static
-// Base non-static
-// Derived non-static
-```
-
-[↑ Private constructors](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/private-constructors).
 
 ## `record`
 
@@ -152,3 +110,46 @@ record Customer(string Name, DateOnly BirthDate);
 ```
 
 The result of a `with` expression is a shallow copy, which means that for a reference property, only the reference to an instance is copied. Both the original record and the copy end up with a reference to the same instance.
+
+
+## Constructors
+
+Execution order of non-static and [↑ static constructors](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-constructors):
+
+```csharp
+var derived = new Derived();
+
+class Derived : Base
+{
+    static Derived()
+    {
+        Console.WriteLine("Derived static");
+    }
+
+    public Derived()
+    {
+        Console.WriteLine("Derived non-static");
+    }
+}
+
+class Base
+{
+    static Base()
+    {
+        Console.WriteLine("Base static");
+    }
+
+    public Base()
+    {
+        Console.WriteLine("Base non-static");
+    }
+}
+
+// Output:
+// Derived static
+// Base static
+// Base non-static
+// Derived non-static
+```
+
+[↑ Private constructors](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/private-constructors).

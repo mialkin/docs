@@ -370,7 +370,7 @@
       - [`delegate`](csharp/types/delegate.md)
       - [`object`, `dynamic`, overriding `GetHashCode` and `Equals`](csharp/types/object.md)
       - [`string`, string interning and `string.Empty`](csharp/types/string/string.md)
-    - [`class`, constructors, `record`](csharp/types/class.md), [↑ `interface`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface)
+    - [`class`, `record`, constructors](csharp/types/class.md), [↑ `interface`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface)
     - [Nullable reference types](csharp/types/nullable-reference-types.md)
 
 ## Frontend
