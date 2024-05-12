@@ -24,7 +24,7 @@ A **class** is a data structure that may contain:
 
 ## Constructors
 
-Constructor execution order for non-static and [↑ static constructors](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-constructors):
+Execution order of non-static and [↑ static constructors](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-constructors):
 
 ```csharp
 var derived = new Derived();
