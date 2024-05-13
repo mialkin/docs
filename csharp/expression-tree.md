@@ -1,20 +1,23 @@
 # Expression tree
 
-An [↑ expression tree](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/expression-trees/) is a tree-like data structure in which each node represents an *expression*.
-
-An [↑ expression](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/expressions) is a sequence of *operators* and *operands*.
+An [↑ expression tree](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/expression-trees/) is a tree-like data structure in which each node represents an [expression](#expression).
 
 ## Table of contents
 
 - [Expression tree](#expression-tree)
   - [Table of contents](#table-of-contents)
-  - [Operators](#operators)
-  - [Operands](#operands)
+  - [Expression](#expression)
+  - [Operator](#operator)
+  - [Operand](#operand)
   - [Create](#create)
   - [Immutability](#immutability)
   - [Create expression tree from lambda expression](#create-expression-tree-from-lambda-expression)
 
-## Operators
+## Expression
+
+An [↑ expression](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/expressions) is a sequence of [operators](#operator) and [operands](#operand).
+
+## Operator
 
 The operators of an expression indicate which operations to apply to the operands.
 
@@ -30,7 +33,7 @@ Certain operators can be overloaded.
 
 [↑ C# operators and expressions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/)
 
-## Operands
+## Operand
 
 An **operand** is an element of an expression.
 

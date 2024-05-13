@@ -1,10 +1,10 @@
 # Lambda expression, anonymous function
 
-A **lambda expression**, or just **lambda** for short, is an [anonymous function](#anonymous-function) that contains an [expression](/csharp/expression.md) or a sequence of [statements](/csharp/statement.md).
+A **lambda expression**, or just **lambda** for short, is an [anonymous function](#anonymous-function) that contains an [expression](/csharp/expression-tree.md#expression) or a sequence of [statements](/csharp/statement.md).
 
 The [↑ lambda declaration operator `=>`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-operator) is used to separate the lambda's parameter list from its body.
 
-An **expression lambda** is a lambda expression that has an [expression](/csharp/expression.md) as its body:
+An **expression lambda** is a lambda expression that has an [expression](/csharp/expression-tree.md#expression) as its body:
 
 ```csharp
 (input parameters) => expression
