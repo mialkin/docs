@@ -19,7 +19,7 @@ Console.WriteLine(i);
 // 0
 ```
 
-By adding `ToList()` after `Select(_ => i++)` the output becomes `3`.
+By adding `ToList()`, or for example `First()`, after `Select(_ => i++)` the output becomes `3`.
 
 Deferred execution can greatly improve performance when you have to manipulate large data collections, especially in programs that contain a series of chained queries or manipulations. In the best case, deferred execution enables only a single iteration through the source collection.
 
