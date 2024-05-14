@@ -345,6 +345,7 @@
     - [`yield`](csharp/keywords/yield.md)
   - [`ref`, `out`, `in` parameter modifiers](csharp/keywords/ref-out-in.md)
 - [Lambda expression, anonymous function](csharp/lambda-expression.md)
+- [LINQ](csharp/linq.md)
 - [Literal](csharp/literal.md)
 - [Lowering in C#](csharp/lowering.md)
 - Memory
