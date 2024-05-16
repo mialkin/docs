@@ -44,6 +44,7 @@
 ## Databases
 
 - [↑ EAV, Entity–attribute–value model](https://en.wikipedia.org/wiki/Entity%E2%80%93attribute%E2%80%93value_model)
+- [↑ Concurrency Tokens](https://www.npgsql.org/efcore/modeling/concurrency.html)
 - [↑ «Concurrency в базах данных»](https://www.youtube.com/watch?v=a6YzdDFzDl8)
 - Cursor
   - [↑ What are the benefits of using database cursor?](https://stackoverflow.com/questions/3861558/what-are-the-benefits-of-using-database-cursor)
@@ -51,7 +52,6 @@
 - [↑ Apache Cassandra](https://cassandra.apache.org/_/cassandra-basics.html)
 - [↑ Performance benchmarks of PostgreSQL .NET with Npgsql, Dapper, and Entity Framework Core](https://michaelscodingspot.com/npgsql-dapper-efcore-performance/)
 - [↑ Конспект доклада «Как стать классным спецом по бд» (HL2018, Data Egret, Илья Космодемьянский)](https://habr.com/ru/amp/publications/429508/)
-- [↑ Covering indexes](https://www.red-gate.com/simple-talk/databases/sql-server/learn/using-covering-indexes-to-improve-query-performance/)
 - [↑ SQL Server and Azure SQL index architecture and design guide](https://learn.microsoft.com/en-us/sql/relational-databases/sql-server-index-design-guide)
 - [↑ `ConcurrencyCheck` attribute](https://www.entityframeworktutorial.net/code-first/concurrencycheck-dataannotations-attribute-in-code-first.aspx)
   - <https://metanit.com/sharp/entityframeworkcore/2.11.php>
