@@ -6,6 +6,7 @@
   - [Table of contents](#table-of-contents)
   - [Isolation levels](#isolation-levels)
   - [Read phenomena](#read-phenomena)
+    - [Lost update](#lost-update)
     - [Dirty reads](#dirty-reads)
     - [Non-repeatable reads](#non-repeatable-reads)
     - [Phantom reads](#phantom-reads)
@@ -22,17 +23,24 @@ The American National Standards Institute, ANSI, defines four isolation levels:
 - Repeatable read
 - Serializable
 
-| Isolation level  | Dirty read | Non-repeatable read | Phantom read | Serialization anomaly |
-| ---------------- | ---------- | ------------------- | ------------ | --------------------- |
-| Read uncommitted | Yes        | Yes                 | Yes          | Yes                   |
-| Read committed   | No         | Yes                 | Yes          | Yes                   |
-| Repeatable read  | No         | No                  | Yes          | Yes                   |
-| Snapshot         | No         | No                  | No           | Yes                   |
-| Serializable     | No         | No                  | No           | No                    |
+| Isolation level  | Lost update | Dirty read | Non-repeatable read | Phantom read | Serialization anomaly |
+| ---------------- | ----------- | ---------- | ------------------- | ------------ | --------------------- |
+| Read uncommitted | No          | Yes        | Yes                 | Yes          | Yes                   |
+| Read committed   | No          | No         | Yes                 | Yes          | Yes                   |
+| Repeatable read  | No          | No         | No                  | Yes          | Yes                   |
+| Serializable     | No          | No         | No                  | No           | No                    |
 
 Although higher isolation levels provide better data consistency, this consistency can be costly in terms of the parallel access provided to users. As isolation level increases, so does the chance that the locking strategy used will create problems with parallel access of data.
 
 ## Read phenomena
+
+### Lost update
+
+The **lost update** phenomenon occurs when two transactions read one and the same table row, then one of the transactions updates this row, and finally the other transaction updates the same row without taking into account any changes made by the first transaction.
+
+Suppose that two transactions are going to increase the balance of one and the same account by $100. The first transaction reads the current value ($1000), then the second transaction reads the same value. The first transaction increases the balance (making it $1100) and writes the new value into the database. The second transaction does the same: it gets $1100 after increasing the balance and writes this value. As a result, the customer loses $100.
+
+Lost updates are forbidden by the standard at all isolation levels.
 
 ### Dirty reads
 
