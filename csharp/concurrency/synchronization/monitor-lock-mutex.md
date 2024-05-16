@@ -49,6 +49,8 @@ finally
 }
 ```
 
+[↑ Why is lock(this) {...} bad?](https://stackoverflow.com/questions/251391/why-is-lockthis-bad).
+
 ## Nested locking
 
 A thread can repeatedly lock the same object in a nested, *reentrant*, fashion:
