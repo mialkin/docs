@@ -1,5 +1,13 @@
 # SQL Server isolation levels
 
+| Isolation level  | Dirty read | Non-repeatable read | Phantom read | Serialization anomaly and other anomalies |
+| ---------------- | ---------- | ------------------- | ------------ | ----------------------------------------- |
+| Read uncommitted | Yes        | Yes                 | Yes          | Yes                                       |
+| Read committed   | No         | Yes                 | Yes          | Yes                                       |
+| Repeatable read  | No         | No                  | Yes          | Yes                                       |
+| Snapshot         | No         | No                  | No           | Yes                                       |
+| Serializable     | No         | No                  | No           | No                                        |
+
 ## Table of contents
 
 - [SQL Server isolation levels](#sql-server-isolation-levels)
@@ -347,7 +355,7 @@ COMMIT;
 
 ### `UPDATE`, `INSERT`, `DELETE`
 
-Both `SELECT`s in T1 will the same result sets  for `UPDATE`, `INSERT` and `DELETE`. T2 blocks until T1 commits:
+Both `SELECT`s in T1 will the same result sets for `UPDATE`, `INSERT` and `DELETE`. T2 blocks until T1 commits:
 
 ```sql
 -- T1
