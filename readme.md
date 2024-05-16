@@ -94,7 +94,7 @@
 ## Databases
 
 - [ACID](databases/acid.md)
-- [Covering, composite, clustered indexes](databases/indexes.md)
+- [Covering, composite, clustered index, cardinality, index selectivity](databases/index.md)
 - [CTEs](databases/cte.md)
 - [dbdiagram.io](databases/dbdiagram.md)
 - [Isolation levels and read phenomena](databases/isolation-levels/isolation-levels.md)
