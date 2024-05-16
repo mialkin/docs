@@ -75,6 +75,8 @@ The ephemeral segment can include generation 2 objects. Generation 2 objects can
 
 The amount of freed memory from an ephemeral garbage collection is limited to the size of the ephemeral segment. The amount of memory that is freed is proportional to the space that was occupied by the dead objects.
 
+[↑ Understanding different GC modes with Concurrency Visualizer](https://devblogs.microsoft.com/premier-developer/understanding-different-gc-modes-with-concurrency-visualizer/).
+
 ## LOH
 
 Frequent memory allocation/free cycles can fragment memory, especially when allocating large chunks of memory. Objects are allocated in contiguous blocks of memory. To mitigate fragmentation, when the GC frees memory, it tries to defragment it. This process is called compaction. Compaction involves moving objects. Moving large objects imposes a performance penalty. For this reason the GC creates a special memory zone for large objects, called the large object heap (LOH). Objects that are greater than 85,000 bytes (approximately 83 KB) are:
