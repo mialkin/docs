@@ -131,11 +131,15 @@ BenchmarkRunner.Run<DateParserBenchmarks>();
 
 ### Run project
 
-Build and run benchmark project:
+```bash
+dotnet run --configuration Release
+```
+
+or:
 
 ```bash
 dotnet build --configuration Release
-dotnet dotnet bin/Release/net8.0/ConsoleApp1.dll 
+dotnet bin/Release/net8.0/ConsoleApp1.dll 
 ```
 
 ### Benchmark results
