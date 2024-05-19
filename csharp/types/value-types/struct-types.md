@@ -6,7 +6,7 @@
   - [Table of contents](#table-of-contents)
   - [Structure types](#structure-types)
     - [Initialization](#initialization)
-  - [`Span<T>`](#spant)
+  - [`Span<T>`, `ReadOnlySpan<T>`](#spant-readonlyspant)
 
 ## Structure types
 
@@ -60,9 +60,9 @@ struct A
 }
 ```
 
-## `Span<T>`
+## `Span<T>`, `ReadOnlySpan<T>`
 
-`Span<T>` type provides a type-safe and memory-safe representation of a contiguous region of arbitrary memory.
+The [↑ `Span<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.span-1) type provides a type-safe and memory-safe representation of a contiguous region of arbitrary memory.
 
 `Span<T>` is a [↑ `ref struct`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/ref-struct) that is allocated on the stack rather than on the managed heap.
 
@@ -70,6 +70,66 @@ A `Span<T>` instance is often used to hold the elements of an array or a portion
 
 [↑ A brief overview of `Span<T>`](https://www.youtube.com/watch?v=byvoPD15CXs).
 
-[↑ `Span<T>` structure](https://learn.microsoft.com/en-us/dotnet/api/system.span-1).
+[↑ A Complete .NET Developer's Guide to Span with Stephen Toub](https://www.youtube.com/watch?v=5KdICNWOfEQ).
 
 [↑ `Span<T>` on YouTube](https://www.youtube.com/results?search_query=nick+chapsas+span).
+
+Example:
+
+```csharp
+BenchmarkRunner.Run<SpanBenchmark>();
+
+[MemoryDiagnoser]
+public class SpanBenchmark
+{
+    private const string DateAsText = "08 07 2021";
+
+    [Benchmark]
+    public (int day, int month, int year) DateWithSubstring()
+    {
+        string dayAsText = DateAsText.Substring(0, 2);
+        string monthAsText = DateAsText.Substring(3, 2);
+        string yearAsText = DateAsText.Substring(6);
+
+        int day = int.Parse(dayAsText);
+        int month = int.Parse(monthAsText);
+        int year = int.Parse(yearAsText);
+
+        return (day, month, year);
+    }
+
+    [Benchmark]
+    public (int day, int month, int year) DateWithSpan()
+    {
+        ReadOnlySpan<char> dateAsSpan = DateAsText;
+
+        ReadOnlySpan<char> dayAsText = dateAsSpan.Slice(0, 2);
+        ReadOnlySpan<char> monthAsText = dateAsSpan.Slice(3, 2);
+        ReadOnlySpan<char> yearAsText = dateAsSpan.Slice(6);
+
+        int day = int.Parse(dayAsText);
+        int month = int.Parse(monthAsText);
+        int year = int.Parse(yearAsText);
+
+        return (day, month, year);
+    }
+}
+```
+
+Output:
+
+```console
+| Method            | Mean     | Error    | StdDev   | Median   | Gen0   | Allocated |
+|------------------ |---------:|---------:|---------:|---------:|-------:|----------:|
+| DateWithSubstring | 60.00 ns | 1.217 ns | 2.345 ns | 58.93 ns | 0.0153 |      96 B |
+| DateWithSpan      | 33.35 ns | 0.506 ns | 0.423 ns | 33.11 ns |      - |         - |
+
+// * Legends *
+  Mean      : Arithmetic mean of all measurements
+  Error     : Half of 99.9% confidence interval
+  StdDev    : Standard deviation of all measurements
+  Median    : Value separating the higher half of all measurements (50th percentile)
+  Gen0      : GC Generation 0 collects per 1000 operations
+  Allocated : Allocated memory per single operation (managed only, inclusive, 1KB = 1024B)
+  1 ns      : 1 Nanosecond (0.000000001 sec)
+```
