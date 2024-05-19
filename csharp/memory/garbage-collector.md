@@ -13,7 +13,9 @@ In the CLR the garbage collector (GC) serves as an automatic memory manager.
   - [Memory allocation](#memory-allocation)
   - [Conditions for a garbage collection](#conditions-for-a-garbage-collection)
   - [Ephemeral generations and segments](#ephemeral-generations-and-segments)
-  - [LOH](#loh)
+  - [Non-GC heap](#non-gc-heap)
+  - [Large object heap, LOH](#large-object-heap-loh)
+  - [Pinned objects heap, POH](#pinned-objects-heap-poh)
 
 ## Benefits
 
@@ -77,10 +79,37 @@ The amount of freed memory from an ephemeral garbage collection is limited to th
 
 [↑ Understanding different GC modes with Concurrency Visualizer](https://devblogs.microsoft.com/premier-developer/understanding-different-gc-modes-with-concurrency-visualizer/).
 
-## LOH
+## Non-GC heap
 
-Frequent memory allocation/free cycles can fragment memory, especially when allocating large chunks of memory. Objects are allocated in contiguous blocks of memory. To mitigate fragmentation, when the GC frees memory, it tries to defragment it. This process is called compaction. Compaction involves moving objects. Moving large objects imposes a performance penalty. For this reason the GC creates a special memory zone for large objects, called the large object heap (LOH). Objects that are greater than 85,000 bytes (approximately 83 KB) are:
+The **non-GC heap** is a specialized heap that is not managed by the garbage collector and is designed to store immortal objects with certain benefits for GC and code generation.
 
-- Placed on the LOH
-- Not compacted
-- Collected during generation 2 GCs
+Non-GC heap was introduced in .NET 8.0. The basic idea that certain kinds of objects are essentially immortal and will never be collected, hence, we can put them into a separate storage where they are never scanned or compacted. All string literals are [interned](/csharp/types/reference-types/string.md#string-interning-and-stringempty) and therefore immortal.
+
+A general overview of the .NET managed heap:
+
+```mermaid
+flowchart
+    heap(.NET managed heap) --> gcheap
+    heap --> nongcheap
+    nongcheap("Non-GC heap\n(Not managed by GC)")
+    subgraph gcheap[GC heaps]
+        soh("Small object heap (SOH)")
+        poh("Pinned object heap (POH)")
+        loh("Large object heap (LOH)")
+    end
+    style nongcheap stroke:green
+```
+
+[↑ NonGC Heap](https://github.com/dotnet/runtime/blob/main/docs/design/features/NonGC-Heap.md).
+
+[↑ Exploring .NET frozen segments](https://minidump.net/exploring-frozen-segments).
+
+## Large object heap, LOH
+
+The **large object heap**, or **LOH** for short is a special memory zone for objects that are greater than 85,000 bytes. LOH objects are not compacted and collected during generation 2 garbage collection.
+
+## Pinned objects heap, POH
+
+[↑ Pinned Object Heaps in C#?](https://www.partech.nl/en/publications/2022/01/what-are-pinned-objects-and-pinned-object-heaps-in-c-sharp#).
+
+- [↑ Pinned Object Heap в .NET 5](https://habr.com/ru/post/593441/)
