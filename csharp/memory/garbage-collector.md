@@ -112,4 +112,4 @@ The **large object heap**, or **LOH** for short is a special memory zone for obj
 
 [↑ Pinned Object Heaps in C#?](https://www.partech.nl/en/publications/2022/01/what-are-pinned-objects-and-pinned-object-heaps-in-c-sharp#).
 
-- [↑ Pinned Object Heap в .NET 5](https://habr.com/ru/post/593441/)
+[↑ Pinned Object Heap в .NET 5](https://habr.com/ru/post/593441/).
