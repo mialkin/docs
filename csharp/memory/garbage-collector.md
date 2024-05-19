@@ -16,6 +16,9 @@ In the CLR the garbage collector (GC) serves as an automatic memory manager.
   - [Non-GC heap](#non-gc-heap)
   - [Large object heap, LOH](#large-object-heap-loh)
   - [Pinned objects heap, POH](#pinned-objects-heap-poh)
+    - [`fixed` keyword](#fixed-keyword)
+    - [`GCHandle`](#gchandle)
+  - [Platform invoke, P/Invoke](#platform-invoke-pinvoke)
 
 ## Benefits
 
@@ -110,6 +113,71 @@ The **large object heap**, or **LOH** for short is a special memory zone for obj
 
 ## Pinned objects heap, POH
 
-[↑ Pinned Object Heaps in C#?](https://www.partech.nl/en/publications/2022/01/what-are-pinned-objects-and-pinned-object-heaps-in-c-sharp#).
+The **pinned object heap**, or **POH**, is a specialized heap introduced in .NET 5.0 as part of the .NET runtime.
 
-[↑ Pinned Object Heap в .NET 5](https://habr.com/ru/post/593441/).
+Pinning objects in C# is primarily used to ensure that an object remains at a fixed memory location and does not get moved by the garbage collector. This is particularly important in scenarios where you need to pass a reference to managed memory to unmanaged code, such as when working with [P/Invoke](#platform-invoke-pinvoke) or interfacing with low-level system components. Pinning an object prevents the GC from relocating it, ensuring that the unmanaged code receives a stable pointer.
+
+### `fixed` keyword
+
+Here's a simple example demonstrating how to pin an array and pass it to unmanaged code using the [`fixed`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/fixed) statement:
+
+```csharp
+using System.Runtime.InteropServices;
+
+[DllImport("SomeNativeLibrary.dll")]
+static extern void NativeFunction(IntPtr ptr);
+
+byte[] data = new byte[100];
+
+// Pin the array and get a pointer to its data
+unsafe
+{
+    fixed (byte* pData = data)
+    {
+        IntPtr ptr = (IntPtr)pData;
+        NativeFunction(ptr);
+    }
+}
+```
+
+In this example:
+
+- The `fixed` statement is used to pin the `data` array
+- The `byte* pData` is a pointer to the first element of the array
+- `IntPtr ptr = (IntPtr)pData` converts the pointer to an `IntPtr` that can be passed to the unmanaged function `NativeFunction`
+
+### `GCHandle`
+
+Another approach to pinning objects is using the [↑ `GCHandle`](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.gchandle) struct, which provides more control over the pinning process and can pin any managed object, not just arrays:
+
+```csharp
+using System.Runtime.InteropServices;
+
+[DllImport("SomeNativeLibrary.dll")]
+static extern void NativeFunction(IntPtr ptr);
+
+byte[] data = new byte[100];
+GCHandle handle = GCHandle.Alloc(data, GCHandleType.Pinned);
+
+try
+{
+    IntPtr ptr = handle.AddrOfPinnedObject();
+    NativeFunction(ptr);
+}
+finally
+{
+    handle.Free();
+}
+```
+
+In this example:
+
+- `GCHandle.Alloc(data, GCHandleType.Pinned)` pins the data array
+- `handle.AddrOfPinnedObject()` retrieves the pinned memory address
+- `handle.Free()` releases the pinning once it is no longer needed
+
+[↑ Pinned Heap](https://github.com/dotnet/runtime/blob/main/docs/design/features/PinnedHeap.md).
+
+## Platform invoke, P/Invoke
+
+The [↑ P/Invoke](https://learn.microsoft.com/en-us/dotnet/standard/native-interop/pinvoke) is a technology that allows you to access structs, callbacks, and functions in unmanaged libraries from your managed code.
