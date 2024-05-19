@@ -351,7 +351,6 @@
 - [Lowering in C#](csharp/lowering.md)
 - Memory
   - [Garbage collector](csharp/memory/garbage-collector.md)
-  - [`GC`](csharp/memory/gc.md)
   - [`WeakReference`](csharp/memory/weak-reference.md)
   - [Dispose pattern](csharp/memory/dispose-pattern.md)
 - [↑ Operators](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/)

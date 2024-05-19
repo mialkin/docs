@@ -19,6 +19,7 @@ In the CLR the garbage collector (GC) serves as an automatic memory manager.
     - [`fixed` keyword](#fixed-keyword)
     - [`GCHandle`](#gchandle)
   - [Platform invoke, P/Invoke](#platform-invoke-pinvoke)
+  - [`GC`](#gc)
 
 ## Benefits
 
@@ -181,3 +182,7 @@ In this example:
 ## Platform invoke, P/Invoke
 
 The [↑ P/Invoke](https://learn.microsoft.com/en-us/dotnet/standard/native-interop/pinvoke) is a technology that allows you to access structs, callbacks, and functions in unmanaged libraries from your managed code.
+
+## `GC`
+
+[↑ `GC`](https://learn.microsoft.com/en-us/dotnet/api/system.gc).
