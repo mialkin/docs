@@ -1,6 +1,6 @@
 # Dependency injection in .NET
 
-.NET provides a built-in *service container*, [↑ `IServiceProvider`](https://learn.microsoft.com/en-us/dotnet/api/system.iserviceprovider), in which registration of services with the concrete types takes place. The service container resolves the dependencies in the graph and returns the fully resolved service. The collective set of dependencies that must be resolved is typically referred to as a **dependency tree**, **dependency graph**, or **object graph**.
+[↑ .NET provides](https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection) a built-in *service container*, [↑ `IServiceProvider`](https://learn.microsoft.com/en-us/dotnet/api/system.iserviceprovider), in which registration of services with the concrete types takes place. The service container resolves the dependencies in the graph and returns the fully resolved service. The collective set of dependencies that must be resolved is typically referred to as a **dependency tree**, **dependency graph**, or **object graph**.
 
 Services are typically registered at the application's start-up, and appended to an [↑ `IServiceCollection`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection). `IServiceCollection` is a collection of `ServiceDescriptor` objects:
 
@@ -21,7 +21,7 @@ Initially, the `IServiceCollection` has services defined by the framework depend
 
 The .NET framework takes on the responsibility of creating an instance of the dependency and disposing of it when it's no longer needed, as well as injection of the service into the constructor of the class where it's used.
 
-[↑ Dependency injection in .NET](https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection).
+[↑ Dependency injection in .NET].
 
 ## Table of contents
 
@@ -79,4 +79,34 @@ Registering a service with only an implementation type is equivalent to register
 
 To achieve scoping services within implementations of [↑ `IHostedService`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.hosting.ihostedservice), such as the [↑ `BackgroundService`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.hosting.backgroundservice), do **not** inject the service dependencies via constructor injection because you will get `Cannot consume scoped service 'IDemoService' from singleton 'Microsoft.Extensions.Hosting.IHostedService` exception.
 
-Instead, inject [↑ `IServiceScopeFactory`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.iservicescopefactory), create a scope, then resolve dependencies from the scope to use the appropriate service lifetime.
+Instead, inject [↑ `IServiceScopeFactory`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.iservicescopefactory), create a scope, then resolve dependencies from the scope to use the appropriate service lifetime:
+
+```csharp
+using IServiceScope scope = serviceScopeFactory.CreateScope();
+var demoService = scope.ServiceProvider.GetRequiredService<IDemoService>();
+await demoService.RunAsync();
+```
+
+Because `IDemoService` implements `IDisposable` interface, the `Dispose()` method will be called when `scope`, is disposed.
+
+```csharp
+public interface IDemoService : IDisposable
+{
+    Task RunAsync();
+}
+
+public class DemoService : IDemoService
+{
+    public async Task RunAsync()
+    {
+        await Task.Delay(1000);
+    }
+
+    public void Dispose()
+    {
+        Console.WriteLine($"Disposing {nameof(DemoService)}");
+    }
+}
+```
+
+[↑ Use scoped services within a `BackgroundService`](https://learn.microsoft.com/en-us/dotnet/core/extensions/scoped-service).
