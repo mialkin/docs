@@ -87,6 +87,10 @@ var demoService = scope.ServiceProvider.GetRequiredService<IDemoService>();
 await demoService.RunAsync();
 ```
 
+```csharp
+builder.Services.AddScoped<IDemoService, DemoService>();
+```
+
 Because `IDemoService` implements `IDisposable` interface, the `Dispose()` method will be called when `scope`, is disposed.
 
 ```csharp
