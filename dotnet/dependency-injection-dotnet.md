@@ -109,4 +109,6 @@ public class DemoService : IDemoService
 }
 ```
 
+You can remove `using` from the example above and try to call `Dispose()` method of the `scope` explicitly and see how it affects `IDemoService`'s disposal.
+
 [↑ Use scoped services within a `BackgroundService`](https://learn.microsoft.com/en-us/dotnet/core/extensions/scoped-service).
