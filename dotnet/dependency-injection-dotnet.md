@@ -1,19 +1,8 @@
 # Dependency injection in .NET
 
-- [Dependency injection in .NET](#dependency-injection-in-net)
-  - [Framework-provided services](#framework-provided-services)
-  - [Service lifetimes](#service-lifetimes)
-    - [Transient](#transient)
-    - [Scoped](#scoped)
-    - [Singleton](#singleton)
-  - [Scope validation](#scope-validation)
-  - [Service registration methods](#service-registration-methods)
-  - [Scope scenarios](#scope-scenarios)
-  - [Links](#links)
+.NET provides a built-in *service container*, [↑ `IServiceProvider`](https://learn.microsoft.com/en-us/dotnet/api/system.iserviceprovider), in which registration of services with the concrete types takes place. The service container resolves the dependencies in the graph and returns the fully resolved service. The collective set of dependencies that must be resolved is typically referred to as a **dependency tree**, **dependency graph**, or **object graph**.
 
-.NET provides a built-in *service container*, `IServiceProvider`, in which registration of services with the concrete types takes place. Services are typically registered at the app's start-up, and appended to an `IServiceCollection`. Once all services are added, you use `BuildServiceProvider` to create the service container.
-
-`IServiceCollection` is a collection of `ServiceDescriptor` objects:
+Services are typically registered at the application's start-up, and appended to an [↑ `IServiceCollection`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection). `IServiceCollection` is a collection of `ServiceDescriptor` objects:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -28,52 +17,48 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+Initially, the `IServiceCollection` has services defined by the framework depending on *how the host was configured*. For apps based on the .NET templates, the framework registers hundreds of services. `ILogger<TCategoryName>` is an example of a framework-provided service.
 
 The .NET framework takes on the responsibility of creating an instance of the dependency and disposing of it when it's no longer needed, as well as injection of the service into the constructor of the class where it's used.
 
-The service container resolves the dependencies in the graph and returns the fully resolved service. The collective set of dependencies that must be resolved is typically referred to as a **dependency tree**, **dependency graph**, or **object graph**.
+[↑ Dependency injection in .NET](https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection).
 
-## Framework-provided services
+## Table of contents
 
-The `ConfigureServices` method in `Startup.cs` file registers services that the app uses, including platform features. Initially, the `IServiceCollection` provided to `ConfigureServices` has services defined by the framework depending on *how the host was configured*. For apps based on the .NET templates, the framework registers hundreds of services.
-
-`ILogger<TCategoryName>` is an example of a framework-provided service.
+- [Dependency injection in .NET](#dependency-injection-in-net)
+  - [Table of contents](#table-of-contents)
+  - [Service lifetimes](#service-lifetimes)
+    - [Transient](#transient)
+    - [Scoped](#scoped)
+    - [Singleton](#singleton)
+  - [Scope validation](#scope-validation)
+  - [Service registration methods](#service-registration-methods)
+  - [`IServiceScopeFactory`](#iservicescopefactory)
 
 ## Service lifetimes
-
-Services can be registered with one of the following lifetimes:
-
-- Transient
-- Scoped
-- Singleton
 
 ### Transient
 
 Transient lifetime services are created each time they're requested from the service container. This lifetime works best for lightweight, stateless services.
 
-In apps that process requests, transient services are disposed at the end of the request.
-
 ### Scoped
 
 For web applications, a scoped lifetime indicates that services are created once per client request (connection).
 
-> When using EF Core, the `AddDbContext` extension method registers `DbContext` types with a scoped lifetime by default.
-
-In apps that process requests, scoped services are disposed at the end of the request.
+When using EF Core, the [↑ `AddDbContext`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext) extension method registers [↑ `DbContext`](https://learn.microsoft.com/en-us/dotnet/api/system.data.entity.dbcontext) types with a scoped lifetime by default.
 
 ### Singleton
 
 Singleton lifetime services are created either:
 
 - The first time they're requested.
-- By the developer, when providing an implementation instance directly to the container. This approach 
-is rarely needed.
+- By the developer, when providing an implementation instance directly to the container
 
 Every subsequent request of the service implementation from the dependency injection container uses the same instance.
 
 Singleton services must be thread safe and are often used in stateless services.
 
-In apps that process requests, singleton services are disposed when the `ServiceProvider` is disposed on application shutdown. Because memory is not released until the app is shut down, consider memory use with a singleton service.
+In applications that process requests, singleton services are disposed when the `ServiceProvider` is disposed on application shutdown.
 
 ## Scope validation
 
@@ -90,10 +75,8 @@ Service registration is generally order independent except when registering mult
 
 Registering a service with only an implementation type is equivalent to registering that service with the same implementation and service type. This is why multiple implementations of a service cannot be registered using the methods that don't take an explicit service type. These methods can register multiple *instances* of a service, but they will all have the same *implementation* type.
 
-## Scope scenarios
+## `IServiceScopeFactory`
 
-To achieve scoping services within implementations of `IHostedService`, such as the `BackgroundService`, do **not** inject the service dependencies via constructor injection. Instead, inject `IServiceScopeFactory`, create a scope, then resolve dependencies from the scope to use the appropriate service lifetime.
+To achieve scoping services within implementations of [↑ `IHostedService`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.hosting.ihostedservice), such as the [↑ `BackgroundService`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.hosting.backgroundservice), do **not** inject the service dependencies via constructor injection because you will get `Cannot consume scoped service 'IDemoService' from singleton 'Microsoft.Extensions.Hosting.IHostedService` exception.
 
-## Links
-
-[↑ Dependency injection in .NET](https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection).
+Instead, inject [↑ `IServiceScopeFactory`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.iservicescopefactory), create a scope, then resolve dependencies from the scope to use the appropriate service lifetime.
