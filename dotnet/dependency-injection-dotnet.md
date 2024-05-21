@@ -21,8 +21,6 @@ Initially, the `IServiceCollection` has services defined by the framework depend
 
 The .NET framework takes on the responsibility of creating an instance of the dependency and disposing of it when it's no longer needed, as well as injection of the service into the constructor of the class where it's used.
 
-[↑ Dependency injection in .NET].
-
 ## Table of contents
 
 - [Dependency injection in .NET](#dependency-injection-in-net)
@@ -113,6 +111,6 @@ public class DemoService : IDemoService
 }
 ```
 
-You can remove `using` from the example above and try to call `Dispose()` method of the `scope` explicitly and see how it affects `IDemoService`'s disposal.
+You can remove `using` from the example above and try to call `Dispose()` method of the `scope` explicitly and see how it triggers `IDemoService`'s disposal.
 
 [↑ Use scoped services within a `BackgroundService`](https://learn.microsoft.com/en-us/dotnet/core/extensions/scoped-service).
