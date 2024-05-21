@@ -1,6 +1,6 @@
 # Extension method
 
-An **extension method** is a static methods defined in a static class, and called as if it was instance method of the type being extended.
+An [↑ extension method](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods) is a static methods defined in a static class, and called as if it was instance method of the type being extended.
 
 Extension methods enable you to "add" methods to existing types without creating a new derived type, recompiling, or otherwise modifying the original type. For client code written in C#, there's no apparent difference between calling an extension method and the methods defined in a type.
 
@@ -15,7 +15,6 @@ The class that defines an extension methods is referred to as the "sponsor" clas
   - [.NET Security](#net-security)
     - [Accessing private variables](#accessing-private-variables)
   - [Guidelines](#guidelines)
-  - [Links](#links)
 
 ## Use cases
 
@@ -89,11 +88,4 @@ Note that the guideline applies to other languages where the same binding behavi
 
 ❌ AVOID generic naming of namespaces dedicated to extension methods (e.g., "Extensions"). Use a descriptive name (e.g., "Routing") instead.
 
-* [↑ Extension Methods (Member Design Guidelines)](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/extension-methods)
-
-
-## Links
-
-[↑ Extension Methods (C# Programming Guide)](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods).
-
-[↑ How to implement and call a custom extension method](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/how-to-implement-and-call-a-custom-extension-method).
+[↑ Extension Methods (Member Design Guidelines)](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/extension-methods).
