@@ -9,6 +9,7 @@
 > — <cite>Ryan Singer</cite>
 
 > Any fool can write code that a computer can understand. Good programmers write code that humans can understand.
+>
 > ― <cite>Martin Fowler</cite>
 
 ## Table of contents
