@@ -173,7 +173,7 @@
   - [Dependency inversion principle](design/solid/dip/dip.md)
 - [Technical debt](design/technical-debt.md)
 - [Tell, don't ask](design/tell-dont-ask.md)
-- [Transactional outbox, transactional inbox](design/transactional-outbox.md)
+- [Transactional outbox, transactional inbox, dual-write problem](design/transactional-outbox.md)
 - [↑ Utility inheritance](https://enterprisecraftsmanship.com/posts/when-inheritance-is-not-an-inheritance)
 - [Vertical slice architecture](design/vertical-slice-architecture.md)
 
@@ -185,7 +185,6 @@
   - Reliability
     - Resiliency
       - [Retry](distributed-systems/patterns/reliability/retry.md)
-- [Dual write problem](distributed-systems/dual-write-problem.md)
 - [Message delivery semantics](distributed-systems/message-delivery-semantics.md)
 - [Observability: logs, metrics, traces](distributed-systems/observability/observability.md)
   - [Instrumentation guidelines](distributed-systems/observability/instrumentation-guidelines.md)
