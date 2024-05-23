@@ -280,6 +280,7 @@
 - [Dependency injection in .NET](dotnet/dependency-injection-dotnet.md)
 - [Dotnet CLI](dotnet/cli.md)
 - [Dotnet tools](dotnet/dotnet-tools/dotnet-tools.md)
+  - [`dotnet-dump`, `dotnet-counters`, `dotnet-trace`](dotnet/dotnet-tools/dotnet-dump-counters-trace.md)
   - [`dotnet-ef`](dotnet/dotnet-tools/dotnet-ef.md)
   - [`dotnet-format`](dotnet/dotnet-tools/dotnet-format.md)
 - Dotnet libraries
