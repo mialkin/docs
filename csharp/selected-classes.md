@@ -54,3 +54,5 @@ async Task DoWorkAsync(IProgress<double>? progress = null)
 By convention, the `IProgress<T>` parameter may be `null` if the caller doesn't need progress reports, so be sure to check for this in your `async` method.
 
 `IProgress<T>` is not exclusively for asynchronous code; both progress and cancellation can (and should) be used in long-running synchronous code as well.
+
+[↑ Have You Ever Signaled async/await Progress in These Three Ways?](https://www.youtube.com/watch?v=dhleFJPOQOs).
