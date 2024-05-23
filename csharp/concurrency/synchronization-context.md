@@ -23,8 +23,6 @@ In modern C# asynchronous programming, the `async` and `await` keywords handle s
 
 ## Example
 
-
-
 Let's take a quick look at an example:
 
 ```csharp
