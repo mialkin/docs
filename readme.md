@@ -207,7 +207,7 @@
 - [Function parameters vs arguments](programming/function-parameters-vs-arguments.md)
 - [Functional programming](programming/functional-programming.md)
 - [Idempotence](programming/idempotence.md)
-- [Inversion of control, IoC](programming/ioc/inversion-of-control.md)
+- [Inversion of control](programming/ioc/ioc.md)
 - [Initiatives, epics, stories](programming/initiatives-epics-stories/initiatives-epics-stories.md)
 - [Makefile](programming/makefile.md)
 - [Marshalling](programming/marshalling.md)
