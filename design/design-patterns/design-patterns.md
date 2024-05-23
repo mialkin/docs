@@ -20,7 +20,6 @@ Creational:
 
 - [Abstract factory](abstract-factory.md)
 - [Builder](builder.md)
-- [Dependency injection](dependency-injection.md)
 - [Factory method](factory-method.md)
 - [Prototype](prototype.md)
 - [Singleton](singleton.md)

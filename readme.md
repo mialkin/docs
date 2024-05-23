@@ -140,7 +140,7 @@
 - [Principle of least astonishment](design/principle-of-least-astonishment.md)
 - [Repository, unit of work](design/repository-unit-of-work.md)
 - Software design patterns
-  - [Dependency injection](design/design-patterns/dependency-injection.md)
+  - [Dependency injection](design/design-patterns/di.md)
   - [GoF book patterns](design/design-patterns/design-patterns.md)
     - Creational
       - [Abstract factory](design/design-patterns/abstract-factory.md)
