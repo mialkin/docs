@@ -1,6 +1,6 @@
-# Inversion of control (IoC)
+# Inversion of control
 
-**Inversion of control** (**IoC**) is a concept where the control flow of application is inverted.
+**Inversion of control** or **IoC** is a concept where the control flow of application is inverted.
 
 If you go back to old computer programming days, program flow used to run in its own control. For instance let's consider a simple chat application flow:
 
@@ -22,6 +22,6 @@ Now if you analyze the program's control flow closely, it's sequential. The prog
 
 Now the program's control flow is not sequential, it's event based. So, now the control is inverted. So rather than the internal program controlling the flow, events drive the program flow. Event flow approach is more flexible as there is no direct invocation which leads to more flexibility.
 
-IoC can be implemented by events, callback delegates, observer pattern, dependency injection (DI) and other ways:
+IoC can be implemented by events, callback delegates, observer pattern, [dependency injection](/design/design-patterns/di.md) and other ways:
 
 <img src="03.jpg" height="250"/>
