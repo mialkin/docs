@@ -1,46 +1,11 @@
-# Extend `virtual` method with `override`. Hide method with `new`
+# Hide method with `new`. Extend `virtual` method with `override`
 
 ## Table of contents
 
-- [Extend `virtual` method with `override`. Hide method with `new`](#extend-virtual-method-with-override-hide-method-with-new)
+- [Hide method with `new`. Extend `virtual` method with `override`](#hide-method-with-new-extend-virtual-method-with-override)
   - [Table of contents](#table-of-contents)
-  - [`virtual`, `override`](#virtual-override)
   - [`new`](#new)
-
-## `virtual`, `override`
-
-The `override` modifier *extends* the base class `virtual` method.
-
-```csharp
-var @base = new Base();
-var derived = new Derived();
-Base baseDerived = new Derived();
-
-@base.Run();
-derived.Run();
-baseDerived.Run();
-
-public class Base
-{
-    public virtual void Run()
-    {
-        Console.WriteLine("Base");
-    }
-}
-
-public class Derived : Base
-{
-    public override void Run()
-    {
-        Console.WriteLine("Derived");
-    }
-}
-
-// Output:
-// Base
-// Derived
-// Derived
-```
+  - [`virtual`, `override`](#virtual-override)
 
 ## `new`
 
@@ -82,3 +47,75 @@ Code above would work exactly the same way if you remove the `new` keyword. In t
 The `new` keyword suppresses the warning. By using `new`, you are asserting that you are aware that the member that it modifies hides a member that is inherited from the base class.
 
 [↑ virtual, new and override in C#](https://pnguyen.io/posts/virtual-new-override-csharp/).
+
+## `virtual`, `override`
+
+The `override` modifier *extends* the base class `virtual` method.
+
+With `virtual` modifier in base class, child class can use either `new` modifier or `override` modifier to hide or override the inherited method.
+
+Using `new`:
+
+```csharp
+var @base = new Base();
+var derived = new Derived();
+Base baseDerived = new Derived();
+
+@base.Run();
+derived.Run();
+baseDerived.Run();
+
+public class Base
+{
+    public virtual void Run()
+    {
+        Console.WriteLine("Base");
+    }
+}
+
+public class Derived : Base
+{
+    public new void Run()
+    {
+        Console.WriteLine("Derived");
+    }
+}
+
+// Output:
+// Base
+// Derived
+// Base
+```
+
+Using `override`:
+
+```csharp
+var @base = new Base();
+var derived = new Derived();
+Base baseDerived = new Derived();
+
+@base.Run();
+derived.Run();
+baseDerived.Run();
+
+public class Base
+{
+    public virtual void Run()
+    {
+        Console.WriteLine("Base");
+    }
+}
+
+public class Derived : Base
+{
+    public override void Run()
+    {
+        Console.WriteLine("Derived");
+    }
+}
+
+// Output:
+// Base
+// Derived
+// Derived
+```
