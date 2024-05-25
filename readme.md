@@ -340,6 +340,7 @@
 - Exceptions
   - [↑ Exceptions for flow control: why not?](https://enterprisecraftsmanship.com/posts/exceptions-for-flow-control/)
 - [Expression tree](csharp/expression-tree.md)
+- [Extend `virtual` method with `override`. Hide method with `new`](csharp/virtual-override-new.md)
 - [Extension method](csharp/extension-method.md)
 - [Indexers](csharp/indexers.md)
 - [Invariance, covariance, contravariance, variance](csharp/invariance-covariance-contravariance-variance.md)
