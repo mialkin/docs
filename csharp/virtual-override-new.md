@@ -9,6 +9,8 @@
 
 ## `virtual`, `override`
 
+The `override` modifier *extends* the base class `virtual` method.
+
 ```csharp
 var @base = new Base();
 var derived = new Derived();
@@ -42,6 +44,8 @@ public class Derived : Base
 
 ## `new`
 
+The `new` modifier *hides* an accessible base class method.
+
 ```csharp
 var @base = new Base();
 var derived = new Derived();
@@ -73,8 +77,8 @@ public class Derived : Base
 // Base
 ```
 
-Code above would work exactly the same way if you remove `new` keyword. The only difference will be that you will get the following compiler warning next to `Run` method of `Derived` class: `The keyword 'new' is required on 'Run' because it hides method 'void Base.Run()'`.
+Code above would work exactly the same way if you remove the `new` keyword. In that case the only difference will be that you will get the following compiler warning next to `Run` method of `Derived` class: `The keyword 'new' is required on 'Run' because it hides method 'void Base.Run()'`.
 
-The `new` keyword preserves the relationships but suppresses the warning. By using `new`, you are asserting that you are aware that the member that it modifies hides a member that is inherited from the base class.
+The `new` keyword suppresses the warning. By using `new`, you are asserting that you are aware that the member that it modifies hides a member that is inherited from the base class.
 
 [↑ virtual, new and override in C#](https://pnguyen.io/posts/virtual-new-override-csharp/).
