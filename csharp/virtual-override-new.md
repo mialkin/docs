@@ -6,6 +6,7 @@
   - [Table of contents](#table-of-contents)
   - [`new`](#new)
   - [`virtual`, `override`](#virtual-override)
+  - [Links](#links)
 
 ## `new`
 
@@ -45,8 +46,6 @@ public class Derived : Base
 Code above would work exactly the same way if you remove the `new` keyword. In that case the only difference will be that you will get the following compiler warning next to `Run` method of `Derived` class: `The keyword 'new' is required on 'Run' because it hides method 'void Base.Run()'`.
 
 The `new` keyword suppresses the warning. By using `new`, you are asserting that you are aware that the member that it modifies hides a member that is inherited from the base class.
-
-[↑ virtual, new and override in C#](https://pnguyen.io/posts/virtual-new-override-csharp/).
 
 ## `virtual`, `override`
 
@@ -119,3 +118,11 @@ public class Derived : Base
 // Derived
 // Derived
 ```
+
+## Links
+
+[↑ virtual, new and override in C#](https://pnguyen.io/posts/virtual-new-override-csharp/).
+
+[↑ Knowing When to Use Override and New Keywords](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/knowing-when-to-use-override-and-new-keywords).
+
+[↑ Why does this polymorphic C# code print what it does?](https://stackoverflow.com/questions/1508350/why-does-this-polymorphic-c-sharp-code-print-what-it-does/1510702#1510702).
