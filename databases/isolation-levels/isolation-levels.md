@@ -10,7 +10,7 @@
     - [Dirty reads](#dirty-reads)
     - [Non-repeatable reads](#non-repeatable-reads)
     - [Phantom reads](#phantom-reads)
-    - [Overall picture](#overall-picture)
+    - [Serialization anomaly](#serialization-anomaly)
 
 ## Isolation levels
 
@@ -73,12 +73,6 @@ User 2 inserts one or more rows that satisfy this search condition, then commits
 User 1 rereads the rows using the search condition and discovers rows that were not present before.
 ```
 
-### Overall picture
+### Serialization anomaly
 
-**Dirty reads** — read _uncommitted_ data from another transaction.
-
-**Non-repeatable reads** — read _committed_ data from an `UPDATE` query from another transaction.
-
-**Phantom reads** — read _committed_ data from an `INSERT` or `DELETE` query from another transaction.
-
-[↑ What is the difference between Non-Repeatable Read and Phantom Read?](https://stackoverflow.com/questions/11043712/what-is-the-difference-between-non-repeatable-read-and-phantom-read)
+[↑ Transaction Isolation Levels With PostgreSQL as an example](https://mkdev.me/posts/transaction-isolation-levels-with-postgresql-as-an-example).

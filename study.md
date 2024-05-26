@@ -298,6 +298,7 @@ for (var i = 0; i < 5; i++) {
 - [↑ `SearchValues<T>`](https://www.youtube.com/watch?v=IzDMg916t98)
 - [↑ Tutorial: Write your first analyzer and code fix](https://learn.microsoft.com/en-us/dotnet/csharp/roslyn-sdk/tutorials/how-to-write-csharp-analyzer-code-fix)
   - [↑ Menees.Analyzers](https://github.com/menees/Analyzers/tree/master)
+- [↑ Inline и throw](https://habr.com/ru/articles/722374/)
 
 ## ASP.NET
 
