@@ -299,6 +299,7 @@
     - [`System.Reactive` aka Rx.NET](dotnet/libraries/reactive/system-reactive.md)
 - [NuGet](dotnet/nuget.md)
 - [OWIN](dotnet/owin.md)
+- [↑ Performance](https://github.com/adamsitnik/awesome-dot-net-performance)
 - [PowerShell](dotnet/powershell.md)
   - [PowerShell scripting](dotnet/powershell-scripting.md)
 - [Roslyn and Roslyn analyzers](dotnet/roslyn.md)

@@ -135,3 +135,5 @@ Finally, the query execution plan is interpreted by the **query execution engine
 [↑ Execution Plan Basics](https://www.red-gate.com/simple-talk/databases/sql-server/performance-sql-server/execution-plan-basics/).
 
 [↑ Exploring Query Plans in SQL](https://www.red-gate.com/simple-talk/databases/sql-server/database-administration-sql-server/exploring-query-plans-in-sql/).
+
+[↑ SQL Server Query Plan Analysis: The 5 Culprits That Cause 95% of Your Performance Headache](https://www.youtube.com/watch?v=bS0q1nBP3As).
