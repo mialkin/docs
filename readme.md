@@ -362,7 +362,6 @@
 - [↑ Operators](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/)
   - [Equality operator `==`](csharp/operators/equality-operator.md)
   - [`stackallock`](csharp/operators/stackalloc.md)
-- [Reporting progress with `IProgress<T>`](csharp/reporting-progress.md)
 - [Statement](csharp/statement.md)
 - [`Stopwatch`, `IProgress<T>`](csharp/selected-classes.md), [↑ `PeriodicTimer`](https://www.youtube.com/watch?v=J4JL4zR_l-0)
 - Types
