@@ -8,7 +8,7 @@ A POST request requires a body in which you define the data of the entity to be 
 
 In a weather app, we could use a POST method to add weather data about a new city.
 
-POST request is not idempotent. If you execute a POST request multiple times, you'll create a new resource multiple times despite them having the same data being passed in.
+POST request is not [idempotent](/programming/idempotence.md). If you execute a POST request multiple times, you'll create a new resource multiple times despite them having the same data being passed in.
 
 ## PUT
 
@@ -38,10 +38,4 @@ A PATCH is not necessarily idempotent, although it can be. Contrast this with PU
 
 [↑ PATCH](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PATCH).
 
-## Idempotence
-
-Idempotence is an important property of some HTTP methods, ensuring that executing the same request multiple times produces the same result as if it was performed only once. GET, HEAD, PUT, DELETE, OPTIONS, and TRACE are idempotent methods, meaning they are safe to be retried or executed multiple times without causing unintended side effects. In contrast, POST and PATCH are generally considered non-idempotent, as their outcomes may vary with each request.
-
-## Links
-
-[↑ HTTP Request Methods – Get vs Put vs Post Explained with Code Examples](https://www.freecodecamp.org/news/http-request-methods-explained/)
+[↑ HTTP Request Methods – Get vs Put vs Post Explained with Code Examples](https://www.freecodecamp.org/news/http-request-methods-explained/).
