@@ -57,9 +57,6 @@
   - <https://metanit.com/sharp/entityframeworkcore/2.11.php>
 - [↑ NoSQL: виды, особенности и применение](https://cloud.yandex.ru/blog/posts/2022/10/nosql)
 - Define what full text search is, how it works and define [↑ inverted index](https://en.wikipedia.org/wiki/Inverted_index)
-- WITH (NOLOCK)
-  - [↑ SQL Server table hints – WITH (NOLOCK) best practices](https://www.sqlshack.com/understanding-impact-clr-strict-security-configuration-setting-sql-server-2017/)
-  - [↑ Understanding the Impact of NOLOCK and WITH NOLOCK Table Hints in SQL Server](https://www.sqlshack.com/understanding-the-impact-of-nolock-and-with-nolock-table-hints-in-sql-server/)
 - Как можно вернуть данные из T-SQL-процедуры?
 - T-SQL table variables vs temporary tables
 - Create a deadlock. "Forget" on purpose to commit transaction and see what happens. Try using different isolation levels. <https://www.sqlservercentral.com/forums/topic/what-happens-with-uncommitted-transactions>. Are there any built-in timeouts for transaction to commit?
