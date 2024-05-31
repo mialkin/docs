@@ -240,7 +240,7 @@
 - [GraphQL, gRPC](networking/graphql-grpc.md)
 - [Internet, IP, TCP, OSI model](networking/internet.md)
 - [OpenAPI](networking/openapi.md)
-- [Ports, sockets](networking/ports.md)
+- [Ports, sockets](networking/ports-sockets.md)
 - [POST vs PUT vs PATCH](networking/post-vs-put-vs-patch.md)
 - [Wireshark](networking/wireshark/wireshark.md)
 
