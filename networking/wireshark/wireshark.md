@@ -1,4 +1,50 @@
-# Wireshark
+# `ping`, `traceroute`, Wireshark
+
+## Table of contents
+
+- [Tools: `ping`, `traceroute`, Wireshark](#tools-ping-traceroute-wireshark)
+  - [Table of contents](#table-of-contents)
+  - [`ping`](#ping)
+  - [`traceroute`](#traceroute)
+  - [Wireshark](#wireshark)
+    - [Usage](#usage)
+    - [TCP Options](#tcp-options)
+    - [Filters](#filters)
+    - [IP time to live](#ip-time-to-live)
+
+## `ping`
+
+The `ping` command measures the round-trip time for messages sent from the originating host to a destination computer that are echoed back to the source.
+
+```bash
+ping HOST_NAME
+```
+
+Ping operates by sending Internet Control Message Protocol, ICMP, echo request packets to the target host and waiting for an ICMP echo reply.
+
+The program reports errors, packet loss, and a statistical summary of the results, typically including the _minimum_, _maximum_, the _mean round-trip_ times, and _standard deviation_ of the mean.
+
+## `traceroute`
+
+The `traceroute` is a network diagnostic tool used to track in real-time the pathway taken by a packet on an IP network from source to destination, reporting the IP addresses of all the routers it pinged in between.
+
+```bash
+traceroute HOST_NAME
+```
+
+`traceroute` also records the time taken for each hop the packet makes during its route to the destination.
+
+`traceroute` ensures each hop on the way to a destination device drops a packet and sends back an ICMP error message. This means traceroute can measure the duration of time between when the data is sent and when the ICMP message is received back for each hop.
+
+The time-to-live, TTL, value, also known as _hop limit_, is used in determining the intermediate routers being traversed towards the destination. Traceroute sends packets with TTL values that gradually increase from packet to packet, starting with TTL value of one. Routers decrement TTL values of packets by one when routing and discard packets whose TTL value has reached zero, returning the ICMP error message ICMP Time Exceeded. For the first set of packets, the first router receives the packet, decrements the TTL value and drops the packet because it then has TTL value zero. The router sends an ICMP Time Exceeded message back to the source. The next set of packets are given a TTL value of two, so the first router forwards the packets, but the second router drops them and replies with ICMP Time Exceeded.
+
+The sender expects a reply within a specified number of seconds. If a packet is not acknowledged within the expected interval, an asterisk is displayed. The Internet Protocol does not require packets to take the same route towards a particular destination, thus hosts listed might be hosts that other packets have traversed.
+
+## Wireshark
+
+[↑ Wireshark](https://www.wireshark.org) is a free and open-source packet analyzer. It is used for network troubleshooting, analysis, software and communications protocol development, and education.
+
+### Usage
 
 Anytime you see a value inside square brackets — it's a Wireshark's value, that's not part of the data, it's something that Wireshark does to help us interpret what we are seeing.
 
@@ -14,7 +60,7 @@ Anytime you see a value inside square brackets — it's a Wireshark's value, th
 
 `Windows` this is an advertisment of what my receive window buffer size is. How much you can send me at once.
 
-## TCP Options
+### TCP Options
 
 The place where you are laying ground rules for a "relationship".
 
@@ -30,17 +76,13 @@ SACKs work by appending to a duplicate acknowledgment packet a TCP option contai
 
 Support for SACK is negotiated at the beginning of a TCP connection; if both hosts support it, it may be used.
 
-## MSS
-
-
-
-## Filters
+### Filters
 
 ```text
 ip.addr == 35.246.105.145
 ```
 
-## IP time to live
+### IP time to live
 
 Every time when packet faces router the TTL number decrements by 1.
 

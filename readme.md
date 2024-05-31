@@ -241,7 +241,7 @@
 - [Ports, sockets](networking/ports-sockets.md)
 - [POST vs PUT vs PATCH](networking/post-vs-put-vs-patch.md)
 - [REST, OpenAPI, egress vs ingress](networking/rest.md)
-- [Wireshark](networking/wireshark/wireshark.md)
+- [`ping`, `traceroute`, Wireshark](networking/wireshark/wireshark.md)
 
 ## Security
 
