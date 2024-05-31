@@ -237,7 +237,7 @@
 ## Networking
 
 - [Egress vs ingress](networking/egress-vs-ingress.md)
-- [GraphQL, gRPC](networking/graphql.md)
+- [GraphQL, gRPC](networking/graphql-grpc.md)
 - [Internet, IP, TCP, OSI model](networking/internet.md)
 - [OpenAPI](networking/openapi.md)
 - [Ports](networking/ports.md)
