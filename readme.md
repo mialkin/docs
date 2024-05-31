@@ -239,14 +239,11 @@
 - [Egress vs ingress](networking/egress-vs-ingress.md)
 - [GraphQL](networking/graphql.md)
 - [gRPC](networking/grpc.md)
-- [Internet](networking/internet.md)
-- [IP](networking/ip.md)
+- [Internet, IP, TCP, OSI model](networking/internet.md)
 - [OpenAPI](networking/openapi.md)
-- [OSI](networking/osi.md)
 - [Ports](networking/ports.md)
 - [POST vs PUT vs PATCH](networking/post-vs-put-vs-patch.md)
 - [Sockets](networking/sockets.md)
-- [TCP](networking/tcp.md)
 - [Wireshark](networking/wireshark/wireshark.md)
 
 ## Security
