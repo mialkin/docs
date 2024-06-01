@@ -5,8 +5,9 @@
 - [`async`, `await`, awaitable](#async-await-awaitable)
   - [Table of contents](#table-of-contents)
   - [`async`](#async)
-    - [`async void`](#async-void)
+  - [`await`](#await)
   - [Awaitable](#awaitable)
+  - [`async void`](#async-void)
   - [Create task](#create-task)
   - [Deadlock](#deadlock)
   - [Exceptions handling](#exceptions-handling)
@@ -17,7 +18,28 @@
 
 The [↑ `async`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/async) modifier specifies that a method, [lambda expression](/csharp/lambda-expression.md), or [anonymous method](/csharp/lambda-expression.md#anonymous-function) is asynchronous.
 
-### `async void`
+An **async method** is a method or expression with `async` modifier.
+
+## `await`
+
+The [↑ `await`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/await) operator suspends evaluation of the enclosing async method until the asynchronous operation represented by its operand completes.
+
+When the asynchronous operation completes, the `await` operator returns the result of the operation, if any.
+
+When the `await` operator is applied to the operand that represents an already completed operation, it returns the result of the operation immediately without suspension of the enclosing method.
+
+The `await` operator doesn't block the thread that evaluates the async method. When the `await` operator suspends the enclosing async method, the control returns to the caller of the method.
+
+## Awaitable
+
+An **awaitable** or **awaitable type** is any type that can be consumed by `await`; this is usually `Task` or `Task<T>` but may also be `ValueTask`, `ValueTask<T>`, a type defined by a framework, or even a custom type defined by a library.
+
+The `await` keyword is not limited to working with tasks; it can work with any kind of awaitable that follows a certain pattern. As an example, the Base Class Library includes the `ValueTask<T>` type, which reduces memory allocations if the result is commonly synchronous; for example, if the result can be read from an in-memory cache. `ValueTask<T>` is not directly convertible to `Task<T>`, but it does follow the awaitable pattern, so you can directly `await` it. There are other examples, and you can build your own, but most of the time `await` will take a Task or `Task<TResult>`.
+
+[↑ Await anything](https://devblogs.microsoft.com/pfxteam/await-anything/).
+
+
+## `async void`
 
 The problem with calling `async void` is that you don't even get the task back. You have no way of knowing when the function's task has completed. You can't `await` an `async void` function too.
 
@@ -77,14 +99,6 @@ async Task M()
 ```
 
 But if you replace `Task` with `void` it won't — the process will crash because of the unhandled exception.
-
-## Awaitable
-
-An **awaitable** or **awaitable type** is any type that can be consumed by `await`; this is usually `Task` or `Task<T>` but may also be `ValueTask`, `ValueTask<T>`, a type defined by a framework, or even a custom type defined by a library.
-
-The `await` keyword is not limited to working with tasks; it can work with any kind of awaitable that follows a certain pattern. As an example, the Base Class Library includes the `ValueTask<T>` type, which reduces memory allocations if the result is commonly synchronous; for example, if the result can be read from an in-memory cache. `ValueTask<T>` is not directly convertible to `Task<T>`, but it does follow the awaitable pattern, so you can directly `await` it. There are other examples, and you can build your own, but most of the time `await` will take a Task or `Task<TResult>`.
-
-[↑ Await anything](https://devblogs.microsoft.com/pfxteam/await-anything/).
 
 ## Create task
 
