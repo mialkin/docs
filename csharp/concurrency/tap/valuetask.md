@@ -1,4 +1,21 @@
-# `ValueTask`, `ValueTask<TResult>` structures
+# `Task`, `ValueTask`
+
+## Table of contents
+
+- [`Task`, `ValueTask`](#task-valuetask)
+  - [Table of contents](#table-of-contents)
+  - [`Task`](#task)
+  - [`ValueTask`](#valuetask)
+  - [Restrictions](#restrictions)
+  - [Links](#links)
+
+## `Task`
+
+The [↑ `Task`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task) class represents an asynchronous operation.
+
+The [↑ `Task<TResult>`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1) class represents an asynchronous operation that can return a value.
+
+## `ValueTask`
 
 `ValueTask<TResult>` type reduces memory allocations if the result is commonly synchronous; for example, if the result can be read from an in-memory cache.
 

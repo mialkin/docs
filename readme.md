@@ -314,7 +314,7 @@
     - [`async`](csharp/concurrency/tap/async.md)
     - [`IAsyncEnumerable<T>`](csharp/concurrency/tap/iasyncenumerable.md)
     - [Synchronization context, `ConfigureAwait`](csharp/concurrency/tap/synchronization-context.md)
-    - [`ValueTask`, `ValueTask<TResult>`](csharp/concurrency/tap/valuetask.md)
+    - [`Task`, `ValueTask`](csharp/concurrency/tap/valuetask.md)
   - [Collections](csharp/concurrency/collections/collections.md)
     - [Thread-safe collections. `BlockingCollection<T>`, `ConcurrentBag<T>`, `ConcurrentDictionary<TKey,TValue>`, `ConcurrentQueue<T>`, `ConcurrentStack<T>`](csharp/concurrency/collections/thread-safe-collections.md)
   - [Execution context](csharp/concurrency/execution-context.md)
