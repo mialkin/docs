@@ -1,4 +1,26 @@
-# Dispose pattern
+# `IDisposable`, unmanaged resource, dispose pattern
+
+## Table of contents
+
+- [`IDisposable`, unmanaged resource, dispose pattern](#idisposable-unmanaged-resource-dispose-pattern)
+  - [Table of contents](#table-of-contents)
+  - [`IDisposable`](#idisposable)
+  - [Unmanaged resource](#unmanaged-resource)
+  - [Dispose pattern](#dispose-pattern)
+
+## `IDisposable`
+
+The [↑ `IDisposable`](https://learn.microsoft.com/en-us/dotnet/api/system.idisposable) interface provides a mechanism for releasing [unmanaged resources](#unmanaged-resource).
+
+## Unmanaged resource
+
+An [↑ unmanaged resource](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/unmanaged) is an object that wraps operating system resources, such as files, windows, network connections, or database connections.
+
+Although the garbage collector is able to track the lifetime of an object that encapsulates an unmanaged resource, it doesn't know how to release and clean up the unmanaged resource.
+
+[↑ What exactly are unmanaged resources?](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/unmanaged).
+
+## Dispose pattern
 
 [↑ Implement a Dispose method](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose)
 
