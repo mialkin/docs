@@ -1,8 +1,8 @@
-# Synchronization. Context switch, critical section, spinning
+# Synchronization, context switch, critical section, spinning
 
 ## Table of contents
 
-- [Synchronization. Context switch, critical section, spinning](#synchronization-context-switch-critical-section-spinning)
+- [Synchronization, context switch, critical section, spinning](#synchronization-context-switch-critical-section-spinning)
   - [Table of contents](#table-of-contents)
   - [Synchronization](#synchronization)
   - [Context switch](#context-switch)

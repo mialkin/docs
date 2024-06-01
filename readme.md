@@ -316,7 +316,7 @@
     - [Thread-safe collections. `BlockingCollection<T>`, `ConcurrentBag<T>`, `ConcurrentDictionary<TKey,TValue>`, `ConcurrentQueue<T>`, `ConcurrentStack<T>`](csharp/concurrency/collections/thread-safe-collections.md)
   - [Execution context](csharp/concurrency/execution-context.md)
   - [`IAsyncEnumerable<T>`](csharp/concurrency/iasyncenumerable.md)
-  - [Synchronization. Context switch, critical section, spinning](csharp/concurrency/synchronization/synchronization.md)
+  - [Synchronization, context switch, critical section, spinning](csharp/concurrency/synchronization/synchronization.md)
     - [`Interlocked`](csharp/concurrency/synchronization/interlocked.md)
     - [`Monitor`, `lock`, `Mutex`](csharp/concurrency/synchronization/lock.md)
     - [`ReaderWriterLockSlim`](csharp/concurrency/synchronization/readerwriterlockslim.md)
