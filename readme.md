@@ -318,7 +318,7 @@
   - [`IAsyncEnumerable<T>`](csharp/concurrency/iasyncenumerable.md)
   - [Synchronization. Context switch, critical section, spinning](csharp/concurrency/synchronization/synchronization.md)
     - [`Interlocked`](csharp/concurrency/synchronization/interlocked.md)
-    - [`Monitor`, `lock`, `Mutex`](csharp/concurrency/synchronization/monitor-lock-mutex.md)
+    - [`Monitor`, `lock`, `Mutex`](csharp/concurrency/synchronization/lock.md)
     - [`ReaderWriterLockSlim`](csharp/concurrency/synchronization/readerwriterlockslim.md)
     - [`Semaphore` and `SemaphoreSlim`](csharp/concurrency/synchronization/semaphore.md)
     - [`SpinLock` and `SpinWait`](csharp/concurrency/synchronization/spinlock-and-spinwait.md)

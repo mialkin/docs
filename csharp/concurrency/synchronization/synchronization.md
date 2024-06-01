@@ -1,25 +1,30 @@
 # Synchronization. Context switch, critical section, spinning
 
+## Table of contents
+
+- [Synchronization. Context switch, critical section, spinning](#synchronization-context-switch-critical-section-spinning)
+  - [Table of contents](#table-of-contents)
+  - [Synchronization](#synchronization)
+  - [Context switch](#context-switch)
+  - [Critical section](#critical-section)
+  - [Spinning](#spinning)
+
+## Synchronization
+
 A **synchronization** is a coordination of the actions of threads for a predictable outcome.
 
 Synchronization constructs can be divided into four categories:
 
 - **Simple blocking methods**
-  - These wait for another thread to finish or for a period of time to elapse. [↑ `Thread.Sleep`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.sleep), [↑ `Thread.Join`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.join), and [↑ `Task.Wait`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.wait) are simple blocking methods
+  - These wait for another thread to finish or for a period of time to elapse. [↑ `Thread.Sleep`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.sleep), [↑ `Thread.Join`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.join), and [↑ `Task.Wait`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.wait) are simple blocking methods.
 - **Locking constructs**
-  - These limit the number of threads that can perform some activity or execute a section of code at a time. Exclusive locking constructs are most common — these allow just one thread in at a time, and allow competing threads to access common data without interfering with each other. The standard exclusive locking constructs are `lock` (`Monitor.Enter`/`Monitor.Exit`), `Mutex`, and `SpinLock`. The nonexclusive locking constructs are `Semaphore`, `SemaphoreSlim`, and the reader/writer locks
+  - These limit the number of threads that can perform some activity or execute a section of code at a time. Exclusive locking constructs are most common — these allow just one thread in at a time, and allow competing threads to access common data without interfering with each other. The standard exclusive locking constructs are [`lock`](lock.md#lock) ([`Monitor.Enter`/`Monitor.Exit`](lock.md#monitor)), [`Mutex`](lock.md#mutex), and `SpinLock`. The nonexclusive locking constructs are [`Semaphore`](semaphore.md#semaphore), [`SemaphoreSlim`](semaphore.md#semaphoreslim), and the [reader/writer locks](readerwriterlockslim.md).
 - **Signaling constructs**
-  - These allow a thread to pause until receiving a notification from another, avoiding the need for inefficient polling. There are two commonly used signaling devices: event wait handles and `Monitor`'s `Wait`/`Pulse` methods. Framework 4.0 introduces the `CountdownEvent` and `Barrier` classes
+  - These allow a thread to pause until receiving a notification from another, avoiding the need for inefficient polling. There are two commonly used signaling devices: event wait handles and `Monitor`'s `Wait`/`Pulse` methods. Framework 4.0 introduces the [`CountdownEvent`](contdownevent.md) and [`Barrier`](barrier.md) classes.
 - **Non-blocking synchronization constructs**
-  - These protect access to a common field by calling upon processor primitives. The CLR and C# provide the following non-blocking constructs: `Thread.MemoryBarrier`, `Thread.VolatileRead`, `Thread.VolatileWrite`, the `volatile` keyword, and the `Interlocked` class
+  - These protect access to a common field by calling upon processor primitives. The CLR and C# provide the following non-blocking constructs: `Thread.MemoryBarrier`, `Thread.VolatileRead`, `Thread.VolatileWrite`, the `volatile` keyword, and the [`Interlocked`](interlocked.md) class.
 
-## Table of contents
-
-- [Synchronization. Context switch, critical section, spinning](#synchronization-context-switch-critical-section-spinning)
-  - [Table of contents](#table-of-contents)
-  - [Context switch](#context-switch)
-  - [Critical section](#critical-section)
-  - [Spinning](#spinning)
+Blocking is essential to all but the last category.
 
 ## Context switch
 

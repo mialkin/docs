@@ -273,7 +273,7 @@ internal class NumberProvider
 
 ### `lock`
 
-See [`lock`](/csharp/concurrency/synchronization-primitives/monitor-lock-mutex.md#lock).
+See [`lock`](/csharp/concurrency/synchronization/lock.md#lock).
 
 ### Closures
 
