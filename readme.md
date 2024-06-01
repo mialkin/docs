@@ -310,7 +310,7 @@
 - [Attribute](csharp/attribute.md)
 - [Closure](csharp/closure.md)
 - [Concurrency](csharp/concurrency/concurrency.md)
-  - [Asynchronous patterns: TAP, APM, EAP, CPS](csharp/concurrency/asynchronous-patterns.md)
+  - [Asynchronous patterns: EAP, APM, TAP](csharp/concurrency/asynchronous-patterns.md)
     - [`async`](csharp/concurrency/tap/async.md)
     - [`IAsyncEnumerable<T>`](csharp/concurrency/tap/iasyncenumerable.md)
     - [Synchronization context, `ConfigureAwait`](csharp/concurrency/tap/synchronization-context.md)

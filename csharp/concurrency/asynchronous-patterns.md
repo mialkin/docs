@@ -1,49 +1,57 @@
-# Asynchronous patterns: TAP, APM, EAP, CPS
+# Asynchronous patterns: EAP, APM, TAP
 
 [↑ Asynchronous programming patterns](https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/).
 
 ## Table of contents
 
-- [Asynchronous patterns: TAP, APM, EAP, CPS](#asynchronous-patterns-tap-apm-eap-cps)
+- [Asynchronous patterns: EAP, APM, TAP](#asynchronous-patterns-eap-apm-tap)
   - [Table of contents](#table-of-contents)
-  - [Task-Based Asynchronous Pattern (TAP)](#task-based-asynchronous-pattern-tap)
-  - [Asynchronous Programming Model (APM)](#asynchronous-programming-model-apm)
-  - [Event-Based Asynchronous Programming (EAP)](#event-based-asynchronous-programming-eap)
+  - [Event-based asynchronous programming, EAP, `XxxAsync(), XxxCompleted`](#event-based-asynchronous-programming-eap-xxxasync-xxxcompleted)
+  - [Asynchronous programming model, APM, `BeginXxx/EndXxx`](#asynchronous-programming-model-apm-beginxxxendxxx)
+  - [Task-based asynchronous pattern, TAP, `async`, `await`, `Task`](#task-based-asynchronous-pattern-tap-async-await-task)
   - [Continuation Passing Style (CPS)](#continuation-passing-style-cps)
   - [Custom async patterns](#custom-async-patterns)
   - [`ISynchronizeInvoke`](#isynchronizeinvoke)
 
-## Task-Based Asynchronous Pattern (TAP)
+## Event-based asynchronous programming, EAP, `XxxAsync(), XxxCompleted`
 
-The **Task-Based Asynchronous Pattern** (**TAP**) is the modern asynchronous API pattern that is ready for use with `await`. Each asynchronous operation is represented by a single method that returns an [awaitable](tap/async.md#awaitable).
+The **event-based asynchronous programming** (**EAP**) defines a matching method/event pair. The method usually ends in `Async`, and it eventually causes an event to be raised that ends in `Completed`.
 
-It is common for TAP methods to have an `Async` suffix. However, this is just a convention; not all TAP methods have an `Async` suffix. It can be skipped if the API developer believes the asynchronous context is sufficiently implied; e.g., `Task.WhenAll` and `Task.WhenAny` do not have an `Async` suffix. Furthermore, keep in mind that the `Async` suffix may be present on non-TAP methods (e.g., `WebClient.DownloadStringAsync` is not a TAP method). The usual pattern in this case is for the TAP method to have a `TaskAsync` suffix (e.g., `WebClient.DownloadStringTaskAsync` is a TAP method).
+There are a few caveats when working with EAP that make it a bit more difficult than it first appears. First, you have to remember to add your handler to the event _before_ calling the method; otherwise, you'd have a race condition where the event could happen before you subscribed, and then you'd never see it complete. Second, components written in the EAP pattern usually capture the current `SynchronizationContext` at some point and then raise their event in that context. Some components capture the `SynchronizationContext` in the constructor, and others capture it at the time the method is called and the asynchronous operation begins.
 
-Methods that return asynchronous streams also follow a TAP-like pattern, with `Async` used as a suffix. Even though they don't return awaitables, they do return awaitable streams — types that can be consumed using `await foreach`.
+The Event-Based Asynchronous Programming pattern can be recognized by these characteristics:
 
-The Task-Based Asynchronous Pattern can be recognized by these characteristics:
+1. The operation is represented by an event and a method.
+2. The event ends in `Completed`.
+3. The event args type for the `Completed` event might be descended from `AsyncCompletedEventArgs`.
+4. The method usually ends in `Async`.
+5. The method returns `void`.
 
-1. The operation is represented by a single method.
-2. The method returns an awaitable or an awaitable stream.
-3. The method usually ends with `Async`.
+EAP methods ending in `Async` are distinguishable from TAP methods ending in `Async` because the EAP methods return `void`, while the TAP methods return an awaitable type.
 
-Here's an example of a type with a TAP API:
+Here's an example of a type with an EAP API:
 
 ```csharp
-class ExampleHttpClient
+class GetStringCompletedEventArgs : AsyncCompletedEventArgs
 {
-    public Task<string> GetStringAsync(Uri requestUri);
+    public string Result { get; }
+}
+
+class MyHttpClient
+{
+    public void GetStringAsync(Uri requestUri);
+    public event Action<object, GetStringCompletedEventArgs> GetStringCompleted;
 
     // Synchronous equivalent, for comparison
     public string GetString(Uri requestUri);
 }
 ```
 
-Consuming the Task-Based Asynchronous Pattern is done using `await`.
+Consume the EAP by converting it to TAP using `TaskCompletionSource<T>`.
 
-## Asynchronous Programming Model (APM)
+## Asynchronous programming model, APM, `BeginXxx/EndXxx`
 
-After TAP, the **Asynchronous Programming Model** (**APM**) pattern is probably the next most-common pattern you'll encounter. It was the first pattern where asynchronous operations had first-class object representations. The telltale sign of this pattern is the `IAsyncResult` objects in conjunction with a pair of methods that manage the operation, one starting with `Begin` and the other starting with `End`.
+After TAP, the **asynchronous programming model** or **APM** pattern is probably the next most-common pattern you'll encounter. It was the first pattern where asynchronous operations had first-class object representations. The telltale sign of this pattern is the `IAsyncResult` objects in conjunction with a pair of methods that manage the operation, one starting with `Begin` and the other starting with `End`.
 
 The APM pattern allows consuming code to behave either synchronously or asynchronously. The consuming code can choose from these options:
 
@@ -78,41 +86,33 @@ class MyHttpClient
 
 Consume the APM by converting it to TAP using `Task.Factory.FromAsync`.
 
-## Event-Based Asynchronous Programming (EAP)
+## Task-based asynchronous pattern, TAP, `async`, `await`, `Task`
 
-The **Event-Based Asynchronous Programming** (**EAP**) defines a matching method/event pair. The method usually ends in `Async`, and it eventually causes an event to be raised that ends in `Completed`.
+The **task-based asynchronous pattern** or **TAP** is the modern asynchronous API pattern that is ready for use with `await`. Each asynchronous operation is represented by a single method that returns an [awaitable](tap/async.md#awaitable).
 
-There are a few caveats when working with EAP that make it a bit more difficult than it first appears. First, you have to remember to add your handler to the event _before_ calling the method; otherwise, you'd have a race condition where the event could happen before you subscribed, and then you'd never see it complete. Second, components written in the EAP pattern usually capture the current `SynchronizationContext` at some point and then raise their event in that context. Some components capture the `SynchronizationContext` in the constructor, and others capture it at the time the method is called and the asynchronous operation begins.
+It is common for TAP methods to have an `Async` suffix. However, this is just a convention; not all TAP methods have an `Async` suffix. It can be skipped if the API developer believes the asynchronous context is sufficiently implied; e.g., `Task.WhenAll` and `Task.WhenAny` do not have an `Async` suffix. Furthermore, keep in mind that the `Async` suffix may be present on non-TAP methods (e.g., `WebClient.DownloadStringAsync` is not a TAP method). The usual pattern in this case is for the TAP method to have a `TaskAsync` suffix (e.g., `WebClient.DownloadStringTaskAsync` is a TAP method).
 
-The Event-Based Asynchronous Programming pattern can be recognized by these characteristics:
+Methods that return asynchronous streams also follow a TAP-like pattern, with `Async` used as a suffix. Even though they don't return awaitables, they do return awaitable streams — types that can be consumed using `await foreach`.
 
-1. The operation is represented by an event and a method.
-2. The event ends in `Completed`.
-3. The event args type for the `Completed` event might be descended from `AsyncCompletedEventArgs`.
-4. The method usually ends in `Async`.
-5. The method returns `void`.
+The Task-Based Asynchronous Pattern can be recognized by these characteristics:
 
-EAP methods ending in `Async` are distinguishable from TAP methods ending in `Async` because the EAP methods return `void`, while the TAP methods return an awaitable type.
+1. The operation is represented by a single method.
+2. The method returns an awaitable or an awaitable stream.
+3. The method usually ends with `Async`.
 
-Here's an example of a type with an EAP API:
+Here's an example of a type with a TAP API:
 
 ```csharp
-class GetStringCompletedEventArgs : AsyncCompletedEventArgs
+class ExampleHttpClient
 {
-    public string Result { get; }
-}
-
-class MyHttpClient
-{
-    public void GetStringAsync(Uri requestUri);
-    public event Action<object, GetStringCompletedEventArgs> GetStringCompleted;
+    public Task<string> GetStringAsync(Uri requestUri);
 
     // Synchronous equivalent, for comparison
     public string GetString(Uri requestUri);
 }
 ```
 
-Consume the EAP by converting it to TAP using `TaskCompletionSource<T>`.
+Consuming the Task-Based Asynchronous Pattern is done using `await`.
 
 ## Continuation Passing Style (CPS)
 
