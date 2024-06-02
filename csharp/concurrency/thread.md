@@ -4,13 +4,13 @@
 
 - [Thread, process, `Thread`](#thread-process-thread)
   - [Table of contents](#table-of-contents)
-  - [Thread, thread preemption, process](#thread-thread-preemption-process)
+  - [Thread, process, thread preemption, time-slicing](#thread-process-thread-preemption-time-slicing)
   - [`Thread`](#thread)
     - [`Thread.Sleep`](#threadsleep)
     - [`Thread.Join`](#threadjoin)
     - [`Thread.Yield`](#threadyield)
 
-## Thread, thread preemption, process
+## Thread, process, thread preemption, time-slicing
 
 A **thread** is an independent executor, a basic unit to which an operating system allocates processor time.
 
@@ -19,6 +19,10 @@ Each thread has its own independent stack but shares the same memory with all th
 A **process** is an executing program. Each process has multiple threads in it, and each of those threads can be doing different things simultaneously.
 
 A **thread preemption** refers to the interruption of a currently executing thread by the operating system's scheduler in order to give execution time to another thread.
+
+A **time-slicing** is rapid switching of execution between active threads done by a thread scheduler on a single-processor computer.
+
+Under Windows, a time-slice is typically in the tens-of-milliseconds region — much larger than the CPU overhead in actually switching context between one thread and another, which is typically in the few-microseconds region.
 
 In some applications, there is one thread that is special. For example, user interface applications have a single special UI thread, and console applications have a single special main thread.
 
