@@ -328,7 +328,7 @@
       - [`Barrier`](csharp/concurrency/synchronization/barrier.md)
       - [`CountdownEvent`](csharp/concurrency/synchronization/contdownevent.md)
       - [`EventWaitHandle`, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`](csharp/concurrency/synchronization/eventwaithandle.md)
-  - [Thread, thread pool](csharp/concurrency/thread.md)
+  - [Thread, `Thread`](csharp/concurrency/thread.md)
   - [`ThreadLocal<T>`, `AsyncLocal<T>`, `[ThreadStatic]`](csharp/concurrency/threadlocal-asynclocal.md)
 - Collections
   - [↑ Which collection interface to use?](https://enterprisecraftsmanship.com/posts/which-collection-interface-to-use/)

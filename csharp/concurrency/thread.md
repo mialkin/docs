@@ -4,14 +4,14 @@
 
 - [Thread, process, `Thread`](#thread-process-thread)
   - [Table of contents](#table-of-contents)
-  - [Thread, process, thread preemption, time-slicing](#thread-process-thread-preemption-time-slicing)
-  - [`Thread`](#thread)
+  - [Thread](#thread)
+  - [`Thread`](#thread-1)
     - [`Thread.Sleep`](#threadsleep)
     - [`Thread.Join`](#threadjoin)
     - [`Thread.Yield`](#threadyield)
   - [Background and foreground threads](#background-and-foreground-threads)
 
-## Thread, process, thread preemption, time-slicing
+## Thread
 
 A **thread** is an independent executor, a basic unit to which an operating system allocates processor time.
 
@@ -52,5 +52,14 @@ The [↑ `Thread.Yield`](https://learn.microsoft.com/en-us/dotnet/api/system.thr
 ## Background and foreground threads
 
 By default, threads you create explicitly are _foreground threads_. Foreground threads keep the application alive for as long as any one of them is running, whereas _background threads_ do not. Once all foreground threads finish, the application ends, and any background threads still running abruptly terminate.
+
+```csharp
+var worker = new Thread(() => Console.ReadLine())
+{
+    // IsBackground = true
+};
+
+worker.Start();
+```
 
 A thread's foreground/background status has no relation to its priority or allocation of execution time.
