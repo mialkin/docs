@@ -9,12 +9,13 @@
     - [`Thread.Sleep`](#threadsleep)
     - [`Thread.Join`](#threadjoin)
     - [`Thread.Yield`](#threadyield)
+  - [Background and foreground threads](#background-and-foreground-threads)
 
 ## Thread, process, thread preemption, time-slicing
 
 A **thread** is an independent executor, a basic unit to which an operating system allocates processor time.
 
-Each thread has its own independent stack but shares the same memory with all the other threads in a *process*.
+Each thread has its own independent stack but shares the same memory with all the other threads in a _process_.
 
 A **process** is an executing program. Each process has multiple threads in it, and each of those threads can be doing different things simultaneously.
 
@@ -36,7 +37,7 @@ The [↑ `Thread.Sleep`](https://learn.microsoft.com/en-us/dotnet/api/system.thr
 
 A thread, while blocked, doesn't consume CPU resources. While waiting on a `Thread.Sleep` or [`Thread.Join`](#threadjoin), a thread is blocked and so does not consume CPU resources.
 
-`Thread.Sleep(0)` relinquishes the thread’s current time slice immediately, voluntarily handing over the CPU to other threads. `Thread.Yield()` method does the same thing—except that it relinquishes only to threads running on the same processor.
+`Thread.Sleep(0)` relinquishes the thread's current time slice immediately, voluntarily handing over the CPU to other threads. `Thread.Yield()` method does the same thing—except that it relinquishes only to threads running on the same processor.
 
 ### `Thread.Join`
 
@@ -47,3 +48,9 @@ The [↑ `Thread.Join`](https://learn.microsoft.com/en-us/dotnet/api/system.thre
 The [↑ `Thread.Yield`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.yield) method causes the calling thread to yield execution to another thread that is ready to run on the current processor. The operating system selects the thread to yield to.
 
 `Sleep(0)` or `Yield` is occasionally useful in production code for advanced performance tweaks. It's also an excellent diagnostic tool for helping to uncover thread safety issues: if inserting `Thread.Yield()` anywhere in your code makes or breaks the program, you almost certainly have a bug.
+
+## Background and foreground threads
+
+By default, threads you create explicitly are _foreground threads_. Foreground threads keep the application alive for as long as any one of them is running, whereas _background threads_ do not. Once all foreground threads finish, the application ends, and any background threads still running abruptly terminate.
+
+A thread's foreground/background status has no relation to its priority or allocation of execution time.
