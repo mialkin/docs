@@ -24,6 +24,8 @@ The semaphore concept was invented by Dutch computer scientist Edsger Dijkstra i
 
 The [↑ `Semaphore`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.semaphore) class limits the number of threads that can access a resource or pool of resources concurrently.
 
+A semaphore with a capacity of one is similar to a [`Mutex`](lock.md#mutex) or [`lock`](lock.md#lock), except that the semaphore has no "owner" — it's thread-agnostic. Any thread can call `Release` on a `Semaphore`, whereas with `Mutex` and `lock`, only the thread that obtained the lock can release it.
+
 Semaphores are of two types: *local semaphores* and *named system semaphores*. If you create a `Semaphore` object using a constructor that accepts a name, it is associated with an operating-system semaphore of that name. Named system semaphores are visible throughout the operating system, and can be used to synchronize the activities of processes. You can create multiple `Semaphore` objects that represent the same named system semaphore, and you can use the `OpenExisting` method to open an existing named system semaphore.
 
 A local semaphore exists only within your process. It can be used by any thread in your process that has a reference to the local `Semaphore` object. Each `Semaphore` object is a separate local semaphore.
@@ -48,7 +50,7 @@ void DoWork()
 // Start
 ```
 
-To print `"End"` you have to either set `initialCount` to `1` or call `Semaphore.Release()` before calling `semaphore.WaitOne()`.
+To print `"End"` you have to either set `initialCount` to `1` or call `semaphore.Release()` before calling `semaphore.WaitOne()`.
 
 ## `SemaphoreSlim`
 
@@ -74,7 +76,7 @@ async Task DoWorkAsync()
 // Start
 ```
 
-To print `"End"` you need to pass `1` into constructor.
+To print `"End"` you need to pass `1` into constructor or call `semaphore.Release()` before calling `semaphore.WaitAsync()`.
 
 ### Example 2
 
