@@ -323,9 +323,9 @@
     - Simple blocking methods
       - [`Thread.Sleep`](csharp/concurrency/thread.md#threadsleep), [`Thread.Join`](csharp/concurrency/thread.md#threadjoin), [↑ `Task.Wait`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.wait)
     - Locking constructs
-      - [`Monitor`, `lock`, `Mutex`](csharp/concurrency/synchronization/lock.md),
-      - [Semaphore, `Semaphore`, `SemaphoreSlim`](csharp/concurrency/synchronization/semaphore.md),
-      - [`ReaderWriterLockSlim`](csharp/concurrency/synchronization/readerwriterlockslim.md),
+      - [`Monitor`, `lock`, `Mutex`](csharp/concurrency/synchronization/lock.md)
+      - [Semaphore, `Semaphore`, `SemaphoreSlim`](csharp/concurrency/synchronization/semaphore.md)
+      - [`ReaderWriterLockSlim`](csharp/concurrency/synchronization/readerwriterlockslim.md)
       - [`SpinLock`, `SpinWait`](csharp/concurrency/synchronization/spinlock-and-spinwait.md)
     - Signaling constructs
       - [`Barrier`](csharp/concurrency/synchronization/barrier.md), [`CountdownEvent`](csharp/concurrency/synchronization/contdownevent.md)

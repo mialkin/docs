@@ -87,7 +87,6 @@ Console.WriteLine(result);
 public static int Increment(ref int location) => Interlocked.Add(ref location, 1);
 ```
 
-
 Increments a specified variable and stores the result, as an atomic operation:
 
 ```csharp
@@ -132,7 +131,6 @@ Exchange doesn't take place because 10 is not equal to 30:
 
 ```csharp
 var value = 10;
-
 var result = Interlocked.CompareExchange(ref value, 20, 30);
 
 Console.WriteLine(value);
@@ -147,7 +145,6 @@ Exchange takes place:
 
 ```csharp
 var value = 10;
-
 var result = Interlocked.CompareExchange(ref value, 20, 10);
 
 Console.WriteLine(value);
