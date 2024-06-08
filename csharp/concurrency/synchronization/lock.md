@@ -50,7 +50,7 @@ finally
 }
 ```
 
-[↑ Why is lock(this) {...} bad?](https://stackoverflow.com/questions/251391/why-is-lockthis-bad).
+Just as with the [Mutex](#mutex), a `lock` statement can be released only from the same thread that obtained it.
 
 ## Nested locking
 
