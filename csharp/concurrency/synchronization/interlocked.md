@@ -8,7 +8,7 @@ The [`Increment`](#incrementint32) and [`Decrement`](#decrementint32) methods in
 2. Increment or decrement the value.
 3. Store the value in the instance variable.
 
-If you do not use `Increment` and `Decrement`, a thread can be [preempted](/csharp/concurrency/thread.md#thread-preemption) after executing the first two steps. Another thread can then execute all three steps. When the first thread resumes execution, it overwrites the value in the instance variable, and the effect of the increment or decrement performed by the second thread is lost.
+If you do not use `Increment` and `Decrement`, a thread can be [preempted](/csharp/concurrency/thread.md) after executing the first two steps. Another thread can then execute all three steps. When the first thread resumes execution, it overwrites the value in the instance variable, and the effect of the increment or decrement performed by the second thread is lost.
 
 The `Add` method atomically adds an integer value to an integer variable and returns the new value of the variable.
 
