@@ -7,6 +7,7 @@
   - [`Monitor`](#monitor)
   - [`lock`](#lock)
   - [Nested locking](#nested-locking)
+  - [Choosing the synchronization object](#choosing-the-synchronization-object)
   - [`Monitor` vs `Mutex`](#monitor-vs-mutex)
   - [`Mutex`](#mutex)
   - [When to lock](#when-to-lock)
@@ -88,6 +89,41 @@ Monitor.Exit(locker);
 ```
 
 In these scenarios, the object is unlocked only when the outermost `lock` statement has exited — or a matching number of `Monitor.Exit` statements have executed.
+
+## Choosing the synchronization object
+
+Any object visible to each of the partaking threads can be used as a synchronizing object, subject to one hard rule: it must be a reference type. The synchronizing object is typically private (because this helps to encapsulate the locking logic) and is typically an instance or static field. The synchronizing object can double as the object it's protecting, as the `_list` field does in the following example:
+
+```csharp
+class ThreadSafe
+{
+    private readonly List<string> _list = [];
+
+    void AddItem()
+    {
+        lock (_list)
+        {
+            _list.Add("Item 1");
+        }
+    }
+}
+```
+
+A field dedicated for the purpose of locking (such as `locker`, in the example prior) allows precise control over the scope and granularity of the lock. The containing object (`this`) — or even its type — can also be used as a synchronization object:
+
+```csharp
+lock (this) { ... }
+```
+
+```csharp
+lock (typeof(Widget)) { ... } // For protecting access to statics
+```
+
+The disadvantage of locking in this way is that you're not encapsulating the locking logic, so it becomes harder to prevent deadlocking and excessive blocking. A lock on a type may also seep through application domain boundaries (within the same process).
+
+You can also lock on local variables captured by lambda expressions or anonymous methods.
+
+Locking doesn't restrict access to the synchronizing object itself in any way. In other words, `x.ToString()` will not block because another thread has called `lock(x)`; both threads must call `lock(x)` in order for blocking to occur.
 
 ## `Monitor` vs `Mutex`
 
