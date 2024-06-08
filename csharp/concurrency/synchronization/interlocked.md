@@ -8,11 +8,11 @@ The [`Increment`](#incrementint32) and [`Decrement`](#decrementint32) methods in
 2. Increment or decrement the value.
 3. Store the value in the instance variable.
 
-If you do not use `Increment` and `Decrement`, a thread can be [preempted](/csharp/concurrency/thread.md) after executing the first two steps. Another thread can then execute all three steps. When the first thread resumes execution, it overwrites the value in the instance variable, and the effect of the increment or decrement performed by the second thread is lost.
+If you do not use [`Increment`](#incrementint32) and [`Decrement`](#decrementint32), a thread can be [preempted](/csharp/concurrency/thread.md) after executing the first two steps. Another thread can then execute all three steps. When the first thread resumes execution, it overwrites the value in the instance variable, and the effect of the increment or decrement performed by the second thread is lost.
 
-The `Add` method atomically adds an integer value to an integer variable and returns the new value of the variable.
+The [`Add`](#addint32-int32) method atomically adds an integer value to an integer variable and returns the new value of the variable.
 
-The `Exchange` method atomically exchanges the values of the specified variables. The `CompareExchange` method combines two operations: comparing two values and storing a third value in one of the variables, based on the outcome of the comparison. The compare and exchange operations are performed as an atomic operation.
+The [`Exchange`](#exchangeint32-int32) method atomically exchanges the values of the specified variables. The [`CompareExchange`](#compareexchangeint32-int32-int32) method combines two operations: comparing two values and storing a third value in one of the variables, based on the outcome of the comparison. The compare and exchange operations are performed as an atomic operation.
 
 ## Table of contents
 
@@ -20,11 +20,11 @@ The `Exchange` method atomically exchanges the values of the specified variables
   - [Table of contents](#table-of-contents)
   - [Methods](#methods)
     - [`Add(Int32, Int32)`](#addint32-int32)
-    - [`And(Int32, Int32)`](#andint32-int32)
     - [`Increment(Int32)`](#incrementint32)
+    - [`Decrement(Int32)`](#decrementint32)
     - [`Exchange(Int32, Int32)`](#exchangeint32-int32)
     - [`CompareExchange(Int32, Int32, Int32)`](#compareexchangeint32-int32-int32)
-    - [`Decrement(Int32)`](#decrementint32)
+    - [`And(Int32, Int32)`](#andint32-int32)
     - [`Or(Int32, Int32)`](#orint32-int32)
 
 ## Methods
@@ -63,24 +63,6 @@ Console.WriteLine(result);
 // -2147483647
 ```
 
-### `And(Int32, Int32)`
-
-Bitwise "ands" two 32-bit signed integers and replaces the first integer with the result, as an atomic operation. Returns the original value.
-
-```csharp
-var value = 12;
-
-// 1100 AND 0111 = 0100 = 4
-var result = Interlocked.And(ref value, 7);
-
-Console.WriteLine(value);
-Console.WriteLine(result);
-
-// Output:
-// 4
-// 12
-```
-
 ### `Increment(Int32)`
 
 ```csharp
@@ -102,6 +84,22 @@ Console.WriteLine(result);
 ```
 
 This method handles an overflow condition by wrapping: if `value` = `Int32.MaxValue`, `value + 1` = `Int32.MinValue`. No exception is thrown.
+
+### `Decrement(Int32)`
+
+Decrements a specified variable and stores the result, as an atomic operation.
+
+```csharp
+var value = 5;
+var result = Interlocked.Decrement(ref value);
+
+Console.WriteLine(value);
+Console.WriteLine(result);
+
+// Output:
+// 4
+// 4
+```
 
 ### `Exchange(Int32, Int32)`
 
@@ -155,20 +153,22 @@ Console.WriteLine(result);
 // 10
 ```
 
-### `Decrement(Int32)`
+### `And(Int32, Int32)`
 
-Decrements a specified variable and stores the result, as an atomic operation.
+Bitwise "ands" two 32-bit signed integers and replaces the first integer with the result, as an atomic operation. Returns the original value.
 
 ```csharp
-var value = 5;
-var result = Interlocked.Decrement(ref value);
+var value = 12;
+
+// 1100 AND 0111 = 0100 = 4
+var result = Interlocked.And(ref value, 7);
 
 Console.WriteLine(value);
 Console.WriteLine(result);
 
 // Output:
 // 4
-// 4
+// 12
 ```
 
 ### `Or(Int32, Int32)`
