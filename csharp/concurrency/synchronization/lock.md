@@ -139,7 +139,7 @@ The [↑ `Mutex`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.
 
 Mutex is a synchronization primitive that grants exclusive access to the shared resource to only one thread. If a thread acquires a mutex, the second thread that wants to acquire that mutex is suspended until the first thread releases the mutex.
 
-The `Mutex` class enforces thread identity, so a mutex can be released only by the thread that acquired it. By contrast, the `Semaphore` class does not enforce thread identity. A mutex can also be passed across application domain boundaries.
+The `Mutex` class enforces thread identity, so a mutex can be released only by the thread that acquired it. By contrast, the [`Semaphore`](semaphore.md) class does not enforce thread identity.
 
 The thread that owns a mutex can request the same mutex in repeated calls to `WaitOne` without blocking its execution. However, the thread must call the `ReleaseMutex` method the same number of times to release ownership of the mutex.
 
@@ -177,6 +177,8 @@ void DoWork()
 // Entering critical section. 5
 // Leaving critical section. 5
 ```
+
+A common use for a cross-process `Mutex` is to ensure that only one instance of a program can run at a time.
 
 ## When to lock
 
