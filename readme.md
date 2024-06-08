@@ -311,23 +311,27 @@
 - [Closure](csharp/closure.md)
 - [Concurrency](csharp/concurrency/concurrency.md)
   - [Asynchronous patterns: EAP, APM, TAP](csharp/concurrency/asynchronous-patterns.md)
-    - [`async`](csharp/concurrency/tap/async.md)
-    - [`IAsyncEnumerable<T>`](csharp/concurrency/tap/iasyncenumerable.md)
-    - [Synchronization context, `ConfigureAwait`](csharp/concurrency/tap/synchronization-context.md)
-    - [`Task`, `ValueTask`](csharp/concurrency/tap/valuetask.md)
+    - TAP, task-based asynchronous pattern
+      - [`async`](csharp/concurrency/tap/async.md)
+      - [`IAsyncEnumerable<T>`](csharp/concurrency/tap/iasyncenumerable.md)
+      - [Synchronization context, `ConfigureAwait`](csharp/concurrency/tap/synchronization-context.md)
+      - [`Task`, `ValueTask`](csharp/concurrency/tap/valuetask.md)
   - [Collections](csharp/concurrency/collections/collections.md)
     - [Thread-safe collections. `BlockingCollection<T>`, `ConcurrentBag<T>`, `ConcurrentDictionary<TKey,TValue>`, `ConcurrentQueue<T>`, `ConcurrentStack<T>`](csharp/concurrency/collections/thread-safe-collections.md)
   - [Execution context](csharp/concurrency/execution-context.md)
   - [Synchronization, context switch, critical section, spinning](csharp/concurrency/synchronization/synchronization.md)
-    - [`Interlocked`](csharp/concurrency/synchronization/interlocked.md)
-    - [`Monitor`, `lock`, `Mutex`](csharp/concurrency/synchronization/lock.md)
-    - [`ReaderWriterLockSlim`](csharp/concurrency/synchronization/readerwriterlockslim.md)
-    - [Semaphore, `Semaphore`, `SemaphoreSlim`](csharp/concurrency/synchronization/semaphore.md)
-    - [`SpinLock` and `SpinWait`](csharp/concurrency/synchronization/spinlock-and-spinwait.md)
-    - Thread interaction or signaling
-      - [`Barrier`](csharp/concurrency/synchronization/barrier.md)
-      - [`CountdownEvent`](csharp/concurrency/synchronization/contdownevent.md)
+    - Simple blocking methods
+      - [`Thread.Sleep`](csharp/concurrency/thread.md#threadsleep), [`Thread.Join`](csharp/concurrency/thread.md#threadjoin), [↑ `Task.Wait`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.wait)
+    - Locking constructs
+      - [`Monitor`, `lock`, `Mutex`](csharp/concurrency/synchronization/lock.md),
+      - [Semaphore, `Semaphore`, `SemaphoreSlim`](csharp/concurrency/synchronization/semaphore.md),
+      - [`ReaderWriterLockSlim`](csharp/concurrency/synchronization/readerwriterlockslim.md),
+      - [`SpinLock`, `SpinWait`](csharp/concurrency/synchronization/spinlock-and-spinwait.md)
+    - Signaling constructs
+      - [`Barrier`](csharp/concurrency/synchronization/barrier.md), [`CountdownEvent`](csharp/concurrency/synchronization/contdownevent.md)
       - [`EventWaitHandle`, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`](csharp/concurrency/synchronization/eventwaithandle.md)
+    - Non-blocking synchronization constructs
+      - [`Interlocked`](csharp/concurrency/synchronization/interlocked.md), `Thread.MemoryBarrier`, `Thread.VolatileRead`, `Thread.VolatileWrite`, `volatile`
   - [Thread, `Thread`](csharp/concurrency/thread.md)
   - [`ThreadLocal<T>`, `AsyncLocal<T>`, `[ThreadStatic]`](csharp/concurrency/threadlocal-asynclocal.md)
 - Collections
