@@ -28,11 +28,10 @@ Time taken to lock and unlock the construct once on the same thread (assuming no
 | Construct                                 | Overhead |
 | ----------------------------------------- | -------- |
 | `lock` (`Monitor.Enter` / `Monitor.Exit`) | 20 ns    |
-| `Mutex`                                   | 1000 ns  |
-| `SemaphoreSlim`                           | 200 ns   |
-| `Semaphore`                               | 1000 ns  |
 | `ReaderWriterLockSlim`                    | 40 ns    |
-| `ReaderWriterLock`                        | 100 ns   |
+| `SemaphoreSlim`                           | 200 ns   |
+| `Mutex`                                   | 1000 ns  |
+| `Semaphore`                               | 1000 ns  |
 
 ## Choosing the synchronization object
 
