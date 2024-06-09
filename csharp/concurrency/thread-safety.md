@@ -13,6 +13,7 @@ General-purpose types are rarely thread-safe in their entirety. Thread safety is
   - [Thread safety and .NET framework types](#thread-safety-and-net-framework-types)
     - [Static methods](#static-methods)
     - [Read-only thread safety](#read-only-thread-safety)
+  - [Rich client applications and thread affinity](#rich-client-applications-and-thread-affinity)
 
 ## Thread safety and .NET framework types
 
@@ -37,3 +38,9 @@ Following this principle yourself is simple: if you document a type as being thr
 Read-only thread safety is one of the reasons that enumerators are separate from "enumerables": two threads can simultaneously enumerate over a collection because each gets a separate enumerator object.
 
 In the absence of documentation, it pays to be cautious in assuming whether a method is read-only in nature. A good example is the [↑ `Random`](https://learn.microsoft.com/en-us/dotnet/api/system.random) class: when you call [↑ `Random.Next()`](https://learn.microsoft.com/en-us/dotnet/api/system.random.next), its internal implementation requires that it update private seed values. Therefore, you must either lock around using the `Random` class, or maintain a separate instance per thread. Or better use thread-safe instance of `Random` class obtained from [↑ `Random.Shared`](https://learn.microsoft.com/en-us/dotnet/api/system.random.shared) property.
+
+## Rich client applications and thread affinity
+
+Both the WPF and Windows Forms libraries follow models based on thread affinity. Although each has a separate implementation, they are both very similar in how they function.
+
+The objects that make up a rich client are based primarily on [↑ `DependencyObject`](https://learn.microsoft.com/en-us/dotnet/api/system.windows.dependencyobject) in the case of WPF, or [↑ `Control`](https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.control) in the case of Windows Forms. These objects have *thread affinity*, which means that only the thread that instantiates them can subsequently access their members. Violating this causes either unpredictable behavior, or an exception to be thrown.
