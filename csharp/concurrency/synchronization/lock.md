@@ -25,13 +25,13 @@ As a basic rule, you need to lock around accessing _any writable shared field_.
 
 Time taken to lock and unlock the construct once on the same thread (assuming no blocking), as measured on an [↑ Intel Core i7 860](https://www.intel.com/content/www/us/en/products/sku/41316/intel-core-i7860-processor-8m-cache-2-80-ghz/specifications.html):
 
-| Construct                                 | Overhead |
-| ----------------------------------------- | -------- |
-| `lock` (`Monitor.Enter` / `Monitor.Exit`) | 20 ns    |
-| `ReaderWriterLockSlim`                    | 40 ns    |
-| `SemaphoreSlim`                           | 200 ns   |
-| `Mutex`                                   | 1000 ns  |
-| `Semaphore`                               | 1000 ns  |
+| Construct                                 | Cross-process | Overhead |
+| ----------------------------------------- | ------------- | -------- |
+| `lock` (`Monitor.Enter` / `Monitor.Exit`) | —             | 20 ns    |
+| `ReaderWriterLockSlim`                    | —             | 40 ns    |
+| `SemaphoreSlim`                           | —             | 200 ns   |
+| `Mutex`                                   | Yes           | 1000 ns  |
+| `Semaphore`                               | Yes           | 1000 ns  |
 
 ## Choosing the synchronization object
 
