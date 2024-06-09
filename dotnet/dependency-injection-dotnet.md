@@ -75,7 +75,7 @@ Registering a service with only an implementation type is equivalent to register
 
 ## `IServiceScopeFactory`
 
-To achieve scoping services within implementations of [↑ `IHostedService`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.hosting.ihostedservice), such as the [↑ `BackgroundService`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.hosting.backgroundservice), do **not** inject the service dependencies via constructor injection because you will get `Cannot consume scoped service 'IDemoService' from singleton 'Microsoft.Extensions.Hosting.IHostedService` exception.
+To achieve scoping services within implementations of [↑ `IHostedService`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.hosting.ihostedservice), such as the [↑ `BackgroundService`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.hosting.backgroundservice), do **not** inject the service dependencies via constructor injection because you will get `Cannot consume scoped service 'IDemoService' from singleton 'Microsoft.Extensions.Hosting.IHostedService'` exception.
 
 Instead, inject [↑ `IServiceScopeFactory`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.iservicescopefactory), create a scope, then resolve dependencies from the scope to use the appropriate service lifetime:
 
