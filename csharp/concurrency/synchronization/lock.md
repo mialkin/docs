@@ -1,27 +1,24 @@
-# `Monitor`, `lock`, `Mutex`, semaphore, `Semaphore`, `SemaphoreSlim`
+# `Monitor`, `lock`, `Mutex`, `Semaphore`, `SemaphoreSlim`, `ReaderWriterLockSlim`
 
 ## Table of contents
 
-- [`Monitor`, `lock`, `Mutex`, semaphore, `Semaphore`, `SemaphoreSlim`](#monitor-lock-mutex-semaphore-semaphore-semaphoreslim)
+- [`Monitor`, `lock`, `Mutex`, `Semaphore`, `SemaphoreSlim`, `ReaderWriterLockSlim`](#monitor-lock-mutex-semaphore-semaphoreslim-readerwriterlockslim)
   - [Table of contents](#table-of-contents)
   - [When to lock](#when-to-lock)
   - [Choosing the synchronization object](#choosing-the-synchronization-object)
   - [`Monitor`](#monitor)
-  - [`lock`](#lock)
+    - [`lock`](#lock)
     - [Nested locking](#nested-locking)
-  - [`Monitor` vs `Mutex`](#monitor-vs-mutex)
   - [`Mutex`](#mutex)
+  - [`Monitor` vs `Mutex`](#monitor-vs-mutex)
   - [Semaphore](#semaphore)
-  - [`Semaphore`](#semaphore-1)
-    - [Example 1](#example-1)
-  - [`SemaphoreSlim`](#semaphoreslim)
-    - [Example 1](#example-1-1)
-    - [Example 2](#example-2)
+    - [`Semaphore`](#semaphore-1)
+    - [`SemaphoreSlim`](#semaphoreslim)
+  - [`ReaderWriterLockSlim`](#readerwriterlockslim)
 
 ## When to lock
 
 As a basic rule, you need to lock around accessing *any writable shared field*.
-
 
 ## Choosing the synchronization object
 
@@ -68,7 +65,7 @@ Use the `Enter` and `Exit` methods of `Monitor` instance to mark the beginning a
 
 Use the `Monitor` class to lock objects other than strings, that is, reference types other than `string`. Given the way that strings are *sometimes* interned and *sometimes* not, you could easily end up with *accidentally* shared locks where you didn't intend them.
 
-## `lock`
+### `lock`
 
 The functionality provided by the `Monitor`'s `Enter` and `Exit` methods is identical to that provided by the `lock` statement, except that the language constructs wrap the `Monitor.Enter(Object, Boolean)` method overload and the `Monitor.Exit` method in a `try/finally` block to ensure that the monitor is released.
 
@@ -136,21 +133,13 @@ Monitor.Exit(locker);
 
 In these scenarios, the object is unlocked only when the outermost `lock` statement has exited — or a matching number of `Monitor.Exit` statements have executed.
 
-## `Monitor` vs `Mutex`
-
-A `Monitor` is managed, and more lightweight — but is restricted to your [↑ `AppDomain`](https://learn.microsoft.com/en-us/dotnet/api/system.appdomain).
-
-A [`Mutex`](mutex.md) can be named, and can span processes, allowing some simple IPC scenarios between applications.
-
-For most simple scenarios, `Monitor` via `lock` is fine.
-
 ## `Mutex`
 
 The [↑ `Mutex`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.mutex) class is a synchronization primitive that can also be used for interprocess synchronization.
 
 Mutex is a synchronization primitive that grants exclusive access to the shared resource to only one thread. If a thread acquires a mutex, the second thread that wants to acquire that mutex is suspended until the first thread releases the mutex.
 
-The `Mutex` class enforces thread identity, so a mutex can be released only by the thread that acquired it. By contrast, the [`Semaphore`](semaphore.md) class does not enforce thread identity.
+The `Mutex` class enforces thread identity, so a mutex can be released only by the thread that acquired it. By contrast, the [`Semaphore`](#semaphore) class does not enforce thread identity.
 
 The thread that owns a mutex can request the same mutex in repeated calls to `WaitOne` without blocking its execution. However, the thread must call the `ReleaseMutex` method the same number of times to release ownership of the mutex.
 
@@ -191,6 +180,14 @@ void DoWork()
 
 A common use for a cross-process `Mutex` is to ensure that only one instance of a program can run at a time.
 
+## `Monitor` vs `Mutex`
+
+A `Monitor` is managed, and more lightweight — but is restricted to your [↑ `AppDomain`](https://learn.microsoft.com/en-us/dotnet/api/system.appdomain).
+
+A [`Mutex`](mutex.md) can be named, and can span processes, allowing some simple IPC scenarios between applications.
+
+For most simple scenarios, `Monitor` via `lock` is fine.
+
 ## Semaphore
 
 A **semaphore** is a variable or abstract data type used to control access to a common resource by multiple processes in a concurrent system such as a multitasking operating system.
@@ -203,7 +200,7 @@ Semaphores which allow an arbitrary resource count are called **counting semapho
 
 The semaphore concept was invented by Dutch computer scientist Edsger Dijkstra in 1962 or 1963, when Dijkstra and his team were developing an operating system for the Electrologica X8.
 
-## `Semaphore`
+### `Semaphore`
 
 The [↑ `Semaphore`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.semaphore) class limits the number of threads that can access a resource or pool of resources concurrently.
 
@@ -215,7 +212,7 @@ A local semaphore exists only within your process. It can be used by any thread 
 
 Unlike [`SemaphoreSlim`](#semaphoreslim) class, `Semaphore` doesn't have any asynchornous methods like `WaitAsync()`.
 
-### Example 1
+**Example 1**:
 
 ```csharp
 var semaphore = new Semaphore(initialCount: 0, maximumCount: 1);
@@ -235,13 +232,13 @@ void DoWork()
 
 To print `"End"` you have to either set `initialCount` to `1` or call `semaphore.Release()` before calling `semaphore.WaitOne()`.
 
-## `SemaphoreSlim`
+### `SemaphoreSlim`
 
 The [↑ `SemaphoreSlim`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.semaphoreslim) class represents a lightweight alternative to [`Semaphore`](#semaphore) that limits the number of threads that can access a resource or pool of resources concurrently.
 
 Unlike the `Semaphore` class, the `SemaphoreSlim` class doesn't support named system semaphores. You can use it as a local semaphore only. The `SemaphoreSlim` class is the recommended semaphore for synchronization within a single app.
 
-### Example 1
+**Example 1**:
 
 ```csharp
 var semaphore = new SemaphoreSlim(0);
@@ -261,7 +258,7 @@ async Task DoWorkAsync()
 
 To print `"End"` you need to pass `1` into constructor or call `semaphore.Release()` before calling `semaphore.WaitAsync()`.
 
-### Example 2
+**Example 2**:
 
 Let only 3 tasks at a time to run the body of `DoWorkAsync`:
 
@@ -306,3 +303,13 @@ async Task DoWorkAsync()
 // End
 // End
 ```
+
+## `ReaderWriterLockSlim`
+
+The [↑ `ReaderWriterLockSlim`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.readerwriterlockslim) class represents a lock that is used to manage access to a resource, allowing multiple threads for reading or exclusive access for writing.
+
+Quite often, instances of a type are thread-safe for concurrent read operations, but not for concurrent updates (nor for a concurrent read and update). This can also be true with resources such as a file. Although protecting instances of such types with a simple exclusive lock for all modes of access usually does the trick, it can unreasonably restrict concurrency if there are many readers and just occasional updates. An example of where this could occur is in a business application server, where commonly used data is cached for fast retrieval in static fields. The `ReaderWriterLockSlim` class is designed to provide maximum-availability locking in just this scenario.
+
+`ReaderWriterLockSlim` was introduced in Framework 3.5 and is a replacement for the older "fat" [↑ `ReaderWriterLock`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.readerwriterlock) class. The latter is similar in functionality, but it is several times slower and has an inherent design fault in its mechanism for handling lock upgrades.
+
+When compared to an ordinary lock (`Monitor.Enter`/`Exit`), `ReaderWriterLockSlim` is twice as slow.
