@@ -334,6 +334,7 @@
       - [`Interlocked`](csharp/concurrency/synchronization/interlocked.md), `Thread.MemoryBarrier`, `Thread.VolatileRead`, `Thread.VolatileWrite`, `volatile`
   - [Thread, `Thread`](csharp/concurrency/thread.md)
   - [`ThreadLocal<T>`, `AsyncLocal<T>`, `[ThreadStatic]`](csharp/concurrency/threadlocal-asynclocal.md)
+  - [Thread safety](csharp/concurrency/thread-safety.md)
 - Collections
   - [↑ Which collection interface to use?](https://enterprisecraftsmanship.com/posts/which-collection-interface-to-use/)
 - Exceptions
