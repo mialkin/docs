@@ -5,6 +5,7 @@
 - [`Monitor`, `lock`, `Mutex`, `Semaphore`, `SemaphoreSlim`, `ReaderWriterLockSlim`](#monitor-lock-mutex-semaphore-semaphoreslim-readerwriterlockslim)
   - [Table of contents](#table-of-contents)
   - [When to lock](#when-to-lock)
+  - [Comparison of locking constructs](#comparison-of-locking-constructs)
   - [Choosing the synchronization object](#choosing-the-synchronization-object)
   - [`Monitor`](#monitor)
     - [`lock`](#lock)
@@ -18,7 +19,20 @@
 
 ## When to lock
 
-As a basic rule, you need to lock around accessing *any writable shared field*.
+As a basic rule, you need to lock around accessing _any writable shared field_.
+
+## Comparison of locking constructs
+
+Time taken to lock and unlock the construct once on the same thread (assuming no blocking), as measured on an [↑ Intel Core i7 860](https://www.intel.com/content/www/us/en/products/sku/41316/intel-core-i7860-processor-8m-cache-2-80-ghz/specifications.html):
+
+| Construct                                 | Overhead |
+| ----------------------------------------- | -------- |
+| `lock` (`Monitor.Enter` / `Monitor.Exit`) | 20 ns    |
+| `Mutex`                                   | 1000 ns  |
+| `SemaphoreSlim`                           | 200 ns   |
+| `Semaphore`                               | 1000 ns  |
+| `ReaderWriterLockSlim`                    | 40 ns    |
+| `ReaderWriterLock`                        | 100 ns   |
 
 ## Choosing the synchronization object
 
@@ -63,7 +77,7 @@ Use the `Enter` and `Exit` methods of `Monitor` instance to mark the beginning a
 
 `Monitor` locks objects, that is, reference types, not value types. While you can pass a value type to `Enter` and `Exit`, it is boxed separately for each call. Since each call creates a separate object, `Enter` never blocks, and the code it is supposedly protecting is not really synchronized. In addition, the object passed to `Exit` is different from the object passed to `Enter`, so `Monitor` throws `SynchronizationLockException` exception with the message "Object synchronization method was called from an unsynchronized block of code."
 
-Use the `Monitor` class to lock objects other than strings, that is, reference types other than `string`. Given the way that strings are *sometimes* interned and *sometimes* not, you could easily end up with *accidentally* shared locks where you didn't intend them.
+Use the `Monitor` class to lock objects other than strings, that is, reference types other than `string`. Given the way that strings are _sometimes_ interned and _sometimes_ not, you could easily end up with _accidentally_ shared locks where you didn't intend them.
 
 ### `lock`
 
@@ -97,7 +111,7 @@ Just as with the [Mutex](#mutex), a `lock` statement can be released only from t
 
 ### Nested locking
 
-A thread can repeatedly lock the same object in a nested, *reentrant*, fashion:
+A thread can repeatedly lock the same object in a nested, _reentrant_, fashion:
 
 ```csharp
 var locker = new object();
@@ -143,7 +157,7 @@ The `Mutex` class enforces thread identity, so a mutex can be released only by t
 
 The thread that owns a mutex can request the same mutex in repeated calls to `WaitOne` without blocking its execution. However, the thread must call the `ReleaseMutex` method the same number of times to release ownership of the mutex.
 
-Mutexes are of two types: *local mutexes*, which are unnamed, and *named system mutexes*. A local mutex exists only within your process. It can be used by any thread in your process that has a reference to the `Mutex` object that represents the mutex. Each unnamed `Mutex` object represents a separate local mutex.
+Mutexes are of two types: _local mutexes_, which are unnamed, and _named system mutexes_. A local mutex exists only within your process. It can be used by any thread in your process that has a reference to the `Mutex` object that represents the mutex. Each unnamed `Mutex` object represents a separate local mutex.
 
 Named system mutexes are visible throughout the operating system, and can be used to synchronize the activities of processes. You can create a `Mutex` object that represents a named system mutex by using a constructor that accepts a name. The operating-system object can be created at the same time, or it can exist before the creation of the `Mutex` object. You can create multiple `Mutex` objects that represent the same named system mutex, and you can use the `OpenExisting` method to open an existing named system mutex.
 
@@ -206,7 +220,7 @@ The [↑ `Semaphore`](https://learn.microsoft.com/en-us/dotnet/api/system.thread
 
 A semaphore with a capacity of one is similar to a [`Mutex`](lock.md#mutex) or [`lock`](lock.md#lock), except that the semaphore has no "owner" — it's thread-agnostic. Any thread can call `Release` on a `Semaphore`, whereas with `Mutex` and `lock`, only the thread that obtained the lock can release it.
 
-Semaphores are of two types: *local semaphores* and *named system semaphores*. If you create a `Semaphore` object using a constructor that accepts a name, it is associated with an operating-system semaphore of that name. Named system semaphores are visible throughout the operating system, and can be used to synchronize the activities of processes. You can create multiple `Semaphore` objects that represent the same named system semaphore, and you can use the `OpenExisting` method to open an existing named system semaphore.
+Semaphores are of two types: _local semaphores_ and _named system semaphores_. If you create a `Semaphore` object using a constructor that accepts a name, it is associated with an operating-system semaphore of that name. Named system semaphores are visible throughout the operating system, and can be used to synchronize the activities of processes. You can create multiple `Semaphore` objects that represent the same named system semaphore, and you can use the `OpenExisting` method to open an existing named system semaphore.
 
 A local semaphore exists only within your process. It can be used by any thread in your process that has a reference to the local `Semaphore` object. Each `Semaphore` object is a separate local semaphore.
 
