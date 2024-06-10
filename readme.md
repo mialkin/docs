@@ -326,8 +326,7 @@
       - [`Monitor`, `lock`, `Mutex`, `Semaphore`, `SemaphoreSlim`, `ReaderWriterLockSlim`](csharp/concurrency/synchronization/lock.md)
       - [`SpinLock`, `SpinWait`](csharp/concurrency/synchronization/spinlock-and-spinwait.md)
     - Signaling constructs
-      - [Signaling with event wait handles. `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`](csharp/concurrency/synchronization/eventwaithandle.md)
-      - [`Barrier`](csharp/concurrency/synchronization/barrier.md), [`CountdownEvent`](csharp/concurrency/synchronization/contdownevent.md)
+      - [Signaling, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`, `CountdownEvent`, `Barrier`](csharp/concurrency/synchronization/signaling.md)
     - Non-blocking synchronization constructs
       - [`Interlocked`](csharp/concurrency/synchronization/interlocked.md), `Thread.MemoryBarrier`, `Thread.VolatileRead`, `Thread.VolatileWrite`, `volatile`
   - [Thread, `Thread`](csharp/concurrency/thread.md)

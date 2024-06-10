@@ -1,20 +1,23 @@
-# Signaling, event wait handle, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`
+# Signaling, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`, `CountdownEvent`, `Barrier`
+
+## Table of contents
+
+- [Signaling, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`, `CountdownEvent`, `Barrier`](#signaling-autoresetevent-manualresetevent-manualreseteventslim-countdownevent-barrier)
+  - [Table of contents](#table-of-contents)
+  - [Signaling](#signaling)
+  - [`AutoResetEvent`](#autoresetevent)
+  - [`ManualResetEvent`](#manualresetevent)
+  - [`ManualResetEventSlim`](#manualreseteventslim)
+  - [`CountdownEvent`](#countdownevent)
+  - [`Barrier`](#barrier)
+
+## Signaling
 
 A **signaling** is a mechanism that makes a thread to wait until it receives notification from another thread.
 
 An **event wait handle** is a construct used for signaling.
 
 Event wait handles are the simplest of the signaling constructs, and they are unrelated to C# [events](/csharp/keywords/event.md). They come in three flavors: [`AutoResetEvent`](#autoresetevent), [`ManualResetEvent`](#manualresetevent), and [`CountdownEvent`](#countdownevent). The former two are based on the common [↑ `EventWaitHandle`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.eventwaithandle) class, where they derive all their functionality.
-
-## Table of contents
-
-- [Signaling, event wait handle, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`](#signaling-event-wait-handle-autoresetevent-manualresetevent-manualreseteventslim)
-  - [Table of contents](#table-of-contents)
-  - [`AutoResetEvent`](#autoresetevent)
-  - [`ManualResetEvent`](#manualresetevent)
-  - [`ManualResetEventSlim`](#manualreseteventslim)
-  - [`CountdownEvent`](#countdownevent)
-  - [`Barrier`](#barrier)
 
 ## `AutoResetEvent`
 

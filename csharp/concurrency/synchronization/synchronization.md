@@ -20,7 +20,7 @@ Synchronization constructs can be divided into four categories:
 - **Locking constructs**
   - These limit the number of threads that can perform some activity or execute a section of code at a time. Exclusive locking constructs are most common — these allow just one thread in at a time, and allow competing threads to access common data without interfering with each other. The standard exclusive locking constructs are [`lock`](lock.md#lock) ([`Monitor.Enter`/`Monitor.Exit`](lock.md#monitor)), [`Mutex`](lock.md#mutex), and `SpinLock`. The nonexclusive locking constructs are [`Semaphore`](lock.md#semaphore-1), [`SemaphoreSlim`](lock.md#semaphoreslim), and the [reader/writer locks](lock.md#readerwriterlockslim).
 - **Signaling constructs**
-  - These allow a thread to pause until receiving a notification from another, avoiding the need for inefficient polling. There are two commonly used signaling devices: event wait handles and `Monitor`'s `Wait`/`Pulse` methods. Framework 4.0 introduces the [`CountdownEvent`](contdownevent.md) and [`Barrier`](barrier.md) classes.
+  - These allow a thread to pause until receiving a notification from another, avoiding the need for inefficient polling. There are two commonly used signaling devices: event wait handles and `Monitor`'s `Wait`/`Pulse` methods. Framework 4.0 introduces the [`CountdownEvent`](signaling.md#countdownevent) and [`Barrier`](signaling.md#barrier) classes.
 - **Non-blocking synchronization constructs**
   - These protect access to a common field by calling upon processor primitives. The CLR and C# provide the following non-blocking constructs: `Thread.MemoryBarrier`, `Thread.VolatileRead`, `Thread.VolatileWrite`, the `volatile` keyword, and the [`Interlocked`](interlocked.md) class.
 
