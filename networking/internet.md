@@ -14,6 +14,7 @@
     - [Handshake](#handshake)
     - [Maximum packet size for a TCP connection](#maximum-packet-size-for-a-tcp-connection)
     - [MSS](#mss)
+  - [HTTP](#http)
   - [OSI model](#osi-model)
 
 ## Internet
@@ -104,6 +105,18 @@ The maximum segment size (**MSS**) is a parameter of the options field of the TC
 The default TCP Maximum Segment Size is 536.
 
 [↑ What are IP & TCP?](https://www.cloudflare.com/learning/ddos/glossary/tcp-ip/).
+
+## HTTP
+
+**HTTP/1** came out in 1996. It is built on top of TCP. Every request to the same server requires a separate TCP connection.
+
+**HTTP/1.1** came out in 1997. It introduced "keep alive" mechanism, so that a connection could be reused for more than a single request. To keep loading performance at the acceptable level browsers normally kept multiple TCP connections open to the same server and sent request to it in parallel.
+
+**HTTP/2** was published in 2015. HTTP/2 introduced HTTP "streams" where multiple stream requests could be sent over single TCP connection. Unlike with HTTP/1.1 each stream is independent of each other and it does not need to be sent or received in order. Also HTTP/2 introduced a push capability to allow servers to send updates to the clients whenever new data is available.
+
+**HTTP/3** began as a draft in 2020 and was published in 2022. It uses a new protocol called QUIC instead of TCP as underlying transport protocol. QUIC is based on UDP and introduces streams as first class citizens at the transport layer. QUIC streams share the same QUIC connection so no additional handshakes are required to create new ones. QUIC is designed for mobile-heavy internet usage. People carrying smartphones constantly switch from network to another as they move about their day, for example from, Wi-Fi to 5G. With TCP the handoff of one connection from one network to another is sluggish. QUIC implements a concept called connection ID, which allows connections to move between IP addresses and network interfaces quickly and reliably.
+
+[↑ HTTP/1 to HTTP/2 to HTTP/3](https://www.youtube.com/watch?v=a-sBfyiXysI).
 
 ## OSI model
 

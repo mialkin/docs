@@ -237,7 +237,7 @@
 ## Networking
 
 - [GraphQL, gRPC](networking/graphql-grpc.md)
-- [Internet, IP, TCP, OSI model](networking/internet.md)
+- [Internet, IP, TCP, HTTP, OSI model](networking/internet.md)
 - [Ports, sockets](networking/ports-sockets.md)
 - [POST vs PUT vs PATCH](networking/post-vs-put-vs-patch.md)
 - [REST, OpenAPI, egress vs ingress](networking/rest.md)
