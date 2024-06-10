@@ -25,6 +25,53 @@ The [↑ `AutoResetEvent`](https://learn.microsoft.com/en-us/dotnet/api/system.t
 
 The `AutoResetEvent` is like a ticket turnstile: inserting a ticket lets exactly one person through. The "auto" in the class's name refers to the fact that an open turnstile automatically closes or "resets" after someone steps through. A thread waits, or blocks, at the turnstile by calling `WaitOne` (wait at this "one" turnstile until it opens), and a ticket is inserted by calling the `Set` method. If a number of threads call `WaitOne`, a queue builds up behind the turnstile. As with locks, the fairness of the queue can sometimes be violated due to nuances in the operating system. A ticket can come from any thread; in other words, any unblocked thread with access to the `AutoResetEvent` object can call `Set` on it to release one blocked thread.
 
+You can create an `AutoResetEvent` in two ways. The first is via its constructor:
+
+```csharp
+var autoResetEvent = new AutoResetEvent(initialState: false);
+```
+
+Passing `true` into the constructor is equivalent to immediately calling `Set` upon it. The second way to create an `AutoResetEvent` is as follows:
+
+```csharp
+var autoResetEvent = new EventWaitHandle(initialState: false, EventResetMode.AutoReset);
+```
+
+In the following example, a thread is started whose job is simply to wait until signaled by another thread:
+
+```csharp
+var autoResetEvent = new AutoResetEvent(initialState: false);
+
+var thread = new Thread(() =>
+{
+    Console.WriteLine("Start waiting");
+    autoResetEvent.WaitOne();
+    Console.WriteLine("End waiting");
+});
+thread.Start();
+
+Thread.Sleep(5000);
+Console.WriteLine("Setting the state of the event to signaled");
+autoResetEvent.Set();
+
+// Output:
+// Start waiting
+// Setting the state of the event to signaled
+// End waiting
+```
+
+If `Set` is called when no thread is waiting, the handle stays open for as long as it takes until some thread calls `WaitOne`. This behavior helps avoid a race between a thread heading for the turnstile, and a thread inserting a ticket: "Oops, inserted the ticket a microsecond too soon, bad luck, now you'll have to wait indefinitely!". However, calling `Set` repeatedly on a turnstile at which no one is waiting doesn't allow a whole party through when they arrive: only the next single person is let through and the extra tickets are "wasted."
+
+Calling `Reset` on an `AutoResetEvent` closes the turnstile, should it be open, without waiting or blocking.
+
+`WaitOne` accepts an optional timeout parameter, returning `false` if the wait ended because of a timeout rather than obtaining the signal.
+
+Calling `WaitOne` with a timeout of `0` tests whether a wait handle is "open," without blocking the caller. Bear in mind, though, that doing this resets the `AutoResetEvent` if it's open.
+
+Once you've finished with a wait handle, you can call its `Close` method to release the operating system resource. Alternatively, you can simply drop all references to the wait handle and allow the garbage collector to do the job for you sometime later (wait handles implement the disposal pattern whereby the finalizer calls `Close`). This is one of the few scenarios where relying on this backup is (arguably) acceptable, because wait handles have a light OS burden.
+
+Wait handles are released automatically when an application domain unloads.
+
 ## `ManualResetEvent`
 
 The [↑ `ManualResetEvent`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.manualresetevent) class is a thread synchronization event that, when signaled, must be reset manually.
