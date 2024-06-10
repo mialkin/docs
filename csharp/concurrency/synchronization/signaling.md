@@ -76,6 +76,19 @@ Wait handles are released automatically when an application domain unloads.
 
 The [↑ `ManualResetEvent`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.manualresetevent) class is a thread synchronization event that, when signaled, must be reset manually.
 
+The `ManualResetEvent` functions like an ordinary gate. Calling `Set` opens the gate, allowing *any* number of threads calling `WaitOne` to be let through. Calling `Reset` closes the gate. Threads that call `WaitOne` on a closed gate will block; when the gate is next opened, they will be released all at once. Apart from these differences, a `ManualResetEvent` functions like an [`AutoResetEvent`](#autoresetevent).
+
+As with `AutoResetEvent`, you can construct a `ManualResetEvent` in two ways:
+
+```csharp
+var manualResetEvent = new ManualResetEvent(initialState: false);
+var manualResetEvent2 = new EventWaitHandle(initialState: false, EventResetMode.ManualReset);
+```
+
+From Framework 4.0, there's another version of `ManualResetEvent` called [`ManualResetEventSlim`](#manualreseteventslim). The latter is optimized for short waiting times — with the ability to opt into spinning for a set number of iterations. It also has a more efficient managed implementation and allows a `Wait` to be canceled via a `CancellationToken`. It cannot, however, be used for interprocess signaling. `ManualResetEventSlim` doesn't subclass `WaitHandle`; however, it exposes a `WaitHandle` property that returns a `WaitHandle`-based object when called (with the performance profile of a traditional wait handle).
+
+A `ManualResetEvent` is useful in allowing one thread to unblock many other threads. The reverse scenario is covered by [`CountdownEvent`](#countdownevent).
+
 ## `ManualResetEventSlim`
 
 The [↑ `ManualResetEventSlim`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.manualreseteventslim) class is a thread synchronization event that, when signaled, must be reset manually. This class is a lightweight alternative to [`ManualResetEvent`](#manualresetevent).
