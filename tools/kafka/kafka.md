@@ -8,6 +8,8 @@ Some of the key Kafka features:
 - Handle millions of messages per second
 - Real-time processing (~10ms)
 
+[↑ Why is Kafka fast?](https://www.youtube.com/watch?v=UNUz1-msbOM).
+
 ## Table of contents
 
 - [Kafka](#kafka)
