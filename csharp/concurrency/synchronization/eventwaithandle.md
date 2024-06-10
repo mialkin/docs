@@ -14,6 +14,7 @@ Event wait handles are the simplest of the signaling constructs, and they are un
   - [`ManualResetEvent`](#manualresetevent)
   - [`ManualResetEventSlim`](#manualreseteventslim)
   - [`CountdownEvent`](#countdownevent)
+  - [`Barrier`](#barrier)
 
 ## `AutoResetEvent`
 
@@ -30,3 +31,129 @@ The [↑ `ManualResetEventSlim`](https://learn.microsoft.com/en-us/dotnet/api/sy
 ## `CountdownEvent`
 
 The [↑ `CountdownEvent`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.countdownevent) class is a synchronization primitive that is signaled when its count reaches zero.
+
+`CountdownEvent` is designed for scenarios in which you would otherwise have to use a `ManualResetEvent` or `ManualResetEventSlim` and manually decrement a variable before signaling the event. For example, in a fork/join scenario, you can just create a `CountdownEvent` that has a signal count of 5, and then start five work items on the thread pool and have each work item call `Signal` when it completes. Each call to `Signal` decrements the signal count by 1. On the main thread, the call to `Wait` will block until the signal count is zero.
+
+> For code that does not have to interact with legacy .NET Framework synchronization APIs, consider using `Task` objects or the `Invoke` method for an even easier approach to expressing fork-join parallelism.
+
+```csharp
+CountdownEvent cde = new CountdownEvent(2);
+
+Task.Run(() => Signal(10));
+Task.Run(() => Signal(2));
+
+Console.WriteLine("Started waiting");   // Prints out immediately
+cde.Wait();
+
+// It's good to release a CountdownEvent when you're done with it.
+cde.Dispose();
+
+Console.WriteLine("Finished waiting");  // Prints out in 10 seconds
+
+async Task Signal(int delay)
+{
+    await Task.Delay(TimeSpan.FromSeconds(delay));
+    Console.WriteLine("Signaling once");
+    cde.Signal();
+}
+```
+
+Output:
+
+```console
+Started waiting
+Signaling once
+Signaling once
+Finished waiting
+```
+
+There are `CurrentCount`, `InitialCount` properties and `AddCount` method:
+
+```csharp
+CountdownEvent cde = new CountdownEvent(2);
+
+Console.WriteLine(cde.CurrentCount); // 2
+Console.WriteLine(cde.InitialCount); // 2
+
+cde.AddCount(4);
+
+Console.WriteLine(cde.CurrentCount); // 6
+Console.WriteLine(cde.InitialCount); // 2
+
+cde.Signal();
+
+Console.WriteLine(cde.CurrentCount); // 5
+Console.WriteLine(cde.InitialCount); // 2
+```
+
+All public and protected members of `CountdownEvent` are thread-safe and may be used concurrently from multiple threads, with the exception of `Dispose()`, which must only be used when all other operations on the `CountdownEvent` have completed, and `Reset()`, which should only be used when no other threads are accessing the event.
+
+## `Barrier`
+
+A group of tasks cooperate by moving through a series of phases, where each in the group signals it has arrived at the `Barrier` in a given phase and implicitly waits for all others to arrive.
+
+The following example shows how to use a barrier:
+
+```csharp
+BarrierSample();
+
+void BarrierSample()
+{
+    int count = 0;
+
+    // Create a barrier with 3 participants.
+    // Provide a post-phase action that will print out certain information.
+    // And the third time through, it will throw an exception.
+    var barrier = new Barrier(3, b =>
+    {
+        Console.WriteLine($"Post-Phase action: count={count}, phase={b.CurrentPhaseNumber}");
+        
+        if (b.CurrentPhaseNumber == 2) 
+            throw new Exception("D'oh!");
+    });
+
+    // Nope — changed my mind.  Let's make it five participants.
+    barrier.AddParticipants(2);
+
+    // Nope — let's settle on four participants.
+    barrier.RemoveParticipant();
+
+    // This is the logic run by all participants.
+    Action action = () =>
+    {
+        Interlocked.Increment(ref count);
+        barrier.SignalAndWait(); // During the post-phase action, count should be 4 and phase should be 0.
+        
+        Interlocked.Increment(ref count);
+        barrier.SignalAndWait(); // During the post-phase action, count should be 8 and phase should be 1.
+
+        // The third time, SignalAndWait() will throw an exception and all participants will see it.
+        Interlocked.Increment(ref count);
+        try
+        {
+            barrier.SignalAndWait();
+        }
+        catch (BarrierPostPhaseException bppe)
+        {
+            Console.WriteLine("Caught BarrierPostPhaseException: {0}", bppe.Message);
+        }
+
+        // The fourth time should be hunky-dory.
+        Interlocked.Increment(ref count);
+        barrier.SignalAndWait(); // During the post-phase action, count should be 16 and phase should be 3.
+    };
+
+    // Now launch 4 parallel actions to serve as 4 participants.
+    Parallel.Invoke(action, action, action, action);
+
+    // This (5 participants) would cause an exception:
+    // Parallel.Invoke(action, action, action, action, action);
+    //      "System.InvalidOperationException: The number of threads using the barrier
+    //      exceeded the total number of registered participants."
+
+    // It's good form to Dispose() a barrier when you're done with it.
+    barrier.Dispose();
+}
+```
+
+All public and protected members of `Barrier` are thread-safe and may be used concurrently from multiple threads, with the exception of `Dispose`, which must only be used when all other operations on the `Barrier` have completed.
