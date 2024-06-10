@@ -1,16 +1,32 @@
-# `EventWaitHandle`, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`
+# Signaling, event wait handle, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`
 
-The `EventWaitHandle` class represents a thread synchronization event.
+A **signaling** is a mechanism that makes a thread to wait until it receives notification from another thread.
 
-Event wait handles are used for signaling. **Signaling** is when one thread waits until it receives notification from another.
+An **event wait handle** is a construct used for signaling.
 
-Event wait handles are the simplest of the signaling constructs, and they are unrelated to C# events.
+Event wait handles are the simplest of the signaling constructs, and they are unrelated to C# [events](/csharp/keywords/event.md). They come in three flavors: [`AutoResetEvent`](#autoresetevent), [`ManualResetEvent`](#manualresetevent), and [`CountdownEvent`](#countdownevent). The former two are based on the common [↑ `EventWaitHandle`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.eventwaithandle) class, where they derive all their functionality.
 
-A synchronization event can be either in an *unsignaled* or *signaled* state. When the state of an event is unsignaled, a thread that calls the event's `WaitOne` overload is blocked until an event is signaled. The `EventWaitHandle.Set` method sets the state of an event to signaled.
+## Table of contents
 
-The behavior of an `EventWaitHandle` that has been signaled depends on its reset mode:
+- [Signaling, event wait handle, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`](#signaling-event-wait-handle-autoresetevent-manualresetevent-manualreseteventslim)
+  - [Table of contents](#table-of-contents)
+  - [`AutoResetEvent`](#autoresetevent)
+  - [`ManualResetEvent`](#manualresetevent)
+  - [`ManualResetEventSlim`](#manualreseteventslim)
+  - [`CountdownEvent`](#countdownevent)
 
-- An `EventWaitHandle` created with the `EventResetMode.AutoReset` flag resets automatically after releasing a single waiting thread. It's like a turnstile that allows only one thread through each time it's signaled. `AutoResetEvent` class, which derives from `EventWaitHandle`, represents that behavior.
-- An `EventWaitHandle` created with the `EventResetMode.ManualReset` flag remains signaled until its `Reset` method is called. It's like a gate that is closed until signaled and then stays open until someone closes it. The `ManualResetEvent` class, which derives from `EventWaitHandle`, represents that behavior. `ManualResetEventSlim` class is a lightweight alternative to `ManualResetEvent`.
+## `AutoResetEvent`
 
-On Windows, you can use `EventWaitHandle` for the inter-process synchronization. To do that, create a `EventWaitHandle` instance that represents a named system synchronization event by using one of the `EventWaitHandle` constructors that specifies a name or the `EventWaitHandle.OpenExisting` method.
+The [↑ `AutoResetEvent`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.autoresetevent) class is a thread synchronization event that, when signaled, releases one single waiting thread and then resets automatically.
+
+## `ManualResetEvent`
+
+The [↑ `ManualResetEvent`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.manualresetevent) class is a thread synchronization event that, when signaled, must be reset manually.
+
+## `ManualResetEventSlim`
+
+The [↑ `ManualResetEventSlim`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.manualreseteventslim) class is a thread synchronization event that, when signaled, must be reset manually. This class is a lightweight alternative to [`ManualResetEvent`](#manualresetevent).
+
+## `CountdownEvent`
+
+The [↑ `CountdownEvent`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.countdownevent) class is a synchronization primitive that is signaled when its count reaches zero.
