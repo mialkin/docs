@@ -23,6 +23,8 @@ Event wait handles are the simplest of the signaling constructs, and they are un
 
 The [↑ `AutoResetEvent`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.autoresetevent) class is a thread synchronization event that, when signaled, releases one single waiting thread and then resets automatically.
 
+The `AutoResetEvent` is like a ticket turnstile: inserting a ticket lets exactly one person through. The "auto" in the class's name refers to the fact that an open turnstile automatically closes or "resets" after someone steps through. A thread waits, or blocks, at the turnstile by calling `WaitOne` (wait at this "one" turnstile until it opens), and a ticket is inserted by calling the `Set` method. If a number of threads call `WaitOne`, a queue builds up behind the turnstile. As with locks, the fairness of the queue can sometimes be violated due to nuances in the operating system. A ticket can come from any thread; in other words, any unblocked thread with access to the `AutoResetEvent` object can call `Set` on it to release one blocked thread.
+
 ## `ManualResetEvent`
 
 The [↑ `ManualResetEvent`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.manualresetevent) class is a thread synchronization event that, when signaled, must be reset manually.
