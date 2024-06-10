@@ -20,9 +20,6 @@ Some of the key Kafka features:
     - [Replication](#replication)
   - [Kafka producers](#kafka-producers)
   - [Running Kafka in Docker](#running-kafka-in-docker)
-  - [Kafka consumer auto offset reset](#kafka-consumer-auto-offset-reset)
-  - [Exactly-Once Semantics](#exactly-once-semantics)
-  - [The Transactional Outbox Pattern](#the-transactional-outbox-pattern)
   - [Repository](#repository)
   - [Links](#links)
 
@@ -129,18 +126,6 @@ services:
     depends_on:
       - kafka
 ```
-
-## Kafka consumer auto offset reset
-
-[↑ Kafka Consumer Auto Offset Reset](https://medium.com/lydtech-consulting/kafka-consumer-auto-offset-reset-d3962bad2665)
-
-## Exactly-Once Semantics
-
-https://medium.com/lydtech-consulting/kafka-transactions-part-1-exactly-once-messaging-9949350281ff
-
-## The Transactional Outbox Pattern
-
-https://medium.com/lydtech-consulting/kafka-idempotent-consumer-transactional-outbox-74b304815550
 
 ## Repository
 
