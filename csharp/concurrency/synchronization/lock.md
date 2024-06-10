@@ -80,6 +80,8 @@ Use the `Monitor` class to lock objects other than strings, that is, reference t
 
 ### `lock`
 
+The [↑ `lock`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/lock) statement acquires the mutual-exclusion lock for a given object, executes a statement block, and then releases the lock.
+
 The functionality provided by the `Monitor`'s `Enter` and `Exit` methods is identical to that provided by the `lock` statement, except that the language constructs wrap the `Monitor.Enter(Object, Boolean)` method overload and the `Monitor.Exit` method in a `try/finally` block to ensure that the monitor is released.
 
 ```csharp
