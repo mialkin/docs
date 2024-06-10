@@ -25,13 +25,13 @@ As a basic rule, you need to lock around accessing _any writable shared field_.
 
 Time taken to lock and unlock the construct once on the same thread (assuming no blocking), as measured on an [↑ Intel Core i7 860](https://www.intel.com/content/www/us/en/products/sku/41316/intel-core-i7860-processor-8m-cache-2-80-ghz/specifications.html):
 
-| Construct                                 | Cross-process | Overhead |
-| ----------------------------------------- | ------------- | -------- |
-| `lock` (`Monitor.Enter` / `Monitor.Exit`) | —             | 20 ns    |
-| `ReaderWriterLockSlim`                    | —             | 40 ns    |
-| `SemaphoreSlim`                           | —             | 200 ns   |
-| `Mutex`                                   | Yes           | 1000 ns  |
-| `Semaphore`                               | Yes           | 1000 ns  |
+| Construct                                 | Purpose                                                                              | Cross-process | Overhead |
+| ----------------------------------------- | ------------------------------------------------------------------------------------ | ------------- | -------- |
+| `lock` (`Monitor.Enter` / `Monitor.Exit`) | Ensures just one thread can access a resource (or section of code) at a time         | —             | 20 ns    |
+| `ReaderWriterLockSlim`                    | Allows multiple readers to coexist with a single writer                              | —             | 40 ns    |
+| `SemaphoreSlim`                           | Ensures not more than a specified number of concurrent threads can access a resource | —             | 200 ns   |
+| `Mutex`                                   | Ensures just one thread can access a resource (or section of code) at a time         | Yes           | 1000 ns  |
+| `Semaphore`                               | Ensures not more than a specified number of concurrent threads can access a resource | Yes           | 1000 ns  |
 
 ## Choosing the synchronization object
 
