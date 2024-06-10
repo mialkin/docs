@@ -97,61 +97,50 @@ The [↑ `ManualResetEventSlim`](https://learn.microsoft.com/en-us/dotnet/api/sy
 
 The [↑ `CountdownEvent`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.countdownevent) class is a synchronization primitive that is signaled when its count reaches zero.
 
-`CountdownEvent` is designed for scenarios in which you would otherwise have to use a `ManualResetEvent` or `ManualResetEventSlim` and manually decrement a variable before signaling the event. For example, in a fork/join scenario, you can just create a `CountdownEvent` that has a signal count of 5, and then start five work items on the thread pool and have each work item call `Signal` when it completes. Each call to `Signal` decrements the signal count by 1. On the main thread, the call to `Wait` will block until the signal count is zero.
+`CountdownEvent` lets you wait on more than one thread.
 
-> For code that does not have to interact with legacy .NET Framework synchronization APIs, consider using `Task` objects or the `Invoke` method for an even easier approach to expressing fork-join parallelism.
+To use `CountdownEvent`, instantiate the class with the number of threads or "counts" that you want to wait on:
 
 ```csharp
-CountdownEvent cde = new CountdownEvent(2);
+var countdownEvent = new CountdownEvent(initialCount: 3);
+```
 
-Task.Run(() => Signal(10));
-Task.Run(() => Signal(2));
+Calling `Signal` decrements the "count"; calling `Wait` blocks until the count goes down to zero:
 
-Console.WriteLine("Started waiting");   // Prints out immediately
-cde.Wait();
+```csharp
+var countdownEvent = new CountdownEvent(initialCount: 3);
 
-// It's good to release a CountdownEvent when you're done with it.
-cde.Dispose();
+new Thread(() => Signal(5000)).Start();
+new Thread(() => Signal(500)).Start();
+new Thread(() => Signal(1000)).Start();
 
-Console.WriteLine("Finished waiting");  // Prints out in 10 seconds
-
-async Task Signal(int delay)
+void Signal(int delay)
 {
-    await Task.Delay(TimeSpan.FromSeconds(delay));
-    Console.WriteLine("Signaling once");
-    cde.Signal();
+    Thread.Sleep(delay);
+    Console.WriteLine($"Signaling from thread {Environment.CurrentManagedThreadId}. " +
+                      $"Number of remaining signals required to set the event: {countdownEvent.CurrentCount}");
+    countdownEvent.Signal();
 }
+
+Console.WriteLine("Waiting...");
+countdownEvent.Wait();
+Console.WriteLine("End");
+
+// Output:
+// Waiting...
+// Signaling from thread 5. Number of remaining signals required to set the event: 3
+// Signaling from thread 6. Number of remaining signals required to set the event: 2
+// Signaling from thread 4. Number of remaining signals required to set the event: 1
+// End
 ```
 
-Output:
+Problems for which `CountdownEvent` is effective can sometimes be solved more easily using the *structured parallelism* constructs (PLINQ and the `Parallel` class).
 
-```console
-Started waiting
-Signaling once
-Signaling once
-Finished waiting
-```
+You can reincrement a `CountdownEvent`'s count by calling `AddCount`. However, if it has already reached zero, this throws an exception: you can't "unsignal" a `CountdownEvent` by calling `AddCount`. To avoid the possibility of an exception being thrown, you can instead call `TryAddCount`, which returns `false` if the countdown is zero.
 
-There are `CurrentCount`, `InitialCount` properties and `AddCount` method:
+To unsignal a countdown event, call `Reset`: this both unsignals the construct and resets its count to the original value.
 
-```csharp
-CountdownEvent cde = new CountdownEvent(2);
-
-Console.WriteLine(cde.CurrentCount); // 2
-Console.WriteLine(cde.InitialCount); // 2
-
-cde.AddCount(4);
-
-Console.WriteLine(cde.CurrentCount); // 6
-Console.WriteLine(cde.InitialCount); // 2
-
-cde.Signal();
-
-Console.WriteLine(cde.CurrentCount); // 5
-Console.WriteLine(cde.InitialCount); // 2
-```
-
-All public and protected members of `CountdownEvent` are thread-safe and may be used concurrently from multiple threads, with the exception of `Dispose()`, which must only be used when all other operations on the `CountdownEvent` have completed, and `Reset()`, which should only be used when no other threads are accessing the event.
+Like `ManualResetEventSlim`, `CountdownEvent` exposes a [↑ `WaitHandle`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.waithandle) property for scenarios where some other class or method expects an object based on `WaitHandle`.
 
 ## `Barrier`
 
