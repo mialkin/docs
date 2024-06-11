@@ -5,21 +5,26 @@
 - [Signaling, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`, `CountdownEvent`, `Barrier`](#signaling-autoresetevent-manualresetevent-manualreseteventslim-countdownevent-barrier)
   - [Table of contents](#table-of-contents)
   - [Signaling](#signaling)
-  - [`AutoResetEvent`](#autoresetevent)
-  - [`ManualResetEvent`](#manualresetevent)
-  - [`ManualResetEventSlim`](#manualreseteventslim)
-  - [`CountdownEvent`](#countdownevent)
+  - [Event wait handles](#event-wait-handles)
+    - [`AutoResetEvent`](#autoresetevent)
+    - [`ManualResetEvent`](#manualresetevent)
+    - [`ManualResetEventSlim`](#manualreseteventslim)
+    - [`CountdownEvent`](#countdownevent)
+    - [`EventWaitHandle`](#eventwaithandle)
+    - [Wait handles and the thread pool](#wait-handles-and-the-thread-pool)
   - [`Barrier`](#barrier)
 
 ## Signaling
 
 A **signaling** is a mechanism that makes a thread to wait until it receives notification from another thread.
 
+## Event wait handles
+
 An **event wait handle** is a construct used for signaling.
 
-Event wait handles are the simplest of the signaling constructs, and they are unrelated to C# [events](/csharp/keywords/event.md). They come in three flavors: [`AutoResetEvent`](#autoresetevent), [`ManualResetEvent`](#manualresetevent), and [`CountdownEvent`](#countdownevent). The former two are based on the common [↑ `EventWaitHandle`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.eventwaithandle) class, where they derive all their functionality.
+Event wait handles are the simplest of the signaling constructs, and they are unrelated to C# [events](/csharp/keywords/event.md). They come in three flavors: [`AutoResetEvent`](#autoresetevent), [`ManualResetEvent`](#manualresetevent), and [`CountdownEvent`](#countdownevent). The former two are based on the common [`EventWaitHandle`](#eventwaithandle) class, where they derive all their functionality.
 
-## `AutoResetEvent`
+### `AutoResetEvent`
 
 The [↑ `AutoResetEvent`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.autoresetevent) class is a thread synchronization event that, when signaled, releases one single waiting thread and then resets automatically.
 
@@ -72,7 +77,7 @@ Once you've finished with a wait handle, you can call its `Close` method to rele
 
 Wait handles are released automatically when an application domain unloads.
 
-## `ManualResetEvent`
+### `ManualResetEvent`
 
 The [↑ `ManualResetEvent`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.manualresetevent) class is a thread synchronization event that, when signaled, must be reset manually.
 
@@ -89,11 +94,11 @@ From Framework 4.0, there's another version of `ManualResetEvent` called [`Manua
 
 A `ManualResetEvent` is useful in allowing one thread to unblock many other threads. The reverse scenario is covered by [`CountdownEvent`](#countdownevent).
 
-## `ManualResetEventSlim`
+### `ManualResetEventSlim`
 
 The [↑ `ManualResetEventSlim`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.manualreseteventslim) class is a thread synchronization event that, when signaled, must be reset manually. This class is a lightweight alternative to [`ManualResetEvent`](#manualresetevent).
 
-## `CountdownEvent`
+### `CountdownEvent`
 
 The [↑ `CountdownEvent`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.countdownevent) class is a synchronization primitive that is signaled when its count reaches zero.
 
@@ -141,6 +146,56 @@ You can reincrement a `CountdownEvent`'s count by calling `AddCount`. However, i
 To unsignal a countdown event, call `Reset`: this both unsignals the construct and resets its count to the original value.
 
 Like `ManualResetEventSlim`, `CountdownEvent` exposes a [↑ `WaitHandle`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.waithandle) property for scenarios where some other class or method expects an object based on `WaitHandle`.
+
+### `EventWaitHandle`
+
+The [↑ `EventWaitHandle`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.eventwaithandle) class represents a thread synchronization event.
+
+`EventWaitHandle`'s constructor allows a "named" `EventWaitHandle` to be created, capable of operating across multiple processes. The name is simply a string, and it can be any value that doesn't unintentionally conflict with someone else's! If the name is already in use on the computer, you get a reference to the same underlying `EventWaitHandle`; otherwise, the operating system creates a new one:
+
+```csharp
+var eventWaitHandle = new EventWaitHandle (
+    initialState: false, mode: EventResetMode.AutoReset, name: "MyCompany.MyApp.SomeName");
+```
+
+If two applications each ran this code, they would be able to signal each other: the wait handle would work across all threads in both processes.
+
+### Wait handles and the thread pool
+
+If your application has lots of threads that spend most of their time blocked on a wait handle, you can reduce the resource burden by calling `ThreadPool.RegisterWaitForSingleObject.` This method accepts a delegate that is executed when a wait handle is signaled. While it's waiting, it doesn't tie up a thread:
+
+```csharp
+var manualResetEvent = new ManualResetEvent(initialState: false);
+
+var registeredWaitHandle = ThreadPool.RegisterWaitForSingleObject(
+    waitObject: manualResetEvent,
+    callBack: Callback,
+    state: new
+    {
+        Name = "Aleksei"
+    },
+    millisecondsTimeOutInterval: -1,
+    executeOnlyOnce: true);
+
+Thread.Sleep(5000);
+Console.WriteLine("Signaling");
+manualResetEvent.Set();
+
+Console.ReadLine();
+
+registeredWaitHandle.Unregister(waitObject: manualResetEvent);
+
+void Callback(object? state, bool timedOut)
+{
+    Console.WriteLine(state);
+}
+
+// Output:
+// Signaling
+// { Name = Aleksei }
+```
+
+When the wait handle is signaled, or a timeout elapses, the delegate runs on a pooled thread.
 
 ## `Barrier`
 
