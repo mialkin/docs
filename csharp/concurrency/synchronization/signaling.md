@@ -5,6 +5,7 @@
 - [Signaling, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`, `CountdownEvent`, `Barrier`](#signaling-autoresetevent-manualresetevent-manualreseteventslim-countdownevent-barrier)
   - [Table of contents](#table-of-contents)
   - [Signaling](#signaling)
+  - [Comparison of signaling constructs](#comparison-of-signaling-constructs)
   - [Event wait handles](#event-wait-handles)
     - [`AutoResetEvent`](#autoresetevent)
     - [`ManualResetEvent`](#manualresetevent)
@@ -23,6 +24,19 @@
 ## Signaling
 
 A **signaling** is a mechanism that makes a thread to wait until it receives notification from another thread.
+
+## Comparison of signaling constructs
+
+Time taken to signal and wait on the construct once on the same thread, assuming no blocking, as measured on an [↑ Intel Core i7 860](https://www.intel.com/content/www/us/en/products/sku/41316/intel-core-i7860-processor-8m-cache-2-80-ghz/specifications.html):
+
+| Construct                                       | Cross-process | Overhead             |
+| ----------------------------------------------- | ------------- | -------------------- |
+| [`AutoResetEvent`](#autoresetevent)             | Yes           | 1000 ns              |
+| [`ManualResetEvent`](#manualresetevent)         | Yes           | 1000 ns              |
+| [`ManualResetEventSlim`](#manualreseteventslim) | —             | 40 ns                |
+| [`CountdownEvent`](#countdownevent)             | —             | 40 ns                |
+| [`Barrier`](#barrier)                           | —             | 80 ns                |
+| `Wait` and `Pulse`                              | —             | 120 ns for a `Pulse` |
 
 ## Event wait handles
 
@@ -87,7 +101,7 @@ Wait handles are released automatically when an application domain unloads.
 
 The [↑ `ManualResetEvent`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.manualresetevent) class is a thread synchronization event that, when signaled, must be reset manually.
 
-The `ManualResetEvent` functions like an ordinary gate. Calling `Set` opens the gate, allowing *any* number of threads calling `WaitOne` to be let through. Calling `Reset` closes the gate. Threads that call `WaitOne` on a closed gate will block; when the gate is next opened, they will be released all at once. Apart from these differences, a `ManualResetEvent` functions like an [`AutoResetEvent`](#autoresetevent).
+The `ManualResetEvent` functions like an ordinary gate. Calling `Set` opens the gate, allowing _any_ number of threads calling `WaitOne` to be let through. Calling `Reset` closes the gate. Threads that call `WaitOne` on a closed gate will block; when the gate is next opened, they will be released all at once. Apart from these differences, a `ManualResetEvent` functions like an [`AutoResetEvent`](#autoresetevent).
 
 As with `AutoResetEvent`, you can construct a `ManualResetEvent` in two ways:
 
@@ -145,7 +159,7 @@ Console.WriteLine("End");
 // End
 ```
 
-Problems for which `CountdownEvent` is effective can sometimes be solved more easily using the *structured parallelism* constructs (PLINQ and the `Parallel` class).
+Problems for which `CountdownEvent` is effective can sometimes be solved more easily using the _structured parallelism_ constructs (PLINQ and the `Parallel` class).
 
 You can reincrement a `CountdownEvent`'s count by calling `AddCount`. However, if it has already reached zero, this throws an exception: you can't "unsignal" a `CountdownEvent` by calling `AddCount`. To avoid the possibility of an exception being thrown, you can instead call `TryAddCount`, which returns `false` if the countdown is zero.
 
@@ -249,6 +263,11 @@ WaitHandle.SignalAndWait (wh2, wh1);
 
 #### Alternatives to `WaitAll` and `SignalAndWait`
 
+`WaitAll` and `SignalAndWait` won't run in a single-threaded apartment. Fortunately, there are alternatives. In the case of `SignalAndWait`, it's rare that you need its atomicity guarantee: in our rendezvous example, for instance, you could simply call `Set` on the first wait handle, and then `WaitOne` on the other. The [`Barrier`](#barrier) class provides yet another option for implementing a thread rendezvous.
+
+In the case of `WaitAll`, an alternative in some situations is to use the `Parallel` class's `Invoke` method. The `Task.ContinueWhenAny` method provides an alternative to `WaitAny`.
+
+In all other scenarios, the answer is to take the low-level approach that solves all signaling problems: `Wait` and `Pulse`.
 
 ### `EventWaitHandle`
 
@@ -323,8 +342,8 @@ void BarrierSample()
     var barrier = new Barrier(3, b =>
     {
         Console.WriteLine($"Post-Phase action: count={count}, phase={b.CurrentPhaseNumber}");
-        
-        if (b.CurrentPhaseNumber == 2) 
+
+        if (b.CurrentPhaseNumber == 2)
             throw new Exception("D'oh!");
     });
 
@@ -339,7 +358,7 @@ void BarrierSample()
     {
         Interlocked.Increment(ref count);
         barrier.SignalAndWait(); // During the post-phase action, count should be 4 and phase should be 0.
-        
+
         Interlocked.Increment(ref count);
         barrier.SignalAndWait(); // During the post-phase action, count should be 8 and phase should be 1.
 
