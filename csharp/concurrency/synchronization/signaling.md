@@ -11,6 +11,10 @@
     - [`ManualResetEventSlim`](#manualreseteventslim)
     - [`CountdownEvent`](#countdownevent)
     - [`WaitAny`, `WaitAll`, and `SignalAndWait`](#waitany-waitall-and-signalandwait)
+      - [`WaitAll`](#waitall)
+      - [`WaitAny`](#waitany)
+      - [`SignalAndWait`](#signalandwait)
+      - [Alternatives to `WaitAll` and `SignalAndWait`](#alternatives-to-waitall-and-signalandwait)
     - [`EventWaitHandle`](#eventwaithandle)
     - [`WaitHandle`](#waithandle)
     - [Wait handles and the thread pool](#wait-handles-and-the-thread-pool)
@@ -153,6 +157,8 @@ Like `ManualResetEventSlim`, `CountdownEvent` exposes a [↑ `WaitHandle`](https
 
 In addition to the `Set`, `WaitOne`, and `Reset` methods, there are static methods on the [`WaitHandle`](#waithandle) class to crack more complex synchronization nuts. The `WaitAny`, `WaitAll`, and `SignalAndWait` methods perform atomic signaling and waiting operations on multiple handles. The wait handles can be of differing types, including [`Mutex`](lock.md#mutex) and [`Semphore`](lock.md#semaphore-1), since these also derive from the abstract `WaitHandle` class. [`ManualResetEventSlim`](#manualreseteventslim) and [`CountdownEvent`](#countdownevent) can also partake in these methods via their `WaitHandle` properties.
 
+#### `WaitAll`
+
 ```csharp
 var autoResetEvent1 = new ManualResetEventSlim(initialState: false);
 var autoResetEvent2 = new ManualResetEventSlim(initialState: false);
@@ -182,6 +188,10 @@ Console.WriteLine("End");
 // End
 ```
 
+`WaitAll` and [`SignalAndWait`](#signalandwait) have a weird connection to the legacy COM architecture: these methods require that the caller be in a multithreaded apartment, the model least suitable for interoperability. The main thread of a WPF or Windows application, for example, is unable to interact with the clipboard in this mode.
+
+#### `WaitAny`
+
 By replacing `WaitAll` with `WaitAny` above you will get the following output:
 
 ```csharp
@@ -191,7 +201,54 @@ By replacing `WaitAll` with `WaitAny` above you will get the following output:
 // Signaling 1
 ```
 
-`WaitAll` and `SignalAndWait` have a weird connection to the legacy COM architecture: these methods require that the caller be in a multithreaded apartment, the model least suitable for interoperability. The main thread of a WPF or Windows application, for example, is unable to interact with the clipboard in this mode.
+#### `SignalAndWait`
+
+`SignalAndWait` calls `Set` on one `WaitHandle`, and then calls `WaitOne` on another `WaitHandle`. The atomicity guarantee is that after signaling the first handle, it will jump to the head of the queue in waiting on the second handle: you can think of it as "swapping" one signal for another.
+
+```csharp
+var autoResetEvent1 = new ManualResetEventSlim(initialState: false);
+var autoResetEvent2 = new ManualResetEventSlim(initialState: false);
+
+new Thread(() =>
+{
+    autoResetEvent1.WaitHandle.WaitOne();
+    Console.WriteLine("Got signaled");
+}).Start();
+
+new Thread(() =>
+{
+    Thread.Sleep(5000);
+    Console.WriteLine("Signaling 2");
+    autoResetEvent2.Set();
+}).Start();
+
+Thread.Sleep(1000);
+
+Console.WriteLine("Signaling and waiting...");
+WaitHandle.SignalAndWait(toSignal: autoResetEvent1.WaitHandle, toWaitOn: autoResetEvent2.WaitHandle);
+Console.WriteLine("End");
+
+// Output:
+// Signaling and waiting...
+// Got signaled
+// Signaling 2
+// End
+```
+
+You can use this method on a pair of `EventWaitHandles` to set up two threads to rendezvous or "meet" at the same point in time. Either `AutoResetEvent` or `ManualResetEvent` will do the trick. The first thread executes the following:
+
+```csharp
+WaitHandle.SignalAndWait (wh1, wh2);
+```
+
+whereas the second thread does the opposite:
+
+```csharp
+WaitHandle.SignalAndWait (wh2, wh1);
+```
+
+#### Alternatives to `WaitAll` and `SignalAndWait`
+
 
 ### `EventWaitHandle`
 
