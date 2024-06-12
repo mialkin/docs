@@ -73,4 +73,4 @@ If a `SpinWait` remains in "spin-yielding" mode for long enough (maybe 20 cycles
 
 <sup>1</sup> [↑ Stack Overflow — Does that mean I should use spinlocks wherever possible?](https://stackoverflow.com/a/1957464/1833895)
 
-<sup>2</sup> [↑ Microsoft documentation — SpinWait Struct](https://docs.microsoft.com/en-us/dotnet/api/system.threading.spinwait?view=net-5.0#remarks)
+<sup>2</sup> [↑ Microsoft documentation — SpinWait Struct](https://docs.microsoft.com/en-us/dotnet/api/system.threading.spinwait#remarks)

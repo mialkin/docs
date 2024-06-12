@@ -25,4 +25,4 @@ join somethingelse on somethingelse.id = whatever.id;
 
 <https://www.postgresql.org/docs/9.1/queries-with.html>
 
-<https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-ver15>
+<https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql>

@@ -9,6 +9,7 @@
     - [`Thread.Sleep`](#threadsleep)
     - [`Thread.Join`](#threadjoin)
     - [`Thread.Yield`](#threadyield)
+    - [`Thread.Interrupt`](#threadinterrupt)
   - [Background and foreground threads](#background-and-foreground-threads)
 
 ## Thread
@@ -48,6 +49,38 @@ The [↑ `Thread.Join`](https://learn.microsoft.com/en-us/dotnet/api/system.thre
 The [↑ `Thread.Yield`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.yield) method causes the calling thread to yield execution to another thread that is ready to run on the current processor. The operating system selects the thread to yield to.
 
 `Sleep(0)` or `Yield` is occasionally useful in production code for advanced performance tweaks. It's also an excellent diagnostic tool for helping to uncover thread safety issues: if inserting `Thread.Yield()` anywhere in your code makes or breaks the program, you almost certainly have a bug.
+
+### `Thread.Interrupt`
+
+The [↑ `Thread.Interrupt`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.interrupt) method interrupts a thread that is in the [↑ `WaitSleepJoin`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.threadstate) thread state.
+
+Calling `Interrupt` on a blocked thread forcibly releases it, throwing a `ThreadInterruptedException`:
+
+```csharp
+var thread = new Thread(() =>
+{
+    try
+    {
+        Thread.Sleep(5000);
+        Console.WriteLine("Start");
+    }
+    catch (ThreadInterruptedException exception)
+    {
+        Console.WriteLine("Thread was interrupted from a waiting state");
+    }
+    
+    Console.WriteLine("Continuing thread execution...");
+});
+
+thread.Start();
+thread.Interrupt();
+```
+
+Interrupting a thread does not cause the thread to end, unless the `ThreadInterruptedException` is unhandled.
+
+If `Interrupt` is called on a thread that's not blocked, the thread continues executing until it next blocks, at which point a `ThreadInterruptedException` is thrown.
+
+Nowadays `Interrupt` is unnecessary: if you are writing the code that blocks, you can achieve the same result more safely with a signaling construct — or Framework 4.0's cancellation tokens.
 
 ## Background and foreground threads
 

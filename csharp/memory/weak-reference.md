@@ -2,7 +2,7 @@
 
 `WeakReference` type represents a weak reference, which references an object while still allowing that object to be reclaimed by garbage collection.
 
-[↑ WeakReference Class](https://learn.microsoft.com/en-us/dotnet/api/system.weakreference?view=net-7.0).
+[↑ WeakReference Class](https://learn.microsoft.com/en-us/dotnet/api/system.weakreference).
 
 ```bash
 dotnet add package Bogus
