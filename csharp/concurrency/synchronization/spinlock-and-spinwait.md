@@ -10,7 +10,6 @@ In parallel programming, a brief episode of spinning is often preferable to bloc
   - [Table of contents](#table-of-contents)
   - [`SpinLock`](#spinlock)
   - [`SpinWait`](#spinwait)
-    - [How SpinWait works](#how-spinwait-works)
 
 ## `SpinLock`
 
@@ -48,8 +47,8 @@ void Go()
 
 Using a `SpinLock` is like using an ordinary `lock`, except:
 
-- Spinlocks are structs
-- Spinlocks are not reentrant, meaning that you cannot call `Enter` on the same `SpinLock` twice in a row on the same thread. If you violate this rule, it will either throw an exception (if _owner tracking_ is enabled) or deadlock (if owner tracking is disabled). You can specify whether to enable owner tracking when constructing the spinlock. Owner tracking incurs a performance hit.
+- `SpinLock` is a structure
+- `SpinLock` is not reentrant, meaning that you cannot call `Enter` on the same `SpinLock` twice in a row on the same thread. If you violate this rule, it will either throw an exception, if _owner tracking_ is enabled, or deadlock, if owner tracking is disabled. You can specify whether to enable owner tracking when constructing the `SpinLock` instance. Owner tracking incurs a performance hit.
 - `SpinLock` lets you query whether the lock is taken, via the properties [↑ `IsHeld`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.spinlock.isheld) and, if owner tracking is enabled, [↑ `IsHeldByCurrentThread`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.spinlock.isheldbycurrentthread)
 - There's no equivalent to C#'s [`lock`](lock.md#lock) statement to provide `SpinLock` syntactic sugar
 
@@ -65,16 +64,16 @@ A `SpinLock` makes the most sense when writing your own reusable synchronization
 
 ## `SpinWait`
 
+The [↑ `SpinWait`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.spinwait) structure provides support for spin-based waiting.
+
 `SpinWait` helps you write lock-free code that spins rather than blocks. It works by implementing safeguards to avoid the dangers of resource starvation and priority inversion that might otherwise arise with spinning.
 
-> Lock-free programming with `SpinWait` is as _hardcore_ as multithreading gets and is intended for when none of the higher-level constructs will do. A prerequisite is to understand "Nonblocking Synchronization".
+Lock-free programming with `SpinWait` is as _hardcore_ as multithreading gets and is intended for when none of the higher-level constructs will do. A prerequisite is to understand nonblocking synchronization.
 
-### How SpinWait works
-
-In its current implementation, `SpinWait` performs CPU-intensive spinning for 10 iterations before yielding. However, it doesn't return to the caller _immediately_ after each of those cycles: instead, it calls `Thread.SpinWait` to spin via the CLR (and ultimately the operating system) for a set time period. This time period is initially a few tens of nanoseconds, but doubles with each iteration until the 10 iterations are up. This ensures some predictability in the total time spent in the CPU-intensive spinning phase, which the CLR and operating system can tune according to conditions. Typically, it's in the few-tens-of-microseconds region—small, but more than the cost of a context switch.
+In its current implementation, `SpinWait` performs CPU-intensive spinning for 10 iterations before yielding. However, it doesn't return to the caller _immediately_ after each of those cycles: instead, it calls `Thread.SpinWait` to spin via the CLR (and ultimately the operating system) for a set time period. This time period is initially a few tens of nanoseconds, but doubles with each iteration until the 10 iterations are up. This ensures some predictability in the total time spent in the CPU-intensive spinning phase, which the CLR and operating system can tune according to conditions. Typically, it's in the few-tens-of-microseconds region — small, but more than the cost of a context switch.
 
 On a single-core machine, `SpinWait` yields on every iteration. You can test whether `SpinWait` will yield on the next spin via the property `NextSpinWillYield`.
 
 If a `SpinWait` remains in "spin-yielding" mode for long enough (maybe 20 cycles) it will periodically sleep for a few milliseconds to further save resources and help other threads progress.
 
-`SpinWait` is a value type, which means that low-level code can utilize `SpinWait` without fear of unnecessary allocation overheads. `SpinWait` is not generally useful for ordinary applications. In most cases, you should use the synchronization classes provided by the .NET Framework, such as `Monitor`. For most purposes where spin waiting is required, however, the `SpinWait` type should be preferred over the `Thread.SpinWait` method.<sup>2</sup>
+`SpinWait` is a value type, which means that low-level code can utilize `SpinWait` without fear of unnecessary allocation overheads. `SpinWait` is not generally useful for ordinary applications. In most cases, you should use the synchronization classes provided by the .NET Framework, such as `Monitor`. For most purposes where spin waiting is required, however, the `SpinWait` type should be preferred over the `Thread.SpinWait` method.
