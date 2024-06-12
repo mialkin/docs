@@ -10,6 +10,7 @@
     - [`Thread.Join`](#threadjoin)
     - [`Thread.Yield`](#threadyield)
     - [`Thread.Interrupt`](#threadinterrupt)
+    - [`Thread.Abort`](#threadabort)
   - [Background and foreground threads](#background-and-foreground-threads)
 
 ## Thread
@@ -81,6 +82,13 @@ Interrupting a thread does not cause the thread to end, unless the `ThreadInterr
 If `Interrupt` is called on a thread that's not blocked, the thread continues executing until it next blocks, at which point a `ThreadInterruptedException` is thrown.
 
 Nowadays `Interrupt` is unnecessary: if you are writing the code that blocks, you can achieve the same result more safely with a signaling construct — or Framework 4.0's cancellation tokens.
+
+### `Thread.Abort`
+
+The [↑ `Thread.Abort`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.abort) method raises a `ThreadAbortException` in the thread on which it's invoked, to begin the process of terminating the thread. Calling this method usually terminates the thread.
+
+The `Thread.Abort` APIs are [↑ obsolete](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/5.0/thread-abort-obsolete). Starting in .NET 5, calling this method produces compiler warning `SYSLIB0006`. 
+Use a `CancellationToken` to abort processing of a unit of work instead of calling `Thread.Abort`.
 
 ## Background and foreground threads
 
