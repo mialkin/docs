@@ -1,5 +1,11 @@
 # `Interlocked`, `Thread.MemoryBarrier`, `volatile`, `Thread.VolatileRead`, `Thread.VolatileWrite`
 
+The need for synchronization arises even in the simple case of assigning or incrementing a field. Although locking can always satisfy this need, a contended lock means that a thread must block, suffering the overhead of a context switch and the latency of being descheduled, which can be undesirable in highly concurrent and performance-critical scenarios. The .NET Framework's *nonblocking* synchronization constructs can perform simple operations without ever blocking, pausing, or waiting.
+
+Writing nonblocking or lock-free multithreaded code properly is tricky! Memory barriers, in particular, are easy to get wrong, the [`volatile`](#volatile) keyword is even easier to get wrong. Think carefully whether you really need the performance benefits before dismissing ordinary locks. Remember that acquiring and releasing an uncontended lock takes as little as 20 ns on a 2010-era desktop.
+
+The nonblocking approaches also work across multiple processes. An example of where this might be useful is in reading and writing process-shared memory.
+
 ## Table of contents
 
 - [`Interlocked`, `Thread.MemoryBarrier`, `volatile`, `Thread.VolatileRead`, `Thread.VolatileWrite`](#interlocked-threadmemorybarrier-volatile-threadvolatileread-threadvolatilewrite)
@@ -13,6 +19,7 @@
     - [`And(Int32, Int32)`](#andint32-int32)
     - [`Or(Int32, Int32)`](#orint32-int32)
   - [`Thread.MemoryBarrier`](#threadmemorybarrier)
+    - [Do we really need locks and barriers?](#do-we-really-need-locks-and-barriers)
   - [`volatile`](#volatile)
     - [`Thread.VolatileRead`](#threadvolatileread)
     - [`Thread.VolatileWrite`](#threadvolatilewrite)
@@ -196,6 +203,54 @@ Console.WriteLine(result);
 ```
 
 ## `Thread.MemoryBarrier`
+
+The [↑ `Thread.MemoryBarrier`](https://learn.microsoft.com/ru-ru/dotnet/api/system.threading.thread.memorybarrier) method synchronizes memory access as follows: the processor executing the current thread cannot reorder instructions in such a way that memory accesses prior to the call to `MemoryBarrier()` execute after memory accesses that follow the call to `MemoryBarrier()`.
+
+For most purposes, the `lock` statement or the `Monitor` class provide easier ways to synchronize data.
+
+### Do we really need locks and barriers?
+
+We can demonstrate that memory barriers are important on ordinary Intel Core-2 and Pentium processors with the following short program:
+
+```csharp
+var complete = false;
+
+var thread = new Thread(() =>
+{
+    var toggle = false;
+    while (!complete)
+    {
+        toggle = !toggle;
+    }
+});
+
+thread.Start();
+
+Thread.Sleep(1000);
+complete = true;
+Console.WriteLine("Completed");
+thread.Join(); // Blocks indefinitely
+Console.WriteLine("End");
+
+// Output:
+// Completed
+```
+
+You'll need to run it with optimizations enabled and without a debugger:
+
+```bash
+dotnet run --configuration=Release
+```
+
+This program *never terminates* because the complete variable is cached in a CPU register. Inserting a call to `Thread.MemoryBarrier` inside the while loop, or locking around reading `complete`, fixes the error:
+
+```csharp
+while (!complete)
+{
+    Thread.MemoryBarrier();
+    toggle = !toggle;
+}
+```
 
 ## `volatile`
 
