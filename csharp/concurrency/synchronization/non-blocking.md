@@ -230,6 +230,46 @@ On systems that require it, inserts a memory barrier that prevents the processor
 
 The [↑ `volatile`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/volatile) keyword indicates that a field might be modified by multiple threads that are executing at the same time.
 
+The `volatile` keyword instructs the compiler to generate an _acquire-fence_ on every read from that field, and a _release-fence_ on every write to that field. An acquire-fence prevents other reads/writes from being moved _before_ the fence; a release-fence prevents other reads/writes from being moved _after_ the fence. These "half-fences" are faster than full fences because they give the runtime and hardware more scope for optimization.
+
+As it happens, Intel's X86 and X64 processors always apply acquire-fences to reads and release-fences to writes—whether or not you use the `volatile` keyword — so this keyword has no effect on the _hardware_ if you're using these processors. However, `volatile` _does_ have an effect on optimizations performed by the compiler and the CLR — as well as on 64-bit AMD. This means that you cannot be more relaxed by virtue of your clients running a particular type of CPU.
+
+And even if you _do_ use `volatile`, you should still maintain a healthy sense of anxiety!
+
+The effect of applying `volatile` to fields can be summarized as follows:
+
+| First instruction | Second instruction | Can they be swapped?                                                                                    |
+| ----------------- | ------------------ | ------------------------------------------------------------------------------------------------------- |
+| Read              | Read               | No                                                                                                      |
+| Read              | Write              | No                                                                                                      |
+| Write             | Write              | No (The CLR ensures that write-write operations are never swapped, even without the `volatile` keyword) |
+| Write             | Read               | Yes!                                                                                                    |
+
+Notice that applying `volatile` doesn't prevent a write followed by a read from being swapped, and this can create brainteasers. Joe Duffy illustrates the problem well with the following example: if `Test1` and `Test2` run simultaneously on different threads, it's possible for a and b to both end up with a value of `0`, despite the use of volatile on both `x` and `y`:
+
+```csharp
+class IfYouThinkYouUnderstandVolatile
+{
+    volatile int x, y;
+
+    void Test1() // Executed on one thread
+    {
+        x = 1; // Volatile write (release-fence)
+        var a = y; // Volatile read (acquire-fence)
+        ...
+    }
+
+    void Test2() // Executed on another thread
+    {
+        y = 1; // Volatile write (release-fence)
+        var b = x; // Volatile read (acquire-fence)
+        ...
+    }
+}
+```
+
+This presents a strong case for avoiding `volatile`: even if you understand the subtlety in this example, will other developers working on your code also understand it? A full fence between each of the two assignments in `Test1` and `Test2`, or a lock, solves the problem.
+
 ## `Interlocked`
 
 The [↑ `System.Threading.Interlocked`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.interlocked) class provides static methods that help protect against errors that can occur when the scheduler switches contexts while a thread is updating a variable that can be accessed by other threads, or when two threads are executing concurrently on separate processors. The members of this class do not throw exceptions.
