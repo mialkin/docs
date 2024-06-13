@@ -1,4 +1,21 @@
-# `Interlocked`, `Thread.MemoryBarrier`, `Thread.VolatileRead`, `Thread.VolatileWrite`, `volatile`
+# `Interlocked`, `Thread.MemoryBarrier`, `volatile`, `Thread.VolatileRead`, `Thread.VolatileWrite`
+
+## Table of contents
+
+- [`Interlocked`, `Thread.MemoryBarrier`, `volatile`, `Thread.VolatileRead`, `Thread.VolatileWrite`](#interlocked-threadmemorybarrier-volatile-threadvolatileread-threadvolatilewrite)
+  - [Table of contents](#table-of-contents)
+  - [`Interlocked`](#interlocked)
+    - [`Add(Int32, Int32)`](#addint32-int32)
+    - [`Increment(Int32)`](#incrementint32)
+    - [`Decrement(Int32)`](#decrementint32)
+    - [`Exchange(Int32, Int32)`](#exchangeint32-int32)
+    - [`CompareExchange(Int32, Int32, Int32)`](#compareexchangeint32-int32-int32)
+    - [`And(Int32, Int32)`](#andint32-int32)
+    - [`Or(Int32, Int32)`](#orint32-int32)
+  - [`Thread.MemoryBarrier`](#threadmemorybarrier)
+  - [`volatile`](#volatile)
+    - [`Thread.VolatileRead`](#threadvolatileread)
+    - [`Thread.VolatileWrite`](#threadvolatilewrite)
 
 ## `Interlocked`
 
@@ -15,22 +32,6 @@ If you do not use [`Increment`](#incrementint32) and [`Decrement`](#decrementint
 The [`Add`](#addint32-int32) method atomically adds an integer value to an integer variable and returns the new value of the variable.
 
 The [`Exchange`](#exchangeint32-int32) method atomically exchanges the values of the specified variables. The [`CompareExchange`](#compareexchangeint32-int32-int32) method combines two operations: comparing two values and storing a third value in one of the variables, based on the outcome of the comparison. The compare and exchange operations are performed as an atomic operation.
-
-## Table of contents
-
-- [`Interlocked`, `Thread.MemoryBarrier`, `Thread.VolatileRead`, `Thread.VolatileWrite`, `volatile`](#interlocked-threadmemorybarrier-threadvolatileread-threadvolatilewrite-volatile)
-  - [`Interlocked`](#interlocked)
-  - [Table of contents](#table-of-contents)
-  - [Methods](#methods)
-    - [`Add(Int32, Int32)`](#addint32-int32)
-    - [`Increment(Int32)`](#incrementint32)
-    - [`Decrement(Int32)`](#decrementint32)
-    - [`Exchange(Int32, Int32)`](#exchangeint32-int32)
-    - [`CompareExchange(Int32, Int32, Int32)`](#compareexchangeint32-int32-int32)
-    - [`And(Int32, Int32)`](#andint32-int32)
-    - [`Or(Int32, Int32)`](#orint32-int32)
-
-## Methods
 
 There are more overloaded [↑ methods](https://learn.microsoft.com/en-us/dotnet/api/system.threading.interlocked#methods) in `Interlocked` class, below listed just subset of them.
 
@@ -193,3 +194,11 @@ Console.WriteLine(result);
 // 13
 // 12
 ```
+
+## `Thread.MemoryBarrier`
+
+## `volatile`
+
+### `Thread.VolatileRead`
+
+### `Thread.VolatileWrite`
