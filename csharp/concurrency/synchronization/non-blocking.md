@@ -1,4 +1,6 @@
-# `Interlocked`
+# `Interlocked`, `Thread.MemoryBarrier`, `Thread.VolatileRead`, `Thread.VolatileWrite`, `volatile`
+
+## `Interlocked`
 
 The [↑ `System.Threading.Interlocked`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.interlocked) class provides static methods that help protect against errors that can occur when the scheduler switches contexts while a thread is updating a variable that can be accessed by other threads, or when two threads are executing concurrently on separate processors. The members of this class do not throw exceptions.
 
@@ -16,7 +18,8 @@ The [`Exchange`](#exchangeint32-int32) method atomically exchanges the values of
 
 ## Table of contents
 
-- [`Interlocked`](#interlocked)
+- [`Interlocked`, `Thread.MemoryBarrier`, `Thread.VolatileRead`, `Thread.VolatileWrite`, `volatile`](#interlocked-threadmemorybarrier-threadvolatileread-threadvolatilewrite-volatile)
+  - [`Interlocked`](#interlocked)
   - [Table of contents](#table-of-contents)
   - [Methods](#methods)
     - [`Add(Int32, Int32)`](#addint32-int32)
