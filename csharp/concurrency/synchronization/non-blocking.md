@@ -56,7 +56,7 @@ If methods A and B ran concurrently on different threads, might it be possible f
 - The compiler, CLR, or CPU may _reorder_ your program's instructions to improve efficiency.
 - The compiler, CLR, or CPU may introduce caching optimizations such that assignments to variables won't be visible to other threads right away.
 
-C# and the runtime are very careful to ensure that such optimizations don't break ordinary single-threaded code—or multithreaded code that makes proper use of locks. Outside of these scenarios, you must explicitly defeat these optimizations by creating _memory barriers_, also called _memory fences_, to limit the effects of instruction reordering and read/write caching.
+C# and the runtime are very careful to ensure that such optimizations don't break ordinary single-threaded code — or multithreaded code that makes proper use of locks. Outside of these scenarios, you must explicitly defeat these optimizations by creating _memory barriers_, also called _memory fences_, to limit the effects of instruction reordering and read/write caching.
 
 The simplest kind of memory barrier is a _full memory barrier_ (_full fence_) which prevents any kind of instruction reordering or caching around that fence. Calling [Thread.MemoryBarrier](#threadmemorybarrier) generates a full fence.
 
@@ -66,7 +66,7 @@ The following implicitly generate full fences:
 
 - C#'s [`lock`](locking.md#lock) statement (`Monitor.Enter`/`Monitor.Exit`)
 - All methods on the [`Interlocked`](#interlocked) class
-- Asynchronous callbacks that use the thread pool—these include asynchronous delegates, APM callbacks, and `Task` continuations
+- Asynchronous callbacks that use the thread pool — these include asynchronous delegates, APM callbacks, and `Task` continuations
 - Setting and waiting on a signaling construct
 - Anything that relies on signaling, such as starting or waiting on a `Task`
 
@@ -227,7 +227,7 @@ The [↑ `volatile`](https://learn.microsoft.com/en-us/dotnet/csharp/language-re
 
 The `volatile` keyword instructs the compiler to generate an _acquire-fence_ on every read from that field, and a _release-fence_ on every write to that field. An acquire-fence prevents other reads/writes from being moved _before_ the fence; a release-fence prevents other reads/writes from being moved _after_ the fence. These "half-fences" are faster than full fences because they give the runtime and hardware more scope for optimization.
 
-As it happens, Intel's X86 and X64 processors always apply acquire-fences to reads and release-fences to writes—whether or not you use the `volatile` keyword — so this keyword has no effect on the _hardware_ if you're using these processors. However, `volatile` _does_ have an effect on optimizations performed by the compiler and the CLR — as well as on 64-bit AMD. This means that you cannot be more relaxed by virtue of your clients running a particular type of CPU.
+As it happens, Intel's X86 and X64 processors always apply acquire-fences to reads and release-fences to writes — whether or not you use the `volatile` keyword — so this keyword has no effect on the _hardware_ if you're using these processors. However, `volatile` _does_ have an effect on optimizations performed by the compiler and the CLR — as well as on 64-bit AMD. This means that you cannot be more relaxed by virtue of your clients running a particular type of CPU.
 
 And even if you _do_ use `volatile`, you should still maintain a healthy sense of anxiety!
 
