@@ -259,6 +259,78 @@ while (!Volatile.Read(ref complete))
 }
 ```
 
+```csharp
+var wrapper = new Wrapper();
+wrapper.Go();
+
+class Wrapper
+{
+    private bool _complete;
+    private readonly object _locker = new();
+
+    public void Go()
+    {
+        new Thread(() =>
+        {
+            Thread.Sleep(1000);
+            _complete = true;
+        }).Start();
+
+        Console.WriteLine("Start");
+
+        var toggle = false;
+        while (!_complete)
+        {
+            lock (_locker)
+            {
+                toggle = !toggle;
+            }
+        }
+
+        Console.WriteLine("End");
+    }
+}
+
+// Output:
+// Start
+// End
+```
+
+Another, more advanced, way to solve this problem is to apply the volatile keyword to the `_complete` field:
+
+```csharp
+var wrapper = new Wrapper();
+wrapper.Go();
+
+class Wrapper
+{
+    private volatile bool _complete;
+
+    public void Go()
+    {
+        new Thread(() =>
+        {
+            Thread.Sleep(1000);
+            _complete = true;
+        }).Start();
+
+        Console.WriteLine("Start");
+
+        var toggle = false;
+        while (!_complete)
+        {
+            toggle = !toggle;
+        }
+
+        Console.WriteLine("End");
+    }
+}
+
+// Output:
+// Start
+// End
+```
+
 ## `Volatile`
 
 The [↑ `Volatile`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.volatile) class contains methods for performing volatile memory operations.
