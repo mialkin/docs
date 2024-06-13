@@ -12,7 +12,6 @@ The nonblocking approaches also work across multiple processes. An example of wh
   - [Table of contents](#table-of-contents)
   - [Memory barriers and volatility](#memory-barriers-and-volatility)
     - [`Thread.MemoryBarrier`](#threadmemorybarrier)
-      - [Do we really need locks and barriers?](#do-we-really-need-locks-and-barriers)
     - [`Volatile`](#volatile)
       - [`Volatile.Read`](#volatileread)
       - [`Volatile.Write`](#volatilewrite)
@@ -85,10 +84,6 @@ A good approach is to start by putting memory barriers before and after every in
 ### `Thread.MemoryBarrier`
 
 The [↑ `Thread.MemoryBarrier`](https://learn.microsoft.com/ru-ru/dotnet/api/system.threading.thread.memorybarrier) method synchronizes memory access as follows: the processor executing the current thread cannot reorder instructions in such a way that memory accesses prior to the call to `MemoryBarrier()` execute after memory accesses that follow the call to `MemoryBarrier()`.
-
-For most purposes, the `lock` statement or the `Monitor` class provide easier ways to synchronize data.
-
-#### Do we really need locks and barriers?
 
 We can demonstrate that memory barriers are important on ordinary Intel Core-2 and Pentium processors with the following short program:
 
