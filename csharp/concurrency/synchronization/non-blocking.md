@@ -10,6 +10,12 @@ The nonblocking approaches also work across multiple processes. An example of wh
 
 - [`Interlocked`, `Volatile`, `volatile`](#interlocked-volatile-volatile)
   - [Table of contents](#table-of-contents)
+  - [`Thread.MemoryBarrier`](#threadmemorybarrier)
+    - [Do we really need locks and barriers?](#do-we-really-need-locks-and-barriers)
+  - [`Volatile`](#volatile)
+    - [`Volatile.Read`](#volatileread)
+    - [`Volatile.Write`](#volatilewrite)
+  - [`volatile`](#volatile-1)
   - [`Interlocked`](#interlocked)
     - [`Add(Int32, Int32)`](#addint32-int32)
     - [`Increment(Int32)`](#incrementint32)
@@ -18,12 +24,154 @@ The nonblocking approaches also work across multiple processes. An example of wh
     - [`CompareExchange(Int32, Int32, Int32)`](#compareexchangeint32-int32-int32)
     - [`And(Int32, Int32)`](#andint32-int32)
     - [`Or(Int32, Int32)`](#orint32-int32)
-  - [`Thread.MemoryBarrier`](#threadmemorybarrier)
-    - [Do we really need locks and barriers?](#do-we-really-need-locks-and-barriers)
-  - [`Volatile`](#volatile)
-    - [`Volatile.Read`](#volatileread)
-    - [`Volatile.Write`](#volatilewrite)
-  - [`volatile`](#volatile-1)
+
+## `Thread.MemoryBarrier`
+
+The [↑ `Thread.MemoryBarrier`](https://learn.microsoft.com/ru-ru/dotnet/api/system.threading.thread.memorybarrier) method synchronizes memory access as follows: the processor executing the current thread cannot reorder instructions in such a way that memory accesses prior to the call to `MemoryBarrier()` execute after memory accesses that follow the call to `MemoryBarrier()`.
+
+For most purposes, the `lock` statement or the `Monitor` class provide easier ways to synchronize data.
+
+### Do we really need locks and barriers?
+
+We can demonstrate that memory barriers are important on ordinary Intel Core-2 and Pentium processors with the following short program:
+
+```csharp
+var complete = false;
+
+new Thread(() =>
+{
+    Thread.Sleep(1000);
+    complete = true;
+}).Start();
+
+Console.WriteLine("Start");
+
+var toggle = false;
+while (!complete)
+{
+    toggle = !toggle;
+}
+
+Console.WriteLine("End");
+
+// Output:
+// Start
+```
+
+You'll need to run it with optimizations enabled and without a debugger:
+
+```bash
+dotnet run --configuration=Release
+```
+
+This program *never terminates* because the complete variable is cached in a CPU register. Inserting a call to `Thread.MemoryBarrier` inside the while loop, or locking around reading `complete`, fixes the error:
+
+```csharp
+while (!complete)
+{
+    Thread.MemoryBarrier();
+    toggle = !toggle;
+}
+```
+
+```csharp
+while (!Volatile.Read(ref complete))
+{
+    toggle = !toggle;
+}
+```
+
+```csharp
+var wrapper = new Wrapper();
+wrapper.Go();
+
+class Wrapper
+{
+    private bool _complete;
+    private readonly object _locker = new();
+
+    public void Go()
+    {
+        new Thread(() =>
+        {
+            Thread.Sleep(1000);
+            _complete = true;
+        }).Start();
+
+        Console.WriteLine("Start");
+
+        var toggle = false;
+        while (!_complete)
+        {
+            lock (_locker)
+            {
+                toggle = !toggle;
+            }
+        }
+
+        Console.WriteLine("End");
+    }
+}
+
+// Output:
+// Start
+// End
+```
+
+Another, more advanced, way to solve this problem is to apply the volatile keyword to the `_complete` field:
+
+```csharp
+var wrapper = new Wrapper();
+wrapper.Go();
+
+class Wrapper
+{
+    private volatile bool _complete;
+
+    public void Go()
+    {
+        new Thread(() =>
+        {
+            Thread.Sleep(1000);
+            _complete = true;
+        }).Start();
+
+        Console.WriteLine("Start");
+
+        var toggle = false;
+        while (!_complete)
+        {
+            toggle = !toggle;
+        }
+
+        Console.WriteLine("End");
+    }
+}
+
+// Output:
+// Start
+// End
+```
+
+## `Volatile`
+
+The [↑ `Volatile`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.volatile) class contains methods for performing volatile memory operations.
+
+### `Volatile.Read`
+
+The [↑ `Volatile.Read`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.volatile.read) method reads the value of a field.
+
+On systems that require it, inserts a memory barrier that prevents the processor from reordering memory operations as follows: if a read or write appears *after* this method in the code, the processor cannot move it before this method.
+
+### `Volatile.Write`
+
+The [↑ `Volatile.Write`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.volatile.write) method writes a value to a field.
+
+On systems that require it, inserts a memory barrier that prevents the processor from reordering memory operations as follows: if a read or write appears *before* this method in the code, the processor cannot move it after this method.
+
+## `volatile`
+
+The [↑ `volatile`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/volatile) keyword indicates that a field might be modified by multiple threads that are executing at the same time.
 
 ## `Interlocked`
 
@@ -202,151 +350,3 @@ Console.WriteLine(result);
 // 13
 // 12
 ```
-
-## `Thread.MemoryBarrier`
-
-The [↑ `Thread.MemoryBarrier`](https://learn.microsoft.com/ru-ru/dotnet/api/system.threading.thread.memorybarrier) method synchronizes memory access as follows: the processor executing the current thread cannot reorder instructions in such a way that memory accesses prior to the call to `MemoryBarrier()` execute after memory accesses that follow the call to `MemoryBarrier()`.
-
-For most purposes, the `lock` statement or the `Monitor` class provide easier ways to synchronize data.
-
-### Do we really need locks and barriers?
-
-We can demonstrate that memory barriers are important on ordinary Intel Core-2 and Pentium processors with the following short program:
-
-```csharp
-var complete = false;
-
-new Thread(() =>
-{
-    Thread.Sleep(1000);
-    complete = true;
-}).Start();
-
-Console.WriteLine("Start");
-
-var toggle = false;
-while (!complete)
-{
-    toggle = !toggle;
-}
-
-Console.WriteLine("End");
-
-// Output:
-// Start
-```
-
-You'll need to run it with optimizations enabled and without a debugger:
-
-```bash
-dotnet run --configuration=Release
-```
-
-This program *never terminates* because the complete variable is cached in a CPU register. Inserting a call to `Thread.MemoryBarrier` inside the while loop, or locking around reading `complete`, fixes the error:
-
-```csharp
-while (!complete)
-{
-    Thread.MemoryBarrier();
-    toggle = !toggle;
-}
-```
-
-```csharp
-while (!Volatile.Read(ref complete))
-{
-    toggle = !toggle;
-}
-```
-
-```csharp
-var wrapper = new Wrapper();
-wrapper.Go();
-
-class Wrapper
-{
-    private bool _complete;
-    private readonly object _locker = new();
-
-    public void Go()
-    {
-        new Thread(() =>
-        {
-            Thread.Sleep(1000);
-            _complete = true;
-        }).Start();
-
-        Console.WriteLine("Start");
-
-        var toggle = false;
-        while (!_complete)
-        {
-            lock (_locker)
-            {
-                toggle = !toggle;
-            }
-        }
-
-        Console.WriteLine("End");
-    }
-}
-
-// Output:
-// Start
-// End
-```
-
-Another, more advanced, way to solve this problem is to apply the volatile keyword to the `_complete` field:
-
-```csharp
-var wrapper = new Wrapper();
-wrapper.Go();
-
-class Wrapper
-{
-    private volatile bool _complete;
-
-    public void Go()
-    {
-        new Thread(() =>
-        {
-            Thread.Sleep(1000);
-            _complete = true;
-        }).Start();
-
-        Console.WriteLine("Start");
-
-        var toggle = false;
-        while (!_complete)
-        {
-            toggle = !toggle;
-        }
-
-        Console.WriteLine("End");
-    }
-}
-
-// Output:
-// Start
-// End
-```
-
-## `Volatile`
-
-The [↑ `Volatile`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.volatile) class contains methods for performing volatile memory operations.
-
-### `Volatile.Read`
-
-The [↑ `Volatile.Read`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.volatile.read) method reads the value of a field.
-
-On systems that require it, inserts a memory barrier that prevents the processor from reordering memory operations as follows: if a read or write appears *after* this method in the code, the processor cannot move it before this method.
-
-### `Volatile.Write`
-
-The [↑ `Volatile.Write`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.volatile.write) method writes a value to a field.
-
-On systems that require it, inserts a memory barrier that prevents the processor from reordering memory operations as follows: if a read or write appears *before* this method in the code, the processor cannot move it after this method.
-
-## `volatile`
-
-The [↑ `volatile`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/volatile) keyword indicates that a field might be modified by multiple threads that are executing at the same time.
