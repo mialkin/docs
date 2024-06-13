@@ -21,6 +21,8 @@ The nonblocking approaches also work across multiple processes. An example of wh
   - [`Thread.MemoryBarrier`](#threadmemorybarrier)
     - [Do we really need locks and barriers?](#do-we-really-need-locks-and-barriers)
   - [`Volatile`](#volatile)
+    - [`Volatile.Read`](#volatileread)
+    - [`Volatile.Write`](#volatilewrite)
   - [`volatile`](#volatile-1)
 
 ## `Interlocked`
@@ -260,6 +262,18 @@ while (!Volatile.Read(ref complete))
 ## `Volatile`
 
 The [↑ `Volatile`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.volatile) class contains methods for performing volatile memory operations.
+
+### `Volatile.Read`
+
+The [↑ `Volatile.Read`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.volatile.read) method reads the value of a field.
+
+On systems that require it, inserts a memory barrier that prevents the processor from reordering memory operations as follows: if a read or write appears *after* this method in the code, the processor cannot move it before this method.
+
+### `Volatile.Write`
+
+The [↑ `Volatile.Write`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.volatile.write) method writes a value to a field.
+
+On systems that require it, inserts a memory barrier that prevents the processor from reordering memory operations as follows: if a read or write appears *before* this method in the code, the processor cannot move it after this method.
 
 ## `volatile`
 
