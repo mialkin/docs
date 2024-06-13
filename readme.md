@@ -328,7 +328,7 @@
     - Signaling constructs
       - [Signaling, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`, `CountdownEvent`, `Barrier`](csharp/concurrency/synchronization/signaling.md)
     - Non-blocking synchronization constructs
-      - [`Interlocked`, `Thread.MemoryBarrier`, `volatile`, `Thread.VolatileRead`, `Thread.VolatileWrite`](csharp/concurrency/synchronization/non-blocking.md)
+      - [`Interlocked`, `Volatile`, `volatile`](csharp/concurrency/synchronization/non-blocking.md)
   - [Thread, `Thread`](csharp/concurrency/thread.md)
   - [`ThreadLocal<T>`, `AsyncLocal<T>`, `[ThreadStatic]`](csharp/concurrency/threadlocal-asynclocal.md)
   - [Thread safety](csharp/concurrency/thread-safety.md)

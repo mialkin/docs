@@ -1,4 +1,4 @@
-# `Interlocked`, `Thread.MemoryBarrier`, `volatile`, `Thread.VolatileRead`, `Thread.VolatileWrite`
+# `Interlocked`, `Volatile`, `volatile`
 
 The need for synchronization arises even in the simple case of assigning or incrementing a field. Although locking can always satisfy this need, a contended lock means that a thread must block, suffering the overhead of a context switch and the latency of being descheduled, which can be undesirable in highly concurrent and performance-critical scenarios. The .NET Framework's *nonblocking* synchronization constructs can perform simple operations without ever blocking, pausing, or waiting.
 
@@ -8,7 +8,7 @@ The nonblocking approaches also work across multiple processes. An example of wh
 
 ## Table of contents
 
-- [`Interlocked`, `Thread.MemoryBarrier`, `volatile`, `Thread.VolatileRead`, `Thread.VolatileWrite`](#interlocked-threadmemorybarrier-volatile-threadvolatileread-threadvolatilewrite)
+- [`Interlocked`, `Volatile`, `volatile`](#interlocked-volatile-volatile)
   - [Table of contents](#table-of-contents)
   - [`Interlocked`](#interlocked)
     - [`Add(Int32, Int32)`](#addint32-int32)
@@ -20,9 +20,8 @@ The nonblocking approaches also work across multiple processes. An example of wh
     - [`Or(Int32, Int32)`](#orint32-int32)
   - [`Thread.MemoryBarrier`](#threadmemorybarrier)
     - [Do we really need locks and barriers?](#do-we-really-need-locks-and-barriers)
-  - [`volatile`](#volatile)
-    - [`Thread.VolatileRead`](#threadvolatileread)
-    - [`Thread.VolatileWrite`](#threadvolatilewrite)
+  - [`Volatile`](#volatile)
+  - [`volatile`](#volatile-1)
 
 ## `Interlocked`
 
@@ -215,25 +214,24 @@ We can demonstrate that memory barriers are important on ordinary Intel Core-2 a
 ```csharp
 var complete = false;
 
-var thread = new Thread(() =>
+new Thread(() =>
 {
-    var toggle = false;
-    while (!complete)
-    {
-        toggle = !toggle;
-    }
-});
+    Thread.Sleep(1000);
+    complete = true;
+}).Start();
 
-thread.Start();
+Console.WriteLine("Start");
 
-Thread.Sleep(1000);
-complete = true;
-Console.WriteLine("Completed");
-thread.Join(); // Blocks indefinitely
+var toggle = false;
+while (!complete)
+{
+    toggle = !toggle;
+}
+
 Console.WriteLine("End");
 
 // Output:
-// Completed
+// Start
 ```
 
 You'll need to run it with optimizations enabled and without a debugger:
@@ -252,8 +250,17 @@ while (!complete)
 }
 ```
 
+```csharp
+while (!Volatile.Read(ref complete))
+{
+    toggle = !toggle;
+}
+```
+
+## `Volatile`
+
+The [↑ `Volatile`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.volatile) class contains methods for performing volatile memory operations.
+
 ## `volatile`
 
-### `Thread.VolatileRead`
-
-### `Thread.VolatileWrite`
+The [↑ `volatile`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/volatile) keyword indicates that a field might be modified by multiple threads that are executing at the same time.
