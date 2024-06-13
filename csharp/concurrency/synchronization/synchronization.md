@@ -22,7 +22,7 @@ Synchronization constructs can be divided into four categories:
 - **Signaling constructs**
   - These allow a thread to pause until receiving a notification from another, avoiding the need for inefficient polling. There are two commonly used signaling devices: event wait handles and `Monitor`'s `Wait`/`Pulse` methods. Framework 4.0 introduces the [`CountdownEvent`](signaling.md#countdownevent) and [`Barrier`](signaling.md#barrier) classes.
 - **Non-blocking synchronization constructs**
-  - These protect access to a common field by calling upon processor primitives. The CLR and C# provide the following non-blocking constructs: `Thread.MemoryBarrier`, `Thread.VolatileRead`, `Thread.VolatileWrite`, the `volatile` keyword, and the [`Interlocked`](non-blocking.md#interlocked) class.
+  - These protect access to a common field by calling upon processor primitives. The CLR and C# provide the following non-blocking constructs: `Thread.MemoryBarrier`, [`Volatile.Read`](non-blocking.md#volatileread), [`Volatile.Write`](non-blocking.md#volatilewrite), the [`volatile`](non-blocking.md#volatile-1) keyword, and the [`Interlocked`](non-blocking.md#interlocked) class.
 
 Blocking is essential to all but the last category.
 
