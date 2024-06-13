@@ -219,7 +219,7 @@ The semaphore concept was invented by Dutch computer scientist Edsger Dijkstra i
 
 The [↑ `Semaphore`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.semaphore) class limits the number of threads that can access a resource or pool of resources concurrently.
 
-A semaphore with a capacity of one is similar to a [`Mutex`](lock.md#mutex) or [`lock`](lock.md#lock), except that the semaphore has no "owner" — it's thread-agnostic. Any thread can call `Release` on a `Semaphore`, whereas with `Mutex` and `lock`, only the thread that obtained the lock can release it.
+A semaphore with a capacity of one is similar to a [`Mutex`](locking.md#mutex) or [`lock`](locking.md#lock), except that the semaphore has no "owner" — it's thread-agnostic. Any thread can call `Release` on a `Semaphore`, whereas with `Mutex` and `lock`, only the thread that obtained the lock can release it.
 
 Semaphores are of two types: _local semaphores_ and _named system semaphores_. If you create a `Semaphore` object using a constructor that accepts a name, it is associated with an operating-system semaphore of that name. Named system semaphores are visible throughout the operating system, and can be used to synchronize the activities of processes. You can create multiple `Semaphore` objects that represent the same named system semaphore, and you can use the `OpenExisting` method to open an existing named system semaphore.
 

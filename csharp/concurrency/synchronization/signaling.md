@@ -169,7 +169,7 @@ Like `ManualResetEventSlim`, `CountdownEvent` exposes a [↑ `WaitHandle`](https
 
 ### `WaitAny`, `WaitAll`, and `SignalAndWait`
 
-In addition to the `Set`, `WaitOne`, and `Reset` methods, there are static methods on the [`WaitHandle`](#waithandle) class to crack more complex synchronization nuts. The `WaitAny`, `WaitAll`, and `SignalAndWait` methods perform atomic signaling and waiting operations on multiple handles. The wait handles can be of differing types, including [`Mutex`](lock.md#mutex) and [`Semphore`](lock.md#semaphore-1), since these also derive from the abstract `WaitHandle` class. [`ManualResetEventSlim`](#manualreseteventslim) and [`CountdownEvent`](#countdownevent) can also partake in these methods via their `WaitHandle` properties.
+In addition to the `Set`, `WaitOne`, and `Reset` methods, there are static methods on the [`WaitHandle`](#waithandle) class to crack more complex synchronization nuts. The `WaitAny`, `WaitAll`, and `SignalAndWait` methods perform atomic signaling and waiting operations on multiple handles. The wait handles can be of differing types, including [`Mutex`](locking.md#mutex) and [`Semphore`](locking.md#semaphore-1), since these also derive from the abstract `WaitHandle` class. [`ManualResetEventSlim`](#manualreseteventslim) and [`CountdownEvent`](#countdownevent) can also partake in these methods via their `WaitHandle` properties.
 
 #### `WaitAll`
 

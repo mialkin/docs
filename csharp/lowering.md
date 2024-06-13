@@ -1,6 +1,6 @@
 # Lowering in C&#35;
 
-A **lowering** is a transformation, done by compiler, of high-level language features into "simpler" techniques within the *same language*.
+A **lowering** is a transformation, done by compiler, of high-level language features into "simpler" techniques within the _same language_.
 
 ## Table of contents
 
@@ -129,7 +129,7 @@ class NumberProvider
 ```
 
 ```csharp
-IEnumerator<string> enumerator = 
+IEnumerator<string> enumerator =
     new NumberProvider().GetNumbers().GetEnumerator();
 
 try
@@ -171,7 +171,7 @@ internal class NumberProvider
   }
 
   [CompilerGenerated]
-  private sealed class <GetNumbers>d__0 : 
+  private sealed class <GetNumbers>d__0 :
     IEnumerable<string>,
     IEnumerable,
     IEnumerator<string>,
@@ -273,7 +273,7 @@ internal class NumberProvider
 
 ### `lock`
 
-See [`lock`](/csharp/concurrency/synchronization/lock.md#lock).
+See [`lock`](/csharp/concurrency/synchronization/locking.md#lock).
 
 ### Closures
 

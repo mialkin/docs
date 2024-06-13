@@ -50,7 +50,7 @@ Using a `SpinLock` is like using an ordinary `lock`, except:
 - `SpinLock` is a structure
 - `SpinLock` is not reentrant, meaning that you cannot call `Enter` on the same `SpinLock` twice in a row on the same thread. If you violate this rule, it will either throw an exception, if _owner tracking_ is enabled, or deadlock, if owner tracking is disabled. You can specify whether to enable owner tracking when constructing the `SpinLock` instance. Owner tracking incurs a performance hit.
 - `SpinLock` lets you query whether the lock is taken, via the properties [↑ `IsHeld`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.spinlock.isheld) and, if owner tracking is enabled, [↑ `IsHeldByCurrentThread`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.spinlock.isheldbycurrentthread)
-- There's no equivalent to C#'s [`lock`](lock.md#lock) statement to provide `SpinLock` syntactic sugar
+- There's no equivalent to C#'s [`lock`](locking.md#lock) statement to provide `SpinLock` syntactic sugar
 
 Another difference is that when you call `Enter`, you _must_ follow the robust pattern of providing a `lockTaken` argument, which is nearly always done within a `try/finally` block.
 

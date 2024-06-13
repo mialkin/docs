@@ -323,7 +323,7 @@
     - Simple blocking methods
       - [`Thread.Sleep`](csharp/concurrency/thread.md#threadsleep), [`Thread.Join`](csharp/concurrency/thread.md#threadjoin), [↑ `Task.Wait`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.wait)
     - Locking constructs
-      - [`Monitor`, `lock`, `Mutex`, `Semaphore`, `SemaphoreSlim`, `ReaderWriterLockSlim`](csharp/concurrency/synchronization/lock.md)
+      - [`Monitor`, `lock`, `Mutex`, `Semaphore`, `SemaphoreSlim`, `ReaderWriterLockSlim`](csharp/concurrency/synchronization/locking.md)
       - [`SpinLock`, `SpinWait`](csharp/concurrency/synchronization/spinlock-and-spinwait.md)
     - Signaling constructs
       - [Signaling, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`, `CountdownEvent`, `Barrier`](csharp/concurrency/synchronization/signaling.md)

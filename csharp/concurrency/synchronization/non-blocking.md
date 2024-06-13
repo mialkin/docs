@@ -65,7 +65,7 @@ A full fence takes around ten nanoseconds on a 2010-era desktop.
 
 The following implicitly generate full fences:
 
-- C#'s [`lock`](lock.md#lock) statement (`Monitor.Enter`/`Monitor.Exit`)
+- C#'s [`lock`](locking.md#lock) statement (`Monitor.Enter`/`Monitor.Exit`)
 - All methods on the [`Interlocked`](#interlocked) class
 - Asynchronous callbacks that use the thread pool—these include asynchronous delegates, APM callbacks, and `Task` continuations
 - Setting and waiting on a signaling construct
