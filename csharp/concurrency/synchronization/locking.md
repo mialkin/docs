@@ -33,6 +33,97 @@ Time taken to lock and unlock the construct once on the same thread (assuming no
 | `Mutex`                                   | Ensures just one thread can access a resource (or section of code) at a time         | Yes           | 1000 ns  |
 | `Semaphore`                               | Ensures not more than a specified number of concurrent threads can access a resource | Yes           | 1000 ns  |
 
+[↑ BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet) results:
+
+```console
+| Method               | Mean      | Error    | StdDev   | Completed Work Items | Lock Contentions | Allocated |
+|--------------------- |----------:|---------:|---------:|---------------------:|-----------------:|----------:|
+| Lock                 |  15.73 ns | 0.159 ns | 0.149 ns |                    - |                - |         - |
+| Monitor              |  16.51 ns | 0.358 ns | 0.794 ns |                    - |                - |         - |
+| ReaderWriterLockSlim |  22.91 ns | 0.193 ns | 0.180 ns |                    - |                - |         - |
+| SemaphoreSlim        |  54.10 ns | 0.607 ns | 0.538 ns |                    - |                - |         - |
+| Mutex                | 450.48 ns | 7.848 ns | 6.957 ns |                    - |                - |         - |
+```
+
+```csharp
+[ThreadingDiagnoser]
+[MemoryDiagnoser]
+[Orderer(SummaryOrderPolicy.FastestToSlowest)]
+public class Benchmark
+{
+    private readonly object _locker1 = new();
+    private readonly object _locker2 = new();
+    private readonly Mutex _mutex = new();
+    private readonly SemaphoreSlim _semaphoreSlim = new(1);
+    private readonly ReaderWriterLockSlim _readerWriterLockSlim = new();
+
+    [Benchmark]
+    public void Lock()
+    {
+        lock (_locker1)
+        {
+        }
+    }
+
+    [Benchmark]
+    public void Monitor()
+    {
+        var lockTaken = false;
+        try
+        {
+            System.Threading.Monitor.Enter(_locker2, ref lockTaken);
+        }
+        finally
+        {
+            if (lockTaken)
+            {
+                System.Threading.Monitor.Exit(_locker2);
+            }
+        }
+    }
+
+    [Benchmark]
+    public void Mutex()
+    {
+        try
+        {
+            _mutex.WaitOne();
+        }
+        finally
+        {
+            _mutex.ReleaseMutex();
+        }
+    }
+
+    [Benchmark]
+    public async ValueTask SemaphoreSlim()
+    {
+        try
+        {
+            await _semaphoreSlim.WaitAsync();
+        }
+        finally
+        {
+            _semaphoreSlim.Release();
+        }
+    }
+
+    [Benchmark]
+    public void ReaderWriterLockSlim()
+    {
+        try
+        {
+            _readerWriterLockSlim.EnterWriteLock();
+        }
+        finally
+        {
+            _readerWriterLockSlim.ExitWriteLock();
+        }
+    }
+}
+```
+
+
 ## Choosing the synchronization object
 
 Any object visible to each of the partaking threads can be used as a synchronizing object, subject to one hard rule: it must be a reference type. The synchronizing object is typically private (because this helps to encapsulate the locking logic) and is typically an instance or static field. The synchronizing object can double as the object it's protecting, as the `_list` field does in the following example:
