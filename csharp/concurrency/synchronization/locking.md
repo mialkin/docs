@@ -323,8 +323,56 @@ async Task DoWorkAsync()
 
 The [↑ `ReaderWriterLockSlim`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.readerwriterlockslim) class represents a lock that is used to manage access to a resource, allowing multiple threads for reading or exclusive access for writing.
 
-Quite often, instances of a type are thread-safe for concurrent read operations, but not for concurrent updates (nor for a concurrent read and update). This can also be true with resources such as a file. Although protecting instances of such types with a simple exclusive lock for all modes of access usually does the trick, it can unreasonably restrict concurrency if there are many readers and just occasional updates. An example of where this could occur is in a business application server, where commonly used data is cached for fast retrieval in static fields. The `ReaderWriterLockSlim` class is designed to provide maximum-availability locking in just this scenario.
+The `ReaderWriterLockSlim` class is designed to provide maximum-availability locking in scenarios where there are many readers and just occasional updates. An example of where this could occur is in a business application server, where commonly used data is cached for fast retrieval in static fields. Although protecting instances of types with a simple exclusive lock for all modes of access usually does the trick, it can unreasonably restrict concurrency.
 
-`ReaderWriterLockSlim` was introduced in Framework 3.5 and is a replacement for the older "fat" [↑ `ReaderWriterLock`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.readerwriterlock) class. The latter is similar in functionality, but it is several times slower and has an inherent design fault in its mechanism for handling lock upgrades.
+When compared to an ordinary `lock` (`Monitor.Enter/Exit`), `ReaderWriterLockSlim` is twice as slow.
 
-When compared to an ordinary lock (`Monitor.Enter`/`Exit`), `ReaderWriterLockSlim` is twice as slow.
+There are two basic kinds of lock — a read lock and a write lock:
+
+- A write lock is universally exclusive
+- A read lock is compatible with other read locks
+
+A thread holding a write lock blocks all other threads trying to obtain a read or write lock. But if no thread holds a write lock, any number of threads may concurrently obtain a read lock.
+
+`ReaderWriterLockSlim` allows more concurrent Read activity than a simple lock.
+
+```csharp
+var readerWriterLockSlim = new ReaderWriterLockSlim();
+var items = new List<int>();
+
+new Thread(Read).Start();
+new Thread(Read).Start();
+new Thread(Read).Start();
+new Thread(Write).Start();
+new Thread(Write).Start();
+
+void Read()
+{
+    while (true)
+    {
+        readerWriterLockSlim.EnterReadLock();
+        foreach (var unused in items)
+        {
+            Thread.Sleep(10);
+        }
+        
+        Console.WriteLine ($"{readerWriterLockSlim.CurrentReadCount} concurrent readers");
+        readerWriterLockSlim.ExitReadLock();
+    }
+}
+
+void Write()
+{
+    while (true)
+    {
+        var newNumber = Random.Shared.Next(100);
+
+        readerWriterLockSlim.EnterWriteLock();
+        items.Add(newNumber);
+        readerWriterLockSlim.ExitWriteLock();
+
+        Console.WriteLine($"Thread {Environment.CurrentManagedThreadId} added {newNumber}");
+        Thread.Sleep(100);
+    }
+}
+```
