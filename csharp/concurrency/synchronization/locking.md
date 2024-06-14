@@ -355,7 +355,7 @@ void Read()
         {
             Thread.Sleep(10);
         }
-        
+
         Console.WriteLine ($"{readerWriterLockSlim.CurrentReadCount} concurrent readers");
         readerWriterLockSlim.ExitReadLock();
     }
@@ -372,6 +372,83 @@ void Write()
         readerWriterLockSlim.ExitWriteLock();
 
         Console.WriteLine($"Thread {Environment.CurrentManagedThreadId} added {newNumber}");
+        Thread.Sleep(100);
+    }
+}
+```
+
+Sometimes it's useful to swap a read lock for a write lock in a single atomic operation. For instance, suppose you want to add an item to a list only if the item wasn't already present. Ideally, you'd want to minimize the time spent holding the (exclusive) write lock, so you might proceed as follows:
+
+1. Obtain a read lock
+2. Test if the item is already present in the list, and if so, release the lock and `return`
+3. Release the read lock
+4. Obtain a write lock
+5. Add the item
+
+The problem is that another thread could sneak in and modify the list, e.g., adding the same item, between steps 3 and 4. `ReaderWriterLockSlim` addresses this through a third kind of lock called an _upgradeable lock_. An upgradeable lock is like a read lock except that it can later be promoted to a write lock in an atomic operation. Here's how you use it:
+
+1. Call `EnterUpgradeableReadLock`
+2. Perform read-based activities, e.g., test whether the item is already present in the list
+3. Call `EnterWriteLock`, this converts the upgradeable lock to a write lock
+4. Perform write-based activities, e.g., add the item to the list
+5. Call `ExitWriteLock`, this converts the write lock back to an upgradeable lock.
+6. Perform any other read-based activities
+7. Call `ExitUpgradeableReadLock`
+
+From the caller's perspective, it's rather like nested or recursive locking. Functionally, though, in step 3, `ReaderWriterLockSlim` releases your read lock and obtains a fresh write lock, atomically.
+
+There's another important difference between upgradeable locks and read locks. While an upgradeable lock can coexist with any number of _read_ locks, only one upgradeable lock can itself be taken out at a time. This prevents conversion deadlocks by _serializing_ competing conversions—just as update locks do in SQL Server:
+
+| SQL Server     | `ReaderWriterLockSlim` |
+| -------------- | ---------------------- |
+| Share lock     | Read lock              |
+| Exclusive lock | Write lock             |
+| Update lock    | Upgradeable lock       |
+
+We can demonstrate an upgradeable lock by changing the `Write` method in the preceding example such that it adds a number to list only if not already present:
+
+```csharp
+var readerWriterLockSlim = new ReaderWriterLockSlim();
+var items = new List<int>();
+
+new Thread(Read).Start();
+new Thread(Read).Start();
+new Thread(Read).Start();
+new Thread(Write).Start();
+new Thread(Write).Start();
+
+void Read()
+{
+    while (true)
+    {
+        readerWriterLockSlim.EnterReadLock();
+        foreach (var unused in items)
+        {
+            Thread.Sleep(10);
+        }
+
+        Console.WriteLine($"{readerWriterLockSlim.CurrentReadCount} concurrent readers");
+        readerWriterLockSlim.ExitReadLock();
+    }
+}
+
+void Write()
+{
+    while (true)
+    {
+        var newNumber = Random.Shared.Next(100);
+
+        readerWriterLockSlim.EnterUpgradeableReadLock();
+
+        if (!items.Contains(newNumber))
+        {
+            readerWriterLockSlim.EnterWriteLock();
+            items.Add(newNumber);
+            readerWriterLockSlim.ExitWriteLock();
+            Console.WriteLine($"Thread {Environment.CurrentManagedThreadId} added {newNumber}");
+        }
+
+        readerWriterLockSlim.ExitUpgradeableReadLock();
         Thread.Sleep(100);
     }
 }
