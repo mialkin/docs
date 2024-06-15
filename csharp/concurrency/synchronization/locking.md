@@ -478,9 +478,9 @@ Sometimes it's useful to swap a read lock for a write lock in a single atomic op
 
 The problem is that another thread could sneak in and modify the list, e.g., adding the same item, between steps 3 and 4. `ReaderWriterLockSlim` addresses this through a third kind of lock called an _upgradeable lock_. An upgradeable lock is like a read lock except that it can later be promoted to a write lock in an atomic operation. Here's how you use it:
 
-1. Call `EnterUpgradeableReadLock`
+1. Call [↑ `EnterUpgradeableReadLock`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.readerwriterlockslim.enterupgradeablereadlock)
 2. Perform read-based activities, e.g., test whether the item is already present in the list
-3. Call `EnterWriteLock`, this converts the upgradeable lock to a write lock
+3. Call [↑ `EnterWriteLock`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.readerwriterlockslim.enterwritelock), this converts the upgradeable lock to a write lock
 4. Perform write-based activities, e.g., add the item to the list
 5. Call `ExitWriteLock`, this converts the write lock back to an upgradeable lock.
 6. Perform any other read-based activities
@@ -488,7 +488,7 @@ The problem is that another thread could sneak in and modify the list, e.g., add
 
 From the caller's perspective, it's rather like nested or recursive locking. Functionally, though, in step 3, `ReaderWriterLockSlim` releases your read lock and obtains a fresh write lock, atomically.
 
-There's another important difference between upgradeable locks and read locks. While an upgradeable lock can coexist with any number of _read_ locks, only one upgradeable lock can itself be taken out at a time. This prevents conversion deadlocks by _serializing_ competing conversions—just as update locks do in SQL Server:
+There's another important difference between upgradeable locks and read locks. While an upgradeable lock can coexist with any number of _read_ locks, only one upgradeable lock can itself be taken out at a time. This prevents conversion deadlocks by _serializing_ competing conversions — just as update locks do in SQL Server:
 
 | SQL Server     | `ReaderWriterLockSlim` |
 | -------------- | ---------------------- |
@@ -543,4 +543,65 @@ void Write()
         Thread.Sleep(100);
     }
 }
+```
+
+
+Only one thread can enter upgradeable mode at any given time. If a thread is in upgradeable mode, and there are no threads waiting to enter write mode, any number of other threads can enter read mode, even if there are threads waiting to enter upgradeable mode.
+
+```csharp
+var lockSlim = new ReaderWriterLockSlim();
+
+new Thread(ReadOrWrite).Start();
+new Thread(ReadOrWrite).Start();
+new Thread(Read).Start();
+new Thread(Read).Start();
+
+Thread.Sleep(6000);
+Console.WriteLine("Firing final read thread");
+new Thread(Read).Start();
+
+void ReadOrWrite()
+{
+    lockSlim.EnterUpgradeableReadLock();
+    Console.WriteLine($"Thread {Environment.CurrentManagedThreadId} entered upgradable lock");
+
+    Thread.Sleep(5000);
+   
+    lockSlim.EnterWriteLock();
+    Console.WriteLine($"Thread {Environment.CurrentManagedThreadId} entered write lock");
+    Thread.Sleep(2000);
+    lockSlim.ExitWriteLock();
+    Console.WriteLine($"Thread {Environment.CurrentManagedThreadId} exited write lock");
+    
+    lockSlim.ExitUpgradeableReadLock();
+    Console.WriteLine($"Thread {Environment.CurrentManagedThreadId} exited upgradable lock");
+}
+
+void Read()
+{
+    lockSlim.EnterReadLock();
+    Console.WriteLine($"Thread {Environment.CurrentManagedThreadId} entered read lock");
+
+    Thread.Sleep(1000);
+
+    lockSlim.ExitReadLock();
+    Console.WriteLine($"Thread {Environment.CurrentManagedThreadId} exited read lock");
+}
+
+// Output:
+// Thread 7 entered read lock
+// Thread 6 entered read lock
+// Thread 4 entered upgradable lock
+// Thread 7 exited read lock
+// Thread 6 exited read lock
+// Thread 4 entered write lock
+// Firing final read thread
+// Thread 4 exited write lock
+// Thread 4 exited upgradable lock
+// Thread 8 entered read lock
+// Thread 5 entered upgradable lock
+// Thread 8 exited read lock
+// Thread 5 entered write lock
+// Thread 5 exited write lock
+// Thread 5 exited upgradable lock
 ```
