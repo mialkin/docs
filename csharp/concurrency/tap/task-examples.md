@@ -27,3 +27,16 @@ async Task GoAsync()
     Console.WriteLine("Executing method on thread: " + Environment.CurrentManagedThreadId);
 }
 ```
+
+Start all tasks immediately:
+
+```csharp
+var tasks = new List<Task> { DoAsync(1), DoAsync(2), DoAsync(3) };
+Console.ReadLine();
+
+async Task DoAsync(int id)
+{
+    Console.WriteLine($"Task {id} started.");
+    await Task.Yield();
+}
+```
