@@ -316,8 +316,10 @@
       - [`IAsyncEnumerable<T>`](csharp/concurrency/tap/iasyncenumerable.md)
       - [Synchronization context, `ConfigureAwait`](csharp/concurrency/tap/synchronization-context.md)
       - [`Task`, `ValueTask`](csharp/concurrency/tap/task.md)
-  - [Collections](csharp/concurrency/collections/collections.md)
-    - [Thread-safe collections. `BlockingCollection<T>`, `ConcurrentBag<T>`, `ConcurrentDictionary<TKey,TValue>`, `ConcurrentQueue<T>`, `ConcurrentStack<T>`](csharp/concurrency/collections/thread-safe-collections.md)
+  - Collections
+    - [Concurrent collections](csharp/concurrency/concurrent-collections.md)
+    - Immutable collections
+    - [↑ Which collection interface to use?](https://enterprisecraftsmanship.com/posts/which-collection-interface-to-use/)
   - [Execution context](csharp/concurrency/execution-context.md)
   - [Synchronization, context switch, critical section, spinning](csharp/concurrency/synchronization/synchronization.md)
     - Simple blocking methods
@@ -332,8 +334,6 @@
   - [Thread, `Thread`](csharp/concurrency/thread.md)
   - [`ThreadLocal<T>`, `AsyncLocal<T>`, `[ThreadStatic]`](csharp/concurrency/threadlocal-asynclocal.md)
   - [Thread safety](csharp/concurrency/thread-safety.md)
-- Collections
-  - [↑ Which collection interface to use?](https://enterprisecraftsmanship.com/posts/which-collection-interface-to-use/)
 - Exceptions
   - [↑ Exceptions for flow control: why not?](https://enterprisecraftsmanship.com/posts/exceptions-for-flow-control/)
 - [Expression tree](csharp/expression-tree.md)
