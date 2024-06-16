@@ -5,10 +5,11 @@
 - [Immutable collections](#immutable-collections)
   - [Table of contents](#table-of-contents)
   - [`ImmutableStack<T>`](#immutablestackt)
+  - [`ImmutableList<T>`](#immutablelistt)
 
 ## `ImmutableStack<T>`
 
-[↑ `ImmutableStack<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.immutable.immutablestack-1) class represents an immutable stack.
+The [↑ `ImmutableStack<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.immutable.immutablestack-1) class represents an immutable stack.
 
 ```csharp
 var immutableStack = ImmutableStack.Create(1, 2, 3, 4);
@@ -39,4 +40,23 @@ Console.WriteLine($"Immutable stack: {string.Join(",", immutableStack)}. Is empt
 // Third stack formed by pushing element to second stack: 5,3,2,1
 // Fourth stack formed by clearing immutable stack: . Is empty: True
 // Immutable stack: 4,3,2,1. Is empty: False
+```
+
+## `ImmutableList<T>`
+
+The [↑ `ImmutableList<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.immutable.immutablelist-1) class represents an immutable list, which is a strongly typed list of objects that can be accessed by index.
+
+```csharp
+var immutableList = ImmutableList.Create(1, 2, 3, 4);
+var secondImmutableList = immutableList.Add(5);
+var thirdImmutableList = secondImmutableList.Remove(3);
+
+Console.WriteLine($"Immutable list: {string.Join(", ", immutableList)}");
+Console.WriteLine($"Second immutable list: {string.Join(", ", secondImmutableList)}");
+Console.WriteLine($"Third immutable list: {string.Join(", ", thirdImmutableList)}");
+
+// Output:
+// Immutable list: 1, 2, 3, 4
+// Second immutable list: 1, 2, 3, 4, 5
+// Third immutable list: 1, 2, 4, 5
 ```
