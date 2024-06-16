@@ -252,13 +252,13 @@ Console.WriteLine("End");
 You can use this method on a pair of `EventWaitHandles` to set up two threads to rendezvous or "meet" at the same point in time. Either `AutoResetEvent` or `ManualResetEvent` will do the trick. The first thread executes the following:
 
 ```csharp
-WaitHandle.SignalAndWait (wh1, wh2);
+WaitHandle.SignalAndWait(wh1, wh2);
 ```
 
 whereas the second thread does the opposite:
 
 ```csharp
-WaitHandle.SignalAndWait (wh2, wh1);
+WaitHandle.SignalAndWait(wh2, wh1);
 ```
 
 #### Alternatives to `WaitAll` and `SignalAndWait`
