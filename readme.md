@@ -319,6 +319,7 @@
   - Collections
     - [Concurrent collections](csharp/concurrency/concurrent-collections.md)
     - Immutable collections
+    - [↑ `Channel`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.channels.channel), [↑ `BlockingCollection<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.concurrent.blockingcollection-1)
     - [↑ Which collection interface to use?](https://enterprisecraftsmanship.com/posts/which-collection-interface-to-use/)
   - [Execution context](csharp/concurrency/execution-context.md)
   - [Synchronization, context switch, critical section, spinning](csharp/concurrency/synchronization/synchronization.md)
