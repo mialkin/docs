@@ -174,6 +174,10 @@ var concurrentDictionary = new ConcurrentDictionary<int, string>([
 Console.WriteLine($"Concurrent dictionary contains 2: {concurrentDictionary.ContainsKey(2)}");
 concurrentDictionary[5] = "May";
 Console.WriteLine($"Concurrent dictionary: {string.Join(", ", concurrentDictionary)}");
+
+// Output:
+// Concurrent dictionary contains 2: True
+// Concurrent dictionary: [1, January], [2, February], [3, March], [4, April], [5, May]
 ```
 
 ### `BlockingCollection<T>`
