@@ -66,7 +66,7 @@ A `SpinLock` makes the most sense when writing your own reusable synchronization
 
 The [↑ `SpinWait`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.spinwait) structure provides support for spin-based waiting.
 
-`SpinWait` helps you write lock-free code that spins rather than blocks. It works by implementing safeguards to avoid the dangers of resource starvation and priority inversion that might otherwise arise with spinning.
+`SpinWait` helps you write lock-free code that spins rather than blocks. It works by implementing safeguards to avoid the dangers of resource starvation and [↑ priority inversion](https://en.wikipedia.org/wiki/Priority_inversion) that might otherwise arise with spinning.
 
 Lock-free programming with `SpinWait` is as _hardcore_ as multithreading gets and is intended for when none of the higher-level constructs will do. A prerequisite is to understand nonblocking synchronization.
 
