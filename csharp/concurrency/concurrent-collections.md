@@ -49,14 +49,14 @@ Console.WriteLine(elements.Count()); // 0
 Counting elements in the bag:
 
 ```csharp
-var concurrentBag = new ConcurrentBag<int>(new[] { 1, 2, 2 });
+var concurrentBag = new ConcurrentBag<int>([1, 2, 2]);
 Console.WriteLine(concurrentBag.Count); // 3
 ```
 
 Taking 100 elements from the bag containing only 3 elements:
 
 ```csharp
-var concurrentBag = new ConcurrentBag<int>(new[] { 1, 2, 2 });
+var concurrentBag = new ConcurrentBag<int>([1, 2, 2]);
 var hundred = concurrentBag.Take(100);
 Console.WriteLine(hundred.Count()); // 3
 ```
@@ -128,7 +128,7 @@ new Thread(() =>
 The [↑ `ConcurrentQueue<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentqueue-1) class represents a thread-safe first in, first out, FIFO, collection.
 
 ```csharp
-var concurrentQueue = new ConcurrentQueue<int>(new[] { 1, 2, 3 });
+var concurrentQueue = new ConcurrentQueue<int>([1, 2, 3]);
 
 concurrentQueue.Enqueue(4);
 concurrentQueue.TryDequeue(out var dequeuedElement);
@@ -145,7 +145,7 @@ Console.WriteLine($"Concurrent queue: {string.Join(", ", concurrentQueue)}. Is e
 The [↑ `ConcurrentStack<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentstack-1) class Represents a thread-safe last in, first out, LIFO, collection.
 
 ```csharp
-var concurrentStack = new ConcurrentStack<int>(new[] { 1, 2, 3, 4 });
+var concurrentStack = new ConcurrentStack<int>([1, 2, 3, 4]);
 concurrentStack.TryPop(out var poppedElement);
 concurrentStack.Push(5);
 Console.WriteLine($"Concurrent stack: {string.Join(", ", concurrentStack)}. Is empty: {concurrentStack.IsEmpty}");
@@ -215,7 +215,7 @@ new Thread(() =>
 Creating producer/consumer stack by passing `ConcurrentStack<T>` into constructor:
 
 ```csharp
-var concurrentStack = new ConcurrentStack<int>(new[] { 1, 2, 3 });
+var concurrentStack = new ConcurrentStack<int>([1, 2, 3]);
 var blockingCollection = new BlockingCollection<int>(concurrentStack, 5);
 
 new Thread(() =>
