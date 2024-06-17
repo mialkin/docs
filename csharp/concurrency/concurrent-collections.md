@@ -256,3 +256,59 @@ new Thread(() =>
 // Adding 8...
 // Took 8
 ```
+
+`BlockingCollection` also provides static methods called `AddToAny` and `TakeFromAny`, which let you add or take an element while specifying several blocking collections. The action is then honored by the first collection able to service the request.
+
+```csharp
+var blockingCollection1 = new BlockingCollection<int>();
+var blockingCollection2 = new BlockingCollection<int>();
+
+new Thread(() =>
+{
+    var value = 1;
+    while (true)
+    {
+        Console.WriteLine($"Adding {value}");
+        blockingCollection1.Add(value);
+        Thread.Sleep(7000);
+        value++;
+    }
+}).Start();
+
+new Thread(() =>
+{
+    var value = -1;
+    while (true)
+    {
+        Console.WriteLine($"Adding {value}");
+        blockingCollection2.Add(value);
+        Thread.Sleep(3000);
+        value--;
+    }
+}).Start();
+
+new Thread(() =>
+{
+    while (true)
+    {
+        BlockingCollection<int>.TakeFromAny([blockingCollection1, blockingCollection2], out var element);
+        Console.WriteLine($"Took {element}");
+    }
+}).Start();
+
+// Output:
+// Adding 1
+// Adding -1
+// Took 1
+// Took -1
+// Adding -2
+// Took -2
+// Adding -3
+// Took -3
+// Adding 2
+// Took 2
+// Adding -4
+// Took -4
+// Adding -5
+// Took -5
+```
