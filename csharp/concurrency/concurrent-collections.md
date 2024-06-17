@@ -1,8 +1,15 @@
 # Concurrent collections
 
-## `ConcurrentBag`
+## Table of contents
 
-The [↑ `ConcurrentBag`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentbag-1) class represents a thread-safe, unordered collection of objects.
+- [Concurrent collections](#concurrent-collections)
+  - [Table of contents](#table-of-contents)
+  - [`ConcurrentBag<T>`](#concurrentbagt)
+  - [`ConcurrentQueue<T>`](#concurrentqueuet)
+
+## `ConcurrentBag<T>`
+
+The [↑ `ConcurrentBag<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentbag-1) class represents a thread-safe, unordered collection of objects.
 
 Taking 1 element from the empty bag:
 
@@ -87,4 +94,21 @@ new Thread(() =>
 // ...
 // ...
 // End
+```
+
+## `ConcurrentQueue<T>`
+
+The [↑ `ConcurrentQueue<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentqueue-1) class represents a thread-safe first in, first out, FIFO, collection.
+
+```csharp
+var concurrentQueue = new ConcurrentQueue<int>(new[] { 1, 2, 3 });
+
+concurrentQueue.Enqueue(4);
+concurrentQueue.TryDequeue(out var dequeuedElement);
+concurrentQueue.TryPeek(out var peekedElement);
+
+Console.WriteLine($"Concurrent queue: {string.Join(", ", concurrentQueue)}. Is empty: {concurrentQueue.IsEmpty}");
+
+// Output:
+// Concurrent queue: 2, 3, 4. Is empty: False
 ```
