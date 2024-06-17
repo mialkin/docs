@@ -6,6 +6,10 @@ Some of the concurrent collection types use lightweight synchronization mechanis
 
 The [`ConcurrentQueue<T>`](#concurrentqueuet) and [`ConcurrentStack<T>`](#concurrentstackt) classes don't use locks at all. Instead, they rely on [`Interlocked`](/csharp/concurrency/synchronization/non-blocking.md#interlocked) operations to achieve thread safety.
 
+The concurrent stack, queue, and bag classes are implemented internally with linked lists. This makes them less memory-efficient than the nonconcurrent `Stack` and `Queue` classes, but better for concurrent access because linked lists are conducive to lock-free or low-lock implementations. This is because inserting a node into a linked list requires updating just a couple of references, while inserting an element into a `List<T>`-like structure may require moving thousands of existing elements.
+
+The concurrent collections are tuned for parallel programming. The conventional collections outperform them in all but highly concurrent scenarios.
+
 [↑ When to use a thread-safe collection](https://learn.microsoft.com/en-us/dotnet/standard/collections/thread-safe/when-to-use-a-thread-safe-collection).
 
 ## Table of contents
@@ -16,6 +20,7 @@ The [`ConcurrentQueue<T>`](#concurrentqueuet) and [`ConcurrentStack<T>`](#concur
     - [`ConcurrentBag<T>`](#concurrentbagt)
     - [`ConcurrentQueue<T>`](#concurrentqueuet)
     - [`ConcurrentStack<T>`](#concurrentstackt)
+    - [`ConcurrentDictionary<TKey,TValue>`](#concurrentdictionarytkeytvalue)
     - [`BlockingCollection<T>`](#blockingcollectiont)
 
 ## `IProducerConsumerCollection<T>`
@@ -152,6 +157,23 @@ Console.WriteLine($"Concurrent stack: {string.Join(", ", concurrentStack)}. Is e
 
 // Output:
 // Concurrent stack: 5, 3, 2, 1. Is empty: False
+```
+
+### `ConcurrentDictionary<TKey,TValue>`
+
+The [↑ `ConcurrentDictionary<TKey,TValue>`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentdictionary-2) class represents a thread-safe collection of key/value pairs that can be accessed by multiple threads concurrently.
+
+```csharp
+var concurrentDictionary = new ConcurrentDictionary<int, string>([
+    new KeyValuePair<int, string>(1, "January"),
+    new KeyValuePair<int, string>(2, "February"),
+    new KeyValuePair<int, string>(3, "March"),
+    new KeyValuePair<int, string>(4, "April")
+]);
+
+Console.WriteLine($"Concurrent dictionary contains 2: {concurrentDictionary.ContainsKey(2)}");
+concurrentDictionary[5] = "May";
+Console.WriteLine($"Concurrent dictionary: {string.Join(", ", concurrentDictionary)}");
 ```
 
 ### `BlockingCollection<T>`
