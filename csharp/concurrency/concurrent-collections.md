@@ -162,8 +162,9 @@ A blocking collection wraps any collection that implements `IProducerConsumerCol
 
 A blocking collection also lets you limit the total size of the collection, blocking the _producer_ if that size is exceeded. A collection limited in this manner is called a _bounded blocking collection_.
 
-If you call the constructor without passing in a collection, the class will automatically instantiate a
-[`ConcurrentQueue<T>`](#concurrentqueuet). The producing and consuming methods let you specify cancellation tokens and timeouts. Add and `TryAdd` may block if the collection size is bounded; `Take` and `TryTake` block while the collection is empty.
+If you call the constructor without passing in a collection, the class will automatically instantiate a [`ConcurrentQueue<T>`](#concurrentqueuet). The producing and consuming methods let you specify cancellation tokens and timeouts. Add and `TryAdd` may block if the collection size is bounded; `Take` and `TryTake` block while the collection is empty.
+
+Because we are not passing anything into `BlockingCollection`'s constructor, it instantiated a concurrent queue automatically:
 
 ```csharp
 var blockingCollection = new BlockingCollection<int>(boundedCapacity: 3);
@@ -211,7 +212,7 @@ new Thread(() =>
 // Took 0
 ```
 
-Wrapping `ConcurrentStack<T>`:
+Creating producer/consumer stack by passing `ConcurrentStack<T>` into constructor:
 
 ```csharp
 var concurrentStack = new ConcurrentStack<int>(new[] { 1, 2, 3 });
