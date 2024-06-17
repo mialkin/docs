@@ -151,7 +151,7 @@ concurrentStack.Push(5);
 Console.WriteLine($"Concurrent stack: {string.Join(", ", concurrentStack)}. Is empty: {concurrentStack.IsEmpty}");
 
 // Output:
-//
+// Concurrent stack: 5, 3, 2, 1. Is empty: False
 ```
 
 ### `BlockingCollection<T>`
@@ -209,4 +209,49 @@ new Thread(() =>
 // Adding 6...
 // Took 6
 // Took 0
+```
+
+Wrapping `ConcurrentStack<T>`:
+
+```csharp
+var concurrentStack = new ConcurrentStack<int>(new[] { 1, 2, 3 });
+var blockingCollection = new BlockingCollection<int>(concurrentStack, 5);
+
+new Thread(() =>
+{
+    var value = 4;
+    while (true)
+    {
+        Console.WriteLine($"Adding {value}...");
+        blockingCollection.Add(value);
+        Thread.Sleep(1000);
+        value++;
+    }
+}).Start();
+
+Thread.Sleep(5000);
+
+new Thread(() =>
+{
+    while (true)
+    {
+        var element = blockingCollection.Take();
+        Console.WriteLine($"Took {element}");
+    }
+}).Start();
+
+// Output:
+// Adding 4...
+// Adding 5...
+// Adding 6...
+// Took 5
+// Took 6
+// Took 4
+// Took 3
+// Took 2
+// Took 1
+// Adding 7...
+// Took 7
+// Adding 8...
+// Took 8
 ```
