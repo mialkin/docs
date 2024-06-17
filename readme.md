@@ -319,15 +319,14 @@
   - Collections
     - [Concurrent collections](csharp/concurrency/concurrent-collections.md)
     - [Immutable collections](csharp/concurrency/immutable-collections.md)
-    - [↑ `Channel`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.channels.channel), [↑ `BlockingCollection<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.concurrent.blockingcollection-1)
+    - [↑ `Channel`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.channels.channel)
     - [↑ Which collection interface to use?](https://enterprisecraftsmanship.com/posts/which-collection-interface-to-use/)
   - [Execution context](csharp/concurrency/execution-context.md)
   - [Synchronization, context switch, critical section, spinning](csharp/concurrency/synchronization/synchronization.md)
     - Simple blocking methods
       - [`Thread.Sleep`](csharp/concurrency/thread.md#threadsleep), [`Thread.Join`](csharp/concurrency/thread.md#threadjoin), [↑ `Task.Wait`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.wait)
     - Locking constructs
-      - [`Monitor`, `lock`, `Mutex`, `Semaphore`, `SemaphoreSlim`, `ReaderWriterLockSlim`](csharp/concurrency/synchronization/locking.md)
-      - [`SpinLock`, `SpinWait`](csharp/concurrency/synchronization/spinlock-and-spinwait.md)
+      - [`Monitor`, `lock`, `Mutex`, `Semaphore`, `SemaphoreSlim`, `ReaderWriterLockSlim`, `SpinLock`, `SpinWait`](csharp/concurrency/synchronization/locking.md)
     - Signaling constructs
       - [Signaling, `AutoResetEvent`, `ManualResetEvent`, `ManualResetEventSlim`, `CountdownEvent`, `Barrier`](csharp/concurrency/synchronization/signaling.md)
     - Non-blocking synchronization constructs
