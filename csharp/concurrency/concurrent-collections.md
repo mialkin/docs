@@ -1,13 +1,40 @@
 # Concurrent collections
 
+The [↑ `System.Collections.Concurrent`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.concurrent) namespace includes several collection classes that are both thread-safe and scalable. Multiple threads can safely and efficiently add or remove items from these collections, without requiring additional synchronization in user code.
+
+Some of the concurrent collection types use lightweight synchronization mechanisms such as `SpinLock`, `SpinWait`, `SemaphoreSlim`, and `CountdownEvent`. These synchronization types typically use *busy spinning* for brief periods before they put the thread into a true `Wait` state. When wait times are expected to be short, spinning is far less computationally expensive than waiting, which involves an expensive kernel transition. For collection classes that use spinning, this efficiency means that multiple threads can add and remove items at a high rate.
+
+The [`ConcurrentQueue<T>`](#concurrentqueuet) and [`ConcurrentStack<T>`](#concurrentstackt) classes don't use locks at all. Instead, they rely on `Interlocked` operations to achieve thread safety.
+
+[↑ When to use a thread-safe collection](https://learn.microsoft.com/en-us/dotnet/standard/collections/thread-safe/when-to-use-a-thread-safe-collection).
+
 ## Table of contents
 
 - [Concurrent collections](#concurrent-collections)
   - [Table of contents](#table-of-contents)
-  - [`ConcurrentBag<T>`](#concurrentbagt)
-  - [`ConcurrentQueue<T>`](#concurrentqueuet)
+  - [`IProducerConsumerCollection<T>`](#iproducerconsumercollectiont)
+    - [`ConcurrentBag<T>`](#concurrentbagt)
+    - [`ConcurrentQueue<T>`](#concurrentqueuet)
+    - [`ConcurrentStack<T>`](#concurrentstackt)
+    - [`BlockingCollection<T>`](#blockingcollectiont)
 
-## `ConcurrentBag<T>`
+## `IProducerConsumerCollection<T>`
+
+The [↑ `IProducerConsumerCollection<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.concurrent.iproducerconsumercollection-1) interface defines methods to manipulate thread-safe collections intended for producer/consumer usage.
+
+```csharp
+public interface IProducerConsumerCollection<T> : IEnumerable<T>, IEnumerable, ICollection
+{
+    void CopyTo(T[] array, int index);
+    bool TryAdd(T item);
+    bool TryTake(out T item);
+    T[] ToArray();
+}
+```
+
+This interface provides a unified representation for producer/consumer collections so that higher level abstractions such as [`BlockingCollection<T>`](#blockingcollectiont) can use the collection as the underlying storage mechanism.
+
+### `ConcurrentBag<T>`
 
 The [↑ `ConcurrentBag<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentbag-1) class represents a thread-safe, unordered collection of objects.
 
@@ -96,7 +123,7 @@ new Thread(() =>
 // End
 ```
 
-## `ConcurrentQueue<T>`
+### `ConcurrentQueue<T>`
 
 The [↑ `ConcurrentQueue<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentqueue-1) class represents a thread-safe first in, first out, FIFO, collection.
 
@@ -112,3 +139,21 @@ Console.WriteLine($"Concurrent queue: {string.Join(", ", concurrentQueue)}. Is e
 // Output:
 // Concurrent queue: 2, 3, 4. Is empty: False
 ```
+
+### `ConcurrentStack<T>`
+
+The [↑ `ConcurrentStack<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentstack-1) class Represents a thread-safe last in, first out, LIFO, collection.
+
+```csharp
+var concurrentStack = new ConcurrentStack<int>(new[] { 1, 2, 3, 4 });
+concurrentStack.TryPop(out var poppedElement);
+concurrentStack.Push(5);
+Console.WriteLine($"Concurrent stack: {string.Join(", ", concurrentStack)}. Is empty: {concurrentStack.IsEmpty}");
+
+// Output:
+// 
+```
+
+### `BlockingCollection<T>`
+
+The [↑ `BlockingCollection<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.concurrent.blockingcollection-1) provides blocking and bounding capabilities for thread-safe collections that implement [`IProducerConsumerCollection<T>`](#iproducerconsumercollectiont).
