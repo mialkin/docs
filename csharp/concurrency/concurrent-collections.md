@@ -2,9 +2,9 @@
 
 The [↑ `System.Collections.Concurrent`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.concurrent) namespace includes several collection classes that are both thread-safe and scalable. Multiple threads can safely and efficiently add or remove items from these collections, without requiring additional synchronization in user code.
 
-Some of the concurrent collection types use lightweight synchronization mechanisms such as [`SpinLock`](/csharp/concurrency/synchronization/locking.md#spinlock), [`SpinWait`](/csharp/concurrency/synchronization/locking.md#spinwait), [`SemaphoreSlim`](/csharp/concurrency/synchronization/locking.md#semaphoreslim), and [`CountdownEvent`](/csharp/concurrency/synchronization/signaling.md#countdownevent). These synchronization types typically use *busy spinning* for brief periods before they put the thread into a true `Wait` state. When wait times are expected to be short, spinning is far less computationally expensive than waiting, which involves an expensive kernel transition. For collection classes that use spinning, this efficiency means that multiple threads can add and remove items at a high rate.
+Some of the concurrent collection types use lightweight synchronization mechanisms such as [`SpinLock`](/csharp/concurrency/synchronization/locking.md#spinlock), [`SpinWait`](/csharp/concurrency/synchronization/locking.md#spinwait), [`SemaphoreSlim`](/csharp/concurrency/synchronization/locking.md#semaphoreslim), and [`CountdownEvent`](/csharp/concurrency/synchronization/signaling.md#countdownevent). These synchronization types typically use _busy spinning_ for brief periods before they put the thread into a true `Wait` state. When wait times are expected to be short, spinning is far less computationally expensive than waiting, which involves an expensive kernel transition. For collection classes that use spinning, this efficiency means that multiple threads can add and remove items at a high rate.
 
-The [`ConcurrentQueue<T>`](#concurrentqueuet) and [`ConcurrentStack<T>`](#concurrentstackt) classes don't use locks at all. Instead, they rely on `Interlocked` operations to achieve thread safety.
+The [`ConcurrentQueue<T>`](#concurrentqueuet) and [`ConcurrentStack<T>`](#concurrentstackt) classes don't use locks at all. Instead, they rely on [`Interlocked`](/csharp/concurrency/synchronization/non-blocking.md#interlocked) operations to achieve thread safety.
 
 [↑ When to use a thread-safe collection](https://learn.microsoft.com/en-us/dotnet/standard/collections/thread-safe/when-to-use-a-thread-safe-collection).
 
@@ -84,12 +84,12 @@ new Thread(() =>
     while (true)
     {
         Console.WriteLine("Start enumerating concurrent bag");
-        
+
         foreach (var item in concurrentBag)
         {
             Console.WriteLine(item);
         }
-        
+
         Console.WriteLine("Stop enumerating concurrent bag");
         Thread.Sleep(6);
     }
@@ -151,9 +151,62 @@ concurrentStack.Push(5);
 Console.WriteLine($"Concurrent stack: {string.Join(", ", concurrentStack)}. Is empty: {concurrentStack.IsEmpty}");
 
 // Output:
-// 
+//
 ```
 
 ### `BlockingCollection<T>`
 
 The [↑ `BlockingCollection<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.concurrent.blockingcollection-1) provides blocking and bounding capabilities for thread-safe collections that implement [`IProducerConsumerCollection<T>`](#iproducerconsumercollectiont).
+
+A blocking collection wraps any collection that implements `IProducerConsumerCollection<T>` and lets you `Take` an element from the wrapped collection — blocking if no element is available.
+
+A blocking collection also lets you limit the total size of the collection, blocking the _producer_ if that size is exceeded. A collection limited in this manner is called a _bounded blocking collection_.
+
+If you call the constructor without passing in a collection, the class will automatically instantiate a
+[`ConcurrentQueue<T>`](#concurrentqueuet). The producing and consuming methods let you specify cancellation tokens and timeouts. Add and `TryAdd` may block if the collection size is bounded; `Take` and `TryTake` block while the collection is empty.
+
+```csharp
+var blockingCollection = new BlockingCollection<int>(boundedCapacity: 3);
+
+new Thread(() =>
+{
+    var value = 1;
+    while (true)
+    {
+        Console.WriteLine($"Adding {value}...");
+        // blockingCollection.TryAdd(value); // TryAdd method does not block
+        blockingCollection.Add(value);
+        Thread.Sleep(1000);
+        value++;
+    }
+}).Start();
+
+Thread.Sleep(10000);
+
+new Thread(() =>
+{
+    while (true)
+    {
+      // blockingCollection.Take(); // Take method blocks
+        blockingCollection.TryTake(out var element, 500);
+        Console.WriteLine($"Took {element}");
+    }
+}).Start();
+
+// Output:
+// Adding 1...
+// Adding 2...
+// Adding 3...
+// Adding 4...
+// Took 1
+// Took 2
+// Took 3
+// Took 4
+// Took 0
+// Adding 5...
+// Took 5
+// Took 0
+// Adding 6...
+// Took 6
+// Took 0
+```
