@@ -317,8 +317,7 @@
       - [Synchronization context, `ConfigureAwait`](csharp/concurrency/tap/synchronization-context.md)
       - [`Task`, `ValueTask`](csharp/concurrency/tap/task.md)
   - Collections
-    - [Concurrent collections](csharp/concurrency/concurrent-collections.md)
-    - [Immutable collections](csharp/concurrency/immutable-collections.md)
+    - [Concurrent, immutable, generic collections](csharp/concurrency/concurrent-collections.md)
     - [↑ `Channel`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.channels.channel)
     - [↑ Which collection interface to use?](https://enterprisecraftsmanship.com/posts/which-collection-interface-to-use/)
   - [Execution context](csharp/concurrency/execution-context.md)
