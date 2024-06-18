@@ -22,7 +22,11 @@ The concurrent collections are tuned for parallel programming. The conventional 
     - [`ConcurrentStack<T>`](#concurrentstackt)
     - [`ConcurrentDictionary<TKey,TValue>`](#concurrentdictionarytkeytvalue)
     - [`BlockingCollection<T>`](#blockingcollectiont)
-  - [`LinkedList<T>`](#linkedlistt)
+  - [Non-concurrent collections](#non-concurrent-collections)
+    - [`LinkedList<T>`](#linkedlistt)
+    - [`SortedList<TKey,TValue>`](#sortedlisttkeytvalue)
+    - [`SortedDictionary<TKey,TValue>`](#sorteddictionarytkeytvalue)
+    - [`SortedSet`](#sortedset)
 
 ## `IProducerConsumerCollection<T>`
 
@@ -340,7 +344,9 @@ new Thread(() =>
 // Took -5
 ```
 
-## `LinkedList<T>`
+## Non-concurrent collections
+
+### `LinkedList<T>`
 
 The [↑ `LinkedList<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.linkedlist-1) class represents a doubly linked list.
 
@@ -362,4 +368,65 @@ var ninetyNine = linkedList.AddBefore(hundred!, 99);
 Console.WriteLine($"Hundred: {ninetyNine.Next!.Value}");
 
 Console.WriteLine($"Linked list: {string.Join(", ", linkedList)}");
+```
+
+### `SortedList<TKey,TValue>`
+
+The [↑ SortedList<TKey,TValue>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.sortedlist-2) class represents a collection of key/value pairs that are sorted by key based on the associated [`IComparer<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.icomparer-1) implementation.
+
+```csharp
+var sortedList = new SortedList<int, string>
+{
+    { 3, "March" },
+    { 1, "January" },
+    { 5, "May" },
+    { -1, "None" },
+    { 2, "February" }
+};
+
+sortedList.Add(4, "April");
+sortedList.Remove(-1);
+Console.WriteLine($"Sorted list: {string.Join(", ", sortedList)}");
+// Output:
+// Sorted list: [1, January], [2, February], [3, March], [4, April], [5, May]
+```
+
+### `SortedDictionary<TKey,TValue>`
+
+The [↑ `SortedDictionary<TKey,TValue>`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.sorteddictionary-2) class represents a collection of key/value pairs that are sorted on the key.
+
+```csharp
+var sortedDictionary = new SortedDictionary<int, string>
+{
+    { 3, "March" },
+    { 1, "January" },
+    { 5, "May" },
+    { -1, "None" },
+    { 2, "February" }
+};
+
+sortedDictionary.Add(4, "April");
+sortedDictionary.Remove(-1);
+Console.WriteLine($"Sorted dictionary: {string.Join(", ", sortedDictionary)}");
+
+// Output:
+// Sorted dictionary: [1, January], [2, February], [3, March], [4, April], [5, May]
+```
+
+### `SortedSet`
+
+```csharp
+var sortedSet = new SortedSet<int>
+{
+    3,
+    1,
+    5,
+    -1,
+    2
+};
+sortedSet.Add(4);
+sortedSet.Remove(-1);
+
+Console.WriteLine($"Sorted set: {string.Join(", ", sortedSet)}");
+// Sorted set: 1, 2, 3, 4, 5
 ```
