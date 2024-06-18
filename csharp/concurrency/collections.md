@@ -21,7 +21,7 @@
     - [`LinkedList<T>`](#linkedlistt)
     - [`SortedList<TKey,TValue>`](#sortedlisttkeytvalue)
     - [`SortedDictionary<TKey,TValue>`](#sorteddictionarytkeytvalue)
-    - [`SortedSet`](#sortedset)
+    - [`SortedSet<T>`](#sortedsett)
 
 ## Concurrent collections
 
@@ -561,7 +561,9 @@ Console.WriteLine($"Sorted dictionary: {string.Join(", ", sortedDictionary)}");
 // Sorted dictionary: [1, January], [2, February], [3, March], [4, April], [5, May]
 ```
 
-### `SortedSet`
+### `SortedSet<T>`
+
+The [↑ `SortedSet<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.sortedset-1) class represents a collection of objects that is maintained in sorted order.
 
 ```csharp
 var sortedSet = new SortedSet<int>
