@@ -1,6 +1,6 @@
 # Immutable collections
 
-Most immutable collections are [↑ implemented](https://learn.microsoft.com/en-us/archive/msdn-magazine/2017/march/net-framework-immutable-collections#immutable-lists) using balanced binary trees. The rest use linked lists and only one, namely the [immutable array](#immutablearrayt), uses arrays.
+Most immutable collections are [↑ implemented](https://learn.microsoft.com/en-us/archive/msdn-magazine/2017/march/net-framework-immutable-collections#immutable-lists) using balanced binary trees. The rest use [linked lists](concurrent-collections.md#linkedlistt) and only one, namely the [immutable array](#immutablearrayt), uses arrays.
 
 Almost every mutable collection has a corresponding immutable one, which you can find in the [↑ `System.Collections.Immutable`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.immutable) namespace.
 

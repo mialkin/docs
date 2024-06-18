@@ -6,7 +6,7 @@ Some of the concurrent collection types use lightweight synchronization mechanis
 
 The [`ConcurrentQueue<T>`](#concurrentqueuet) and [`ConcurrentStack<T>`](#concurrentstackt) classes don't use locks at all. Instead, they rely on [`Interlocked`](/csharp/concurrency/synchronization/non-blocking.md#interlocked) operations to achieve thread safety.
 
-The concurrent stack, queue, and bag classes are implemented internally with linked lists. This makes them less memory-efficient than the nonconcurrent `Stack` and `Queue` classes, but better for concurrent access because linked lists are conducive to lock-free or low-lock implementations. This is because inserting a node into a linked list requires updating just a couple of references, while inserting an element into a `List<T>`-like structure may require moving thousands of existing elements.
+The concurrent stack, queue, and bag classes are implemented internally with [linked lists](#linkedlistt). This makes them less memory-efficient than the nonconcurrent `Stack` and `Queue` classes, but better for concurrent access because linked lists are conducive to lock-free or low-lock implementations. This is because inserting a node into a linked list requires updating just a couple of references, while inserting an element into a `List<T>`-like structure may require moving thousands of existing elements.
 
 The concurrent collections are tuned for parallel programming. The conventional collections outperform them in all but highly concurrent scenarios.
 
@@ -22,6 +22,7 @@ The concurrent collections are tuned for parallel programming. The conventional 
     - [`ConcurrentStack<T>`](#concurrentstackt)
     - [`ConcurrentDictionary<TKey,TValue>`](#concurrentdictionarytkeytvalue)
     - [`BlockingCollection<T>`](#blockingcollectiont)
+  - [`LinkedList<T>`](#linkedlistt)
 
 ## `IProducerConsumerCollection<T>`
 
@@ -337,4 +338,28 @@ new Thread(() =>
 // Took -4
 // Adding -5
 // Took -5
+```
+
+## `LinkedList<T>`
+
+The [↑ `LinkedList<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.linkedlist-1) class represents a doubly linked list.
+
+The `LinkedList<T>` is _not_ concurrent collection and presented here just for the reference.
+
+```csharp
+var linkedList = new LinkedList<int>();
+
+linkedList.AddFirst(1);
+linkedList.AddLast(100);
+
+var linkedListNode = linkedList.First;
+var newNode = linkedList.AddAfter(linkedListNode!, 2);
+var one = newNode.Previous;
+Console.WriteLine($"One: {one!.Value}");
+
+var hundred = linkedList.Find(100);
+var ninetyNine = linkedList.AddBefore(hundred!, 99);
+Console.WriteLine($"Hundred: {ninetyNine.Next!.Value}");
+
+Console.WriteLine($"Linked list: {string.Join(", ", linkedList)}");
 ```
