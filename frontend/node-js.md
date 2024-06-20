@@ -18,8 +18,8 @@
         - [`eslint-config-next`](#eslint-config-next)
         - [Babel](#babel)
       - [Scope](#scope)
+  - [React](#react)
   - [Next.js](#nextjs)
-    - [React](#react)
     - [`next.config.js` file](#nextconfigjs-file)
 
 ## Node.js
@@ -94,6 +94,14 @@ Babel is mainly used to convert ECMAScript 2015+ code into a backwards compatibl
 
 A [↑ scope](https://docs.npmjs.com/cli/v9/using-npm/scope) is a way of grouping related packages together, and also affect a few things about the way npm treats the package.
 
+## React
+
+[↑ React](https://react.dev), also known as **React.js** or **ReactJS**, is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by Meta and a community of individual developers and companies.
+
+React can be used to develop single-page, mobile, or server-rendered applications with frameworks like Next.js. Because React is only concerned with the user interface and rendering components to the DOM, React applications often rely on libraries for routing and other client-side functionality.
+
+A key advantage of React is that it only rerenders those parts of the page that have changed, avoiding unnecessary rerendering of unchanged DOM elements.
+
 ## Next.js
 
 [↑ Next.js](https://nextjs.org) is an open-source web development framework created by the private company Vercel providing React-based web applications with server-side rendering and static website generation.
@@ -103,14 +111,6 @@ The easiest way to get started with Next.js is by using [↑ `create-next-app`](
 ```bash
 npx create-next-app@latest
 ```
-
-### React
-
-[↑ React](https://react.dev), also known as **React.js** or **ReactJS**, is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by Meta (formerly Facebook) and a community of individual developers and companies.
-
-React can be used to develop single-page, mobile, or server-rendered applications with frameworks like Next.js. Because React is only concerned with the user interface and rendering components to the DOM, React applications often rely on libraries for routing and other client-side functionality.
-
-A key advantage of React is that it only rerenders those parts of the page that have changed, avoiding unnecessary rerendering of unchanged DOM elements.
 
 ### `next.config.js` file
 

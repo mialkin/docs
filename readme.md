@@ -378,7 +378,7 @@
 
 - HTML/CSS, [`px`, `em`, `rem`](frontend/html-css.md#css), [shortcuts](frontend/html-css.md#shortcuts), [Figma](frontend/html-css.md#figma)
 - [ECMAScript, JavaScript, TypeScript](frontend/javascript.md)
-- [Node.js, Next.js](frontend/node-js.md)
+- [Node.js, React, Next.js](frontend/node-js.md)
 
 ## Miscellaneous
 
