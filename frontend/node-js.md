@@ -1,8 +1,8 @@
-# Node.js, Next.js
+# Node.js, React, Next.js
 
 ## Table of contents
 
-- [Node.js, Next.js](#nodejs-nextjs)
+- [Node.js, React, Next.js](#nodejs-react-nextjs)
   - [Table of contents](#table-of-contents)
   - [Node.js](#nodejs)
     - [npm](#npm)
