@@ -355,8 +355,7 @@
   - [`IDisposable`, unmanaged resource, dispose pattern](csharp/memory/dispose-pattern.md)
   - [`WeakReference`](csharp/memory/weak-reference.md)
 - [↑ Operators](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/)
-  - [Equality operator `==`](csharp/operators/equality-operator.md)
-  - [`stackallock`](csharp/operators/stackalloc.md)
+  - [Equality operator `==`, `stackallock`](csharp/operators.md)
 - [Statement](csharp/statement.md)
 - [`Stopwatch`, `IProgress<T>`](csharp/selected-classes.md), [↑ `PeriodicTimer`](https://www.youtube.com/watch?v=J4JL4zR_l-0)
 - [`throw`, `try`, `catch`, `finally`](csharp/throw-try-catch-finally.md)
@@ -365,7 +364,7 @@
     - [↑ Built-in value types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types#built-in-value-types)
       - [`char`](csharp/types/value-types/char.md)
     - [Enumeration types](csharp/types/value-types/enum-types.md)
-    - [Structure types, `Span<T>`](csharp/types/value-types/struct-types.md), [↑ `ref` structure types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/ref-struct)
+    - [Structure types, `Span<T>`](csharp/types/value-types/struct-types.md)
     - [↑ Tuple types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples)
   - [Reference types, nullable reference types](csharp/types/reference-types/reference-types.md)
     - Built-in reference types
