@@ -133,10 +133,18 @@ var countdownEvent = new CountdownEvent(initialCount: 3);
 Calling `Signal` decrements the "count"; calling `Wait` blocks until the count goes down to zero:
 
 ```csharp
-var countdownEvent = new CountdownEvent(initialCount: 3);
+var countdownEvent = new CountdownEvent(initialCount: 4);
 
 new Thread(() => Signal(5000)).Start();
-new Thread(() => Signal(500)).Start();
+new Thread(() =>
+    {
+        Signal(500);
+        Signal(0);
+        Console.WriteLine("Incrementing count by 1");
+        countdownEvent.AddCount();
+        Signal(1000);
+    }
+).Start();
 new Thread(() => Signal(1000)).Start();
 
 void Signal(int delay)
@@ -153,8 +161,11 @@ Console.WriteLine("End");
 
 // Output:
 // Waiting...
+// Signaling from thread 5. Number of remaining signals required to set the event: 4
 // Signaling from thread 5. Number of remaining signals required to set the event: 3
-// Signaling from thread 6. Number of remaining signals required to set the event: 2
+// Incrementing count by 1
+// Signaling from thread 6. Number of remaining signals required to set the event: 3
+// Signaling from thread 5. Number of remaining signals required to set the event: 2
 // Signaling from thread 4. Number of remaining signals required to set the event: 1
 // End
 ```
