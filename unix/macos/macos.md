@@ -130,6 +130,13 @@ Clear local storage: **Web inspector** → **Storage** → **Clear local storage
 echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"' >> ~/.zprofile
 ```
 
+```json
+{
+  "font_size": 13,
+  "open_files_in_new_window": false
+}
+```
+
 ### Visual Studio Code
 
 [↑ Install `code` command in PATH](https://stackoverflow.com/questions/29955500/code-is-not-working-in-on-the-command-line-for-visual-studio-code-on-os-x-ma).

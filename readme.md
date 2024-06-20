@@ -381,7 +381,6 @@
   - [Next.js](frontend/javascript/next-js.md)
   - [Node.js](frontend/javascript/node-js.md)
   - [TypeScript](frontend/javascript/typescript.md)
-- [Shortcuts](frontend/shortcuts.md)
 
 ## Miscellaneous
 
