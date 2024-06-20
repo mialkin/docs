@@ -53,3 +53,11 @@ var task = Task.Run(async () =>
 // Available items in the channel: 10
 // Read value: -5
 ```
+
+## `Open.ChannelExtensions` library
+
+The [↑ `Open.ChannelExtensions`](https://github.com/Open-NET-Libraries/Open.ChannelExtensions) library is a set of extension methods for optimizing/simplifying `System.Threading.Channels` usage.
+
+[↑ An Introduction to `System.Threading.Channels`](https://devblogs.microsoft.com/dotnet/an-introduction-to-system-threading-channels).
+
+[↑ Producer/consumer pipelines with System.Threading.Channels](https://blog.maartenballiauw.be/post/2020/08/26/producer-consumer-pipelines-with-system-threading-channels.html).
