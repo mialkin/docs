@@ -1,12 +1,12 @@
-# `Stopwatch`, `IProgress<T>`
+# `Stopwatch`, `PeriodicTimer`, `Progress<T>`
 
 ## Table of contents
 
-- [`Stopwatch`, `IProgress<T>`](#stopwatch-iprogresst)
+- [`Stopwatch`, `PeriodicTimer`, `Progress<T>`](#stopwatch-periodictimer-progresst)
   - [Table of contents](#table-of-contents)
   - [`Stopwatch`](#stopwatch)
   - [`PeriodicTimer`](#periodictimer)
-  - [`IProgress<T>`](#iprogresst)
+  - [`Progress<T>`](#progresst)
 
 ## `Stopwatch`
 
@@ -29,15 +29,13 @@ Console.WriteLine(elapsedTime); // 00:00:01.23
 
 ## `PeriodicTimer`
 
-The `PeriodicTimer` class provides a periodic timer that enables waiting asynchronously for timer ticks.
+The [↑ `PeriodicTimer`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.periodictimer) class provides a periodic timer that enables waiting asynchronously for timer ticks.
 
 [↑ Scheduling repeating tasks with .NET 6's new timer](https://www.youtube.com/watch?v=J4JL4zR_l-0).
 
-## `IProgress<T>`
+## `Progress<T>`
 
-If you need to respond to progress while an operation is executing use the provided [↑ `IProgress<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.iprogress-1) and [↑ `Progress<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.progress-1) types.
-
-Your `async` method should take an `IProgress<T>` argument; the `T` is whatever type of progress you need to report:
+The [↑ `Progress<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.progress-1) class provides an [↑ `IProgress<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.iprogress-1) that invokes callbacks for each reported progress value.
 
 ```csharp
 var workProgress = new Progress<double>();
@@ -60,6 +58,6 @@ async Task DoWorkAsync(IProgress<double>? progress = null)
 
 By convention, the `IProgress<T>` parameter may be `null` if the caller doesn't need progress reports, so be sure to check for this in your `async` method.
 
-`IProgress<T>` is not exclusively for asynchronous code; both progress and cancellation can (and should) be used in long-running synchronous code as well.
+`IProgress<T>` is not exclusively for asynchronous code; both progress and cancellation should be used in long-running synchronous code as well.
 
 [↑ Have You Ever Signaled async/await Progress in These Three Ways?](https://www.youtube.com/watch?v=dhleFJPOQOs).
