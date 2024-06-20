@@ -1,12 +1,13 @@
-# `Stopwatch`, `PeriodicTimer`, `Progress<T>`
+# `Stopwatch`, `PeriodicTimer`, `Progress<T>`, `StreamWriter`
 
 ## Table of contents
 
-- [`Stopwatch`, `PeriodicTimer`, `Progress<T>`](#stopwatch-periodictimer-progresst)
+- [`Stopwatch`, `PeriodicTimer`, `Progress<T>`, `StreamWriter`](#stopwatch-periodictimer-progresst-streamwriter)
   - [Table of contents](#table-of-contents)
   - [`Stopwatch`](#stopwatch)
   - [`PeriodicTimer`](#periodictimer)
   - [`Progress<T>`](#progresst)
+  - [`StreamWriter`](#streamwriter)
 
 ## `Stopwatch`
 
@@ -61,3 +62,31 @@ By convention, the `IProgress<T>` parameter may be `null` if the caller doesn't 
 `IProgress<T>` is not exclusively for asynchronous code; both progress and cancellation should be used in long-running synchronous code as well.
 
 [↑ Have You Ever Signaled async/await Progress in These Three Ways?](https://www.youtube.com/watch?v=dhleFJPOQOs).
+
+## `StreamWriter`
+
+The [↑ `StreamWriter`](https://learn.microsoft.com/en-us/dotnet/api/system.io.streamwriter) class implements a [↑ `TextWriter`](https://learn.microsoft.com/en-us/dotnet/api/system.io.textwriter) for writing characters to a stream in a particular encoding.
+
+Counting number of times the file was opened and written to in one second:
+
+```csharp
+var stopwatch = new Stopwatch();
+stopwatch.Start();
+var counter = 0;
+
+while (stopwatch.ElapsedMilliseconds < 1000)
+{
+    using (var writer = new StreamWriter(path: "file.txt", append: true))
+    {
+        writer.WriteLine("test");
+    }
+
+    counter++;
+}
+
+stopwatch.Stop();
+Console.WriteLine(counter);
+
+// Output:
+// 14780
+```
