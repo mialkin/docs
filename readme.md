@@ -376,11 +376,7 @@
 
 ## Frontend
 
-- CSS
-  - [↑ CSS normalize and reset](https://mattbrictson.com/blog/css-normalize-and-reset)
-  - [↑ 5 Simple Ways to Center a Div Horizontally and Vertically in CSS](https://bootcamp.uxdesign.cc/5-simple-ways-to-center-a-div-horizontally-and-vertically-in-css-23bbaa5f9f52)
-  - [`px`, `em`, `rem`](frontend/css/px-em-rem.md)
-- [Figma](frontend/figma.md)
+- HTML/CSS, [`px`, `em`, `rem`](frontend/html-css.md#css), [shortcuts](frontend/html-css.md#shortcuts), [Figma](frontend/html-css.md#figma)
 - [JavaScript](frontend/javascript/javascript.md)
   - [Next.js](frontend/javascript/next-js.md)
   - [Node.js](frontend/javascript/node-js.md)
