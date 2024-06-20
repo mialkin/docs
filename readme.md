@@ -355,7 +355,7 @@
   - [`IDisposable`, unmanaged resource, dispose pattern](csharp/memory/dispose-pattern.md)
   - [`WeakReference`](csharp/memory/weak-reference.md)
 - [↑ Operators and expressions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/)
-  - [Equality operator `==`, `stackallock`](csharp/operators.md)
+  - [Equality operator `==`, `stackallock` expression](csharp/operators.md)
 - [Statement](csharp/statement.md)
 - [`Stopwatch`, `IProgress<T>`](csharp/selected-classes.md), [↑ `PeriodicTimer`](https://www.youtube.com/watch?v=J4JL4zR_l-0)
 - [`throw`, `try`, `catch`, `finally`](csharp/throw-try-catch-finally.md)
