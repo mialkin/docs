@@ -336,70 +336,39 @@ When the wait handle is signaled, or a timeout elapses, the delegate runs on a p
 
 ## `Barrier`
 
-A group of tasks cooperate by moving through a series of phases, where each in the group signals it has arrived at the `Barrier` in a given phase and implicitly waits for all others to arrive.
+The [↑ `Barrier`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.barrier) class enables multiple tasks to cooperatively work on an algorithm in parallel through multiple phases.
 
-The following example shows how to use a barrier:
+`Barrier` implements a _thread execution barrier_, which allows many threads to rendezvous at a point in time. The class is very fast and efficient, and is built upon `Wait`, `Pulse`, and spinlocks.
+
+To use this class:
+
+1. Instantiate it, specifying how many threads should partake in the rendezvous (you can change this later by calling `AddParticipants`/`RemoveParticipants`).
+2. Have each thread call `SignalAndWait` when it wants to rendezvous.
+
+Instantiating `Barrier` with a value of `3` causes `SignalAndWait` to block until that method has been called three times. But unlike a `CountdownEvent`, it then automatically starts over: calling `SignalAndWait` again blocks until called another three times. This allows you to keep several threads "in step" with each other as they process a series of tasks.
 
 ```csharp
-BarrierSample();
+var barrier = new Barrier(participantCount: 3, postPhaseAction: _ => Console.WriteLine());
 
-void BarrierSample()
+new Thread(Speak).Start();
+new Thread(Speak).Start();
+new Thread(Speak).Start();
+
+void Speak()
 {
-    int count = 0;
-
-    // Create a barrier with 3 participants.
-    // Provide a post-phase action that will print out certain information.
-    // And the third time through, it will throw an exception.
-    var barrier = new Barrier(3, b =>
+    for (var i = 1; i < 5; i++)
     {
-        Console.WriteLine($"Post-Phase action: count={count}, phase={b.CurrentPhaseNumber}");
-
-        if (b.CurrentPhaseNumber == 2)
-            throw new Exception("D'oh!");
-    });
-
-    // Nope — changed my mind.  Let's make it five participants.
-    barrier.AddParticipants(2);
-
-    // Nope — let's settle on four participants.
-    barrier.RemoveParticipant();
-
-    // This is the logic run by all participants.
-    Action action = () =>
-    {
-        Interlocked.Increment(ref count);
-        barrier.SignalAndWait(); // During the post-phase action, count should be 4 and phase should be 0.
-
-        Interlocked.Increment(ref count);
-        barrier.SignalAndWait(); // During the post-phase action, count should be 8 and phase should be 1.
-
-        // The third time, SignalAndWait() will throw an exception and all participants will see it.
-        Interlocked.Increment(ref count);
-        try
-        {
-            barrier.SignalAndWait();
-        }
-        catch (BarrierPostPhaseException bppe)
-        {
-            Console.WriteLine("Caught BarrierPostPhaseException: {0}", bppe.Message);
-        }
-
-        // The fourth time should be hunky-dory.
-        Interlocked.Increment(ref count);
-        barrier.SignalAndWait(); // During the post-phase action, count should be 16 and phase should be 3.
-    };
-
-    // Now launch 4 parallel actions to serve as 4 participants.
-    Parallel.Invoke(action, action, action, action);
-
-    // This (5 participants) would cause an exception:
-    // Parallel.Invoke(action, action, action, action, action);
-    //      "System.InvalidOperationException: The number of threads using the barrier
-    //      exceeded the total number of registered participants."
-
-    // It's good form to Dispose() a barrier when you're done with it.
-    barrier.Dispose();
+        Console.Write(i + " ");
+        barrier.SignalAndWait();
+    }
 }
+// Output:
+// 1 1 1
+// 2 2 2
+// 3 3 3
+// 4 4 4
 ```
 
-All public and protected members of `Barrier` are thread-safe and may be used concurrently from multiple threads, with the exception of `Dispose`, which must only be used when all other operations on the `Barrier` have completed.
+A really useful feature of `Barrier` is that you can also specify a _post-phase action_ when constructing it. This is a delegate that runs after `SignalAndWait` has been called _n_ times, but _before_ the threads are unblocked.
+
+A post-phase action can be useful for coalescing data from each of the worker threads. It doesn't have to worry about preemption, because all workers are blocked while it does its thing.
