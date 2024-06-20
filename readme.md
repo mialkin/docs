@@ -354,10 +354,11 @@
   - [Garbage collector](csharp/memory/garbage-collector.md)
   - [`IDisposable`, unmanaged resource, dispose pattern](csharp/memory/dispose-pattern.md)
   - [`WeakReference`](csharp/memory/weak-reference.md)
+- Miscellaneous classes
+  - [`Stopwatch`, `PeriodicTimer`, `IProgress<T>`](csharp/miscellaneous-classes.md)
 - [↑ Operators and expressions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/)
   - [Equality operator `==`, `stackallock` expression](csharp/operators-expressions.md)
 - [Statement](csharp/statement.md)
-- [`Stopwatch`, `IProgress<T>`](csharp/selected-classes.md), [↑ `PeriodicTimer`](https://www.youtube.com/watch?v=J4JL4zR_l-0)
 - [`throw`, `try`, `catch`, `finally`](csharp/throw-try-catch-finally.md)
 - Types
   - [Value types, `ValueType`, boxing and unboxing](csharp/types/value-types/value-types.md)

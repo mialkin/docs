@@ -5,11 +5,12 @@
 - [`Stopwatch`, `IProgress<T>`](#stopwatch-iprogresst)
   - [Table of contents](#table-of-contents)
   - [`Stopwatch`](#stopwatch)
+  - [`PeriodicTimer`](#periodictimer)
   - [`IProgress<T>`](#iprogresst)
 
 ## `Stopwatch`
 
-A [↑ `Stopwatch`](https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.stopwatch) class provides a set of methods and properties that you can use to accurately measure elapsed time.
+The [↑ `Stopwatch`](https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.stopwatch) class provides a set of methods and properties that you can use to accurately measure elapsed time.
 
 In a typical `Stopwatch` scenario, you call the `Start` method, then eventually call the `Stop` method, and then you check elapsed time using the `Elapsed` property:
 
@@ -25,6 +26,12 @@ var elapsedTime = $"{timeSpan.Hours:00}:{timeSpan.Minutes:00}:{timeSpan.Seconds:
 
 Console.WriteLine(elapsedTime); // 00:00:01.23
 ```
+
+## `PeriodicTimer`
+
+The `PeriodicTimer` class provides a periodic timer that enables waiting asynchronously for timer ticks.
+
+[↑ Scheduling repeating tasks with .NET 6's new timer](https://www.youtube.com/watch?v=J4JL4zR_l-0).
 
 ## `IProgress<T>`
 
