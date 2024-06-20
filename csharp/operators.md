@@ -1,8 +1,8 @@
-# Equality operator `==`, `stackalloc`
+# Equality operator `==`, `stackalloc` expression
 
 ## Table of contents
 
-- [Equality operator `==`, `stackalloc`](#equality-operator--stackalloc)
+- [Equality operator `==`, `stackalloc` expression](#equality-operator--stackalloc-expression)
   - [Table of contents](#table-of-contents)
   - [Equality operator `==`](#equality-operator-)
     - [Value types equality](#value-types-equality)
@@ -10,7 +10,7 @@
     - [Record types equality](#record-types-equality)
       - [String equality](#string-equality)
       - [Structures equality](#structures-equality)
-  - [`stackalloc`](#stackalloc)
+  - [`stackalloc` expression](#stackalloc-expression)
 
 ## Equality operator `==`
 
@@ -129,7 +129,7 @@ struct Point
 
 - [↑ How to define value equality for a class or struct](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/how-to-define-value-equality-for-a-type)
 
-## `stackalloc`
+## `stackalloc` expression
 
 A [↑ `stackalloc`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/stackalloc) expression allocates a block of memory on the stack. A stack-allocated memory block created during the method execution is automatically discarded when that method returns. You can't explicitly free the memory allocated with `stackalloc`. A stack allocated memory block isn't subject to garbage collection and doesn't have to be pinned with a [`fixed`](/csharp/memory/garbage-collector.md#fixed-keyword) statement.
 
