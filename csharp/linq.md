@@ -24,7 +24,3 @@ By adding `ToList()`, or for example `First()`, after `Select(_ => i++)` the out
 Deferred execution can greatly improve performance when you have to manipulate large data collections, especially in programs that contain a series of chained queries or manipulations. In the best case, deferred execution enables only a single iteration through the source collection.
 
 Deferred execution is supported directly in the C# language by the `yield` keyword ,in the form of the `yield/return` statement, when used within an iterator block.
-
-## PLINQ
-
-**PLINQ**, or **Parallel LINQ**, is a parallel execution engine for LINQ expressions. In other words, a regular LINQ expression can be trivially parallelized across any number of threads.
