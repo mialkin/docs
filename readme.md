@@ -321,6 +321,7 @@
     - [`Channel`](csharp/concurrency/channel.md)
     - [↑ Which collection interface to use?](https://enterprisecraftsmanship.com/posts/which-collection-interface-to-use/)
   - [Execution context](csharp/concurrency/execution-context.md)
+  - [Parallel programming, PFX, TPL, PLINQ, `Parallel`, `AggregateException`](csharp/concurrency/parallel-programming.md)
   - [Synchronization, context switch, critical section, spinning](csharp/concurrency/synchronization/synchronization.md)
     - Simple blocking methods
       - [`Thread.Sleep`](csharp/concurrency/thread.md#threadsleep), [`Thread.Join`](csharp/concurrency/thread.md#threadjoin), [↑ `Task.Wait`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.wait)
