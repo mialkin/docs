@@ -18,6 +18,7 @@ A **task parallelism** is a partitioning the tasks between threads, i.e. each th
     - [`ParallelQuery<TSource>`](#parallelquerytsource)
     - [`ParallelEnumerable`](#parallelenumerable)
       - [`AsParallel`](#asparallel)
+      - [`AsSequential`](#assequential)
   - [`Parallel`](#parallel)
   - [`AggregateException`](#aggregateexception)
 
@@ -50,6 +51,8 @@ PLINQ automates all the steps of parallelization — including partitioning the 
 | `Parallel` class | Yes             | No               |
 | Task parallelism | No              | No               |
 
+If a PLINQ query throws an exception, it's rethrown as an [`AggregateException`](#aggregateexception) whose `InnerExceptions` property contains the real exception(-s).
+
 ### `ParallelQuery<TSource>`
 
 The [↑ `ParallelQuery<TSource>`](https://learn.microsoft.com/en-us/dotnet/api/system.linq.parallelquery-1) class represents a parallel sequence.
@@ -60,17 +63,31 @@ The [↑ `ParallelEnumerable`](https://learn.microsoft.com/en-us/dotnet/api/syst
 
 #### `AsParallel`
 
+The [↑ `AsParallel`](https://learn.microsoft.com/en-us/dotnet/api/system.linq.parallelenumerable.asparallel) method enables parallelization of a query.
+
 To use PLINQ, simply call `AsParallel()` on the input sequence and then continue the LINQ query as usual.
 
 ```csharp
 var letters = new[] { "a", "b", "c", "d", "e", "f" };
-
 Console.WriteLine(string.Join(", ", letters.AsParallel().Select(x => x.ToUpper())));
 // Output:
 // C, D, E, A, B, F
 ```
 
 `AsParallel()` wraps the input in a sequence based on [`ParallelQuery<TSource>`](#parallelquerytsource), which causes the LINQ query operators that you subsequently call to bind to an alternate set of extension methods defined in [`ParallelEnumerable`](#parallelenumerable). These provide parallel implementations of each of the standard query operators. Essentially, they work by partitioning the input sequence into chunks that execute on different threads, collating the results back into a single output sequence for consumption.
+
+#### `AsSequential`
+
+The [`AsSequential`](https://learn.microsoft.com/en-us/dotnet/api/system.linq.parallelenumerable.assequential) method converts a [`ParallelQuery<TSource>`](#parallelquerytsource) into an `IEnumerable<T>` to force sequential evaluation of the query.
+
+```csharp
+var letters = new[] { "a", "b", "c", "d", "e", "f" };
+Console.WriteLine(string.Join(", ", letters.AsParallel().AsSequential().Select(x => x.ToUpper())));
+// Output:
+// A, B, C, D, E, F
+```
+
+Calling `AsSequential()` unwraps a `ParallelQuery` sequence so that subsequent query operators bind to the standard query operators and execute sequentially. This is necessary before calling methods that have side effects or are not thread-safe.
 
 ## `Parallel`
 
