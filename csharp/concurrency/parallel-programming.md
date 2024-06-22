@@ -19,6 +19,9 @@ A **task parallelism** is a partitioning the tasks between threads, i.e. each th
     - [`ParallelEnumerable`](#parallelenumerable)
       - [`AsParallel`](#asparallel)
       - [`AsSequential`](#assequential)
+      - [`AsOrdered`](#asordered)
+      - [`AsUnordered`](#asunordered)
+      - [`WithExecutionMode`](#withexecutionmode)
   - [`Parallel`](#parallel)
   - [`AggregateException`](#aggregateexception)
 
@@ -78,7 +81,7 @@ Console.WriteLine(string.Join(", ", letters.AsParallel().Select(x => x.ToUpper()
 
 #### `AsSequential`
 
-The [`AsSequential`](https://learn.microsoft.com/en-us/dotnet/api/system.linq.parallelenumerable.assequential) method converts a [`ParallelQuery<TSource>`](#parallelquerytsource) into an `IEnumerable<T>` to force sequential evaluation of the query.
+The [↑ `AsSequential`](https://learn.microsoft.com/en-us/dotnet/api/system.linq.parallelenumerable.assequential) method converts a [`ParallelQuery<TSource>`](#parallelquerytsource) into an `IEnumerable<T>` to force sequential evaluation of the query.
 
 ```csharp
 var letters = new[] { "a", "b", "c", "d", "e", "f" };
@@ -88,6 +91,43 @@ Console.WriteLine(string.Join(", ", letters.AsParallel().AsSequential().Select(x
 ```
 
 Calling `AsSequential()` unwraps a `ParallelQuery` sequence so that subsequent query operators bind to the standard query operators and execute sequentially. This is necessary before calling methods that have side effects or are not thread-safe.
+
+#### `AsOrdered`
+
+The [↑ `AsOrdered`](https://learn.microsoft.com/en-us/dotnet/api/system.linq.parallelenumerable.asordered) method enables treatment of a data source as if it were ordered, overriding the default of unordered.
+
+A side effect of parallelizing the query operators is that when the results are collated, it’s not necessarily in the same order that they were submitted, as illustrated in the previous diagram. In other words, LINQ's normal order-preservation guarantee for sequences no longer holds.
+
+```csharp
+var letters = new[] { "a", "b", "c", "d", "e", "f" };
+Console.WriteLine(string.Join(", ", letters.AsParallel().AsOrdered().Select(x => x.ToUpper())));
+// Output:
+// A, B, C, D, E, F
+```
+
+Calling `AsOrdered` incurs a performance hit with large numbers of elements because PLINQ must keep track of each element's original position.
+
+`AsOrdered` may only be invoked on non-generic sequences returned by [`AsParallel`](#asparallel), `ParallelEnumerable.Range`, and `ParallelEnumerable.Repeat`.
+
+#### `AsUnordered`
+
+The [↑ `AsUnordered`](https://learn.microsoft.com/en-us/dotnet/api/system.linq.parallelenumerable.asunordered) method allows an intermediate query to be treated as if no ordering is implied among the elements.
+
+You can negate the effect of `AsOrdered` later in a query by calling `AsUnordered`: this introduces a "random shuffle point" which allows the query to execute more efficiently from that point on.
+
+```csharp
+inputSequence.AsParallel().AsOrdered()
+    .QueryOperator1()
+    .QueryOperator2()
+    .AsUnordered() // From here on, ordering doesn't matter
+    .QueryOperator3()
+```
+
+#### `WithExecutionMode`
+
+The [↑ `WithExecutionMode<TSource>`](https://learn.microsoft.com/en-us/dotnet/api/system.linq.parallelenumerable.withexecutionmode) sets the execution mode of the query.
+
+PLINQ may run your query sequentially if it suspects that the overhead of parallelization will slow down that particular query. You can override this behavior and force parallelism by calling `.WithExecutionMode(ParallelExecutionMode.ForceParallelism` after `AsParallel()`:
 
 ## `Parallel`
 
