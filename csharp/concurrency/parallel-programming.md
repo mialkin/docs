@@ -175,7 +175,7 @@ public class Benchmark
     }
 
     [Benchmark]
-    public void ParallelStruct()
+    public void Parallel()
     {
         var wordsWithMistakes = _randomText
             .AsParallel()
@@ -187,7 +187,7 @@ public class Benchmark
     }
 
     [Benchmark]
-    public void SequentialStruct()
+    public void Sequential()
     {
         var wordsWithMistakes = _randomText
             .Select((x, index) => new IndexedWord { Word = x, Index = index })
@@ -243,9 +243,9 @@ BenchmarkRunner.Run<Benchmark>();
 ```console
 | Method           | Mean      | Error    | StdDev   | Completed Work Items | Lock Contentions | Gen0      | Allocated   |
 |----------------- |----------:|---------:|---------:|---------------------:|-----------------:|----------:|------------:|
-| ParallelStruct   |  71.59 ms | 0.797 ms | 0.746 ms |              11.0000 |                - |         - |     8.94 KB |
+| Parallel         |  71.59 ms | 0.797 ms | 0.746 ms |              11.0000 |                - |         - |     8.94 KB |
 | ParallelClass    |  80.24 ms | 0.527 ms | 0.440 ms |              11.0000 |                - | 5000.0000 | 31258.96 KB |
-| SequentialStruct | 336.07 ms | 6.390 ms | 5.977 ms |                    - |                - |         - |      1.3 KB |
+| Sequential       | 336.07 ms | 6.390 ms | 5.977 ms |                    - |                - |         - |      1.3 KB |
 | SequentialClass  | 356.85 ms | 6.360 ms | 5.949 ms |                    - |                - | 5000.0000 | 31251.28 KB |
 
 // * Hints *
