@@ -185,25 +185,25 @@ In addition to the `Set`, `WaitOne`, and `Reset` methods, there are static metho
 #### `WaitAll`
 
 ```csharp
-var autoResetEvent1 = new ManualResetEventSlim(initialState: false);
-var autoResetEvent2 = new ManualResetEventSlim(initialState: false);
+var manualResetEvent1 = new ManualResetEventSlim(initialState: false);
+var manualResetEvent2 = new ManualResetEventSlim(initialState: false);
 
 new Thread(() =>
 {
     Thread.Sleep(5000);
     Console.WriteLine("Signaling 1");
-    autoResetEvent1.Set();
+    manualResetEvent1.Set();
 }).Start();
 
 new Thread(() =>
 {
     Thread.Sleep(1000);
     Console.WriteLine("Signaling 2");
-    autoResetEvent2.Set();
+    manualResetEvent2.Set();
 }).Start();
 
 Console.WriteLine("Waiting all...");
-WaitHandle.WaitAll([autoResetEvent1.WaitHandle, autoResetEvent2.WaitHandle]);
+WaitHandle.WaitAll([manualResetEvent1.WaitHandle, manualResetEvent2.WaitHandle]);
 Console.WriteLine("End");
 
 // Output:
@@ -231,12 +231,12 @@ By replacing `WaitAll` with `WaitAny` above you will get the following output:
 `SignalAndWait` calls `Set` on one `WaitHandle`, and then calls `WaitOne` on another `WaitHandle`. The atomicity guarantee is that after signaling the first handle, it will jump to the head of the queue in waiting on the second handle: you can think of it as "swapping" one signal for another.
 
 ```csharp
-var autoResetEvent1 = new ManualResetEventSlim(initialState: false);
-var autoResetEvent2 = new ManualResetEventSlim(initialState: false);
+var manualResetEvent1 = new ManualResetEventSlim(initialState: false);
+var manualResetEvent2 = new ManualResetEventSlim(initialState: false);
 
 new Thread(() =>
 {
-    autoResetEvent1.WaitHandle.WaitOne();
+    manualResetEvent1.WaitHandle.WaitOne();
     Console.WriteLine("Got signaled");
 }).Start();
 
@@ -244,13 +244,13 @@ new Thread(() =>
 {
     Thread.Sleep(5000);
     Console.WriteLine("Signaling 2");
-    autoResetEvent2.Set();
+    manualResetEvent2.Set();
 }).Start();
 
 Thread.Sleep(1000);
 
 Console.WriteLine("Signaling and waiting...");
-WaitHandle.SignalAndWait(toSignal: autoResetEvent1.WaitHandle, toWaitOn: autoResetEvent2.WaitHandle);
+WaitHandle.SignalAndWait(toSignal: manualResetEvent1.WaitHandle, toWaitOn: manualResetEvent2.WaitHandle);
 Console.WriteLine("End");
 
 // Output:
