@@ -21,7 +21,7 @@ private static ThreadLocal<int> _x = new (() => 3);
 
 `ThreadLocal` values are lazily evaluated: the factory function evaluates on the first call for each thread.
 
-Using `ThreadLocal` with a `static` variable:
+Using `ThreadLocal` with a static variable:
 
 ```csharp
 new Thread(() =>
@@ -60,7 +60,7 @@ class A
 // 5 10
 ```
 
-Using `ThreadLocal` with a regular variable:
+Using `ThreadLocal` with a non-static variable:
 
 ```csharp
 var a = new A();
@@ -101,7 +101,17 @@ class A
 // 5 10
 ```
 
+Consider the problem of generating random numbers in a multithreaded environment. The `Random` class is not thread-safe, so we have to either lock around using `Random`, limiting concurrency, or generate a separate `Random` object for each thread. `ThreadLocal<T>` makes the latter easy:
+
+```csharp
+using var localRandom = new ThreadLocal<Random>(() => new Random(Guid.NewGuid().GetHashCode()));
+```
+
 The `ThreadLocal<T>` class implements `IDisposable`. Always call [↑ `Dispose`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.threadlocal-1.dispose) before you release your last reference to the `ThreadLocal<T>`. Otherwise, the resources it is using will not be freed until the garbage collector calls the `ThreadLocal<T>` object's `Finalize` method.
+
+```csharp
+using var threadLocal = new ThreadLocal<int>();
+```
 
 ## `AsyncLocal<T>`
 
