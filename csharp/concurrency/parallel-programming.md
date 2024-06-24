@@ -22,6 +22,8 @@ A **task parallelism** is a partitioning the tasks between threads, i.e. each th
       - [`AsOrdered`](#asordered)
       - [`AsUnordered`](#asunordered)
       - [`WithExecutionMode`](#withexecutionmode)
+      - [`WithDegreeOfParallelism`](#withdegreeofparallelism)
+      - [`WithCancellation`](#withcancellation)
     - [Example](#example)
   - [`Parallel`](#parallel)
   - [`AggregateException`](#aggregateexception)
@@ -135,6 +137,49 @@ inputSequence.AsParallel().AsOrdered()
 The [↑ `WithExecutionMode<TSource>`](https://learn.microsoft.com/en-us/dotnet/api/system.linq.parallelenumerable.withexecutionmode) sets the execution mode of the query.
 
 PLINQ may run your query sequentially if it suspects that the overhead of parallelization will slow down that particular query. You can override this behavior and force parallelism by calling `.WithExecutionMode(ParallelExecutionMode.ForceParallelism` after `AsParallel()`:
+
+#### `WithDegreeOfParallelism`
+
+The [↑ `WithDegreeOfParallelism`](https://learn.microsoft.com/en-us/dotnet/api/system.linq.parallelenumerable.withdegreeofparallelism) method sets the degree of parallelism to use in a query. Degree of parallelism is the maximum number of concurrently executing tasks that will be used to process the query.
+
+```csharp
+"abcdef".AsParallel().WithDegreeOfParallelism(2).Select(char.ToUpper).ForAll(x =>
+{
+    Console.WriteLine(Environment.CurrentManagedThreadId + " " + x);
+});
+```
+
+#### `WithCancellation`
+
+The [↑ `WithCancellation`](https://learn.microsoft.com/en-us/dotnet/api/system.linq.parallelenumerable.withcancellation) method sets the CancellationToken to associate with the query.
+
+PLINQ doesn't preemptively abort threads, because of the danger of doing so. Instead, upon cancellation it waits for each worker thread to finish with its current element before ending the query. This means that any external methods that the query calls will run to completion.
+
+```csharp
+var million = Enumerable.Range(3, 1000000);
+var cancellationTokenSource = new CancellationTokenSource();
+
+var primeNumberQuery =
+    from n in million.AsParallel().WithCancellation(cancellationTokenSource.Token)
+    where Enumerable.Range(2, (int)Math.Sqrt(n)).All(i => n % i > 0)
+    select n;
+
+new Thread(() =>
+{
+    Thread.Sleep(100);
+    cancellationTokenSource.Cancel();
+}).Start();
+
+try
+{
+    var primes = primeNumberQuery.ToArray();
+    Console.WriteLine("We'll never get here because the other thread will cancel us");
+}
+catch (OperationCanceledException)
+{
+    Console.WriteLine("Query canceled");
+}
+```
 
 ### Example
 
