@@ -358,7 +358,7 @@
 - Miscellaneous classes
   - [`Stopwatch`, `PeriodicTimer`, `Progress<T>`, `StreamWriter`](csharp/miscellaneous-classes.md)
 - [↑ Operators and expressions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/)
-  - [Equality operator `==`, `stackallock` expression](csharp/operators-expressions.md)
+  - [Equality operator `==`, `stackalloc` expression](csharp/operators-expressions.md)
 - [Statement](csharp/statement.md)
 - [`throw`, `try`, `catch`, `finally`](csharp/throw-try-catch-finally.md)
 - Types
