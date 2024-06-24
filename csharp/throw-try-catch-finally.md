@@ -24,4 +24,32 @@ For more information, see the [↑ How exceptions are handled](https://learn.mic
 
 In almost all cases `finally` blocks are executed. The only cases where `finally` blocks aren't executed involve immediate termination of a program. For example, such a termination might happen because of the [↑ Environment.FailFast](https://learn.microsoft.com/en-us/dotnet/api/system.environment.failfast) call or an [↑ `OverflowException`](https://learn.microsoft.com/en-us/dotnet/api/system.overflowexception) or [↑ `InvalidProgramException`](https://learn.microsoft.com/en-us/dotnet/api/system.invalidprogramexception) exception. Most operating systems perform a reasonable resource clean-up as part of stopping and unloading the process.
 
+```csharp
+try
+{
+    M();
+}
+catch
+{
+    Console.WriteLine("Won't catch");
+}
+finally
+{
+    Console.WriteLine("Won't run");
+}
+
+void M()
+{
+    M();
+}
+
+// Output:
+// Stack overflow.
+// Repeat 523904 times:
+// --------------------------------
+//    at Program.<<Main>$>g__M|0_0()
+// --------------------------------
+//    at Program.<Main>$(System.String[])
+```
+
 [↑ Exception-handling statements](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/exception-handling-statements).
