@@ -126,7 +126,7 @@ The `AsyncLocal<T>` class also provides optional notifications when the value as
 
 ### Example
 
-By definition, `AsyncLocal` represents ambient data that is local to a given asynchronous control flow, such as an asynchronous method. However, this contextual data flows down the asynchronous call stack, not the opposite:
+By definition, `AsyncLocal<T>` represents ambient data that is local to a given asynchronous control flow, such as an asynchronous method. However, this contextual data flows down the asynchronous call stack, not the opposite:
 
 ```csharp
 AsyncLocal<string> context = new();
@@ -187,6 +187,10 @@ This time, value changes inside the child affect the parent `Task` as well.
 
 ### Usage with ASP.NET middleware
 
+The `AsyncLocal<T>` allows to avoid [↑ tramp data](https://softwareengineering.stackexchange.com/questions/335005/is-there-a-name-for-the-anti-pattern-of-passing-parameters-that-will-only-be/335013#335013) code smell.
+
+[↑ Conveying Context with AsyncLocal](https://medium.com/@norm.bryar/conveying-context-with-asynclocal-91fa474a5b42).
+
 ```csharp
 public static class UserIdenity
 {
@@ -238,8 +242,6 @@ http://localhost:2300?userId=Bob
 [01:09:07 INF] User ID after 10 seconds delay: Tom
 [01:09:09 INF] User ID after 10 seconds delay: Bob
 ```
-
-[↑ Conveying Context with AsyncLocal](https://medium.com/@norm.bryar/conveying-context-with-asynclocal-91fa474a5b42).
 
 ## `[ThreadStatic]`
 
