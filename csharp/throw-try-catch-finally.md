@@ -24,6 +24,8 @@ For more information, see the [↑ How exceptions are handled](https://learn.mic
 
 In almost all cases `finally` blocks are executed. The only cases where `finally` blocks aren't executed involve immediate termination of a program. For example, such a termination might happen because of the [↑ Environment.FailFast](https://learn.microsoft.com/en-us/dotnet/api/system.environment.failfast) call or an [↑ `OverflowException`](https://learn.microsoft.com/en-us/dotnet/api/system.overflowexception) or [↑ `InvalidProgramException`](https://learn.microsoft.com/en-us/dotnet/api/system.invalidprogramexception) exception. Most operating systems perform a reasonable resource clean-up as part of stopping and unloading the process.
 
+The example, when `finally` does not execute:
+
 ```csharp
 try
 {
@@ -50,6 +52,27 @@ void M()
 //    at Program.<<Main>$>g__M|0_0()
 // --------------------------------
 //    at Program.<Main>$(System.String[])
+```
+
+Although this executes both `catch` and `finally` blocks:
+
+```csharp
+try
+{
+    throw new StackOverflowException();
+}
+catch
+{
+    Console.WriteLine("Catches");
+}
+finally
+{
+    Console.WriteLine("Runs");
+}
+
+// Output:
+// Catches
+// Runs
 ```
 
 [↑ Exception-handling statements](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/exception-handling-statements).
