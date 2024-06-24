@@ -11,42 +11,97 @@
 
 ## `ThreadLocal<T>`
 
-[↑ `ThreadLocal<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.threadlocal-1) class provides thread-local storage of data.
+[↑ `ThreadLocal<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.threadlocal-1) class provides thread-local storage for both static and instance fields — and allows you to specify default values.
+
+Here's how to create a `ThreadLocal<int>` with a default value of 3 for each thread:
 
 ```csharp
-public class ThreadLocal<T> : IDisposable
+private static ThreadLocal<int> _x = new (() => 3);
 ```
 
-Example:
+`ThreadLocal` values are lazily evaluated: the factory function evaluates on the first call for each thread.
+
+Using `ThreadLocal` with a `static` variable:
 
 ```csharp
-// Thread-Local variable that yields an ID for a thread
-var threadId = new ThreadLocal<int>(valueFactory: () => Environment.CurrentManagedThreadId);
-
-// Action that prints out thread ID for the current thread
-var action = () =>
+new Thread(() =>
 {
-    // If ThreadName.IsValueCreated is true, it means that we are not the
-    // first action to run on this thread
-    Console.WriteLine($"IsValueCreated: {threadId.IsValueCreated}. Thread ID: {threadId.Value}");
-};
+    Console.WriteLine(A.ThreadLocal.Value + " " + A.Regular);
+    A.ThreadLocal.Value = 5;
+    A.Regular = 5;
+    Thread.Sleep(1000);
+    Console.WriteLine(A.ThreadLocal.Value + " " + A.Regular);
+    Thread.Sleep(4000);
+    Console.WriteLine(A.ThreadLocal.Value + " " + A.Regular);
+}).Start();
 
-// Launch 8 of them. On 4 cores or less, you should see some repeat thread
-Parallel.Invoke(action, action, action, action, action, action, action, action);
+new Thread(() =>
+{
+    Thread.Sleep(2000);
+    Console.WriteLine(A.ThreadLocal.Value + " " + A.Regular);
+    A.ThreadLocal.Value = 10;
+    A.Regular = 10;
+    Thread.Sleep(1000);
+    Console.WriteLine(A.ThreadLocal.Value + " " + A.Regular);
+}).Start();
 
-// Dispose when you are done
-threadId.Dispose();
+
+class A
+{
+    public static readonly ThreadLocal<int> ThreadLocal = new(() => 3);
+    public static int Regular = 3;
+}
 
 // Output:
-// IsValueCreated: False. Thread ID: 7
-// IsValueCreated: True. Thread ID: 7
-// IsValueCreated: False. Thread ID: 4
-// IsValueCreated: True. Thread ID: 7
-// IsValueCreated: True. Thread ID: 4
-// IsValueCreated: False. Thread ID: 9
-// IsValueCreated: False. Thread ID: 15
-// IsValueCreated: False. Thread ID: 14
+// 3 3
+// 5 5
+// 3 5
+// 10 10
+// 5 10
 ```
+
+Using `ThreadLocal` with a regular variable:
+
+```csharp
+var a = new A();
+
+new Thread(() =>
+{
+    Console.WriteLine(a.ThreadLocal.Value + " " + a.Regular);
+    a.ThreadLocal.Value = 5;
+    a.Regular = 5;
+    Thread.Sleep(1000);
+    Console.WriteLine(a.ThreadLocal.Value + " " + a.Regular);
+    Thread.Sleep(4000);
+    Console.WriteLine(a.ThreadLocal.Value + " " + a.Regular);
+}).Start();
+
+new Thread(() =>
+{
+    Thread.Sleep(2000);
+    Console.WriteLine(a.ThreadLocal.Value + " " + a.Regular);
+    a.ThreadLocal.Value = 10;
+    a.Regular = 10;
+    Thread.Sleep(1000);
+    Console.WriteLine(a.ThreadLocal.Value + " " + a.Regular);
+}).Start();
+
+
+class A
+{
+    public readonly ThreadLocal<int> ThreadLocal = new(() => 3);
+    public int Regular = 3;
+}
+
+// Output:
+// 3 3
+// 5 5
+// 3 5
+// 10 10
+// 5 10
+```
+
+The `ThreadLocal<T>` class implements `IDisposable`. Always call [↑ `Dispose`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.threadlocal-1.dispose) before you release your last reference to the `ThreadLocal<T>`. Otherwise, the resources it is using will not be freed until the garbage collector calls the `ThreadLocal<T>` object's `Finalize` method.
 
 ## `AsyncLocal<T>`
 
