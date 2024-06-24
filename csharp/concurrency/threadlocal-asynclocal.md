@@ -7,6 +7,7 @@
   - [`ThreadLocal<T>`](#threadlocalt)
   - [`AsyncLocal<T>`](#asynclocalt)
     - [Example](#example)
+    - [Usage with ASP.NET middleware](#usage-with-aspnet-middleware)
   - [`[ThreadStatic]`](#threadstatic)
 
 ## `ThreadLocal<T>`
@@ -183,6 +184,62 @@ await ParentTaskAsync();
 This time, value changes inside the child affect the parent `Task` as well.
 
 [↑ Difference Between Returning and Awaiting a Task in C#](https://code-maze.com/charp-difference-between-returning-and-awaiting-a-task/).
+
+### Usage with ASP.NET middleware
+
+```csharp
+public static class UserIdenity
+{
+    public static AsyncLocal<string> Id { get; } = new();
+}
+```
+
+```csharp
+public class UserIdentityMiddleware
+{
+    private readonly RequestDelegate _next;
+
+    public UserIdentityMiddleware(RequestDelegate next)
+    {
+        _next = next;
+    }
+
+    public async Task InvokeAsync(HttpContext context)
+    {
+        var cultureQuery = context.Request.Query["userId"];
+        if (!string.IsNullOrWhiteSpace(cultureQuery))
+        {
+            UserIdenity.Id.Value = cultureQuery.First()!;
+        }
+
+        await _next(context);
+    }
+}
+```
+
+In your business logic layer:
+
+```csharp
+logger.LogInformation($"User ID: {UserIdenity.Id.Value}. Delaying for 10 second");
+await Task.Delay(10000, cancellationToken);
+logger.LogInformation($"User ID after 10 seconds delay: {UserIdenity.Id.Value}");
+```
+
+Run 2 queries, one right after another, in separate web browser tabs:
+
+```text
+http://localhost:2300?userId=Nikolay
+http://localhost:2300?userId=Aleksei
+```
+
+```console
+[01:08:57 INF] User ID: Nikolay. Delaying for 10 second
+[01:08:59 INF] User ID: Aleksei. Delaying for 10 second
+[01:09:07 INF] User ID after 10 seconds delay: Nikolay
+[01:09:09 INF] User ID after 10 seconds delay: Aleksei
+```
+
+[↑ Conveying Context with AsyncLocal](https://medium.com/@norm.bryar/conveying-context-with-asynclocal-91fa474a5b42).
 
 ## `[ThreadStatic]`
 
