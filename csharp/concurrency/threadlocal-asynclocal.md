@@ -206,10 +206,10 @@ public class UserIdentityMiddleware
 
     public async Task InvokeAsync(HttpContext context)
     {
-        var cultureQuery = context.Request.Query["userId"];
-        if (!string.IsNullOrWhiteSpace(cultureQuery))
+        var userId = context.Request.Query["userId"];
+        if (!string.IsNullOrWhiteSpace(userId))
         {
-            UserIdenity.Id.Value = cultureQuery.First()!;
+            UserIdenity.Id.Value = userId.First()!;
         }
 
         await _next(context);
@@ -228,15 +228,15 @@ logger.LogInformation($"User ID after 10 seconds delay: {UserIdenity.Id.Value}")
 Run 2 queries, one right after another, in separate web browser tabs:
 
 ```text
-http://localhost:2300?userId=Nikolay
-http://localhost:2300?userId=Aleksei
+http://localhost:2300?userId=Tom
+http://localhost:2300?userId=Bob
 ```
 
 ```console
-[01:08:57 INF] User ID: Nikolay. Delaying for 10 second
-[01:08:59 INF] User ID: Aleksei. Delaying for 10 second
-[01:09:07 INF] User ID after 10 seconds delay: Nikolay
-[01:09:09 INF] User ID after 10 seconds delay: Aleksei
+[01:08:57 INF] User ID: Tom. Delaying for 10 second
+[01:08:59 INF] User ID: Bob. Delaying for 10 second
+[01:09:07 INF] User ID after 10 seconds delay: Tom
+[01:09:09 INF] User ID after 10 seconds delay: Bob
 ```
 
 [↑ Conveying Context with AsyncLocal](https://medium.com/@norm.bryar/conveying-context-with-asynclocal-91fa474a5b42).
