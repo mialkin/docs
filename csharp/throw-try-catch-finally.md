@@ -30,6 +30,7 @@ The example, when `finally` does not execute:
 try
 {
     M();
+    // Span<int> numbers = stackalloc int[3_000_000]; // This also causes exception
 }
 catch
 {
