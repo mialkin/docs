@@ -68,7 +68,7 @@ The `Task` class achieves two distinct things:
 
 Interestingly, these two things are not joined at the hip: you can leverage a task's features for managing work items without scheduling anything to run on the thread pool. The `TaskCompletionSource` enables this pattern of use.
 
-To use `TaskCompletionSource` you simply instantiate the class. It exposes a Task property that returns a task upon which you can wait and attach continuations — just like any other task.
+To use `TaskCompletionSource` you simply instantiate the class. It exposes a `Task` property that returns a task upon which you can wait and attach continuations — just like any other task.
 
 ```csharp
 var source = new TaskCompletionSource<int>();
@@ -81,6 +81,25 @@ new Thread(() =>
 
 var result = await source.Task;
 Console.WriteLine(result);
-// Output
+// Output:
 // 123
+```
+
+```csharp
+var source = new TaskCompletionSource();
+
+new Thread(() =>
+{
+    Console.WriteLine("Start");
+    Thread.Sleep(5000);
+    source.SetResult();
+    Console.WriteLine("Set");
+}).Start();
+
+await source.Task;
+Console.WriteLine("End");
+// Output:
+// Start
+// End
+// Set
 ```
