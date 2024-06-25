@@ -14,16 +14,10 @@
   - [ASP.NET](#aspnet)
   - [Computer science](#computer-science)
   - [Web](#web)
-  - [Разобрать](#разобрать)
   - [Dumb questions](#dumb-questions)
 
 ## Tools
 
-- Quartz.NET
-  - <https://code-maze.com/schedule-jobs-with-quartz-net>
-  - <https://www.quartz-scheduler.net/documentation/quartz-3.x/quick-start.html#nuget-package>
-  - <https://blog.vfrz.fr/quartz-asp-net-core-3-0/>
-- Hangfire
 - [↑ MassTransit](https://www.youtube.com/@PhatBoyG/videos)
 - [↑ MongoDB](https://www.mongodb.com)
 - Kafka
@@ -36,10 +30,7 @@
 - [↑ Refit](https://github.com/reactiveui/refit) and [↑ RestSharp](https://github.com/restsharp/RestSharp) and [↑ RestEase](https://github.com/canton7/RestEase)
 - [↑ pact-net](https://github.com/pact-foundation/pact-net)
   - [↑ Introduction to contract testing with Pactflow](https://www.youtube.com/playlist?list=PLwy9Bnco-IpfZ72VQ7hce8GicVZs7nm0i)
-- Vault secrets webhook
-  - [↑ Inject secrets directly into Pods from Vault revisited](https://banzaicloud.com/blog/inject-secrets-into-pods-vault-revisited/)
-  - [↑ Kubernetes Meetup Yekaterinburg 001](https://www.youtube.com/watch?v=YUJRVu66ld8&t=1953s)
-  - Try [↑ Qodana](https://www.jetbrains.com/qodana).
+- [↑ Qodana](https://www.jetbrains.com/qodana).
 - [↑ Apache Airflow](https://airflow.apache.org)
 
 ## Databases
@@ -100,35 +91,14 @@
 ## Software architecture and design
 
 - [↑ Architectural Katas](https://nealford.com/katas)
-- [↑ Software Architecture in Practice (SEI Series in Software Engineering)](https://www.amazon.com/Software-Architecture-Practice-3rd-Engineering/dp/0321815734)
-- [↑ Business Process Model and Notation](https://ru.wikipedia.org/wiki/BPMN)
-  - [↑ BPMN tooling](https://bpmn.io)
-  - [↑ Редактор Storm BPMN](https://stormbpmn.com)
-  - [↑ Главный секрет BPMN: токены](https://www.youtube.com/watch?v=Gfx5atU3YDY)
-  - [↑ Как и зачем добавлять BPM движок к своим микросервисам](https://www.youtube.com/watch?v=N2fxpoIHQqA)
 - DDD
-- OpenTracing
-  - [↑ The Three Pillars of Observability](https://www.oreilly.com/library/view/distributed-systems-observability/9781492033431/ch04.html)
-  - [↑ Распределенный трейсинг OpenTelemetry вместо логирования всего подряд](https://dotnext.ru/talks/968f0bdc6f7a44b4b868c665d57dcaa5/)
 - Architectural patterns
-  - [↑ Event Sourcing](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing)
-    - [↑ Event Sourcing: как мы ускорили SQL проекции с 7 часов до 7 минут](https://highload.ru/moscow/2023/abstracts/10083)
-    - [↑ EventSourcing.NetCore](https://github.com/oskardudycz/EventSourcing.NetCore)
-  - [↑ Repository](https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application)
+  - [↑ EventSourcing.NetCore](https://github.com/oskardudycz/EventSourcing.NetCore)
   - Microservices related patterns
-    - Aggregator
     - [↑ Ambassador](https://docs.microsoft.com/en-us/azure/architecture/patterns/ambassador)
-    - API Gateway
-    - Circuit Breaker
     - [↑ Backends for Frontends](https://microservices.io/patterns/apigateway.html)
     - Retry
       - [↑ Implement HTTP call retries with exponential backoff with IHttpClientFactory and Polly policies](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly)
-    - Service Layer
-    - Service Locator
-    - Sidecar
-  - Unit of Work
-- [↑ Vertical Slice Architecture - Jimmy Bogard](https://www.youtube.com/watch?v=SUiWfhAhgQw)
-- [↑ Distributed Tracing for Microservice Architecture](https://habr.com/ru/post/539022/)
 - [↑ C4 model](https://en.wikipedia.org/wiki/C4_model)
   - <https://c4model.com>
 - [↑ Почему авторизация сложно и причем здесь Занзибар?](https://www.youtube.com/watch?v=Tr5H8iG0FzI)
@@ -138,7 +108,8 @@
 - [↑ AsyncAPI & event-driven architecture](https://www.asyncapi.com/)
 - [↑ Lock-free коллекции в .NET 6](https://www.youtube.com/watch?v=-fTrew8atpk)
   - [↑ Посмотреть доклады по .NET на канале IT и т.д.](https://www.youtube.com/@IT_i_td/videos)
-- Define what loosely-coupled monolith is and what is distributed monolith https://codeopinion.com/loosely-coupled-monolith/
+- [↑ Текст. Одна платформа, чтобы править всеми](https://habr.com/ru/companies/ozontech/articles/708274/)
+  - [↑ Видео. Одна платформа, чтобы править всеми](https://highload.ru/spb/2022/abstracts/9317)
 
 ## Programming
 
@@ -197,6 +168,7 @@ for (var i = 0; i < 5; i++) {
 - [↑ Expression trees](https://tyrrrz.me/blog/expression-trees)
   - [↑ Expression Trees in C#](https://code-maze.com/csharp-expression-trees)
   - [↑ How to Build Dynamic Queries With Expression Trees in C#](https://code-maze.com/dynamic-queries-expression-trees-csharp/)
+  - Generate code from created expression tree for some mapper. Use generated code to map 2 objects
 - IQueryable interface
 - [↑ Specification pattern](https://deviq.com/design-patterns/specification-pattern)
   - <https://enterprisecraftsmanship.com/posts/specification-pattern-c-implementation>
@@ -223,27 +195,21 @@ for (var i = 0; i < 5; i++) {
 - Just-In-Time IL code generation
 - Try use [↑ ILSpy built with Avalonia](https://github.com/icsharpcode/AvaloniaILSpy)
 - [↑ Reflection and Reflection.Emit in C#](https://www.c-sharpcorner.com/UploadFile/puranindia/reflection-and-reflection-emit-in-C-Sharp)
-- Generate code from created expression tree for some mapper. Use generated code to map 2 objects
 - [↑ Пишем код, когда пишем код: сорс-генераторы](https://habr.com/ru/companies/tinkoff/articles/766916/)
 - [↑ CLR via C#](https://www.amazon.com/CLR-via-4th-Developer-Reference/dp/0735667454/) or [↑ The Book of the Runtime](https://github.com/dotnet/runtime/blob/main/docs/design/coreclr/botr/README.md)
 - Почему у структуры нет индекса синхронизации? [↑ Внутреннее устройство ссылочных типов C#](https://professorweb.ru/my/csharp/optimization/level2/2_1.php). Джеффри Рихтер
-- Таблица виртуальных функций
 - Как устроен `Task` и `ValueTask`
-- [↑ Утиная типизация в C#](https://habr.com/ru/articles/41377/)
 - Monads
   - [↑ Monads explained in C#](https://mikhail.io/2016/01/monads-explained-in-csharp/)
   - [↑ The Maybe Monad (C#)](https://www.dotnetcurry.com/patterns-practices/1510/maybe-monad-csharp)
   - [↑ "Maybe" monad through async/await in C# (No Tasks!)](https://habr.com/ru/articles/458692/)
 - [↑ Autofac](https://github.com/autofac/Autofac)
-- Reflection. Create a separate repository with simple examples of getting class methods and class method's attributes
 - На странице interface в репозитории docs разобрать какие типы данных могут реализовывать интерфейсы
-- Приведение типов и вызов виртуальных и абстрактных методов. Создать отдельный репозиторий для задач с интервью?
 - Implement merge sort using TPL
 - Выписать XoR, побитовый сдвиг влево/вправо и прочие операции в CS-секцию с примерами реализации на C#
 - Что нужно чтобы использовать using и await (GetEnumerator, GetAwaiter)?
 - Cohesion <https://www.youtube.com/watch?v=r1Ih_nV79eE>, <https://ru.wikipedia.org/wiki/Связность_(программирование)>
-- Наследование в статических классах. Почему его нет?
-- Разобрать .Cast<>, как реализован?
+- Разобрать .`Cast<>`, как реализован?
 - Почему разработчики языка разделили память на стек и кучу?
 - Написать бинарное дерево на C#
 - Написать стек, двусвязный и односвязный список на C#
@@ -253,14 +219,9 @@ for (var i = 0; i < 5; i++) {
   - <https://devblogs.microsoft.com/pfxteam/processing-tasks-as-they-complete/>
   - <https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/chaining-tasks-by-using-continuation-tasks>
 - [↑ Concurrency Visualizer](https://docs.microsoft.com/en-us/visualstudio/profiling/concurrency-visualizer)
-- Разобрать C# AggregateException, посоздавать таких исключений, применить метод AggregateException.Flatten (страница 32 Стивена Клири)
 - [↑ Adventure in learning Go for a C# dev! - Ken Faulkner](https://www.youtube.com/watch?v=0ghHBPNe6g4)
-- Как реализованы дженерики в C#?
 - [↑ MessagePack](https://github.com/neuecc/MessagePack-CSharp)
   - MessagePack vs Apache Avro
-- .NET channels <https://www.youtube.com/watch?v=gT06qvQLtJ0>, <https://www.youtube.com/watch?v=E0Ld7ZgE4oY>
-- What is the difference between `dynamic` and `object` keywords
-- Use [↑ `HashCode.Combine`](https://stackoverflow.com/a/51716512/1833895)
 - EF Core
   - [↑ Eager, Lazy and Explicit Loading with Entity Framework Core](https://blog.jetbrains.com/dotnet/2023/09/21/eager-lazy-and-explicit-loading-with-entity-framework-core/)
   - Implement one-to-one, one-to-many, many-to-many in <https://github.com/mialkin/postgres>
@@ -294,16 +255,10 @@ for (var i = 0; i < 5; i++) {
 - [↑ StyleDrop: Text-To-Image Generation in Any Style](https://styledrop.github.io)
 - [↑ Muse: Text-To-Image Generation via Masked Generative Transformers](https://muse-model.github.io)
 
-## Разобрать
-
-- https://www.postgresql.org/docs/current/rules-materializedviews.html
-- https://www.oreilly.com/library/view/microservices-antipatterns-and/9781492042716/ch01.html
-- https://habr.com/ru/companies/ozontech/articles/708274/
-- https://highload.ru/spb/2022/abstracts/9317
-
 ## Dumb questions
 
 - `try { return 1; } finally { return 2; }` // Cannot jump out of the finally block
 - [↑ Why there is no inheritance in static classes C#?](https://stackoverflow.com/a/774225/1833895)
 - `i++ + ++i`
 - [↑ Why C# structs do no support inheritance](https://pragmateek.com/why-c-structs-do-no-support-inheritance/)
+- [↑ How are C# Generics implemented?](https://stackoverflow.com/questions/11436802/how-are-c-sharp-generics-implemented)
