@@ -60,3 +60,27 @@ When your code calls a method returning `ValueTask` or `ValueTask<TResult>`, it 
 The [↑ `TaskCompletionSource`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.taskcompletionsource) class represents the producer side of a `Task` unbound to a delegate, providing access to the consumer side through the `Task` property.
 
 The [↑ `TaskCompletionSource<TResult>`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.taskcompletionsource-1) class represents the producer side of a `Task<TResult>` unbound to a delegate, providing access to the consumer side through the `Task` property.
+
+The `Task` class achieves two distinct things:
+
+- It schedules a delegate to run on a pooled thread
+- It offers a rich set of features for managing work items: continuations, child tasks, exception marshaling, etc
+
+Interestingly, these two things are not joined at the hip: you can leverage a task's features for managing work items without scheduling anything to run on the thread pool. The `TaskCompletionSource` enables this pattern of use.
+
+To use `TaskCompletionSource` you simply instantiate the class. It exposes a Task property that returns a task upon which you can wait and attach continuations — just like any other task.
+
+```csharp
+var source = new TaskCompletionSource<int>();
+
+new Thread(() =>
+{
+    Thread.Sleep(5000);
+    source.SetResult(123);
+}).Start();
+
+var result = await source.Task;
+Console.WriteLine(result);
+// Output
+// 123
+```
