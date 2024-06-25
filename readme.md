@@ -315,7 +315,7 @@
       - [`async`](csharp/concurrency/tap/async.md)
       - [`IAsyncEnumerable<T>`](csharp/concurrency/tap/iasyncenumerable.md)
       - [Synchronization context, `ConfigureAwait`](csharp/concurrency/tap/synchronization-context.md)
-      - [`Task`, `ValueTask`](csharp/concurrency/tap/task.md)
+      - [`Task`, `ValueTask`, `TaskCompletionSource`](csharp/concurrency/tap/task.md)
   - Collections
     - [Concurrent, immutable, generic collections](csharp/concurrency/collections.md)
     - [`Channel`](csharp/concurrency/channel.md)
