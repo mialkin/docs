@@ -170,7 +170,7 @@ class Wrapper
 // End
 ```
 
-Another, more advanced, way to solve this problem is to apply the volatile keyword to the `_complete` field:
+Another, more advanced, way to solve this problem is to apply the [`volatile`](#volatile-1) keyword to the `_complete` field:
 
 ```csharp
 var wrapper = new Wrapper();
