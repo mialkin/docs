@@ -247,4 +247,31 @@ http://localhost:2300?userId=Bob
 
 [↑ `ThreadStaticAttribute`](https://learn.microsoft.com/en-us/dotnet/api/system.threadstaticattribute) is a class that indicates that the value of a static field is unique for each thread.
 
-[↑ ThreadStatic v.s. ThreadLocal<T>: is generic better than attribute?](https://stackoverflow.com/questions/18333885/threadstatic-v-s-threadlocalt-is-generic-better-than-attribute).
+```csharp
+new Thread(() =>
+{
+    Console.WriteLine("T1: " + A.Name);
+    A.Name = "John";
+    Console.WriteLine("T1: " + A.Name);
+}).Start();
+
+new Thread(() =>
+{
+    Console.WriteLine("T2: " + A.Name);
+    A.Name = "Bob";
+    Console.WriteLine("T2: " + A.Name);
+}).Start();
+
+class A
+{
+    // Thread static field has initializer: it will be evaluated only once by the first thread (while invoking static
+    // constructor of the containing type), other threads will observe default value of the field
+    [ThreadStatic] public static string Name = "Mark";
+}
+
+// Output:
+// T1: Mark
+// T1: John
+// T2: 
+// T2: Bob
+```
