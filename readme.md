@@ -332,7 +332,7 @@
     - Non-blocking synchronization constructs
       - [`Interlocked`, `Volatile`, `volatile`](csharp/concurrency/synchronization/non-blocking.md)
   - [Thread, `Thread`](csharp/concurrency/thread.md)
-  - [`ThreadLocal<T>`, `AsyncLocal<T>`, `[ThreadStatic]`](csharp/concurrency/threadlocal-asynclocal.md)
+  - [`[ThreadStatic]`, `ThreadLocal<T>`, `AsyncLocal<T>`, `Lazy<T>`](csharp/concurrency/threadlocal-asynclocal.md)
   - [Thread safety](csharp/concurrency/thread-safety.md)
 - Exceptions
   - [↑ Exceptions for flow control: why not?](https://enterprisecraftsmanship.com/posts/exceptions-for-flow-control/)

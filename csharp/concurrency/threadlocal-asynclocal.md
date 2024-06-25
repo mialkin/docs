@@ -1,14 +1,51 @@
-# `ThreadLocal<T>`, `AsyncLocal<T>`, `[ThreadStatic]`
+# `[ThreadStatic]`, `ThreadLocal<T>`, `AsyncLocal<T>`, `Lazy<T>`
 
 ## Table of contents
 
-- [`ThreadLocal<T>`, `AsyncLocal<T>`, `[ThreadStatic]`](#threadlocalt-asynclocalt-threadstatic)
+- [`[ThreadStatic]`, `ThreadLocal<T>`, `AsyncLocal<T>`, `Lazy<T>`](#threadstatic-threadlocalt-asynclocalt-lazyt)
   - [Table of contents](#table-of-contents)
+  - [`[ThreadStatic]`](#threadstatic)
   - [`ThreadLocal<T>`](#threadlocalt)
   - [`AsyncLocal<T>`](#asynclocalt)
-    - [Example](#example)
     - [Usage with ASP.NET middleware](#usage-with-aspnet-middleware)
-  - [`[ThreadStatic]`](#threadstatic)
+  - [`Lazy<T>`](#lazyt)
+
+## `[ThreadStatic]`
+
+[↑ `ThreadStaticAttribute`](https://learn.microsoft.com/en-us/dotnet/api/system.threadstaticattribute) is a class that indicates that the value of a static field is unique for each thread.
+
+The easiest approach to thread-local storage is to mark a static field with the `ThreadStatic` attribute:
+
+```csharp
+new Thread(() =>
+{
+    Console.WriteLine("T1: " + A.Name);
+    A.Name = "John";
+    Console.WriteLine("T1: " + A.Name);
+}).Start();
+
+new Thread(() =>
+{
+    Console.WriteLine("T2: " + A.Name);
+    A.Name = "Bob";
+    Console.WriteLine("T2: " + A.Name);
+}).Start();
+
+class A
+{
+    // Thread static field has initializer: it will be evaluated only once by the first thread (while invoking static
+    // constructor of the containing type), other threads will observe default value of the field
+    [ThreadStatic] public static string Name = "Mark";
+}
+
+// Output:
+// T1: Mark
+// T1: John
+// T2: 
+// T2: Bob
+```
+
+Unfortunately, `[ThreadStatic]` doesn't work with instance fields, it simply does nothing,; nor does it play well with field initializers — they execute only *once* on the thread that's running when the static constructor executes. If you need to work with instance fields — or start with a non-default value — [`ThreadLocal<T>`](#threadlocalt) provides a better option.
 
 ## `ThreadLocal<T>`
 
@@ -87,7 +124,6 @@ new Thread(() =>
     Console.WriteLine(a.ThreadLocal.Value + " " + a.Regular);
 }).Start();
 
-
 class A
 {
     public readonly ThreadLocal<int> ThreadLocal = new(() => 3);
@@ -124,9 +160,7 @@ Because the task-based asynchronous programming model tends to abstract the use 
 
 The `AsyncLocal<T>` class also provides optional notifications when the value associated with the current thread changes, either because it was explicitly changed by setting the `Value` property, or implicitly changed when the thread encountered an await or other context transition.
 
-### Example
-
-By definition, `AsyncLocal<T>` represents ambient data that is local to a given asynchronous control flow, such as an asynchronous method. However, this contextual data flows down the asynchronous call stack, not the opposite:
+Ambient data, represented by `AsyncLocal<T>`, flows down the asynchronous call stack, not the opposite:
 
 ```csharp
 AsyncLocal<string> context = new();
@@ -243,35 +277,24 @@ http://localhost:2300?userId=Bob
 [01:09:09 INF] User ID after 10 seconds delay: Bob
 ```
 
-## `[ThreadStatic]`
+## `Lazy<T>`
 
-[↑ `ThreadStaticAttribute`](https://learn.microsoft.com/en-us/dotnet/api/system.threadstaticattribute) is a class that indicates that the value of a static field is unique for each thread.
+The [↑ `Lazy<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.lazy-1) class provides support for lazy initialization.
 
 ```csharp
-new Thread(() =>
-{
-    Console.WriteLine("T1: " + A.Name);
-    A.Name = "John";
-    Console.WriteLine("T1: " + A.Name);
-}).Start();
-
-new Thread(() =>
-{
-    Console.WriteLine("T2: " + A.Name);
-    A.Name = "Bob";
-    Console.WriteLine("T2: " + A.Name);
-}).Start();
+var a = new A();
+var expensive = a.Expensive;
 
 class A
 {
-    // Thread static field has initializer: it will be evaluated only once by the first thread (while invoking static
-    // constructor of the containing type), other threads will observe default value of the field
-    [ThreadStatic] public static string Name = "Mark";
+    private readonly Lazy<Expensive> _expensive = new(valueFactory: () => new Expensive(), isThreadSafe: true);
+
+    public Expensive Expensive => _expensive.Value;
 }
 
-// Output:
-// T1: Mark
-// T1: John
-// T2: 
-// T2: Bob
+class Expensive
+{
+}
 ```
+
+If you pass `false` into `Lazy<T>`'s constructor, it implements the thread-unsafe lazy initialization pattern that we described at the start of this section — this makes sense when you want to use `Lazy<T>` in a single-threaded context.
