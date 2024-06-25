@@ -127,14 +127,8 @@
     - Service Locator
     - Sidecar
   - Unit of Work
-- [↑ Disposable pattern](https://medium.com/@mypascal2000/disposable-patterns-ffa2145619e2)
-  - [↑ Implement a Dispose method](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose)
-- CAP theorem
-- Saga
-  - [↑ Пример микросервисной архитектуры с Saga на MassTransit](https://habr.com/ru/post/664962/)
 - [↑ Vertical Slice Architecture - Jimmy Bogard](https://www.youtube.com/watch?v=SUiWfhAhgQw)
 - [↑ Distributed Tracing for Microservice Architecture](https://habr.com/ru/post/539022/)
-- [↑ Concurrent Processing in .NET 6 with System.Threading.Channels](https://itnext.io/concurrent-processing-in-net-6-with-system-threading-channels-bonus-interval-trees-441b7539b5d1)
 - [↑ C4 model](https://en.wikipedia.org/wiki/C4_model)
   - <https://c4model.com>
 - [↑ Почему авторизация сложно и причем здесь Занзибар?](https://www.youtube.com/watch?v=Tr5H8iG0FzI)
@@ -150,16 +144,11 @@
 
 - [↑ Orleans](https://learn.microsoft.com/en-us/dotnet/orleans/overview)
 - Blue-green deployment
-- [↑ Higher-order function](https://en.wikipedia.org/wiki/Higher-order_function)
-- [↑ First-class citizen](https://en.wikipedia.org/wiki/First-class_citizen)
 - [↑ "Repository и UnitOfWork в 2020 году, must have или антипаттерн?"](https://www.youtube.com/watch?v=3yPpL1rEK9o)
 - [↑ Domain-Driven Refactoring - Jimmy Bogard - NDC London 2022](https://www.youtube.com/watch?v=f64tZ90Dntg)
 - [↑ Тестируем микросервисы правильно](https://www.youtube.com/watch?v=yj3sndjLHEA)
 - [↑ Чистая архитектура на практике](https://www.youtube.com/watch?v=Bd83nPK_K3U)
-- [↑ Generic types are for arguments, specific types are for return values](https://enterprisecraftsmanship.com/posts/generic-types-arguments-specific-types-return-values/)
-  - [↑ Return the most specific type, accept the most generic type](https://enterprisecraftsmanship.com/posts/return-the-most-specific-type)
 - [↑ Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
-- [↑ GitOps](https://about.gitlab.com/topics/gitops)
 - [↑ Есть ли жизнь на Go после C#?](https://habr.com/ru/companies/ozontech/articles/684422/)
 - [↑ What are Functional and Non-Functional Requirements and How to Document These](https://enkonix.com/blog/functional-requirements-vs-non-functional)
 - F.I.R.S.T. Principles
@@ -190,6 +179,8 @@ for (var i = 0; i < 5; i++) {
   - `WaitForPendingFinalizers`
   - [↑ When should I use `GC.SuppressFinalize()`?](https://stackoverflow.com/questions/151051/when-should-i-use-gc-suppressfinalize)
   - [↑ Finalizers](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/finalizers)
+    - [↑ Cleaning up unmanaged resources](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/unmanaged)
+    - [↑ Throwing exception in finalizer to enforce Dispose calls:](https://stackoverflow.com/questions/20358401/throwing-exception-in-finalizer-to-enforce-dispose-calls)
 - [↑ dotnet-monitor](https://learn.microsoft.com/en-us/dotnet/core/diagnostics/dotnet-monitor)
 - [↑ Pact NET. Consumer driven contract testing](https://github.com/pact-foundation/pact-net)
 - [↑ Allure framework](https://docs.qameta.io/allure)
@@ -214,14 +205,12 @@ for (var i = 0; i < 5; i++) {
   - <https://github.com/AdemCatamak/SpecificationPatternExample>
   - <https://en.wikipedia.org/wiki/Specification_pattern>
   - <https://medium.com/c-sharp-progarmming/specification-design-pattern-c814649be0ef>
-- [↑ Finalizers](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/finalizers)
-  - [↑ Cleaning up unmanaged resources](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/unmanaged)
-  - [↑ Throwing exception in finalizer to enforce Dispose calls:](https://stackoverflow.com/questions/20358401/throwing-exception-in-finalizer-to-enforce-dispose-calls)
 - `IDisposable`
   - [↑ Struct and IDisposable](https://stackoverflow.com/questions/7914423/struct-and-idisposable)
   - [↑ To box or not to box](https://ericlippert.com/2011/03/14/to-box-or-not-to-box/)
   - [↑ Implement a Dispose method](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose)
   - [↑ Implement a DisposeAsync method](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-disposeasync)
+  - [↑ Disposable pattern](https://medium.com/@mypascal2000/disposable-patterns-ffa2145619e2)
 - [↑ Grouping assertions with `AssertionScope`](https://ardalis.com/grouping-assertions-in-tests/)
 - [↑ Writing async/await from scratch in C# with Stephen Toub](https://www.youtube.com/watch?v=R-z2Hv-7nxk).
 - [↑ How Async/Await Really Works in C#](https://devblogs.microsoft.com/dotnet/how-async-await-really-works/)
@@ -236,7 +225,6 @@ for (var i = 0; i < 5; i++) {
 - [↑ Reflection and Reflection.Emit in C#](https://www.c-sharpcorner.com/UploadFile/puranindia/reflection-and-reflection-emit-in-C-Sharp)
 - Generate code from created expression tree for some mapper. Use generated code to map 2 objects
 - [↑ Пишем код, когда пишем код: сорс-генераторы](https://habr.com/ru/companies/tinkoff/articles/766916/)
-- Заполнить список экземплярами классов и экземплярами структур и прогнать бенчмарки. Посмотреть где больше памяти отъедается и почему. Есть ли оверхед у структуры vs класс?
 - [↑ CLR via C#](https://www.amazon.com/CLR-via-4th-Developer-Reference/dp/0735667454/) or [↑ The Book of the Runtime](https://github.com/dotnet/runtime/blob/main/docs/design/coreclr/botr/README.md)
 - Почему у структуры нет индекса синхронизации? [↑ Внутреннее устройство ссылочных типов C#](https://professorweb.ru/my/csharp/optimization/level2/2_1.php). Джеффри Рихтер
 - Таблица виртуальных функций
@@ -283,21 +271,11 @@ for (var i = 0; i < 5; i++) {
 
 ## ASP.NET
 
-- [↑ Caching](https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices)
-- [↑ Configuration](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration)
-- [↑ Filters](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters)
-  - [↑ Combining ASP.NET Core validation attributes with Value Objects](https://enterprisecraftsmanship.com/posts/combining-asp-net-core-attributes-with-value-objects/)
-- [↑ Performance](https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices)
-- [↑ Routing](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing)
-- [↑ Servers](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers)
-- [↑ ASP.NET Core Series: Performance Testing Techniques](https://www.youtube.com/watch?v=jn54CjePzs0)
-- [↑ `.AddHttpLogging`](https://youtu.be/isrl_zJa1GY?t=987)
+- [↑ Combining ASP.NET Core validation attributes with Value Objects](https://enterprisecraftsmanship.com/posts/combining-asp-net-core-attributes-with-value-objects/)
+- [↑ ASP.NET Core Best Practices](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/best-practices)
 - [↑ FastEndpoints](https://fast-endpoints.com)
 - [↑ Graceful shutdown](https://www.google.com/search?q=graceful+shutdown+asp.net+core&oq=Graceful+shutdown+asp&aqs=chrome.1.69i57j0i512j0i15i22i30j0i390i650l2.6447j0j7&sourceid=chrome&ie=UTF-8)
-- [↑ Introducing the Identity API endpoints](https://andrewlock.net/exploring-the-dotnet-8-preview-introducing-the-identity-api-endpoints/)
-- [↑ Scheduled or Delayed Messages in Wolverine](https://jeremydmiller.com/2023/09/06/scheduled-or-delayed-messages-in-wolverine/)
-  - [↑ Wolverine](https://wolverine.netlify.app/)
-- [↑ Session affinity](https://microsoft.github.io/reverse-proxy/articles/session-affinity.html)
+- [↑ Wolverine](https://wolverine.netlify.app/)
 
 ## Computer science
 
