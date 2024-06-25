@@ -15,6 +15,7 @@
   - [Computer science](#computer-science)
   - [Web](#web)
   - [Разобрать](#разобрать)
+  - [Dumb questions](#dumb-questions)
 
 ## Tools
 
@@ -202,7 +203,6 @@ for (var i = 0; i < 5; i++) {
 ## C&#35;
 
 - [↑ Access modifiers](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/access-modifiers)
-- Closure in C#
 - [↑ Expression trees](https://tyrrrz.me/blog/expression-trees)
   - [↑ Expression Trees in C#](https://code-maze.com/csharp-expression-trees)
   - [↑ How to Build Dynamic Queries With Expression Trees in C#](https://code-maze.com/dynamic-queries-expression-trees-csharp/)
@@ -222,23 +222,13 @@ for (var i = 0; i < 5; i++) {
   - [↑ To box or not to box](https://ericlippert.com/2011/03/14/to-box-or-not-to-box/)
   - [↑ Implement a Dispose method](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose)
   - [↑ Implement a DisposeAsync method](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-disposeasync)
-- [↑ Local functions](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/local-functions)
 - [↑ Grouping assertions with `AssertionScope`](https://ardalis.com/grouping-assertions-in-tests/)
-- async lock
 - [↑ Writing async/await from scratch in C# with Stephen Toub](https://www.youtube.com/watch?v=R-z2Hv-7nxk).
 - [↑ How Async/Await Really Works in C#](https://devblogs.microsoft.com/dotnet/how-async-await-really-works/)
-- [↑ Why can't I use the 'await' operator within the body of a `lock` statement?](https://stackoverflow.com/questions/7612602/why-cant-i-use-the-await-operator-within-the-body-of-a-lock-statement)
 - [↑ Smallest .Net ref type is 12 bytes (or why you should consider using value types)](https://theburningmonk.com/2015/07/smallest-net-ref-type-is-12-bytes-or-why-you-should-consider-using-value-types/)
 - [↑ Weak reference](https://docs.microsoft.com/en-us/dotnet/api/system.weakreference?view=netcore-3.1)
-- [↑ Immutable Collections](https://docs.microsoft.com/en-us/archive/msdn-magazine/2017/march/net-framework-immutable-collections)
-  - [↑ How to use immutability in C#](https://www.infoworld.com/article/3564161/how-to-use-immutability-in-csharp.html)
-  - [↑ A Use Case of Immutable Collections](https://codeburst.io/a-use-case-of-immutable-collections-dd558f614722)
-  - [↑ C# Highlights: Immutable Collections](https://www.youtube.com/watch?v=_p-Z9gAYabM)
-  - [↑ Immutable Collections in NET: Why and How?](https://www.youtube.com/watch?v=soyzikvjx3s)
 - [↑ Clean Up Your Client to Business Logic Relationship With a Result Pattern (C#)](https://alexdunn.org/2019/02/25/clean-up-your-client-to-business-logic-relationship-with-a-result-pattern-c/)
 - [↑ Asynchronous TCP/IP, Part 1](https://www.youtube.com/watch?v=RJOdB5ly7jk)
-- [↑ Stephen Cleary — Asynchronous streams](https://www.youtube.com/watch?v=-Tq4wLyen7Q)
-- [↑ How to Convert a String to a Span in C#](https://code-maze.com/csharp-how-to-convert-string-to-span)
 - [↑ Async/await и механизм реализации в C# 5.0](https://habr.com/ru/articles/260217)
 - [↑ Compile code programmatically by using C# compiler](https://learn.microsoft.com/en-us/troubleshoot/developer/visualstudio/csharp/language-compilers/compile-code-using-compiler)
 - Just-In-Time IL code generation
@@ -251,7 +241,6 @@ for (var i = 0; i < 5; i++) {
 - Почему у структуры нет индекса синхронизации? [↑ Внутреннее устройство ссылочных типов C#](https://professorweb.ru/my/csharp/optimization/level2/2_1.php). Джеффри Рихтер
 - Таблица виртуальных функций
 - Как устроен `Task` и `ValueTask`
-- `IAsyncDisposable`
 - [↑ Утиная типизация в C#](https://habr.com/ru/articles/41377/)
 - Monads
   - [↑ Monads explained in C#](https://mikhail.io/2016/01/monads-explained-in-csharp/)
@@ -263,11 +252,8 @@ for (var i = 0; i < 5; i++) {
 - Приведение типов и вызов виртуальных и абстрактных методов. Создать отдельный репозиторий для задач с интервью?
 - Implement merge sort using TPL
 - Выписать XoR, побитовый сдвиг влево/вправо и прочие операции в CS-секцию с примерами реализации на C#
-- Бесконечный вызов рекурсивной функции. Есть ли минусы? Будет ли происходить переполнение стека?
 - Что нужно чтобы использовать using и await (GetEnumerator, GetAwaiter)?
 - Cohesion <https://www.youtube.com/watch?v=r1Ih_nV79eE>, <https://ru.wikipedia.org/wiki/Связность_(программирование)>
-- Чем лямбда отличается от обычной функции?
-- try { return 1; } finally { return 2; } // Cannot jump out of the finally block
 - Наследование в статических классах. Почему его нет?
 - Разобрать .Cast<>, как реализован?
 - Почему разработчики языка разделили память на стек и кучу?
@@ -286,7 +272,6 @@ for (var i = 0; i < 5; i++) {
   - MessagePack vs Apache Avro
 - .NET channels <https://www.youtube.com/watch?v=gT06qvQLtJ0>, <https://www.youtube.com/watch?v=E0Ld7ZgE4oY>
 - What is the difference between `dynamic` and `object` keywords
-- [↑ Why C# structs do no support inheritance](https://pragmateek.com/why-c-structs-do-no-support-inheritance/)
 - Use [↑ `HashCode.Combine`](https://stackoverflow.com/a/51716512/1833895)
 - EF Core
   - [↑ Eager, Lazy and Explicit Loading with Entity Framework Core](https://blog.jetbrains.com/dotnet/2023/09/21/eager-lazy-and-explicit-loading-with-entity-framework-core/)
@@ -337,3 +322,10 @@ for (var i = 0; i < 5; i++) {
 - https://www.oreilly.com/library/view/microservices-antipatterns-and/9781492042716/ch01.html
 - https://habr.com/ru/companies/ozontech/articles/708274/
 - https://highload.ru/spb/2022/abstracts/9317
+
+## Dumb questions
+
+- `try { return 1; } finally { return 2; }` // Cannot jump out of the finally block
+- [↑ Why there is no inheritance in static classes C#?](https://stackoverflow.com/a/774225/1833895)
+- `i++ + ++i`
+- [↑ Why C# structs do no support inheritance](https://pragmateek.com/why-c-structs-do-no-support-inheritance/)
