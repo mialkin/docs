@@ -219,6 +219,7 @@ for (var i = 0; i < 5; i++) {
   - <https://devblogs.microsoft.com/pfxteam/processing-tasks-as-they-complete/>
   - <https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/chaining-tasks-by-using-continuation-tasks>
 - [↑ Concurrency Visualizer](https://docs.microsoft.com/en-us/visualstudio/profiling/concurrency-visualizer)
+  - [↑ Debugging Lock Contention Performance Issues in C# .NET](https://michaelscodingspot.com/lock-contentions/)
 - [↑ Adventure in learning Go for a C# dev! - Ken Faulkner](https://www.youtube.com/watch?v=0ghHBPNe6g4)
 - [↑ MessagePack](https://github.com/neuecc/MessagePack-CSharp)
   - MessagePack vs Apache Avro
