@@ -1,6 +1,6 @@
 # `Interlocked`, `Volatile`, `volatile`
 
-The need for synchronization arises even in the simple case of assigning or incrementing a field. Although locking can always satisfy this need, a contended lock means that a thread must block, suffering the overhead of a context switch and the latency of being descheduled, which can be undesirable in highly concurrent and performance-critical scenarios. The .NET Framework's _nonblocking_ synchronization constructs can perform simple operations without ever blocking, pausing, or waiting.
+The need for synchronization arises even in the simple case of assigning or incrementing a field. Although locking can always satisfy this need, a contended lock means that a thread must block, suffering the overhead of a [context switch](synchronization.md#context-switch) and the latency of being descheduled, which can be undesirable in highly concurrent and performance-critical scenarios. The .NET Framework's _nonblocking_ synchronization constructs can perform simple operations without ever blocking, pausing, or waiting.
 
 Writing nonblocking or lock-free multithreaded code properly is tricky! Memory barriers, in particular, are easy to get wrong, the [`volatile`](#volatile) keyword is even easier to get wrong. Think carefully whether you really need the performance benefits before dismissing ordinary locks. Remember that acquiring and releasing an uncontended lock takes as little as 20 ns on a 2010-era desktop.
 

@@ -610,7 +610,7 @@ void Read()
 
 The [↑ `SpinLock`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.spinlock) structure provides a mutual exclusion lock primitive where a thread trying to acquire the lock waits in a loop repeatedly checking until the lock becomes available.
 
-The `SpinLock` struct lets you lock without incurring the cost of a context switch, at the expense of keeping a thread spinning — uselessly busy. This approach is valid in high-contention scenarios when locking will be very brief, e.g., in writing a thread-safe linked list from scratch.
+The `SpinLock` struct lets you lock without incurring the cost of a [context switch](synchronization.md#context-switch), at the expense of keeping a thread spinning, uselessly busy. This approach is valid in high-contention scenarios when locking will be very brief, e.g., in writing a thread-safe linked list from scratch.
 
 If you leave a spinlock contended for too long, we're talking milliseconds at most, it will yield its time slice, causing a context switch just like an ordinary lock. When rescheduled, it will yield again — in a continual cycle of "spin yielding." This consumes far fewer CPU resources than outright spinning — but more than blocking. On a single-core machine, a spinlock will start "spin yielding" immediately if contended.
 
@@ -640,7 +640,7 @@ void Go()
 }
 ```
 
-Using a `SpinLock` is like using an ordinary `lock`, except:
+Using a `SpinLock` is like using an ordinary [`lock`](#lock), except:
 
 - `SpinLock` is a structure
 - `SpinLock` is not reentrant, meaning that you cannot call `Enter` on the same `SpinLock` twice in a row on the same thread. If you violate this rule, it will either throw an exception, if _owner tracking_ is enabled, or deadlock, if owner tracking is disabled. You can specify whether to enable owner tracking when constructing the `SpinLock` instance. Owner tracking incurs a performance hit.
@@ -652,8 +652,6 @@ Another difference is that when you call `Enter`, you _must_ follow the robust p
 As with an ordinary `lock`, `lockTaken` will be false after calling `Enter` if, and only if, the `Enter` method throws an exception and the `lock` was not taken. This happens in very rare scenarios, such as [`Abort`](/csharp/concurrency/thread.md#threadabort) being called on the thread, or an `OutOfMemoryException` being thrown, and lets you reliably know whether to subsequently call `Exit`.
 
 `SpinLock` also provides a [↑ `TryEnter`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.spinlock.tryenter) method which accepts a timeout.
-
-Given `SpinLock`'s ungainly value-type semantics and lack of language support, it's almost as if they _want_ you to suffer every time you use it! Think carefully before dismissing an ordinary `lock`.
 
 A `SpinLock` makes the most sense when writing your own reusable synchronization constructs. Even then, a spinlock is not as useful as it sounds. It still limits concurrency. And it wastes CPU time doing _nothing useful_. Often, a better choice is to spend some of that time doing something _speculative_ — with the help of [`SpinWait`](#spinwait).
 
@@ -672,3 +670,30 @@ On a single-core machine, `SpinWait` yields on every iteration. You can test whe
 If a `SpinWait` remains in "spin-yielding" mode for long enough, maybe 20 cycles, it will periodically sleep for a few milliseconds to further save resources and help other threads progress.
 
 `SpinWait` is a value type, which means that low-level code can utilize `SpinWait` without fear of unnecessary allocation overheads. `SpinWait` is not generally useful for ordinary applications. In most cases, you should use the synchronization classes provided by the .NET Framework, such as `Monitor`. For most purposes where spin waiting is required, however, the `SpinWait` type should be preferred over the `Thread.SpinWait` method.
+
+```csharp
+var numbers = ParallelEnumerable.Range(1, 1_000_000);
+
+long sum = 0;
+var spinWait = new SpinWait();
+
+numbers.ForAll(x =>
+{
+    while (true)
+    {
+        var snapshot = sum;
+        Thread.MemoryBarrier();
+        var newSum = snapshot + x;
+        if (Interlocked.CompareExchange(ref sum, newSum, snapshot) == snapshot)
+        {
+            return;
+        }
+
+        spinWait.SpinOnce();
+    }
+});
+
+Console.WriteLine(sum);
+// Output:
+// 500000500000
+```
