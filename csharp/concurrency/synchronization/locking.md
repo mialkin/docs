@@ -18,6 +18,8 @@
   - [`ReaderWriterLockSlim`](#readerwriterlockslim)
   - [`SpinLock`](#spinlock)
   - [`SpinWait`](#spinwait)
+    - [Lock-free updates with `SpinWait` and `Interlocked.CompareExchange`](#lock-free-updates-with-spinwait-and-interlockedcompareexchange)
+    - [`SpinWait` vs `SpinLock`](#spinwait-vs-spinlock)
 
 ## When to lock
 
@@ -679,6 +681,40 @@ This would be highly efficient if `Test` ran when `proceed` was already true —
 
 `SpinWait` addresses these problems in two ways. First, it limits CPU-intensive spinning to a set number of iterations, after which it yields its time slice on every spin, by calling [`Thread.Yield`](/csharp/concurrency/thread.md#threadyield) and [`Thread.Sleep`](/csharp/concurrency/thread.md#threadsleep), lowering its resource consumption. Second, it detects whether it's running on a single-core machine, and if so, it yields on every cycle.
 
+There are two ways to use `SpinWait`. The first is to call its static method, `SpinUntil`. This method accepts a predicate, and optionally, a timeout:
+
+```csharp
+var proceed = false;
+
+void Test()
+{
+    SpinWait.SpinUntil(() =>
+    {
+        Thread.MemoryBarrier();
+        return proceed;
+    });
+}
+```
+
+The other, more flexible, way to use `SpinWait` is to instantiate the struct and then to call `SpinOnce` in a loop:
+
+```csharp
+var proceed = false;
+
+void Test()
+{
+
+    var spinWait = new SpinWait();
+    while (!proceed)
+    {
+        Thread.MemoryBarrier();
+        spinWait.SpinOnce();
+    }
+}
+```
+
+The former is a shortcut for the latter.
+
 In its current implementation, `SpinWait` performs CPU-intensive spinning for 10 iterations before yielding. However, it doesn't return to the caller _immediately_ after each of those cycles: instead, it calls `Thread.SpinWait` to spin via the CLR, and ultimately the operating system, for a set time period. This time period is initially a few tens of nanoseconds, but doubles with each iteration until the 10 iterations are up. This ensures some predictability in the total time spent in the CPU-intensive spinning phase, which the CLR and operating system can tune according to conditions. Typically, it's in the few-tens-of-microseconds region — small, but more than the cost of a context switch.
 
 On a single-core machine, `SpinWait` yields on every iteration. You can test whether `SpinWait` will yield on the next spin via the property `NextSpinWillYield`.
@@ -686,6 +722,23 @@ On a single-core machine, `SpinWait` yields on every iteration. You can test whe
 If a `SpinWait` remains in "spin-yielding" mode for long enough, maybe 20 cycles, it will periodically sleep for a few milliseconds to further save resources and help other threads progress.
 
 `SpinWait` is a value type, which means that low-level code can utilize `SpinWait` without fear of unnecessary allocation overheads. `SpinWait` is not generally useful for ordinary applications. In most cases, you should use the synchronization classes provided by the .NET Framework, such as `Monitor`. For most purposes where spin waiting is required, however, the `SpinWait` type should be preferred over the `Thread.SpinWait` method.
+
+### Lock-free updates with `SpinWait` and `Interlocked.CompareExchange`
+
+`SpinWait` in conjunction with `Interlocked.CompareExchange` can atomically update fields with a value calculated from the original. For example, suppose we want to multiply field `x` by `10`. Simply doing the following is not thread-safe:
+
+```csharp
+x = x * 10;
+```
+
+for the same reason that incrementing a field is not thread-safe.
+
+The correct way to do this without locks is as follows:
+
+1. Take a "snapshot" of x into a local variable.
+2. Calculate the new value, in this case by multiplying the snapshot by 10.
+3. Write the calculated value back if the snapshot is still up-to-date, this step must be done atomically by calling `Interlocked.CompareExchange`.
+4. If the snapshot was stale, spin and return to step 1.
 
 ```csharp
 var numbers = ParallelEnumerable.Range(1, 1_000_000);
@@ -713,3 +766,11 @@ Console.WriteLine(sum);
 // Output:
 // 500000500000
 ```
+
+We can improve performance slightly by doing away with the call to `Thread.MemoryBarrier`. We can get away with this because `CompareExchange` generates a memory barrier anyway — so the worst that can happen is an extra spin if `snapshot1` happens to read a stale value in its first iteration.
+
+`Interlocked.CompareExchange` updates a field with a specified value _if_ the field's current value matches the third argument. It then returns the field’s old value, so you can test whether it succeeded by comparing that against the original snapshot. If the values differ, it means that another thread preempted you, in which case you spin and try again.
+
+### `SpinWait` vs `SpinLock`
+
+The problem with spin locking is that it allows only one thread to proceed at a time — even though the spinlock usually eliminates the context-switching overhead. With `SpinWait`, we can proceed speculatively and _assume_ no contention. If we do get preempted, we simply try again. Spending CPU time doing something that _might_ work is better than wasting CPU time in a spinlock!
