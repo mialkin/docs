@@ -1,23 +1,27 @@
-# Expression tree
-
-An [↑ expression tree](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/expression-trees/) is a tree-like data structure in which each node represents an [expression](#expression).
+# Expression tree, `Expression`
 
 ## Table of contents
 
-- [Expression tree](#expression-tree)
+- [Expression tree, `Expression`](#expression-tree-expression)
   - [Table of contents](#table-of-contents)
-  - [Expression](#expression)
-  - [Operator](#operator)
-  - [Operand](#operand)
-  - [Create](#create)
-  - [Immutability](#immutability)
-  - [Create expression tree from lambda expression](#create-expression-tree-from-lambda-expression)
+  - [Expression tree](#expression-tree)
+    - [Expression](#expression)
+    - [Operator](#operator)
+    - [Operand](#operand)
+    - [Create](#create)
+    - [Immutability](#immutability)
+    - [Create expression tree from lambda expression](#create-expression-tree-from-lambda-expression)
+  - [`Expression`](#expression-1)
 
-## Expression
+## Expression tree
+
+An [↑ expression tree](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/expression-trees/) is a tree-like data structure in which each node represents an [expression](#expression).
+
+### Expression
 
 An [↑ expression](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/expressions) is a sequence of [operators](#operator) and [operands](#operand).
 
-## Operator
+### Operator
 
 The operators of an expression indicate which operations to apply to the operands.
 
@@ -33,7 +37,7 @@ Certain operators can be overloaded.
 
 [↑ C# operators and expressions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/)
 
-## Operand
+### Operand
 
 An **operand** is an element of an expression.
 
@@ -44,19 +48,19 @@ Operands can be variables, functions, pointers, and other objects:
 
 Operands along with operators determine the meaning and behavior of an expression.
 
-## Create
+### Create
 
-To create expression trees by using the API, use the [↑ `Expression`](https://docs.microsoft.com/en-us/dotnet/api/system.linq.expressions.expression?) class.
+To create expression trees by using the API, use the [`Expression`](#expression-1) class.
 
 You can compile and run code represented by expression trees. This enables dynamic modification of executable code, the execution of LINQ queries in various databases, and the creation of dynamic queries.
 
 The definition of "executing an expression tree" is specific to a query provider. For example, it may involve translating the expression tree to a query language appropriate for an underlying data source.
 
-## Immutability
+### Immutability
 
 Expression trees are immutable. If you want to modify an expression tree, you must construct a new expression tree by copying the existing one and replacing nodes in it.
 
-## Create expression tree from lambda expression
+### Create expression tree from lambda expression
 
 When a [lambda expression](/csharp/operators/lambda-expressions.md) is assigned to a variable of type `Expression<TDelegate>`, the compiler emits code to build an expression tree that represents the lambda expression.
 
@@ -68,3 +72,6 @@ Expression<Func<int, bool>> lambda = number => number < 5;
 
 The C# compiler cannot parse statement lambdas — multi-line lambdas.
 
+## `Expression`
+
+The [↑ `Expression`](https://learn.microsoft.com/en-us/dotnet/api/system.linq.expressions.expression) class provides the base class from which the classes that represent expression tree nodes are derived. It also contains `static` factory methods to create the various node types.

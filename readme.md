@@ -336,7 +336,7 @@
   - [Thread safety](csharp/concurrency/thread-safety.md)
 - Exceptions
   - [↑ Exceptions for flow control: why not?](https://enterprisecraftsmanship.com/posts/exceptions-for-flow-control/)
-- [Expression tree](csharp/expression-tree.md)
+- [Expression tree, `Expression`](csharp/expression-tree.md)
 - [Hide method with `new`. Extend `virtual` method with `override`](csharp/virtual-override-new.md)
 - [Extension method](csharp/extension-method.md)
 - [Indexers](csharp/indexers.md)
