@@ -9,6 +9,7 @@
     - [`Thread.Sleep`](#threadsleep)
     - [`Thread.Join`](#threadjoin)
     - [`Thread.Yield`](#threadyield)
+    - [`Thread.SpinWait`](#threadspinwait)
     - [`Thread.Interrupt`](#threadinterrupt)
     - [`Thread.Abort`](#threadabort)
   - [Background and foreground threads](#background-and-foreground-threads)
@@ -39,7 +40,7 @@ The [↑ `Thread.Sleep`](https://learn.microsoft.com/en-us/dotnet/api/system.thr
 
 A thread, while blocked, doesn't consume CPU resources. While waiting on a `Thread.Sleep` or [`Thread.Join`](#threadjoin), a thread is blocked and so does not consume CPU resources.
 
-`Thread.Sleep(0)` relinquishes the thread's current time slice immediately, voluntarily handing over the CPU to other threads. `Thread.Yield()` method does the same thing—except that it relinquishes only to threads running on the same processor.
+`Thread.Sleep(0)` relinquishes the thread's current time slice immediately, voluntarily handing over the CPU to other threads. [`Thread.Yield()`](#threadyield) method does the same thing — except that it relinquishes only to threads running on the same processor.
 
 ### `Thread.Join`
 
@@ -49,7 +50,17 @@ The [↑ `Thread.Join`](https://learn.microsoft.com/en-us/dotnet/api/system.thre
 
 The [↑ `Thread.Yield`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.yield) method causes the calling thread to yield execution to another thread that is ready to run on the current processor. The operating system selects the thread to yield to.
 
-`Sleep(0)` or `Yield` is occasionally useful in production code for advanced performance tweaks. It's also an excellent diagnostic tool for helping to uncover thread safety issues: if inserting `Thread.Yield()` anywhere in your code makes or breaks the program, you almost certainly have a bug.
+[`Thread.Sleep(0)`](#threadsleep) or `Thread.Yield` is occasionally useful in production code for advanced performance tweaks. It's also an excellent diagnostic tool for helping to uncover thread safety issues: if inserting `Thread.Yield()` anywhere in your code makes or breaks the program, you almost certainly have a bug.
+
+### `Thread.SpinWait`
+
+The [↑ `Thread.SpinWait`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.spinwait) method causes a thread to wait the number of times defined by the `iterations` parameter.
+
+The `SpinWait` method is useful for implementing locks. Classes, such as [`Monitor`](synchronization/locking.md#monitor) and [`ReaderWriterLock`](synchronization/locking.md#readerwriterlockslim), use this method internally. `SpinWait` essentially puts the processor into a very tight loop, with the loop count specified by the `iterations` parameter. The duration of the wait therefore depends on the speed of the processor.
+
+Contrast this with the `Sleep` method. A thread that calls `Sleep` yields the rest of its current slice of processor time, even if the specified interval is zero. Specifying a non-zero interval for `Sleep` removes the thread from consideration by the thread scheduler until the time interval has elapsed.
+
+SpinWait is not generally useful for ordinary applications. In most cases, you should use the synchronization classes provided by the .NET Framework; for example, call `Monitor.Enter` or `lock`
 
 ### `Thread.Interrupt`
 

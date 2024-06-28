@@ -610,7 +610,7 @@ void Read()
 
 The [↑ `SpinLock`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.spinlock) structure provides a mutual exclusion lock primitive where a thread trying to acquire the lock waits in a loop repeatedly checking until the lock becomes available.
 
-The `SpinLock` struct lets you lock without incurring the cost of a [context switch](synchronization.md#context-switch), at the expense of keeping a thread spinning, uselessly busy. This approach is valid in high-contention scenarios when locking will be very brief, e.g., in writing a thread-safe linked list from scratch.
+The `SpinLock` struct lets you lock without incurring the cost of a [context switch](synchronization.md#context-switch), at the expense of keeping a thread [spinning](synchronization.md#spinning), uselessly busy. This approach is valid in high-contention scenarios when locking will be very brief, e.g., in writing a thread-safe linked list from scratch.
 
 If you leave a spinlock contended for too long, we're talking milliseconds at most, it will yield its time slice, causing a context switch just like an ordinary lock. When rescheduled, it will yield again — in a continual cycle of "spin yielding." This consumes far fewer CPU resources than outright spinning — but more than blocking. On a single-core machine, a spinlock will start "spin yielding" immediately if contended.
 
@@ -660,6 +660,8 @@ A `SpinLock` makes the most sense when writing your own reusable synchronization
 The [↑ `SpinWait`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.spinwait) structure provides support for spin-based waiting.
 
 `SpinWait` helps you write lock-free code that spins rather than blocks. It works by implementing safeguards to avoid the dangers of resource starvation and [↑ priority inversion](https://en.wikipedia.org/wiki/Priority_inversion) that might otherwise arise with spinning.
+
+
 
 Lock-free programming with `SpinWait` is as _hardcore_ as multithreading gets and is intended for when none of the higher-level constructs will do. A prerequisite is to understand nonblocking synchronization.
 
