@@ -12,6 +12,8 @@
     - [Immutability](#immutability)
     - [Create expression tree from lambda expression](#create-expression-tree-from-lambda-expression)
   - [`Expression`](#expression-1)
+  - [`Expression<TDelegate>`](#expressiontdelegate)
+    - [`Expression<TDelegate>.Compile`](#expressiontdelegatecompile)
 
 ## Expression tree
 
@@ -75,3 +77,16 @@ The C# compiler cannot parse statement lambdas — multi-line lambdas.
 ## `Expression`
 
 The [↑ `Expression`](https://learn.microsoft.com/en-us/dotnet/api/system.linq.expressions.expression) class provides the base class from which the classes that represent expression tree nodes are derived. It also contains `static` factory methods to create the various node types.
+
+## `Expression<TDelegate>`
+
+The [↑ `Expression<TDelegate>`](https://learn.microsoft.com/en-us/dotnet/api/system.linq.expressions.expression-1) class represents a strongly typed [lambda expression](lambda-expression.md) as a data structure in the form of an [expression tree](#expression-tree).
+
+### `Expression<TDelegate>.Compile`
+
+The [↑ `Expression<TDelegate>.Compile`](https://learn.microsoft.com/en-us/dotnet/api/system.linq.expressions.expression-1.compile) method compiles the lambda expression described by the expression tree into executable code and produces a delegate that represents the lambda expression.
+
+```csharp
+Expression<Func<int, bool>> expression = x => x == 1;
+Func<int, bool> delegate1 = expression.Compile();
+```
