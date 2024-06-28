@@ -661,9 +661,23 @@ The [↑ `SpinWait`](https://learn.microsoft.com/en-us/dotnet/api/system.threadi
 
 `SpinWait` helps you write lock-free code that spins rather than blocks. It works by implementing safeguards to avoid the dangers of resource starvation and [↑ priority inversion](https://en.wikipedia.org/wiki/Priority_inversion) that might otherwise arise with spinning.
 
-
-
 Lock-free programming with `SpinWait` is as _hardcore_ as multithreading gets and is intended for when none of the higher-level constructs will do. A prerequisite is to understand nonblocking synchronization.
+
+Suppose we wrote a spin-based signaling system based purely on a simple flag:
+
+```csharp
+var proceed = false;
+
+void Test()
+{
+    // Spin until another thread sets proceed to true
+    while (!proceed) Thread.MemoryBarrier();
+}
+```
+
+This would be highly efficient if `Test` ran when `proceed` was already true — or if `proceed` became `true` within a few cycles. But now suppose that `proceed` remained false for several seconds — and that four threads called `Test` at once. The spinning would then fully consume a quad-core CPU! This would cause other threads to run slowly, resource starvation, — including the very thread that might eventually set `proceed` to true, [↑ priority inversion](https://en.wikipedia.org/wiki/Priority_inversion). The situation is exacerbated on single-core machines, where spinning will nearly _always_ cause priority inversion. And although single-core machines are rare nowadays, single-core _virtual machines_ are not.
+
+`SpinWait` addresses these problems in two ways. First, it limits CPU-intensive spinning to a set number of iterations, after which it yields its time slice on every spin, by calling [`Thread.Yield`](/csharp/concurrency/thread.md#threadyield) and [`Thread.Sleep`](/csharp/concurrency/thread.md#threadsleep), lowering its resource consumption. Second, it detects whether it's running on a single-core machine, and if so, it yields on every cycle.
 
 In its current implementation, `SpinWait` performs CPU-intensive spinning for 10 iterations before yielding. However, it doesn't return to the caller _immediately_ after each of those cycles: instead, it calls `Thread.SpinWait` to spin via the CLR, and ultimately the operating system, for a set time period. This time period is initially a few tens of nanoseconds, but doubles with each iteration until the 10 iterations are up. This ensures some predictability in the total time spent in the CPU-intensive spinning phase, which the CLR and operating system can tune according to conditions. Typically, it's in the few-tens-of-microseconds region — small, but more than the cost of a context switch.
 
