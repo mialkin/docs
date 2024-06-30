@@ -9,8 +9,10 @@ The [↑ .NET CLI](https://learn.microsoft.com/en-us/dotnet/core/tools/) is a cr
   - [`build`](#build)
   - [`new`](#new)
     - [Create new solution](#create-new-solution)
+  - [Templates](#templates)
     - [Item template](#item-template)
     - [Project template](#project-template)
+    - [Template package](#template-package)
 
 ## `build`
 
@@ -38,6 +40,8 @@ dotnet new webapi --name Sample.Api --output=src
 dotnet sln add src/Sample.Api.csproj
 dotnet run --project=src/Sample.Api.csproj
 ```
+
+## Templates
 
 ### Item template
 
@@ -159,4 +163,41 @@ dotnet new consoleasync --name MyProject
 
 ```bash
 dotnet new uninstall ./
+```
+
+### Template package
+
+A [↑ template package](https://learn.microsoft.com/en-us/dotnet/core/tutorials/cli-templates-create-template-package) is one or more templates packed into a NuGet package.
+
+When you install or uninstall a template package, all templates contained in the package are added or removed, respectively.
+
+Install the Microsoft.TemplateEngine.Authoring.Templates template from the NuGet package feed:
+
+```bash
+dotnet new install Microsoft.TemplateEngine.Authoring.Templates
+```
+
+Template packages are represented by a NuGet package, .nupkg, file. And, like any NuGet package, you can upload the template package to a NuGet feed.
+
+```bash
+cd working
+dotnet new templatepack --name "AdatumCorporation.Utility.Templates"
+```
+
+The `content` content folder contains a `SampleTemplate` folder. Delete this folder, as it was added to the authoring template for demonstration purposes.
+
+```bash
+dotnet pack
+```
+
+```bash
+dotnet new install bin/Release/AdatumCorporation.Utility.Templates.1.0.0.nupkg
+```
+
+If you uploaded the NuGet package to a NuGet feed, you can use the `dotnet new install <PACKAGE_ID>` command where `<PACKAGE_ID>` is the same as the `<PackageId>` setting from the `.csproj` file.
+
+To uninstall the template package:
+
+```bash
+dotnet new uninstall AdatumCorporation.Utility.Templates
 ```
