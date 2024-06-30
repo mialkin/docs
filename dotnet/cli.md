@@ -1,10 +1,10 @@
-# .NET CLI, `dotnet`
+# .NET CLI, `dotnet new`
 
 The [↑ .NET CLI](https://learn.microsoft.com/en-us/dotnet/core/tools/) is a cross-platform toolchain for developing, building, running, and publishing .NET applications.
 
 ## Table of contents
 
-- [.NET CLI, `dotnet`](#net-cli-dotnet)
+- [.NET CLI, `dotnet new`](#net-cli-dotnet-new)
   - [Table of contents](#table-of-contents)
   - [`build`](#build)
   - [`new`](#new)
