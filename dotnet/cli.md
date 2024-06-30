@@ -10,6 +10,7 @@ The [↑ .NET CLI](https://learn.microsoft.com/en-us/dotnet/core/tools/) is a cr
   - [`new`](#new)
     - [Create new solution](#create-new-solution)
     - [Item template](#item-template)
+    - [Project template](#project-template)
 
 ## `build`
 
@@ -28,7 +29,7 @@ The [↑ `dotnet new`](https://learn.microsoft.com/en-us/dotnet/core/tools/dotne
 ### Create new solution
 
 ```bash
-mkdir sample && cd sample
+mkdir sample && cd $_
 git init
 dotnet new solution --name Sample
 dotnet new gitignore
@@ -69,27 +70,27 @@ public static class StringExtensions
 
 ```json
 {
-    "$schema": "http://json.schemastore.org/template",
-    "author": "Me",
-    "classifications": [ "Common", "Code" ],
-    "identity": "ExampleTemplate.StringExtensions",
-    "name": "Example templates: string extensions",
-    "shortName": "stringext",
-    "tags": {
-      "language": "C#",
-      "type": "item"
-    },
-    "symbols": {
-      "ClassName":{
-        "type": "parameter",
-        "description": "The name of the code file and class.",
-        "datatype": "text",
-        "replaces": "StringExtensions",
-        "fileRename": "StringExtensions",
-        "defaultValue": "StringExtensions"
-      }
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Me",
+  "classifications": ["Common", "Code"],
+  "identity": "ExampleTemplate.StringExtensions",
+  "name": "Example templates: string extensions",
+  "shortName": "stringext",
+  "tags": {
+    "language": "C#",
+    "type": "item"
+  },
+  "symbols": {
+    "ClassName": {
+      "type": "parameter",
+      "description": "The name of the code file and class.",
+      "datatype": "text",
+      "replaces": "StringExtensions",
+      "fileRename": "StringExtensions",
+      "defaultValue": "StringExtensions"
     }
   }
+}
 ```
 
 Install template:
@@ -107,6 +108,55 @@ dotnet new uninstall ./
 Test template:
 
 ```bash
-mkdir test && cd test
+mkdir test && cd $_
 dotnet new stringext
+```
+
+### Project template
+
+```bash
+cd working/content
+mkdir consoleasync && cd $_
+dotnet new console
+```
+
+`Program.cs`:
+
+```csharp
+await Console.Out.WriteAsync("Hello World with C#");
+```
+
+```bash
+mkdir .template.config && cd $_
+touch template.json
+```
+
+`template.json`:
+
+```json
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Me",
+  "classifications": ["Common", "Console"],
+  "identity": "ExampleTemplate.AsyncProject",
+  "name": "Example templates: async project",
+  "shortName": "consoleasync",
+  "sourceName": "consoleasync",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  }
+}
+```
+
+```bash
+dotnet new install ./
+```
+
+```bash
+dotnet new consoleasync --name MyProject
+```
+
+```bash
+dotnet new uninstall ./
 ```
