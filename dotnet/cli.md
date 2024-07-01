@@ -155,14 +155,12 @@ touch template.json
 
 ```bash
 dotnet new install ./
+dotnet new install ./ --force # Reinstall
+dotnet new uninstall ./
 ```
 
 ```bash
 dotnet new consoleasync --name MyProject
-```
-
-```bash
-dotnet new uninstall ./
 ```
 
 ### Template package
