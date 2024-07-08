@@ -163,6 +163,8 @@ dotnet new uninstall ./
 dotnet new consoleasync --name MyProject
 ```
 
+[↑ .NET template engine repository](https://github.com/dotnet/templating).
+
 ### Template package
 
 A [↑ template package](https://learn.microsoft.com/en-us/dotnet/core/tutorials/cli-templates-create-template-package) is one or more templates packed into a NuGet package.
