@@ -84,6 +84,8 @@ The [↑ `Expression<TDelegate>`](https://learn.microsoft.com/en-us/dotnet/api/s
 
 ### `Expression<TDelegate>.Compile`
 
+An expression can be translated into a delegate, but the backward conversion is not possible.
+
 The [↑ `Expression<TDelegate>.Compile`](https://learn.microsoft.com/en-us/dotnet/api/system.linq.expressions.expression-1.compile) method compiles the lambda expression described by the expression tree into executable code and produces a delegate that represents the lambda expression.
 
 ```csharp
