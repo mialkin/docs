@@ -34,31 +34,25 @@ Lambda expressions provide a more concise and expressive way to create an anonym
 Func<int, int, int> sum = (a, b) => a + b;
 ```
 
-## Usage
+## Relation to `delegate` and `Expression` types
 
-Lambda expressions often used to create [delegates](/csharp/types/delegate.md) or [expression tree](/csharp/expression-tree.md) types.
-
-Any lambda expression can be converted to a delegate type:
+Lambda expressions can be compiled to [delegate](/csharp/types/delegate.md) and to [expression tree](/csharp/expression-tree.md) types:
 
 ```csharp
-M(x => x * 3);
+SumDelegate((x, y) => x + y, 6, 8);
+SumExpression((x, y) => x + y, 5, 7);
 
-void M(Whatever whatever)
+void SumDelegate(Func<int, int, int> function, int a, int b)
 {
-    Console.WriteLine(whatever.Invoke(5));
+    Console.WriteLine("SumDelegate: " + function(a, b));
 }
 
-delegate int Whatever(int value);
+void SumExpression(Expression<Func<int, int, int>> expression, int a, int b)
+{
+    Console.WriteLine("SumExpression: " + expression.Compile().Invoke(a, b));
+}
+
+// Output:
+// SumDelegate: 14
+// SumExpression: 12
 ```
-
-Output:
-
-```output
-15
-```
-
-Lambda expressions are particularly useful for writing LINQ query expressions.
-
-You can use lambda expressions in any code that requires instances of delegate types or expression trees, for example as an argument to the `Task.Run(Action)` method to pass the code that should be executed in the background.
-
-https://learn.microsoft.com/en-us/dotnet/standard/delegates-lambdas
