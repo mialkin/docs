@@ -12,18 +12,19 @@ The domain-driven design was introduced by Eric Evans in his book written in 200
   - [Domain](#domain)
     - [Core domain](#core-domain)
     - [Subdomain](#subdomain)
-    - [Domain model](#domain-model)
-      - [Anemic domain model](#anemic-domain-model)
-      - [Rich domain model](#rich-domain-model)
-    - [Bounded context](#bounded-context)
-      - [Ubiquitous language](#ubiquitous-language)
-      - [Context map](#context-map)
-      - [Shared kernel](#shared-kernel)
-      - [Anti-corruption layer](#anti-corruption-layer)
-      - [Entity](#entity)
-      - [Aggregate](#aggregate)
-      - [Value object](#value-object)
-    - [Domain event](#domain-event)
+  - [Onion architecture and domain isolation](#onion-architecture-and-domain-isolation)
+  - [Domain model](#domain-model)
+    - [Anemic domain model](#anemic-domain-model)
+    - [Rich domain model](#rich-domain-model)
+  - [Bounded context](#bounded-context)
+    - [Ubiquitous language](#ubiquitous-language)
+    - [Context map](#context-map)
+    - [Shared kernel](#shared-kernel)
+    - [Anti-corruption layer](#anti-corruption-layer)
+    - [Entity](#entity)
+    - [Aggregate](#aggregate)
+    - [Value object](#value-object)
+  - [Domain event](#domain-event)
   - [Event storming](#event-storming)
   - [Specification](#specification)
   - [Videos](#videos)
@@ -61,11 +62,23 @@ A **core domain** is a primary area of focus for a business, that is a problem a
 
 A **supporting subdomain** is an area of a business that models some aspect of the business that is essential, yet not core.
 
-### Domain model
+## Onion architecture and domain isolation
+
+Lets look at the structure of a typical application built with principles of domain-driven design in mind. DDD notions form a construction named onion architecture.
+
+The main reason of such an architecture is separation of concerns.
+
+Entities, domain models, value objects and aggregates carry the most important part of the application — its business logic. They don't contain all of it, but do include most of it.
+
+It is crucial to leave entities and value objects to do only one thing: represent the domain logic in your application. They should not contain any knowledge about how they are persisted or how they are created. They also shouldn't contain any knowledge about the tables and columns in the database where they are stored.
+
+The cleaner you keep your domain model, the easier it is to reason about it and to extend it later on.
+
+## Domain model
 
 A **domain model** is a software model of the very specific business [domain](#domain) you are working in.
 
-#### Anemic domain model
+### Anemic domain model
 
 An **anemic domain model** is a [domain model](#domain-model) that has a state but lacks behavior.
 
@@ -73,17 +86,17 @@ Some kinds of objects, such as data transfer objects, DTOs, are expected to simp
 
 There is nothing wrong with anemic classes when all you need to do is some CRUD logic. But if you are creating a domain model, you've already made a decision that your domain is too complex for simple CRUD. So, anemia in domain model is considered an anti-pattern.
 
-#### Rich domain model
+### Rich domain model
 
 A **rich domain model** is a [domain model](#domain-model) that represents behaviors and business logic of the domain. Classes that simply affect state are considered anti-patterns in the domain model.
 
 Strive for _rich_ domain models and have an awareness of the strengths and weaknesses of those that are not so rich.
 
-### Bounded context
+## Bounded context
 
 A **bounded context** is a conceptual boundary where a [domain model](#domain-model) is applicable. It provides a context for the [ubiquitous language](#ubiquitous-language) that is spoken by the team and expressed in its carefully designed software model.
 
-#### Ubiquitous language
+### Ubiquitous language
 
 A **ubiquitous language** is a shared team language.
 
@@ -97,7 +110,7 @@ Let's say, for example, you have developed a sales system. In this system you ha
 
 The concept of ubiquitous language also means you should keep your code base in sync with this single terminology and name all of your classes and table in database after the terms in the ubiquitous language.
 
-#### Context map
+### Context map
 
 A **context map** is a visual representation of the system's [bounded contexts](#bounded-context) and integrations between them.
 
@@ -108,13 +121,13 @@ Context maps can be used to analyze existing systems or application landscapes b
 - [↑ Context mapping](https://github.com/ddd-crew/context-mapping)
 - [↑ Context mapping in domain-driven design](https://medium.com/ingeniouslysimple/context-mapping-in-domain-driven-design-9063465d2eb8)
 
-#### Shared kernel
+### Shared kernel
 
 A [↑ shared kernel](https://deviq.com/domain-driven-design/shared-kernel) is a special type of [bounded context](#bounded-context) that contains code and data shared across multiple bounded contexts within the same [domain](#domain).
 
 It acts as a central repository for [ubiquitous language](#ubiquitous-language) elements, domain logic, and data structures that are common to all or a subset of the bounded contexts.
 
-#### Anti-corruption layer
+### Anti-corruption layer
 
 An **anti-corruption layer** is a set of defensive patterns placed between the [domain model](#domain-model) and other [bounded contexts](#bounded-context) or third party dependencies.
 
@@ -124,21 +137,21 @@ If two bounded contexts are hosted within the _same process_ and there is no ant
 
 If two bounded contexts are hosted in _separate processes_, i.e. in separate microservices, the communication goes through the network: direct calls via REST and events via message queues. In these situation you don't have to create an anti-corruption layer between the two bounded contexts, because these messaging mechanisms essentially act as such.
 
-#### Entity
+### Entity
 
 An **entity** is an object that has some intrinsic identity, i.e. an ID.
 
-#### Aggregate
+### Aggregate
 
 An **aggregate** is a DDD pattern for grouping [entities](#entity) together that gives another encapsulation boundary and make easier to do persistence of groups of related things. For example an order with its order items can be constructed as an aggregate.
 
-#### Value object
+### Value object
 
 A **value object** is an immutable type that is distinguishable only by the state of its properties.
 
 That is, unlike an [entity](#entity), which has a unique identifier and remains distinct even if its properties are otherwise identical, two value objects with the exact same properties can be considered equal.
 
-### Domain event
+## Domain event
 
 A **domain event** is an occurrence of something that happened in the [domain](#domain).
 

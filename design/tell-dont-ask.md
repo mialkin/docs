@@ -2,7 +2,7 @@
 
 **Tell, don't ask** or **TDA** is a principle that suggests that it is better to issue an object a command do perform some operation or logic, rather than to query its state and then take some action as a result.
 
-It is related to the [↑ Flags over objects](https://deviq.com/antipatterns/flags-over-objects) anti-pattern as well as the [Anemic domain model](ddd.md#anemic-domain-model) anti-pattern. You can easily spot violations of TDA in code that queries or uses several properties of an object in order to perform some calculation. This is especially problematic when the same kind of calculation is done in many places, violating the Don't repeat yourself principle, but can represent a design deficiency even if it only occurs in one location in the current codebase.
+It is related to the [↑ Flags over objects](https://deviq.com/antipatterns/flags-over-objects) anti-pattern as well as the [Anemic domain model](ddd/ddd.md#anemic-domain-model) anti-pattern. You can easily spot violations of TDA in code that queries or uses several properties of an object in order to perform some calculation. This is especially problematic when the same kind of calculation is done in many places, violating the Don't repeat yourself principle, but can represent a design deficiency even if it only occurs in one location in the current codebase.
 
 ## Example
 

@@ -129,7 +129,7 @@
 - [Composition over inheritance](design/composition-over-inheritance.md)
 - [CQRS](design/cqrs.md)
 - [Database per service](design/database-per-service.md)
-- [DDD](design/ddd.md)
+- [DDD](design/ddd/ddd.md)
 - [DRY, KISS, separation of concerns, YAGNI](design/main-principles.md)
 - [Explicit dependencies principle](design/explicit-dependencies-principle.md)
 - [Event sourcing](design/event-sourcing.md)
