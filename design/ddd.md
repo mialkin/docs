@@ -1,22 +1,14 @@
 # Domain-driven design
 
-The term **domain-driven design** was coined by Eric Evans in his book written in 2003.
+The **domain-driven design**, or **DDD** for short, is a software design strategy intended to take complex [domains](#domain) and simplify them into a extensible and maintainable software solution.
 
-DDD provides clean representation of the problem in the code that can be readily understood and verified via tests.
-
-With DDD you "divide and conquer" — by separating a problem into separate [subdomains](#subdomain) each problem can be tackled interdependently.
-
-"While domain-driven design provides many technical benefits, such as maintainability, it should be applied only to complex domains where the model and the linguistic processes provide clear benefits in the communication of complex information, and in the formulation of a common understanding of the domain."  — Eric Evans, Domain-Driven design
-
-Some scenarios in which DDD is going to be an overkill:
-
-- Application which doesn't need much more than lots of CRUD logic
-- Application with simple domain but lots of technical challenges
+The domain-driven design was introduced by Eric Evans in his book written in 2003.
 
 ## Table of contents
 
 - [Domain-driven design](#domain-driven-design)
   - [Table of contents](#table-of-contents)
+  - [Area of application](#area-of-application)
   - [Domain](#domain)
     - [Subdomain](#subdomain)
     - [Domain model](#domain-model)
@@ -35,15 +27,23 @@ Some scenarios in which DDD is going to be an overkill:
   - [Specification](#specification)
   - [Videos](#videos)
 
+## Area of application
+
+DDD is not a silver bullet.
+
+> "While domain-driven design provides many technical benefits, such as maintainability, it should be applied only to complex domains where the model and the linguistic processes provide clear benefits in the communication of complex information, and in the formulation of a common understanding of the domain."
+>
+> — Eric Evans, Domain-Driven design
+
 ## Domain
 
-A **domain** can refer to both the entire domain of the business, as well as just one core or supporting area of it. When referring to just one area of the business we will use words *core domain*, [subdomain](#subdomain), and the like.
+A **domain** can refer to both the entire domain of the business, as well as just one core or supporting area of it. When referring to just one area of the business we will use words _core domain_, [subdomain](#subdomain), and the like.
 
 ### Subdomain
 
 Almost every software [domain](#domain) has multiple **subdomains**.
 
-If it models some aspect of the business that is essential, yet not *core*, it is a **supporting subdomain**.
+If it models some aspect of the business that is essential, yet not _core_, it is a **supporting subdomain**.
 
 The business creates a supporting subdomain because it is somewhat specialized. Otherwise, if it captures nothing special to the business, yet is required for the overall business solution, it is a **generic subdomain**. Being supporting or generic doesn't mean unimportant. These kinds of subdomains are important to the success of the business, yet there is no need for the business to excel in these areas. It's the **core domain** that requires excellence in implementation, since it will provide distinct advantages to the business.
 
@@ -70,7 +70,7 @@ There is nothing wrong with anemic classes when all you need to do is some CRUD 
 
 A **rich domain model** is a [domain model](#domain-model) that represents behaviors and business logic of the domain. Classes that simply affect state are considered anti-patterns in the domain model.
 
-Strive for *rich* domain models and have an awareness of the strengths and weaknesses of those that are not so rich.
+Strive for _rich_ domain models and have an awareness of the strengths and weaknesses of those that are not so rich.
 
 ### Bounded context
 
@@ -80,7 +80,7 @@ A **bounded context** is a conceptual boundary where a [domain model](#domain-mo
 
 A **ubiquitous language** is a shared team language. It's shared by domain experts and developers alike. In fact, it's shared by everyone on the project team. No matter your role on the team, since you are on the team you use the ubiquitous language of the project.
 
-Ubiquitous means "pervasive," or "found everywhere," as *spoken among the team and expressed by the single domain model* that the team develops.
+Ubiquitous means "pervasive," or "found everywhere," as _spoken among the team and expressed by the single domain model_ that the team develops.
 
 There is one ubiquitous language per [bounded context](#bounded-context).
 
@@ -107,9 +107,9 @@ An **anti-corruption layer** is a set of defensive patterns placed between the [
 
 The intent of this layer is to prevent the intrusion of foreign concepts and models into the domain model.
 
-If two bounded contexts are hosted within the *same process* and there is no anti-corruption layer, entities in one bounded context can just directly call entities' methods in another context. Also communication can be performed via domain events. In case there is an anti-corruption layer you can't allow entities in one bounded context just call entities in another bounded context. You must use anti-corruption layer as a proxy, which will handle all translations for entities.
+If two bounded contexts are hosted within the _same process_ and there is no anti-corruption layer, entities in one bounded context can just directly call entities' methods in another context. Also communication can be performed via domain events. In case there is an anti-corruption layer you can't allow entities in one bounded context just call entities in another bounded context. You must use anti-corruption layer as a proxy, which will handle all translations for entities.
 
-If two bounded contexts are hosted in *separate processes*, i.e. in separate microservices, the communication goes through the network: direct calls via REST and events via message queues. In these situation you don't have to create an anti-corruption layer between the two bounded contexts, because these messaging mechanisms essentially act as such.
+If two bounded contexts are hosted in _separate processes_, i.e. in separate microservices, the communication goes through the network: direct calls via REST and events via message queues. In these situation you don't have to create an anti-corruption layer between the two bounded contexts, because these messaging mechanisms essentially act as such.
 
 #### Entity
 
