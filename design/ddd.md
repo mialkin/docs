@@ -25,10 +25,12 @@ Some scenarios in which DDD is going to be an overkill:
     - [Bounded context](#bounded-context)
       - [Ubiquitous language](#ubiquitous-language)
       - [Context map](#context-map)
+      - [Shared kernel](#shared-kernel)
+      - [Anti-corruption layer](#anti-corruption-layer)
+      - [Entity](#entity)
+      - [Aggregate](#aggregate)
+      - [Value object](#value-object)
     - [Domain event](#domain-event)
-  - [Entity](#entity)
-    - [Aggregate](#aggregate)
-  - [Value object](#value-object)
   - [Event storming](#event-storming)
   - [Specification](#specification)
   - [Videos](#videos)
@@ -93,21 +95,39 @@ Context maps can be used to analyze existing systems or application landscapes b
 - [↑ Context mapping](https://github.com/ddd-crew/context-mapping)
 - [↑ Context mapping in domain-driven design](https://medium.com/ingeniouslysimple/context-mapping-in-domain-driven-design-9063465d2eb8)
 
-### Domain event
+#### Shared kernel
 
-A **domain event** is an occurrence of something that happened in the [domain](#domain).
+A [↑ shared kernel](https://deviq.com/domain-driven-design/shared-kernel) is a special type of [bounded context](#bounded-context) that contains code and data shared across multiple bounded contexts within the same [domain](#domain).
 
-## Entity
+It acts as a central repository for [ubiquitous language](#ubiquitous-language) elements, domain logic, and data structures that are common to all or a subset of the bounded contexts.
 
-An **entity** is an object that has an identity, i.e. an ID.
+#### Anti-corruption layer
 
-### Aggregate
+An **anti-corruption layer** is a set of defensive patterns placed between the [domain model](#domain-model) and other [bounded contexts](#bounded-context) or third party dependencies.
+
+The intent of this layer is to prevent the intrusion of foreign concepts and models into the domain model.
+
+If two bounded contexts are hosted within the *same process* and there is no anti-corruption layer, entities in one bounded context can just directly call entities' methods in another context. Also communication can be performed via domain events. In case there is an anti-corruption layer you can't allow entities in one bounded contexts just call entities in another bounded context. You must use anti-corruption layer as a proxy, which will handle all translations for entities.
+
+If two bounded contexts are hosted in *separate processes*, i.e. in separate microservices, the communication goes through the network: direct calls via REST and events via message queues. In these situation you don't have to create an anti-corruption layer between the two bounded contexts, because these messaging mechanisms essentially act as such.
+
+#### Entity
+
+An **entity** is an object that has some intrinsic identity, i.e. an ID.
+
+#### Aggregate
 
 An **aggregate** is a DDD pattern for grouping [entities](#entity) together that gives another encapsulation boundary and make easier to do persistence of groups of related things. For example an order with its order items can be constructed as an aggregate.
 
-## Value object
+#### Value object
 
-A **value object** is an immutable type that is distinguishable only by the state of its properties. That is, unlike an [entity](#entity), which has a unique identifier and remains distinct even if its properties are otherwise identical, two value objects with the exact same properties can be considered equal.
+A **value object** is an immutable type that is distinguishable only by the state of its properties.
+
+That is, unlike an [entity](#entity), which has a unique identifier and remains distinct even if its properties are otherwise identical, two value objects with the exact same properties can be considered equal.
+
+### Domain event
+
+A **domain event** is an occurrence of something that happened in the [domain](#domain).
 
 ## Event storming
 
