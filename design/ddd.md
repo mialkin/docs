@@ -107,7 +107,7 @@ An **anti-corruption layer** is a set of defensive patterns placed between the [
 
 The intent of this layer is to prevent the intrusion of foreign concepts and models into the domain model.
 
-If two bounded contexts are hosted within the *same process* and there is no anti-corruption layer, entities in one bounded context can just directly call entities' methods in another context. Also communication can be performed via domain events. In case there is an anti-corruption layer you can't allow entities in one bounded contexts just call entities in another bounded context. You must use anti-corruption layer as a proxy, which will handle all translations for entities.
+If two bounded contexts are hosted within the *same process* and there is no anti-corruption layer, entities in one bounded context can just directly call entities' methods in another context. Also communication can be performed via domain events. In case there is an anti-corruption layer you can't allow entities in one bounded context just call entities in another bounded context. You must use anti-corruption layer as a proxy, which will handle all translations for entities.
 
 If two bounded contexts are hosted in *separate processes*, i.e. in separate microservices, the communication goes through the network: direct calls via REST and events via message queues. In these situation you don't have to create an anti-corruption layer between the two bounded contexts, because these messaging mechanisms essentially act as such.
 
