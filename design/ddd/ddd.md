@@ -66,6 +66,8 @@ A **supporting subdomain** is an area of a business that models some aspect of t
 
 Lets look at the structure of a typical application built with principles of domain-driven design in mind. DDD notions form a construction named onion architecture.
 
+<img src="onion.jpg" width="400px" alt="Onion architecture and DDD" />
+
 The main reason of such an architecture is separation of concerns.
 
 Entities, domain models, value objects and aggregates carry the most important part of the application — its business logic. They don't contain all of it, but do include most of it.
