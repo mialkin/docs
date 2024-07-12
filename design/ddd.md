@@ -31,6 +31,19 @@ The domain-driven design was introduced by Eric Evans in his book written in 200
 
 DDD is not a silver bullet.
 
+There are different kinds of projects and DDD is applicable to only fraction of them. The most important attributes of any project are:
+
+- **Amount of data project operates** (single database vs big data)
+- **Performance requirements** (simple utility tool vs online trading platform)
+- **Business logic complexity** (CRUD application vs ERP system with lots of business rules)
+- **Technical complexity** (complexity of algorithms needed to be implemented to make software work, for example, a low level programming for embedded systems where you need to deal with many of hardware systems manually)
+
+The techniques DDD proposes are useful _if and only if_ the project you are working on has a lot of business rules. DDD won't help you if you work with big data, or need to achieve and outstanding performance or program against hardware systems.
+
+The only purpose DDD concepts serve is to _tackle business logic complexity_. So, if you need to create an [↑ x.com](https://x.com/)-like application domain-driven design won't help you much with that, because the challenge in this type of software comes out not from its business rules. The business logic itself is pretty simple in [↑ X](https://en.wikipedia.org/wiki/Twitter). What makes it hard to implement the great performance and scalability requirements.
+
+A typical example of software with complicated business logic is enterprise-level applications. It is true that most of the enterprise projects don't have outstanding performance requirements, they operate moderate amounts of data, and developers working on them usually don't have to deal with technical complexity by their own, because there are plenty of tools, that abstract out this kind of complexity for them. The biggest challenge in such projects is to handle business logic complexity in such a way that it would be possible to extend and maintain the solution in the long run. That is exactly the task the DDD practices are aim to solve. They help us create code which not only fully covers the problem, but also does it in the simplest and, thus, the most maintainable way possible.
+
 > "While domain-driven design provides many technical benefits, such as maintainability, it should be applied only to complex domains where the model and the linguistic processes provide clear benefits in the communication of complex information, and in the formulation of a common understanding of the domain."
 >
 > — Eric Evans, Domain-Driven design
