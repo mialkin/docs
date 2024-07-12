@@ -91,11 +91,17 @@ A **bounded context** is a conceptual boundary where a [domain model](#domain-mo
 
 #### Ubiquitous language
 
-A **ubiquitous language** is a shared team language. It's shared by domain experts and developers alike. In fact, it's shared by everyone on the project team. No matter your role on the team, since you are on the team you use the ubiquitous language of the project.
+A **ubiquitous language** is a shared team language.
+
+It's shared by domain experts and developers alike. In fact, it's shared by everyone on the project team. No matter your role on the team, since you are on the team you use the ubiquitous language of the project.
 
 Ubiquitous means "pervasive," or "found everywhere," as _spoken among the team and expressed by the single domain model_ that the team develops.
 
 There is one ubiquitous language per [bounded context](#bounded-context).
+
+Let's say, for example, you have developed a sales system. In this system you have a class called `Product` which is an atomic sell unit. Let's also say that domain experts refer to this element as both a "product" and a "package". In this case you should call attention to this disparity and suggest to use a single term to avoid confusion.
+
+The concept of ubiquitous language also means you should keep your code base in sync with this single terminology and name all of your classes and table in database after the terms in the ubiquitous language.
 
 #### Context map
 
