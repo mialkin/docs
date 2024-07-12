@@ -10,6 +10,7 @@ The domain-driven design was introduced by Eric Evans in his book written in 200
   - [Table of contents](#table-of-contents)
   - [Area of application](#area-of-application)
   - [Domain](#domain)
+    - [Core domain](#core-domain)
     - [Subdomain](#subdomain)
     - [Domain model](#domain-model)
       - [Anemic domain model](#anemic-domain-model)
@@ -50,22 +51,15 @@ A typical example of software with complicated business logic is enterprise-leve
 
 ## Domain
 
-A **domain** can refer to both the entire domain of the business, as well as just one core or supporting area of it. When referring to just one area of the business we will use words _core domain_, [subdomain](#subdomain), and the like.
+A **domain** can refer to both the entire domain of the business, as well as just one core or supporting area of it.
+
+### Core domain
+
+A **core domain** is a primary area of focus for a business, that is a problem a software is meant to solve.
 
 ### Subdomain
 
-Almost every software [domain](#domain) has multiple **subdomains**.
-
-If it models some aspect of the business that is essential, yet not _core_, it is a **supporting subdomain**.
-
-The business creates a supporting subdomain because it is somewhat specialized. Otherwise, if it captures nothing special to the business, yet is required for the overall business solution, it is a **generic subdomain**. Being supporting or generic doesn't mean unimportant. These kinds of subdomains are important to the success of the business, yet there is no need for the business to excel in these areas. It's the **core domain** that requires excellence in implementation, since it will provide distinct advantages to the business.
-
-Recognizing anemic domains:
-
-- Looks like the real thing with objects named for nouns in the domain
-- Little or no behavior
-- Equate to property bags with getters and setters
-- All business logic has been relegated to service objects
+A **supporting subdomain** is an area of a business that models some aspect of the business that is essential, yet not core.
 
 ### Domain model
 
