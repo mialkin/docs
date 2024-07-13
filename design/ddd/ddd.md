@@ -52,11 +52,15 @@ A typical example of software with complicated business logic is enterprise-leve
 
 ## Domain
 
-A **domain** can refer to both the entire domain of the business, as well as just one core or supporting area of it.
+A **domain** is the entire domain of the business.
+
+The actual problem a software is going to solve, the purpose it's built for.
 
 ### Core domain
 
-A **core domain** is a primary area of focus for a business, that is a problem a software is meant to solve.
+A **core domain** is a subset of a [domain](#domain). It's an essential part of domain that cannot be delegated to external solution and must be resolved by us, developers.
+
+is a primary area of focus for a business, that is a problem a software is meant to solve.
 
 ### Subdomain
 
@@ -79,6 +83,8 @@ The cleaner you keep your domain model, the easier it is to reason about it and 
 ## Domain model
 
 A **domain model** is a software model of the very specific business [domain](#domain) you are working in.
+
+The terms _business logic_, _domain logic_, _business rules_, _domain knowledge_ and _domain model_ are synonyms.
 
 ### Anemic domain model
 
