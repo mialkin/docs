@@ -263,3 +263,18 @@ for (var i = 0; i < 5; i++) {
 - `i++ + ++i`
 - [↑ Why C# structs do no support inheritance](https://pragmateek.com/why-c-structs-do-no-support-inheritance/)
 - [↑ How are C# Generics implemented?](https://stackoverflow.com/questions/11436802/how-are-c-sharp-generics-implemented)
+
+```csharp
+Foo foo = 1;
+Console.WriteLine(foo);
+
+record Foo(int Value)
+{
+    public static implicit operator Foo(int value) => new(value + 1);
+
+    public static Foo operator *(Foo right, Foo left) => right.Value * left.Value;
+
+    public override string ToString() => (this * 1).Value.ToString();
+}
+// 5
+```
