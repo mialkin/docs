@@ -160,7 +160,6 @@ for (var i = 0; i < 5; i++) {
   - [↑ Destructurama.Attributed](https://github.com/destructurama/attributed)
   - [↑ Serilog.Enrichers.Sensitive](https://github.com/serilog-contrib/Serilog.Enrichers.Sensitive/tree/master)
   - [↑ What is data masking?](https://aws.amazon.com/what-is/data-masking/)
-- Consider implementing in a project [The NEW Way of Validating Settings in .NET 8](https://www.youtube.com/watch?v=mO0fwvnnzbU)?
 
 ## C&#35;
 
@@ -170,20 +169,12 @@ for (var i = 0; i < 5; i++) {
   - [↑ How to Build Dynamic Queries With Expression Trees in C#](https://code-maze.com/dynamic-queries-expression-trees-csharp/)
   - Generate code from created expression tree for some mapper. Use generated code to map 2 objects
 - IQueryable interface
-- [↑ Specification pattern](https://deviq.com/design-patterns/specification-pattern)
-  - <https://enterprisecraftsmanship.com/posts/specification-pattern-c-implementation>
-  - <https://deviq.com/design-patterns/specification-pattern>
-  - <https://designpatternsphp.readthedocs.io/en/latest/Behavioral/Specification/README.html>
-  - <https://github.com/AdemCatamak/SpecificationPatternExample>
-  - <https://en.wikipedia.org/wiki/Specification_pattern>
-  - <https://medium.com/c-sharp-progarmming/specification-design-pattern-c814649be0ef>
 - `IDisposable`
   - [↑ Struct and IDisposable](https://stackoverflow.com/questions/7914423/struct-and-idisposable)
   - [↑ To box or not to box](https://ericlippert.com/2011/03/14/to-box-or-not-to-box/)
   - [↑ Implement a Dispose method](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose)
   - [↑ Implement a DisposeAsync method](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-disposeasync)
   - [↑ Disposable pattern](https://medium.com/@mypascal2000/disposable-patterns-ffa2145619e2)
-- [↑ Grouping assertions with `AssertionScope`](https://ardalis.com/grouping-assertions-in-tests/)
 - [↑ Writing async/await from scratch in C# with Stephen Toub](https://www.youtube.com/watch?v=R-z2Hv-7nxk).
 - [↑ How Async/Await Really Works in C#](https://devblogs.microsoft.com/dotnet/how-async-await-really-works/)
 - [↑ Smallest .Net ref type is 12 bytes (or why you should consider using value types)](https://theburningmonk.com/2015/07/smallest-net-ref-type-is-12-bytes-or-why-you-should-consider-using-value-types/)
