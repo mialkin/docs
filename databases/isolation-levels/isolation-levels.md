@@ -38,7 +38,7 @@ Although higher isolation levels provide better data consistency, this consisten
 
 The **lost update** phenomenon occurs when two transactions read one and the same table row, then one of the transactions updates this row, and finally the other transaction updates the same row without taking into account any changes made by the first transaction.
 
-Suppose that two transactions are going to increase the balance of one and the same account by $100. The first transaction reads the current value ($1000), then the second transaction reads the same value. The first transaction increases the balance (making it $1100) and writes the new value into the database. The second transaction does the same: it gets $1100 after increasing the balance and writes this value. As a result, the customer loses $100.
+Suppose that two transactions are going to increase the balance of one and the same account by $100. The first transaction reads the current value $1000, then the second transaction reads the same value. The first transaction increases the balance, making it $1100, and writes the new value into the database. The second transaction does the same: it gets $1100 after increasing the balance and writes this value. As a result, the customer loses $100.
 
 Lost updates are forbidden by the standard at all isolation levels.
 
