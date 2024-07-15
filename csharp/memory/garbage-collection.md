@@ -66,7 +66,13 @@ The 85KB threshold was determined empirically as the point beyond which defragme
 
 ### LOH
 
-A **large object heap**, or **LOH** for short is a special memory zone for objects that are greater than 85,000 bytes. LOH objects are not compacted and collected during generation 2 garbage collection.
+A **large object heap**, or **LOH** for short is a special memory zone for objects that are greater than 85,000 bytes.
+
+LOH objects and collected during generation 2 garbage collection.
+
+By default LOH objects are not compacted.
+
+.NET Core and .NET Framework, starting with version 4.5.1, include the [↑ `GCSettings.LargeObjectHeapCompactionMode`](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.gcsettings.largeobjectheapcompactionmode) property that allows users to specify that the LOH should be compacted during the next full blocking garbage collection. And in the future, .NET may decide to compact the LOH automatically. This means that, if you allocate large objects and want to make sure that they don't move, you should still pin them.
 
 [↑ The large object heap on Windows systems](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/large-object-heap).
 
