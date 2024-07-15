@@ -1,11 +1,13 @@
-# Garbage collection, GC, SOH, LOH, POH, P/Invoke
+# Garbage collection, SOH, LOH, POH, P/Invoke
 
 ## Table of contents
 
-- [Garbage collection, GC, SOH, LOH, POH, P/Invoke](#garbage-collection-gc-soh-loh-poh-pinvoke)
+- [Garbage collection, SOH, LOH, POH, P/Invoke](#garbage-collection-soh-loh-poh-pinvoke)
   - [Table of contents](#table-of-contents)
-  - [GC](#gc)
-  - [.NET managed heap](#net-managed-heap)
+  - [Garbage collection](#garbage-collection)
+    - [Memory allocation](#memory-allocation)
+    - [Memory release](#memory-release)
+  - [Managed heap](#managed-heap)
     - [Non-GC heap](#non-gc-heap)
     - [SOH](#soh)
     - [LOH](#loh)
@@ -15,11 +17,27 @@
   - [P/Invoke](#pinvoke)
   - [Ephemeral generations and segments](#ephemeral-generations-and-segments)
 
-## GC
+## Garbage collection
 
-A **garbage collector** or **GC** is as an automatic memory manager in the [↑ CLR](https://learn.microsoft.com/en-us/dotnet/standard/clr).
+A **garbage collection** is an automatic memory management feature in .NET that allocates and releases memory with help of _garbage collector_.
 
-## .NET managed heap
+Also the term _garbage collection_ often refers to only [releasing memory](#memory-release) as opposed to both allocating and releasing memory.
+
+A **garbage collector** or **GC** is as an automatic memory manager in the [↑ CLR](https://learn.microsoft.com/en-us/dotnet/standard/clr) that allocates and releases memory for your application.
+
+### Memory allocation
+
+When you initialize a new process, the runtime reserves a contiguous region of address space for the process — the [managed heap](#managed-heap).
+
+All [reference types](/csharp/types/reference-types/reference-types.md) are allocated on the managed heap.
+
+When an application creates the first reference type, memory is allocated for the type at the base address of the managed heap. As long as address space is available, the runtime continues to allocate space for new objects.
+
+### Memory release
+
+Before a garbage collection starts, all managed threads are suspended except for the thread that triggered the garbage collection.
+
+## Managed heap
 
 A **managed heap** is a contiguous region of address space reserved by runtime for the process.
 
@@ -69,6 +87,11 @@ LOH objects and collected during generation 2 garbage collection.
 By default LOH objects are not compacted.
 
 .NET Core and .NET Framework, starting with version 4.5.1, include the [↑ `GCSettings.LargeObjectHeapCompactionMode`](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.gcsettings.largeobjectheapcompactionmode) property that allows users to specify that the LOH should be compacted during the next full blocking garbage collection. And in the future, .NET may decide to compact the LOH automatically. This means that, if you allocate large objects and want to make sure that they don't move, you should still pin them.
+
+In addition, the LOH is [↑ automatically compacted](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals#what-happens-during-a-garbage-collection) when a hard limit is set by specifying either:
+
+- A memory limit on a container
+- The [↑ `GCHeapHardLimit`](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/garbage-collector#heap-limit) or [↑ `GCHeapHardLimitPercent`](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/garbage-collector#heap-limit-percent) runtime configuration options
 
 [↑ The large object heap on Windows systems](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/large-object-heap).
 
