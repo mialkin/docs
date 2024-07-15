@@ -1,12 +1,8 @@
-# Garbage collection
-
-In the CLR the garbage collector (GC) serves as an automatic memory manager.
-
-[↑ Fundamentals of garbage collection](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals).
+# Garbage collection, GC, SOH, LOH, POH, P/Invoke
 
 ## Table of contents
 
-- [Garbage collection](#garbage-collection)
+- [Garbage collection, GC, SOH, LOH, POH, P/Invoke](#garbage-collection-gc-soh-loh-poh-pinvoke)
   - [Table of contents](#table-of-contents)
   - [GC](#gc)
   - [.NET managed heap](#net-managed-heap)
@@ -21,7 +17,7 @@ In the CLR the garbage collector (GC) serves as an automatic memory manager.
 
 ## GC
 
-A **garbage collector** or **GC** is as an automatic memory manager in the [CLR]().
+A **garbage collector** or **GC** is as an automatic memory manager in the [↑ CLR](https://learn.microsoft.com/en-us/dotnet/standard/clr).
 
 ## .NET managed heap
 
@@ -145,7 +141,7 @@ In this example:
 
 ## P/Invoke
 
-The [↑ P/Invoke](https://learn.microsoft.com/en-us/dotnet/standard/native-interop/pinvoke) is a technology that allows you to access structs, callbacks, and functions in unmanaged libraries from your managed code.
+The [↑ P/Invoke](https://learn.microsoft.com/en-us/dotnet/standard/native-interop/pinvoke) or **platform invoke** is a technology that allows you to access structs, callbacks, and functions in unmanaged libraries from your managed code.
 
 ## Ephemeral generations and segments
 
