@@ -13,11 +13,12 @@ In the CLR the garbage collector (GC) serves as an automatic memory manager.
   - [Memory allocation](#memory-allocation)
   - [Conditions for a garbage collection](#conditions-for-a-garbage-collection)
   - [Ephemeral generations and segments](#ephemeral-generations-and-segments)
-  - [Non-GC heap](#non-gc-heap)
-  - [Large object heap, LOH](#large-object-heap-loh)
-  - [Pinned objects heap, POH](#pinned-objects-heap-poh)
-    - [`fixed` keyword](#fixed-keyword)
-    - [`GCHandle`](#gchandle)
+  - [.NET managed heap](#net-managed-heap)
+    - [Non-GC heap](#non-gc-heap)
+    - [Large object heap, LOH](#large-object-heap-loh)
+    - [Pinned objects heap, POH](#pinned-objects-heap-poh)
+      - [`fixed` keyword](#fixed-keyword)
+      - [`GCHandle`](#gchandle)
   - [Platform invoke, P/Invoke](#platform-invoke-pinvoke)
   - [`GC`](#gc)
 
@@ -83,7 +84,9 @@ The amount of freed memory from an ephemeral garbage collection is limited to th
 
 [↑ Understanding different GC modes with Concurrency Visualizer](https://devblogs.microsoft.com/premier-developer/understanding-different-gc-modes-with-concurrency-visualizer/).
 
-## Non-GC heap
+## .NET managed heap
+
+### Non-GC heap
 
 The **non-GC heap** is a specialized heap that is not managed by the garbage collector and is designed to store immortal objects with certain benefits for GC and code generation.
 
@@ -108,17 +111,19 @@ flowchart
 
 [↑ Exploring .NET frozen segments](https://minidump.net/exploring-frozen-segments).
 
-## Large object heap, LOH
+### Large object heap, LOH
 
 The **large object heap**, or **LOH** for short is a special memory zone for objects that are greater than 85,000 bytes. LOH objects are not compacted and collected during generation 2 garbage collection.
 
-## Pinned objects heap, POH
+[↑ The large object heap on Windows systems](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/large-object-heap).
+
+### Pinned objects heap, POH
 
 The **pinned object heap**, or **POH**, is a specialized heap introduced in .NET 5.0 as part of the .NET runtime.
 
 Pinning objects in C# is primarily used to ensure that an object remains at a fixed memory location and does not get moved by the garbage collector. This is particularly important in scenarios where you need to pass a reference to managed memory to unmanaged code, such as when working with [P/Invoke](#platform-invoke-pinvoke) or interfacing with low-level system components. Pinning an object prevents the GC from relocating it, ensuring that the unmanaged code receives a stable pointer.
 
-### `fixed` keyword
+#### `fixed` keyword
 
 Here's a simple example demonstrating how to pin an array and pass it to unmanaged code using the [`fixed`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/fixed) statement:
 
@@ -147,9 +152,9 @@ In this example:
 - The `byte* pData` is a pointer to the first element of the array
 - `IntPtr ptr = (IntPtr)pData` converts the pointer to an `IntPtr` that can be passed to the unmanaged function `NativeFunction`
 
-### `GCHandle`
+#### `GCHandle`
 
-Another approach to pinning objects is using the [↑ `GCHandle`](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.gchandle) struct, which provides more control over the pinning process and can pin any managed object, not just arrays:
+Another approach to pinning objects is using the [↑ `GCHandle`](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.gchandle) structure, which provides more control over the pinning process and can pin any managed object, not just arrays:
 
 ```csharp
 using System.Runtime.InteropServices;

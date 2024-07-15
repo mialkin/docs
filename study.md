@@ -142,7 +142,6 @@ for (var i = 0; i < 5; i++) {
 ## .NET
 
 - Memory managment
-  - [↑ The large object heap on Windows systems](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/large-object-heap)
   - [↑ Оптимизация сборки мусора в высоконагруженном .NET сервисе](https://habr.com/ru/articles/452298/)
   - [↑ CLRium #5: Курс "Garbage Collector"](https://www.youtube.com/watch?v=DVnmGW6964o)
   - [↑ Memory leaks](https://github.com/sebastienros/memoryleak)
