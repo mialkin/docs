@@ -22,7 +22,7 @@ Grafana page at localhost is <http://localhost:3000>.
 ## Run
 
 ```bash
-docker run -d -p 3000:3000 --name=grafana grafana/grafana-enterprise
+docker run --detach --publish 3000:3000 --name=grafana grafana/grafana-enterprise
 ```
 
 ## Basics

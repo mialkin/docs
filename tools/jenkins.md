@@ -10,8 +10,8 @@
 ```bash
 docker run \
 -u root \
--d \
--p 8080:8080 \
+--detach \
+--publish 8080:8080 \
 --name jenkins-blueocean \
 -v /Users/aleksei/jenkins_home:/var/jenkins_home \
 -v /Users/aleksei/.nuget/packages:/var/jenkins_home/.nuget/packages \

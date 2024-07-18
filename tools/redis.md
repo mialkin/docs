@@ -30,7 +30,7 @@ Redis is an acronym that stands for **RE**mote **DI**ctionary **S**erver.
 
 ```bash
 docker run --name redis \
--p 6379:6379 \
+--publish 6379:6379 \
 redis redis-server \
 --appendonly yes
 ```

@@ -163,8 +163,8 @@ Run Docker container:
 
 ```bash
 docker run \
-    -d \
-    -p 9090:9090 \
+    --detach \
+    --publish 9090:9090 \
     -v /Users/aleksei/prometheus:/etc/prometheus \
     --name prometheus \
     prom/prometheus

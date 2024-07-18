@@ -52,7 +52,7 @@ digraph DiagramName {
 [↑ PlantUML Server](https://github.com/plantuml/plantuml-server) is a web application that generates UML diagrams.
 
 ```bash
-docker run -d -p 7077:8080 plantuml/plantuml-server:jetty
+docker run --detach --publish 7077:8080 plantuml/plantuml-server:jetty
 ```
 
 Visual Studio Code settings:
