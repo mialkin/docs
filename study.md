@@ -99,8 +99,6 @@
     - [↑ Backends for Frontends](https://microservices.io/patterns/apigateway.html)
     - Retry
       - [↑ Implement HTTP call retries with exponential backoff with IHttpClientFactory and Polly policies](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly)
-- [↑ C4 model](https://en.wikipedia.org/wiki/C4_model)
-  - <https://c4model.com>
 - [↑ Почему авторизация сложно и причем здесь Занзибар?](https://www.youtube.com/watch?v=Tr5H8iG0FzI)
   - <https://zanzibar.academy>
 - [↑ Cloud Desing Patterns](https://learn.microsoft.com/en-us/azure/architecture/patterns/)
