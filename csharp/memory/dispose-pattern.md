@@ -1,16 +1,11 @@
-# `IDisposable`, unmanaged resource, dispose pattern
+# Unmanaged resource, `IDisposable`, dispose pattern
 
 ## Table of contents
 
-- [`IDisposable`, unmanaged resource, dispose pattern](#idisposable-unmanaged-resource-dispose-pattern)
+- [Unmanaged resource, `IDisposable`, dispose pattern](#unmanaged-resource-idisposable-dispose-pattern)
   - [Table of contents](#table-of-contents)
-  - [`IDisposable`](#idisposable)
   - [Unmanaged resource](#unmanaged-resource)
-  - [Dispose pattern](#dispose-pattern)
-
-## `IDisposable`
-
-The [↑ `IDisposable`](https://learn.microsoft.com/en-us/dotnet/api/system.idisposable) interface provides a mechanism for releasing [unmanaged resources](#unmanaged-resource).
+  - [`IDisposable`, dispose pattern](#idisposable-dispose-pattern)
 
 ## Unmanaged resource
 
@@ -20,9 +15,9 @@ Although the garbage collector is able to track the lifetime of an object that e
 
 [↑ What exactly are unmanaged resources?](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/unmanaged).
 
-## Dispose pattern
+## `IDisposable`, dispose pattern
 
-[↑ Implement a Dispose method](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose)
+The [↑ `IDisposable`](https://learn.microsoft.com/en-us/dotnet/api/system.idisposable) interface provides a mechanism for releasing [unmanaged resources](#unmanaged-resource).
 
 > It is possible for a base class to only reference managed objects, and implement the dispose pattern. In these cases, a finalizer is unnecessary. A finalizer is only required if you directly reference unmanaged resources.
 
@@ -59,6 +54,8 @@ class BaseClassWithSafeHandle : IDisposable
     }
 }
 ```
+
+[↑ Implement a `Dispose` method](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose).
 
 > The previous example uses a `SafeFileHandle` object to illustrate the pattern; any object derived from `SafeHandle` could be used instead.
 
