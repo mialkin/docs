@@ -350,6 +350,7 @@
 - [Literal](csharp/literal.md)
 - [Lowering in C#](csharp/lowering.md)
 - Memory
+  - [dotMemory](csharp/memory/profilers/profilers.md)
   - [Garbage collection, SOH, LOH, POH, P/Invoke](csharp/memory/garbage-collection.md)
   - [Unmanaged resource, `IDisposable`, dispose pattern, `WeakReference`](csharp/memory/dispose-pattern.md)
 - Miscellaneous classes

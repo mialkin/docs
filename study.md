@@ -143,7 +143,7 @@ for (var i = 0; i < 5; i++) {
   - [↑ Оптимизация сборки мусора в высоконагруженном .NET сервисе](https://habr.com/ru/articles/452298/)
   - [↑ CLRium #5: Курс "Garbage Collector"](https://www.youtube.com/watch?v=DVnmGW6964o)
   - [↑ Memory leaks](https://github.com/sebastienros/memoryleak)
-  - Learn dotMemory and dotTrace
+  - Learn dotTrace
   - `WaitForPendingFinalizers`
   - [↑ When should I use `GC.SuppressFinalize()`?](https://stackoverflow.com/questions/151051/when-should-i-use-gc-suppressfinalize)
   - [↑ Finalizers](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/finalizers)
