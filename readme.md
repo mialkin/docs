@@ -351,8 +351,7 @@
 - [Lowering in C#](csharp/lowering.md)
 - Memory
   - [Garbage collection, SOH, LOH, POH, P/Invoke](csharp/memory/garbage-collection.md)
-  - [`IDisposable`, unmanaged resource, dispose pattern](csharp/memory/dispose-pattern.md)
-  - [`WeakReference`](csharp/memory/weak-reference.md)
+  - [Unmanaged resource, `IDisposable`, dispose pattern, `WeakReference`](csharp/memory/dispose-pattern.md)
 - Miscellaneous classes
   - [`Stopwatch`, `PeriodicTimer`, `Progress<T>`, `StreamWriter`](csharp/miscellaneous-classes.md)
 - [↑ Operators and expressions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/)
