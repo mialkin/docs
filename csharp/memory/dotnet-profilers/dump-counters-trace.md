@@ -8,6 +8,7 @@
     - [`dotnet-counters ps`](#dotnet-counters-ps)
     - [`dotnet-counters monitor`](#dotnet-counters-monitor)
   - [`dotnet-dump`](#dotnet-dump)
+    - [`dotnet-dump ps`](#dotnet-dump-ps)
   - [`dotnet-trace`](#dotnet-trace)
 
 ## `dotnet-counters`
@@ -46,7 +47,17 @@ dotnet-counters monitor --process-id 1234
 
 [↑ `dotnet-dump`](https://learn.microsoft.com/en-us/dotnet/core/diagnostics/dotnet-dump) is a dump collection and analysis utility.
 
-[↑ Finding memory leaks in C# .NET Applications](https://www.youtube.com/watch?v=9QPgfJPaGvY).
+```bash
+dotnet tool install --global dotnet-dump
+```
+
+### `dotnet-dump ps`
+
+[↑ `dotnet-dump ps`](https://learn.microsoft.com/en-us/dotnet/core/diagnostics/dotnet-dump#dotnet-dump-ps) command lists the dotnet processes that dumps can be collected from, also displays the command-line arguments that each process was started with, if available.
+
+```bash
+dotnet-dump ps
+```
 
 ## `dotnet-trace`
 
