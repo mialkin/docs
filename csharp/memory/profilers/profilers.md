@@ -18,7 +18,7 @@ Set memory limit to 300 MB using [↑ `System.GC.HeapHardLimit`](https://learn.m
 }
 ```
 
-Code of `/api/generate-large-strings` endpoint:
+Code of `/api/generate-large-strings` minimal API endpoint:
 
 ```csharp
 public static class GenerateLargeStringsEndpoint
