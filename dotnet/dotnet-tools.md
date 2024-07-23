@@ -1,4 +1,4 @@
-# .NET tool, `dotnet-ef`, `dotnet-format`
+# .NET tools, `dotnet-ef`, `dotnet-format`
 
 A **.NET tool** is a special NuGet package that contains a console application.
 
@@ -11,7 +11,7 @@ A **.NET tool** is a special NuGet package that contains a console application.
 
 ## Table of contents
 
-- [.NET tool, `dotnet-ef`, `dotnet-format`](#net-tool-dotnet-ef-dotnet-format)
+- [.NET tools, `dotnet-ef`, `dotnet-format`](#net-tools-dotnet-ef-dotnet-format)
   - [Table of contents](#table-of-contents)
   - [`dotnet-ef`](#dotnet-ef)
     - [Installation](#installation)
