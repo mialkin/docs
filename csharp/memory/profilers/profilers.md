@@ -63,7 +63,7 @@ public static class GenerateLargeStringsEndpoint
 
 // Output:
 // 
-// [22:22:05 INF] TotalAvailableMemoryBytes: 309715200
+// [22:22:05 INF] TotalAvailableMemoryBytes: 300000000
 // [22:22:07 INF] Added string 1
 // [22:22:09 INF] Added string 2
 // [22:22:12 INF] Added string 3
@@ -76,4 +76,3 @@ public static class GenerateLargeStringsEndpoint
 // [22:22:27 INF] Added string 10
 // [22:22:28 INF] Broke the loop
 ```
-
