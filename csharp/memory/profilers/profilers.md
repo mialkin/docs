@@ -76,3 +76,17 @@ public static class GenerateLargeStringsEndpoint
 // [22:22:27 INF] Added string 10
 // [22:22:28 INF] Broke the loop
 ```
+
+Setting heap hard limit to 100 MB throws OOM exception on the first endpoint call. OOM exception does not cause process crash though.
+
+```console
+[22:43:37 INF] TotalAvailableMemoryBytes: 100000000
+[22:43:38 INF] Added string 1
+[22:43:40 INF] Added string 2
+[22:43:42 INF] Added string 3
+[22:43:44 INF] Added string 4
+[22:43:45 ERR] HTTP POST /api/generate-large-strings responded 500 in 7627.7617 ms
+System.OutOfMemoryException: Exception of type 'System.OutOfMemoryException' was thrown.
+...
+...
+```
