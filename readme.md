@@ -274,7 +274,7 @@
 - [.NET CLI, `dotnet new`](dotnet/cli.md)
 - [.NET tools, `dotnet-ef`, `dotnet format`](dotnet/dotnet-tools.md)
 - [Dependency injection in .NET](dotnet/dependency-injection-dotnet.md)
-- [`dotnet-dump`, `dotnet-counters`, `dotnet-trace`](dotnet/dotnet-tools/dotnet-dump-counters-trace.md)
+- [`dotnet-counters`, `dotnet-dump`, `dotnet-trace`](dotnet/dotnet-tools/dotnet-dump-counters-trace.md)
 - Dotnet libraries
   - [BenchmarkDotNet](dotnet/libraries/benchmarkdotnet.md)
   - [Bogus](dotnet/libraries/bogus.md)
