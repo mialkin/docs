@@ -32,6 +32,7 @@
   - [↑ Introduction to contract testing with Pactflow](https://www.youtube.com/playlist?list=PLwy9Bnco-IpfZ72VQ7hce8GicVZs7nm0i)
 - [↑ Qodana](https://www.jetbrains.com/qodana).
 - [↑ Apache Airflow](https://airflow.apache.org)
+- [↑ .NET Aspire](https://blog.jetbrains.com/dotnet/2024/02/19/jetbrains-rider-and-the-net-aspire-plugin/)
 
 ## Databases
 
