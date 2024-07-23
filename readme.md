@@ -274,7 +274,6 @@
 - [.NET CLI, `dotnet new`](dotnet/cli.md)
 - [.NET tools, `dotnet-ef`, `dotnet format`](dotnet/dotnet-tools.md)
 - [Dependency injection in .NET](dotnet/dependency-injection-dotnet.md)
-- [`dotnet-counters`, `dotnet-dump`, `dotnet-trace`](dotnet/dotnet-tools/dotnet-dump-counters-trace.md)
 - Dotnet libraries
   - [BenchmarkDotNet](dotnet/libraries/benchmarkdotnet.md)
   - [Bogus](dotnet/libraries/bogus.md)
@@ -350,6 +349,7 @@
 - [Literal](csharp/literal.md)
 - [Lowering in C#](csharp/lowering.md)
 - Memory
+  - [`dotnet-counters`, `dotnet-dump`, `dotnet-trace`](csharp/memory/dotnet-profilers/dump-counters-trace.md)
   - [dotMemory](csharp/memory/profilers/profilers.md)
   - [Garbage collection, SOH, LOH, POH, P/Invoke](csharp/memory/garbage-collection.md)
   - [Unmanaged resource, `IDisposable`, dispose pattern, `WeakReference`](csharp/memory/dispose-pattern.md)
