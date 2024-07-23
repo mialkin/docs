@@ -350,7 +350,7 @@
 - [Lowering in C#](csharp/lowering.md)
 - Memory
   - [`dotnet-counters`, `dotnet-dump`, `dotnet-trace`](csharp/memory/dotnet-profilers/dump-counters-trace.md)
-  - [dotMemory](csharp/memory/profilers/profilers.md)
+  - [dotMemory](csharp/memory/jetbrains-profilers/dotmemory.md)
   - [Garbage collection, SOH, LOH, POH, P/Invoke](csharp/memory/garbage-collection.md)
   - [Unmanaged resource, `IDisposable`, dispose pattern, `WeakReference`](csharp/memory/dispose-pattern.md)
 - Miscellaneous classes
