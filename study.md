@@ -88,6 +88,8 @@
   - [↑ SKIP LOCKED](https://www.2ndquadrant.com/en/blog/what-is-select-skip-locked-for-in-postgresql-9-5/)
   - [↑ Group by, Having](https://www.postgresql.org/docs/9.4/tutorial-agg.html)
   - Разобрать задачи с HAVING
+- [↑ EF Core Change Tracking](https://learn.microsoft.com/en-us/ef/core/change-tracking/).
+- [↑ EF Core Interceptors](https://learn.microsoft.com/en-us/ef/core/logging-events-diagnostics/interceptors)
 
 ## Software architecture and design
 
@@ -158,6 +160,7 @@ for (var i = 0; i < 5; i++) {
   - [↑ Destructurama.Attributed](https://github.com/destructurama/attributed)
   - [↑ Serilog.Enrichers.Sensitive](https://github.com/serilog-contrib/Serilog.Enrichers.Sensitive/tree/master)
   - [↑ What is data masking?](https://aws.amazon.com/what-is/data-masking/)
+- [↑ NSubstitute](https://youtu.be/1oeMTz7LwrU?si=HOMpYy5AtUpSaPzY&t=421)
 
 ## C&#35;
 
