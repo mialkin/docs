@@ -5,10 +5,8 @@
 - [`dotnet-counters`, `dotnet-dump`, `dotnet-trace`](#dotnet-counters-dotnet-dump-dotnet-trace)
   - [Table of contents](#table-of-contents)
   - [`dotnet-counters`](#dotnet-counters)
-    - [`dotnet-counters ps`](#dotnet-counters-ps)
     - [`dotnet-counters monitor`](#dotnet-counters-monitor)
   - [`dotnet-dump`](#dotnet-dump)
-    - [`dotnet-dump ps`](#dotnet-dump-ps)
   - [`dotnet-trace`](#dotnet-trace)
 
 ## `dotnet-counters`
@@ -20,8 +18,6 @@ dotnet tool install --global dotnet-counters
 ```
 
 The tool can observe performance counter values that are published via the [↑ EventCounter](https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.tracing.eventcounter) API or the [↑ Meter API](https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.metrics.meter). For example, you can quickly monitor things like the CPU usage or the rate of exceptions being thrown in your .NET Core application to see if there's anything suspicious before diving into more serious performance investigation using [`dotnet-trace`](#dotnet-trace) or [↑ PerfView](https://habr.com/ru/companies/skbkontur/articles/723010/).
-
-### `dotnet-counters ps`
 
 [↑ `dotnet-counters ps`](https://learn.microsoft.com/en-us/dotnet/core/diagnostics/dotnet-counters#dotnet-counters-ps) command lists the dotnet processes that can be monitored by `dotnet-counters`, also display the command-line arguments that each process was started with, if available:
 
@@ -51,12 +47,16 @@ dotnet-counters monitor --process-id 1234
 dotnet tool install --global dotnet-dump
 ```
 
-### `dotnet-dump ps`
-
 [↑ `dotnet-dump ps`](https://learn.microsoft.com/en-us/dotnet/core/diagnostics/dotnet-dump#dotnet-dump-ps) command lists the dotnet processes that dumps can be collected from, also displays the command-line arguments that each process was started with, if available.
 
 ```bash
 dotnet-dump ps
+```
+
+[↑ `dotnet-dump collect`](https://learn.microsoft.com/en-us/dotnet/core/diagnostics/dotnet-dump#dotnet-dump-collect) command captures a dump from a process.
+
+```bash
+dotnet-dump collect --name MyApp.Api
 ```
 
 ## `dotnet-trace`
