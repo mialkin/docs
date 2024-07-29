@@ -262,7 +262,9 @@
 ## Computer science
 
 - [Algorithms](computer-science/algorithms/algorithms.md)
+- [↑ Algorithms for Modern Hardware](https://en.algorithmica.org/hpc)
 - [Data structures](computer-science/data-structures/data-structures.md)
+- [↑ Visualizing data structures and algorithms through animation](https://visualgo.net/en)
 
 ## Python
 
