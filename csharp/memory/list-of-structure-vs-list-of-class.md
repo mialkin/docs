@@ -34,10 +34,10 @@ public class Benchmark
 }
 
 // Output:
-// | Method                 | Mean      | Error     | StdDev    | Gen0       | Gen1       | Gen2      | Allocated |
-// |----------------------- |----------:|----------:|----------:|-----------:|-----------:|----------:|----------:|
-// | CreateListOfStructures | 850.87 ms | 12.999 ms | 11.524 ms | 45000.0000 | 22000.0000 | 6000.0000 | 484.89 MB |
-// | CreateListOfClasses    |  72.27 ms |  0.348 ms |  0.326 ms |  5428.5714 |  5428.5714 | 2714.2857 |    128 MB |
+// | Method                 | Mean        | Error     | StdDev    | Gen0       | Gen1       | Gen2      | Allocated |
+// |----------------------- |------------:|----------:|----------:|-----------:|-----------:|----------:|----------:|
+// | CreateListOfStructures | 1,129.17 ms | 22.283 ms | 19.753 ms | 47000.0000 | 24000.0000 | 7000.0000 | 484.89 MB |
+// | CreateListOfClasses    |    72.33 ms |  0.427 ms |  0.400 ms |  5857.1429 |  5857.1429 | 2285.7143 |    128 MB |
 
 // * Legends *
 //  Mean      : Arithmetic mean of all measurements
