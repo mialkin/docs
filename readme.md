@@ -2,15 +2,15 @@
 
 > There are only two hard things in computer science: cache invalidation and naming things.
 >
-> — <cite>Phil Karlton</cite>
-
+> — Phil Karlton
+>
 > So much complexity in software comes from trying to make one thing do two things.
 >
-> — <cite>Ryan Singer</cite>
-
+> — Ryan Singer
+>
 > Any fool can write code that a computer can understand. Good programmers write code that humans can understand.
 >
-> ― <cite>Martin Fowler</cite>
+> ― Martin Fowler
 
 ## Table of contents
 
@@ -27,6 +27,7 @@
   - [Networking](#networking)
   - [Security](#security)
   - [Computer science](#computer-science)
+  - [Hardware](#hardware)
   - [Python](#python)
   - [.NET](#net)
   - [ASP.NET](#aspnet)
@@ -262,9 +263,13 @@
 ## Computer science
 
 - [Algorithms](computer-science/algorithms/algorithms.md)
-- [↑ Algorithms for Modern Hardware](https://en.algorithmica.org/hpc)
 - [Data structures](computer-science/data-structures/data-structures.md)
 - [↑ Visualizing data structures and algorithms through animation](https://visualgo.net/en)
+
+## Hardware
+
+- [↑ Algorithms for Modern Hardware](https://en.algorithmica.org/hpc)
+- [CPU cache. CPU cache line](hardware/cpu.md)
 
 ## Python
 
