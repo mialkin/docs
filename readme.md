@@ -352,6 +352,7 @@
   - [`dotnet-counters`, `dotnet-dump`, `dotnet-trace`](csharp/memory/dotnet-profilers/dump-counters-trace.md)
   - [dotMemory](csharp/memory/jetbrains-profilers/dotmemory.md)
   - [Garbage collection, SOH, LOH, POH, P/Invoke](csharp/memory/garbage-collection.md)
+  - [`List<Structure>` vs `List<Class>`](csharp/memory/list-of-structure-vs-list-of-class.md)
   - [Unmanaged resource, `IDisposable`, dispose pattern, `WeakReference`](csharp/memory/dispose-pattern.md)
 - Miscellaneous classes
   - [`Stopwatch`, `PeriodicTimer`, `Progress<T>`, `StreamWriter`](csharp/miscellaneous-classes.md)
