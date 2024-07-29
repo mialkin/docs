@@ -269,7 +269,7 @@
 ## Hardware
 
 - [↑ Algorithms for Modern Hardware](https://en.algorithmica.org/hpc)
-- [CPU cache. CPU cache line](hardware/cpu.md)
+- [CPU register. CPU cache. CPU cache line](hardware/cpu.md)
 
 ## Python
 

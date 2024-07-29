@@ -1,4 +1,22 @@
-# CPU cache. CPU cache line
+# CPU register. CPU cache. CPU cache line
+
+## Table of contents
+
+- [CPU register. CPU cache. CPU cache line](#cpu-register-cpu-cache-cpu-cache-line)
+  - [Table of contents](#table-of-contents)
+  - [CPU register](#cpu-register)
+  - [CPU cache](#cpu-cache)
+  - [CPU cache line](#cpu-cache-line)
+
+## CPU register
+
+A [↑ **CPU register**](https://en.wikipedia.org/wiki/Processor_register) is a quickly accessible location available to a computer's processor.
+
+Registers usually consist of a small amount of fast storage, although some registers have specific hardware functions, and may be read-only or write-only.
+
+A CPU register is small storage unit inside a CPU that holds data, instructions, and the current status of the processor.
+
+For example, when a CPU needs to add two numbers, it first fetches the required data from main memory and places it into registers. The CPU then performs the arithmetic operation using information stored in these registers and stores the result back into another register, before writing it back to the main memory.
 
 ## CPU cache
 
