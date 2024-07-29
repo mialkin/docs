@@ -14,7 +14,16 @@ A [↑ **CPU register**](https://en.wikipedia.org/wiki/Processor_register) is a 
 
 Registers usually consist of a small amount of fast storage, although some registers have specific hardware functions, and may be read-only or write-only.
 
-A CPU register is small storage unit inside a CPU that holds data, instructions, and the current status of the processor.
+Registers are very small in size, typically 8, 16, 32, or 64 bits wide, depending on the CPU architecture. There are usually a small number of registers, such as a few dozen.
+
+[↑ How many registers does an x86-64 CPU have?](https://blog.yossarian.net/2020/11/30/How-many-registers-does-an-x86-64-cpu-have).
+
+Registers are used in various aspects of a CPU's functioning, such as:
+
+- Storing the results of arithmetic and logical operations
+- Controlling the flow of data between the CPU and main memory
+- Keeping track of the [↑ program counter](https://www.studysmarter.co.uk/explanations/computer-science/computer-organisation-and-architecture/program-counter/) (PC), which determines the next instruction to be executed
+- Managing the status of the CPU, such as detecting errors or identifying the current mode of operation
 
 For example, when a CPU needs to add two numbers, it first fetches the required data from main memory and places it into registers. The CPU then performs the arithmetic operation using information stored in these registers and stores the result back into another register, before writing it back to the main memory.
 
@@ -23,6 +32,8 @@ For example, when a CPU needs to add two numbers, it first fetches the required 
 A [↑ **CPU cache**](https://en.wikipedia.org/wiki/CPU_cache) is a small, high-speed memory component located on or near the CPU.
 
 Its primary purpose is to temporarily store frequently accessed data and instructions, allowing the CPU to retrieve this information more quickly than if it had to access the RAM.
+
+The CPU cache is located between the main memory (RAM) and the [CPU registers](#cpu-register). It is part of the CPU [↑ die](https://en.wikipedia.org/wiki/Die_(integrated_circuit)) but separate from the registers.
 
 Many modern desktop, server, and industrial CPUs have at least three independent caches:
 

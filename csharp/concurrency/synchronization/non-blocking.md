@@ -56,7 +56,7 @@ If methods A and B ran concurrently on different threads, might it be possible f
 - The compiler, CLR, or CPU may _reorder_ your program's instructions to improve efficiency.
 - The compiler, CLR, or CPU may introduce caching optimizations such that assignments to variables won't be visible to other threads right away.
 
-[↑ Locality of reference](https://en.wikipedia.org/wiki/Locality_of_reference).
+When a computer program accesses the same data repeatedly, this is called [↑ locality of reference](https://en.wikipedia.org/wiki/Locality_of_reference). Holding frequently used values in [↑ registers](https://en.wikipedia.org/wiki/Processor_register) can be critical to a program's performance.
 
 C# and the runtime are very careful to ensure that such optimizations don't break ordinary single-threaded code — or multithreaded code that makes proper use of locks. Outside of these scenarios, you must explicitly defeat these optimizations by creating _memory barriers_, also called _memory fences_, to limit the effects of instruction reordering and read/write caching.
 
