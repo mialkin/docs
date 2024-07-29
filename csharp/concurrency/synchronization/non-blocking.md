@@ -56,6 +56,8 @@ If methods A and B ran concurrently on different threads, might it be possible f
 - The compiler, CLR, or CPU may _reorder_ your program's instructions to improve efficiency.
 - The compiler, CLR, or CPU may introduce caching optimizations such that assignments to variables won't be visible to other threads right away.
 
+[↑ Locality of reference](https://en.wikipedia.org/wiki/Locality_of_reference).
+
 C# and the runtime are very careful to ensure that such optimizations don't break ordinary single-threaded code — or multithreaded code that makes proper use of locks. Outside of these scenarios, you must explicitly defeat these optimizations by creating _memory barriers_, also called _memory fences_, to limit the effects of instruction reordering and read/write caching.
 
 The simplest kind of memory barrier is a _full memory barrier_ (_full fence_) which prevents any kind of instruction reordering or caching around that fence. Calling [Thread.MemoryBarrier](#threadmemorybarrier) generates a full fence.
