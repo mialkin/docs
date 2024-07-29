@@ -3,12 +3,12 @@
 ```csharp
 BenchmarkRunner.Run<Benchmark>();
 
-public class Structrure
+public class Class
 {
     public int Id { get; set; }
 }
 
-public struct Class
+public struct Structrure
 {
     public int Id { get; set; }
 }
@@ -36,8 +36,8 @@ public class Benchmark
 // Output:
 // | Method                 | Mean        | Error     | StdDev    | Gen0       | Gen1       | Gen2      | Allocated |
 // |----------------------- |------------:|----------:|----------:|-----------:|-----------:|----------:|----------:|
-// | CreateListOfStructures | 1,129.17 ms | 22.283 ms | 19.753 ms | 47000.0000 | 24000.0000 | 7000.0000 | 484.89 MB |
-// | CreateListOfClasses    |    72.33 ms |  0.427 ms |  0.400 ms |  5857.1429 |  5857.1429 | 2285.7143 |    128 MB |
+// | CreateListOfStructures |    71.91 ms |  0.538 ms |  0.503 ms |  6571.4286 |  6571.4286 | 1714.2857 |    128 MB |
+// | CreateListOfClasses    | 1,140.53 ms | 21.701 ms | 20.299 ms | 47000.0000 | 24000.0000 | 7000.0000 | 484.89 MB |
 
 // * Legends *
 //  Mean      : Arithmetic mean of all measurements
@@ -55,3 +55,33 @@ dotnet run --configuration=Release
 ```
 
 [↑ Smallest .Net ref type is 12 bytes (or why you should consider using value types)](https://theburningmonk.com/2015/07/smallest-net-ref-type-is-12-bytes-or-why-you-should-consider-using-value-types/).
+
+Using arrays instead of lists improves overall situation with memory consumption:
+
+```csharp
+[MemoryDiagnoser]
+public class Benchmark
+{
+    [Benchmark]
+    public void CreateListOfStructures()
+    {
+        var array = new Structrure[10_000_000];
+        for (var i = 0; i < 10_000_000; i++)
+            array[i] = new Structrure { Id = i };
+    }
+
+    [Benchmark]
+    public void CreateListOfClasses()
+    {
+        var array = new Class[10_000_000];
+        for (var i = 0; i < 10_000_000; i++)
+            array[i] = new Class { Id = i };
+    }
+}
+
+// Output:
+// | Method                  | Mean      | Error    | StdDev   | Gen0       | Gen1       | Gen2      | Allocated |
+// |------------------------ |----------:|---------:|---------:|-----------:|-----------:|----------:|----------:|
+// | CreateArrayOfStructures |  21.99 ms | 0.439 ms | 0.410 ms |   968.7500 |   968.7500 |  968.7500 |  38.15 MB |
+// | CreateArrayOfClasses    | 977.04 ms | 8.623 ms | 7.645 ms | 44000.0000 | 22000.0000 | 6000.0000 | 305.18 MB |
+```
