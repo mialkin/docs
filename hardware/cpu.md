@@ -55,7 +55,7 @@ A [↑ **CPU cache line**](https://en.algorithmica.org/hpc/cpu-cache/cache-lines
 
 A typical cache line size is 64 bytes, although this can vary depending on the architecture. When data is fetched from main memory, an entire cache line is loaded into the cache.
 
-The primary purpose of a cache line is to exploit spatial locality. When the CPU accesses a memory address, it is likely that nearby memory addresses will be accessed soon. By fetching an entire cache line, the CPU can reduce the number of memory accesses and improve performance.
+The primary purpose of a cache line is to exploit [↑ spatial locality](https://en.wikipedia.org/wiki/Locality_of_reference). When the CPU accesses a memory address, it is likely that nearby memory addresses will be accessed soon. By fetching an entire cache line, the CPU can reduce the number of memory accesses and improve performance.
 
 When a CPU needs data, it first checks if the data is in the cache. If the data is found (a cache hit), it is quickly retrieved from the cache. If the data is not found (a cache miss), a cache line containing the requested data and surrounding data is fetched from the main memory and stored in the cache.
 
