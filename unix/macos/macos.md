@@ -8,6 +8,7 @@
     - [Fluor](#fluor)
     - [Gifox](#gifox)
     - [Keka](#keka)
+    - [Logi Tune](#logi-tune)
     - [LosslessCut](#losslesscut)
     - [Lunar](#lunar)
     - [Mos](#mos)
@@ -77,6 +78,10 @@ brew install --cask fluor
 ### Keka
 
 [↑ Keka](https://www.keka.io) is a macOS file archiver.
+
+### Logi Tune
+
+[↑ Logi Tune](https://www.logitech.com/en-eu/video-collaboration/software/logi-tune-software.html) is a software for Logitech web cameras.
 
 ### LosslessCut
 
