@@ -1,8 +1,8 @@
-# Types of indexes. Hash. B-tree
+# Postgres indexes. Hash. B-tree
 
 ## Table of contents
 
-- [Types of indexes. Hash. B-tree](#types-of-indexes-hash-b-tree)
+- [Postgres indexes. Hash. B-tree](#postgres-indexes-hash-b-tree)
   - [Table of contents](#table-of-contents)
   - [Hash](#hash)
   - [B-tree](#b-tree)
