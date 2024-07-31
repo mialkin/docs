@@ -1,12 +1,11 @@
-# Covering, composite, clustered index, cardinality, index selectivity
+# Covering, composite, partial index, cardinality, index selectivity
 
 ## Table of contents
 
-- [Covering, composite, clustered index, cardinality, index selectivity](#covering-composite-clustered-index-cardinality-index-selectivity)
+- [Covering, composite, partial index, cardinality, index selectivity](#covering-composite-partial-index-cardinality-index-selectivity)
   - [Table of contents](#table-of-contents)
   - [Covering index](#covering-index)
   - [Composite index](#composite-index)
-  - [Clustered index](#clustered-index)
   - [Partial index](#partial-index)
   - [Cardinality](#cardinality)
   - [Index selectivity](#index-selectivity)
@@ -24,12 +23,6 @@ When the columns returned by `SELECT` are not many, consider building a covering
 The **composite index** is to create an index on the combination of multiple columns, these columns may contain all the columns of the query, or may not contain. When the column in the composite index contains all the columns in the query, the index is also a covering index. When the composite index does not contain all the data to be queried, the query needs to find the location information of the data through the non-clustered index, and then go to the basic table to find the data.
 
 [↑ How do composite indexes work?](https://stackoverflow.com/questions/795031/how-do-composite-indexes-work).
-
-## Clustered index
-
-A **clustered index** means telling the database to store the close values actually close to one another on the disk.
-
-[↑ About clustered index in Postgres](https://stackoverflow.com/questions/4796548/about-clustered-index-in-postgres).
 
 ## Partial index
 

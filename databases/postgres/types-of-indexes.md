@@ -1,11 +1,12 @@
-# Types of indexes
+# Types of indexes. Hash. B-tree
 
 ## Table of contents
 
-- [Types of indexes](#types-of-indexes)
+- [Types of indexes. Hash. B-tree](#types-of-indexes-hash-b-tree)
   - [Table of contents](#table-of-contents)
   - [Hash](#hash)
   - [B-tree](#b-tree)
+  - [Clustered index](#clustered-index)
 
 ## Hash
 
@@ -27,6 +28,16 @@ B-trees have the following important properties:
 - They have plenty of branches, that is, each node contains many elements, often hundreds of them (the illustration shows three-element nodes solely for clarity). As a result, B-tree depth is always small, even for very large tables.
 - Data in an index is sorted either in ascending or in descending order, both within each node and across all nodes of the same level. Peer nodes are bound into a bidirectional list, so it is possible to get an ordered set of data by simply scanning the list one way or the other, without having to start at the root each time.
 
-We cannot say with absolute certainty what the letter B in the name of this structure stands for. Both *balanced* and *bushy* fit equally well. Surprisingly, you can often see it interpreted as *binary*, which is certainly incorrect.
+We cannot say with absolute certainty what the letter B in the name of this structure stands for. Both _balanced_ and _bushy_ fit equally well. Surprisingly, you can often see it interpreted as _binary_, which is certainly incorrect.
 
 [↑ B-Tree индекс и его производные в PostgreSQL](https://habr.com/ru/companies/quadcode/articles/696498/).
+
+## Clustered index
+
+PostgreSQL [↑ does not](https://stackoverflow.com/a/40951076/1833895) have direct implementation of [↑ clustered index](https://learn.microsoft.com/en-us/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described) like Microsoft SQL Server.
+
+In PostgreSQL, there is a [↑ `CLUSTER`](https://www.postgresql.org/docs/current/sql-cluster.html) command which cluster a table according to an index.
+
+Once you create your table primary key or any other index, you can execute the `CLUSTER` command by specifying that index name to achieve the physical order of the table data.
+
+When a table is clustered, it is physically reordered based on the index information. Clustering is a one-time operation: when the table is subsequently updated, the changes are not clustered. That is, no attempt is made to store new or updated rows according to their index order.
