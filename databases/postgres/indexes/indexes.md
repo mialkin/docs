@@ -25,7 +25,7 @@ For the search path to be unambiguously identified, all tree elements must be or
 B-trees have the following important properties:
 
 - They are balanced, which means that all leaf nodes of a tree are located at the same depth. Therefore, they guarantee equal search time for all values.
-- They have plenty of branches, that is, each node contains many elements, often hundreds of them (the illustration shows three-element nodes solely for clarity). As a result, B-tree depth is always small, even for very large tables.
+- They have plenty of branches, that is, each node contains many elements, often hundreds of them. As a result, B-tree depth is always small, even for very large tables.
 - Data in an index is sorted either in ascending or in descending order, both within each node and across all nodes of the same level. Peer nodes are bound into a bidirectional list, so it is possible to get an ordered set of data by simply scanning the list one way or the other, without having to start at the root each time.
 
 We cannot say with absolute certainty what the letter B in the name of this structure stands for. Both _balanced_ and _bushy_ fit equally well. Surprisingly, you can often see it interpreted as _binary_, which is certainly incorrect.
