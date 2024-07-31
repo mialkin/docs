@@ -100,7 +100,7 @@
 
 - [ACID](databases/acid.md)
 - [Covering, composite, partial index, cardinality, index selectivity](databases/indexes.md)
-- [CTEs](databases/cte.md)
+- [CTE](databases/cte.md)
 - [dbdiagram.io](databases/dbdiagram.md)
 - [Isolation levels and read phenomena](databases/isolation-levels/isolation-levels.md)
   - [PostgreSQL isolation levels](databases/isolation-levels/isolation-levels-postgres.md)
