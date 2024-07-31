@@ -116,8 +116,7 @@
   - [Hash. B-tree](databases/postgres/indexes/indexes.md)
 - [Replication, sharding, partitioning](databases/replication-sharding-partitioning.md)
 - [Query optimization and execution plans](databases/query-optimization-and-execution-plans.md)
-- [SQL Server](databases/sqlserver/sqlserver.md)
-  - [T-SQL](databases/sqlserver/tsql.md)
+- [T-SQL](databases/tsql.md)
 - [Window function](databases/window-function.md)
 
 ## Software architecture and design
