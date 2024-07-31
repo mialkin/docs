@@ -99,7 +99,7 @@
 ## Databases
 
 - [ACID](databases/acid.md)
-- [Covering, composite, partial index, cardinality, index selectivity](databases/index.md)
+- [Covering, composite, partial index, cardinality, index selectivity](databases/indexes.md)
 - [CTEs](databases/cte.md)
 - [dbdiagram.io](databases/dbdiagram.md)
 - [Isolation levels and read phenomena](databases/isolation-levels/isolation-levels.md)
@@ -113,7 +113,7 @@
 - [PostgreSQL](databases/postgres/postgres.md)
   - [`psql`. `pg_dump`. `dropdb`. `createdb`. `pg_restore`](databases/postgres/client-applications.md)
   - [System catalog. Schemas. Tablespaces. Relations. Files and forks. Pages. TOAST](databases/postgres/data-organization.md)
-  - [Hash. B-tree](databases/postgres/types-of-indexes.md)
+  - [Hash. B-tree](databases/postgres/indexes.md)
 - [Replication, sharding, partitioning](databases/replication-sharding-partitioning.md)
 - [Query optimization and execution plans](databases/query-optimization-and-execution-plans.md)
 - [SQL Server](databases/sqlserver/sqlserver.md)
