@@ -1,25 +1,45 @@
-# T-SQL
-
-**Transact-SQL** or **T-SQL** is Microsoft's and Sybase's proprietary extension to the SQL used to interact with relational databases.
-
-T-SQL expands on the SQL standard to include procedural programming, local variables, various support functions for string processing, date processing, mathematics, etc.
+# SQL Server. T-SQL
 
 ## Table of contents
 
-- [T-SQL](#t-sql)
+- [SQL Server. T-SQL](#sql-server-t-sql)
   - [Table of contents](#table-of-contents)
-  - [Variables](#variables)
+  - [SQL Server](#sql-server)
+  - [T-SQL](#t-sql)
     - [Variable declaration](#variable-declaration)
-  - [Commands](#commands)
-    - [`SET NOCOUNT`](#set-nocount)
-  - [Count diffrenet database objects](#count-diffrenet-database-objects)
+    - [Commands](#commands)
+      - [`SET NOCOUNT`](#set-nocount)
     - [Count tables in database](#count-tables-in-database)
     - [Count stored procedures in database](#count-stored-procedures-in-database)
     - [Count functions in database](#count-functions-in-database)
-  - [Triggers](#triggers)
-  - [Links](#links)
+    - [Triggers](#triggers)
 
-## Variables
+## SQL Server
+
+[↑ **Microsoft SQL Server**](https://en.wikipedia.org/wiki/Microsoft_SQL_Server), or **SQL Server** for short, is a proprietary relational database management system developed by Microsoft.
+
+`docker-compose.yaml` file:
+
+```yaml
+version: "3.8"
+
+services:
+  sql-server:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: isolation-levels-sql-server
+    ports:
+      - "3400:1433"
+    environment:
+      ACCEPT_EULA: Y
+      # Use sa/yourStrong(!)Password as user/password credentials
+      MSSQL_SA_PASSWORD: yourStrong(!)Password
+```
+
+## T-SQL
+
+[↑ **Transact-SQL**](https://en.wikipedia.org/wiki/Transact-SQL) or **T-SQL** is Microsoft's and Sybase's proprietary extension to the SQL used to interact with relational databases.
+
+T-SQL expands on the SQL standard to include procedural programming, local variables, various support functions for string processing, date processing, mathematics, etc.
 
 ### Variable declaration
 
@@ -32,17 +52,15 @@ FROM [Database].[Schema].[Table]
 WHERE DateLastChanged > @start;
 ```
 
-## Commands
+### Commands
 
-### `SET NOCOUNT`
+#### `SET NOCOUNT`
 
 Stops the message that shows the count of the number of rows affected by a T-SQL statement or stored procedure from being returned as part of the result set.
 
 ```sql
 SET NOCOUNT { ON | OFF }  
 ```
-
-## Count diffrenet database objects
 
 ### Count tables in database
 
@@ -75,7 +93,7 @@ FROM INFORMATION_SCHEMA.ROUTINES
 WHERE ROUTINE_TYPE = 'FUNCTION'
 ```
 
-## Triggers
+### Triggers
 
 ```sql
 CREATE TRIGGER [dbo].[TRIGGER_NAME] ON [dbo].[TABLE_NAME]
@@ -91,7 +109,5 @@ GO
 ALTER TABLE [dbo].[TABLE_NAME] ENABLE TRIGGER [TRIGGER_NAME]
 GO
 ```
-
-## Links
 
 [↑ Loading Millions Of Rows Of Test Data In Seconds](https://www.youtube.com/watch?v=Obsn8nHdnIY).
