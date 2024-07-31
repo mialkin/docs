@@ -14,13 +14,13 @@ A **hash index** provides the ability to quickly find a tuple ID (TID) by a part
 
 ## B-tree
 
-A **B-tree** is a data structure that enables you to quickly find the required element in leaf nodes of the tree by going down from its root. For the search path to be unambiguously identified, all tree elements must be ordered. B-trees are designed for ordinal data types, whose values can be compared and sorted.
+A **B-tree** is a data structure that enables you to quickly find the required element in leaf nodes of the tree by going down from its root.
 
-The following schematic diagram of an index build over airport codes shows inner nodes as horizontal rectangles; leaf nodes are aligned vertically.
+<img src="b-tree.jpeg" width="700px" alt="Schematic diagram of a B-tree"/>
 
-<img src="images/types-of-indexes/b-tree-1.png" alt="Schematic diagram of a B-tree"/>
+Each tree node contains several elements, which consist of an index key and a pointer. Inner node elements reference nodes of the next level; leaf node elements reference heap tuples.
 
-Each tree node contains several elements, which consist of an index key and a pointer. Inner node elements reference nodes of the next level; leaf node elements reference heap tuples (the illustration does not show these references).
+For the search path to be unambiguously identified, all tree elements must be ordered. B-trees are designed for ordinal data types, whose values can be compared and sorted.
 
 B-trees have the following important properties:
 
