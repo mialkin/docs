@@ -28,3 +28,5 @@ B-trees have the following important properties:
 - Data in an index is sorted either in ascending or in descending order, both within each node and across all nodes of the same level. Peer nodes are bound into a bidirectional list, so it is possible to get an ordered set of data by simply scanning the list one way or the other, without having to start at the root each time.
 
 We cannot say with absolute certainty what the letter B in the name of this structure stands for. Both *balanced* and *bushy* fit equally well. Surprisingly, you can often see it interpreted as *binary*, which is certainly incorrect.
+
+[↑ B-Tree индекс и его производные в PostgreSQL](https://habr.com/ru/companies/quadcode/articles/696498/).

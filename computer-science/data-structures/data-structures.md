@@ -63,17 +63,11 @@ Each non-root node can be treated as the root node of its own subtree, which inc
 
 ### B-tree
 
-A **B-tree** is a self-balancing tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time.
+A [↑ **B-tree**](https://en.wikipedia.org/wiki/B-tree) is a self-balancing tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time.
 
 The difference between B-trees and regular trees is that each node in a B-tree can contain more than one value.
 
-When adding new values to the B-tree, we try to add data "lower down", at the maximum depth node.
-
-[↑ B-tree](https://en.wikipedia.org/wiki/B-tree).
-
-[↑ B-дерево](https://www.youtube.com/watch?v=WXXetwePSRk).
-
-[↑ B-Tree индекс и его производные в PostgreSQL](https://habr.com/ru/companies/quadcode/articles/696498/).
+[↑ Построение B-дерева](https://www.youtube.com/watch?v=WXXetwePSRk).
 
 ### Binary tree
 
