@@ -1,10 +1,10 @@
-# Postgres client applications. `psql`. `pg_dump`. `dropdb`. `createdb`. `pg_restore`
+# Postgres client applications
 
 [↑ PostgreSQL client applications](https://postgrespro.ru/docs/postgresql/16/reference-client?lang=en).
 
 ## Table of contents
 
-- [Postgres client applications. `psql`. `pg_dump`. `dropdb`. `createdb`. `pg_restore`](#postgres-client-applications-psql-pg_dump-dropdb-createdb-pg_restore)
+- [Postgres client applications](#postgres-client-applications)
   - [Table of contents](#table-of-contents)
   - [`psql`](#psql)
     - [Meta-commands](#meta-commands)

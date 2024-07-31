@@ -1,4 +1,4 @@
-# Postgres data organization. System catalog. Schemas. Tablespaces. Relations. Files and forks. Pages. TOAST
+# Postgres data organization
 
 [↑ PostgreSQL](https://www.postgresql.org/about/) is a program that belongs to the class of database management systems.
 
@@ -6,7 +6,7 @@ When this program is running, we call it a **PostgreSQL server**, or **instance*
 
 ## Table of contents
 
-- [Postgres data organization. System catalog. Schemas. Tablespaces. Relations. Files and forks. Pages. TOAST](#postgres-data-organization-system-catalog-schemas-tablespaces-relations-files-and-forks-pages-toast)
+- [Postgres data organization](#postgres-data-organization)
   - [Table of contents](#table-of-contents)
   - [Databases](#databases)
   - [System catalog](#system-catalog)
