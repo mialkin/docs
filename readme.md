@@ -109,14 +109,13 @@
 - [Natural and surrogate keys](databases/natural-and-surrogate-keys.md)
 - [Online transaction processing, OLTP vs online analytical processing, OLAP](databases/oltp-vs-olap.md)
 - [Optimistic vs pessimistic concurrency](databases/optimistic-vs-pessimistic-concurrency.md)
-- [PL/SQL](databases/oracle/plsql.md)
 - [PostgreSQL](databases/postgres/postgres.md)
   - [`psql`. `pg_dump`. `dropdb`. `createdb`. `pg_restore`](databases/postgres/client-applications.md)
   - [System catalog, schemas, tablespaces, relations, files and forks, pages, TOAST](databases/postgres/data-organization.md)
   - [Hash. B-tree](databases/postgres/indexes/indexes.md)
 - [Query optimization and execution plans](databases/query-optimization-and-execution-plans.md)
 - [Replication, sharding, partitioning](databases/replication-sharding-partitioning.md)
-- [SQL Server. T-SQL](databases/tsql.md)
+- [SQL Server. T-SQL. PL/SQL](databases/tsql.md)
 - [Window function](databases/window-function.md)
 
 ## Software architecture and design

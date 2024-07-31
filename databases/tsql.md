@@ -1,8 +1,8 @@
-# SQL Server. T-SQL
+# SQL Server. T-SQL. PL/SQL
 
 ## Table of contents
 
-- [SQL Server. T-SQL](#sql-server-t-sql)
+- [SQL Server. T-SQL. PL/SQL](#sql-server-t-sql-plsql)
   - [Table of contents](#table-of-contents)
   - [SQL Server](#sql-server)
   - [T-SQL](#t-sql)
@@ -13,6 +13,7 @@
     - [Count stored procedures in database](#count-stored-procedures-in-database)
     - [Count functions in database](#count-functions-in-database)
     - [Triggers](#triggers)
+  - [PL/SQL](#plsql)
 
 ## SQL Server
 
@@ -44,7 +45,7 @@ T-SQL expands on the SQL standard to include procedural programming, local varia
 ### Variable declaration
 
 ```sql
-DECLARE @start VARCHAR(30);   
+DECLARE @start VARCHAR(30);
 SET @start = '2021-08-04';
 
 SELECT COUNT(*)
@@ -59,7 +60,7 @@ WHERE DateLastChanged > @start;
 Stops the message that shows the count of the number of rows affected by a T-SQL statement or stored procedure from being returned as part of the result set.
 
 ```sql
-SET NOCOUNT { ON | OFF }  
+SET NOCOUNT { ON | OFF }
 ```
 
 ### Count tables in database
@@ -111,3 +112,16 @@ GO
 ```
 
 [↑ Loading Millions Of Rows Of Test Data In Seconds](https://www.youtube.com/watch?v=Obsn8nHdnIY).
+
+## PL/SQL
+
+**PL/SQL** or **Procedural Language for SQL** is Oracle Corporation's procedural extension for SQL and the [↑ Oracle Database](https://en.wikipedia.org/wiki/Oracle_Database).
+
+| Function or operator       | Description                                                                                                                                                                                        |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `\|\|`                     | Сoncatenates 2 or more strings together.<br>`'Tech on' \|\| ' the Net'`                                                                                                                            |
+| `CONCAT(string1, string2)` | Concatenates two strings together.<br>`CONCAT('Tech on', ' the Net')`                                                                                                                              |
+| `NVL`                      | Substitutes `Null` value with other value.<br>`SELECT NVL(supplier_city, 'n/a')`<br>`FROM suppliers;`                                                                                              |
+| `ROWNUM`                   | Works like `TOP` in T-SQL.<br>`SELECT *`<br>`FROM MY_TABLE`<br>`WHERE ROWNUM <= 80;`                                                                                                               |
+| `SQL % ROWCOUNT`           | Number of rows affected by an `UPDATE`<br>`DECLARE`<br>`I NUMBER;`<br>`BEGIN`<br>`UPDATE MY_TABLE`<br>`SET USR_CORRECTOR = 'Aleksei'`<br>`WHERE ID = 2739875;`<br>`I := SQL % ROWCOUNT;`<br>`END;` |
+| `TO_DATE`                  | `SELECT TO_DATE('2012-06-05', 'YYYY-MM-DD')`<br>`FROM DUAL;`                                                                                                                                       |
