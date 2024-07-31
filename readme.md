@@ -100,7 +100,7 @@
 
 - [ACID](databases/acid.md)
 - [Covering, composite, partial index, cardinality, index selectivity](databases/indexes.md)
-- [CTE](databases/cte.md)
+- [CTE. Window function](databases/cte/cte.md)
 - [dbdiagram.io](databases/dbdiagram.md)
 - [Isolation levels and read phenomena](databases/isolation-levels/isolation-levels.md)
   - [PostgreSQL isolation levels](databases/isolation-levels/isolation-levels-postgres.md)
@@ -116,7 +116,6 @@
 - [Query optimization and execution plans](databases/query-optimization-and-execution-plans.md)
 - [Replication, sharding, partitioning](databases/replication-sharding-partitioning.md)
 - [SQL Server. T-SQL. PL/SQL](databases/tsql.md)
-- [Window function](databases/window-function.md)
 
 ## Software architecture and design
 
