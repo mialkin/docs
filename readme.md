@@ -270,6 +270,7 @@
 
 - [↑ Algorithms for Modern Hardware](https://en.algorithmica.org/hpc)
 - [CPU register. CPU cache. CPU cache line](hardware/cpu.md)
+- [↑ Latency numbers](hardware/latency-numbers.md)
 
 ## Python
 
