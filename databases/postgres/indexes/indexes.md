@@ -42,6 +42,8 @@ We cannot say with absolute certainty what the letter B in the name "B-tree" sta
 
 [↑ B-Tree индекс и его производные в PostgreSQL](https://habr.com/ru/companies/quadcode/articles/696498/).
 
+Index does not store row visibility information. That's why deletion of a row does not require index update. Index therefore may get bloated. [↑ Vacuum](https://www.postgresql.org/docs/current/routine-vacuuming.html) fixes index bloat.
+
 ## Hash index
 
 A [↑ **hash index**](https://www.postgresql.org/docs/current/indexes-types.html#INDEXES-TYPES-HASH) stores a 32-bit hash code derived from the value of the indexed column. Hence, such indexes can only handle simple equality comparisons. The query planner will consider using a hash index whenever an indexed column is involved in a comparison using the equal operator:
