@@ -2,18 +2,6 @@
 
 In a multi-user environment, there are two models for updating data in a database: *optimistic concurrency* and *pessimistic concurrency*.
 
-## Table of contents
-
-- [Optimistic vs pessimistic concurrency](#optimistic-vs-pessimistic-concurrency)
-  - [Table of contents](#table-of-contents)
-  - [Optimistic concurrency](#optimistic-concurrency)
-    - [Advantages of optimistic concurrency](#advantages-of-optimistic-concurrency)
-    - [Disadvantages of optimistic concurrency](#disadvantages-of-optimistic-concurrency)
-  - [Pessimistic concurrency](#pessimistic-concurrency)
-    - [Advantages of pessimistic concurrency](#advantages-of-pessimistic-concurrency)
-    - [Disadvantages of pessimistic concurrency](#disadvantages-of-pessimistic-concurrency)
-  - [Links](#links)
-
 ## Optimistic concurrency
 
 The optimistic concurrency feature provides the ability for your applications to detect whether a database table record has changed on the server in the time between when your application retrieved the record and when it tries to update or delete that record.
