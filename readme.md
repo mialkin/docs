@@ -106,7 +106,7 @@
   - [SQL Server isolation levels](databases/isolation-levels/isolation-levels-sql-server.md)
 - [N + 1 query problem. Natural, surrogate key](databases/n-plus-one.md)
 - [OLTP, OLAP](databases/oltp-vs-olap.md)
-- [Optimistic vs pessimistic concurrency](databases/optimistic-vs-pessimistic-concurrency.md)
+- [Optimistic and pessimistic concurrency](databases/optimistic-vs-pessimistic-concurrency.md)
 - [PostgreSQL](databases/postgres/postgres.md)
   - [`psql`. `pg_dump`. `dropdb`. `createdb`. `pg_restore`](databases/postgres/client-applications.md)
   - [System catalog, schemas, tablespaces, relations, files and forks, pages, TOAST](databases/postgres/data-organization.md)

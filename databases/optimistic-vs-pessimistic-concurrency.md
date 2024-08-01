@@ -1,6 +1,4 @@
-# Optimistic vs pessimistic concurrency
-
-In a multi-user environment, there are two models for updating data in a database: *optimistic concurrency* and *pessimistic concurrency*.
+# Optimistic and pessimistic concurrency
 
 ## Optimistic concurrency
 
@@ -14,7 +12,7 @@ Optimistic concurrency is generally used in environments with a low contention f
 
 In an optimistic concurrency model, a violation is considered to have occurred if, after a user receives a value from the database, another user modifies the value before the first user has attempted to modify it. The concurrency violation simply lets you know that the update failed.
 
-### Advantages of optimistic concurrency
+Advantages of optimistic concurrency:
 
 - Does not require locks
 - Offers support to scale applications
@@ -22,10 +20,12 @@ In an optimistic concurrency model, a violation is considered to have occurred i
 - No deadlock situations
 - Does not affect performance
 
-### Disadvantages of optimistic concurrency
+Disadvantages of optimistic concurrency:
 
 - Requires maintenance of versions or timestamps
 - Requires manual implementation of concurrency handling logic
+
+[↑ Optimistic Concurrency - ADO.NET](https://learn.microsoft.com/en-us/dotnet/framework/data/adonet/optimistic-concurrency).
 
 ## Pessimistic concurrency
 
@@ -33,12 +33,12 @@ Pessimistic concurrency involves locking rows at the data source to prevent othe
 
 In a pessimistic concurrency model, a user who updates a row establishes a lock. Until the user has finished the update and released the lock, no one else can change that row. For this reason, pessimistic concurrency is best implemented when lock times will be short, as in programmatic processing of records. Pessimistic concurrency is not a scalable option when users are interacting with data and causing records to be locked for relatively large periods of time.
 
-### Advantages of pessimistic concurrency
+Advantages of pessimistic concurrency:
 
 - Built-in database support
 - Prevents conflicts from the moment the transaction starts
 
-### Disadvantages of pessimistic concurrency
+Disadvantages of pessimistic concurrency:
 
 - There can be performance issues if the lock duration is high
 - Deadlock situations can happen
@@ -46,10 +46,4 @@ In a pessimistic concurrency model, a user who updates a row establishes a lock.
 - Is not supported by all the databases
 - High resource consumption due to locking and waiting
 
-## Links
-
-[↑ Optimistic Concurrency - ADO.NET](https://learn.microsoft.com/en-us/dotnet/framework/data/adonet/optimistic-concurrency).
-
 [↑ Optimistic vs Pessimistic Concurrency: What Every Developer Should Know](https://cult.honeypot.io/reads/optimistic-vs-pessimistic-concurrency).
-
-[↑ How to use Xmin in PostgreSQL Queries](https://www.enterprisedb.com/postgres-tutorials/how-use-xmin-postgresql-queries).
