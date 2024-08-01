@@ -110,7 +110,7 @@
 - [PostgreSQL](databases/postgres/postgres.md)
   - [`psql`. `pg_dump`. `dropdb`. `createdb`. `pg_restore`](databases/postgres/client-applications.md)
   - [System catalog, schemas, tablespaces, relations, files and forks, pages, TOAST](databases/postgres/data-organization.md)
-  - [Hash. B-tree](databases/postgres/indexes/indexes.md)
+  - [B-tree, hash index](databases/postgres/indexes/indexes.md)
 - [Replication, sharding, partitioning](databases/replication-sharding-partitioning.md)
 - [SQL Server. T-SQL. PL/SQL](databases/tsql.md)
 
