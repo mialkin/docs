@@ -1,8 +1,8 @@
-# Online transaction processing, OLTP vs online analytical processing, OLAP
+# OLTP, OLAP
 
 The word "online" in definitions means that systems respond to user requests and process transactions in real-time.
 
-- [Online transaction processing, OLTP vs online analytical processing, OLAP](#online-transaction-processing-oltp-vs-online-analytical-processing-olap)
+- [OLTP, OLAP](#oltp-olap)
   - [OLTP](#oltp)
   - [OLAP](#olap)
   - [OLTP vs OLAP](#oltp-vs-olap)
