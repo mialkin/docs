@@ -34,6 +34,8 @@ For the search path to be unambiguously identified, all tree elements must be or
 
 B-trees are balanced, which means that all leaf nodes of a tree are located at the same depth. Therefore, they guarantee equal search time for all values. They have plenty of branches, that is, each node contains many elements, often hundreds of them. As a result, B-tree depth is always small, even for very large tables.
 
+In Postgres every table and index is stored as an array of pages of a fixed size — [↑ usually 8 kB](https://www.postgresql.org/docs/current/storage-page-layout.html), although a different page size can be selected when compiling the server. If, for example, and index page fits 100 index keys per page on average, then for the table containing 1 billion rows the tree height will be $log_{100} 1000000000 = 4.5$
+
 Data in an index is sorted either in ascending or in descending order, both within each node and across all nodes of the same level. Peer nodes are bound into a bidirectional list, so it is possible to get an ordered set of data by simply scanning the list one way or the other, without having to start at the root each time.
 
 We cannot say with absolute certainty what the letter B in the name "B-tree" stands for. Both _balanced_ and _bushy_ fit equally well. Surprisingly, you can often see it interpreted as _binary_, which is certainly incorrect.
