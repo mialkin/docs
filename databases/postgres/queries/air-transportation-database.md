@@ -13,6 +13,8 @@
     - [`tickets_flights`](#tickets_flights)
     - [`flights`](#flights)
     - [`airports`](#airports)
+    - [`flights_v` (view)](#flights_v-view)
+    - [`routes` (view)](#routes-view)
     - [`aircrafts`](#aircrafts)
     - [`seats`](#seats)
     - [`boarding_passes`](#boarding_passes)
@@ -231,23 +233,104 @@ LIMIT 10;
 ### `airports`
 
 ```sql
-
+SELECT *
+FROM airports
+WHERE airport_code = 'VKO';
 ```
+
+| airport_code | airport_name | city   | coordinates                     | timezone      |
+| :----------- | :----------- | :----- | :------------------------------ | :------------ |
+| VKO          | Внуково      | Москва | \(37.2615013123,55.5914993286\) | Europe/Moscow |
+
+```sql
+SELECT f.scheduled_departure,
+       dep.airport_code || ' ' || dep.city || ' (' || dep.airport_name || ')' departure,
+       dep.airport_code || ' ' || arr.city || ' (' || arr.airport_name || ')' arrival
+FROM tickets t
+         JOIN ticket_flights tf ON t.ticket_no = tf.ticket_no
+         JOIN bookings.flights f ON f.flight_id = tf.flight_id
+         JOIN airports dep ON dep.airport_code = f.departure_airport
+         JOIN airports arr ON arr.airport_code = f.arrival_airport
+WHERE t.ticket_no = '0005435126781'
+ORDER BY f.scheduled_departure;
+```
+
+| scheduled_departure               | departure                     | arrival                       |
+| :-------------------------------- | :---------------------------- | :---------------------------- |
+| 2017-08-12 08:00:00.000000 +00:00 | VKO Москва \(Внуково\)        | VKO Пермь \(Пермь\)           |
+| 2017-08-12 12:30:00.000000 +00:00 | PEE Пермь \(Пермь\)           | PEE Екатеринбург \(Кольцово\) |
+| 2017-08-13 08:30:00.000000 +00:00 | SVX Екатеринбург \(Кольцово\) | SVX Сургут \(Сургут\)         |
+| 2017-08-15 11:45:00.000000 +00:00 | SGC Сургут \(Сургут\)         | SGC Екатеринбург \(Кольцово\) |
+| 2017-08-16 05:50:00.000000 +00:00 | SVX Екатеринбург \(Кольцово\) | SVX Пермь \(Пермь\)           |
+| 2017-08-16 15:55:00.000000 +00:00 | PEE Пермь \(Пермь\)           | PEE Москва \(Внуково\)        |
+
+### `flights_v` (view)
+
+```sql
+SELECT *
+FROM flights_v
+WHERE flight_id = 22566;
+```
+
+| flight_id | flight_no | scheduled_departure               | scheduled_departure_local  | scheduled_arrival                 | scheduled_arrival_local    | scheduled_duration                             | departure_airport | departure_airport_name | departure_city | arrival_airport | arrival_airport_name | arrival_city | status  | aircraft_code | actual_departure                  | actual_departure_local     | actual_arrival                    | actual_arrival_local       | actual_duration                                |
+| :-------- | :-------- | :-------------------------------- | :------------------------- | :-------------------------------- | :------------------------- | :--------------------------------------------- | :---------------- | :--------------------- | :------------- | :-------------- | :------------------- | :----------- | :------ | :------------ | :-------------------------------- | :------------------------- | :-------------------------------- | :------------------------- | :--------------------------------------------- |
+| 22566     | PG0412    | 2017-08-12 08:00:00.000000 +00:00 | 2017-08-12 11:00:00.000000 | 2017-08-12 09:25:00.000000 +00:00 | 2017-08-12 14:25:00.000000 | 0 years 0 mons 0 days 1 hours 25 mins 0.0 secs | VKO               | Внуково                | Москва         | PEE             | Пермь                | Пермь        | Arrived | 773           | 2017-08-12 08:01:00.000000 +00:00 | 2017-08-12 11:01:00.000000 | 2017-08-12 09:25:00.000000 +00:00 | 2017-08-12 14:25:00.000000 | 0 years 0 mons 0 days 1 hours 24 mins 0.0 secs |
+
+### `routes` (view)
+
+```sql
+SELECT *
+FROM routes
+WHERE flight_no = 'PG0412';
+```
+
+| flight_no | departure_airport | departure_airport_name | departure_city | arrival_airport | arrival_airport_name | arrival_city | aircraft_code | duration                                       | days_of_week    |
+| :-------- | :---------------- | :--------------------- | :------------- | :-------------- | :------------------- | :----------- | :------------ | :--------------------------------------------- | :-------------- |
+| PG0412    | VKO               | Внуково                | Москва         | PEE             | Пермь                | Пермь        | 773           | 0 years 0 mons 0 days 1 hours 25 mins 0.0 secs | {1,2,3,4,5,6,7} |
 
 ### `aircrafts`
 
 ```sql
-
+SELECT a.*
+FROM flights f
+         JOIN aircrafts a ON a.aircraft_code = f.aircraft_code
+WHERE f.flight_id = 22566;
 ```
+
+| aircraft_code | model         | range |
+| :------------ | :------------ | :---- |
+| 773           | Боинг 777-300 | 11100 |
 
 ### `seats`
 
 ```sql
-
+SELECT s.*
+FROM flights f
+         JOIN aircrafts a ON a.aircraft_code = f.aircraft_code
+         JOIN seats s ON s.aircraft_code = a.aircraft_code
+WHERE f.flight_id = 22566
+  AND s.seat_no ~ '^1.$';
 ```
 
-### `boarding_passes`
+| aircraft_code | seat_no | fare_conditions |
+| :------------ | :------ | :-------------- |
+| 773           | 1A      | Business        |
+| 773           | 1C      | Business        |
+| 773           | 1D      | Business        |
+| 773           | 1G      | Business        |
+| 773           | 1H      | Business        |
+| 773           | 1K      | Business        |
 
 ```sql
-
+SELECT fare_conditions, COUNT(*)
+FROM seats
+WHERE aircraft_code = '733'
+GROUP BY fare_conditions;
 ```
+
+| fare_conditions | count |
+| :-------------- | :---- |
+| Business        | 12    |
+| Economy         | 118   |
+
+### `boarding_passes`
