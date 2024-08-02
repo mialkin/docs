@@ -334,3 +334,23 @@ GROUP BY fare_conditions;
 | Economy         | 118   |
 
 ### `boarding_passes`
+
+```sql
+SELECT f.status, bp.*
+FROM tickets t
+         JOIN ticket_flights tf ON tf.ticket_no = t.ticket_no
+         JOIN flights f ON f.flight_id = tf.flight_id
+         LEFT JOIN boarding_passes bp
+                   ON bp.ticket_no = tf.ticket_no AND bp.flight_id = tf.flight_id
+WHERE t.ticket_no = '0005435126781'
+ORDER BY f.scheduled_departure;
+```
+
+| status    | ticket_no     | flight_id | boarding_no | seat_no |
+| :-------- | :------------ | :-------- | :---------- | :------ |
+| Arrived   | 0005435126781 | 22566     | 4           | 22A     |
+| Arrived   | 0005435126781 | 95726     | 64          | 19D     |
+| Arrived   | 0005435126781 | 74643     | 42          | 8D      |
+| Departed  | 0005435126781 | 206625    | 11          | 3F      |
+| On Time   |               |           |             |         |
+| Scheduled |               |           |             |         |
