@@ -26,8 +26,6 @@
 `docker-compose.yml` file:
 
 ```yaml
-version: "3.9"
-
 services:
   database:
     image: postgres:16.2
