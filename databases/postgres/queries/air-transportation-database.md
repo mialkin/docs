@@ -45,7 +45,7 @@ skinparam class {
     BackgroundColor #ffffff
     BorderColor Black
     FontStyle bold
- FontSize 13
+    FontSize 14
 }
 
 entity bookings {
@@ -93,7 +93,6 @@ entity seats {
  seat_no
  --
 }
-
 
 bookings --|{ tickets
 tickets --|{ ticket_flights
