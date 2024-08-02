@@ -34,6 +34,8 @@ psql -U postgres
 
 ## Common diagram
 
+<img src="database-diagram.svg" alt="Database diagram" />
+
 ```plantuml
 @startuml
 
@@ -56,6 +58,7 @@ entity bookings {
 entity tickets {
  ticket_no
  --
+ book_ref
 }
 
 entity ticket_flights {
@@ -147,68 +150,49 @@ WHERE b.book_ref = '0824C5';
 ### `tickets`
 
 ```sql
-SELECT *
-FROM tickets;
+SELECT t.*
+FROM bookings b
+         JOIN tickets t ON b.book_ref = t.book_ref
+WHERE b.book_ref = '0824C5';
 ```
 
-| ticket_no     | book_ref | passenger_id | passenger_name  | contact_data              |
-| :------------ | :------- | :----------- | :-------------- | :------------------------ |
-| 0005432000284 | 1A40A1   | 4030 855525  | MIKHAIL SEMENOV | {"phone": "+70110137563"} |
+| ticket_no     | book_ref | passenger_id | passenger_name    | contact_data              |
+| :------------ | :------- | :----------- | :---------------- | :------------------------ |
+| 0005435126781 | 0824C5   | 7247 393204  | ALEKSANDR MATVEEV | {"phone": "+70095062310"} |
+| 0005435126782 | 0824C5   | 1745 826066  | NINA KRASNOVA     | {"phone": "+70876976071"} |
 
 ### `tickets_flights`
 
-| Column | Description |
-| ------ | ----------- |
-|        |             |
-|        |             |
-|        |             |
-|        |             |
+```sql
+
+```
 
 ### `flights`
 
-| Column | Description |
-| ------ | ----------- |
-|        |             |
-|        |             |
-|        |             |
-|        |             |
-|        |             |
-|        |             |
-|        |             |
+```sql
+
+```
 
 ### `airports`
 
-| Column | Description |
-| ------ | ----------- |
-|        |             |
-|        |             |
-|        |             |
-|        |             |
-|        |             |
+```sql
+
+```
 
 ### `aircrafts`
 
-| Column | Description |
-| ------ | ----------- |
-|        |             |
-|        |             |
-|        |             |
-|        |             |
-|        |             |
+```sql
+
+```
 
 ### `seats`
 
-| Column | Description |
-| ------ | ----------- |
-|        |             |
-|        |             |
-|        |             |
+```sql
+
+```
 
 ### `boarding_passes`
 
-| Column | Description |
-| ------ | ----------- |
-|        |             |
-|        |             |
-|        |             |
-|        |             |
+```sql
+
+```
