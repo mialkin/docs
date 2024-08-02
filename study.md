@@ -109,6 +109,7 @@
   - [↑ Посмотреть доклады по .NET на канале IT и т.д.](https://www.youtube.com/@IT_i_td/videos)
 - [↑ Текст. Одна платформа, чтобы править всеми](https://habr.com/ru/companies/ozontech/articles/708274/)
   - [↑ Видео. Одна платформа, чтобы править всеми](https://highload.ru/spb/2022/abstracts/9317)
+- [↑ Канал "Hard&Soft Skills"](https://www.youtube.com/@hardsoftskills9958)
 
 ## Programming
 
