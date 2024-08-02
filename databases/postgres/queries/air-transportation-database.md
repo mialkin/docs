@@ -164,14 +164,69 @@ WHERE b.book_ref = '0824C5';
 ### `tickets_flights`
 
 ```sql
-
+SELECT tf.*
+FROM tickets t
+         JOIN ticket_flights tf ON t.ticket_no = tf.ticket_no
+WHERE t.ticket_no = '0005435126781';
 ```
+
+| ticket_no     | flight_id | fare_conditions | amount   |
+| :------------ | :-------- | :-------------- | :------- |
+| 0005435126781 | 22566     | Economy         | 11700.00 |
+| 0005435126781 | 71439     | Economy         | 3200.00  |
+| 0005435126781 | 74643     | Economy         | 8800.00  |
+| 0005435126781 | 94335     | Economy         | 11700.00 |
+| 0005435126781 | 95726     | Economy         | 3200.00  |
+| 0005435126781 | 206625    | Business        | 26400.00 |
 
 ### `flights`
 
 ```sql
-
+SELECT tf.*
+FROM tickets t
+         JOIN ticket_flights tf ON t.ticket_no = tf.ticket_no
+WHERE t.ticket_no = '0005435126781';
 ```
+
+| flight_id | scheduled_departure               | departure_airport | arrival_airport | status    | aircraft_code |
+| :-------- | :-------------------------------- | :---------------- | :-------------- | :-------- | :------------ |
+| 22566     | 2017-08-12 08:00:00.000000 +00:00 | VKO               | PEE             | Arrived   | 773           |
+| 95726     | 2017-08-12 12:30:00.000000 +00:00 | PEE               | SVX             | Arrived   | SU9           |
+| 74643     | 2017-08-13 08:30:00.000000 +00:00 | SVX               | SGC             | Arrived   | SU9           |
+| 206625    | 2017-08-15 11:45:00.000000 +00:00 | SGC               | SVX             | Departed  | SU9           |
+| 71439     | 2017-08-16 05:50:00.000000 +00:00 | SVX               | PEE             | On Time   | SU9           |
+| 94335     | 2017-08-16 15:55:00.000000 +00:00 | PEE               | VKO             | Scheduled | 773           |
+
+```sql
+SELECT *
+FROM flights
+WHERE flight_id = 22566;
+```
+
+| flight_id | flight_no | scheduled_departure               | scheduled_arrival                 | departure_airport | arrival_airport | status  | aircraft_code | actual_departure                  | actual_arrival                    |
+| :-------- | :-------- | :-------------------------------- | :-------------------------------- | :---------------- | :-------------- | :------ | :------------ | :-------------------------------- | :-------------------------------- |
+| 22566     | PG0412    | 2017-08-12 08:00:00.000000 +00:00 | 2017-08-12 09:25:00.000000 +00:00 | VKO               | PEE             | Arrived | 773           | 2017-08-12 08:01:00.000000 +00:00 | 2017-08-12 09:25:00.000000 +00:00 |
+
+```sql
+SELECT f.flight_id, f.flight_no, f.scheduled_departure
+FROM flights f
+WHERE f.flight_no = 'PG0412'
+ORDER BY f.scheduled_departure
+LIMIT 10;
+```
+
+| flight_id | flight_no | scheduled_departure               |
+| :-------- | :-------- | :-------------------------------- |
+| 22784     | PG0412    | 2016-08-15 08:00:00.000000 +00:00 |
+| 22746     | PG0412    | 2016-08-16 08:00:00.000000 +00:00 |
+| 22721     | PG0412    | 2016-08-17 08:00:00.000000 +00:00 |
+| 22691     | PG0412    | 2016-08-18 08:00:00.000000 +00:00 |
+| 22749     | PG0412    | 2016-08-19 08:00:00.000000 +00:00 |
+| 22508     | PG0412    | 2016-08-20 08:00:00.000000 +00:00 |
+| 22493     | PG0412    | 2016-08-21 08:00:00.000000 +00:00 |
+| 22496     | PG0412    | 2016-08-22 08:00:00.000000 +00:00 |
+| 22483     | PG0412    | 2016-08-23 08:00:00.000000 +00:00 |
+| 22501     | PG0412    | 2016-08-24 08:00:00.000000 +00:00 |
 
 ### `airports`
 
