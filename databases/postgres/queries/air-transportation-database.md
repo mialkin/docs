@@ -25,10 +25,10 @@ Run Postgres with [docker-compose.yaml](docker-compose.yaml) file:
 docker-compose up --detach
 ```
 
-Restore database:
+Restore [↑ demo database](https://postgrespro.com/community/demodb):
 
 ```bash
-cat /Users/aleksei/Downloads/demo-big-20170815.sql | docker exec --interactive air-transportation \
+cat ~/Downloads/demo-big-20170815.sql | docker exec --interactive air-transportation \
 psql -U postgres
 ```
 
