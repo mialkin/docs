@@ -7,6 +7,7 @@
   - [Stages of query processing](#stages-of-query-processing)
   - [JIT compilation](#jit-compilation)
   - [Prepared operators](#prepared-operators)
+  - [Cursors](#cursors)
 
 ## Stages of query processing
 
@@ -126,3 +127,36 @@ FROM pg_prepared_statements;
 | :---- | :---------------------------------------------------------------------------------------------- | :-------------------------------- | :-------------------- | :----------- | :------- | :------------ | :----------- |
 | S_1   |                                                                                                 | 2024-08-03 10:13:03.483718 +00:00 | {}                    | null         | false    | 12            | 0            |
 | model | PREPARE model\(varchar\) AS<br/> SELECT model<br/> FROM aircrafts<br/> WHERE aircraft_code = $1 | 2024-08-03 10:12:30.390164 +00:00 | {"character varying"} | {text}       | true     | 0             | 3            |
+
+## Cursors
+
+Begin transaction:
+
+```sql
+BEGIN;
+```
+
+Declaring cursors opens it automatically:
+
+```sql
+DECLARE c CURSOR FOR SELECT *
+                     FROM aircrafts;
+```
+
+Calling `FETCH`, multiple times consequently, read rows:
+
+```sql
+FETCH c;
+```
+
+Close cursor:
+
+```sql
+CLOSE c;
+```
+
+Commit transaction:
+
+```sql
+COMMIT;
+```
