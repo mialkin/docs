@@ -8,6 +8,7 @@
   - [JIT compilation](#jit-compilation)
   - [Prepared operators](#prepared-operators)
   - [Cursors](#cursors)
+  - [More about planning](#more-about-planning)
 
 ## Stages of query processing
 
@@ -160,3 +161,10 @@ Commit transaction:
 ```sql
 COMMIT;
 ```
+
+## More about planning
+
+- Planning process
+- Cardinality estimation
+- Cost estimation
+- Choosing best plan
