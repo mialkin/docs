@@ -60,3 +60,133 @@ WHERE relname = 'flights';
 | reltuples | current_setting | total   |
 | :-------- | :-------------- | :------ |
 | 214867    | 0.01            | 2148.67 |
+
+## Агрегация
+
+```sql
+EXPLAIN
+SELECT COUNT(*)
+FROM seats;
+```
+
+```console
+Aggregate  (cost=24.74..24.75 rows=1 width=8)
+   ->  Seq Scan on seats  (cost=0.00..21.39 rows=1339 width=0)
+```
+
+План состоит из двух узлов. Верхний - Aggregate, в котором происходит вычисление count, - получает данные от нижнего - Seq Scan.
+Обратите внимание на стоимость узла Aggregate: начальная стоимость практически равна полной. Это означает, что узел не может выдать результат, пока не обработает все данные (что вполне логично).
+
+Разница между оценкой для Aggregate и верхней оценкой для Seq Scan - стоимость работы собственно узла Aggregate. Она вычисляется исходя из оценки ресурсов на выполнение элементарной операции:
+
+```sql
+SELECT reltuples,
+       CURRENT_SETTING('cpu_operator_cost'),
+       reltuples * CURRENT_SETTING('cpu_operator_cost')::real AS total
+FROM pg_class
+WHERE relname = 'seats';
+```
+
+| reltuples | current_setting | total     |
+| :-------- | :-------------- | :-------- |
+| 1339      | 0.0025          | 3.3474998 |
+
+## Параллельные планы
+
+Рассмотрим пример плана с параллельным последовательным сканированием:
+
+```sql
+EXPLAIN
+SELECT COUNT(*)
+FROM bookings;
+```
+
+```console
+Finalize Aggregate  (cost=25483.58..25483.59 rows=1 width=8)
+  ->  Gather  (cost=25483.36..25483.57 rows=2 width=8)
+        Workers Planned: 2
+        ->  Partial Aggregate  (cost=24483.36..24483.37 rows=1 width=8)
+              ->  Parallel Seq Scan on bookings  (cost=0.00..22284.29 rows=879629 width=0)
+```
+
+Все, что находится ниже узла Gather - параллельная часть плана. Она выполняется в каждом из рабочих процессов (которых запланировано два) и, возможно, в ведущем процессе.
+
+Узел Gather и все узлы выше выполняются только в ведущем процессе. Это последовательная часть плана.
+
+Начнем разбираться снизу вверх. Узел Parallel Seq Scan представляет сканирование таблицы в параллельном режиме.
+В поле rows показана оценка числа строк, которые обработает один рабочий процесс. Всего их запланировано 2, и еще часть работы выполнит ведущий, поэтому общее число строк делится на 2.4 (доля ведущего процесса уменьшается с ростом числа рабочих процессов).
+
+```sql
+SELECT ROUND(reltuples / 2.4) "rows"
+FROM pg_class
+WHERE relname = 'bookings';
+```
+
+```console
+879629
+```
+
+```sql
+SELECT COUNT(*)
+FROM bookings;
+```
+
+```console
+2111110
+```
+
+$879629 \times 2.4 = 2111110$
+
+Для оценки узла Parallel Seq Scan компонента ввода-вывода берется полностью (таблицу все равно придется прочитать страница за страницей), а ресурсы процессора делятся между процессами (на 2.4 в данном случае).
+
+```sql
+SELECT ROUND(
+               (
+                   relpages * CURRENT_SETTING('seq_page_cost')::real +
+                   reltuples * CURRENT_SETTING('cpu_tuple_cost')::real / 2.4
+                   ):: numeric,
+               2) "cost"
+FROM pg_class
+WHERE relname = 'bookings';
+
+-- 22284.29
+```
+
+По умолчанию ведущий процесс участвует в выполнении параллельной части плана:
+
+```sql
+SHOW parallel_leader_participation;
+-- on
+```
+
+Если ведущий процесс становится узким местом, его можно разгрузить:
+
+```sql
+SET parallel_leader_participation = off;
+```
+
+```sql
+EXPLAIN
+SELECT COUNT(*)
+FROM bookings;
+```
+
+```console
+Finalize Aggregate  (cost=27682.65..27682.66 rows=1 width=8)                               
+  ->  Gather  (cost=27682.44..27682.65 rows=2 width=8)                                     
+        Workers Planned: 2                                                                 
+        ->  Partial Aggregate  (cost=26682.44..26682.45 rows=1 width=8)                    
+              ->  Parallel Seq Scan on bookings  (cost=0.00..24043.55 rows=1055555 width=0)
+```
+
+В этом случае общее число строк делится на число запланированных рабочих процессов (2):
+
+```sql
+SELECT ROUND(reltuples / 2) "rows"
+FROM pg_class
+WHERE relname = 'bookings';
+
+-- 1055555
+```
+
+$1055555 \times 2 = 2111110$
