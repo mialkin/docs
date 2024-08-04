@@ -15,6 +15,8 @@
   - [Parallel sequential scan](#parallel-sequential-scan)
     - [Parallel Seq Scan](#parallel-seq-scan)
     - [Partial Aggregate](#partial-aggregate)
+    - [Gather](#gather)
+    - [Finalize Aggregate](#finalize-aggregate)
 
 ## Sequential scan
 
@@ -184,10 +186,10 @@ FROM bookings;
 ```
 
 ```console
-Finalize Aggregate  (cost=27682.65..27682.66 rows=1 width=8)                               
-  ->  Gather  (cost=27682.44..27682.65 rows=2 width=8)                                     
-        Workers Planned: 2                                                                 
-        ->  Partial Aggregate  (cost=26682.44..26682.45 rows=1 width=8)                    
+Finalize Aggregate  (cost=27682.65..27682.66 rows=1 width=8)
+  ->  Gather  (cost=27682.44..27682.65 rows=2 width=8)
+        Workers Planned: 2
+        ->  Partial Aggregate  (cost=26682.44..26682.45 rows=1 width=8)
               ->  Parallel Seq Scan on bookings  (cost=0.00..24043.55 rows=1055555 width=0)
 ```
 
@@ -212,10 +214,10 @@ FROM bookings;
 ```
 
 ```console
-Finalize Aggregate  (cost=25483.58..25483.59 rows=1 width=8)                              
-  ->  Gather  (cost=25483.36..25483.57 rows=2 width=8)                                    
-        Workers Planned: 2                                                                
-        ->  Partial Aggregate  (cost=24483.36..24483.37 rows=1 width=8)                   
+Finalize Aggregate  (cost=25483.58..25483.59 rows=1 width=8)
+  ->  Gather  (cost=25483.36..25483.57 rows=2 width=8)
+        Workers Planned: 2
+        ->  Partial Aggregate  (cost=24483.36..24483.37 rows=1 width=8)
               ->  Parallel Seq Scan on bookings  (cost=0.00..22284.29 rows=879629 width=0)
 ```
 
@@ -228,3 +230,42 @@ WHERE relname = 'bookings';
 
 -- 2199.07
 ```
+
+### Gather
+
+Следующий узел — Gather — выполняется ведущим процессом. Он отвечает за запуск рабочих процессов и получение от них данных.
+
+Запуск процессов и пересылка каждой строки данных оцениваются следующими значениями:
+
+```sql
+SELECT CURRENT_SETTING('parallel_setup_cost') parallel_setup_cost,
+       CURRENT_SETTING('parallel_tuple_cost') parallel_tuple_cost;
+```
+
+| parallel_setup_cost | parallel_tuple_cost |
+| :------------------ | :------------------ |
+| 1000                | 0.1                 |
+
+`parallel_setup_cost` — стоимость запуска параллельной инфраструктуры.
+
+`parallel_tuple_cost` — стоимость передачи одной строчки между процессами.
+
+В данном случае пересылается всего одна строки и основная стоимость приходится на запуск.
+
+### Finalize Aggregate
+
+```sql
+EXPLAIN
+SELECT COUNT(*)
+FROM bookings;
+```
+
+```console
+Finalize Aggregate  (cost=25483.58..25483.59 rows=1 width=8)
+  ->  Gather  (cost=25483.36..25483.57 rows=2 width=8)
+        Workers Planned: 2
+        ->  Partial Aggregate  (cost=24483.36..24483.37 rows=1 width=8)
+              ->  Parallel Seq Scan on bookings  (cost=0.00..22284.29 rows=879629 width=0)
+```
+
+Последний узел — Finalize Aggregate — агрегирует полученные частичные агрегаты. Поскольку для этого надо сложить всего три числа, оценка минимальна.
