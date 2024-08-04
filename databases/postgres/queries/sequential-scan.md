@@ -293,3 +293,130 @@ SHOW max_worker_processes;
 - Фиксировано — если для таблицы указан параметр хранения `parallel_workers`
 — Вычисляется по формуле $1 + \lfloor log_{3} (размер \ таблицы / min\_parallel\_table\_scan\_size) \rfloor$
 - Но не больше, чем max [↑ `parallel_workers_per_gather`](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS-PER-GATHER)
+
+Планировщик не рассматривает параллельные планы для таблиц размером меньше, чем:
+
+```sql
+SHOW min_parallel_table_scan_size;
+-- 8MB
+```
+
+Если запросить информацию из таблицы немного большего размера (flights, 19 Мбайт), будет запланирован один дополнительный процесс:
+
+```sql
+EXPLAIN (ANALYZE, COSTS OFF)
+SELECT COUNT(*)
+FROM flights;
+```
+
+```console
+Finalize Aggregate (actual time=95.248..97.489 rows=1 loops=1)                                
+  ->  Gather (actual time=95.015..97.483 rows=2 loops=1)                                      
+        Workers Planned: 1                                                                    
+        Workers Launched: 1                                                                   
+        ->  Partial Aggregate (actual time=91.947..91.948 rows=1 loops=2)                     
+              ->  Parallel Seq Scan on flights (actual time=0.752..85.925 rows=107434 loops=2)
+Planning Time: 1.988 ms                                                                       
+Execution Time: 98.201 ms                                                                     
+```
+
+При запросе данных из большой таблицы (bookings, 105 Мбайт) расчетное количество — три процесса.
+
+```sql
+EXPLAIN (ANALYZE, COSTS OFF)
+SELECT COUNT(*)
+FROM bookings;
+```
+
+```console
+Finalize Aggregate (actual time=91.169..92.884 rows=1 loops=1)                                 
+  ->  Gather (actual time=90.994..92.878 rows=3 loops=1)                                       
+        Workers Planned: 2                                                                     
+        Workers Launched: 2                                                                    
+        ->  Partial Aggregate (actual time=87.518..87.519 rows=1 loops=3)                      
+              ->  Parallel Seq Scan on bookings (actual time=0.021..51.899 rows=703703 loops=3)
+Planning Time: 0.102 ms                                                                        
+Execution Time: 92.909 ms                                                                      
+```
+
+Однако запланировано два процесса, так как параметр `max_parallel_workers_per_gather` ограничивает число процессов параллельного участка плана и сейчас действует значение по умолчанию (2).
+
+```sql
+SHOW max_parallel_workers_per_gather;
+-- 2
+```
+
+Ослабив ограничение, получим план с тремя процессами:
+
+```sql
+SET max_parallel_workers_per_gather = 5;
+```
+
+```sql
+EXPLAIN (ANALYZE, COSTS OFF)
+SELECT COUNT(*)
+FROM bookings;
+```
+
+```console
+Finalize Aggregate (actual time=78.480..80.208 rows=1 loops=1)                                 
+  ->  Gather (actual time=78.328..80.202 rows=4 loops=1)                                       
+        Workers Planned: 3                                                                     
+        Workers Launched: 3                                                                    
+        ->  Partial Aggregate (actual time=70.993..70.993 rows=1 loops=4)                      
+              ->  Parallel Seq Scan on bookings (actual time=0.021..42.686 rows=527778 loops=4)
+Planning Time: 0.226 ms                                                                        
+Execution Time: 80.238 ms                                                                     
+```
+
+Для конкретной таблицы параметром хранения `parallel_workers` можно задать рекомендованное количество процессов:
+
+```sql
+ALTER TABLE bookings
+    SET (parallel_workers = 4);
+```
+
+```sql
+EXPLAIN (ANALYZE, COSTS OFF)
+SELECT COUNT(*)
+FROM bookings;
+```
+
+```console
+Finalize Aggregate (actual time=68.040..69.785 rows=1 loops=1)                                 
+  ->  Gather (actual time=67.723..69.780 rows=5 loops=1)                                       
+        Workers Planned: 4                                                                     
+        Workers Launched: 4                                                                    
+        ->  Partial Aggregate (actual time=62.621..62.621 rows=1 loops=5)                      
+              ->  Parallel Seq Scan on bookings (actual time=0.028..37.532 rows=422222 loops=5)
+Planning Time: 0.148 ms                                                                        
+Execution Time: 69.829 ms                                                                      
+```
+
+Если установить параметр хранения в ноль, планировщик всегда будет выбирать последовательное сканирование данной таблицы.
+
+Но в любом случае количество запланированных процессов не будет превышать `max_parallel_workers_per_gather`, независимо от параметра хранения.
+
+```sql
+ALTER TABLE bookings
+    SET (parallel_workers = 0);
+```
+
+```console
+Aggregate (actual time=223.715..223.717 rows=1 loops=1)                     
+  ->  Seq Scan on bookings (actual time=0.005..131.263 rows=2111110 loops=1)
+Planning Time: 0.132 ms                                                     
+Execution Time: 223.735 ms                                                  
+```
+
+Восстановим начальные значения параметров:
+
+```sql
+ALTER TABLE bookings
+    RESET (parallel_workers);
+
+```
+
+```sql
+RESET max_parallel_workers_per_gather;
+```
