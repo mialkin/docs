@@ -1,11 +1,5 @@
 # Sequential access
 
-- Sequential scan
-- Parallel execution plans
-- Parallel sequential scan
-- Aggregation during parallel execution
-- `EXPLAIN` command
-
 ## Table of contents
 
 - [Sequential access](#sequential-access)
@@ -19,6 +13,9 @@
     - [Finalize Aggregate](#finalize-aggregate)
   - [Common settings](#common-settings)
   - [Worker processes count](#worker-processes-count)
+  - [Not all queries can be paralleled](#not-all-queries-can-be-paralleled)
+  - [Only sequential queries](#only-sequential-queries)
+  - [Summary](#summary)
 
 ## Sequential scan
 
@@ -420,3 +417,126 @@ ALTER TABLE bookings
 ```sql
 RESET max_parallel_workers_per_gather;
 ```
+
+## Not all queries can be paralleled
+
+- Запросы на запись, а также запросы с блокировкой строк
+- Курсоры, в том числе запросы в цикле `FOR` в [↑ PL/pgSQL](https://en.wikipedia.org/wiki/PL/pgSQL)
+- Запросы с функциями [↑ `PARALLEL UNSAFE`](https://www.postgresql.org/docs/current/parallel-safety.html)
+- Запросы в функциях, вызванных из распараллеленного запроса
+
+## Only sequential queries
+
+- Чтение результатов общих табличных выражений (СТЕ)
+- Чтение результатов нераскрываемых подзапросов
+- Обращения к временным таблицам
+- Вызовы функций `PARALLEL RESTRICTED`
+- Функции, использующие вложенные транзакции
+
+Для функций существует три типа пометок параллельности:
+
+- `SAFE` — не препятствует параллельному выполнению запроса;
+- `UNSAFE` — запрещает параллельное выполнение запроса (функция изменяет состояние базы данных, транзакции или конфигурационных параметров);
+- `RESTRICTED` — запрос может выполняться параллельно, но функция может выполняться только в ведущем процессе (функция обращается к состоянию сеанса: к временным таблицам, курсорам, подготовленным операторам и т. п.).
+
+Пользовательские функции по умолчанию получают пометку `UNSAFE`.
+
+```sql
+CREATE FUNCTION ticket_amount(ticket_no char(13)) RETURNS numeric
+    LANGUAGE plpgsql
+    STABLE PARALLEL SAFE
+AS
+$$
+BEGIN
+    RETURN
+        (SELECT SUM(amount)
+         FROM ticket_flights tf
+         WHERE tf.ticket_no = ticket_amount.ticket_no);
+END;
+$$;
+```
+
+Запрос проверяет, что общая стоимость бронирований совпадает с общей стоимостью билетов:
+
+```sql
+SELECT (SELECT SUM(ticket_amount(ticket_no)) FROM tickets) =
+       (SELECT SUM(total_amount) FROM bookings);
+-- true
+```
+
+```sql
+EXPLAIN (COSTS OFF)
+SELECT (SELECT SUM(ticket_amount(ticket_no)) FROM tickets) =
+       (SELECT SUM(total_amount) FROM bookings);
+```
+
+```console
+Result                                                 
+  InitPlan 1 (returns $1)                              
+    ->  Finalize Aggregate                             
+          ->  Gather                                   
+                Workers Planned: 2                     
+                ->  Partial Aggregate                  
+                      ->  Parallel Seq Scan on tickets 
+  InitPlan 2 (returns $3)                              
+    ->  Finalize Aggregate                             
+          ->  Gather                                   
+                Workers Planned: 2                     
+                ->  Partial Aggregate                  
+                      ->  Parallel Seq Scan on bookings
+```
+
+План запроса состоит из двух частей: в узле `InitPlan 1` выполняется подзапрос с агрегацией по `tickets`, а подзапрос в узле `InitPlan 2` выполняет агрегацию по `bookings`.
+
+Сейчас оба подзапроса выполняются параллельно.
+
+Поменяем пометку параллельности на `UNSAFE`:
+
+```sql
+ALTER FUNCTION ticket_amount PARALLEL UNSAFE;
+```
+
+```sql
+EXPLAIN (COSTS OFF)
+SELECT (SELECT SUM(ticket_amount(ticket_no)) FROM tickets) =
+       (SELECT SUM(total_amount) FROM bookings);
+```
+
+```console
+Result                            
+  InitPlan 1 (returns $0)         
+    ->  Aggregate                 
+          ->  Seq Scan on tickets 
+  InitPlan 2 (returns $1)         
+    ->  Aggregate                 
+          ->  Seq Scan on bookings
+```
+
+Теперь оба подзапроса выполняются последовательно — пометка запрещает параллельные планы.
+
+А теперь пометим функцию как ограниченно распараллеливаемую (RESTRICTED):
+
+```sql
+ALTER FUNCTION ticket_amount PARALLEL RESTRICTED;
+```
+
+```console
+Result                                                 
+  InitPlan 1 (returns $0)                              
+    ->  Aggregate                                      
+          ->  Seq Scan on tickets                      
+  InitPlan 2 (returns $2)                              
+    ->  Finalize Aggregate                             
+          ->  Gather                                   
+                Workers Planned: 2                     
+                ->  Partial Aggregate                  
+                      ->  Parallel Seq Scan on bookings
+```
+
+Подзапрос с функцией выполняется последовательно ведущим процессом, для второго подзапроса выбран параллельный план.
+
+## Summary
+
+Последовательное сканирование читает всю таблицу, эффективно при низкой селективности.
+
+Параллельное выполнение в ряде случаев позволяет ускорить запрос.
