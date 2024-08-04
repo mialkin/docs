@@ -17,6 +17,8 @@
     - [Partial Aggregate](#partial-aggregate)
     - [Gather](#gather)
     - [Finalize Aggregate](#finalize-aggregate)
+  - [Common settings](#common-settings)
+  - [Worker processes count](#worker-processes-count)
 
 ## Sequential scan
 
@@ -269,3 +271,25 @@ Finalize Aggregate  (cost=25483.58..25483.59 rows=1 width=8)
 ```
 
 Последний узел — Finalize Aggregate — агрегирует полученные частичные агрегаты. Поскольку для этого надо сложить всего три числа, оценка минимальна.
+
+## Common settings
+
+```sql
+SHOW max_parallel_workers_per_gather;
+-- 2
+
+SHOW max_parallel_workers;
+-- 8
+
+SHOW max_worker_processes;
+-- 8
+```
+
+[↑ 20.4. Resource Consumption](https://www.postgresql.org/docs/current/runtime-config-resource.html#RUNTIME-CONFIG-RESOURCE-ASYNC-BEHAVIOR).
+
+## Worker processes count
+
+- Равно нулю (параллельный план не строится) — если размер таблицы < [↑ `min_parallel_table_scan_size`](https://www.postgresql.org/docs/current/runtime-config-query.html) = 8MB
+- Фиксировано — если для таблицы указан параметр хранения `parallel_workers`
+— Вычисляется по формуле $1 + \lfloor log_{3} (размер \ таблицы / min\_parallel\_table\_scan\_size) \rfloor$
+- Но не больше, чем max [↑ `parallel_workers_per_gather`](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS-PER-GATHER)
