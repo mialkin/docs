@@ -6,6 +6,16 @@
 - Aggregation during parallel execution
 - `EXPLAIN` command
 
+## Table of contents
+
+- [Sequential access](#sequential-access)
+  - [Table of contents](#table-of-contents)
+  - [Sequential scan](#sequential-scan)
+  - [Aggregation](#aggregation)
+  - [Parallel sequential scan](#parallel-sequential-scan)
+    - [Parallel Seq Scan](#parallel-seq-scan)
+    - [Partial Aggregate](#partial-aggregate)
+
 ## Sequential scan
 
 В плане выполнения запроса последовательное сканирование представлено узлом `Seq Scan`:
@@ -61,7 +71,7 @@ WHERE relname = 'flights';
 | :-------- | :-------------- | :------ |
 | 214867    | 0.01            | 2148.67 |
 
-## Агрегация
+## Aggregation
 
 ```sql
 EXPLAIN
@@ -74,10 +84,10 @@ Aggregate  (cost=24.74..24.75 rows=1 width=8)
    ->  Seq Scan on seats  (cost=0.00..21.39 rows=1339 width=0)
 ```
 
-План состоит из двух узлов. Верхний - Aggregate, в котором происходит вычисление count, - получает данные от нижнего - Seq Scan.
+План состоит из двух узлов. Верхний — Aggregate, в котором происходит вычисление count, — получает данные от нижнего — Seq Scan.
 Обратите внимание на стоимость узла Aggregate: начальная стоимость практически равна полной. Это означает, что узел не может выдать результат, пока не обработает все данные (что вполне логично).
 
-Разница между оценкой для Aggregate и верхней оценкой для Seq Scan - стоимость работы собственно узла Aggregate. Она вычисляется исходя из оценки ресурсов на выполнение элементарной операции:
+Разница между оценкой для Aggregate и верхней оценкой для Seq Scan — стоимость работы собственно узла Aggregate. Она вычисляется исходя из оценки ресурсов на выполнение элементарной операции:
 
 ```sql
 SELECT reltuples,
@@ -91,7 +101,7 @@ WHERE relname = 'seats';
 | :-------- | :-------------- | :-------- |
 | 1339      | 0.0025          | 3.3474998 |
 
-## Параллельные планы
+## Parallel sequential scan
 
 Рассмотрим пример плана с параллельным последовательным сканированием:
 
@@ -109,9 +119,11 @@ Finalize Aggregate  (cost=25483.58..25483.59 rows=1 width=8)
               ->  Parallel Seq Scan on bookings  (cost=0.00..22284.29 rows=879629 width=0)
 ```
 
-Все, что находится ниже узла Gather - параллельная часть плана. Она выполняется в каждом из рабочих процессов (которых запланировано два) и, возможно, в ведущем процессе.
+Все, что находится ниже узла Gather — параллельная часть плана. Она выполняется в каждом из рабочих процессов (которых запланировано два) и, возможно, в ведущем процессе.
 
 Узел Gather и все узлы выше выполняются только в ведущем процессе. Это последовательная часть плана.
+
+### Parallel Seq Scan
 
 Начнем разбираться снизу вверх. Узел Parallel Seq Scan представляет сканирование таблицы в параллельном режиме.
 В поле rows показана оценка числа строк, которые обработает один рабочий процесс. Всего их запланировано 2, и еще часть работы выполнит ведущий, поэтому общее число строк делится на 2.4 (доля ведущего процесса уменьшается с ростом числа рабочих процессов).
@@ -190,3 +202,29 @@ WHERE relname = 'bookings';
 ```
 
 $1055555 \times 2 = 2111110$
+
+### Partial Aggregate
+
+```sql
+EXPLAIN
+SELECT COUNT(*)
+FROM bookings;
+```
+
+```console
+Finalize Aggregate  (cost=25483.58..25483.59 rows=1 width=8)                              
+  ->  Gather  (cost=25483.36..25483.57 rows=2 width=8)                                    
+        Workers Planned: 2                                                                
+        ->  Partial Aggregate  (cost=24483.36..24483.37 rows=1 width=8)                   
+              ->  Parallel Seq Scan on bookings  (cost=0.00..22284.29 rows=879629 width=0)
+```
+
+Следующий узел — Partial Aggregate — выполняет агрегацию данных, полученных рабочим процессом, то есть в данном случае подсчитывает количество строк. Оценка выполняется уже известным образом (и добавляется к оценке сканирования таблицы):
+
+```sql
+SELECT ROUND((reltuples / 2.4 * CURRENT_SETTING('cpu_operator_cost'):: real):: numeric, 2) "cost"
+FROM pg_class
+WHERE relname = 'bookings';
+
+-- 2199.07
+```
