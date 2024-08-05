@@ -10,10 +10,13 @@
     - [Ubuntu](#ubuntu)
       - [Access locally installed Postgres from Kubernetes pods](#access-locally-installed-postgres-from-kubernetes-pods)
     - [Kubernetes](#kubernetes)
+  - [PL/pgSQL](#plpgsql)
+    - [Create role](#create-role)
+    - [Get number of rows in the table](#get-number-of-rows-in-the-table)
+    - [Get table size in MB](#get-table-size-in-mb)
   - [Client applications](#client-applications)
     - [`psql`](#psql)
       - [Meta-commands](#meta-commands)
-      - [Create role](#create-role)
     - [`pg_dump`](#pg_dump)
     - [`dropdb`](#dropdb)
     - [`createdb`](#createdb)
@@ -188,6 +191,31 @@ To get information needed to connect to database run:
 helm status postgres
 ```
 
+## PL/pgSQL
+
+### Create role
+
+[↑ `CREATE ROLE`](https://postgrespro.ru/docs/postgresql/16/sql-createrole?lang=en).
+
+```sql
+SELECT * FROM pg_user;
+SELECT * FROM pg_roles;
+```
+
+### Get number of rows in the table
+
+```sql
+SELECT reltuples::bigint AS estimate
+FROM pg_class
+WHERE oid = 'mytable'::regclass;
+```
+
+### Get table size in MB
+
+```sql
+SELECT PG_SIZE_PRETTY(PG_TOTAL_RELATION_SIZE('bookings'));
+```
+
 ## Client applications
 
 [↑ PostgreSQL client applications](https://postgrespro.ru/docs/postgresql/16/reference-client?lang=en).
@@ -214,15 +242,6 @@ Meta-commands are often called _slash commands_ or _backslash commands_.
 | `\l` or `l+`       | List all databases                                    |
 | `\q`               | Quit psql                                             |
 | `\! clear`         | As an alternative use `Ctrl + L` or `\! cls` commands |
-
-#### Create role
-
-[↑ `CREATE ROLE`](https://postgrespro.ru/docs/postgresql/16/sql-createrole?lang=en).
-
-```sql
-SELECT * FROM pg_user;
-SELECT * FROM pg_roles;
-```
 
 ### `pg_dump`
 
