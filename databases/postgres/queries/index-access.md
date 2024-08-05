@@ -16,6 +16,7 @@
     - [Число рабочих процессов](#число-рабочих-процессов)
   - [Index only scan](#index-only-scan)
   - [Include-индексы](#include-индексы)
+  - [Parallel index only scan](#parallel-index-only-scan)
 
 ## Index scan
 
@@ -273,12 +274,12 @@ WHERE book_ref < '400000';
 ```
 
 ```console
-Finalize Aggregate  (cost=16853.98..16853.99 rows=1 width=32)                                                   
-  ->  Gather  (cost=16853.66..16853.97 rows=3 width=32)                                                         
-        Workers Planned: 3                                                                                      
-        ->  Partial Aggregate  (cost=15853.66..15853.67 rows=1 width=32)                                        
+Finalize Aggregate  (cost=16853.98..16853.99 rows=1 width=32)
+  ->  Gather  (cost=16853.66..16853.97 rows=3 width=32)
+        Workers Planned: 3
+        ->  Partial Aggregate  (cost=15853.66..15853.67 rows=1 width=32)
               ->  Parallel Index Scan using bookings_pkey on bookings  (cost=0.43..15411.33 rows=176929 width=6)
-                    Index Cond: (book_ref < '400000'::bpchar)                                                   
+                    Index Cond: (book_ref < '400000'::bpchar)
 ```
 
 Было запланировано три параллельных процесса. Если увеличить значение `min_parallel_index_scan_size` до 10 мегабайт, планировщик запланирует лишь один процесс:
@@ -290,12 +291,12 @@ SET min_parallel_index_scan_size = '10MB';
 И повторим запрос:
 
 ```console
-Finalize Aggregate  (cost=18675.11..18675.12 rows=1 width=32)                                                   
-  ->  Gather  (cost=18674.99..18675.10 rows=1 width=32)                                                         
-        Workers Planned: 1                                                                                      
-        ->  Partial Aggregate  (cost=17674.99..17675.00 rows=1 width=32)                                        
+Finalize Aggregate  (cost=18675.11..18675.12 rows=1 width=32)
+  ->  Gather  (cost=18674.99..18675.10 rows=1 width=32)
+        Workers Planned: 1
+        ->  Partial Aggregate  (cost=17674.99..17675.00 rows=1 width=32)
               ->  Parallel Index Scan using bookings_pkey on bookings  (cost=0.43..16868.40 rows=322636 width=6)
-                    Index Cond: (book_ref < '400000'::bpchar)                                                   
+                    Index Cond: (book_ref < '400000'::bpchar)
 ```
 
 ```sql
@@ -315,7 +316,7 @@ WHERE book_ref <= '100000';
 
 ```console
 Index Only Scan using bookings_pkey on bookings  (cost=0.43..4208.82 rows=147565 width=7)
-  Index Cond: (book_ref <= '100000'::bpchar)                                             
+  Index Cond: (book_ref <= '100000'::bpchar)
 ```
 
 Посмотрим план этого запроса с помощью EXPLAIN ANALYZE:
@@ -329,8 +330,8 @@ WHERE book_ref <= '100000';
 
 ```console
 Index Only Scan using bookings_pkey on bookings (actual rows=132109 loops=1)
-  Index Cond: (book_ref <= '100000'::bpchar)                                
-  Heap Fetches: 0                                                           
+  Index Cond: (book_ref <= '100000'::bpchar)
+  Heap Fetches: 0
 ```
 
 Строка Heap Fetches показывает, сколько версий строк было проверено с помощью таблицы. В данном случае карта видимости содержит актуальную информацию, обращаться к таблице не потребовалось.
@@ -352,8 +353,8 @@ WHERE book_ref <= '100000';
 
 ```console
 Index Only Scan using bookings_pkey on bookings (actual rows=132109 loops=1)
-  Index Cond: (book_ref <= '100000'::bpchar)                                
-  Heap Fetches: 157                                                         
+  Index Cond: (book_ref <= '100000'::bpchar)
+  Heap Fetches: 157
 ```
 
 Проверять приходится все версии, попадающие на измененную страницу.
@@ -370,13 +371,13 @@ psql -U postgres
 
 ```console
                         Table "bookings.tickets"
-     Column     |         Type          | Collation | Nullable | Default 
+     Column     |         Type          | Collation | Nullable | Default
 ----------------+-----------------------+-----------+----------+---------
- ticket_no      | character(13)         |           | not null | 
- book_ref       | character(6)          |           | not null | 
- passenger_id   | character varying(20) |           | not null | 
- passenger_name | text                  |           | not null | 
- contact_data   | jsonb                 |           |          | 
+ ticket_no      | character(13)         |           | not null |
+ book_ref       | character(6)          |           | not null |
+ passenger_id   | character varying(20) |           | not null |
+ passenger_name | text                  |           | not null |
+ contact_data   | jsonb                 |           |          |
 Indexes:
     "tickets_pkey" PRIMARY KEY, btree (ticket_no)
 Foreign-key constraints:
@@ -396,10 +397,10 @@ WHERE ticket_no > '0005435990286';
 
 ```console
 Index Scan using tickets_pkey on tickets (actual time=2.088..12.958 rows=7146 loops=1)
-  Index Cond: (ticket_no > '0005435990286'::bpchar)                                   
-  Buffers: shared hit=74 read=153                                                     
-Planning:                                                                             
-  Buffers: shared hit=65 read=5                                                       
+  Index Cond: (ticket_no > '0005435990286'::bpchar)
+  Buffers: shared hit=74 read=153
+Planning:
+  Buffers: shared hit=65 read=5
 ```
 
 В данном случае было прочитано 227 страниц (Buffers).
@@ -414,13 +415,45 @@ CREATE UNIQUE INDEX ON tickets (ticket_no) INCLUDE (book_ref);
 
 ```console
 Index Only Scan using tickets_ticket_no_book_ref_idx on tickets (actual time=0.094..3.946 rows=7146 loops=1)
-  Index Cond: (ticket_no > '0005435990286'::bpchar)                                                         
-  Heap Fetches: 0                                                                                           
-  Buffers: shared hit=4 read=35                                                                             
-Planning:                                                                                                   
-  Buffers: shared hit=19 read=4                                                                             
+  Index Cond: (ticket_no > '0005435990286'::bpchar)
+  Heap Fetches: 0
+  Buffers: shared hit=4 read=35
+Planning:
+  Buffers: shared hit=19 read=4
 ```
 
 Теперь оптимизатор выбирает метод Index Only Scan и использует только что созданный индекс. Количество прочитанных страниц сократилось. Поскольку карта видимости актуальна, обращаться к таблице не пришлось (Heap Fetches: 0) .
 
 B include-индекс можно включать столбцы с типами данных, которые не поддерживаются В-деревом (например, геометрические типы и XML).
+
+## Parallel index only scan
+
+Сканирование только индекса также может выполняться параллельно:
+
+```sql
+EXPLAIN
+SELECT COUNT(book_ref)
+FROM bookings
+WHERE book_ref <= '400000';
+```
+
+```console
+Finalize Aggregate  (cost=14004.94..14004.95 rows=1 width=8)                                                         
+  ->  Gather  (cost=14004.72..14004.93 rows=2 width=8)                                                               
+        Workers Planned: 2                                                                                           
+        ->  Partial Aggregate  (cost=13004.72..13004.73 rows=1 width=8)                                              
+              ->  Parallel Index Only Scan using bookings_pkey on bookings  (cost=0.43..12433.39 rows=228534 width=7)
+                    Index Cond: (book_ref <= '400000'::bpchar)                                                       
+```
+
+Стоимость доступа к таблице здесь учитывает только обработку строк, без ввода-вывода:
+
+```sql
+SELECT ROUND(
+               (reltuples / 4.0) / 2.4 * CURRENT_SETTING('cpu_tuple_cost')::real
+       )
+FROM pg_class
+WHERE relname = 'bookings';
+
+-- 2199
+```
