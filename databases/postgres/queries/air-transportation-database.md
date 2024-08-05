@@ -56,18 +56,21 @@ entity bookings {
  book_ref
  --
 }
+note left: 2.1 M records, 151 MB
 
 entity tickets {
  ticket_no
  --
  book_ref
 }
+note left: 2.9 M records, 475 MB
 
 entity ticket_flights {
  ticket_no
  flight_id
  --
 }
+note left: 8.4 M records, 872 MB
 
 entity flights {
  flight_id
@@ -76,28 +79,34 @@ entity flights {
  arrival_airport
  aircraft_code
 }
+note right: 215 K records, 32 MB
 
 entity airports {
  airport_code
  --
 }
+note left: 104 records, 72 kB
+
 
 entity boarding_passes {
  ticket_no
  flight_id
  --
 }
+note left: 7.9 M records, 1102 MB
 
 entity aircrafts {
  aircraft_code
  --
 }
+note right: 9 records, 32 kB
 
 entity seats {
  aircraft_code
  seat_no
  --
 }
+note right: 1.3 K records, 144 kB
 
 bookings --|{ tickets
 tickets --|{ ticket_flights

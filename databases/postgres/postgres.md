@@ -212,9 +212,13 @@ WHERE oid = 'mytable'::regclass;
 
 ### Get table size in MB
 
+Total disk space used by the specified table, including all indexes and TOAST data:
+
 ```sql
 SELECT PG_SIZE_PRETTY(PG_TOTAL_RELATION_SIZE('bookings'));
 ```
+
+Instead of a table name, index name can be used.
 
 ## Client applications
 
