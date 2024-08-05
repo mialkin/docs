@@ -10,12 +10,13 @@
 
 - [Index access](#index-access)
   - [Table of contents](#table-of-contents)
-  - [Сканирование индекса](#сканирование-индекса)
+  - [Index scan](#index-scan)
     - [Поиск по диапазону](#поиск-по-диапазону)
     - [Параллельное сканирование индекса](#параллельное-сканирование-индекса)
-  - [Число рабочих процессов](#число-рабочих-процессов)
+    - [Число рабочих процессов](#число-рабочих-процессов)
+  - [Index only scan](#index-only-scan)
 
-## Сканирование индекса
+## Index scan
 
 Рассмотрим таблицу бронирований:
 
@@ -241,9 +242,63 @@ WHERE book_ref < '400000';
 
 Значением параметра `cpu_operator_cost` оценивается операция сравнения значений («меньше»).
 
-## Число рабочих процессов
+### Число рабочих процессов
 
 - Равно нулю (параллельный план не строится), если размер выборки < `min_parallel_index_scan_size` = 512KB
 - Фиксировано, если для таблицы указан параметр хранения `parallel_workers`
 - Вычисляется по формуле $1 + \lfloor log_{3}(размер \ выборки / min\_parallel\_index\_scan\_size) \rfloor$
 - Но не больше, чем `max_parallel_workers_per_gather`
+
+Установим максимальное число параллельно работающих процессов, которые могут запускаться одним узлом Gather, в значение четыре:
+
+```sql
+SET max_parallel_workers_per_gather = 4;
+```
+
+Посмотрим значение конфигурационного параметра `min_parallel_index_scan_size`:
+
+```sql
+SHOW min_parallel_index_scan_size;
+-- 512kB
+```
+
+И выполним следующий запрос:
+
+```sql
+EXPLAIN
+SELECT SUM(total_amount)
+FROM bookings
+WHERE book_ref < '400000';
+```
+
+```console
+Finalize Aggregate  (cost=16853.98..16853.99 rows=1 width=32)                                                   
+  ->  Gather  (cost=16853.66..16853.97 rows=3 width=32)                                                         
+        Workers Planned: 3                                                                                      
+        ->  Partial Aggregate  (cost=15853.66..15853.67 rows=1 width=32)                                        
+              ->  Parallel Index Scan using bookings_pkey on bookings  (cost=0.43..15411.33 rows=176929 width=6)
+                    Index Cond: (book_ref < '400000'::bpchar)                                                   
+```
+
+Было запланировано три параллельных процесса. Если увеличить значение `min_parallel_index_scan_size` до 10 мегабайт, планировщик запланирует лишь один процесс:
+
+```sql
+SET min_parallel_index_scan_size = '10MB';
+```
+
+И повторим запрос:
+
+```console
+Finalize Aggregate  (cost=18675.11..18675.12 rows=1 width=32)                                                   
+  ->  Gather  (cost=18674.99..18675.10 rows=1 width=32)                                                         
+        Workers Planned: 1                                                                                      
+        ->  Partial Aggregate  (cost=17674.99..17675.00 rows=1 width=32)                                        
+              ->  Parallel Index Scan using bookings_pkey on bookings  (cost=0.43..16868.40 rows=322636 width=6)
+                    Index Cond: (book_ref < '400000'::bpchar)                                                   
+```
+
+```sql
+RESET min_parallel_index_scan_size;
+```
+
+## Index only scan
