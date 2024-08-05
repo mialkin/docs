@@ -6,6 +6,14 @@
 - Indexes with additional columns
 - Duplicates in index
 
+## Table of contents
+
+- [Index access](#index-access)
+  - [Table of contents](#table-of-contents)
+  - [Сканирование индекса](#сканирование-индекса)
+    - [Поиск по диапазону](#поиск-по-диапазону)
+    - [Параллельное сканирование индекса](#параллельное-сканирование-индекса)
+
 ## Сканирование индекса
 
 Рассмотрим таблицу бронирований:
@@ -18,11 +26,11 @@ psql -U postgres
 
 ```console
                         Table "bookings.bookings"
-    Column    |           Type           | Collation | Nullable | Default 
+    Column    |           Type           | Collation | Nullable | Default
 --------------+--------------------------+-----------+----------+---------
- book_ref     | character(6)             |           | not null | 
- book_date    | timestamp with time zone |           | not null | 
- total_amount | numeric(10,2)            |           | not null | 
+ book_ref     | character(6)             |           | not null |
+ book_date    | timestamp with time zone |           | not null |
+ total_amount | numeric(10,2)            |           | not null |
 Indexes:
     "bookings_pkey" PRIMARY KEY, btree (book_ref)
 Referenced by:
@@ -42,7 +50,7 @@ WHERE book_ref = 'CDE08B';
 
 ```console
 Index Scan using bookings_pkey on bookings  (cost=0.43..8.45 rows=1 width=21)
-  Index Cond: (book_ref = 'CDE08B'::bpchar)                                  
+  Index Cond: (book_ref = 'CDE08B'::bpchar)
 ```
 
 Выбран метод доступа Index Scan, указано имя использованного индекса. Здесь обращение и к индексу, и к таблице представлено одним узлом плана. Строкой ниже указано условие доступа.
@@ -81,8 +89,8 @@ WHERE book_ref = 'CDE08B'
 
 ```console
 Index Scan using bookings_pkey on bookings  (cost=0.43..8.45 rows=1 width=21)
-  Index Cond: (book_ref = 'CDE08B'::bpchar)                                  
-  Filter: (total_amount > '1000'::numeric)                                   
+  Index Cond: (book_ref = 'CDE08B'::bpchar)
+  Filter: (total_amount > '1000'::numeric)
 ```
 
 ### Поиск по диапазону
@@ -99,7 +107,7 @@ ORDER BY book_ref;
 ```
 
 ```console
-Index Scan using bookings_pkey on bookings                                     
+Index Scan using bookings_pkey on bookings
   Index Cond: ((book_ref > '000900'::bpchar) AND (book_ref < '000939'::bpchar))
 ```
 
@@ -115,7 +123,7 @@ ORDER BY book_ref DESC;
 ```
 
 ```console
-Index Scan Backward using bookings_pkey on bookings                            
+Index Scan Backward using bookings_pkey on bookings
   Index Cond: ((book_ref > '000900'::bpchar) AND (book_ref < '000939'::bpchar))
 ```
 
@@ -133,11 +141,11 @@ ORDER BY book_ref DESC;
 ```
 
 ```console
-Index Scan Backward using bookings_pkey on bookings (actual rows=5 loops=1)    
+Index Scan Backward using bookings_pkey on bookings (actual rows=5 loops=1)
   Index Cond: ((book_ref > '000900'::bpchar) AND (book_ref < '000939'::bpchar))
-  Buffers: shared hit=4 read=1                                                 
-Planning:                                                                      
-  Buffers: shared hit=8                                                        
+  Buffers: shared hit=4 read=1
+Planning:
+  Buffers: shared hit=8
 ```
 
 Сравним поиск по диапазону с повторяющимся поиском отдельных значений. Получим тот же результат с помощью конструкции `IN`, и посмотрим, сколько страниц потребовалось прочитать в этом случае:
@@ -152,10 +160,82 @@ ORDER BY book_ref DESC;
 
 ```console
 Index Scan Backward using bookings_pkey on bookings (actual time=0.039..0.060 rows=5 loops=1)
-  Index Cond: (book_ref = ANY ('{000906,000909,000917,000930,000938}'::bpchar[]))            
-  Buffers: shared hit=24                                                                     
-Planning Time: 0.134 ms                                                                      
-Execution Time: 0.073 ms                                                                     
+  Index Cond: (book_ref = ANY ('{000906,000909,000917,000930,000938}'::bpchar[]))
+  Buffers: shared hit=24
+Planning Time: 0.134 ms
+Execution Time: 0.073 ms
 ```
 
 Количество страниц увеличилось, поскольку в этом случае приходится спускаться от корня к каждому значению.
+
+### Параллельное сканирование индекса
+
+Сканирование индекса может выполняться в параллельном режиме. В качестве примера найдем общую сумму всех бронирований с номерами, меньшими 400000 (их примерно одна четверть от общего числа):
+
+```sql
+EXPLAIN
+SELECT SUM(total_amount)
+FROM bookings
+WHERE book_ref < '400000';
+```
+
+```console
+Finalize Aggregate  (cost=17498.93..17498.94 rows=1 width=32)
+  ->  Gather  (cost=17498.71..17498.92 rows=2 width=32)
+        Workers Planned: 2
+        ->  Partial Aggregate  (cost=16498.71..16498.72 rows=1 width=32)
+              ->  Parallel Index Scan using bookings_pkey on bookings  (cost=0.43..15927.38 rows=228534 width=6)
+                    Index Cond: (book_ref < '400000'::bpchar)
+```
+
+Аналогичный план мы уже видели при параллельном последовательном сканировании, но в данном случае данные читаются с помощью индекса — узел Parallel Index Scan.
+
+Полная стоимость складывается из стоимостей доступа к таблице и к индексу. Стоимость доступа к 1/4 табличных страниц (поделенных между процессами) оценивается аналогично последовательному сканированию:
+
+```sql
+SELECT ROUND(
+               (relpages / 4.0) * CURRENT_SETTING('seq_page_cost') ::real +
+               (reltuples / 4.0) / 2.4 * CURRENT_SETTING('cpu_tuple_cost'):: real
+       )
+FROM pg_class
+WHERE relname = 'bookings';
+
+-- 5571
+```
+
+Оценка стоимости индексного доступа не делится между процессами, так как индекс читается процессами последовательно, страница за страницей:
+
+```sql
+SELECT ROUND(
+               (relpages / 4.0) * CURRENT_SETTING('random_page_cost'):: real +
+               (reltuples / 4.0) * CURRENT_SETTING('cpu_index_tuple_cost'):: real +
+               (reltuples / 4.0) * CURRENT_SETTING('cpu_operator_cost'):: real
+       )
+FROM pg_class
+WHERE relname = 'bookings_pkey';
+
+-- 9750
+```
+
+$5571 + 9750 = 15321$.
+
+```sql
+EXPLAIN (ANALYZE)
+SELECT SUM(total_amount)
+FROM bookings
+WHERE book_ref < '400000';
+```
+
+```console
+|Finalize Aggregate  (cost=17498.93..17498.94 rows=1 width=32) (actual time=78.440..81.465 rows=1 loops=1)                                                       |
+|  ->  Gather  (cost=17498.71..17498.92 rows=2 width=32) (actual time=78.240..81.456 rows=3 loops=1)                                                             |
+|        Workers Planned: 2                                                                                                                                      |
+|        Workers Launched: 2                                                                                                                                     |
+|        ->  Partial Aggregate  (cost=16498.71..16498.72 rows=1 width=32) (actual time=75.337..75.338 rows=1 loops=3)                                            |
+|              ->  Parallel Index Scan using bookings_pkey on bookings  (cost=0.43..15927.38 rows=228534 width=6) (actual time=0.063..50.635 rows=175825 loops=3)|
+|                    Index Cond: (book_ref < '400000'::bpchar)                                                                                                   |
+|Planning Time: 0.150 ms                                                                                                                                         |
+|Execution Time: 81.510 ms                                                                                                                                       |
+```
+
+Значением параметра `cpu_operator_cost` оценивается операция сравнения значений («меньше»).
