@@ -120,3 +120,42 @@ Index Scan Backward using bookings_pkey on bookings
 ```
 
 В этом случае мы спускаемся от корня дерева к правому листовому узлу, и проходим по списку листовых страниц в обратную сторону — Index Scan Backward. В обоих планах запросов нет узла для `ORDER BY`, поскольку значения в индексе уже отсортированы.
+
+Обратите внимание на количество страниц (Buffers), которое потребовалось прочитать:
+
+```sql
+EXPLAIN (ANALYZE, BUFFERS, COSTS OFF, TIMING OFF, SUMMARY OFF)
+SELECT *
+FROM bookings
+WHERE book_ref > '000900'
+  AND book_ref < '000939'
+ORDER BY book_ref DESC;
+```
+
+```console
+Index Scan Backward using bookings_pkey on bookings (actual rows=5 loops=1)    
+  Index Cond: ((book_ref > '000900'::bpchar) AND (book_ref < '000939'::bpchar))
+  Buffers: shared hit=4 read=1                                                 
+Planning:                                                                      
+  Buffers: shared hit=8                                                        
+```
+
+Сравним поиск по диапазону с повторяющимся поиском отдельных значений. Получим тот же результат с помощью конструкции `IN`, и посмотрим, сколько страниц потребовалось прочитать в этом случае:
+
+```sql
+EXPLAIN (ANALYZE, BUFFERS, COSTS OFF)
+SELECT *
+FROM bookings
+WHERE book_ref IN ('000906', '000909', '000917', '000930', '000938')
+ORDER BY book_ref DESC;
+```
+
+```console
+Index Scan Backward using bookings_pkey on bookings (actual time=0.039..0.060 rows=5 loops=1)
+  Index Cond: (book_ref = ANY ('{000906,000909,000917,000930,000938}'::bpchar[]))            
+  Buffers: shared hit=24                                                                     
+Planning Time: 0.134 ms                                                                      
+Execution Time: 0.073 ms                                                                     
+```
+
+Количество страниц увеличилось, поскольку в этом случае приходится спускаться от корня к каждому значению.
