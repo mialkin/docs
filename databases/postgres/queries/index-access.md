@@ -15,6 +15,7 @@
     - [Параллельное сканирование индекса](#параллельное-сканирование-индекса)
     - [Число рабочих процессов](#число-рабочих-процессов)
   - [Index only scan](#index-only-scan)
+  - [Include-индексы](#include-индексы)
 
 ## Index scan
 
@@ -356,3 +357,70 @@ Index Only Scan using bookings_pkey on bookings (actual rows=132109 loops=1)
 ```
 
 Проверять приходится все версии, попадающие на измененную страницу.
+
+## Include-индексы
+
+Рассмотрим таблицу билетов:
+
+```sql
+psql -U postgres
+\c demo
+\d tickets
+```
+
+```console
+                        Table "bookings.tickets"
+     Column     |         Type          | Collation | Nullable | Default 
+----------------+-----------------------+-----------+----------+---------
+ ticket_no      | character(13)         |           | not null | 
+ book_ref       | character(6)          |           | not null | 
+ passenger_id   | character varying(20) |           | not null | 
+ passenger_name | text                  |           | not null | 
+ contact_data   | jsonb                 |           |          | 
+Indexes:
+    "tickets_pkey" PRIMARY KEY, btree (ticket_no)
+Foreign-key constraints:
+    "tickets_book_ref_fkey" FOREIGN KEY (book_ref) REFERENCES bookings(book_ref)
+Referenced by:
+    TABLE "ticket_flights" CONSTRAINT "ticket_flights_ticket_no_fkey" FOREIGN KEY (ticket_no) REFERENCES tickets(ticket_no)
+```
+
+Индекс tickets_pkey не является покрывающим для приведенного запроса, поскольку в нем требуется не только столбец `ticket_no` (есть в индексе), но и `book_ref` :
+
+```sql
+EXPLAIN (ANALYZE, BUFFERS, COSTS OFF, SUMMARY OFF)
+SELECT ticket_no, book_ref
+FROM tickets
+WHERE ticket_no > '0005435990286';
+```
+
+```console
+Index Scan using tickets_pkey on tickets (actual time=2.088..12.958 rows=7146 loops=1)
+  Index Cond: (ticket_no > '0005435990286'::bpchar)                                   
+  Buffers: shared hit=74 read=153                                                     
+Planning:                                                                             
+  Buffers: shared hit=65 read=5                                                       
+```
+
+В данном случае было прочитано 227 страниц (Buffers).
+
+Создадим include-индекс, добавив в него неключевой столбец book_ref, так как он требуется запросу:
+
+```sql
+CREATE UNIQUE INDEX ON tickets (ticket_no) INCLUDE (book_ref);
+```
+
+Повторим запрос:
+
+```console
+Index Only Scan using tickets_ticket_no_book_ref_idx on tickets (actual time=0.094..3.946 rows=7146 loops=1)
+  Index Cond: (ticket_no > '0005435990286'::bpchar)                                                         
+  Heap Fetches: 0                                                                                           
+  Buffers: shared hit=4 read=35                                                                             
+Planning:                                                                                                   
+  Buffers: shared hit=19 read=4                                                                             
+```
+
+Теперь оптимизатор выбирает метод Index Only Scan и использует только что созданный индекс. Количество прочитанных страниц сократилось. Поскольку карта видимости актуальна, обращаться к таблице не пришлось (Heap Fetches: 0) .
+
+B include-индекс можно включать столбцы с типами данных, которые не поддерживаются В-деревом (например, геометрические типы и XML).
