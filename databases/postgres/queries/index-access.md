@@ -302,3 +302,57 @@ RESET min_parallel_index_scan_size;
 ```
 
 ## Index only scan
+
+Если вся необходимая информация содержится в самом индексе, то нет необходимости обращаться к таблице - за исключением проверки видимости:
+
+```sql
+EXPLAIN
+SELECT book_ref
+FROM bookings
+WHERE book_ref <= '100000';
+```
+
+```console
+Index Only Scan using bookings_pkey on bookings  (cost=0.43..4208.82 rows=147565 width=7)
+  Index Cond: (book_ref <= '100000'::bpchar)                                             
+```
+
+Посмотрим план этого запроса с помощью EXPLAIN ANALYZE:
+
+```sql
+EXPLAIN (ANALYZE, COSTS OFF, TIMING OFF, SUMMARY OFF)
+SELECT book_ref
+FROM bookings
+WHERE book_ref <= '100000';
+```
+
+```console
+Index Only Scan using bookings_pkey on bookings (actual rows=132109 loops=1)
+  Index Cond: (book_ref <= '100000'::bpchar)                                
+  Heap Fetches: 0                                                           
+```
+
+Строка Heap Fetches показывает, сколько версий строк было проверено с помощью таблицы. В данном случае карта видимости содержит актуальную информацию, обращаться к таблице не потребовалось.
+
+Обновим первую строку таблицы:
+
+```sql
+UPDATE bookings
+SET total_amount = total_amount
+WHERE book_ref = '000004';
+```
+
+```sql
+EXPLAIN (ANALYZE, COSTS OFF, TIMING OFF, SUMMARY OFF)
+SELECT book_ref
+FROM bookings
+WHERE book_ref <= '100000';
+```
+
+```console
+Index Only Scan using bookings_pkey on bookings (actual rows=132109 loops=1)
+  Index Cond: (book_ref <= '100000'::bpchar)                                
+  Heap Fetches: 157                                                         
+```
+
+Проверять приходится все версии, попадающие на измененную страницу.
