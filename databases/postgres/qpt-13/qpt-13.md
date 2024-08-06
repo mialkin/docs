@@ -8,3 +8,6 @@ Topics:
 - [Sequential access](sequential-scan.md)
 - [Index access](index-access.md)
 - [Bitmap scan](bitmap-scan.md)
+- [Nested loop join](nested-loop-join.md)
+- Hash joins
+- Merge joins
