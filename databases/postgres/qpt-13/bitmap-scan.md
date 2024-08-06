@@ -299,7 +299,7 @@ Index Scan using total_amount_test on bookings  (cost=0.43..2182.48 rows=62460 w
 
 До кластеризации использовалось сканирование по битовой карте, но теперь проще и выгодней сделать обычное индексное сканирование.
 
-<img src="effectiveness_comparison_2.jpeg" width="700px" alt="Сравнение эффективности" />
+<img src="effectiveness_comparison_2.jpeg" width="800px" alt="Сравнение эффективности" />
 
 ## Итоги
 
