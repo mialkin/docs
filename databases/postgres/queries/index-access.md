@@ -17,6 +17,7 @@
   - [Index only scan](#index-only-scan)
   - [Include-индексы](#include-индексы)
   - [Parallel index only scan](#parallel-index-only-scan)
+  - [Дубликат в индексе](#дубликат-в-индексе)
 
 ## Index scan
 
@@ -456,4 +457,88 @@ FROM pg_class
 WHERE relname = 'bookings';
 
 -- 2199
+```
+
+## Дубликат в индексе
+
+Сравним размер индекса без исключения дубликатов и с исключением. Пример подобран таким образом, что в индексе должно быть много повторяющихся значений.
+
+Сначала создадим индекс, отключив исключение дубликатов с помощью параметра хранения `deduplicate_items`:
+
+```sql
+CREATE INDEX dedup_test ON ticket_flights (fare_conditions)
+    WITH (deduplicate_items = off);
+```
+
+Посмотрим размер созданного индекса:
+
+```sql
+SELECT PG_SIZE_PRETTY(PG_TOTAL_RELATION_SIZE('dedup_test'));
+-- 187 MB
+```
+
+Выполним запрос с помощью индекса, временно отключив для этого последовательное сканирование.
+Обратите внимание на значение Buffers и время выполнения запроса.
+
+```sql
+SET enable_seqscan = off;
+```
+
+```sql
+EXPLAIN (ANALYZE, BUFFERS, COSTS OFF)
+SELECT fare_conditions
+FROM ticket_flights;
+```
+
+```console
+Index Only Scan using dedup_test on ticket_flights (actual time=0.042..840.232 rows=8391852 loops=1)
+  Heap Fetches: 0                                                                                   
+  Buffers: shared hit=5 read=23876 written=1                                                        
+Planning:                                                                                           
+  Buffers: shared hit=35 read=1                                                                     
+Planning Time: 0.403 ms                                                                             
+Execution Time: 1160.329 ms                                                                         
+```
+
+Удалим индекс и создадим его заново. Параметр хранения `deduplicate_items` He указываем, так как по умолчанию он включен:
+
+```sql
+DROP INDEX dedup_test;
+```
+
+```sql
+CREATE INDEX dedup_test ON ticket_flights (fare_conditions);
+```
+
+Опять посмотрим размер индекса:
+
+```sql
+SELECT PG_SIZE_PRETTY(PG_TOTAL_RELATION_SIZE('dedup_test'));
+-- 56 MB
+```
+
+Размер сократился более чем в три раза.
+
+Повторно выполним запрос:
+
+```sql
+EXPLAIN (ANALYZE, BUFFERS, COSTS OFF)
+SELECT fare_conditions
+FROM ticket_flights;
+```
+
+```console
+Index Only Scan using dedup_test on ticket_flights (actual time=0.032..628.219 rows=8391852 loops=1)
+  Heap Fetches: 0                                                                                   
+  Buffers: shared hit=5 read=7077                                                                   
+Planning:                                                                                           
+  Buffers: shared hit=5 read=1 dirtied=1                                                            
+Planning Time: 0.211 ms                                                                             
+Execution Time: 969.614 ms                                                                          
+```
+
+Количество Buffers тоже сократилось примерно в три раза. И запрос стал выполняться быстрее.
+
+```sql
+RESET enable_seqscan;
 ```
