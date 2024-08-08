@@ -83,8 +83,6 @@
 - Postgres
   - [↑ Selecting for Share and Update in PostgreSQL](https://shiroyasha.io/selecting-for-share-and-update-in-postgresql.html)
   - [↑ SKIP LOCKED](https://www.2ndquadrant.com/en/blog/what-is-select-skip-locked-for-in-postgresql-9-5/)
-  - [↑ Group by, Having](https://www.postgresql.org/docs/9.4/tutorial-agg.html)
-  - Разобрать задачи с HAVING
 - [↑ EF Core Change Tracking](https://learn.microsoft.com/en-us/ef/core/change-tracking/).
 - [↑ EF Core Interceptors](https://learn.microsoft.com/en-us/ef/core/logging-events-diagnostics/interceptors)
 

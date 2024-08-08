@@ -1,12 +1,13 @@
-# CTE. Window function
+# CTE. Window function. `HAVING`
 
 ## Table of contents
 
-- [CTE. Window function](#cte-window-function)
+- [CTE. Window function. `HAVING`](#cte-window-function-having)
   - [Table of contents](#table-of-contents)
   - [CTE](#cte)
   - [Window function](#window-function)
     - [Window functions vs `GROUP BY`](#window-functions-vs-group-by)
+  - [`HAVING`](#having)
 
 ## CTE
 
@@ -142,7 +143,9 @@ Look at the example below, which presents the daily registration of users for an
 
 The first column shows the date. The second column shows the number of users who registered on that date. The third column, total_users, sums the total number of registered users on that day.
 
-A [↑ **moving average**](https://learnsql.com/blog/moving-average-in-sql/) is a time series technique for analyzing and determining trends in data. Sometimes called rolling means, rolling averages, or running averages, they are calculated as the mean of the current and a specified number of immediately preceding values for each point in time.
+A [↑ **moving average**](https://learnsql.com/blog/moving-average-in-sql/) is a time series technique for analyzing and determining trends in data.
+
+Sometimes called rolling means, rolling averages, or running averages, they are calculated as the mean of the current and a specified number of immediately preceding values for each point in time.
 
 Below is the table named `stock_price`:
 
@@ -168,3 +171,33 @@ Here is how a three-day moving average is calculated for January 9, 2020:
 For January 9, 2020, the three-day moving average is calculated as the mean of prices from that day (1,300) and the two previous days: January 8 (1,300) and January 7 (1,320). So, the moving average for January 9, 2020 is the average of these three values, or 1,306.66 as shown in the image above.
 
 The moving average is calculated in the same way for each of the remaining dates, totaling the three stock prices from the date in question and the two previous days then dividing that total by 3.
+
+## `HAVING`
+
+```sql
+SELECT fare_conditions, COUNT(*) AS total
+FROM seats
+GROUP BY fare_conditions
+```
+
+| fare_conditions | total |
+| :-------------- | :---- |
+| Business        | 152   |
+| Comfort         | 48    |
+| Economy         | 1139  |
+
+```sql
+SELECT fare_conditions, COUNT(*) AS total
+FROM seats
+GROUP BY fare_conditions
+HAVING fare_conditions != 'Comfort'
+   AND COUNT(*) < 500;
+```
+
+| fare_conditions | total |
+| :-------------- | :---- |
+| Business        | 152   |
+
+The [↑ `HAVING`](https://www.postgresql.org/docs/current/tutorial-agg.html) clause was added to SQL because the `WHERE` clause cannot be used with aggregate functions.
+
+Aggregate functions are often used with `GROUP BY` clauses, and by adding `HAVING` we can write condition like we do with `WHERE` clauses.
