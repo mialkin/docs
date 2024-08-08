@@ -63,7 +63,7 @@ note left: 2.1 M records, 151 MB
 entity tickets {
  ticket_no: char(13)
  --
- book_ref: char(6) <<FK>>,
+ book_ref: char(6) <<FK>>
  passenger_id: varchar(20)
  passenger_name: text
  contact_data: jsonb
@@ -71,8 +71,8 @@ entity tickets {
 note left: 2.9 M records, 475 MB
 
 entity ticket_flights {
- ticket_no: char(13)
- flight_id: integer
+ ticket_no: char(13) <<FK>>
+ flight_id: integer <<FK>>
  --
  fare_conditions: varchar(10)
  amount: numeric(10, 2)
