@@ -53,58 +53,80 @@ skinparam class {
 }
 
 entity bookings {
- book_ref
+ book_ref: char(6)
  --
+ book_date: timestamp
+ total_amount: numeric(10, 2)
 }
 note left: 2.1 M records, 151 MB
 
 entity tickets {
- ticket_no
+ ticket_no: char(13)
  --
- book_ref
+ book_ref: char(6) <<FK>>,
+ passenger_id: varchar(20)
+ passenger_name: text
+ contact_data: jsonb
 }
 note left: 2.9 M records, 475 MB
 
 entity ticket_flights {
- ticket_no
- flight_id
+ ticket_no: char(13)
+ flight_id: integer
  --
+ fare_conditions: varchar(10)
+ amount: numeric(10, 2)
 }
 note left: 8.4 M records, 872 MB
 
 entity flights {
- flight_id
+ flight_id: integer
  --
- departure_airport
- arrival_airport
- aircraft_code
+ aircraft_code: char(3) <<FK>>
+ departure_airport: char(3)
+ arrival_airport: char(3)
+ flight_no: char(6)
+ scheduled_departure: timestamp
+ scheduled_arrival: timestamp
+ status: varchar(20)
+ actual_departure: timestamp
+ actual_arrival: timestamp
 }
 note right: 215 K records, 32 MB
 
 entity airports {
- airport_code
+ airport_code: char(3)
  --
+ airport_name: jsonb
+ city: jsonb
+ coordinates: point
+ timezone: text
 }
 note left: 104 records, 72 kB
 
 
 entity boarding_passes {
- ticket_no
- flight_id
+ ticket_no: char(13)
+ flight_id: integer
  --
+ boarding_no: integer
+ seat_no: varchar(4)
 }
 note left: 7.9 M records, 1102 MB
 
 entity aircrafts {
- aircraft_code
+ aircraft_code: char(3)
  --
+ model: jsonb
+ range: integer
 }
 note right: 9 records, 32 kB
 
 entity seats {
- aircraft_code
- seat_no
+ aircraft_code: char(3)
+ seat_no: varchar(4)
  --
+ fare_conditions: varchar(10)
 }
 note right: 1.3 K records, 144 kB
 
