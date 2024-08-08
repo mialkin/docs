@@ -34,9 +34,9 @@ from whatever
 join somethingelse on somethingelse.id = whatever.id;
 ```
 
-[↑ PostgreSQL WITH Queries](https://www.postgresql.org/docs/16/queries-with.html).
+[↑ PostgreSQL `WITH` queries](https://www.postgresql.org/docs/16/queries-with.html).
 
-[↑ T-SQL WITH common_table_expression](https://learn.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql).
+[↑ T-SQL `WITH common_table_expression`](https://learn.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql).
 
 ## Window function
 
