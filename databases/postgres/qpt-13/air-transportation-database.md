@@ -36,7 +36,7 @@ psql -U postgres
 
 ## Common diagram
 
-<img src="database-diagram.svg" alt="Database diagram" />
+<!-- <img src="database-diagram.svg" alt="Database diagram" /> -->
 
 ```plantuml
 @startuml
@@ -83,8 +83,8 @@ entity flights {
  flight_id: integer
  --
  aircraft_code: char(3) <<FK>>
- departure_airport: char(3)
- arrival_airport: char(3)
+ departure_airport: char(3) <<FK>>
+ arrival_airport: char(3) <<FK>>
  flight_no: char(6)
  scheduled_departure: timestamp
  scheduled_arrival: timestamp
@@ -106,8 +106,8 @@ note left: 104 records, 72 kB
 
 
 entity boarding_passes {
- ticket_no: char(13)
- flight_id: integer
+ ticket_no: char(13) <<FK>>
+ flight_id: integer <<FK>>
  --
  boarding_no: integer
  seat_no: varchar(4)
@@ -123,7 +123,7 @@ entity aircrafts {
 note right: 9 records, 32 kB
 
 entity seats {
- aircraft_code: char(3)
+ aircraft_code: char(3) <<FK>>
  seat_no: varchar(4)
  --
  fare_conditions: varchar(10)
