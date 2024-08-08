@@ -1,8 +1,8 @@
-# Air transportation database
+# Air transportation demo database
 
 ## Table of contents
 
-- [Air transportation database](#air-transportation-database)
+- [Air transportation demo database](#air-transportation-demo-database)
   - [Table of contents](#table-of-contents)
   - [Installation](#installation)
   - [Common diagram](#common-diagram)

@@ -1,9 +1,9 @@
 # Nested loop join
 
-## Содержание
+## Table of contents
 
 - [Nested loop join](#nested-loop-join)
-  - [Содержание](#содержание)
+  - [Table of contents](#table-of-contents)
   - [Соединение](#соединение)
   - [Nested loop](#nested-loop)
   - [Модификации](#модификации)

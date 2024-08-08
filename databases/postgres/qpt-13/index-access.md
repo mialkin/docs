@@ -1,11 +1,5 @@
 # Index access
 
-- B-trees
-- Index scan
-- Index only scan
-- Indexes with additional columns
-- Duplicates in index
-
 ## Table of contents
 
 - [Index access](#index-access)
@@ -439,12 +433,12 @@ WHERE book_ref <= '400000';
 ```
 
 ```console
-Finalize Aggregate  (cost=14004.94..14004.95 rows=1 width=8)                                                         
-  ->  Gather  (cost=14004.72..14004.93 rows=2 width=8)                                                               
-        Workers Planned: 2                                                                                           
-        ->  Partial Aggregate  (cost=13004.72..13004.73 rows=1 width=8)                                              
+Finalize Aggregate  (cost=14004.94..14004.95 rows=1 width=8)
+  ->  Gather  (cost=14004.72..14004.93 rows=2 width=8)
+        Workers Planned: 2
+        ->  Partial Aggregate  (cost=13004.72..13004.73 rows=1 width=8)
               ->  Parallel Index Only Scan using bookings_pkey on bookings  (cost=0.43..12433.39 rows=228534 width=7)
-                    Index Cond: (book_ref <= '400000'::bpchar)                                                       
+                    Index Cond: (book_ref <= '400000'::bpchar)
 ```
 
 Стоимость доступа к таблице здесь учитывает только обработку строк, без ввода-вывода:
@@ -492,12 +486,12 @@ FROM ticket_flights;
 
 ```console
 Index Only Scan using dedup_test on ticket_flights (actual time=0.042..840.232 rows=8391852 loops=1)
-  Heap Fetches: 0                                                                                   
-  Buffers: shared hit=5 read=23876 written=1                                                        
-Planning:                                                                                           
-  Buffers: shared hit=35 read=1                                                                     
-Planning Time: 0.403 ms                                                                             
-Execution Time: 1160.329 ms                                                                         
+  Heap Fetches: 0
+  Buffers: shared hit=5 read=23876 written=1
+Planning:
+  Buffers: shared hit=35 read=1
+Planning Time: 0.403 ms
+Execution Time: 1160.329 ms
 ```
 
 Удалим индекс и создадим его заново. Параметр хранения `deduplicate_items` He указываем, так как по умолчанию он включен:
@@ -529,12 +523,12 @@ FROM ticket_flights;
 
 ```console
 Index Only Scan using dedup_test on ticket_flights (actual time=0.032..628.219 rows=8391852 loops=1)
-  Heap Fetches: 0                                                                                   
-  Buffers: shared hit=5 read=7077                                                                   
-Planning:                                                                                           
-  Buffers: shared hit=5 read=1 dirtied=1                                                            
-Planning Time: 0.211 ms                                                                             
-Execution Time: 969.614 ms                                                                          
+  Heap Fetches: 0
+  Buffers: shared hit=5 read=7077
+Planning:
+  Buffers: shared hit=5 read=1 dirtied=1
+Planning Time: 0.211 ms
+Execution Time: 969.614 ms
 ```
 
 Количество Buffers тоже сократилось примерно в три раза. И запрос стал выполняться быстрее.
