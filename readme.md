@@ -115,7 +115,7 @@
     - [Sequential access](databases/postgres/qpt-13/sequential-access.md)
     - [Index access](databases/postgres/qpt-13/index-access.md)
     - [Bitmap scan](databases/postgres/qpt-13/bitmap-scan/bitmap-scan.md)
-    - Hash joins
+    - [Hash joins](databases/postgres/qpt-13/hash-joins/hash-joins.md)
     - Merge joins
 - [Replication, sharding, partitioning](databases/replication-sharding-partitioning.md)
 - [SQL Server. T-SQL. PL/SQL](databases/tsql.md)
