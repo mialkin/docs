@@ -36,7 +36,7 @@ psql -U postgres
 
 ## Common diagram
 
-<img src="database-diagram.svg" alt="Database diagram" />
+<img src="demo-database.svg" alt="Database diagram" />
 
 ```plantuml
 @startuml

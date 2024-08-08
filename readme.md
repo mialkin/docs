@@ -111,6 +111,7 @@
   - [System catalog, schemas, tablespaces, relations, files and forks, pages, TOAST](databases/postgres/data-organization.md)
   - [B-tree, hash index](databases/postgres/indexes/indexes.md)
   - [QPT-13. PostgreSQL query optimisation course](databases/postgres/qpt-13/qpt-13.md)
+    - [Demo database](databases/postgres/qpt-13/demo-database/demo-database.md)
 - [Replication, sharding, partitioning](databases/replication-sharding-partitioning.md)
 - [SQL Server. T-SQL. PL/SQL](databases/tsql.md)
 
