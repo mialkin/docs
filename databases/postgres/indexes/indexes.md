@@ -12,7 +12,7 @@ CREATE INDEX name ON table USING HASH (column);
   - [Table of contents](#table-of-contents)
   - [B-tree index](#b-tree-index)
   - [Hash index](#hash-index)
-  - [Clustered index](#clustered-index)
+  - [`CLUSTER`](#cluster)
 
 ## B-tree index
 
@@ -52,7 +52,7 @@ A [↑ **hash index**](https://www.postgresql.org/docs/current/indexes-types.htm
 =
 ```
 
-## Clustered index
+## `CLUSTER`
 
 PostgreSQL [↑ does not](https://stackoverflow.com/a/40951076/1833895) have direct implementation of [↑ clustered index](https://learn.microsoft.com/en-us/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described) like Microsoft SQL Server.
 
