@@ -4,7 +4,7 @@
 
 - [Study list](#study-list)
   - [Table of contents](#table-of-contents)
-  - [Tools](#tools)
+  - [Technologies](#technologies)
   - [Databases](#databases)
   - [Software architecture and design](#software-architecture-and-design)
   - [Programming](#programming)
@@ -16,8 +16,11 @@
   - [Web](#web)
   - [Dumb questions](#dumb-questions)
 
-## Tools
+## Technologies
 
+- [↑ .NET Aspire](https://blog.jetbrains.com/dotnet/2024/02/19/jetbrains-rider-and-the-net-aspire-plugin/)
+- [↑ SignalR](https://www.youtube.com/playlist?list=PLOeFnOV9YBa7nzzuXnThdfsyY06AuCP5V)
+- [↑ pact-net. API contract testing tool](https://github.com/pact-foundation/pact-net)
 - [↑ MassTransit](https://www.youtube.com/@PhatBoyG/videos)
 - [↑ MongoDB](https://www.mongodb.com)
 - Kafka
@@ -26,13 +29,10 @@
   - [↑ Can Your Kafka Consumers Handle a Poison Pill?](https://www.confluent.io/blog/spring-kafka-can-your-kafka-consumers-handle-a-poison-pill/)
   - [↑ Apache Kafka: устройство, плюсы, минусы и границы применимости](https://www.youtube.com/watch?v=eHxOX3YYxGc)
 - [↑ Serilog `LogContext`](https://github.com/serilog/serilog/wiki/Enrichment)
-- [↑ ASP.NET Core SignalR Tutorials](https://www.youtube.com/playlist?list=PLOeFnOV9YBa7nzzuXnThdfsyY06AuCP5V)
-- [↑ Refit](https://github.com/reactiveui/refit) and [↑ RestSharp](https://github.com/restsharp/RestSharp) and [↑ RestEase](https://github.com/canton7/RestEase)
-- [↑ pact-net](https://github.com/pact-foundation/pact-net)
+- [↑ Refit](https://github.com/reactiveui/refit). [↑ RestSharp](https://github.com/restsharp/RestSharp). [↑ RestEase](https://github.com/canton7/RestEase)
   - [↑ Introduction to contract testing with Pactflow](https://www.youtube.com/playlist?list=PLwy9Bnco-IpfZ72VQ7hce8GicVZs7nm0i)
 - [↑ Qodana](https://www.jetbrains.com/qodana).
 - [↑ Apache Airflow](https://airflow.apache.org)
-- [↑ .NET Aspire](https://blog.jetbrains.com/dotnet/2024/02/19/jetbrains-rider-and-the-net-aspire-plugin/)
 
 ## Databases
 
@@ -66,7 +66,6 @@
 - Зачем нужно денормализовывать данные
 - Что такое курсоры
 - Привести пример аналитических функций и объяснить как их использовать
-- Что такое стратегии JOIN (LOOP | HASH | MERGE JOIN)
 - Database locks
   - Когда применять каждый тип блокировки
   - Умеет реализовывать распределенную блокировку через БД
@@ -152,7 +151,6 @@ for (var i = 0; i < 5; i++) {
     - [↑ Cleaning up unmanaged resources](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/unmanaged)
     - [↑ Throwing exception in finalizer to enforce Dispose calls:](https://stackoverflow.com/questions/20358401/throwing-exception-in-finalizer-to-enforce-dispose-calls)
 - [↑ dotnet-monitor](https://learn.microsoft.com/en-us/dotnet/core/diagnostics/dotnet-monitor)
-- [↑ Pact NET. Consumer driven contract testing](https://github.com/pact-foundation/pact-net)
 - [↑ Allure framework](https://docs.qameta.io/allure)
   - [↑ Allure.XUnit](https://github.com/Tinkoff/Allure.XUnit)
 - Data masking
@@ -211,7 +209,6 @@ for (var i = 0; i < 5; i++) {
   - <https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/chaining-tasks-by-using-continuation-tasks>
 - [↑ Concurrency Visualizer](https://docs.microsoft.com/en-us/visualstudio/profiling/concurrency-visualizer)
   - [↑ Debugging Lock Contention Performance Issues in C# .NET](https://michaelscodingspot.com/lock-contentions/)
-- [↑ Adventure in learning Go for a C# dev! - Ken Faulkner](https://www.youtube.com/watch?v=0ghHBPNe6g4)
 - [↑ MessagePack](https://github.com/neuecc/MessagePack-CSharp)
   - MessagePack vs Apache Avro
 - EF Core
@@ -226,7 +223,6 @@ for (var i = 0; i < 5; i++) {
 
 - [↑ Combining ASP.NET Core validation attributes with Value Objects](https://enterprisecraftsmanship.com/posts/combining-asp-net-core-attributes-with-value-objects/)
 - [↑ ASP.NET Core Best Practices](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/best-practices)
-- [↑ FastEndpoints](https://fast-endpoints.com)
 - [↑ Graceful shutdown](https://www.google.com/search?q=graceful+shutdown+asp.net+core&oq=Graceful+shutdown+asp&aqs=chrome.1.69i57j0i512j0i15i22i30j0i390i650l2.6447j0j7&sourceid=chrome&ie=UTF-8)
 - [↑ Wolverine](https://wolverine.netlify.app/)
 
