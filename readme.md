@@ -112,6 +112,11 @@
   - [B-tree, hash index, `CLUSTER`](databases/postgres/indexes/indexes.md)
   - [↑ QPT-13 YouTube playlist](https://www.youtube.com/playlist?list=PLaFqU3KCWw6JW80WBHPOe-SMJD2NOjmge).
     - [Demo database](databases/postgres/qpt-13/demo-database/demo-database.md)
+    - [Sequential access](databases/postgres/qpt-13/sequential-access.md)
+    - [Index access](databases/postgres/qpt-13/index-access.md)
+    - [Bitmap scan](databases/postgres/qpt-13/bitmap-scan/bitmap-scan.md)
+    - Hash joins
+    - Merge joins
 - [Replication, sharding, partitioning](databases/replication-sharding-partitioning.md)
 - [SQL Server. T-SQL. PL/SQL](databases/tsql.md)
 
