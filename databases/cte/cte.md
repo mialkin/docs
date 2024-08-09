@@ -246,9 +246,40 @@ Aggregate functions are often used with `GROUP BY` clauses, and by adding `HAVIN
 
 First, an inner join is performed. Then, for each row in `t1` that does not satisfy the join condition with any row in `t2`, a joined row is added with null values in columns of `t2`. Also, for each row of `t2` that does not satisfy the join condition with any row in `t1`, a joined row with null values in the columns of `t1` is added.
 
+```sql
+SELECT *
+FROM t1
+         FULL JOIN t2 ON t1.num = t2.num;
+```
+
+| num | name | num | value |
+| :-- | :--- | :-- | :---- |
+| 1   | a    | 1   | xxx   |
+| 2   | b    |     |       |
+| 3   | c    | 3   | yyy   |
+|     |      | 5   | zzz   |
+
 ### `CROSS JOIN`
 
 For each combination of rows from `t1` and `t2`, the derived table will contain a row consisting of all columns in `t1` followed by all columns in `t2`. If the tables have `N` and `M` rows respectively, the joined table will have `N` $\times$ `M` rows.
+
+```sql
+SELECT *
+FROM t1
+         CROSS JOIN t2;
+```
+
+| num | name | num | value |
+| :-- | :--- | :-- | :---- |
+| 1   | a    | 1   | xxx   |
+| 1   | a    | 3   | yyy   |
+| 1   | a    | 5   | zzz   |
+| 2   | b    | 1   | xxx   |
+| 2   | b    | 3   | yyy   |
+| 2   | b    | 5   | zzz   |
+| 3   | c    | 1   | xxx   |
+| 3   | c    | 3   | yyy   |
+| 3   | c    | 5   | zzz   |
 
 ### Script
 
