@@ -5,6 +5,8 @@
 - [Hash joins](#hash-joins)
   - [Table of contents](#table-of-contents)
   - [One-pass hash joins](#one-pass-hash-joins)
+    - [Группировка и уникальные значения](#группировка-и-уникальные-значения)
+    - [Использование памяти](#использование-памяти)
 
 ## One-pass hash joins
 
@@ -43,8 +45,159 @@ Hash Join
         ->  Seq Scan on tickets t
 ```
 
-Узел Hash Join начинает работу с того, что обращается к дочернему узлу
-Hash. Тот получает от своего дочернего узла (здесь — Seq Scan) весь набор строк и строит хеш-таблицу.
+В данном случае хеш-таблица строится по таблице `tickets`. Далее последовательным сканированием читаем таблицу `ticket_flights` и ищем в хеш-таблице нужные номера билетов.
 
-Затем Hash Join обращается ко второму дочернему узлу и соединяет строки,
-постепенно возвращая полученные результаты.
+Модификации Hash Join включают уже рассмотренные ранее Left (Right), Semi и Anti, а также Full для полного соединения:
+
+```sql
+EXPLAIN
+SELECT *
+FROM aircrafts a
+FULL JOIN seats s ON a.aircraft_code = s.aircraft_code;
+```
+
+```console
+Hash Full Join  (cost=3.47..30.04 rows=1339 width=67)
+  Hash Cond: (s.aircraft_code = ml.aircraft_code)
+  ->  Seq Scan on seats s  (cost=0.00..21.39 rows=1339 width=15)
+  ->  Hash  (cost=3.36..3.36 rows=9 width=52)
+        ->  Seq Scan on aircrafts_data ml  (cost=0.00..3.36 rows=9 width=52)
+```
+
+### Группировка и уникальные значения
+
+Для группировки (`GROUP BY`) и устранения дубликатов (`DISTINCT` и операции со множествами без слова `ALL`) используются методы, схожие с методами соединения. Один из способов выполнения состоит в том, чтобы построить хеш-таблицу по нужным полям и получить из нее уникальные значения.
+
+```sql
+EXPLAIN
+SELECT fare_conditions, COUNT(*)
+FROM seats
+GROUP BY fare_conditions;
+```
+
+```console
+HashAggregate  (cost=28.09..28.12 rows=3 width=16)
+  Group Key: fare_conditions
+  ->  Seq Scan on seats  (cost=0.00..21.39 rows=1339 width=8)
+```
+
+То же самое и с DISTINCT:
+
+```sql
+EXPLAIN
+SELECT DISTINCT fare_conditions
+FROM seats;
+```
+
+```console
+HashAggregate  (cost=24.74..24.77 rows=3 width=8)
+  Group Key: fare_conditions
+  ->  Seq Scan on seats  (cost=0.00..21.39 rows=1339 width=8)
+```
+
+### Использование памяти
+
+Размер доступной памяти — 8 MB:
+
+```sql
+SELECT wm.setting                                  work_mem,
+       wm.unit,
+       hmm.setting                                 hash_mem_multiplier,
+       wm.setting:: numeric * hmm.setting::numeric total
+FROM pg_settings wm,
+     pg_settings hmm
+WHERE wm.name = 'work_mem'
+  AND hmm.name = 'hash_mem_multiplier';
+```
+
+```console
++--------+----+-------------------+-----+
+|work_mem|unit|hash_mem_multiplier|total|
++--------+----+-------------------+-----+
+|4096    |kB  |2                  |8192 |
++--------+----+-------------------+-----+
+```
+
+Увеличим размер памяти, отведенной под хеш-таблицу:
+
+```sql
+SET work_mem = '64MB';
+```
+
+```sql
+SET hash_mem_multiplier = 3;
+```
+
+Теперь размер ограничен 196 MB:
+
+```console
++--------+----+-------------------+------+
+|work_mem|unit|hash_mem_multiplier|total |
++--------+----+-------------------+------+
+|65536   |kB  |3                  |196608|
++--------+----+-------------------+------+
+```
+
+Команда `EXPLAIN` показывает нестандартные значения параметров при указании `settings`:
+
+```sql
+EXPLAIN (ANALYZE, SETTINGS, COSTS OFF, TIMING OFF, SUMMARY OFF)
+SELECT *
+FROM bookings b
+         JOIN tickets t ON b.book_ref = t.book_ref;
+```
+
+```console
+Hash Join (actual rows=2949857 loops=1)
+  Hash Cond: (t.book_ref = b.book_ref)
+  ->  Seq Scan on tickets t (actual rows=2949857 loops=1)
+  ->  Hash (actual rows=2111110 loops=1)
+        Buckets: 4194304  Batches: 1  Memory Usage: 145986kB
+        ->  Seq Scan on bookings b (actual rows=2111110 loops=1)
+Settings: search_path = 'bookings, public', work_mem = '64MB', hash_mem_multiplier = '3'
+```
+
+Хеш-таблица поместилась в память (Batches: 1). Параметр `Buckets` показывает число корзин в хеш-таблице, а `Memory Usage` — использованную оперативную память.
+
+Обратите внимание, что хеш-таблица строилась по меньшему набору строк — таблице `bookings`.
+
+Сравним с таким же запросом, который выводит только одно поле:
+
+```sql
+EXPLAIN (ANALYZE, COSTS OFF, TIMING OFF, SUMMARY OFF)
+SELECT b.book_ref
+FROM bookings b
+         JOIN tickets t ON b.book_ref = t.book_ref;
+```
+
+```console
+Hash Join (actual rows=2949857 loops=1)
+  Hash Cond: (t.book_ref = b.book_ref)
+  ->  Seq Scan on tickets t (actual rows=2949857 loops=1)
+  ->  Hash (actual rows=2111110 loops=1)
+        Buckets: 4194304  Batches: 1  Memory Usage: 113172kB
+        ->  Seq Scan on bookings b (actual rows=2111110 loops=1)
+```
+
+Расход памяти уменьшился, так как в хеш-таблице теперь только одно поле (вместо трех).
+
+Обратите внимание на строку `Hash Cond`: она содержит предикаты, участвующие в соединении. Условие может включать и такие предикаты, которые не могут использоваться механизмом соединения, но должны учитываться. Они отображаются в отдельной строке `Join Filter`, и нужные для их вычисления поля тоже попадают в хеш-таблицу (сравните объем памяти, он увеличился) :
+
+```sql
+EXPLAIN (ANALYZE, COSTS OFF, TIMING OFF, SUMMARY OFF)
+SELECT b.book_ref
+FROM bookings b
+         JOIN tickets t ON b.book_ref = t.book_ref
+    AND b.total_amount::TEXT > t.passenger_id;
+```
+
+```console
+Hash Join (actual rows=1198320 loops=1)
+  Hash Cond: (t.book_ref = b.book_ref)
+  Join Filter: ((b.total_amount)::text > (t.passenger_id)::text)
+  Rows Removed by Join Filter: 1751537
+  ->  Seq Scan on tickets t (actual rows=2949857 loops=1)
+  ->  Hash (actual rows=2111110 loops=1)
+        Buckets: 4194304  Batches: 1  Memory Usage: 127431kB
+        ->  Seq Scan on bookings b (actual rows=2111110 loops=1)
+```
