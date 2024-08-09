@@ -8,7 +8,10 @@
   - [Window function](#window-function)
     - [Window functions vs `GROUP BY`](#window-functions-vs-group-by)
   - [`HAVING`](#having)
-  - [`FULL JOIN`](#full-join)
+  - [Join types](#join-types)
+    - [`FULL JOIN`](#full-join)
+    - [`CROSS JOIN`](#cross-join)
+    - [Script](#script)
 
 ## CTE
 
@@ -65,6 +68,8 @@ Window functions are initiated with the `OVER` clause, and are configured using 
 Initialization script for PostgreSQL:
 
 ```sql
+BEGIN TRANSACTION;
+
 CREATE TABLE employee_salary
 (
     "id"              bigserial PRIMARY KEY,
@@ -84,6 +89,8 @@ VALUES (1, 'development', 11, 5200),
        (8, 'sales', 3, 4800),
        (9, 'sales', 1, 5000),
        (10, 'sales', 4, 4800);
+
+END;
 ```
 
 Resulting table:
@@ -217,6 +224,60 @@ The [↑ `HAVING`](https://www.postgresql.org/docs/current/tutorial-agg.html) cl
 
 Aggregate functions are often used with `GROUP BY` clauses, and by adding `HAVING` we can write condition like we do with `WHERE` clauses.
 
-## `FULL JOIN`
+## Join types
 
-First, an inner join is performed. Then, for each row in T1 that does not satisfy the join condition with any row in T2, a joined row is added with null values in columns of T2. Also, for each row of T2 that does not satisfy the join condition with any row in T1, a joined row with null values in the columns of T1 is added.
+`t1` table:
+
+| num | name |
+| :-- | :--- |
+| 1   | a    |
+| 2   | b    |
+| 3   | c    |
+
+`t2` table:
+
+| num | value |
+| :-- | :---- |
+| 1   | xxx   |
+| 3   | yyy   |
+| 5   | zzz   |
+
+### `FULL JOIN`
+
+First, an inner join is performed. Then, for each row in `t1` that does not satisfy the join condition with any row in `t2`, a joined row is added with null values in columns of `t2`. Also, for each row of `t2` that does not satisfy the join condition with any row in `t1`, a joined row with null values in the columns of `t1` is added.
+
+### `CROSS JOIN`
+
+For each combination of rows from `t1` and `t2`, the derived table will contain a row consisting of all columns in `t1` followed by all columns in `t2`. If the tables have `N` and `M` rows respectively, the joined table will have `N` $\times$ `M` rows.
+
+### Script
+
+```sql
+BEGIN TRANSACTION;
+
+CREATE TABLE t1
+(
+    num  integer NOT NULL,
+    name varchar NOT NULL
+);
+
+
+CREATE TABLE t2
+(
+    num   integer NOT NULL,
+    value varchar NOT NULL
+);
+
+INSERT INTO t1 (num, name)
+VALUES (1, 'a'),
+       (2, 'b'),
+       (3, 'c');
+
+
+INSERT INTO t2 (num, value)
+VALUES (1, 'xxx'),
+       (3, 'yyy'),
+       (5, 'zzz');
+
+COMMIT;
+```

@@ -48,5 +48,7 @@ source ~/.vimrc
 | ca\[ | Delete everything between brackets                       |
 | C    | Delete everything from cursor to the end of line         |
 | yy   | Copy to clipboard the current line                       |
+| y5y  | Copy to clipboard 5 lines                                |
 | p    | Paste the copied or deleted text after the current line  |
 | P    | Paste the copied or deleted text before the current line |
+| s    | Delete character under cursor and put into input mode    |
