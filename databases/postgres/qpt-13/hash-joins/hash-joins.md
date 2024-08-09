@@ -7,6 +7,8 @@
   - [One-pass hash joins](#one-pass-hash-joins)
     - [Группировка и уникальные значения](#группировка-и-уникальные-значения)
     - [Использование памяти](#использование-памяти)
+  - [Two-pass hash joins](#two-pass-hash-joins)
+  - [Вычислительная сложность](#вычислительная-сложность)
 
 ## One-pass hash joins
 
@@ -122,9 +124,6 @@ WHERE wm.name = 'work_mem'
 
 ```sql
 SET work_mem = '64MB';
-```
-
-```sql
 SET hash_mem_multiplier = 3;
 ```
 
@@ -201,3 +200,48 @@ Hash Join (actual rows=1198320 loops=1)
         Buckets: 4194304  Batches: 1  Memory Usage: 127431kB
         ->  Seq Scan on bookings b (actual rows=2111110 loops=1)
 ```
+
+## Two-pass hash joins
+
+Применяется, когда хеш-таблица не помещается в оперативную память: наборы данных разбиваются на пакеты и последовательно соединяются.
+
+Теперь уменьшим ограничение памяти так, чтобы хеш-таблица не поместилась, и выведем статистику использования буферного кеша:
+
+```sql
+SET work_mem = '32MB';
+SET hash_mem_multiplier = 1;
+```
+
+```sql
+EXPLAIN (ANALYZE, BUFFERS, COSTS OFF, TIMING OFF, SUMMARY OFF)
+SELECT b.book_ref
+FROM bookings b
+         JOIN tickets t ON b.book_ref = t.book_ref;
+```
+
+```console
+Hash Join (actual rows=2949857 loops=1)                            
+  Hash Cond: (t.book_ref = b.book_ref)                             
+  Buffers: shared hit=871 read=62016, temp read=12515 written=12515
+  ->  Seq Scan on tickets t (actual rows=2949857 loops=1)          
+        Buffers: shared hit=449 read=48991                         
+  ->  Hash (actual rows=2111110 loops=1)                           
+        Buckets: 1048576  Batches: 4  Memory Usage: 28291kB        
+        Buffers: shared hit=422 read=13025, temp written=5217      
+        ->  Seq Scan on bookings b (actual rows=2111110 loops=1)   
+              Buffers: shared hit=422 read=13025                   
+Planning:                                                          
+  Buffers: shared hit=8                                            
+```
+
+Теперь потребовалось четыре пакета (Batches: 4).
+
+Видно, что узел `Hash` записывает пакеты во временные файлы (`temp written`), а узел `Hash Join` и записывает, и читает (`temp read` и `written`).
+
+## Вычислительная сложность
+
+Вычислительная сложность соединения хеш-таблицей приблизительно равна `N` + `M`, где `N` и `M` — число строк в первом и втором наборах данных.
+
+При соединении таким образом имеются начальные затраты на построение хеш-таблицы, поэтому данный вид соединения хорош в OLAP-системах, так как нам не нужно быстро получать первые строки.
+
+Данный тип соединения эффективен для большого числа строк.
