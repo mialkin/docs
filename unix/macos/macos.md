@@ -7,6 +7,7 @@
     - [Finder](#finder)
     - [Fluor](#fluor)
     - [Gifox](#gifox)
+    - [HandBrake](#handbrake)
     - [Keka](#keka)
     - [Logi Tune](#logi-tune)
     - [LosslessCut](#losslesscut)
@@ -61,7 +62,7 @@ killall Finder
 
 Set `Downloads` as default folder:
 
-<img src="macos-finder.png" width="400px">
+<img src="macos-finder.png" width="400px" alt="Finder" />
 
 ### Fluor
 
@@ -74,6 +75,10 @@ brew install --cask fluor
 ### Gifox
 
 [↑ Gifox](https://gifox.app) is a macOS status bar application for recording, converting, editing and sharing GIFs.
+
+### HandBrake
+
+[↑ HandBrake](https://handbrake.fr) is an application for converting video from nearly any format to a selection of modern, widely supported codecs.
 
 ### Keka
 
@@ -134,7 +139,7 @@ Clear local storage: **Web inspector** → **Storage** → **Clear local storage
 
 ### SensibleSideButtons
 
-[↑ SensibleSideButtons](https://sensible-side-buttons.archagon.net).
+[↑ SensibleSideButtons](https://sensible-side-buttons.archagon.net) is an application that enables side navigation buttons on your third-party mice
 
 ### Sublime Text
 
