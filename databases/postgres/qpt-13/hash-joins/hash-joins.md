@@ -9,6 +9,7 @@
     - [Использование памяти](#использование-памяти)
   - [Two-pass hash joins](#two-pass-hash-joins)
   - [Вычислительная сложность](#вычислительная-сложность)
+    - [Стоимость хеш-соединения](#стоимость-хеш-соединения)
 
 ## One-pass hash joins
 
@@ -220,18 +221,18 @@ FROM bookings b
 ```
 
 ```console
-Hash Join (actual rows=2949857 loops=1)                            
-  Hash Cond: (t.book_ref = b.book_ref)                             
+Hash Join (actual rows=2949857 loops=1)
+  Hash Cond: (t.book_ref = b.book_ref)
   Buffers: shared hit=871 read=62016, temp read=12515 written=12515
-  ->  Seq Scan on tickets t (actual rows=2949857 loops=1)          
-        Buffers: shared hit=449 read=48991                         
-  ->  Hash (actual rows=2111110 loops=1)                           
-        Buckets: 1048576  Batches: 4  Memory Usage: 28291kB        
-        Buffers: shared hit=422 read=13025, temp written=5217      
-        ->  Seq Scan on bookings b (actual rows=2111110 loops=1)   
-              Buffers: shared hit=422 read=13025                   
-Planning:                                                          
-  Buffers: shared hit=8                                            
+  ->  Seq Scan on tickets t (actual rows=2949857 loops=1)
+        Buffers: shared hit=449 read=48991
+  ->  Hash (actual rows=2111110 loops=1)
+        Buckets: 1048576  Batches: 4  Memory Usage: 28291kB
+        Buffers: shared hit=422 read=13025, temp written=5217
+        ->  Seq Scan on bookings b (actual rows=2111110 loops=1)
+              Buffers: shared hit=422 read=13025
+Planning:
+  Buffers: shared hit=8
 ```
 
 Теперь потребовалось четыре пакета (Batches: 4).
@@ -242,6 +243,41 @@ Planning:
 
 Вычислительная сложность соединения хеш-таблицей приблизительно равна `N` + `M`, где `N` и `M` — число строк в первом и втором наборах данных.
 
-При соединении таким образом имеются начальные затраты на построение хеш-таблицы, поэтому данный вид соединения хорош в OLAP-системах, так как нам не нужно быстро получать первые строки.
+При соединении таким образом имеются начальные затраты на построение хеш-таблицы, поэтому данный вид соединения хорош в OLAP-системах, так как там не нужно быстро получать первые строки.
 
 Данный тип соединения эффективен для большого числа строк.
+
+### Стоимость хеш-соединения
+
+```sql
+EXPLAIN
+SELECT *
+FROM tickets t
+         JOIN ticket_flights tf ON tf.ticket_no = t.ticket_no;
+```
+
+```console
+Hash Join  (cost=161903.78..498609.95 rows=8391852 width=136)                    
+  Hash Cond: (tf.ticket_no = t.ticket_no)                                        
+  ->  Seq Scan on ticket_flights tf  (cost=0.00..153851.52 rows=8391852 width=32)
+  ->  Hash  (cost=78938.57..78938.57 rows=2949857 width=104)                     
+        ->  Seq Scan on tickets t  (cost=0.00..78938.57 rows=2949857 width=104)  
+JIT:                                                                             
+  Functions: 10                                                                  
+  Options: Inlining false, Optimization false, Expressions true, Deforming true  
+```
+
+Начальная стоимость узла `Hash Join` складывается из стоимостей:
+
+- получения всего первого набора данных (здесь — `tickets`)
+- построения хеш-таблицы — пока таблица не готова, соединение не может начаться
+
+Можно обратить внимание на то, что в узле `Hash` стоимость построения хеш-таблицы _не отражена_.
+
+Полная стоимость складывается из стоимостей:
+
+- получения всего второго набора данных (здесь — `ticket_flights`)
+- проверки по хеш-таблице
+- обращения к диску в случае, когда предполагается использование более одного пакета
+
+Главный вывод: стоимость хеш-соединения пропорциональна `N` + `М`, где `N` и `М` — число строк в соединяемых наборах данных. При больших `N` и `М` это значительно выгоднее, чем произведение в случае соединения внешним циклом.
