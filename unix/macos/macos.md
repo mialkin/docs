@@ -4,6 +4,7 @@
   - [Aliases](#aliases)
   - [Applications](#applications)
     - [Etcher](#etcher)
+    - [FFmpeg](#ffmpeg)
     - [Finder](#finder)
     - [Fluor](#fluor)
     - [Gifox](#gifox)
@@ -50,6 +51,32 @@ echo "autoload -U compinit && compinit" >> ~/.zshrc
 ### Etcher
 
 [↑ Etcher](https://etcher.balena.io) is a cross-platform tool to flash OS images onto SD cards and USB drives safely and easily.
+
+### FFmpeg
+
+[↑ FFmpeg](https://www.ffmpeg.org/) is the leading multimedia framework, able to decode, encode, transcode, mux, demux, stream, filter and play pretty much anything that humans and machines have created.
+
+It supports the most obscure ancient formats up to the cutting edge.
+
+[↑ macOS installation](https://trac.ffmpeg.org/wiki/CompilationGuide/macOS):
+
+```bash
+brew install ffmpeg
+```
+
+[↑ Concatenating](https://trac.ffmpeg.org/wiki/Concatenate) multiple files into one:
+
+```bash
+ffmpeg -f concat -i mylist.txt -c copy output.mp4
+```
+
+`mylist.txt`:
+
+```text
+file 'movie_1.mp4'
+file 'movie_2.mp4'
+file 'movie_3.mp4'
+```
 
 ### Finder
 
