@@ -1,13 +1,14 @@
-# CTE. Window function. `HAVING`
+# CTE. Window function. `HAVING`, `FULL JOIN`
 
 ## Table of contents
 
-- [CTE. Window function. `HAVING`](#cte-window-function-having)
+- [CTE. Window function. `HAVING`, `FULL JOIN`](#cte-window-function-having-full-join)
   - [Table of contents](#table-of-contents)
   - [CTE](#cte)
   - [Window function](#window-function)
     - [Window functions vs `GROUP BY`](#window-functions-vs-group-by)
   - [`HAVING`](#having)
+  - [`FULL JOIN`](#full-join)
 
 ## CTE
 
@@ -125,6 +126,20 @@ FROM employee_salary;
 | 9   | sales       | 1               | 5000   | 4866.6666666666666667 |
 | 10  | sales       | 4               | 4800   | 4866.6666666666666667 |
 
+Maximum salary in each department using `GROUP BY`:
+
+```sql
+SELECT department, MAX(salary)
+FROM employee_salary
+GROUP BY department;
+```
+
+| department  | max  |
+| :---------- | :--- |
+| development | 6000 |
+| personnel   | 3900 |
+| sales       | 5000 |
+
 ### Window functions vs `GROUP BY`
 
 - Window functions don't reduce the number of rows in the output.
@@ -201,3 +216,7 @@ HAVING fare_conditions != 'Comfort'
 The [↑ `HAVING`](https://www.postgresql.org/docs/current/tutorial-agg.html) clause was added to SQL because the `WHERE` clause cannot be used with aggregate functions.
 
 Aggregate functions are often used with `GROUP BY` clauses, and by adding `HAVING` we can write condition like we do with `WHERE` clauses.
+
+## `FULL JOIN`
+
+First, an inner join is performed. Then, for each row in T1 that does not satisfy the join condition with any row in T2, a joined row is added with null values in columns of T2. Also, for each row of T2 that does not satisfy the join condition with any row in T1, a joined row with null values in the columns of T1 is added.
