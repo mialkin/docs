@@ -117,7 +117,7 @@
     - [Bitmap scan](databases/postgres/qpt-13/bitmap-scan/bitmap-scan.md)
     - [Nested loop join](databases/postgres/qpt-13/nested-loop-join/nested-loop-join.md)
     - [Hash joins](databases/postgres/qpt-13/hash-joins/hash-joins.md)
-    - Merge joins
+    - [Merge joins and sorting](databases/postgres/qpt-13/merge-joins-sorting/merge-joins-sorting.md)
 - [Replication, sharding, partitioning](databases/replication-sharding-partitioning.md)
 - [SQL Server. T-SQL. PL/SQL](databases/tsql.md)
 
