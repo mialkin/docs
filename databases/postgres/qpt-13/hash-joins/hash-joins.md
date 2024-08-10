@@ -87,7 +87,7 @@ HashAggregate  (cost=28.09..28.12 rows=3 width=16)
   ->  Seq Scan on seats  (cost=0.00..21.39 rows=1339 width=8)
 ```
 
-То же самое и с DISTINCT:
+То же самое и с `DISTINCT`:
 
 ```sql
 EXPLAIN
