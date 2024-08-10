@@ -279,9 +279,6 @@ Hash Join  (cost=161903.78..498609.95 rows=8391852 width=136)
   ->  Seq Scan on ticket_flights tf  (cost=0.00..153851.52 rows=8391852 width=32)
   ->  Hash  (cost=78938.57..78938.57 rows=2949857 width=104)                     
         ->  Seq Scan on tickets t  (cost=0.00..78938.57 rows=2949857 width=104)  
-JIT:                                                                             
-  Functions: 10                                                                  
-  Options: Inlining false, Optimization false, Expressions true, Deforming true  
 ```
 
 Начальная стоимость узла `Hash Join` складывается из стоимостей:

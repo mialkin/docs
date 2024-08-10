@@ -55,13 +55,13 @@ ORDER BY t.ticket_no;
 ```
 
 ```console
-Merge Join                                                                           
-  Merge Cond: (tf.ticket_no = t.ticket_no)                                           
-  ->  Merge Join                                                                     
+Merge Join
+  Merge Cond: (tf.ticket_no = t.ticket_no)
+  ->  Merge Join
         Merge Cond: ((tf.ticket_no = bp.ticket_no) AND (tf.flight_id = bp.flight_id))
-        ->  Index Only Scan using ticket_flights_pkey on ticket_flights tf           
-        ->  Index Scan using boarding_passes_pkey on boarding_passes bp              
-  ->  Index Only Scan using tickets_pkey on tickets t                                
+        ->  Index Only Scan using ticket_flights_pkey on ticket_flights tf
+        ->  Index Scan using boarding_passes_pkey on boarding_passes bp
+  ->  Index Only Scan using tickets_pkey on tickets t
 ```
 
 Здесь соединяются перелеты (`ticket_flights`) и посадочные талоны (`boarding_passes`), и с этим, уже отсортированным по номерам билетов, набором строк соединяются билеты (`tickets`).
@@ -73,6 +73,49 @@ Merge Join
 - $N + M$, если не требуется сортировка
 - $N \times log_{2}{N} + M \times log_{2}{M}$, если сортировка нужна
 
- $N$ и $M$ — число строк в первом и втором наборах данных.
+$N$ и $M$ — число строк в первом и втором наборах данных.
 
 Возможны начальные затраты на сортировку. Данный тип соединения эффективен для большого количества строк. Используется как в OLAP, так и в OLTP приложениях.
+
+Посмотрим на стоимость соединения слиянием:
+
+```sql
+EXPLAIN
+SELECT *
+FROM tickets t
+         JOIN ticket_flights tf ON tf.ticket_no = t.ticket_no
+ORDER BY t.ticket_no;
+```
+
+```console
+Merge Join  (cost=0.99..822484.28 rows=8391852 width=136)
+  Merge Cond: (t.ticket_no = tf.ticket_no)
+  ->  Index Scan using tickets_pkey on tickets t  (cost=0.43..139135.32 rows=2949857 width=104)
+  ->  Index Scan using ticket_flights_pkey on ticket_flights tf  (cost=0.56..571076.24 rows=8391852 width=32)
+```
+
+Начальная стоимость включает:
+
+- сумму начальных стоимостей дочерних узлов (включает стоимость сортировки, если она необходима)
+- стоимость получения первой пары строк, соответствующих друг другу
+
+В отличие от соединения хешированием, слияние без сортировки хорошо подходит для случая, когда надо быстро получить первые строки.
+
+```sql
+EXPLAIN
+SELECT *
+FROM tickets t
+         JOIN ticket_flights tf ON tf.ticket_no = t.ticket_no
+ORDER BY t.ticket_no
+LIMIT 1000;
+```
+
+```console
+Limit  (cost=0.99..99.00 rows=1000 width=136)
+  ->  Merge Join  (cost=0.99..822484.28 rows=8391852 width=136)
+        Merge Cond: (t.ticket_no = tf.ticket_no)
+        ->  Index Scan using tickets_pkey on tickets t  (cost=0.43..139135.32 rows=2949857 width=104)
+        ->  Index Scan using ticket_flights_pkey on ticket_flights tf  (cost=0.56..571076.24 rows=8391852 width=32)
+```
+
+Обратите внимание и на то, как уменьшилась общая стоимость.
