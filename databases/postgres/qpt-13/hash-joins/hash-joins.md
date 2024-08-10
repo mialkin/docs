@@ -11,6 +11,7 @@
   - [Вычислительная сложность](#вычислительная-сложность)
     - [Стоимость хеш-соединения](#стоимость-хеш-соединения)
   - [Parallel one-pass hash joins](#parallel-one-pass-hash-joins)
+  - [Parallel two-pass hash joins](#parallel-two-pass-hash-joins)
 
 ## One-pass hash joins
 
@@ -299,4 +300,51 @@ JIT:
 
 ## Parallel one-pass hash joins
 
-Процессы используют общую хеш-таблицу.
+Параллельные процессы используют общую хеш-таблицу.
+
+<img src="parallel_hash_join_1.jpeg" width="600px" alt="Параллельный алгоритм"/>
+
+<br />
+
+Несколько процессов параллельно строят одну хеш-таблицу. Количество памяти, выделяемое под хеш-таблицу равно `work_mem` $\times$ `hash_mem_multiplier` $\times$ количество процессов.
+
+<img src="parallel_hash_join_2.jpeg" width="600px" alt="Параллельный алгоритм 2"/>
+
+<br />
+
+В операции сопоставления второй набор данных делится на части, и каждый процесс по общей хеш-таблице выполняет операцию соединения и возвращает результат.
+
+<img src="parallel_hash_join_3.jpeg" width="600px" alt="Параллельный алгоритм 3"/>
+
+```sql
+SET work_mem = '64MB';
+RESET hash_mem_multiplier;
+```
+
+Выполним запрос с агрегацией:
+
+```sql
+EXPLAIN (ANALYZE, COSTS OFF, TIMING OFF, SUMMARY OFF)
+SELECT COUNT(*)
+FROM bookings b
+         JOIN tickets t ON b.book_ref = t.book_ref;
+```
+
+```console
+Finalize Aggregate (actual rows=1 loops=1)                                                
+  ->  Gather (actual rows=3 loops=1)                                                      
+        Workers Planned: 2                                                                
+        Workers Launched: 2                                                               
+        ->  Partial Aggregate (actual rows=1 loops=3)                                     
+              ->  Parallel Hash Join (actual rows=983286 loops=3)                         
+                    Hash Cond: (t.book_ref = b.book_ref)                                  
+                    ->  Parallel Seq Scan on tickets t (actual rows=983286 loops=3)       
+                    ->  Parallel Hash (actual rows=703703 loops=3)                        
+                          Buckets: 4194304  Batches: 1  Memory Usage: 115392kB            
+                          ->  Parallel Seq Scan on bookings b (actual rows=703703 loops=3)
+```
+
+Обратите внимание на использование памяти (`Memory Usage`): объем превышает ограничение, установленное для одного рабочего процесса, но в общую память трех процессов хеш-таблица помещается. Поэтому выполняется однопроходное соединение (`Batches: 1`).
+
+## Parallel two-pass hash joins
+
