@@ -115,6 +115,7 @@
     - [Sequential access](databases/postgres/qpt-13/sequential-access.md)
     - [Index access](databases/postgres/qpt-13/index-access.md)
     - [Bitmap scan](databases/postgres/qpt-13/bitmap-scan/bitmap-scan.md)
+    - [Nested loop join](databases/postgres/qpt-13/nested-loop-join/nested_loop.jpeg)
     - [Hash joins](databases/postgres/qpt-13/hash-joins/hash-joins.md)
     - Merge joins
 - [Replication, sharding, partitioning](databases/replication-sharding-partitioning.md)
