@@ -9,8 +9,9 @@
     - [Параллельный режим](#параллельный-режим)
   - [Сортировка](#сортировка)
     - [Сортировка в памяти](#сортировка-в-памяти)
-  - [Группировка и уникальные значения](#группировка-и-уникальные-значения)
-  - [Внешняя сортировка](#внешняя-сортировка)
+    - [Группировка и уникальные значения](#группировка-и-уникальные-значения)
+    - [Внешняя сортировка](#внешняя-сортировка)
+    - [Параллельная сортировка](#параллельная-сортировка)
 
 ## Соединение слиянием
 
@@ -228,7 +229,7 @@ Incremental Sort (actual rows=2949857 loops=1)
 
 Здесь данные, полученные из таблицы `tickets` по индексу `tickets_pkey`, уже отсортированы по столбцу `ticket_no` (`Presorted Key`), поэтому остается доупорядочить строки по столбцу `passenger_id`. Для сортировки отдельных групп использовалась быстрая сортировка.
 
-## Группировка и уникальные значения
+### Группировка и уникальные значения
 
 Как мы [видели](../hash-joins/hash-joins.md#группировка-и-уникальные-значения) в предыдущей теме, для устранения дубликатов может использоваться хеширование. Другой способ — сортировка значений:
 
@@ -244,4 +245,57 @@ Result
 
 Для группировки с помощью `GROUP BY` будет использоваться похожий по смыслу узел `GroupAggregate`.
 
-## Внешняя сортировка
+### Внешняя сортировка
+
+Если оперативной памяти `work_mem` не хватает, чтобы выполнить сортировку полностью в памяти, в этом случае будут использоваться временные файлы.
+
+Если набор строк для сортировки не помещается целиком в оперативную память размером `work_mem`, применяется внешняя сортировка с использованием временных файлов. Вот пример такого плана (`Sort Method: external merge`):
+
+```sql
+EXPLAIN (ANALYZE, BUFFERS, TIMING OFF, SUMMARY OFF)
+SELECT *
+FROM flights
+ORDER BY scheduled_departure;
+```
+
+```console
+Sort  (cost=31883.96..32421.12 rows=214867 width=63) (actual rows=214867 loops=1)
+  Sort Key: scheduled_departure
+  Sort Method: external merge  Disk: 17112kB
+  Buffers: shared hit=3 read=2624, temp read=2139 written=2145
+  ->  Seq Scan on flights  (cost=0.00..4772.67 rows=214867 width=63) (actual rows=214867 loops=1)
+        Buffers: shared read=2624
+Planning:
+  Buffers: shared hit=64 read=13 dirtied=2
+```
+
+Обратите внимание на то, что узел `Sort` записывает и читает временные данные
+(`temp read` и `written`).
+
+Увеличим значение `work_mem`:
+
+```sql
+SET work_mem = '48MB';
+
+EXPLAIN (ANALYZE, BUFFERS, TIMING OFF, SUMMARY OFF)
+SELECT *
+FROM flights
+ORDER BY scheduled_departure;
+```
+
+```console
+Sort  (cost=23802.46..24339.62 rows=214867 width=63) (actual rows=214867 loops=1)
+  Sort Key: scheduled_departure
+  Sort Method: quicksort  Memory: 26161kB
+  Buffers: shared hit=2624
+  ->  Seq Scan on flights  (cost=0.00..4772.67 rows=214867 width=63) (actual rows=214867 loops=1)
+        Buffers: shared hit=2624
+```
+
+Теперь все строки поместились в память, и планировщик выбрал более дешевую быструю сортировку.
+
+```sql
+RESET work_mem;
+```
+
+### Параллельная сортировка
