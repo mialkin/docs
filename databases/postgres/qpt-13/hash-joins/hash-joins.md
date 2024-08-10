@@ -348,3 +348,50 @@ Finalize Aggregate (actual rows=1 loops=1)
 
 ## Parallel two-pass hash joins
 
+Наборы строк разбиваются на пакеты, которые затем параллельно обрабатываются рабочими процессами.
+
+Когда выполняется параллельное двухпроходное соединение мы читаем первый набор строк для построения хеш-таблицы. Если планировщик понимает, что ему не хватает оперативной памяти, то он не будет в оперативной памяти оставлять первый пакет, а он сразу все, например, 4 пакета положит во временные файлы на диске.
+
+Затем точно также будет прочитан второй набор данных, и весь поделен также на 4 пакета, в соответствии со значениями хеш-кодов.
+
+<img src="parallel_hash_join_4.jpeg" width="600px" alt="Параллельный алгоритм 4"/>
+
+После этого параллельные процессы загружают себе в оперативную память, например, 3 пакета, и каждый процесс считывает временный файл из второго набора, и начинает его соединять.
+
+<img src="parallel_hash_join_5.jpeg" width="600px" alt="Параллельный алгоритм 5"/>
+
+Далее первый освободившийся процесс загрузит себе оставшийся четвертый пакет и начнет его соединять. По мере освобождения оставшихся процессов они будут подключаться к обработке последнего пакета, чтобы обработать его совместными усилиями.
+
+<img src="parallel_hash_join_6.jpeg" width="600px" alt="Параллельный алгоритм 6"/>
+
+Еще уменьшим обьем памяти, и соединение станет двухпроходным с четырьмя
+пакетами:
+
+```sql
+SET work_mem = '16MB';
+```
+
+Выполним запрос с агрегацией:
+
+```sql
+EXPLAIN (ANALYZE, COSTS OFF, TIMING OFF, SUMMARY OFF)
+SELECT COUNT(*)
+FROM bookings b
+         JOIN tickets t ON b.book_ref = t.book_ref;
+```
+
+```console
+Finalize Aggregate (actual rows=1 loops=1)                                                
+  ->  Gather (actual rows=3 loops=1)                                                      
+        Workers Planned: 2                                                                
+        Workers Launched: 2                                                               
+        ->  Partial Aggregate (actual rows=1 loops=3)                                     
+              ->  Parallel Hash Join (actual rows=983286 loops=3)                         
+                    Hash Cond: (t.book_ref = b.book_ref)                                  
+                    ->  Parallel Seq Scan on tickets t (actual rows=983286 loops=3)       
+                    ->  Parallel Hash (actual rows=703703 loops=3)                        
+                          Buckets: 1048576  Batches: 4  Memory Usage: 28864kB             
+                          ->  Parallel Seq Scan on bookings b (actual rows=703703 loops=3)
+```
+
+Теперь мы видим, что использовалось 4 пакета (`Batches: 4`).
