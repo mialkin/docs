@@ -299,3 +299,25 @@ RESET work_mem;
 ```
 
 ### Параллельная сортировка
+
+```sql
+EXPLAIN (costs off) SELECT amount, count (*)
+FROM ticket_flights
+GROUP BY amount;
+```
+
+```console
+Finalize GroupAggregate
+  Group Key: amount
+  ->  Gather Merge
+        Workers Planned: 2
+        ->  Sort
+              Sort Key: amount
+              ->  Partial HashAggregate
+                    Group Key: amount
+                    ->  Parallel Seq Scan on ticket_flights
+```
+
+В этом плане выполнения рабочие процессы параллельно читают таблицу перелетов, выполняют группировку с помощью хеширования (`Partial HashAggregate`) и сортируют полученный результат (`Sort`).
+
+Узел `Gather Merge` собирает данные в один отсортированный набор, который затем окончательно группируется узлом `Finalize GroupAggregate`.
