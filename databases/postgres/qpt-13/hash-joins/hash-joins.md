@@ -306,7 +306,7 @@ JIT:
 
 <br />
 
-Несколько процессов параллельно строят одну хеш-таблицу. Количество памяти, выделяемое под хеш-таблицу равно `work_mem` $\times$ `hash_mem_multiplier` $\times$ количество процессов.
+Несколько процессов параллельно строят одну хеш-таблицу. Количество памяти, выделяемое под хеш-таблицу равно [↑ `work_mem`](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-WORK-MEM) $\times$ [↑ `hash_mem_multiplier`](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-HASH-MEM-MULTIPLIER) $\times$ количество процессов.
 
 <img src="parallel_hash_join_2.jpeg" width="600px" alt="Параллельный алгоритм 2"/>
 
