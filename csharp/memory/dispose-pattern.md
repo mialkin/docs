@@ -1,26 +1,41 @@
-# Unmanaged resource, `IDisposable`, dispose pattern, `WeakReference`
+# Unmanaged resource, `IDisposable`, dispose pattern, finalizer, `GC.SuppressFinalize`, `GC.WaitForPendingFinalizers`, `WeakReference`
 
 ## Table of contents
 
-- [Unmanaged resource, `IDisposable`, dispose pattern, `WeakReference`](#unmanaged-resource-idisposable-dispose-pattern-weakreference)
+- [Unmanaged resource, `IDisposable`, dispose pattern, finalizer, `GC.SuppressFinalize`, `GC.WaitForPendingFinalizers`, `WeakReference`](#unmanaged-resource-idisposable-dispose-pattern-finalizer-gcsuppressfinalize-gcwaitforpendingfinalizers-weakreference)
   - [Table of contents](#table-of-contents)
   - [Unmanaged resource](#unmanaged-resource)
-  - [`IDisposable`, dispose pattern](#idisposable-dispose-pattern)
+  - [`IDisposable`](#idisposable)
+  - [Dispose pattern](#dispose-pattern)
+    - [`SafeHandle`](#safehandle)
+    - [Finalizer](#finalizer)
+      - [`WaitForPendingFinalizers`](#waitforpendingfinalizers)
+  - [Latency](#latency)
   - [`WeakReference`](#weakreference)
 
 ## Unmanaged resource
 
-An [↑ unmanaged resource](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/unmanaged) is an object that wraps operating system resources, such as files, windows, network connections, or database connections.
+An [↑ **unmanaged resource**](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/unmanaged) is an object that wraps operating system resources, such as files, windows, network connections, or database connections.
 
 Although the garbage collector is able to track the lifetime of an object that encapsulates an unmanaged resource, it doesn't know how to release and clean up the unmanaged resource.
 
 [↑ What exactly are unmanaged resources?](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/unmanaged).
 
-## `IDisposable`, dispose pattern
+## `IDisposable`
 
 The [↑ `IDisposable`](https://learn.microsoft.com/en-us/dotnet/api/system.idisposable) interface provides a mechanism for releasing [unmanaged resources](#unmanaged-resource).
 
-> It is possible for a base class to only reference managed objects, and implement the dispose pattern. In these cases, a finalizer is unnecessary. A finalizer is only required if you directly reference unmanaged resources.
+## Dispose pattern
+
+[↑ Implement a `Dispose` method](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose).
+
+Writing code for an object's finalizer is a complex task that can cause problems if not done correctly. Therefore, we recommend that you construct [`SafeHandle`](#safehandle) objects instead of implementing a finalizer.
+
+A `SafeHandle` is an abstract managed type that wraps an [↑ `System.IntPtr`](https://learn.microsoft.com/en-us/dotnet/api/system.intptr) that identifies an unmanaged resource. On Windows it might identify a handle, and on Unix, a file descriptor.
+
+### `SafeHandle`
+
+The [↑ `SafeHandle`](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.safehandle) class represents a wrapper class for operating system handles. This class must be inherited.
 
 Here's an example of the general pattern for implementing the dispose pattern for a base class that uses a safe handle:
 
@@ -56,9 +71,9 @@ class BaseClassWithSafeHandle : IDisposable
 }
 ```
 
-[↑ Implement a `Dispose` method](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose).
+The example uses a `SafeFileHandle` object to illustrate the pattern; any object derived from `SafeHandle` could be used instead.
 
-> The previous example uses a `SafeFileHandle` object to illustrate the pattern; any object derived from `SafeHandle` could be used instead.
+### Finalizer
 
 Here's the general pattern for implementing the dispose pattern for a base class that overrides `Object.Finalize`.
 
@@ -95,6 +110,20 @@ class BaseClassWithFinalizer : IDisposable
     }
 }
 ```
+
+When `disposing` equals `true`, the object can free both managed and unmanaged resources; but if the value equals `false`, the call has been initiated from within the finalizer in which case the object should release only the unmanaged resources that the instance has reference to.
+
+After the `Dispose` method has been called on an object, you should suppress calls to the `Finalize` method by invoking the `GC.SuppressFinalize` method as a measure of performance optimization.
+
+It is possible for a base class to only reference managed objects, and implement the dispose pattern. In these cases, a finalizer is unnecessary. A finalizer is only required if you directly reference unmanaged resources.
+
+Whether or not finalizers are run as part of application termination is specific to each [↑ implementation of .NET](https://learn.microsoft.com/en-us/dotnet/standard/glossary#implementation-of-net). When an application terminates, .NET Framework makes every reasonable effort to call finalizers for objects that haven't yet been garbage collected, unless such cleanup has been suppressed (by a call to the library method `GC.SuppressFinalize`, for example). .NET 5 (including .NET Core) and later versions [↑ don't call](https://github.com/dotnet/csharpstandard/issues/291) finalizers as part of application termination.
+
+#### `WaitForPendingFinalizers`
+
+## Latency
+
+A [↑ **latency**](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/latency) is a period of time during which the garbage collector is active.
 
 ## `WeakReference`
 
@@ -139,7 +168,7 @@ public class Cache
 
         if (weakReference.TryGetTarget(out var result))
             return result;
-        
+
         return result;
     }
 }
