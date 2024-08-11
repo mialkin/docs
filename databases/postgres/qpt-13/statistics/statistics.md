@@ -12,6 +12,7 @@
   - [Гистограмма](#гистограмма)
   - [Дополнительные поля](#дополнительные-поля)
   - [Расширенная статистика](#расширенная-статистика)
+  - [Функциональные зависимости](#функциональные-зависимости)
 
 ## Число строк
 
@@ -388,3 +389,80 @@ SELECT 214867 * (1 - 0.42616662) * (2.0 / 10.0) + 214867 * 0.11533333;
 Первые два пункта позволяют улучшать оценку селективности условий с коррелированными предикатами.
 
 Последний пункт улучшает оценку кардинальности для группировки.
+
+## Функциональные зависимости
+
+Рассмотрим запрос с двумя условиями:
+
+```sql
+SELECT COUNT(*)
+FROM flights
+WHERE flight_no = 'PG0007'
+  AND departure_airport = 'VKO';
+-- 396
+```
+
+Оценка оказывается сильно заниженной:
+
+```sql
+EXPLAIN
+SELECT *
+FROM flights
+WHERE flight_no = 'PG0007'
+  AND departure_airport = 'VKO';
+```
+
+```console
+Bitmap Heap Scan on flights  (cost=10.49..816.84 rows=14 width=63)
+  Recheck Cond: (flight_no = 'PG0007'::bpchar)
+  Filter: (departure_airport = 'VKO'::bpchar)
+  ->  Bitmap Index Scan on flights_flight_no_scheduled_departure_key  (cost=0.00..10.49 rows=276 width=0)
+        Index Cond: (flight_no = 'PG0007'::bpchar)
+```
+
+Причина в том, что планировщик полагается на то, что предикаты не коррелированы и считает общую селективность как произведение селективностей условий, объединенных логическим «и». Это хорошо видно в приведенном плане: оценка в узле `Bitmap Index Scan` (условие на `flight_no`) одна, а после фильтрации в узле `Bitmap Heap Scan` (условие на `departure_airport`) - другая.
+
+Однако мы понимаем, что номер рейса однозначно определяет аэропорт отправления: фактически, второе условие избыточно (конечно, считая, что аэропорт указан правильно).
+
+Начиная с версии PostgreSQL 10, это можно объяснить и планировщику с помощью статистики по функциональной зависимости:
+
+```sql
+CREATE STATISTICS flights_dep (dependencies)
+ON flight_no, departure airport FROM flights;
+```
+
+```sql
+ANALYZE flights;
+```
+
+Собранная статистика хранится в следующем виде:
+
+```sql
+SELECT dependencies
+FROM pg_stats_ext
+WHERE statistics_name = 'flights_dep';
+```
+
+| dependencies                                   |
+| :--------------------------------------------- |
+| {"2 =&gt; 5": 1.000000, "5 =&gt; 2": 0.011333} |
+
+Сначала идут порядковые номера атрибутов, то есть номера колонок, а после двоеточия — коэффициент зависимости. В данном случае второй столбец полностью определяет пятый, а пятый почти никак не влияет на второй.
+
+```sql
+EXPLAIN
+SELECT *
+FROM flights
+WHERE flight_no = 'PG0007'
+  AND departure_airport = 'VKO';
+```
+
+```console
+Bitmap Heap Scan on flights  (cost=10.55..814.31 rows=275 width=63)
+  Recheck Cond: (flight_no = 'PG0007'::bpchar)
+  Filter: (departure_airport = 'VKO'::bpchar)
+  ->  Bitmap Index Scan on flights_flight_no_scheduled_departure_key  (cost=0.00..10.48 rows=275 width=0)
+        Index Cond: (flight_no = 'PG0007'::bpchar)
+```
+
+Теперь оценка улучшилась.
