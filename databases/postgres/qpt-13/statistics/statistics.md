@@ -13,6 +13,7 @@
   - [Дополнительные поля](#дополнительные-поля)
   - [Расширенная статистика](#расширенная-статистика)
   - [Функциональные зависимости](#функциональные-зависимости)
+  - [Наиболее частые комбинации значений](#наиболее-частые-комбинации-значений)
 
 ## Число строк
 
@@ -427,8 +428,8 @@ Bitmap Heap Scan on flights  (cost=10.49..816.84 rows=14 width=63)
 Начиная с версии PostgreSQL 10, это можно объяснить и планировщику с помощью статистики по функциональной зависимости:
 
 ```sql
-CREATE STATISTICS flights_dep (dependencies)
-ON flight_no, departure airport FROM flights;
+CREATE STATISTICS flights_dep (DEPENDENCIES)
+    ON flight_no, departure_airport FROM flights;
 ```
 
 ```sql
@@ -466,3 +467,106 @@ Bitmap Heap Scan on flights  (cost=10.55..814.31 rows=275 width=63)
 ```
 
 Теперь оценка улучшилась.
+
+## Наиболее частые комбинации значений
+
+Не всегда между значениями разных столбцов есть явная функциональная зависимость. Выполним такой запрос:
+
+```sql
+EXPLAIN (ANALYZE, TIMING OFF, SUMMARY OFF)
+SELECT *
+FROM flights
+WHERE departure_airport = 'LED'
+  AND aircraft_code = '321';
+```
+
+```console
+Gather  (cost=1000.00..5590.19 rows=703 width=63) (actual rows=5148 loops=1)
+  Workers Planned: 1
+  Workers Launched: 1
+  ->  Parallel Seq Scan on flights  (cost=0.00..4519.89 rows=414 width=63) (actual rows=2574 loops=2)
+        Filter: ((departure_airport = 'LED'::bpchar) AND (aircraft_code = '321'::bpchar))
+        Rows Removed by Filter: 104860
+```
+
+Планировщик ошибается в несколько раз. Учет функциональной зависимости недостаточно исправит ситуацию:
+
+```sql
+CREATE STATISTICS flights_dep2 (DEPENDENCIES)
+    ON departure_airport, aircraft_code FROM flights;
+```
+
+```sql
+ANALYZE flights;
+```
+
+```sql
+EXPLAIN (ANALYZE, TIMING OFF, SUMMARY OFF)
+SELECT *
+FROM flights
+WHERE departure_airport = 'LED'
+  AND aircraft_code = '321';
+```
+
+```console
+Gather  (cost=1000.00..5691.89 rows=1720 width=63) (actual rows=5148 loops=1)
+  Workers Planned: 1
+  Workers Launched: 1
+  ->  Parallel Seq Scan on flights  (cost=0.00..4519.89 rows=1012 width=63) (actual rows=2574 loops=2)
+        Filter: ((departure_airport = 'LED'::bpchar) AND (aircraft_code = '321'::bpchar))
+        Rows Removed by Filter: 104860
+```
+
+Как видно статистика здесь не очень помогла, так как значение `1720` довольно сильно отличается от фактического `5148`.
+
+Начиная с версии PostgreSQL 12 можно строить расширенную статистику по частым комбинациям значений нескольких столбцов и использовать ее в запросах не только равенства, но и неравенства:
+
+```sql
+DROP STATISTICS flights_dep2;
+```
+
+```sql
+CREATE STATISTICS flights_mcv(mcv)
+    ON departure_airport, aircraft_code FROM flights;
+
+ANALYZE flights;
+```
+
+Теперь оценка улучшилась:
+
+```sql
+EXPLAIN
+SELECT *
+FROM flights
+WHERE departure_airport = 'LED'
+  AND aircraft_code = '321';
+```
+
+```console
+Seq Scan on flights  (cost=0.00..5847.00 rows=5171 width=63)
+  Filter: ((departure_airport = 'LED'::bpchar) AND (aircraft_code = '321'::bpchar))
+```
+
+Статистику по частым комбинациям можно посмотреть так:
+
+```sql
+SELECT m.*
+FROM pg_statistic_ext
+         JOIN pg_statistic_ext_data ON oid = stxoid,
+     pg_mcv_list_items(stxdmcv) m
+WHERE stxname = 'flights_mcv'
+LIMIT 10;
+```
+
+| index | values    | nulls         | frequency            | base_frequency        |
+| :---- | :-------- | :------------ | :------------------- | :-------------------- |
+| 0     | {SVO,SU9} | {false,false} | 0.029633333333333334 | 0.022851804444444443  |
+| 1     | {DME,SU9} | {false,false} | 0.028366666666666665 | 0.02395044888888889   |
+| 2     | {DME,CR2} | {false,false} | 0.025333333333333333 | 0.02590905777777778   |
+| 3     | {LED,321} | {false,false} | 0.024066666666666667 | 0.0034417500000000004 |
+| 4     | {VKO,CR2} | {false,false} | 0.022933333333333333 | 0.014618413333333333  |
+| 5     | {SVO,CR2} | {false,false} | 0.018333333333333333 | 0.024720568888888888  |
+| 6     | {BZK,SU9} | {false,false} | 0.018166666666666668 | 0.004605855555555555  |
+| 7     | {KJA,CN1} | {false,false} | 0.015033333333333333 | 0.006103444444444444  |
+| 8     | {VKO,SU9} | {false,false} | 0.0142               | 0.013513326666666667  |
+| 9     | {DME,321} | {false,false} | 0.013033333333333333 | 0.005557788888888889  |
