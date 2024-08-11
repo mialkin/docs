@@ -14,6 +14,7 @@
   - [Расширенная статистика](#расширенная-статистика)
   - [Функциональные зависимости](#функциональные-зависимости)
   - [Наиболее частые комбинации значений](#наиболее-частые-комбинации-значений)
+  - [Число уникальных комбинаций значений](#число-уникальных-комбинаций-значений)
 
 ## Число строк
 
@@ -570,3 +571,70 @@ LIMIT 10;
 | 7     | {KJA,CN1} | {false,false} | 0.015033333333333333 | 0.006103444444444444  |
 | 8     | {VKO,SU9} | {false,false} | 0.0142               | 0.013513326666666667  |
 | 9     | {DME,321} | {false,false} | 0.013033333333333333 | 0.005557788888888889  |
+
+## Число уникальных комбинаций значений
+
+Другая ситуация, в которой планировщик ошибается с оценкой, связана с группировкой. Количество пар аэропортов, связанных прямыми рейсами, ограничено:
+
+```sql
+SELECT COUNT(*)
+FROM (SELECT DISTINCT departure_airport, arrival_airport
+      FROM flights) t;
+-- 618
+```
+
+Но планировщик не знает об этом:
+
+```sql
+EXPLAIN
+SELECT DISTINCT departure_airport, arrival_airport
+FROM flights;
+```
+
+```console
+HashAggregate  (cost=5847.01..5955.16 rows=10816 width=8)
+  Group Key: departure_airport, arrival_airport
+  ->  Seq Scan on flights  (cost=0.00..4772.67 rows=214867 width=8)
+```
+
+Расширенная статистика позволяет исправить и эту оценку:
+
+```sql
+CREATE STATISTICS flights_nd (NDISTINCT)
+    ON departure_airport, arrival_airport FROM flights;
+
+ANALYZE flights;
+```
+
+```sql
+EXPLAIN
+SELECT DISTINCT departure_airport, arrival_airport
+FROM flights;
+```
+
+```console
+Unique  (cost=5616.51..5621.15 rows=618 width=8)
+  ->  Sort  (cost=5616.51..5618.06 rows=618 width=8)
+        Sort Key: departure_airport, arrival_airport
+        ->  Gather  (cost=5519.88..5587.86 rows=618 width=8)
+              Workers Planned: 1
+              ->  HashAggregate  (cost=4519.88..4526.06 rows=618 width=8)
+                    Group Key: departure_airport, arrival_airport
+                    ->  Parallel Seq Scan on flights  (cost=0.00..3887.92 rows=126392 width=8)
+```
+
+В данном случае планировщик знает, что число искомых значений ограничено и выдает точный ответ `618`.
+
+Статистику по уникальным комбинация можно увидеть так:
+
+```sql
+SELECT n_distinct
+FROM pg_stats_ext
+WHERE statistics_name = 'flights_nd';
+```
+
+| n_distinct    |
+| :------------ |
+| {"5, 6": 618} |
+
+Здесь говорится, что 5 и 6 столбцы ограничены в количестве 618.
