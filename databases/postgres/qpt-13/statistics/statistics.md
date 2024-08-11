@@ -15,6 +15,8 @@
   - [Функциональные зависимости](#функциональные-зависимости)
   - [Наиболее частые комбинации значений](#наиболее-частые-комбинации-значений)
   - [Число уникальных комбинаций значений](#число-уникальных-комбинаций-значений)
+  - [Статистика по выражению](#статистика-по-выражению)
+  - [Итоги](#итоги)
 
 ## Число строк
 
@@ -638,3 +640,86 @@ WHERE statistics_name = 'flights_nd';
 | {"5, 6": 618} |
 
 Здесь говорится, что 5 и 6 столбцы ограничены в количестве 618.
+
+## Статистика по выражению
+
+Если в условиях используются обращения к функциям, планировщик не учитывает множество значений. Например, рейсов, совершенных в январе, будет примерно 1/12 от общего количества:
+
+```sql
+SELECT COUNT(*)
+FROM flights
+WHERE EXTRACT(MONTH FROM scheduled_departure AT TIME ZONE 'Europe/Moscow') = 1;
+-- 16831
+```
+
+Однако планировщик не понимает смысла функции extract и использует фиксированную селективность 0,5%:
+
+```sql
+EXPLAIN
+SELECT *
+FROM flights
+WHERE EXTRACT(MONTH FROM scheduled_departure AT TIME ZONE 'Europe/Moscow') = 1;
+```
+
+```console
+Gather  (cost=1000.00..5943.27 rows=1074 width=63)
+  Workers Planned: 1
+  ->  Parallel Seq Scan on flights  (cost=0.00..4835.87 rows=632 width=63)
+        Filter: (EXTRACT(month FROM (scheduled_departure AT TIME ZONE 'Europe/Moscow'::text)) = '1'::numeric)
+```
+
+```sql
+SELECT 214867 * 0.005;
+// 1074.335
+```
+
+Ситуацию можно исправить, построив индекс по выражению, так как для таких индексов собирается собственная статистика. В общем случае функция `extract` имеет класс изменчивости `STABLE`, поскольку зависит от часового пояса, и поэтому не может участвовать в выражении индекса. Но с явным указанием часового пояса `AT TIME ZONE` функция постоянна, так что мы напишем обертку с классом изменчивости `IMMUTABLE`, указав тем самым, что функция гарантированно возвращает одно и то же значение при одних и тех же значениях параметров:
+
+```sql
+CREATE FUNCTION get_month(t timestamptz) RETURNS integer
+AS
+$$
+SELECT EXTRACT(MONTH FROM t AT TIME ZONE 'Europe/Moscow'):: integer
+$$ IMMUTABLE LANGUAGE sql;
+```
+
+```sql
+CREATE INDEX ON flights (get_month(scheduled_departure));
+
+ANALYZE flights;
+```
+
+```sql
+EXPLAIN
+SELECT *
+FROM flights
+WHERE get_month(scheduled_departure) = 1;
+```
+
+```console
+Bitmap Heap Scan on flights  (cost=188.01..3141.61 rows=16480 width=63)
+  Recheck Cond: ((EXTRACT(month FROM (scheduled_departure AT TIME ZONE 'Europe/Moscow'::text)))::integer = 1)
+  ->  Bitmap Index Scan on flights_get_month_idx  (cost=0.00..183.89 rows=16480 width=0)
+        Index Cond: ((EXTRACT(month FROM (scheduled_departure AT TIME ZONE 'Europe/Moscow'::text)))::integer = 1)
+```
+
+Оценка исправилась. Стала `16480`, что близко к фактическому значению `16831`.
+
+Статистика для индексов по выражению хранится вместе со статистикой для таблиц:
+
+```sql
+SELECT n_distinct
+FROM pg_stats
+WHERE tablename = 'flights_get_month_idx';
+-- 12
+```
+
+В 14 версии Postgres можно пользоваться новой расширенной версией статистки по выражению. В этом случае действия по созданию индекса, которые мы делали выше для версии 13, делать уже не нужно будет.
+
+## Итоги
+
+- Характеристики данных собираются в виде статистики
+- Статистика нужна для оценки кардинальности
+- Кардинальность используется для оценки стоимости
+- Стоимость позволяет выбрать оптимальный план
+- Основа успеха — адекватная статистика и корректная кардинальность
