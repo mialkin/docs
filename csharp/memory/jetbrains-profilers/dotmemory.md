@@ -112,9 +112,9 @@ public class Class
 ```
 
 ```csharp
-public static class GenerateLargeStringsEndpoint
+public static class GenerateLargeArrayEndpoint
 {
-    public static void GenerateLargeStrings(this IEndpointRouteBuilder builder, string routePattern)
+    public static void GenerateLargeArray(this IEndpointRouteBuilder builder, string routePattern)
     {
         builder.MapPost(routePattern, () =>
             {
@@ -145,9 +145,9 @@ public struct Structure
 ```
 
 ```csharp
-public static class GenerateLargeStringsEndpoint
+public static class GenerateLargeArrayEndpoint
 {
-    public static void GenerateLargeStrings(this IEndpointRouteBuilder builder, string routePattern)
+    public static void GenerateLargeArray(this IEndpointRouteBuilder builder, string routePattern)
     {
         builder.MapPost(routePattern, () =>
             {
