@@ -2,11 +2,16 @@
 
 [↑ dotMemory](https://www.jetbrains.com/dotmemory) is a .NET memory profiler.
 
+## Table of contents
+
+- [dotMemory](#dotmemory)
+  - [Table of contents](#table-of-contents)
+  - [Generating large strings to fill up LOH](#generating-large-strings-to-fill-up-loh)
+  - [Generate large arrays of `class` and `struct`](#generate-large-arrays-of-class-and-struct)
+    - [`class`](#class)
+    - [`struct`](#struct)
+
 ## Generating large strings to fill up LOH
-
-Memory diagram after calling `/api/generate-large-strings` endpoint 3 times:
-
-<img src="images/dotmemory-large-strings.jpg" alt="Memory diagram" />
 
 Set memory limit to 300 MB using [↑ `System.GC.HeapHardLimit`](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/garbage-collector#heap-limit) setting inside [↑ `runtimeconfig.template.json`](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/#runtimeconfigjson) config:
 
@@ -90,3 +95,75 @@ System.OutOfMemoryException: Exception of type 'System.OutOfMemoryException' was
 ...
 ...
 ```
+
+Memory diagram after calling `/api/generate-large-strings` endpoint 3 times:
+
+<img src="images/dotmemory-large-strings.jpg" alt="Memory diagram" />
+
+## Generate large arrays of `class` and `struct`
+
+### `class`
+
+```csharp
+public class Class
+{
+    public int Id { get; set; }
+}
+```
+
+```csharp
+public static class GenerateLargeStringsEndpoint
+{
+    public static void GenerateLargeStrings(this IEndpointRouteBuilder builder, string routePattern)
+    {
+        builder.MapPost(routePattern, () =>
+            {
+                var array = new Class[10_000_000];
+                for (var i = 0; i < 10_000_000; i++)
+                {
+                    array[i] = new Class { Id = i };
+                }
+
+                return Results.Ok();
+            })
+            .WithOpenApi(x => new OpenApiOperation(x) { Summary = "Generate large arrays" });
+    }
+}
+```
+
+Profile after calling endpoint about ten times:
+
+<img src="images/array_class.jpeg" alt="Memory diagram" />
+
+### `struct`
+
+```csharp
+public struct Structure
+{
+    public int Id { get; set; }
+}
+```
+
+```csharp
+public static class GenerateLargeStringsEndpoint
+{
+    public static void GenerateLargeStrings(this IEndpointRouteBuilder builder, string routePattern)
+    {
+        builder.MapPost(routePattern, () =>
+            {
+                var array = new Structure[10_000_000];
+                for (var i = 0; i < 10_000_000; i++)
+                {
+                    array[i] = new Structure { Id = i };
+                }
+
+                return Results.Ok();
+            })
+            .WithOpenApi(x => new OpenApiOperation(x) { Summary = "Generate large arrays" });
+    }
+}
+```
+
+Profile after calling endpoint about seventeen times:
+
+<img src="images/array_struct.jpeg" alt="Memory diagram" />
