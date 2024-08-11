@@ -1,16 +1,15 @@
-# Unmanaged resource, `IDisposable`, dispose pattern, finalizer, `GC.SuppressFinalize`, `GC.WaitForPendingFinalizers`, `WeakReference`
+# Unmanaged resource, `IDisposable`, dispose pattern, finalizer, `WeakReference`
 
 ## Table of contents
 
-- [Unmanaged resource, `IDisposable`, dispose pattern, finalizer, `GC.SuppressFinalize`, `GC.WaitForPendingFinalizers`, `WeakReference`](#unmanaged-resource-idisposable-dispose-pattern-finalizer-gcsuppressfinalize-gcwaitforpendingfinalizers-weakreference)
+- [Unmanaged resource, `IDisposable`, dispose pattern, finalizer, `WeakReference`](#unmanaged-resource-idisposable-dispose-pattern-finalizer-weakreference)
   - [Table of contents](#table-of-contents)
   - [Unmanaged resource](#unmanaged-resource)
   - [`IDisposable`](#idisposable)
   - [Dispose pattern](#dispose-pattern)
     - [`SafeHandle`](#safehandle)
     - [Finalizer](#finalizer)
-      - [`WaitForPendingFinalizers`](#waitforpendingfinalizers)
-  - [Latency](#latency)
+      - [`GC.WaitForPendingFinalizers`](#gcwaitforpendingfinalizers)
   - [`WeakReference`](#weakreference)
 
 ## Unmanaged resource
@@ -30,6 +29,22 @@ The [↑ `IDisposable`](https://learn.microsoft.com/en-us/dotnet/api/system.idis
 [↑ Implement a `Dispose` method](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose).
 
 Writing code for an object's finalizer is a complex task that can cause problems if not done correctly. Therefore, we recommend that you construct [`SafeHandle`](#safehandle) objects instead of implementing a finalizer.
+
+```csharp
+class MySafeHandle : SafeHandle
+{
+    public MySafeHandle(IntPtr invalidHandleValue, bool ownsHandle) : base(invalidHandleValue, ownsHandle)
+    {
+    }
+
+    protected override bool ReleaseHandle()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override bool IsInvalid { get; }
+}
+```
 
 A `SafeHandle` is an abstract managed type that wraps an [↑ `System.IntPtr`](https://learn.microsoft.com/en-us/dotnet/api/system.intptr) that identifies an unmanaged resource. On Windows it might identify a handle, and on Unix, a file descriptor.
 
@@ -119,11 +134,52 @@ It is possible for a base class to only reference managed objects, and implement
 
 Whether or not finalizers are run as part of application termination is specific to each [↑ implementation of .NET](https://learn.microsoft.com/en-us/dotnet/standard/glossary#implementation-of-net). When an application terminates, .NET Framework makes every reasonable effort to call finalizers for objects that haven't yet been garbage collected, unless such cleanup has been suppressed (by a call to the library method `GC.SuppressFinalize`, for example). .NET 5 (including .NET Core) and later versions [↑ don't call](https://github.com/dotnet/csharpstandard/issues/291) finalizers as part of application termination.
 
-#### `WaitForPendingFinalizers`
+#### `GC.WaitForPendingFinalizers`
 
-## Latency
+The [↑ `GC.WaitForPendingFinalizers`](https://learn.microsoft.com/en-us/dotnet/api/system.gc.waitforpendingfinalizers) method suspends the current thread until the thread that is processing the queue of finalizers has emptied that queue.
 
-A [↑ **latency**](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/latency) is a period of time during which the garbage collector is active.
+Example of API endpoint using this method:
+
+```csharp
+new MyClassWithFinalizer();
+
+Console.WriteLine("Start collecting garbage");
+
+GC.Collect();
+
+Console.WriteLine("Start waiting pending finalizers");
+GC.WaitForPendingFinalizers();
+Console.WriteLine("End waiting pending finalizers");
+```
+
+```csharp
+class MyClassWithFinalizer
+{
+    ~MyClassWithFinalizer()
+    {
+        Console.WriteLine("Finalized");
+    }
+}
+```
+
+
+Result of calling `/api/collect-garbage` 3 times:
+
+```console
+Start collecting garbage
+Start waiting pending finalizers
+End waiting pending finalizers
+[00:10:56 INF] HTTP POST /api/collect-garbage responded 200 in 17.6128 ms
+Start collecting garbage
+Start waiting pending finalizers
+Finalized
+End waiting pending finalizers
+[00:10:59 INF] HTTP POST /api/collect-garbage responded 200 in 4.8716 ms
+Start collecting garbage
+Start waiting pending finalizers
+Finalized
+End waiting pending finalizers
+```
 
 ## `WeakReference`
 
