@@ -34,8 +34,6 @@
 `docker-compose.yaml` file:
 
 ```yaml
-version: "3.9"
-
 services:
   sql-server:
     image: mcr.microsoft.com/mssql/server:2022-latest

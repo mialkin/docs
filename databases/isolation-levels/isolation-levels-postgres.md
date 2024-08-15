@@ -5,11 +5,11 @@ In PostgreSQL, you can request any of the four standard transaction isolation le
 The table also shows that PostgreSQL's repeatable read implementation does not allow phantom reads. This is acceptable under the SQL standard because the standard specifies which anomalies must not occur at certain isolation levels; higher guarantees are acceptable. The behavior of the available isolation levels is detailed in the following subsections.
 
 | Isolation level  | Dirty read             | Non-repeatable read | Phantom read           | Serialization anomaly |
-| ---------------- | ---------------------- | ------------------ | ---------------------- | --------------------- |
-| Read uncommitted | Allowed, but not in PG | Possible           | Possible               | Possible              |
-| Read committed   | Not possible           | Possible           | Possible               | Possible              |
-| Repeatable read  | Not possible           | Not possible       | Allowed, but not in PG | Possible              |
-| Serializable     | Not possible           | Not possible       | Not possible           | Not possible          |
+| ---------------- | ---------------------- | ------------------- | ---------------------- | --------------------- |
+| Read uncommitted | Allowed, but not in PG | Possible            | Possible               | Possible              |
+| Read committed   | Not possible           | Possible            | Possible               | Possible              |
+| Repeatable read  | Not possible           | Not possible        | Allowed, but not in PG | Possible              |
+| Serializable     | Not possible           | Not possible        | Not possible           | Not possible          |
 
 [↑ 13.2. Transaction Isolation](https://www.postgresql.org/docs/16/transaction-iso.html).
 
@@ -24,19 +24,17 @@ The table also shows that PostgreSQL's repeatable read implementation does not a
   - [Commit \& rollback transaction](#commit--rollback-transaction)
   - [Delay](#delay)
   - [Read uncommitted](#read-uncommitted)
-    - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete)
+    - [Dirty read](#dirty-read)
   - [Read committed](#read-committed)
-    - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete-1)
+    - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete)
   - [Repeatable read](#repeatable-read)
-    - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete-2)
+    - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete-1)
 
 ## Running
 
 `docker-compose.yaml` file:
 
 ```yaml
-version: "3.9"
-
 services:
   postgres:
     image: postgres:16.2
@@ -52,29 +50,19 @@ services:
 ### DDL & DML
 
 ```sql
-CREATE DATABASE isolation_levels;
+BEGIN TRANSACTION;
 
-CREATE SCHEMA simple_bank;
-
-CREATE TABLE simple_bank.accounts
+CREATE TABLE accounts
 (
-    id         integer GENERATED ALWAYS AS IDENTITY,
-    name       text               NOT NULL,
-    balance    bigint             NOT NULL,
-    created_at date DEFAULT NOW() NOT NULL
+    name    text   NOT NULL UNIQUE,
+    balance bigint NOT NULL
 );
 
-CREATE TABLE simple_bank.accounts
-(
-    id         int IDENTITY,
-    name       NVARCHAR(100)               NOT NULL,
-    balance    BIGINT                      NOT NULL,
-    created_at DATETIME2 DEFAULT GETDATE() NOT NULL
-);
+INSERT INTO accounts (name, balance)
+VALUES ('Bob', 100),
+       ('Alice', 100);
 
-INSERT INTO simple_bank.accounts (name, balance, created_at)
-VALUES ('Bob', 100, '2020-09-06 15:09:38'),
-       ('Alice', 100, '2020-09-06 15:09:38');
+COMMIT;
 ```
 
 ## Set isolation level
@@ -118,30 +106,21 @@ SELECT CURRENT_TIMESTAMP;
 
 ## Read uncommitted
 
-Based on snapshots, PostgreSQL isolation differs from the requirements specified in the standard — in fact, it is even stricter. Dirty reads are forbidden by design. Technically, you can specify the `READ UNCOMMITTED` level, but its behavior will be the same as that of `READ COMMITTED`.
+### Dirty read
 
-### `UPDATE`, `INSERT`, `DELETE`
+Dirty reads are forbidden by design.
 
-On `UPDATE` T2 will output `100` as Bob's balance.
-
-On `INSERT` and `DELETE` T2 will not see any changes in number of rows.
+Based on snapshots, PostgreSQL isolation differs from the requirements specified in the standard — in fact, it is even stricter. Technically, you can specify the `READ UNCOMMITTED` level, but its behavior will be the same as that of `READ COMMITTED`.
 
 ```sql
 -- T1
 BEGIN TRANSACTION;
 
-UPDATE simple_bank.accounts
+UPDATE accounts
 SET balance = 200
 WHERE name = 'Bob';
 
--- INSERT INTO simple_bank.accounts(name, balance)
--- VALUES ('Alex', 100);
-
--- DELETE
--- FROM simple_bank.accounts
--- WHERE name = 'Alex';
-
-SELECT pg_sleep(10); -- 10 seconds
+SELECT PG_SLEEP(10); -- 10 seconds
 
 ROLLBACK; -- Or COMMIT;
 ```
@@ -151,12 +130,19 @@ ROLLBACK; -- Or COMMIT;
 BEGIN TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 
 SELECT *
-FROM simple_bank.accounts;
+FROM accounts
+WHERE name = 'Bob';
 
 COMMIT;
 ```
 
+| name | balance |
+| :--- | :------ |
+| Bob  | 100     |
+
 ## Read committed
+
+Dirty reads are impossible in Postgres, although SQL standard allows them.
 
 ### `UPDATE`, `INSERT`, `DELETE`
 
