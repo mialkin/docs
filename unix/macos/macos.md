@@ -3,6 +3,7 @@
 - [macOS](#macos)
   - [Aliases](#aliases)
   - [Applications](#applications)
+    - [DBeaver Community](#dbeaver-community)
     - [Etcher](#etcher)
     - [FFmpeg](#ffmpeg)
     - [Finder](#finder)
@@ -47,6 +48,10 @@ echo "autoload -U compinit && compinit" >> ~/.zshrc
 ```
 
 ## Applications
+
+### DBeaver Community
+
+[↑ DBeaver Community](https://dbeaver.io/download) is a free cross-platform database tool.
 
 ### Etcher
 
