@@ -85,6 +85,7 @@
   - [↑ SKIP LOCKED](https://www.2ndquadrant.com/en/blog/what-is-select-skip-locked-for-in-postgresql-9-5/)
 - [↑ EF Core Change Tracking](https://learn.microsoft.com/en-us/ef/core/change-tracking/).
 - [↑ EF Core Interceptors](https://learn.microsoft.com/en-us/ef/core/logging-events-diagnostics/interceptors)
+- [Five ways to paginate in Postgres, from the basic to the exotic](https://www.citusdata.com/blog/2016/03/30/five-ways-to-paginate/)
 
 ## Software architecture and design
 
@@ -214,6 +215,7 @@ for (var i = 0; i < 5; i++) {
 - [↑ Tutorial: Write your first analyzer and code fix](https://learn.microsoft.com/en-us/dotnet/csharp/roslyn-sdk/tutorials/how-to-write-csharp-analyzer-code-fix)
   - [↑ Menees.Analyzers](https://github.com/menees/Analyzers/tree/master)
 - [↑ Inline и throw](https://habr.com/ru/articles/722374/)
+- `ArrayPool<T>`, <https://habr.com/ru/articles/723420>, <https://code-maze.com/csharp-arraypool-memory-optimization/>
 
 ## ASP.NET
 
