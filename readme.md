@@ -344,8 +344,9 @@
 - Exceptions
   - [↑ Exceptions for flow control: why not?](https://enterprisecraftsmanship.com/posts/exceptions-for-flow-control/)
 - [Expression tree, `Expression`](csharp/expression-tree.md)
-- [Hide method with `new`. Extend `virtual` method with `override`](csharp/virtual-override-new.md)
 - [Extension method](csharp/extension-method.md)
+- [Frequently asked interview questions](csharp/interview-questions.md)
+- [Hide method with `new`. Extend `virtual` method with `override`](csharp/virtual-override-new.md)
 - [Indexers](csharp/indexers.md)
 - [Invariance, covariance, contravariance, variance](csharp/invariance-covariance-contravariance-variance.md)
 - [Keywords](csharp/keywords/keywords.md)
@@ -370,7 +371,6 @@
   - [Equality operator `==`, `stackalloc` expression](csharp/operators-expressions.md)
 - [Statement](csharp/statement.md)
 - [`throw`, `try`, `catch`, `finally`](csharp/throw-try-catch-finally.md)
-- [Tricky questions](csharp/tricky-questions.md)
 - Types
   - [Value types, `ValueType`, boxing and unboxing](csharp/types/value-types/value-types.md)
     - [↑ Built-in value types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types#built-in-value-types)
