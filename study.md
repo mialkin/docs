@@ -14,7 +14,9 @@
   - [ASP.NET](#aspnet)
   - [Computer science](#computer-science)
   - [Web](#web)
-  - [Dumb questions](#dumb-questions)
+  - [Tricky questions](#tricky-questions)
+    - [Return value of pure method is not used](#return-value-of-pure-method-is-not-used)
+    - [Unable to cast object of type 'System.Int32' to type 'System.Int64'](#unable-to-cast-object-of-type-systemint32-to-type-systemint64)
 
 ## Technologies
 
@@ -241,7 +243,7 @@ for (var i = 0; i < 5; i++) {
 - [↑ StyleDrop: Text-To-Image Generation in Any Style](https://styledrop.github.io)
 - [↑ Muse: Text-To-Image Generation via Masked Generative Transformers](https://muse-model.github.io)
 
-## Dumb questions
+## Tricky questions
 
 - `try { return 1; } finally { return 2; }` // Cannot jump out of the finally block
 - [↑ Why there is no inheritance in static classes C#?](https://stackoverflow.com/a/774225/1833895)
@@ -262,4 +264,38 @@ record Foo(int Value)
     public override string ToString() => (this * 1).Value.ToString();
 }
 // 5
+```
+
+### Return value of pure method is not used
+
+```csharp
+var list = new List<int>();
+
+int i = 10;
+
+list.Where(x => x == i).Where(x => x < 25); // Return value of pure method is not used
+
+list.Add(10);
+list.Add(15);
+list.Add(20);
+list.Add(25);
+
+i = 15;
+
+var result = list.ToList();
+list.Clear();
+
+Console.WriteLine(result.Count);
+Console.WriteLine(result.FirstOrDefault());
+
+// 4
+// 10
+```
+
+### Unable to cast object of type 'System.Int32' to type 'System.Int64'
+
+```csharp
+int a = 5;
+object o = a;
+Console.WriteLine((long)o);
 ```
