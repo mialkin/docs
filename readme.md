@@ -370,6 +370,7 @@
   - [Equality operator `==`, `stackalloc` expression](csharp/operators-expressions.md)
 - [Statement](csharp/statement.md)
 - [`throw`, `try`, `catch`, `finally`](csharp/throw-try-catch-finally.md)
+- [Tricky questions](csharp/tricky-questions.md)
 - Types
   - [Value types, `ValueType`, boxing and unboxing](csharp/types/value-types/value-types.md)
     - [↑ Built-in value types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types#built-in-value-types)
