@@ -259,6 +259,8 @@ FROM t1
 | 3   | c    | 3   | yyy   |
 |     |      | 5   | zzz   |
 
+[↑ Queries join](https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-JOIN).
+
 ### `CROSS JOIN`
 
 For each combination of rows from `t1` and `t2`, the derived table will contain a row consisting of all columns in `t1` followed by all columns in `t2`. If the tables have `N` and `M` rows respectively, the joined table will have `N` $\times$ `M` rows.
