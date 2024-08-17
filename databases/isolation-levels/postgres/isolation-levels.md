@@ -40,7 +40,7 @@ Run [`docker-compose.yaml`](docker-compose.yaml) file:
 docker-compose up -d
 ```
 
-Create schema and paste some test data:
+Create some test data:
 
 ```sql
 BEGIN TRANSACTION;
@@ -74,9 +74,9 @@ FROM accounts;
 
 ```sql
 BEGIN TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
--- READ COMMITTED
--- REPEATABLE READ
--- SERIALIZABLE
+-- BEGIN TRANSACTION ISOLATION LEVEL READ COMMITTED;
+-- BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+-- BEGIN TRANSACTION ISOLATION LEVEL SERIALIZABLE;
 ```
 
 ### Displaying current isolation level
