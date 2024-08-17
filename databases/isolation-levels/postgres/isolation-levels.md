@@ -58,6 +58,16 @@ VALUES ('Bob', 100),
 COMMIT;
 ```
 
+```sql
+SELECT *
+FROM accounts;
+```
+
+| name  | balance |
+| :---- | :------ |
+| Bob   | 100     |
+| Alice | 100     |
+
 ## Common commands
 
 ### Setting isolation level
@@ -129,15 +139,15 @@ ROLLBACK; -- Or COMMIT;
 BEGIN TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 
 SELECT *
-FROM accounts
-WHERE name = 'Bob';
+FROM accounts;
 
 COMMIT;
 ```
 
-| name | balance |
-| :--- | :------ |
-| Bob  | 100     |
+| name  | balance |
+| :---- | :------ |
+| Bob   | 100     |
+| Alice | 100     |
 
 #### `INSERT`, `DELETE`
 
