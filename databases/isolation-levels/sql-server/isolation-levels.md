@@ -18,16 +18,15 @@
     - [Displaying current isolation level](#displaying-current-isolation-level)
     - [Committing and rolling back transaction](#committing-and-rolling-back-transaction)
     - [Adding delay](#adding-delay)
-  - [Timeout](#timeout)
   - [Read phenomena](#read-phenomena)
-    - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete)
+    - [Dirty read](#dirty-read)
   - [Read committed](#read-committed)
-    - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete-1)
+    - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete)
   - [Repeatable read](#repeatable-read)
     - [`UPDATE`, `DELETE`](#update-delete)
     - [`INSERT`](#insert)
   - [Serializable](#serializable)
-    - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete-2)
+    - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete-1)
 
 ## Running
 
@@ -128,8 +127,6 @@ SELECT *
 FROM accounts;
 ```
 
-## Timeout
-
 It's possible to specify timeout explicitly using [↑ `SET LOCK_TIMEOUT`](https://learn.microsoft.com/ru-ru/sql/t-sql/statements/set-lock-timeout-transact-sql) to avoid the hang:
 
 ```sql
@@ -140,35 +137,22 @@ BEGIN TRANSACTION;
 SET LOCK_TIMEOUT 5000; -- 5 seconds
 
 SELECT *
-FROM simple_bank.accounts;
+FROM accounts;
 
 COMMIT;
 ```
 
 ## Read phenomena
 
-### `UPDATE`, `INSERT`, `DELETE`
-
-On `UPDATE` T2 outputs `200` as Bob's balance — dirty read.
-
-On `INSERT` and `DELETE` T2 outputs different number of rows — also dirty read.
-
-To avoid dirty read use `READ COMMITTED` for T2. In this case T2 blocks until you commit/rollback T1 or until you cancel T2.
+### Dirty read
 
 ```sql
 -- T1
 BEGIN TRANSACTION;
 
-UPDATE simple_bank.accounts
+UPDATE accounts
 SET balance = 200
 WHERE name = 'Bob';
-
--- INSERT INTO simple_bank.accounts(name, balance)
--- VALUES ('Alex', 100);
-
--- DELETE
--- FROM simple_bank.accounts
--- WHERE name = 'Alex';
 
 WAITFOR DELAY '00:00:10'; -- 10 seconds
 
@@ -178,14 +162,18 @@ ROLLBACK; -- Or COMMIT;
 ```sql
 -- T2
 SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
-
 BEGIN TRANSACTION;
 
 SELECT *
-FROM simple_bank.accounts;
+FROM accounts;
 
 COMMIT;
 ```
+
+| name  | balance |
+| :---- | :------ |
+| Bob   | 200     |
+| Alice | 100     |
 
 ## Read committed
 
