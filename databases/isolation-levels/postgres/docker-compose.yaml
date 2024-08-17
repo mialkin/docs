@@ -1,0 +1,10 @@
+services:
+  postgres:
+    image: postgres:16.2
+    container_name: isolation-levels-postgres
+    ports:
+      - "3500:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres

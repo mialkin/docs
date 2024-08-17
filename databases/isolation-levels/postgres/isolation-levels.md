@@ -18,11 +18,11 @@ The table also shows that PostgreSQL's repeatable read implementation does not a
 - [PostgreSQL isolation levels](#postgresql-isolation-levels)
   - [Table of contents](#table-of-contents)
   - [Running](#running)
-    - [DDL \& DML](#ddl--dml)
-  - [Set isolation level](#set-isolation-level)
-  - [Get current isolation levels](#get-current-isolation-levels)
-  - [Commit \& rollback transaction](#commit--rollback-transaction)
-  - [Delay](#delay)
+  - [Common commands](#common-commands)
+    - [Setting isolation level](#setting-isolation-level)
+    - [Displaying current isolation level](#displaying-current-isolation-level)
+    - [Committing and rolling back transaction](#committing-and-rolling-back-transaction)
+    - [Adding delay](#adding-delay)
   - [Read phenomena](#read-phenomena)
     - [Dirty read](#dirty-read)
       - [`UPDATE`](#update)
@@ -34,22 +34,13 @@ The table also shows that PostgreSQL's repeatable read implementation does not a
 
 ## Running
 
-`docker-compose.yaml` file:
+Run [`docker-compose.yaml`](docker-compose.yaml) file:
 
-```yaml
-services:
-  postgres:
-    image: postgres:16.2
-    container_name: isolation-levels-postgres
-    ports:
-      - "3500:5432"
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: postgres
+```bash
+docker-compose up -d
 ```
 
-### DDL & DML
+Create schema and paste some test data:
 
 ```sql
 BEGIN TRANSACTION;
@@ -67,7 +58,9 @@ VALUES ('Bob', 100),
 COMMIT;
 ```
 
-## Set isolation level
+## Common commands
+
+### Setting isolation level
 
 ```sql
 BEGIN TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
@@ -76,13 +69,13 @@ BEGIN TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 -- SERIALIZABLE
 ```
 
-## Get current isolation levels
+### Displaying current isolation level
 
 ```sql
 SHOW TRANSACTION ISOLATION LEVEL;
 ```
 
-## Commit & rollback transaction
+### Committing and rolling back transaction
 
 ```sql
 BEGIN TRANSACTION;
@@ -96,7 +89,7 @@ BEGIN TRANSACTION;
 ROLLBACK;
 ```
 
-## Delay
+### Adding delay
 
 It's possible to delay execution of a command inside transaction using [↑ `pg_sleep`](https://www.postgresql.org/docs/16/functions-datetime.html#FUNCTIONS-DATETIME-DELAY) function:
 
