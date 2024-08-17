@@ -19,7 +19,7 @@
   - [Commit \& rollback transaction](#commit--rollback-transaction)
   - [Delay](#delay)
   - [Timeout](#timeout)
-  - [Read uncommitted](#read-uncommitted)
+  - [Read phenomena](#read-phenomena)
     - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete)
   - [Read committed](#read-committed)
     - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete-1)
@@ -146,7 +146,7 @@ FROM simple_bank.accounts;
 COMMIT;
 ```
 
-## Read uncommitted
+## Read phenomena
 
 ### `UPDATE`, `INSERT`, `DELETE`
 

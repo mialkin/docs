@@ -23,10 +23,12 @@ The table also shows that PostgreSQL's repeatable read implementation does not a
   - [Get current isolation levels](#get-current-isolation-levels)
   - [Commit \& rollback transaction](#commit--rollback-transaction)
   - [Delay](#delay)
-  - [Read uncommitted](#read-uncommitted)
+  - [Read phenomena](#read-phenomena)
     - [Dirty read](#dirty-read)
-  - [Read committed](#read-committed)
-    - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete)
+      - [`UPDATE`](#update)
+      - [`INSERT`, `DELETE`](#insert-delete)
+    - [Non-repeatable read](#non-repeatable-read)
+      - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete)
   - [Repeatable read](#repeatable-read)
     - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete-1)
 
@@ -104,13 +106,17 @@ SELECT pg_sleep(10); -- 10 seconds
 SELECT CURRENT_TIMESTAMP;
 ```
 
-## Read uncommitted
+## Read phenomena
 
 ### Dirty read
 
-Dirty reads are forbidden by design.
+Dirty reads in PostgreSQL are forbidden by design.
 
-Based on snapshots, PostgreSQL isolation differs from the requirements specified in the standard — in fact, it is even stricter. Technically, you can specify the `READ UNCOMMITTED` level, but its behavior will be the same as that of `READ COMMITTED`.
+Based on snapshots, PostgreSQL isolation differs from the requirements specified in the standard — in fact, it is even stricter.
+
+Technically, you can specify the `READ UNCOMMITTED` level, but its behavior will be the same as that of `READ COMMITTED`.
+
+#### `UPDATE`
 
 ```sql
 -- T1
@@ -140,11 +146,44 @@ COMMIT;
 | :--- | :------ |
 | Bob  | 100     |
 
-## Read committed
+#### `INSERT`, `DELETE`
 
-Dirty reads are impossible in Postgres, although SQL standard allows them.
+Results of `INSERT` and `DELETE` operations in `T1` are also not reflected in `T2`:
 
-### `UPDATE`, `INSERT`, `DELETE`
+```sql
+-- T1
+BEGIN TRANSACTION;
+
+INSERT INTO accounts(name, balance)
+VALUES ('Alex', 100);
+
+DELETE
+FROM accounts
+WHERE name = 'Alice';
+
+SELECT PG_SLEEP(10); -- 10 seconds
+
+ROLLBACK; -- Or COMMIT;
+```
+
+```sql
+-- T2
+BEGIN TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+
+SELECT *
+FROM accounts;
+
+COMMIT;
+```
+
+| name  | balance |
+| :---- | :------ |
+| Bob   | 100     |
+| Alice | 100     |
+
+### Non-repeatable read
+
+#### `UPDATE`, `INSERT`, `DELETE`
 
 On `UPDATE` T1 shows different values for Bob's balance — non-repeatable read.
 
