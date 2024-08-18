@@ -281,7 +281,22 @@ By changing isolation level from `READ COMMITTED` to `REPEATABLE READ`, in previ
 
 ### Phantom read
 
-`REPEATABLE READ` does not prevent phantom read, so you will see different results in two `SELECT`s:
+Below the result of committed `INSERT` operation in `T2` is reflected in `T1` — that's a phantom read.
+
+The first time `T1` reads:
+
+| name  | balance |
+| :---- | :------ |
+| Bob   | 100     |
+| Alice | 100     |
+
+The second time `T1` reads:
+
+| name  | balance |
+| :---- | :------ |
+| Bob   | 100     |
+| Alice | 100     |
+| Jacob | 100     |
 
 ```sql
 -- T1
@@ -317,7 +332,7 @@ The first select in `T1` outputs:
 | Bob   | 100     |
 | Alice | 100     |
 
-The second select outputs:
+The second select in `T1` outputs:
 
 | name  | balance |
 | :---- | :------ |
@@ -325,45 +340,10 @@ The second select outputs:
 | Alice | 100     |
 | Jacob | 100     |
 
-`REPEATABLE READ` prevents from non-repeatable reads though. If  `UPDATE` or `DELETE` is used inside `T2`, while `T1` is running, then `T2` will block until `T1` commits. `T1`, while running, will output the same unchanged result both times.
+By changing isolation level from `REPEATABLE READ` to `SNAPSHOT`, in previous example, the non-repeatable read is not observed anymore — `T2` executes without blocking, and `T1` outputs unmodified data both times.
+
+By changing isolation level from `REPEATABLE READ` to `SERIALIZABLE`, in previous example, the non-repeatable read is not observed anymore — `T2` blocks until `T1` commits. `T1` outputs unmodified data both times.
 
 ### Serialization anomaly
 
 Except when a database is being recovered, SNAPSHOT transactions [↑ do not request locks](https://learn.microsoft.com/en-us/sql/t-sql/statements/set-transaction-isolation-level-transact-sql) when reading data. SNAPSHOT transactions reading data do not block other transactions from writing data. Transactions writing data do not block SNAPSHOT transactions from reading data.
-
-Both `SELECT`s in T1 will the same result sets for `UPDATE`, `INSERT` and `DELETE`. T2 blocks until T1 commits:
-
-```sql
--- T1
-SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
-
-BEGIN TRANSACTION;
-
-SELECT *
-FROM simple_bank.accounts;
-
-WAITFOR DELAY '00:00:10'; -- 10 seconds
-
-SELECT *
-FROM simple_bank.accounts;
-
-COMMIT;
-```
-
-```sql
--- T2
-BEGIN TRANSACTION;
-
-UPDATE simple_bank.accounts
-SET balance = 200
-WHERE name = 'Bob';
-
--- INSERT INTO simple_bank.accounts(name, balance)
--- VALUES ('Alex', 100);
-
--- DELETE
--- FROM simple_bank.accounts
--- WHERE name = 'Alex';
-
-COMMIT;
-```
