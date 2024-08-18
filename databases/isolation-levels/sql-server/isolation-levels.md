@@ -1,12 +1,12 @@
 # SQL Server isolation levels
 
-| Isolation level  | Dirty read | Non-repeatable read | Phantom read | Serialization anomaly and other anomalies |
-| ---------------- | ---------- | ------------------- | ------------ | ----------------------------------------- |
-| Read uncommitted | Yes        | Yes                 | Yes          | Yes                                       |
-| Read committed   | —          | Yes                 | Yes          | Yes                                       |
-| Repeatable read  | —          | —                   | Yes          | Yes                                       |
-| Snapshot         | —          | —                   | —            | Yes                                       |
-| Serializable     | —          | —                   | —            | —                                         |
+| Isolation level  | Lost update | Dirty read | Non-repeatable read | Phantom read | Serialization anomaly and other anomalies |
+| ---------------- | ----------- | ---------- | ------------------- | ------------ | ----------------------------------------- |
+| Read uncommitted | —           | Yes        | Yes                 | Yes          | Yes                                       |
+| Read committed   | —           | —          | Yes                 | Yes          | Yes                                       |
+| Repeatable read  | —           | —          | —                   | Yes          | Yes                                       |
+| Snapshot         | —           | —          | —                   | —            | Yes                                       |
+| Serializable     | —           | —          | —                   | —            | —                                         |
 
 ## Table of contents
 
@@ -143,13 +143,11 @@ COMMIT;
 
 ### Lost update
 
-On `UPDATE` T2 blocks until T1 commits. The final balance of Bob is `300`:
-
 ```sql
 -- T1
 BEGIN TRANSACTION;
 
-UPDATE simple_bank.accounts
+UPDATE accounts
 SET balance = balance + 100
 WHERE name = 'Bob';
 
@@ -160,31 +158,40 @@ COMMIT;
 
 ```sql
 -- T2
-SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 
 BEGIN TRANSACTION;
 
-UPDATE simple_bank.accounts
+UPDATE accounts
 SET balance = balance + 100
 WHERE name = 'Bob';
 
 COMMIT;
+
+SELECT *
+FROM accounts;
 ```
 
-By replacing both conditions, or by replacing just T2's condition,:
+| name  | balance |
+| :---- | :------ |
+| Bob   | 300     |
+| Alice | 100     |
 
-```sql
-WHERE name = 'Bob';
-```
+In the example above `T2` blocks until `T1` commits.
 
-with:
+By replacing `T2`'s `WHERE` condition with
 
 ```sql
 WHERE name = 'Bob'
   AND balance = 100;
 ```
 
-we will get `200` as Bob's balance when both transactions commit.
+you will get `200`:
+
+| name  | balance |
+| :---- | :------ |
+| Bob   | 200     |
+| Alice | 100     |
 
 ### Dirty read
 
@@ -241,9 +248,9 @@ The first time `T1` reads:
 
 The second time `T1` reads:
 
-| name  | balance |
-| :---- | :------ |
-| Bob   | 200     |
+| name | balance |
+| :--- | :------ |
+| Bob  | 200     |
 
 ```sql
 -- T1
