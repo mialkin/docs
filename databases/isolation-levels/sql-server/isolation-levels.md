@@ -146,6 +146,8 @@ COMMIT;
 
 ### Dirty read
 
+Results of `UPDATE`, `INSERT` and `DELETE` operations in `T1` are all reflected in `T2`:
+
 ```sql
 -- T1
 BEGIN TRANSACTION;
@@ -153,6 +155,13 @@ BEGIN TRANSACTION;
 UPDATE accounts
 SET balance = 200
 WHERE name = 'Bob';
+
+INSERT INTO accounts(name, balance)
+VALUES ('Jacob', 100);
+
+DELETE
+FROM accounts
+WHERE name = 'Alice';
 
 WAITFOR DELAY '00:00:10'; -- 10 seconds
 
@@ -173,7 +182,7 @@ COMMIT;
 | name  | balance |
 | :---- | :------ |
 | Bob   | 200     |
-| Alice | 100     |
+| Jacob | 100     |
 
 ## Read committed
 

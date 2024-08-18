@@ -158,7 +158,7 @@ Results of `INSERT` and `DELETE` operations in `T1` are also not reflected in `T
 BEGIN TRANSACTION;
 
 INSERT INTO accounts(name, balance)
-VALUES ('Alex', 100);
+VALUES ('Jacob', 100);
 
 DELETE
 FROM accounts
