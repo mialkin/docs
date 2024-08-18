@@ -239,7 +239,7 @@ The first time `T1` reads:
 | Bob   | 100     |
 | Alice | 100     |
 
-The second time it reads:
+The second time `T1` reads:
 
 | name  | balance |
 | :---- | :------ |
