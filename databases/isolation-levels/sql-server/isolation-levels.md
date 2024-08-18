@@ -20,12 +20,10 @@
     - [Adding delay](#adding-delay)
   - [Read phenomena](#read-phenomena)
     - [Dirty read](#dirty-read)
-  - [Read committed](#read-committed)
-    - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete)
-  - [Repeatable read](#repeatable-read)
-  - [Snapshot](#snapshot)
-  - [Serializable](#serializable)
-    - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete-1)
+    - [Read committed](#read-committed)
+    - [Repeatable read](#repeatable-read)
+    - [Snapshot](#snapshot)
+    - [Serializable](#serializable)
 
 ## Running
 
@@ -183,9 +181,7 @@ COMMIT;
 | Bob   | 200     |
 | Jacob | 100     |
 
-## Read committed
-
-### `UPDATE`, `INSERT`, `DELETE`
+### Read committed
 
 On `UPDATE` T1 outputs `100` as Bob's balance at the first time and `200` the second time — non-repeatable read.
 
@@ -275,7 +271,7 @@ WHERE name = 'Bob'
 
 we will get `200` as Bob's balance when both transactions commit.
 
-## Repeatable read
+### Repeatable read
 
 `REPEATABLE READ` does not prevent phantom read, so you will see different results in two `SELECT`s:
 
@@ -323,13 +319,11 @@ The second select outputs:
 
 `REPEATABLE READ` prevents from non-repeatable reads though. If  `UPDATE` or `DELETE` is used inside `T2`, while `T1` is running, then `T2` will block until `T1` commits. `T1`, while running, will output the same unchanged result both times.
 
-## Snapshot
+### Snapshot
 
 Except when a database is being recovered, SNAPSHOT transactions [↑ do not request locks](https://learn.microsoft.com/en-us/sql/t-sql/statements/set-transaction-isolation-level-transact-sql) when reading data. SNAPSHOT transactions reading data do not block other transactions from writing data. Transactions writing data do not block SNAPSHOT transactions from reading data.
 
-## Serializable
-
-### `UPDATE`, `INSERT`, `DELETE`
+### Serializable
 
 Both `SELECT`s in T1 will the same result sets for `UPDATE`, `INSERT` and `DELETE`. T2 blocks until T1 commits:
 
