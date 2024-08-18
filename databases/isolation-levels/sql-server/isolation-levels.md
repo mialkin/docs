@@ -19,11 +19,11 @@
     - [Committing and rolling back transaction](#committing-and-rolling-back-transaction)
     - [Adding delay](#adding-delay)
   - [Read phenomena](#read-phenomena)
+    - [Lost update](#lost-update)
     - [Dirty read](#dirty-read)
-    - [Read committed](#read-committed)
-    - [Repeatable read](#repeatable-read)
-    - [Snapshot](#snapshot)
-    - [Serializable](#serializable)
+    - [Non-repeatable read](#non-repeatable-read)
+    - [Phantom read](#phantom-read)
+    - [Serialization anomaly](#serialization-anomaly)
 
 ## Running
 
@@ -141,92 +141,7 @@ COMMIT;
 
 ## Read phenomena
 
-### Dirty read
-
-Results of `UPDATE`, `INSERT` and `DELETE` operations in `T1` are all reflected in `T2`:
-
-```sql
--- T1
-BEGIN TRANSACTION;
-
-UPDATE accounts
-SET balance = 200
-WHERE name = 'Bob';
-
-INSERT INTO accounts(name, balance)
-VALUES ('Jacob', 100);
-
-DELETE
-FROM accounts
-WHERE name = 'Alice';
-
-WAITFOR DELAY '00:00:10'; -- 10 seconds
-
-ROLLBACK; -- Or COMMIT;
-```
-
-```sql
--- T2
-SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
-BEGIN TRANSACTION;
-
-SELECT *
-FROM accounts;
-
-COMMIT;
-```
-
-| name  | balance |
-| :---- | :------ |
-| Bob   | 200     |
-| Jacob | 100     |
-
-### Read committed
-
-On `UPDATE` T1 outputs `100` as Bob's balance at the first time and `200` the second time — non-repeatable read.
-
-On `INSERT` and `DELETE` T1 sees different number of rows — phantom read.
-
-To avoid non-repeatable read use `REPEATABLE READ` isolation level for T1. In this case T2 will block until T1 finishes. And T1 will print `100` both times.
-
-To avoid phantom read on `DELETE` use `REPEATABLE READ` isolation level for T1.
-
-To avoid phantom read on `INSERT` use `SERIALIZABLE` isolation level for T1.
-
-```sql
--- T1
-SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
-
-BEGIN TRANSACTION;
-
-SELECT *
-FROM simple_bank.accounts;
-
-WAITFOR DELAY '00:00:10'; -- 10 seconds
-
-SELECT *
-FROM simple_bank.accounts;
-
-COMMIT;
-```
-
-```sql
--- T2
-BEGIN TRANSACTION;
-
-UPDATE simple_bank.accounts
-SET balance = 200
-WHERE name = 'Bob';
-
--- INSERT INTO simple_bank.accounts(name, balance)
--- VALUES ('Alex', 100);
-
--- DELETE
--- FROM simple_bank.accounts
--- WHERE name = 'Alex';
-
-COMMIT;
-```
+### Lost update
 
 On `UPDATE` T2 blocks until T1 commits. The final balance of Bob is `300`:
 
@@ -271,7 +186,100 @@ WHERE name = 'Bob'
 
 we will get `200` as Bob's balance when both transactions commit.
 
-### Repeatable read
+### Dirty read
+
+Results of `UPDATE`, `INSERT` and `DELETE` uncommitted operations in `T1` are all reflected in `T2` — that's a dirty read:
+
+```sql
+-- T1
+BEGIN TRANSACTION;
+
+UPDATE accounts
+SET balance = 200
+WHERE name = 'Bob';
+
+INSERT INTO accounts(name, balance)
+VALUES ('Jacob', 100);
+
+DELETE
+FROM accounts
+WHERE name = 'Alice';
+
+WAITFOR DELAY '00:00:10'; -- 10 seconds
+
+ROLLBACK; -- Or COMMIT;
+```
+
+```sql
+-- T2
+SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+BEGIN TRANSACTION;
+
+SELECT *
+FROM accounts;
+
+COMMIT;
+```
+
+| name  | balance |
+| :---- | :------ |
+| Bob   | 200     |
+| Jacob | 100     |
+
+By changing isolation level from `READ UNCOMMITTED` to `READ COMMITTED`, in previous example, the dirty read is not observed anymore — `T2` blocks until `T1` rolls back. `T2` outputs unmodified data after `T1` rolls back.
+
+### Non-repeatable read
+
+Below the results of committed `UPDATE` and `DELETE` operations in `T2` are all reflected in `T1` — that's a non-repeatable read.
+
+The first time `T1` reads this:
+
+| name  | balance |
+| :---- | :------ |
+| Bob   | 100     |
+| Alice | 100     |
+
+The second time it reads this:
+
+| name  | balance |
+| :---- | :------ |
+| Bob   | 200     |
+
+```sql
+-- T1
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+BEGIN TRANSACTION;
+
+SELECT *
+FROM accounts;
+
+WAITFOR DELAY '00:00:10'; -- 10 seconds
+
+SELECT *
+FROM accounts;
+
+COMMIT; -- Or ROLLBACK;
+```
+
+```sql
+-- T2
+BEGIN TRANSACTION;
+
+UPDATE accounts
+SET balance = 200
+WHERE name = 'Bob';
+
+DELETE
+FROM accounts
+WHERE name = 'Alice';
+
+COMMIT;
+```
+
+By changing isolation level from `READ COMMITTED` to `REPEATABLE READ`, in previous example, the non-repeatable read is not observed anymore — `T2` blocks until `T1` rolls back. `T1` outputs unmodified data both times.
+
+### Phantom read
 
 `REPEATABLE READ` does not prevent phantom read, so you will see different results in two `SELECT`s:
 
@@ -319,11 +327,9 @@ The second select outputs:
 
 `REPEATABLE READ` prevents from non-repeatable reads though. If  `UPDATE` or `DELETE` is used inside `T2`, while `T1` is running, then `T2` will block until `T1` commits. `T1`, while running, will output the same unchanged result both times.
 
-### Snapshot
+### Serialization anomaly
 
 Except when a database is being recovered, SNAPSHOT transactions [↑ do not request locks](https://learn.microsoft.com/en-us/sql/t-sql/statements/set-transaction-isolation-level-transact-sql) when reading data. SNAPSHOT transactions reading data do not block other transactions from writing data. Transactions writing data do not block SNAPSHOT transactions from reading data.
-
-### Serializable
 
 Both `SELECT`s in T1 will the same result sets for `UPDATE`, `INSERT` and `DELETE`. T2 blocks until T1 commits:
 
