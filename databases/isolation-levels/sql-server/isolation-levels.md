@@ -3,10 +3,10 @@
 | Isolation level  | Dirty read | Non-repeatable read | Phantom read | Serialization anomaly and other anomalies |
 | ---------------- | ---------- | ------------------- | ------------ | ----------------------------------------- |
 | Read uncommitted | Yes        | Yes                 | Yes          | Yes                                       |
-| Read committed   | No         | Yes                 | Yes          | Yes                                       |
-| Repeatable read  | No         | No                  | Yes          | Yes                                       |
-| Snapshot         | No         | No                  | No           | Yes                                       |
-| Serializable     | No         | No                  | No           | No                                        |
+| Read committed   | —          | Yes                 | Yes          | Yes                                       |
+| Repeatable read  | —          | —                   | Yes          | Yes                                       |
+| Snapshot         | —          | —                   | —            | Yes                                       |
+| Serializable     | —          | —                   | —            | —                                         |
 
 ## Table of contents
 
@@ -23,8 +23,7 @@
   - [Read committed](#read-committed)
     - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete)
   - [Repeatable read](#repeatable-read)
-    - [`UPDATE`, `DELETE`](#update-delete)
-    - [`INSERT`](#insert)
+  - [Snapshot](#snapshot)
   - [Serializable](#serializable)
     - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete-1)
 
@@ -278,9 +277,7 @@ we will get `200` as Bob's balance when both transactions commit.
 
 ## Repeatable read
 
-### `UPDATE`, `DELETE`
-
-T1 outputs the same result both times while T2 blocks until T1 commits:
+`REPEATABLE READ` does not prevent phantom read, so you will see different results in two `SELECT`s:
 
 ```sql
 -- T1
@@ -289,12 +286,12 @@ SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
 BEGIN TRANSACTION;
 
 SELECT *
-FROM simple_bank.accounts;
+FROM accounts;
 
 WAITFOR DELAY '00:00:10'; -- 10 seconds
 
 SELECT *
-FROM simple_bank.accounts;
+FROM accounts;
 
 COMMIT;
 ```
@@ -303,47 +300,32 @@ COMMIT;
 -- T2
 BEGIN TRANSACTION;
 
-UPDATE simple_bank.accounts
-SET balance = 200
-WHERE name = 'Bob';
-
--- DELETE
--- FROM simple_bank.accounts
--- WHERE name = 'Alex';
+INSERT INTO accounts(name, balance)
+VALUES ('Jacob', 100);
 
 COMMIT;
 ```
 
-### `INSERT`
+The first select in `T1` outputs:
 
-On `INSERT` `REPEATABLE READ` does not prevent phantom read, so you will see different results in two `SELECT`s:
+| name  | balance |
+| :---- | :------ |
+| Bob   | 100     |
+| Alice | 100     |
 
-```sql
--- T1
-SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+The second select outputs:
 
-BEGIN TRANSACTION;
+| name  | balance |
+| :---- | :------ |
+| Bob   | 100     |
+| Alice | 100     |
+| Jacob | 100     |
 
-SELECT *
-FROM simple_bank.accounts;
+`REPEATABLE READ` prevents from non-repeatable reads though. If  `UPDATE` or `DELETE` is used inside `T2`, while `T1` is running, then `T2` will block until `T1` commits. `T1`, while running, will output the same unchanged result both times.
 
-WAITFOR DELAY '00:00:10'; -- 10 seconds
+## Snapshot
 
-SELECT *
-FROM simple_bank.accounts;
-
-COMMIT;
-```
-
-```sql
--- T2
-BEGIN TRANSACTION;
-
-INSERT INTO simple_bank.accounts(name, balance)
-VALUES ('Alex', 100);
-
-COMMIT;
-```
+Except when a database is being recovered, SNAPSHOT transactions [↑ do not request locks](https://learn.microsoft.com/en-us/sql/t-sql/statements/set-transaction-isolation-level-transact-sql) when reading data. SNAPSHOT transactions reading data do not block other transactions from writing data. Transactions writing data do not block SNAPSHOT transactions from reading data.
 
 ## Serializable
 
