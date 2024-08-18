@@ -4,12 +4,12 @@ In PostgreSQL, you can request any of the four standard transaction isolation le
 
 The table also shows that PostgreSQL's repeatable read implementation does not allow phantom reads. This is acceptable under the SQL standard because the standard specifies which anomalies must not occur at certain isolation levels; higher guarantees are acceptable. The behavior of the available isolation levels is detailed in the following subsections.
 
-| Isolation level  | Dirty read             | Non-repeatable read | Phantom read           | Serialization anomaly |
-| ---------------- | ---------------------- | ------------------- | ---------------------- | --------------------- |
-| Read uncommitted | Allowed, but not in PG | Possible            | Possible               | Possible              |
-| Read committed   | Not possible           | Possible            | Possible               | Possible              |
-| Repeatable read  | Not possible           | Not possible        | Allowed, but not in PG | Possible              |
-| Serializable     | Not possible           | Not possible        | Not possible           | Not possible          |
+| Isolation level  | Dirty read | Non-repeatable read | Phantom read | Serialization anomaly |
+| ---------------- | ---------- | ------------------- | ------------ | --------------------- |
+| Read uncommitted | —          | Yes                 | Yes          | Yes                   |
+| Read committed   | —          | Yes                 | Yes          | Yes                   |
+| Repeatable read  | —          | —                   | —            | Yes                   |
+| Serializable     | —          | —                   | —            | —                     |
 
 [↑ 13.2. Transaction Isolation](https://www.postgresql.org/docs/16/transaction-iso.html).
 
