@@ -25,10 +25,10 @@ The American National Standards Institute, ANSI, defines four isolation levels:
 
 | Isolation level  | Lost update | Dirty read | Non-repeatable read | Phantom read | Serialization anomaly and other anomalies |
 | ---------------- | ----------- | ---------- | ------------------- | ------------ | ----------------------------------------- |
-| Read uncommitted | No          | Yes        | Yes                 | Yes          | Yes                                       |
-| Read committed   | No          | No         | Yes                 | Yes          | Yes                                       |
-| Repeatable read  | No          | No         | No                  | Yes          | Yes                                       |
-| Serializable     | No          | No         | No                  | No           | No                                        |
+| Read uncommitted | —           | Yes        | Yes                 | Yes          | Yes                                       |
+| Read committed   | —           | —          | Yes                 | Yes          | Yes                                       |
+| Repeatable read  | —           | —          | —                   | Yes          | Yes                                       |
+| Serializable     | —           | —          | —                   | —            | —                                         |
 
 Although higher isolation levels provide better data consistency, this consistency can be costly in terms of the parallel access provided to users. As isolation level increases, so does the chance that the locking strategy used will create problems with parallel access of data.
 
