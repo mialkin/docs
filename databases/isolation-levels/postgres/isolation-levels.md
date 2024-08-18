@@ -25,8 +25,6 @@ The table also shows that PostgreSQL's repeatable read implementation does not a
     - [Adding delay](#adding-delay)
   - [Read phenomena](#read-phenomena)
     - [Dirty read](#dirty-read)
-      - [`UPDATE`](#update)
-      - [`INSERT`, `DELETE`](#insert-delete)
     - [Non-repeatable read](#non-repeatable-read)
       - [`UPDATE`, `INSERT`, `DELETE`](#update-insert-delete)
   - [Repeatable read](#repeatable-read)
@@ -117,9 +115,7 @@ Dirty reads in PostgreSQL are forbidden by design.
 
 Based on snapshots, PostgreSQL isolation differs from the requirements specified in the standard — in fact, it is even stricter.
 
-Technically, you can specify the `READ UNCOMMITTED` level, but its behavior will be the same as that of `READ COMMITTED`.
-
-#### `UPDATE`
+Results of `UPDATE`, `INSERT` and `DELETE` operations in `T1` are not reflected in `T2`:
 
 ```sql
 -- T1
@@ -128,34 +124,6 @@ BEGIN TRANSACTION;
 UPDATE accounts
 SET balance = 200
 WHERE name = 'Bob';
-
-SELECT PG_SLEEP(10); -- 10 seconds
-
-ROLLBACK; -- Or COMMIT;
-```
-
-```sql
--- T2
-BEGIN TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
-
-SELECT *
-FROM accounts;
-
-COMMIT;
-```
-
-| name  | balance |
-| :---- | :------ |
-| Bob   | 100     |
-| Alice | 100     |
-
-#### `INSERT`, `DELETE`
-
-Results of `INSERT` and `DELETE` operations in `T1` are also not reflected in `T2`:
-
-```sql
--- T1
-BEGIN TRANSACTION;
 
 INSERT INTO accounts(name, balance)
 VALUES ('Jacob', 100);
