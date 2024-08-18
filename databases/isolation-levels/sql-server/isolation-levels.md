@@ -232,14 +232,14 @@ By changing isolation level from `READ UNCOMMITTED` to `READ COMMITTED`, in prev
 
 Below the results of committed `UPDATE` and `DELETE` operations in `T2` are all reflected in `T1` — that's a non-repeatable read.
 
-The first time `T1` reads this:
+The first time `T1` reads:
 
 | name  | balance |
 | :---- | :------ |
 | Bob   | 100     |
 | Alice | 100     |
 
-The second time it reads this:
+The second time it reads:
 
 | name  | balance |
 | :---- | :------ |
@@ -277,7 +277,7 @@ WHERE name = 'Alice';
 COMMIT;
 ```
 
-By changing isolation level from `READ COMMITTED` to `REPEATABLE READ`, in previous example, the non-repeatable read is not observed anymore — `T2` blocks until `T1` rolls back. `T1` outputs unmodified data both times.
+By changing isolation level from `READ COMMITTED` to `REPEATABLE READ`, in previous example, the non-repeatable read is not observed anymore — `T2` blocks until `T1` commits. `T1` outputs unmodified data both times.
 
 ### Phantom read
 
