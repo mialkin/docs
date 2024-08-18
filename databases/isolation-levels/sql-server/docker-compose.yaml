@@ -1,7 +1,7 @@
 services:
   sql-server:
     image: mcr.microsoft.com/mssql/server:2022-latest
-    container_name: isolation-levels-sql-server
+    container_name: sql-server-isolation-levels
     ports:
       - "3400:1433"
     environment:
