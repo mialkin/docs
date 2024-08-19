@@ -1,4 +1,6 @@
-# `char`
+# `char`, `ref struct`
+
+## `char`
 
 The [↑ `char`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/char) type keyword is an alias for [↑ `Char`](https://learn.microsoft.com/en-us/dotnet/api/system.char) structure type that represents a [↑ UTF-16](https://en.wikipedia.org/wiki/UTF-16) code unit.
 
@@ -26,4 +28,29 @@ Console.WriteLine('\u0411');    // Б
 Console.WriteLine('\x411');     // Б
 Console.WriteLine('\x0411');    // Б
 Console.WriteLine((char)1041);  // Б
+```
+
+## `ref struct`
+
+A [↑ `ref struct`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/ref-struct) type are allocated on the stack and can't escape to the managed heap.
+
+```csharp
+var myRefStruct = new MyRefStruct();
+
+ref struct MyRefStruct
+{
+    public int X;
+    public int Y;
+}
+```
+
+By default, reference types in C# are allocated on the heap. However, using constructs like `ref struct` and `stackalloc`, you can work with data structures that exhibit some reference-like behavior while being allocated on the stack. But pure class instances cannot be allocated on the stack; they will always be allocated on the heap.
+
+```csharp
+class MyClass
+{
+    public int Id; // int is struct
+    
+    // public MyRefStruct MyRefStruct { get; set; } // Compilation error: Auto-property cannot be of byref-like type 'MyRefStruct' unless it is an instance member of a 'ref' struct
+}
 ```

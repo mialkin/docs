@@ -374,7 +374,7 @@
 - Types
   - [Value types, `ValueType`, boxing and unboxing](csharp/types/value-types/value-types.md)
     - [↑ Built-in value types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types#built-in-value-types)
-      - [`char`](csharp/types/value-types/char.md)
+      - [`char`, `ref struct`](csharp/types/value-types/char.md)
     - [Enumeration types, `[Flags]`](csharp/types/value-types/enum-types.md)
     - [Structure types, `Span<T>`](csharp/types/value-types/struct-types.md)
     - [↑ Tuple types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples)
