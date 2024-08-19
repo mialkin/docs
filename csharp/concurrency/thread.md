@@ -1,8 +1,8 @@
-# Thread, process, `Thread`
+# Thread, process, `Thread`, stack size
 
 ## Table of contents
 
-- [Thread, process, `Thread`](#thread-process-thread)
+- [Thread, process, `Thread`, stack size](#thread-process-thread-stack-size)
   - [Table of contents](#table-of-contents)
   - [Thread](#thread)
   - [`Thread`](#thread-1)
@@ -13,6 +13,7 @@
     - [`Thread.Interrupt`](#threadinterrupt)
     - [`Thread.Abort`](#threadabort)
   - [Background and foreground threads](#background-and-foreground-threads)
+  - [Stack size](#stack-size)
 
 ## Thread
 
@@ -115,3 +116,37 @@ worker.Start();
 ```
 
 A thread's foreground/background status has no relation to its priority or allocation of execution time.
+
+## Stack size
+
+The default stack size is [↑ 1 megabyte](https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.-ctor).
+
+Here is just an example that creates a thread with stack size of 30 MBs:
+
+```csharp
+var thread = new Thread(
+    start: () =>
+    {
+        Span<int> numbers = stackalloc int[7_000_000]; // 4 bytes x 7 million records = 28 megabytes
+        Console.WriteLine("Allocated an array of integers on the stack");
+    },
+    maxStackSize: 30_000_000 // 30 megabytes
+);
+
+thread.Start();
+thread.Join();
+```
+
+Code above just prints:
+
+```console
+Allocated an array of integers on the stack
+```
+
+However, if you try to allocate an array of 8 millions of records, you get [↑ `StackOverflowException`](https://learn.microsoft.com/en-us/dotnet/api/system.stackoverflowexception):
+
+```console
+Stack overflow.
+   at Program+<>c.<<Main>$>b__0_0()
+   at System.Threading.Thread.StartCallback()
+```
