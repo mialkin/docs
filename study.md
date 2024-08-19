@@ -157,6 +157,7 @@ for (var i = 0; i < 5; i++) {
 
 ## C&#35;
 
+- [↑ Ozon Tech Community C# Meetup](https://www.youtube.com/results?search_query=c%23+ozon)
 - [↑ Access modifiers](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/access-modifiers)
 - [↑ Expression trees](https://tyrrrz.me/blog/expression-trees)
   - [↑ Expression Trees in C#](https://code-maze.com/csharp-expression-trees)
