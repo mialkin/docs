@@ -21,6 +21,7 @@
     - [`dropdb`](#dropdb)
     - [`createdb`](#createdb)
     - [`pg_restore`](#pg_restore)
+  - [JSON](#json)
 
 ## PostgreSQL
 
@@ -355,3 +356,7 @@ pg_restore \
 ```
 
 [↑ `pg_restore`](https://postgrespro.ru/docs/postgresql/16/app-pgrestore?lang=en).
+
+## JSON
+
+[↑ JSON in PostgreSQL: how to use it right](https://www.cybertec-postgresql.com/en/json-postgresql-how-to-use-it-right).
