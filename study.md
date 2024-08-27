@@ -216,6 +216,7 @@ for (var i = 0; i < 5; i++) {
   - [↑ Menees.Analyzers](https://github.com/menees/Analyzers/tree/master)
 - [↑ Inline и throw](https://habr.com/ru/articles/722374/)
 - `ArrayPool<T>`, <https://habr.com/ru/articles/723420>, <https://code-maze.com/csharp-arraypool-memory-optimization/>
+- <https://blog.stephencleary.com/2017/03/aspnetcore-synchronization-context.html>
 
 ## ASP.NET
 
