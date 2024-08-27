@@ -55,7 +55,23 @@ A [↑ **remote procedure call**](https://en.wikipedia.org/wiki/Remote_procedure
 
 It can efficiently connect services in and across data centers with pluggable support for load balancing, tracing, health checking and authentication. It is also applicable in last mile of distributed computing to connect devices, mobile applications and browsers to backend services.
 
+As in many RPC systems, gRPC is based around the idea of defining a service, specifying the methods that can be called remotely with their parameters and return types. On the server side, the server implements this interface and runs a gRPC _server_ to handle client calls. On the client side, the client has a _stub_, referred to as just a client in some languages, that provides the same methods as the server.
+
 gRPC uses HTTP/2 for transport, [protocol buffers](#protocol-buffers) as the interface description language, and provides features such as authentication, bidirectional streaming and flow control, blocking or non blocking bindings, and cancellation and timeouts. It automatically generate idiomatic client and server stubs for your service in a variety of languages and platforms.
+
+The main benefits of gRPC are:
+
+- Modern, high-performance, lightweight RPC framework
+- Contract-first API development, using protocol buffers by default, allowing for language agnostic implementations
+- Tooling available for many languages to generate strongly-typed servers and clients
+- Supports client, server, and bi-directional streaming calls
+- Reduced network usage with Protobuf binary serialization
+
+These benefits make gRPC ideal for:
+
+- Lightweight microservices where efficiency is critical
+- Polyglot systems where multiple languages are required for development
+- Point-to-point real-time services that need to handle streaming requests or responses
 
 [↑ Introduction to gRPC on .NET Core](https://docs.microsoft.com/en-us/aspnet/core/grpc).
 
@@ -73,17 +89,7 @@ It's like JSON, except it's smaller and faster, and it generates native language
 
 Protocol buffers provide a serialization format for packets of typed, structured data that are up to a few megabytes in size. The format is suitable for both ephemeral network traffic and long-term data storage. Protocol buffers can be extended with new information without invalidating existing data or requiring code to be updated.
 
-Protocol buffers are the most commonly-used data format at Google. They are used extensively in inter-server communications as well as for archival storage of data on disk. Protocol buffer messages and services are described by engineer-authored `.proto` files. The following shows an example `message`:
-
-```proto
-message Person {
-  optional string name = 1;
-  optional int32 id = 2;
-  optional string email = 3;
-}
-```
-
-The proto compiler is invoked at build time on `.proto` files to generate code in various programming languages to manipulate the corresponding protocol buffer. Each generated class contains simple accessors for each field and methods to serialize and parse the whole structure to and from raw bytes.
+Protocol buffers are the most commonly-used data format at Google. They are used extensively in inter-server communications as well as for archival storage of data on disk.
 
 Protocol buffers allow for the seamless support of changes, including the addition of new fields and the deletion of existing fields, to any protocol buffer without breaking existing services.
 
