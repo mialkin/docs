@@ -61,6 +61,7 @@
 - Шардирование и секционирование и какие проблемы эти техники решают
 - Схема репликации master-slave
 - Как делать префиксный и полнотекстовый поиск в базе, как устроены индексы в этом случае
+- [↑ Популярная задача на собеседовании: сотрудники с максимальной зарплатой в отделе](https://habr.com/ru/articles/828728/)
 - Что такое Materialized view
 - Зачем нужно денормализовывать данные
 - Что такое курсоры
@@ -154,6 +155,7 @@ for (var i = 0; i < 5; i++) {
   - [↑ Serilog.Enrichers.Sensitive](https://github.com/serilog-contrib/Serilog.Enrichers.Sensitive/tree/master)
   - [↑ What is data masking?](https://aws.amazon.com/what-is/data-masking/)
 - [↑ NSubstitute](https://youtu.be/1oeMTz7LwrU?si=HOMpYy5AtUpSaPzY&t=421)
+- [↑ KeyCloak. Open Source Identity and Access Management](https://www.keycloak.org)
 
 ## C&#35;
 
