@@ -11,6 +11,7 @@
   - [Protocol buffers](#protocol-buffers)
     - [When to use](#when-to-use)
     - [When not to use](#when-not-to-use)
+    - [Protocol buffer versions](#protocol-buffer-versions)
 
 ## GraphQL
 
@@ -115,5 +116,9 @@ Protocol buffers do not fit all data. In particular:
 - Messages are not compressed. While messages can be zipped or gzipped like any other file, special-purpose compression algorithms like the ones used by JPEG and PNG will produce much smaller files for data of the appropriate type.
 - Protocol buffer messages are less than maximally efficient in both size and speed for many scientific and engineering uses that involve large, multi-dimensional arrays of floating point numbers. For these applications, FITS and similar formats have less overhead.
 - Protocol buffers are not well supported in non-object-oriented languages popular in scientific computing, such as Fortran and IDL.
-- Protocol buffers messages don't inherently self-describe their data, but they have a fully reflective schema that you can use to implement self-description. That is, you cannot fully interpret one without access to its corresponding `.proto` file.
+- Protocol buffer messages don't inherently self-describe their data, but they have a fully reflective schema that you can use to implement self-description. That is, you cannot fully interpret one without access to its corresponding `.proto` file.
 - Protocol buffers are not a formal standard of any organization. This makes them unsuitable for use in environments with legal or other requirements to build on top of standards.
+
+### Protocol buffer versions
+
+In general, while you can use proto2, the current default protocol buffers version, we recommend that you use [↑ proto3](https://protobuf.dev/programming-guides/proto3) with gRPC as it lets you use the full range of gRPC-supported languages, as well as avoiding compatibility issues with proto2 clients talking to proto3 servers and vice versa.
