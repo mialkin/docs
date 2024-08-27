@@ -57,6 +57,8 @@ It can efficiently connect services in and across data centers with pluggable su
 
 As in many RPC systems, gRPC is based around the idea of defining a service, specifying the methods that can be called remotely with their parameters and return types. On the server side, the server implements this interface and runs a gRPC _server_ to handle client calls. On the client side, the client has a _stub_, referred to as just a client in some languages, that provides the same methods as the server.
 
+<img src="grpc.svg" alt="Plot" />
+
 gRPC uses HTTP/2 for transport, [protocol buffers](#protocol-buffers) as the interface description language, and provides features such as authentication, bidirectional streaming and flow control, blocking or non blocking bindings, and cancellation and timeouts. It automatically generate idiomatic client and server stubs for your service in a variety of languages and platforms.
 
 The main benefits of gRPC are:

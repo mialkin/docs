@@ -240,7 +240,7 @@
 
 ## Networking
 
-- [GraphQL, RPC, gRPC, protocol buffers](networking/graphql-grpc.md)
+- [GraphQL, RPC, gRPC, protocol buffers](networking/grpc/grpc.md)
 - [Internet, IP, TCP, HTTP, OSI model](networking/internet.md)
 - [Ports, sockets](networking/ports-sockets.md)
 - [POST vs PUT vs PATCH](networking/post-vs-put-vs-patch.md)
