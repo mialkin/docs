@@ -156,6 +156,7 @@ for (var i = 0; i < 5; i++) {
   - [↑ What is data masking?](https://aws.amazon.com/what-is/data-masking/)
 - [↑ NSubstitute](https://youtu.be/1oeMTz7LwrU?si=HOMpYy5AtUpSaPzY&t=421)
 - [↑ KeyCloak. Open Source Identity and Access Management](https://www.keycloak.org)
+  - [↑ Getting Started With Keycloak Identity Provider (free Identity Server alternative)](https://www.youtube.com/watch?v=fvxQ8bW0vO8)
 
 ## C&#35;
 
