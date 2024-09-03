@@ -32,9 +32,12 @@ ls -al ~/.ssh
 ```bash
 cd ~/.ssh
 ssh-keygen
+# ssh-keygen -f github
 # ssh-keygen -f gitlab
 # ssh-keygen -t ed25519
 ```
+
+If using multiple SSH keys don't forget to [set the right](#use-multiple-keys).
 
 ### Get public key
 

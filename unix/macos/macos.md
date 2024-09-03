@@ -3,6 +3,7 @@
 - [macOS](#macos)
   - [Aliases](#aliases)
   - [Applications](#applications)
+    - [Brew](#brew)
     - [DBeaver Community](#dbeaver-community)
     - [Etcher](#etcher)
     - [FFmpeg](#ffmpeg)
@@ -49,6 +50,10 @@ echo "autoload -U compinit && compinit" >> ~/.zshrc
 
 ## Applications
 
+### Brew
+
+[↑ Brew](https://brew.sh/) is the package manager for macOS and Linux.
+
 ### DBeaver Community
 
 [↑ DBeaver Community](https://dbeaver.io/download) is a free cross-platform database tool.
@@ -88,7 +93,7 @@ file 'movie_3.mp4'
 Always show hidden files in Finder:
 
 ```bash
-defaults write com.apple.Finder AppleShowAllFiles true
+defaults write com.apple.Finder AppleShowAllFiles true && \
 killall Finder
 ```
 
@@ -136,6 +141,17 @@ brew install --cask lunar
 
 [↑ Mos](https://mos.caldis.me) is a lightweight tool used to smooth scrolling and set scroll direction independently for your mouse on macOS.
 
+```bash
+brew install mos
+```
+
+`Ctrl` + `Click` to open application.
+
+```bash
+brew update
+brew reinstall mos
+```
+
 ### Rectangle
 
 [↑ Rectangle](https://rectangleapp.com) is an application that allows to move and resize windows in macOS using keyboard shortcuts or snap areas.
@@ -147,7 +163,7 @@ brew install --cask lunar
 Create file:
 
 ```bash
-cd /usr/local/bin/
+cd /usr/local/bin/ && \
 vim rider
 ```
 
