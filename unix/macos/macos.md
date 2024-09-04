@@ -1,17 +1,19 @@
 # macOS
 
 - [macOS](#macos)
-  - [Aliases](#aliases)
+  - [Settings](#settings)
+    - [Aliases](#aliases)
+    - [Finder](#finder)
   - [Applications](#applications)
     - [Brew](#brew)
     - [DBeaver Community](#dbeaver-community)
     - [Etcher](#etcher)
     - [FFmpeg](#ffmpeg)
-    - [Finder](#finder)
     - [Fluor](#fluor)
     - [Gifox](#gifox)
     - [HandBrake](#handbrake)
     - [Keka](#keka)
+    - [Lens](#lens)
     - [Logi Tune](#logi-tune)
     - [LosslessCut](#losslesscut)
     - [Lunar](#lunar)
@@ -20,20 +22,22 @@
     - [Rectangle](#rectangle)
     - [Rider](#rider)
       - [`rider` command](#rider-command)
-    - [Safari](#safari)
     - [SensibleSideButtons](#sensiblesidebuttons)
     - [Sublime Text](#sublime-text)
     - [Visual Studio Code](#visual-studio-code)
-  - [TTL](#ttl)
-  - [Flush DNS cache](#flush-dns-cache)
-  - [Install developers' applications](#install-developers-applications)
-  - [IP address](#ip-address)
-  - [Key repeating](#key-repeating)
-  - [Run application](#run-application)
-  - [Copy text to clipboard](#copy-text-to-clipboard)
-  - [User scripts folder](#user-scripts-folder)
+  - [Miscellaneous](#miscellaneous)
+    - [TTL](#ttl)
+    - [Flush DNS cache](#flush-dns-cache)
+    - [Install developers' applications](#install-developers-applications)
+    - [IP address](#ip-address)
+    - [Key repeating](#key-repeating)
+    - [Run application](#run-application)
+    - [Copy text to clipboard](#copy-text-to-clipboard)
+    - [User scripts folder](#user-scripts-folder)
 
-## Aliases
+## Settings
+
+### Aliases
 
 ```bash
 echo "alias ll='ls -la'" >> ~/.zshrc && \
@@ -48,6 +52,19 @@ Makefile [↑ autocompletion](https://stackoverflow.com/questions/33760647/makef
 echo "zstyle ':completion:*:*:make:*' tag-order 'targets'" >> ~/.zshrc && \
 echo "autoload -U compinit && compinit" >> ~/.zshrc
 ```
+
+### Finder
+
+Always show hidden files in Finder:
+
+```bash
+defaults write com.apple.Finder AppleShowAllFiles true && \
+killall Finder
+```
+
+Set `Downloads` as default folder:
+
+<img src="macos-finder.png" width="400px" alt="Finder" />
 
 ## Applications
 
@@ -89,19 +106,6 @@ file 'movie_2.mp4'
 file 'movie_3.mp4'
 ```
 
-### Finder
-
-Always show hidden files in Finder:
-
-```bash
-defaults write com.apple.Finder AppleShowAllFiles true && \
-killall Finder
-```
-
-Set `Downloads` as default folder:
-
-<img src="macos-finder.png" width="400px" alt="Finder" />
-
 ### Fluor
 
 [↑ Fluor](https://github.com/Pyroh/Fluor) is a macOS application for switching Fn keys' mode based on active application.
@@ -121,6 +125,10 @@ brew install --cask fluor
 ### Keka
 
 [↑ Keka](https://www.keka.io) is a macOS file archiver.
+
+### Lens
+
+[↑ Lens](https://k8slens.dev/) is a Kubernetes IDE.
 
 ### Logi Tune
 
@@ -186,15 +194,13 @@ Change access mode:
 chmod 775 rider
 ```
 
-### Safari
-
-Clear local storage: **Web inspector** → **Storage** → **Clear local storage**
-
 ### SensibleSideButtons
 
 [↑ SensibleSideButtons](https://sensible-side-buttons.archagon.net) is an application that enables side navigation buttons on your third-party mice
 
 ### Sublime Text
+
+[↑ Sublime Text](https://www.sublimetext.com/) is a shareware text and source code editor available for Windows, macOS, and Linux.
 
 ```bash
 echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"' >> ~/.zprofile
@@ -209,34 +215,38 @@ echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PA
 
 ### Visual Studio Code
 
+[↑ Visual Studio Code](https://code.visualstudio.com)
+
 [↑ Install `code` command in PATH](https://stackoverflow.com/questions/29955500/code-is-not-working-in-on-the-command-line-for-visual-studio-code-on-os-x-ma).
 
-## TTL
+## Miscellaneous
+
+### TTL
 
 ```bash
 sysctl -w net.inet.ip.ttl           # Get current value
 sudo sysctl -w net.inet.ip.ttl=65   # Set value to 65
 ```
 
-## Flush DNS cache
+### Flush DNS cache
 
 ```bash
 sudo killall -HUP mDNSResponder
 ```
 
-## Install developers' applications
+### Install developers' applications
 
 1. Just move application into `/Applications` folder and open it
 2. If you see `"YOUR_APPLICATION" cannot be opened because the developer cannot be verified`, please open up **System Preferences** → **Security & Privacy** → **General** → **Open Anyway**.
 3. If you see the error `The application YOUR_APPLICATION can't be opened` error on launch, you could `chmod +x "/Applications/YOUR_APPLICATION.app/Contents/MacOS/YOUR_APPLICATION`"
 
-## IP address
+### IP address
 
 ```bash
 curl ifconfig.me
 ```
 
-## Key repeating
+### Key repeating
 
 Enable key repeating:
 
@@ -248,7 +258,7 @@ Next, restart your computer and you should now be able to repeat all characters.
 
 Replace `true` with `false` to revert changes back.
 
-## Run application
+### Run application
 
 ```sh
 open -a calculator                  # -a is for "application"
@@ -256,13 +266,13 @@ ll /Applications                    # List installed apps
 open -a "Microsoft Remote Desktop"
 ```
 
-## Copy text to clipboard
+### Copy text to clipboard
 
 ```sh
 cat example.txt \| pbcopy
 ```
 
-## User scripts folder
+### User scripts folder
 
 ```bash
 ll /usr/local/bin
