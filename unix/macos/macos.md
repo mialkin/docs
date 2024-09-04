@@ -16,6 +16,7 @@
     - [LosslessCut](#losslesscut)
     - [Lunar](#lunar)
     - [Mos](#mos)
+    - [OBS](#obs)
     - [Rectangle](#rectangle)
     - [Rider](#rider)
       - [`rider` command](#rider-command)
@@ -151,6 +152,10 @@ brew install mos
 brew update
 brew reinstall mos
 ```
+
+### OBS
+
+[↑ OBS Studio](https://obsproject.com/) is free and open source software for video recording and live streaming.
 
 ### Rectangle
 
