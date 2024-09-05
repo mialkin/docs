@@ -85,7 +85,8 @@
   - [↑ SKIP LOCKED](https://www.2ndquadrant.com/en/blog/what-is-select-skip-locked-for-in-postgresql-9-5/)
 - [↑ EF Core Change Tracking](https://learn.microsoft.com/en-us/ef/core/change-tracking/).
 - [↑ EF Core Interceptors](https://learn.microsoft.com/en-us/ef/core/logging-events-diagnostics/interceptors)
-- [Five ways to paginate in Postgres, from the basic to the exotic](https://www.citusdata.com/blog/2016/03/30/five-ways-to-paginate/)
+- [↑ Five ways to paginate in Postgres, from the basic to the exotic](https://www.citusdata.com/blog/2016/03/30/five-ways-to-paginate/)
+- [↑ Решаем очень сложную SQL-задачу об островах и проливах](https://proglib.io/p/reshaem-ochen-slozhnuyu-sql-zadachu-ob-ostrovah-i-prolivah-2024-07-01)
 
 ## Software architecture and design
 
