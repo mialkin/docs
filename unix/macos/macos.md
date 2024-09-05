@@ -198,6 +198,8 @@ chmod 775 rider
 
 [↑ SensibleSideButtons](https://sensible-side-buttons.archagon.net) is an application that enables side navigation buttons on your third-party mice
 
+May need to add this application to [↑Open at login](https://support.apple.com/en-is/guide/mac-help/mh15189/mac) after installation.
+
 ### Sublime Text
 
 [↑ Sublime Text](https://www.sublimetext.com/) is a shareware text and source code editor available for Windows, macOS, and Linux.
