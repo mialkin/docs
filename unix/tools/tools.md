@@ -132,11 +132,11 @@ Display disk usage statistics.
 
 Find is a command-line utility that locates files based on some user-specified criteria and then applies some requested action on each matched object.
 
-| Command                                   | Description                                                                 |
-| ----------------------------------------- | --------------------------------------------------------------------------- |
-| find . -name YOUR_NAME                    | Find inside current directory all files/folders that match `YOUR_NAME` name |
-| find . -name \*.txt -type f               | Find inside current directory all files with the extension `.txt`           |
-| find . -name a -type d -exec rm -rf {} \; | Remove folder with name `a`                                                 |
+| Command                                     | Description                                                                 |
+| ------------------------------------------- | --------------------------------------------------------------------------- |
+| find . -name "YOUR_NAME"                    | Find inside current directory all files/folders that match `YOUR_NAME` name |
+| find . -name "\*.txt" -type f               | Find inside current directory all files with the extension `.txt`           |
+| find . -name "a" -type d -exec rm -rf {} \; | Remove folder with name `a`                                                 |
 
 ## grep
 
