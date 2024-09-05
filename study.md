@@ -221,6 +221,8 @@ for (var i = 0; i < 5; i++) {
 - [↑ Inline и throw](https://habr.com/ru/articles/722374/)
 - `ArrayPool<T>`, <https://habr.com/ru/articles/723420>, <https://code-maze.com/csharp-arraypool-memory-optimization/>
 - <https://blog.stephencleary.com/2017/03/aspnetcore-synchronization-context.html>
+- [↑ Кирилл Бажайкин — Приемы экономии памяти в .NET](https://www.youtube.com/watch?v=f94Lmm5eTUw)
+- Как устроен StringBuilder под капотом?
 
 ## ASP.NET
 
