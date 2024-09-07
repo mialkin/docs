@@ -29,11 +29,21 @@ sudo usermod -a -G microk8s $USER
 sudo chown -f -R $USER ~/.kube
 ```
 
-Print out `.kube/config` file:
+Print out `.kube/config` file on _server_:
 
 ```bash
 microk8s config
 ```
+
+Create `kubeconfig` file on _client_:
+
+```bash
+cd \
+mkdir .kube && cd "$_" \
+touch kubeconfig
+```
+
+Paste in it what has been outputted by `microk8s config` command, substituting local IP address with real one.
 
 ## Uninstall
 
