@@ -23,8 +23,8 @@
   - [`git log` format](#git-log-format)
   - [Git hooks](#git-hooks)
   - [Custom scripts](#custom-scripts)
-    - [`git-init`](#git-init)
-    - [`git-create`](#git-create)
+    - [`git-set-config`](#git-set-config)
+    - [`git-create-repos`](#git-create-repos)
 
 ## Git config
 
@@ -363,7 +363,19 @@ To "install" a hook, all you have to do is remove the `.sample` extension. Hooks
 
 ## Custom scripts
 
-### `git-init`
+See [User scripts folder](/unix/macos/macos.md#user-scripts-folder).
+
+### `git-set-config`
+
+Create file:
+
+```bash
+cd /usr/local/bin && \
+touch git-set-config && \
+chmod +x git-set-config
+```
+
+Paste content:
 
 ```bash
 #!/bin/bash
@@ -390,7 +402,17 @@ cat <<EOF >> ./.git/config
 EOF
 ```
 
-### `git-create`
+### `git-create-repos`
+
+Create file:
+
+```bash
+cd /usr/local/bin && \
+touch git-create-repos && \
+chmod +x git-create-repos
+```
+
+Paste content:
 
 ```bash
 #!/bin/bash
