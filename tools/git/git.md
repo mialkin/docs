@@ -386,10 +386,17 @@ if [ $# -eq 0 ]
     exit 1
 fi
 
-USERNAME=bob
+USERNAME=mialkin
 REPOSITORY_NAME=$1
 
-cat <<EOF >> ./.git/config
+cat <<EOF > ./.git/config
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
 [remote "origin"]
 	url = git@github.com:${USERNAME}/${REPOSITORY_NAME}.git
 	fetch = +refs/heads/*:refs/remotes/origin/*
