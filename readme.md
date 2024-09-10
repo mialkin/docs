@@ -20,6 +20,7 @@
   - [Tools](#tools)
   - [Unix](#unix)
   - [Databases](#databases)
+    - [NoSQL](#nosql)
     - [SQL](#sql)
   - [Software architecture and design](#software-architecture-and-design)
   - [Distributed systems](#distributed-systems)
@@ -48,7 +49,6 @@
   - [Dockerfile](tools/docker/dockerfiles.md)
   - [Docker compose](tools/docker/docker-compose.md)
 - [Docusaurus](tools/docusaurus.md)
-- [Elasticsearch](tools/elasticsearch.md)
 - [Git](tools/git/git.md)
 - [GitLab](tools/gitlab.md)
 - [Grafana](tools/grafana.md)
@@ -72,7 +72,6 @@
 - [Prometheus](tools/prometheus/prometheus.md)
   - [PromQL](tools/prometheus/promql.md)
 - [RabbitMQ](tools/rabbitmq/rabbitmq.md)
-- [Redis](tools/redis.md)
 - [Regular expressions](tools/regular-expressions/regular-expressions.md)
 - [Rider](tools/rider.md)
 - [SonarQube](tools/sonarqube.md)
@@ -98,6 +97,11 @@
 - [User management](unix/user-managment.md)
 
 ## Databases
+
+### NoSQL
+
+- [Elasticsearch](databases/nosql/elasticsearch.md)
+- [Redis](databases/nosql/redis.md)
 
 ### SQL
 
