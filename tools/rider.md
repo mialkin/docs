@@ -4,6 +4,7 @@
 
 | Shortcut                           | Description                          |
 | ---------------------------------- | ------------------------------------ |
+| <kbd>⌘ ⏎ </kbd>                    | Show Context Actions                 |
 | <kbd>⌘ 1 </kbd>                    | Terminal                             |
 | <kbd>⌘ ⇧ 1 </kbd>                  | Open in Terminal                     |
 | <kbd>⌘ 2 </kbd>                    | Other -> Reveal in Finder            |
