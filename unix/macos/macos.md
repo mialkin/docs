@@ -66,6 +66,8 @@ Set `Downloads` as default folder:
 
 <img src="macos-finder.png" width="400px" alt="Finder" />
 
+Show path bar: View -> Show Path Bar.
+
 ## Applications
 
 ### Brew
