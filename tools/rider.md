@@ -6,7 +6,7 @@
 | ---------------------------------- | ------------------------------------ |
 | <kbd>⌘ 1 </kbd>                    | Terminal                             |
 | <kbd>⌘ ⇧ 1 </kbd>                  | Open in Terminal                     |
-| <kbd>⌘ 2 </kbd>                    | Reveal in Finder                     |
+| <kbd>⌘ 2 </kbd>                    | Other -> Reveal in Finder            |
 | <kbd>⌘ 3 </kbd>                    | Version Control                      |
 | <kbd>⌘ 4 </kbd>                    | Manage NuGet Packages for Solution   |
 | <kbd>⌘ 8 </kbd>                    | dotMemory Profiler                   |
@@ -29,6 +29,8 @@
 | <kbd>⌘ ⇧ W</kbd>                   | Close All Tabs                       |
 
 ## Settings
+
+Key map: copy of Visual Studio (macOS) key map.
 
 1. Enable [↑ show diff on single click](https://stackoverflow.com/a/78967173/1833895).
 2. [↑ Enable external source debug](https://youtrack.jetbrains.com/issue/RIDER-33772/Debugger-does-not-stop-at-breakpoints-set-in-decompiled-code-of-external-library).
