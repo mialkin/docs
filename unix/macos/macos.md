@@ -4,6 +4,8 @@
   - [Settings](#settings)
     - [Aliases](#aliases)
     - [Finder](#finder)
+    - [System](#system)
+      - [Focus](#focus)
   - [Applications](#applications)
     - [Brew](#brew)
     - [DBeaver Community](#dbeaver-community)
@@ -67,6 +69,12 @@ Set `Downloads` as default folder:
 <img src="macos-finder.png" width="400px" alt="Finder" />
 
 Show path bar: View -> Show Path Bar.
+
+### System
+
+#### Focus
+
+Uncheck `Focus` -> `Share across devices`.
 
 ## Applications
 
