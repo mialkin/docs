@@ -5,6 +5,7 @@
     - [Aliases](#aliases)
     - [Finder](#finder)
     - [System](#system)
+      - [Desktop \& Dock](#desktop--dock)
       - [Focus](#focus)
   - [Applications](#applications)
     - [Brew](#brew)
@@ -72,9 +73,13 @@ Show path bar: View -> Show Path Bar.
 
 ### System
 
+#### Desktop & Dock
+
+Click wallpaper to reveal desktop -> Only in Stage Manager.
+
 #### Focus
 
-Uncheck `Focus` -> `Share across devices`.
+Uncheck Focus -> Share across devices.
 
 ## Applications
 
