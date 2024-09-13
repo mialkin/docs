@@ -84,6 +84,8 @@ These benefits make gRPC ideal for:
 
 [↑ gRPC JSON transcoding documentation with Swagger / OpenAPI](https://learn.microsoft.com/en-us/aspnet/core/grpc/json-transcoding-openapi).
 
+[↑ Postman Now Supports gRPC](https://blog.postman.com/postman-now-supports-grpc/).
+
 ## Protocol buffers
 
 The [↑ **protocol buffers**](https://protobuf.dev/) are language-neutral, platform-neutral extensible mechanisms for serializing structured data.
