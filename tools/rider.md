@@ -9,7 +9,7 @@
 | <kbd>⌘ ⇧ 1 </kbd>                  | Open in Terminal                     |
 | <kbd>⌘ 2 </kbd>                    | Other -> Reveal in Finder            |
 | <kbd>⌘ 3 </kbd>                    | Version Control                      |
-| <kbd>⌘ 4 </kbd>                    | Manage NuGet Packages for Solution   |
+| <kbd>⌘ 7 </kbd>                    | Manage NuGet Packages for Solution   |
 | <kbd>⌘ 8 </kbd>                    | dotMemory Profiler                   |
 | <kbd>⌥ ⇧ F </kbd>                  | Reformat Code                        |
 | <kbd>⌘ E, ⌘ C </kbd>               | Reformat and Cleanup...              |
@@ -23,6 +23,7 @@
 | <kbd>⌥ ⇧ ↑</kbd>                   | Previous Method                      |
 | <kbd>⌘ N</kbd>                     | New...                               |
 | <kbd>⌘ ⇧ N</kbd>                   | New Solution...                      |
+| <kbd>⌘ W</kbd>                     | Close Tab                            |
 | <kbd>⌘ ⇧ W</kbd>                   | Close All Tabs                       |
 | <kbd>⌘ \\</kbd>                    | Split and Move Right                 |
 | <kbd>⌘ ⌥ \\</kbd>                  | Move To Opposite Group               |
