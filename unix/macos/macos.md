@@ -251,6 +251,10 @@ sudo sysctl -w net.inet.ip.ttl=65   # Set value to 65
 sudo killall -HUP mDNSResponder
 ```
 
+```bash
+echo "alias flush-dns='sudo killall -HUP mDNSResponder'" >> ~/.zshrc
+```
+
 ### Install developers' applications
 
 1. Just move application into `/Applications` folder and open it
