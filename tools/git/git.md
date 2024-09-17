@@ -13,10 +13,6 @@
     - [Fetching](#fetching)
     - [Pulling](#pulling)
   - [Stash](#stash)
-    - [Pop](#pop)
-    - [Apply](#apply)
-    - [Drop](#drop)
-    - [Show](#show)
   - [Change commit date](#change-commit-date)
     - [macOS date](#macos-date)
   - [Update forked repository from original repository](#update-forked-repository-from-original-repository)
@@ -231,55 +227,51 @@ Since "git pull" tries to merge remote changes with your local ones, a so-called
 
 ## Stash
 
-```bash
-git stash
-# or:
-git stash push -m "My stash name"
-```
-
-At this point you're free to make changes, create new commits, switch branches, and perform any other Git operations; then come back and re-apply your stash when you're ready.
-
-Note that the stash is local to your Git repository; stashes are not transferred to the server when you push.
-
-### Pop
-
-You can reapply previously stashed changes with:
+List stashes:
 
 ```bash
-git stash pop
-git stash pop stash@{n}
+git stash list
 ```
 
-Popping your stash removes the changes from your stash and reapplies them to your working copy.
-
-### Apply
-
-Alternatively, you can reapply the changes to your working copy and keep them in your stash with:
-
-```bash
-git stash apply
-git stash apply stash@{n}
-```
-
-This is useful if you want to apply the same stashed changes to multiple branches.
-
-Now that you know the basics of stashing, there is one caveat with git stash you need to be aware of: by default Git _won't_ stash changes made to untracked or ignored files.
-
-### Drop
-
-```bash
-git stash drop            # drop top hash, stash@{0}
-git stash drop stash@{n}  # drop specific stash - see git stash list
-```
-
-### Show
+Show:
 
 ```bash
 git stash show -p
 git stash show -p stash@{n}  ## show specific stash
 ```
 
-[↑ Git stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash).
+Stash changes:
+
+```bash
+git stash
+# or:
+git stash push -m "My stash name"
+```
+
+The stash is local to your Git repository. Stashes are not transferred to the server when you push.
+
+By default Git _won't_ stash changes made to untracked or ignored files.
+
+Reapply changes and remove them from stash:
+
+```bash
+git stash pop
+git stash pop stash@{n}
+```
+
+Reapply changes and keep them in stash:
+
+```bash
+git stash apply
+git stash apply stash@{n}
+```
+
+Drop:
+
+```bash
+git stash drop            # drop top hash, stash@{0}
+git stash drop stash@{n}  # drop specific stash - see git stash list
+```
 
 ## Change commit date
 
