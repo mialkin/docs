@@ -1,14 +1,13 @@
 # Docker
 
-## Installing
+Docker is a platform designed to help developers build, share, and run container applications.
 
-On Linux, once Docker is installed, you need to add your user to the docker group (otherwise you'd have to run all docker commands with `sudo`, which could lead to security issues):
+## Table of contents
 
-```bash
-sudo usermod -aG docker $USER
-```
-
-Log out and log back in, so the changes will take effect.
+- [Docker](#docker)
+  - [Table of contents](#table-of-contents)
+  - [Commands](#commands)
+  - [Options](#options)
 
 ## Commands
 
