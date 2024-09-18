@@ -1,5 +1,7 @@
 # Ansible
 
+[↑ **Ansible**](https://www.ansible.com/) is a suite of software tools that enables infrastructure as code.
+
 Ansible is a:
 
 - simple automation language that can perfectly describe an IT application infrastructure in Ansible Playbooks.
