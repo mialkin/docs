@@ -30,7 +30,7 @@
 Run [`docker-compose.yaml`](docker-compose.yaml) file:
 
 ```bash
-docker-compose up --detach
+docker compose up --detach
 ```
 
 Create some test data:

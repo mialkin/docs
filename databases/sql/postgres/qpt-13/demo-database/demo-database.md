@@ -24,7 +24,7 @@
 Run Postgres with [docker-compose.yaml](docker-compose.yaml) file:
 
 ```bash
-docker-compose up --detach
+docker compose up --detach
 ```
 
 Restore [↑ demo database](https://postgrespro.com/community/demodb):

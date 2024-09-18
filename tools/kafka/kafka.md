@@ -72,7 +72,7 @@ A message that should be written to Kafka is referred to as a producer record. A
 ## Running Kafka in Docker
 
 ```bash
-docker-compose up -d
+docker compose up --detach
 ```
 
 Contents of `docker-compose.yaml` file:
