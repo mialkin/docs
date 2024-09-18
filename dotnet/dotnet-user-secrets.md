@@ -1,4 +1,4 @@
-# Secret Manager tool
+# `dotnet user-secrets`
 
 In the project directory run:
 
@@ -21,7 +21,7 @@ It will add a new `UserSecretsId` record to `.csproj` file:
 From the project directory run:
 
 ```bash
-dotnet user-secrets set "Connectio nStrings:SalesDatabase" "Server=localhost;Database=Sales;Trusted_Connection=True;"
+dotnet user-secrets set "ConnectionStrings:SalesDatabase" "Server=localhost;Database=Sales;Trusted_Connection=True;"
 ```
 
 List project's secrets:
@@ -44,10 +44,11 @@ This `cat ~/.microsoft/usersecrets/8bf536a6-2591-43de-9052-0e6781dec11e/secrets.
 }
 ```
 
-## More
-
 To see other available commands run:
 
 ```bash
 dotnet user-secrets
 ```
+
+
+
