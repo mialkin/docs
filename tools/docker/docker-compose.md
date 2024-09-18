@@ -43,7 +43,6 @@ Configuration options that are applied at build time.
 `build` can be specified either as a string containing a path to the build context:
 
 ```yaml
-version: "3.9"
 services:
   webapp:
     build: ./dir
@@ -52,7 +51,6 @@ services:
 Or, as an object with the path specified under `context` and optionally `Dockerfile` and `args`:
 
 ```yaml
-version: "3.9"
 services:
   webapp:
     build:
@@ -68,7 +66,6 @@ Express dependency between services.
 Simple example:
 
 ```yaml
-version: "3.9"
 services:
   web:
     build: .

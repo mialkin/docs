@@ -78,8 +78,6 @@ docker-compose up -d
 Contents of `docker-compose.yaml` file:
 
 ```yaml
-version: "3.9"
-
 services:
   schema-registry:
     image: confluentinc/cp-schema-registry:5.5.3

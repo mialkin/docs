@@ -36,8 +36,6 @@ KIBANA_PORT=2040
 The `docker-compose.yml` file:
 
 ```yml
-version: "3.9"
-
 services:
   elasticsearch:
     image: elasticsearch:7.17.6

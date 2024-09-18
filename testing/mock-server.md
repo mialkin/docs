@@ -11,8 +11,6 @@ API mocking is typically used during development and testing as it allows you to
 `docker-compose.yml` file:
 
 ```yaml
-version: "3.9"
-
 services:
   mockserver:
     image: mockserver/mockserver:5.15.0

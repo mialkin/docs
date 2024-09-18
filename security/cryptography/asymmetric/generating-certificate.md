@@ -56,8 +56,6 @@ dotnet dev-certs https --trust
 Create a **docker-compose.debug.yml** file with the following content:
 
 ```yml
-version: '3.4'
-
 services:
   webapp:
     image: mcr.microsoft.com/dotnet/core/samples:aspnetapp
@@ -78,4 +76,4 @@ Start the container with ASP.NET configured for HTTPS:
 docker-compose -f "docker-compose.debug.yml" up -d
 ```
 
-[↑ Hosting ASP.NET Core images with Docker over HTTPS](https://docs.microsoft.com/en-us/aspnet/core/security/docker-https)
+[↑ Hosting ASP.NET Core images with Docker over HTTPS](https://docs.microsoft.com/en-us/aspnet/core/security/docker-https).

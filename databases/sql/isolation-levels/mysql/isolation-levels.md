@@ -11,8 +11,6 @@
 `docker-compose.yaml` file:
 
 ```yaml
-# Use root/root as user/password credentials
-version: "3.9"
 
 services:
   mysql:
@@ -25,5 +23,5 @@ services:
     ports:
       - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root # Use "root" for both user and password
 ```
