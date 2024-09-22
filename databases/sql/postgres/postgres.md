@@ -80,7 +80,11 @@ Create `postgres` user as superuser:
 createuser -s postgres
 ```
 
-Restart PostgreSQL.
+Restart PostgreSQL:
+
+```bash
+brew services restart postgresql@16  
+```
 
 ### Ubuntu
 
