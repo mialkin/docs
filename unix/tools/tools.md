@@ -1,6 +1,7 @@
 # Tools
 
 - [Tools](#tools)
+  - [Print distribution name](#print-distribution-name)
   - [apt](#apt)
   - [chmod](#chmod)
   - [chown](#chown)
@@ -24,6 +25,12 @@
   - [telnet](#telnet)
   - [xargs](#xargs)
   - [xxd](#xxd)
+
+## Print distribution name
+
+```bash
+cat /etc/*-release
+```
 
 ## apt
 
