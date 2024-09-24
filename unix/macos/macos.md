@@ -7,6 +7,7 @@
     - [System](#system)
       - [Desktop \& Dock](#desktop--dock)
       - [Focus](#focus)
+      - [Trackpad](#trackpad)
   - [Applications](#applications)
     - [Brew](#brew)
     - [DBeaver Community](#dbeaver-community)
@@ -80,6 +81,10 @@ Click wallpaper to reveal desktop -> Only in Stage Manager.
 #### Focus
 
 Uncheck Focus -> Share across devices.
+
+#### Trackpad
+
+More gestures -> Swipe between pages -> Off
 
 ## Applications
 
