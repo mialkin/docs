@@ -36,6 +36,6 @@
 Key map: copy of Visual Studio (macOS) key map.
 
 1. Enable [↑ show diff on single click](https://stackoverflow.com/a/78967173/1833895).
-2. Editor -> General -> Code folding -> Markdown -> Collapse links
+2. Editor -> General -> Code folding -> Markdown -> uncheck `Collapse links`, `Collapse tables` and `Collapse table of contents`
 3. [↑ Enable external source debug](https://youtrack.jetbrains.com/issue/RIDER-33772/Debugger-does-not-stop-at-breakpoints-set-in-decompiled-code-of-external-library).
 4. [↑ Inline hint](https://www.jetbrains.com/help/rider/Inlay_Hints.html).
