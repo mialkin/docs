@@ -68,6 +68,7 @@
 - **Covariance** — ковариантность
 - **Creational design pattern** — порождающий шаблон проектирования
 - **Critical section** — критическая секция
+- **Cross-cutting concern** — сквозная функциональность/проблема
 - **Cross-origin resource sharing** — совместное использование ресурсов между разными источниками
 - **Cross-site request forgery** — межсайтовая подделка запроса
 - **Cross-site scripting** — межсайтовые сценарии
