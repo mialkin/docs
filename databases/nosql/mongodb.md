@@ -38,10 +38,14 @@ services:
 ```yaml
 services:
   neo4j:
-    image: neo4j:5.24.0
+    image: neo4j:5.24.1-ubi9
+    container_name: neo4j
+    restart: unless-stopped
     ports:
-      - 27017:27017
+      - 7474:7474
+      - 7687:7687
     environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: example
+      NEO4J_AUTH: neo4j/your_password123
+    volumes:
+      - ./volumes/neo4j/data:/data
 ```
