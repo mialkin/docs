@@ -27,7 +27,7 @@
 
 ### Docker
 
-`docker-compose.yml` file:
+`compose.yml` file:
 
 ```yaml
 services:

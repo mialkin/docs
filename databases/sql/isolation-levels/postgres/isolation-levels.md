@@ -32,7 +32,7 @@ The table also shows that PostgreSQL's repeatable read implementation does not a
 
 ## Running
 
-Run [`docker-compose.yaml`](docker-compose.yaml) file:
+Run [`compose.yaml`](compose.yaml) file:
 
 ```bash
 docker compose up --detach

@@ -21,7 +21,7 @@
 
 ## Installation
 
-Run Postgres with [docker-compose.yaml](docker-compose.yaml) file:
+Run Postgres with [compose.yaml](compose.yaml) file:
 
 ```bash
 docker compose up --detach

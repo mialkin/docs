@@ -4,16 +4,16 @@
 
 ## Commands
 
-| Command                                       | Description                                                                                                                 |
-| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| docker compose down --rmi all -v              | Stops containers and removes containers, networks, volumes, and images created by `up`                                      |
-| docker compose kill                           | Forces running containers to stop by sending a SIGKILL signal                                                               |
-| docker compose pull                           | Pulls images associated with a service defined in a docker-compose.yml, but does not start containers based on those images |
-| docker compose start                          | Starts existing containers for a service                                                                                    |
-| docker compose stop                           | Stops running containers without removing them                                                                              |
-| docker compose up                             | Builds, (re)creates, starts, and attaches to containers for a service                                                       |
-| docker compose up --detach                    | Run containers in the background in detached mode                                                                           |
-| docker compose up --force-recreate --build --detach | Updates existing containers by removing old ones and starting new ones                                                      |
+| Command                                             | Description                                                                                                          |
+| --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| docker compose down --rmi all -v                    | Stops containers and removes containers, networks, volumes, and images created by `up`                               |
+| docker compose kill                                 | Forces running containers to stop by sending a SIGKILL signal                                                        |
+| docker compose pull                                 | Pulls images associated with a service defined in a compose.yml, but does not start containers based on those images |
+| docker compose start                                | Starts existing containers for a service                                                                             |
+| docker compose stop                                 | Stops running containers without removing them                                                                       |
+| docker compose up                                   | Builds, (re)creates, starts, and attaches to containers for a service                                                |
+| docker compose up --detach                          | Run containers in the background in detached mode                                                                    |
+| docker compose up --force-recreate --build --detach | Updates existing containers by removing old ones and starting new ones                                               |
 
 ## Enable BuildKit
 

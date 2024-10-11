@@ -38,7 +38,7 @@ containerService.Stop();
 containerService.Remove();
 ```
 
-## Kafka example using docker-compose file
+## Kafka example using compose file
 
 ```csharp
 using Ductus.FluentDocker.Builders;
@@ -47,7 +47,7 @@ using Ductus.FluentDocker.Services.Extensions;
 using FluentAssertions;
 
 var file = Path.Combine(Directory.GetCurrentDirectory(),
-    (TemplateString) "/Users/j.doe/Downloads/docker-compose.yml");
+    (TemplateString) "/Users/j.doe/Downloads/compose.yml");
 
 using var compositeService = new Builder()
     .UseContainer()

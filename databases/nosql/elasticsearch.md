@@ -33,7 +33,7 @@ DEJAVU_PORT=2030
 KIBANA_PORT=2040
 ```
 
-The `docker-compose.yml` file:
+The `compose.yml` file:
 
 ```yml
 services:

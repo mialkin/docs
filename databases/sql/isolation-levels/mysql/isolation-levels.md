@@ -8,10 +8,9 @@
 
 ## Running
 
-`docker-compose.yaml` file:
+`compose.yaml` file:
 
 ```yaml
-
 services:
   mysql:
     image: mysql:8.4

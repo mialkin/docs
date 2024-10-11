@@ -19,7 +19,7 @@
 
 [↑ **Microsoft SQL Server**](https://en.wikipedia.org/wiki/Microsoft_SQL_Server), or **SQL Server** for short, is a proprietary relational database management system developed by Microsoft.
 
-`docker-compose.yaml` file:
+`compose.yaml` file:
 
 ```yaml
 services:

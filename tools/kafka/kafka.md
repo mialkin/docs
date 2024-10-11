@@ -75,7 +75,7 @@ A message that should be written to Kafka is referred to as a producer record. A
 docker compose up --detach
 ```
 
-Contents of `docker-compose.yaml` file:
+Contents of `compose.yaml` file:
 
 ```yaml
 services:

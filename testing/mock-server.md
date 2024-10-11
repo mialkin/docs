@@ -8,7 +8,7 @@ API mocking is typically used during development and testing as it allows you to
 
 ## Local run
 
-`docker-compose.yml` file:
+`compose.yml` file:
 
 ```yaml
 services:

@@ -4,7 +4,7 @@
 
 ## Run locally
 
-Download [↑ `docker-compose.yml`](https://github.com/Unleash/unleash/blob/main/docker-compose.yml) file and run it:
+Download [↑ `compose.yml`](https://github.com/Unleash/unleash/blob/main/compose.yml) file and run it:
 
 ```bash
 docker compose up --detach
