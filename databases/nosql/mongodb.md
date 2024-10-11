@@ -7,6 +7,7 @@
   - [MongoDB](#mongodb)
     - [Installation](#installation)
   - [Neo4j](#neo4j)
+    - [Cypher](#cypher)
 
 ## MongoDB
 
@@ -49,3 +50,9 @@ services:
     volumes:
       - ./volumes/neo4j/data:/data
 ```
+
+### Cypher
+
+[↑ Cypher](https://neo4j.com/docs/cypher-manual/current/introduction/cypher-overview/) is Neo4j's declarative graph query language.
+
+It was created in 2011 by Neo4j engineers as an SQL-equivalent language for graph databases. Similar to SQL, Cypher lets users focus on _what_ to retrieve from graph, rather than _how_ to retrieve it.
