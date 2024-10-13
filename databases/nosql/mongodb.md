@@ -10,6 +10,8 @@
     - [Installation](#installation-1)
     - [Basic concepts](#basic-concepts)
     - [Cypher](#cypher)
+      - [Commands](#commands)
+      - [Social graph](#social-graph)
 
 ## MongoDB
 
@@ -82,9 +84,61 @@ A **relationship property** is an abstraction that stores information shared by 
 
 [↑ Cypher](https://neo4j.com/docs/cypher-manual/current/introduction/cypher-overview/) is Neo4j's declarative graph query language.
 
-It was created in 2011 by Neo4j engineers as an SQL-equivalent language for graph databases. Similar to SQL, Cypher lets users focus on _what_ to retrieve from graph, rather than _how_ to retrieve it.
+It was created in 2011 by Neo4j engineers as an SQL-equivalent language for graph databases. Similar to SQL, Cypher lets users focus on _what_ to retrieve from graph, rather than _how_ to retrieve it. Cypher uses patterns to describe graph data.
+
+#### Commands
 
 | Command  | Description                                               |
 | -------- | --------------------------------------------------------- |
 | :clear   | Clear the stream of result frames                         |
 | :history | Bring up the history of the executed commands and queries |
+
+#### Social graph
+
+Let's use Cypher to generate a small social graph:
+
+```sql
+CREATE (ee:Person {name: 'Emil', from: 'Sweden', kloutScore: 99})
+```
+
+- `CREATE` creates the node
+- `()` indicates the node
+- `ee:Person` – `ee` is the node variable and `Person` is the node label
+- `{}` contains the properties that describe the node
+
+Find the node representing Emil:
+
+```sql
+MATCH (ee:Person) WHERE ee.name = 'Emil' RETURN ee;
+```
+
+- `MATCH` specifies a pattern of nodes and relationships (`ee:Person`) is a single node pattern with label `Person`. It assigns matches to the variable `ee`
+- `WHERE` filters the query
+- `ee.name = 'Emil'` compares name property to the value `Emil`
+- `RETURN` returns particular results
+
+The `CREATE` clause can create many nodes and relationships at once:
+
+```sql
+CREATE (js:Person { name: 'Johan', from: 'Sweden', learn: 'surfing' }),
+(ir:Person { name: 'Ian', from: 'England', title: 'author' }),
+(rvb:Person { name: 'Rik', from: 'Belgium', pet: 'Orval' }),
+(ally:Person { name: 'Allison', from: 'California', hobby: 'surfing' }),
+(ee)-[:KNOWS {since: 2001}]->(js),(ee)-[:KNOWS {rating: 5}]->(ir),
+(js)-[:KNOWS]->(ir),(js)-[:KNOWS]->(rvb),
+(ir)-[:KNOWS]->(js),(ir)-[:KNOWS]->(ally),
+(rvb)-[:KNOWS]->(ally)
+```
+
+A pattern that can be used to find Emil's friends:
+
+```sql
+MATCH (ee:Person)-[:KNOWS]-(friends)
+WHERE ee.name = 'Emil' RETURN ee, friends
+```
+
+- `MATCH` describes what nodes will be retrieved based upon the pattern
+- `(ee)` is the node reference that will be returned based upon the `WHERE` clause
+- `-[:KNOWS]-` matches the `KNOWS` relationships (in either direction) from `ee`
+- `(friends)` represents the nodes that are Emil's friends
+- `RETURN` returns the node, referenced here by `(ee)`, and the related `(friends)` nodes found
