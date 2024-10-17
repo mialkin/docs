@@ -12,7 +12,6 @@
   - [Fetching vs pulling](#fetching-vs-pulling)
     - [Fetching](#fetching)
     - [Pulling](#pulling)
-  - [Stash](#stash)
   - [Change commit date](#change-commit-date)
     - [macOS date](#macos-date)
   - [Update forked repository from original repository](#update-forked-repository-from-original-repository)
@@ -106,6 +105,16 @@ git config user.email
 | git rm --cached FILENAME                          | Remove a file from cache                                                        |
 | git rm -fr --cached FOLDER_NAME                   | Removes caches of FOLDER_NAME folder. You can use dot (`.`) instead of folder   |
 | git shortlog                                      | Summarizes git log so that each commit will be grouped by author and title      |
+| git stash apply                                   | Apply changes and keep them in stash                                            |
+| git stash apply stash@{n}                         | Apply changes and keep them in stash                                            |
+| git stash drop                                    | Drop top hash — `stash@{0}`                                                     |
+| git stash drop stash@{n}                          | Drop specific stash — see `git stash list`                                      |
+| git stash list                                    | List stashes                                                                    |
+| git stash pop                                     | Apply changes and remove them from stash                                        |
+| git stash pop stash@{n}                           | Apply changes and remove them from stash                                        |
+| git stash push -m "My stash name"                 | Stash changes with message                                                      |
+| git stash show                                    |                                                                                 |
+| git stash show -p stash@{n}                       | Show specific stash                                                             |
 | git tag                                           | List tags                                                                       |
 | git tag TAG_NAME                                  | Create a [↑ lightweight](https://git-scm.com/book/en/v2/Git-Basics-Tagging) tag |
 | git tag -a TAG_NAME -m 'Switch to Postgres'       | Create an annotated tag with message                                            |
@@ -224,54 +233,6 @@ git pull origin master
 This means that pull not only downloads new data; it also directly integrates it into your current working copy files.
 
 Since "git pull" tries to merge remote changes with your local ones, a so-called "merge conflict" can occur. It's highly recommended to start a "git pull" only with a clean working copy. This means that you should not have any uncommitted local changes before you pull. Use Git's stash feature to save your local changes temporarily.
-
-## Stash
-
-List stashes:
-
-```bash
-git stash list
-```
-
-Show:
-
-```bash
-git stash show -p
-git stash show -p stash@{n}  ## show specific stash
-```
-
-Stash changes:
-
-```bash
-git stash
-# or:
-git stash push -m "My stash name"
-```
-
-The stash is local to your Git repository. Stashes are not transferred to the server when you push.
-
-By default Git _won't_ stash changes made to untracked or ignored files.
-
-Reapply changes and remove them from stash:
-
-```bash
-git stash pop
-git stash pop stash@{n}
-```
-
-Reapply changes and keep them in stash:
-
-```bash
-git stash apply
-git stash apply stash@{n}
-```
-
-Drop:
-
-```bash
-git stash drop            # drop top hash, stash@{0}
-git stash drop stash@{n}  # drop specific stash - see git stash list
-```
 
 ## Change commit date
 
