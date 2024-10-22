@@ -26,6 +26,7 @@ A **.NET tool** is a special NuGet package that contains a console application.
       - [Microsoft.VisualStudio.Threading.Analyzers](#microsoftvisualstudiothreadinganalyzers)
         - [Rule prefixes](#rule-prefixes)
     - [Other code formatters](#other-code-formatters)
+  - [`dotnet-outdated`](#dotnet-outdated)
 
 ## `dotnet-ef`
 
@@ -172,3 +173,30 @@ You may want to use this analyzer because of the problem with `Async` in interfa
 [↑ Overview of .NET source code analysis](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview).
 
 [↑ Support Roslyn properties in editorconfig](https://youtrack.jetbrains.com/issue/RIDER-51400/Support-roslyn-properties-in-editorconfig).
+
+## `dotnet-outdated`
+
+[↑ `dotnet-outdated`](https://github.com/dotnet-outdated/dotnet-outdated) is a .NET Core global tool to display and update outdated NuGet packages in a project.
+
+Installation:
+
+```bash
+dotnet tool install --global dotnet-outdated-tool
+```
+
+Show outdated dependencies:
+
+```bash
+dotnet-outdated
+```
+
+```bash
+# dotnet-outdated Solution.sln
+# dotnet-outdated src/MyProject
+```
+
+Upgrade dependencies:
+
+```bash
+dotnet-outdated --upgrade
+```
