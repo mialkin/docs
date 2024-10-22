@@ -247,3 +247,21 @@ MATCH (nineties:Movie)
 WHERE nineties.released >= 1990 AND nineties.released < 2000
 RETURN nineties.title
 ```
+
+You might have heard of the classic "Six Degrees of Kevin Bacon". That is simply the shortest path between two nodes, called the "Bacon Path".
+
+Use variable length patterns to find movies and actors up to 4 "hops" away from Kevin Bacon.
+
+```sql
+MATCH (bacon:Person {name:"Kevin Bacon"})-[*1..4]-(hollywood)
+RETURN DISTINCT hollywood
+```
+
+Use the built-in `shortestPath()` algorithm to find the "Bacon Path" to Meg Ryan.
+
+```sql
+MATCH p=shortestPath(
+(bacon:Person {name:"Kevin Bacon"})-[*]-(meg:Person {name:"Meg Ryan"})
+)
+RETURN p
+```
