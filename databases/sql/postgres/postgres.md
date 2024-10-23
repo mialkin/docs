@@ -32,11 +32,11 @@
 ```yaml
 services:
   database:
-    image: postgres:16.2
+    image: postgres:17.0
     container_name: postgres
     restart: unless-stopped
     ports:
-      - "8420:5432"
+      - 8420:5432
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
