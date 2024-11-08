@@ -136,12 +136,14 @@ On client:
 
 ```bash
 ssh-copy-id aleksei@192.168.0.44
+# ssh-copy-id -i ~/.ssh/your-key.pub aleksei@192.168.0.44
 ```
 
 On server:
 
 ```bash
 sudo vim /etc/ssh/sshd_config
+# sudo vim /etc/ssh/sshd_config.d/50-cloud-init.conf
 ```
 
 Set:
