@@ -16,15 +16,11 @@ The [↑ `Stopwatch`](https://learn.microsoft.com/en-us/dotnet/api/system.diagno
 In a typical `Stopwatch` scenario, you call the `Start` method, then eventually call the `Stop` method, and then you check elapsed time using the `Elapsed` property:
 
 ```csharp
-var stopwatch = new Stopwatch();
-
-stopwatch.Start();
+var startTime = Stopwatch.GetTimestamp();
 Thread.Sleep(1234);
-stopwatch.Stop();
+var timeSpan = Stopwatch.GetElapsedTime(startTime);
 
-var timeSpan = stopwatch.Elapsed;
 var elapsedTime = $"{timeSpan.Hours:00}:{timeSpan.Minutes:00}:{timeSpan.Seconds:00}.{timeSpan.Milliseconds / 10:00}";
-
 Console.WriteLine(elapsedTime); // 00:00:01.23
 ```
 
