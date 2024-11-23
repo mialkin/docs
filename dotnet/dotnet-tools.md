@@ -27,6 +27,7 @@ A **.NET tool** is a special NuGet package that contains a console application.
         - [Rule prefixes](#rule-prefixes)
     - [Other code formatters](#other-code-formatters)
   - [`dotnet-outdated`](#dotnet-outdated)
+  - [.NET Aspire](#net-aspire)
 
 ## `dotnet-ef`
 
@@ -200,3 +201,37 @@ Upgrade dependencies:
 ```bash
 dotnet-outdated --upgrade
 ```
+
+## .NET Aspire
+
+Install the .NET Aspire templates:
+
+```bash
+dotnet new install Aspire.ProjectTemplates
+```
+
+List templates:
+
+```bash
+dotnet new list aspire
+```
+
+Create Aspire host application:
+
+```bash
+dotnet new aspire-apphost --name MyApp.Aspire.Host
+```
+
+In `launchSettings.json` file add:
+
+```json
+"ASPIRE_ALLOW_UNSECURED_TRANSPORT": "true"
+```
+
+Create Aspire service defaults application:
+
+```bash
+dotnet new aspire-servicedefaults  --name MyApp.Aspire.ServiceDefaults
+```
+
+[↑ Quickstart: Build your first .NET Aspire solution](https://learn.microsoft.com/en-us/dotnet/aspire/get-started/build-your-first-aspire-app?pivots=dotnet-cli).
