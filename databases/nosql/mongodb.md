@@ -6,6 +6,7 @@
   - [Table of contents](#table-of-contents)
   - [MongoDB](#mongodb)
     - [Installation](#installation)
+    - [Backups](#backups)
   - [Neo4j](#neo4j)
     - [Installation](#installation-1)
     - [Basic concepts](#basic-concepts)
@@ -36,6 +37,10 @@ services:
 ```
 
 [↑ Compass](https://www.mongodb.com/products/tools/compass) is a free interactive tool for querying, optimizing, and analyzing MongoDB data.
+
+### Backups
+
+[↑ Backup Methods for a Self-Managed Deployment](https://www.mongodb.com/docs/manual/core/backups/).
 
 ## Neo4j
 
