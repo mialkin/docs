@@ -56,7 +56,7 @@ git config --list --show-origin
     path = .gitconfig-work
 ```
 
-`.gitconfig-work`:
+`.gitconfig-work` (lies inside `~` folder next to `.gitconfig`):
 
 ```text
 [user]
