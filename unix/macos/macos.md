@@ -170,17 +170,6 @@ brew install --cask lunar
 
 [↑ Mos](https://mos.caldis.me) is a lightweight tool used to smooth scrolling and set scroll direction independently for your mouse on macOS.
 
-```bash
-brew install mos
-```
-
-`Ctrl` + `Click` to open application.
-
-```bash
-brew update
-brew reinstall mos
-```
-
 ### OBS
 
 [↑ OBS Studio](https://obsproject.com/) is free and open source software for video recording and live streaming.
@@ -239,7 +228,7 @@ echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PA
 
 [↑ Visual Studio Code](https://code.visualstudio.com)
 
-[↑ Install `code` command in PATH](https://stackoverflow.com/questions/29955500/code-is-not-working-in-on-the-command-line-for-visual-studio-code-on-os-x-ma).
+[↑ Install `code` command in PATH](https://stackoverflow.com/a/68273710/1833895).
 
 ## Miscellaneous
 
