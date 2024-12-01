@@ -31,10 +31,9 @@ ls -al ~/.ssh
 
 ```bash
 cd ~/.ssh
-ssh-keygen
-# ssh-keygen -f github
-# ssh-keygen -f gitlab
-# ssh-keygen -t ed25519
+ssh-keygen -f github
+ssh-keygen -f gitlab
+ssh-keygen -f gitflic
 ```
 
 If using multiple SSH keys don't forget to [set the right](#use-multiple-keys).
@@ -62,7 +61,7 @@ Only the public key is copied to the server. The private key should never be cop
 After that connect to server and make sure that your public key was added there:
 
 ```bash
-cat ~/.ssh/authorized_keys 
+cat ~/.ssh/authorized_keys
 ```
 
 ### Connect to server
@@ -117,15 +116,15 @@ vim .ssh/config
 Contents of the file:
 
 ```text
-Host myshortname realname.example.com
-    HostName realname.example.com
-    IdentityFile ~/.ssh/realname_rsa
-    User remoteusername
+Host github github.com
+    HostName github.com
+    IdentityFile ~/.ssh/github
+    User mialkin
 
-Host myother realname2.example.org
-    HostName realname2.example.org
-    IdentityFile ~/.ssh/realname2_rsa
-    User remoteusername2
+Host gitlab gitlab.com
+    HostName gitlab.com
+    IdentityFile ~/.ssh/gitlab
+    User mialkin
 ```
 
 ## SSH server
