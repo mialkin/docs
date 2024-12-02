@@ -9,6 +9,7 @@
 | <kbd>⌘ 1 </kbd>                    | Terminal                             |
 | <kbd>⌘ ⇧ 1 </kbd>                  | Open in Terminal                     |
 | <kbd>⌘ 2 </kbd>                    | Other -> Reveal in Finder            |
+| <kbd>⌘ ⇧ 2 </kbd>                  | Locate/Select in Solution View       |
 | <kbd>⌥ F1</kbd> , <kbd>1</kbd>     | Select Opened file                   |
 | <kbd>⌘ 4 </kbd>                    | Version Control                      |
 | <kbd>⌘ 7 </kbd>                    | Manage NuGet Packages for Solution   |
