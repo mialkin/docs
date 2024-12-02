@@ -5,16 +5,18 @@
 | Shortcut                           | Description                          |
 | ---------------------------------- | ------------------------------------ |
 | <kbd>⌘ ⏎ </kbd>                    | Show Context Actions                 |
+| <kbd>⌘ 0 </kbd>                    | Explorer                             |
 | <kbd>⌘ 1 </kbd>                    | Terminal                             |
 | <kbd>⌘ ⇧ 1 </kbd>                  | Open in Terminal                     |
 | <kbd>⌘ 2 </kbd>                    | Other -> Reveal in Finder            |
-| <kbd>⌘ 3 </kbd>                    | Version Control                      |
+| <kbd>⌥ F1</kbd> , <kbd>1</kbd>     | Select Opened file                   |
+| <kbd>⌘ 4 </kbd>                    | Version Control                      |
 | <kbd>⌘ 7 </kbd>                    | Manage NuGet Packages for Solution   |
 | <kbd>⌘ 8 </kbd>                    | dotMemory Profiler                   |
 | <kbd>⌥ ⇧ F </kbd>                  | Reformat Code                        |
-| <kbd>⌘ E, ⌘ C </kbd>               | Reformat and Cleanup...              |
-| <kbd>⌘ K, ⌘ C</kbd>                | Comment/Uncomment with Line Comment  |
-| <kbd>⇧ ⌘ K, ⇧ ⌘ C</kbd>            | Comment/Uncomment with Block Comment |
+| <kbd>⌘ E</kbd>, <kbd>⌘ C </kbd>    | Reformat and Cleanup...              |
+| <kbd>⌘ K</kbd>, <kbd>⌘ C</kbd>     | Comment/Uncomment with Line Comment  |
+| <kbd>⇧ ⌘ K</kbd>, <kbd>⇧ ⌘ C</kbd> | Comment/Uncomment with Block Comment |
 | <kbd>F12</kbd>, <kbd>⌘ Click</kbd> | Go to Declaration or Usages          |
 | <kbd>⌘ F12</kbd>                   | Implementation(s)                    |
 | <kbd>⌥ ↓</kbd>                     | Move Line Down                       |
