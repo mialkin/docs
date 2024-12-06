@@ -4,14 +4,14 @@
 
 | Shortcut                           | Description                          |
 | ---------------------------------- | ------------------------------------ |
-| <kbd>⌘ ⏎ </kbd>                    | Show Context Actions                 |
-| <kbd>⌘ 0 </kbd>                    | Explorer                             |
-| <kbd>⌘ 1 </kbd>                    | Terminal                             |
-| <kbd>⌘ ⇧ 1 </kbd>                  | Open in Terminal                     |
-| <kbd>⌘ 2 </kbd>                    | Other -> Reveal in Finder            |
-| <kbd>⌘ ⇧ 2 </kbd>                  | Locate/Select in Solution View       |
+| <kbd>⌘ ⏎</kbd>                     | Show Context Actions                 |
+| <kbd>⌘ 0</kbd>                     | Explorer                             |
+| <kbd>⌘ 1</kbd>                     | Terminal                             |
+| <kbd>⌘ ⇧ 1</kbd>                   | Open in Terminal                     |
+| <kbd>⌘ 2</kbd>                     | Other -> Reveal in Finder            |
+| <kbd>⌘ ⇧ 2</kbd>                   | Locate/Select in Solution View       |
 | <kbd>⌘ 3 </kbd>                    | Pin Active Tab                       |
-| <kbd>⌘ 4 </kbd>                    | Version Control                      |
+| <kbd>⌘ 4</kbd>                     | Open in Right Split                  |
 | <kbd>⌘ 7 </kbd>                    | Manage NuGet Packages for Solution   |
 | <kbd>⌘ 8 </kbd>                    | dotMemory Profiler                   |
 | <kbd>⌥ ⇧ F </kbd>                  | Reformat Code                        |
