@@ -11,7 +11,8 @@
 | <kbd>⌘ 2</kbd>                     | Other -> Reveal in Finder            |
 | <kbd>⌘ ⇧ 2</kbd>                   | Locate/Select in Solution View       |
 | <kbd>⌘ 3 </kbd>                    | Pin Active Tab                       |
-| <kbd>⌘ 4</kbd>                     | Open in Right Split                  |
+| <kbd>⌘ 4</kbd>                     | Split and Move Right                 |
+| <kbd>⌘ ⌥ 4</kbd>                   | Open in Right Split                  |
 | <kbd>⌘ 7 </kbd>                    | Manage NuGet Packages for Solution   |
 | <kbd>⌘ 8 </kbd>                    | dotMemory Profiler                   |
 | <kbd>⌥ ⇧ F </kbd>                  | Reformat Code                        |
