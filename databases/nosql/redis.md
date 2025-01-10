@@ -121,15 +121,21 @@ dotnet add package StackExchange.Redis
 
 Example using [↑ RedLock.net](https://github.com/samcook/RedLock.net) library:
 
+```bash
+dotnet add package RedLock.net
+```
+
 ```csharp
-services.AddTransient<IDistributedLockFactory>(sp =>
+services.AddTransient<IDistributedLockFactory>(serviceProvider =>
 {
-    var multiplexer = new RedLockMultiplexer(sp.GetRequiredService<IConnectionMultiplexer>());
-    return RedLockFactory.Create(new List<RedLockMultiplexer> { multiplexer });
+    var connectionMultiplexer = serviceProvider.GetRequiredService<IConnectionMultiplexer>();
+    var redLockMultiplexer = new RedLockMultiplexer(connectionMultiplexer);
+    return RedLockFactory.Create(new List<RedLockMultiplexer> { redLockMultiplexer })
 });
 
-using var redLock = await _distributedLockFactory
-    .CreateLockAsync("lockResourceName", TimeSpan.FromMinutes(10);
+await using var redLock = await distributedLockFactory.CreateLockAsync(
+    resource: "lockResourceName",
+    expiryTime: TimeSpan.FromMinutes(1));
 
 if (redLock.IsAcquired)
     DoStuff();
