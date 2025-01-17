@@ -17,6 +17,8 @@
 | <kbd>⌘ 8 </kbd>                    | dotMemory Profiler                   |
 | <kbd>⌥ ⇧ F </kbd>                  | Reformat Code                        |
 | <kbd>⌘ E</kbd>, <kbd>⌘ C </kbd>    | Reformat and Cleanup...              |
+| <kbd>⇧ ⌘ R</kbd>                   | Refactor this...                     |
+| <kbd>⌘ R</kbd>, <kbd>O</kbd>       | Refactor this... -> Move to Folder   |
 | <kbd>⌘ K</kbd>, <kbd>⌘ C</kbd>     | Comment/Uncomment with Line Comment  |
 | <kbd>⇧ ⌘ K</kbd>, <kbd>⇧ ⌘ C</kbd> | Comment/Uncomment with Block Comment |
 | <kbd>F12</kbd>, <kbd>⌘ Click</kbd> | Go to Declaration or Usages          |
