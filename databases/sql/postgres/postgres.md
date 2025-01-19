@@ -254,6 +254,8 @@ Meta-commands are often called _slash commands_ or _backslash commands_.
 
 ### `pg_dump`
 
+[↑ Install `psql` without full Postgres on macOS](https://stackoverflow.com/a/55564878/1833895).
+
 Dump a database called `MY_DATABASE` into an SQL-script file:
 
 ```bash
