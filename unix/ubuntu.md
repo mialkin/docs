@@ -98,8 +98,8 @@ watch sensors # see temperature values updating each second
 
 ```bash
 sudo apt update
-wget http://archive.ubuntu.com/ubuntu/pool/universe/h/hddtemp/hddtemp_0.3-beta15-54_amd64.deb
-sudo apt install hddtemp
+wget http://archive.ubuntu.com/ubuntu/pool/universe/h/hddtemp/hddtemp_0.3-beta15-53_amd64.deb  
+sudo apt install ./hddtemp_0.3-beta15-53_amd64.deb
 
 sudo watch hddtemp /dev/sda
 ```
