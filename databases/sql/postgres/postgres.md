@@ -252,6 +252,17 @@ Meta-commands are often called _slash commands_ or _backslash commands_.
 | `\q`               | Quit psql                                             |
 | `\! clear`         | As an alternative use `Ctrl + L` or `\! cls` commands |
 
+Restore database from SQL file:
+
+```bash
+psql \
+--host=localhost \
+--port=1234 \
+--username MY_USERNAME \
+--dbname MY_DATABASE \
+--dump.sql
+```
+
 ### `pg_dump`
 
 [↑ Install `psql` without full Postgres on macOS](https://stackoverflow.com/a/55564878/1833895).
