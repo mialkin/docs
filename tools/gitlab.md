@@ -273,16 +273,31 @@ First [↑ create a personal access token](https://docs.gitlab.com/ee/tutorials/
 export RUNNER_TOKEN=ABC123456xyz-example
 ```
 
+Register a runner:
+
 ```bash
 docker run \
 --rm \
---volume ~/srv/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-runner register \
+--volume ~/srv/gitlab-runner/config:/etc/gitlab-runner \
 --non-interactive \
 --url "https://gitlab.com/mialkin" \
 --token "$RUNNER_TOKEN" \
 --executor "docker" \
 --docker-image alpine:latest \
---description "docker-runner"
+--description "docker-runner" \
+gitlab/gitlab-runner register
+```
+
+Print help:
+
+```bash
+docker run --rm -t -i gitlab/gitlab-runner --help
+```
+
+Stop and remove the existing container:
+
+```bash
+docker stop gitlab-runner && docker rm gitlab-runner
 ```
 
 ### Runner registration
