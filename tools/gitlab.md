@@ -265,18 +265,25 @@ docker run \
 gitlab/gitlab-runner:latest
 ```
 
-Register the runner with a [↑ runner authentication token](https://docs.gitlab.com/ee/security/tokens/index.html#runner-authentication-tokens):
+Register the runner with a [↑ runner authentication token](https://docs.gitlab.com/ee/security/tokens/index.html#runner-authentication-tokens).
+
+First [↑ create a personal access token](https://docs.gitlab.com/ee/tutorials/automate_runner_creation/#create-a-personal-access-token) in GitLab on [↑ Access tokens](https://gitlab.com/-/user_settings/personal_access_tokens) page.
 
 ```bash
-docker run --rm -v /srv/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-runner register \
-  --non-interactive \
-  --url "https://gitlab.com/" \
-  --token "$RUNNER_TOKEN" \
-  --executor "docker" \
-  --docker-image alpine:latest \
-  --description "docker-runner"
+export RUNNER_TOKEN=ABC123456xyz-example
 ```
 
+```bash
+docker run \
+--rm \
+--volume ~/srv/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-runner register \
+--non-interactive \
+--url "https://gitlab.com/mialkin" \
+--token "$RUNNER_TOKEN" \
+--executor "docker" \
+--docker-image alpine:latest \
+--description "docker-runner"
+```
 
 ### Runner registration
 
