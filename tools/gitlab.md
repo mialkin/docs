@@ -25,6 +25,7 @@
     - [Docker](#docker)
       - [Run your CI/CD jobs in Docker containers](#run-your-cicd-jobs-in-docker-containers)
   - [GitLab Runner](#gitlab-runner)
+    - [Run GitLab Runner in a container](#run-gitlab-runner-in-a-container)
     - [Runner registration](#runner-registration)
     - [Executors](#executors)
       - [Shell executor](#shell-executor)
@@ -241,6 +242,41 @@ GitLab Runner is open-source and written in Go. It can be run as a single binary
 You can install GitLab Runner on several different supported operating systems. Other operating systems may also work, as long as you can compile a Go binary on them.
 
 GitLab Runner can also run inside a Docker container or be deployed into a Kubernetes cluster.
+
+### Run GitLab Runner in a container
+
+[↑ Run GitLab Runner in a container](https://docs.gitlab.com/runner/install/docker.html).
+
+In macOS `/srv` folder does not exist by default, create it:
+
+```bash
+mkdir ~/srv
+```
+
+Install GitLab Runner in a Docker container:
+
+```bash
+docker run \
+--detach \
+--name gitlab-runner \
+--restart always \
+--volume ~/srv/gitlab-runner/config:/etc/gitlab-runner \
+--volume /var/run/docker.sock:/var/run/docker.sock \
+gitlab/gitlab-runner:latest
+```
+
+Register the runner with a [↑ runner authentication token](https://docs.gitlab.com/ee/security/tokens/index.html#runner-authentication-tokens):
+
+```bash
+docker run --rm -v /srv/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-runner register \
+  --non-interactive \
+  --url "https://gitlab.com/" \
+  --token "$RUNNER_TOKEN" \
+  --executor "docker" \
+  --docker-image alpine:latest \
+  --description "docker-runner"
+```
+
 
 ### Runner registration
 
