@@ -109,6 +109,12 @@ More gestures -> Swipe between pages -> Off
 brew install exiftool
 ```
 
+Output image info:
+
+```bash
+exiftool a.jpg
+```
+
 Update image tags:
 
 ```bash
@@ -119,6 +125,18 @@ Compare two images:
 
 ```bash
 exiftool a.jpg -diff b.jpg --system:all -e
+```
+
+Only show files that have `DateTimeDigitized` set:
+
+```bash
+exiftool -filename -if '($datetimeoriginal)' . 
+```
+
+Only show files that do not have `DateTimeDigitized` set:
+
+```bash
+exiftool -filename -if 'not ($datetimeoriginal)' .
 ```
 
 ### FFmpeg
