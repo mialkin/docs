@@ -12,6 +12,7 @@
     - [Brew](#brew)
     - [DBeaver Community](#dbeaver-community)
     - [Etcher](#etcher)
+    - [ExifTool](#exiftool)
     - [FFmpeg](#ffmpeg)
     - [Fluor](#fluor)
     - [Gifox](#gifox)
@@ -99,6 +100,26 @@ More gestures -> Swipe between pages -> Off
 ### Etcher
 
 [↑ Etcher](https://etcher.balena.io) is a cross-platform tool to flash OS images onto SD cards and USB drives safely and easily.
+
+### ExifTool
+
+[↑ ExifTool](https://exiftool.org) is  a command-line application for reading, writing and editing meta information in a wide variety of files.
+
+```bash
+brew install exiftool
+```
+
+Update image tags:
+
+```bash
+exiftool -DateTimeDigitized="2015:08:15 00:00:00" -DateTimeOriginal="2015:08:15 00:00:00" filename.jpg
+```
+
+Compare two images:
+
+```bash
+exiftool a.jpg -diff b.jpg --system:all -e
+```
 
 ### FFmpeg
 
