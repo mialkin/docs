@@ -224,7 +224,11 @@
 - [Makefile](programming/makefile.md)
 - [Marshalling](programming/marshalling.md)
 - [Programming case types](programming/cases.md)
-- [Reviewing merge requests](programming/reviewing-merge-requests.md)
+- Reviewing merge requests
+  - [↑ Conventional commits](https://www.conventionalcommits.org)
+  - [↑ Code Review Guidelines](https://docs.gitlab.com/ee/development/code_review.html#best-practices)
+  - [↑ Tutorial: Review a merge request](https://docs.gitlab.com/ee/tutorials/reviews/#write-your-review-comments)
+  - [↑ How to get faster PR reviews](https://github.com/kubernetes/kubernetes/blob/release-1.5/docs/devel/faster_reviews.md)
 - [Scrum](programming/scrum/scrum.md)
 - [Serialization](programming/serialization.md)
 - [Time zones vs offsets](programming/time-zones-vs-offsets.md)
