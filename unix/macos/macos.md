@@ -103,7 +103,7 @@ More gestures -> Swipe between pages -> Off
 
 ### ExifTool
 
-[↑ ExifTool](https://exiftool.org) is  a command-line application for reading, writing and editing meta information in a wide variety of files.
+[↑ ExifTool](https://exiftool.org) is a command-line application for reading, writing and editing meta information in a wide variety of files.
 
 ```bash
 brew install exiftool
@@ -112,31 +112,44 @@ brew install exiftool
 Output image info:
 
 ```bash
-exiftool a.jpg
+exiftool image.jpg
 ```
 
 Update image tags:
 
 ```bash
-exiftool -DateTimeDigitized="2015:08:15 00:00:00" -DateTimeOriginal="2015:08:15 00:00:00" filename.jpg
+export THE_DATE="2016:08:01 00:00:03";
+exiftool -DateTimeDigitized=$THE_DATE -DateTimeOriginal=$THE_DATE image.jpg
 ```
 
 Compare two images:
 
 ```bash
-exiftool a.jpg -diff b.jpg --system:all -e
-```
-
-Only show files that have `DateTimeDigitized` set:
-
-```bash
-exiftool -filename -if '($datetimeoriginal)' . 
+exiftool image1.jpg -diff image2.jpg --system:all -e
 ```
 
 Only show files that do not have `DateTimeDigitized` set:
 
 ```bash
 exiftool -filename -if 'not ($datetimeoriginal)' .
+```
+
+Only show files that do not have `DateTimeDigitized` set:
+
+```bash
+exiftool -filename -if 'not ($datetimedigitized)' .
+```
+
+Get all time information about the image:
+
+```bash
+exiftool -time:all image.jpg
+```
+
+Move all files that don't have `DateTimeOriginal` tag set on them from current folder to a subfolder:
+
+```bash
+exiftool -if 'not $datetimeoriginal' -Directory=mysubfolder .
 ```
 
 ### FFmpeg
