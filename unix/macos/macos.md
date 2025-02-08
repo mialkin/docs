@@ -23,6 +23,7 @@
     - [LosslessCut](#losslesscut)
     - [Lunar](#lunar)
     - [Mos](#mos)
+    - [Nightfall](#nightfall)
     - [OBS](#obs)
     - [Rectangle](#rectangle)
     - [Rider](#rider)
@@ -221,6 +222,10 @@ brew install --cask lunar
 ### Mos
 
 [↑ Mos](https://mos.caldis.me) is a lightweight tool used to smooth scrolling and set scroll direction independently for your mouse on macOS.
+
+### Nightfall
+
+[↑ Nightfall](https://github.com/r-thomson/Nightfall/) is an application that lets you manage macOS's dark mode from the menu bar.
 
 ### OBS
 
