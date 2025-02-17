@@ -1,4 +1,17 @@
-# Schema Registry
+# Schema Registry, Avro
+
+## Table of contents
+
+- [Schema Registry, Avro](#schema-registry-avro)
+  - [Table of contents](#table-of-contents)
+  - [Schema Registry](#schema-registry)
+    - [Serde](#serde)
+  - [Avro](#avro)
+    - [Schemas](#schemas)
+    - [Key features](#key-features)
+    - [Links](#links)
+
+## Schema Registry
 
 [↑ Schema Registry](https://github.com/confluentinc/schema-registry) is a standalone server process that runs on a machine external to the Kafka brokers. Its job is to maintain a database of all of the schemas that have been written into topics in the cluster for which it is responsible.
 
@@ -14,6 +27,43 @@ Likewise on the consume side, if a consumer reads a message that has an incompat
 - [↑ Schema Evolution and Compatibility](https://docs.confluent.io/platform/current/schema-registry/avro.html#schema-evolution-and-compatibility)
 - [↑ Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines)
 
-## Serde
+### Serde
 
 Every Kafka Streams application must provide Serdes serializer/deserializer for the data types of record keys and record values to materialize the data when necessary.
+
+## Avro
+
+[↑ Avro](https://avro.apache.org/docs) is a data serialization system.
+
+Avro provides:
+
+- Rich data structures
+- A compact, fast, binary data format
+- A container file, to store persistent data
+- Remote procedure call (RPC)
+- Simple integration with dynamic languages. Code generation is not required to read or write data files nor to use or implement RPC protocols. Code generation as an optional optimization, only worth implementing for statically typed languages
+
+### Schemas
+
+Avro relies on schemas.
+
+When Avro data is read, the schema used when writing it is always present.
+
+When Avro data is stored in a file, its schema is stored with it, so that files may be processed later by any program.
+
+When Avro is used in RPC, the client and server exchange schemas in the connection handshake.
+
+Avro schemas are defined with JSON.
+
+[↑ Convert any Avro schema to C# model online](https://avroconvertonline.azurewebsites.net).
+
+### Key features
+
+Avro is highly popular in the big data world. It has two key features:
+
+- **compression** — data is well encoded and serialized to byte representation. Using advanced compression algorithms can only improve the size reduction.
+- **clear model** — the model of the data is delivered alongside the data itself. What is different, is the format. Model is represented in well-known and human-readable JSON format. It enables backward and forwards compatibility features, which is unique for this level of data compression.
+
+### Links
+
+[↑ Why Avro for Kafka Data?](https://www.confluent.io/blog/avro-kafka-data).
