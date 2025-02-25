@@ -294,6 +294,7 @@
 ## .NET
 
 - [.NET CLI, `dotnet new`](dotnet/cli.md)
+- [↑ .NET source browser](https://source.dot.net)
 - [.NET tools, `dotnet-ef`, `dotnet format`, `dotnet-outdated`, .NET Aspire](dotnet/dotnet-tools.md)
 - [`dotnet user-secrets`](dotnet/dotnet-user-secrets.md)
 - [Dependency injection in .NET](dotnet/dependency-injection-dotnet.md)
