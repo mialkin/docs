@@ -5,6 +5,7 @@
     - [Work vs personal credentials](#work-vs-personal-credentials)
   - [Commands](#commands)
   - [Push to multiple repositories](#push-to-multiple-repositories)
+  - [List remote branches and the last commit's author](#list-remote-branches-and-the-last-commits-author)
   - [.gitignore](#gitignore)
   - [Rebase](#rebase)
   - [Merge](#merge)
@@ -162,6 +163,19 @@ Example of resulting config:
 	remote = origin
 	merge = refs/heads/main
 ```
+
+## List remote branches and the last commit's author
+
+List remote branches and the last commit's author and author date for each branch.
+
+Sort by most recent commit's author date.
+
+```bash
+# https://gist.github.com/l15n/3103708
+for branch in `git branch -r | grep -v HEAD`;do echo -e `git show --format="%ai %ar by %an" $branch | head -n 1` \\t$branch; done | sort -r
+```
+
+Add `| grep "John Doe"` at the end, to filter output by specific author name.
 
 ## .gitignore
 
