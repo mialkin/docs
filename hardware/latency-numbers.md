@@ -1,4 +1,4 @@
-# Latency numbers. Power of two. Availability numbers
+# Latency numbers. Availability numbers. Power of two
 
 ## Latency numbers
 
@@ -31,18 +31,6 @@ By analyzing the numbers, we get the following conclusions:
 
 [↑ Interactive Latency Numbers Every Programmer Should Know](https://colin-scott.github.io/personal_website/research/interactive_latency.html).
 
-## Power of two
-
-Although data volume can become enormous when dealing with distributed systems, calculation all boils down to the basics. To obtain correct calculations, it is critical to know the data volume unit using the power of 2.
-
-| Power | Approximate value | Full name  | Short name |
-| ----- | ----------------- | ---------- | ---------- |
-| 10    | 1 Thousand        | 1 Kilobyte | 1 KB       |
-| 20    | 1 Million         | 1 Megabyte | 1 MB       |
-| 30    | 1 Billion         | 1 Gigabyte | 1 GB       |
-| 40    | 1 Trillion        | 1 Terabyte | 1 TB       |
-| 50    | 1 Quadrillion     | 1 Petabyte | 1 PB       |
-
 ## Availability numbers
 
 High availability is the ability of a system to be continuously operational for a desirably long
@@ -62,3 +50,15 @@ measured in nines. The more the nines, the better.
 | 99.99%         | 8.64 seconds        | 52.60 minutes     |
 | 99.999%        | 864.00 milliseconds | 5.26 minutes      |
 | 99.9999%       | 86.40 milliseconds  | 31.56 seconds     |
+
+## Power of two
+
+Although data volume can become enormous when dealing with distributed systems, calculation all boils down to the basics. To obtain correct calculations, it is critical to know the data volume unit using the power of 2.
+
+| Power | Approximate value | Full name  | Short name |
+| ----- | ----------------- | ---------- | ---------- |
+| 10    | 1 Thousand        | 1 Kilobyte | 1 KB       |
+| 20    | 1 Million         | 1 Megabyte | 1 MB       |
+| 30    | 1 Billion         | 1 Gigabyte | 1 GB       |
+| 40    | 1 Trillion        | 1 Terabyte | 1 TB       |
+| 50    | 1 Quadrillion     | 1 Petabyte | 1 PB       |
