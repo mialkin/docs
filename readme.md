@@ -94,7 +94,6 @@
   - [tmux](unix/tools/tmux.md)
   - [Vim](unix/tools/vim.md)
 - [Ubuntu](unix/ubuntu.md)
-- [User management](unix/user-managment.md)
 
 ## Databases
 
