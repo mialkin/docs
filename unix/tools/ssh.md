@@ -125,6 +125,13 @@ Host gitlab gitlab.com
     HostName gitlab.com
     IdentityFile ~/.ssh/gitlab
     User mialkin
+
+Host handy_server
+    HostName 10.11.12.13
+    IdentityFile ~/.ssh/handy
+    IdentitiesOnly yes
+    User handy_user
+    Port 22
 ```
 
 ## SSH server
