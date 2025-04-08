@@ -257,6 +257,7 @@
 - [POST vs PUT vs PATCH](networking/post-vs-put-vs-patch.md)
 - [REST, OpenAPI, egress vs ingress](networking/rest.md)
 - [`ping`, `traceroute`, Wireshark](networking/tools/tools.md)
+- [VPN](networking/vpn.md)
 
 ## Security
 
