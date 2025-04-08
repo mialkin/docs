@@ -1,16 +1,25 @@
 # Nginx
 
+[↑ Nginx](https://nginx.org) ("engine x") is an HTTP web server, reverse proxy, content cache, load balancer, TCP/UDP proxy server, and mail proxy server.
+
 ## Table of context
 
 - [Nginx](#nginx)
   - [Table of context](#table-of-context)
+  - [Installation](#installation)
   - [Configuration files](#configuration-files)
   - [Static website](#static-website)
   - [Reverse proxy](#reverse-proxy)
   - [HTML files](#html-files)
   - [Load balancing](#load-balancing)
   - [Permanent redirect from one page to another](#permanent-redirect-from-one-page-to-another)
-  - [Links](#links)
+
+## Installation
+
+```bash
+sudo apt update
+sudo apt install nginx
+```
 
 ## Configuration files
 
@@ -95,7 +104,3 @@ server {
   rewrite ^/old/url$ https://new.domain.ru/old/url permanent;
 }
 ```
-
-## Links
-
-[↑ Beginner's Guide](http://nginx.org/en/docs/beginners_guide.html).
