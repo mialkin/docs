@@ -8,8 +8,8 @@
 | <kbd>⌘ 0</kbd>                     | Explorer                             |
 | <kbd>⌘ 1</kbd>                     | Terminal                             |
 | <kbd>⌘ ⇧ 1</kbd>                   | Open in Terminal                     |
-| <kbd>⌘ 2</kbd>                     | Other -> Reveal in Finder            |
-| <kbd>⌘ ⇧ 2</kbd>                   | Locate/Select in Solution View       |
+| <kbd>⌘ 2</kbd>                     | Locate/Select in Solution View       |
+| <kbd>⌘ ⇧ 2</kbd>                   | Other -> Reveal in Finder            |
 | <kbd>⌘ 3 </kbd>                    | Pin Active Tab                       |
 | <kbd>⌘ 4</kbd>                     | Split and Move Right                 |
 | <kbd>⌘ ⌥ 4</kbd>                   | Open in Right Split                  |
