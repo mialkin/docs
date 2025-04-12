@@ -9,23 +9,21 @@
   - [Update packages](#update-packages)
   - [Set time zone](#set-time-zone)
   - [Set hostname](#set-hostname)
+  - [Create a user](#create-a-user)
   - [Grant user root priveleges](#grant-user-root-priveleges)
-  - [Stop Ubuntu from asking for password](#stop-ubuntu-from-asking-for-password)
+  - [Add a password to a user](#add-a-password-to-a-user)
+  - [Switch to a user](#switch-to-a-user)
+    - [Allow a user to connect via SSH](#allow-a-user-to-connect-via-ssh)
   - [Watch temperature](#watch-temperature)
     - [CPU](#cpu)
     - [SSD](#ssd)
   - [Enable/disable GUI for Ubuntu Desktop](#enabledisable-gui-for-ubuntu-desktop)
   - [Enable/disable Wi-Fi](#enabledisable-wi-fi)
   - [User management](#user-management)
-    - [Create a user](#create-a-user)
-    - [Switch to a user](#switch-to-a-user)
     - [List users](#list-users)
     - [Delete a user](#delete-a-user)
     - [Elevate user's permissions](#elevate-users-permissions)
     - [List all user groups](#list-all-user-groups)
-    - [Add a password to a user](#add-a-password-to-a-user)
-    - [Add a user to `sudo` group](#add-a-user-to-sudo-group)
-    - [Allow a user to connect via SSH](#allow-a-user-to-connect-via-ssh)
 
 ## Set up aliases
 
@@ -64,33 +62,61 @@ sudo hostnamectl set-hostname YOUR_HOSTNAME
 hostnamectl
 ```
 
+## Create a user
+
+```bash
+sudo adduser bob
+```
+
 ## Grant user root priveleges
 
 ```bash
-usermod -aG sudo username
+usermod -aG sudo bob
 ```
 
-## Stop Ubuntu from asking for password
-
-Change the line that says:
+## Add a password to a user
 
 ```bash
-sudo vim /etc/sudoers
+sudo passwd bob
 ```
 
-into:
+## Switch to a user
 
 ```bash
-%sudo  ALL=(ALL) NOPASSWD:ALL
+su bob
 ```
 
-or even:
+### Allow a user to connect via SSH
+
+Being logged in as a new user create new `.ssh` directory:
 
 ```bash
-%sudo  ALL=(ALL:ALL) NOPASSWD:ALL
+mkdir ~/.ssh
 ```
 
-Restart session.
+Copy your public key to `authorized_keys` file:
+
+```bash
+echo "PUBLIC_KEY_STRING" >> ~/.ssh/authorized_keys
+```
+
+Recursively remove all "group" and "other" permissions for the ~/.ssh/ directory:
+
+```bash
+chmod -R go= ~/.ssh
+```
+
+If you're using the root account to set up keys for a user account, it's also important that the `~/.ssh` directory belongs to the user and not to root:
+
+```bash
+chown -R bob:bob ~/.ssh
+```
+
+Test connection:
+
+```bash
+ssh bob@domain.xyz
+```
 
 ## Watch temperature
 
@@ -133,36 +159,12 @@ nmcli radio wifi on
 
 ## User management
 
-### Create a user
-
-Create a new user `sammy`:
-
-```bash
-sudo adduser sammy --disabled-password
-```
-
-The `--disabled-password` option will not set a password, meaning no password is legal, but login is still possible, for example with SSH RSA keys.
-
-### Switch to a user
-
-Switch to a user `sammy` that was created without password:
-
-```bash
-sudo -u sammy -s
-```
-
-Exit:
-
-```bash
-exit
-```
-
 ### List users
 
-Find out if a user with name `sammy` exists:
+Find out if a user with name `bob` exists:
 
 ```bash
-getent passwd | grep sammy
+getent passwd | grep bob
 ```
 
 Local user information is stored in the `/etc/passwd` file. Each line in this file represents login information for one user:
@@ -183,10 +185,10 @@ Each line in the file has seven fields delimited by colons that contain the foll
 
 ### Delete a user
 
-Delete user with its data including `/home/sammy` folder:
+Delete user with its data including `/home/bob` folder:
 
 ```bash
-sudo userdel -r sammy
+sudo userdel -r bob
 ```
 
 ### Elevate user's permissions
@@ -218,46 +220,3 @@ Show group to which current user belongs:
 groups
 ```
 
-### Add a password to a user
-
-```bash
-sudo passwd sammy
-```
-
-### Add a user to `sudo` group
-
-```bash
-usermod -aG sudo sammy
-```
-
-### Allow a user to connect via SSH
-
-Being logged in as a new user create new `.ssh` directory:
-
-```bash
-mkdir ~/.ssh
-```
-
-Copy your public key to `authorized_keys` file:
-
-```bash
-echo public_key_string >> ~/.ssh/authorized_keys
-```
-
-Recursively remove all "group" and "other" permissions for the ~/.ssh/ directory:
-
-```bash
-chmod -R go= ~/.ssh
-```
-
-If you're using the root account to set up keys for a user account, it's also important that the `~/.ssh` directory belongs to the user and not to root:
-
-```bash
-chown -R sammy:sammy ~/.ssh
-```
-
-Test connection:
-
-```bash
-ssh sammy@domain.xyz
-```
