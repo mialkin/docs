@@ -11,9 +11,11 @@
   - [Set hostname](#set-hostname)
   - [Create a user](#create-a-user)
   - [Grant user root priveleges](#grant-user-root-priveleges)
-  - [Switch to a user](#switch-to-a-user)
-    - [Allow a user to connect via SSH](#allow-a-user-to-connect-via-ssh)
+  - [Change SSH port](#change-ssh-port)
   - [Add a password to a user](#add-a-password-to-a-user)
+  - [Switch to a user](#switch-to-a-user)
+  - [Allow a user to connect via SSH](#allow-a-user-to-connect-via-ssh)
+  - [Disable password authentication](#disable-password-authentication)
   - [Delete a user](#delete-a-user)
   - [Watch temperature](#watch-temperature)
     - [CPU](#cpu)
@@ -76,13 +78,44 @@ The `--disabled-password` option will not set a password, meaning no password is
 usermod -aG sudo bob
 ```
 
+## Change SSH port
+
+```bash
+sudo vim /etc/ssh/sshd_config.d/50-cloud-init.conf
+```
+
+Add line:
+
+```text
+Port 22000
+```
+
+Restart the SSH server:
+
+```bash
+systemctl restart sshd
+# sudo systemctl restart ssh
+```
+
+When connecting to the server using the ssh command, you need to specify the port to connect using the `-p` flag:
+
+```bash
+ssh remote_username@remote_host -p SSH_PORT_NUMBER
+```
+
+## Add a password to a user
+
+```bash
+sudo passwd bob
+```
+
 ## Switch to a user
 
 ```bash
 su bob
 ```
 
-### Allow a user to connect via SSH
+## Allow a user to connect via SSH
 
 Being logged in as a new user create new `.ssh` directory:
 
@@ -94,6 +127,8 @@ Copy your public key to `authorized_keys` file:
 
 ```bash
 echo "PUBLIC_KEY_STRING" >> ~/.ssh/authorized_keys
+# Or run this on the client:
+# ssh-copy-id -i ~/.ssh/id_rsa.pub remote_username@remote_host
 ```
 
 Recursively remove all "group" and "other" permissions for the ~/.ssh/ directory:
@@ -114,10 +149,29 @@ Test connection:
 ssh bob@domain.xyz
 ```
 
-## Add a password to a user
+## Disable password authentication
 
 ```bash
-sudo passwd bob
+sudo vim /etc/ssh/sshd_config.d/50-cloud-init.conf
+```
+
+Replace:
+
+```text
+PasswordAuthentication yes
+```
+
+with
+
+```text
+PasswordAuthentication no
+```
+
+Restart the SSH server:
+
+```bash
+sudo systemctl restart sshd
+# sudo systemctl restart ssh
 ```
 
 ## Delete a user
@@ -221,4 +275,3 @@ Show group to which current user belongs:
 ```bash
 groups
 ```
-
