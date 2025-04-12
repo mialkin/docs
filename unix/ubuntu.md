@@ -11,9 +11,10 @@
   - [Set hostname](#set-hostname)
   - [Create a user](#create-a-user)
   - [Grant user root priveleges](#grant-user-root-priveleges)
-  - [Add a password to a user](#add-a-password-to-a-user)
   - [Switch to a user](#switch-to-a-user)
     - [Allow a user to connect via SSH](#allow-a-user-to-connect-via-ssh)
+  - [Add a password to a user](#add-a-password-to-a-user)
+  - [Delete a user](#delete-a-user)
   - [Watch temperature](#watch-temperature)
     - [CPU](#cpu)
     - [SSD](#ssd)
@@ -21,7 +22,6 @@
   - [Enable/disable Wi-Fi](#enabledisable-wi-fi)
   - [User management](#user-management)
     - [List users](#list-users)
-    - [Delete a user](#delete-a-user)
     - [Elevate user's permissions](#elevate-users-permissions)
     - [List all user groups](#list-all-user-groups)
 
@@ -65,19 +65,15 @@ hostnamectl
 ## Create a user
 
 ```bash
-sudo adduser bob
+sudo adduser bob --disabled-password
 ```
+
+The `--disabled-password` option will not set a password, meaning no password is legal, but login is still possible, for example with SSH RSA keys.
 
 ## Grant user root priveleges
 
 ```bash
 usermod -aG sudo bob
-```
-
-## Add a password to a user
-
-```bash
-sudo passwd bob
 ```
 
 ## Switch to a user
@@ -116,6 +112,20 @@ Test connection:
 
 ```bash
 ssh bob@domain.xyz
+```
+
+## Add a password to a user
+
+```bash
+sudo passwd bob
+```
+
+## Delete a user
+
+Delete user with its data including `/home/bob` folder:
+
+```bash
+sudo userdel -r bob
 ```
 
 ## Watch temperature
@@ -182,14 +192,6 @@ Each line in the file has seven fields delimited by colons that contain the foll
 - Full name of the user, GECOS
 - User home directory
 - Login shell, defaults to `/bin/bash`
-
-### Delete a user
-
-Delete user with its data including `/home/bob` folder:
-
-```bash
-sudo userdel -r bob
-```
 
 ### Elevate user's permissions
 
