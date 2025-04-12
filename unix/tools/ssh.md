@@ -14,6 +14,7 @@ The **Secure Shell** or **SSH** is a cryptographic network protocol for operatin
     - [Connect to server](#connect-to-server)
     - [`known_hosts` file](#known_hosts-file)
     - [Use multiple keys](#use-multiple-keys)
+    - [Fix "broken pipe" error](#fix-broken-pipe-error)
   - [SSH server](#ssh-server)
     - [Disable password authentication](#disable-password-authentication)
     - [Change SSH port](#change-ssh-port)
@@ -132,6 +133,22 @@ Host handy_server
     IdentitiesOnly yes
     User handy_user
     Port 22
+```
+
+### Fix "broken pipe" error
+
+Add this lines to `~/.ssh/config` on the client:
+
+```bash
+ServerAliveInterval 30
+ServerAliveCountMax 1200
+```
+
+Alternatively add this line `cat /etc/ssh/sshd_config` to on the server:
+
+```bash
+KeepAlive yes
+# or even this: TCPKeepAlive yes
 ```
 
 ## SSH server
