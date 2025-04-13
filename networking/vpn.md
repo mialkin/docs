@@ -53,6 +53,35 @@ Supports TLS 1.3 and XTLS (a more efficient TLS transport used mainly with VLESS
 
 [↑ 3X-UI](https://github.com/MHSanaei/3x-ui) is an open-source graphical management panel designed for configuring and managing Xray-core proxy servers. It provides a user-friendly web interface that simplifies the setup and administration of various proxy protocols.
 
+Nginx reverse proxy configuration:
+
+```bash
+server {
+  listen 443 ssl;
+  server_name your.site.com;
+
+  ssl_certificate /etc/letsencrypt/live/your.site.com/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/your.site.com/privkey.pem;
+
+  location / {
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header X-Forwarded-Proto $scheme;
+      proxy_set_header Host $http_host;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header Range $http_range;
+      proxy_set_header If-Range $http_if_range;
+      proxy_redirect off;
+      proxy_pass http://127.0.0.1:2053;
+  }
+}
+```
+
+```bash
+cd /etc/nginx/sites-enabled
+sudo unlink default
+sudo ln -s /etc/nginx/sites-available/3x-ui 3x-ui
+```
+
 If you forgot your login info, you can type 'x-ui settings' to check.
 
 ```text

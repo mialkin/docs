@@ -33,6 +33,7 @@ Default website:
 cd /etc/nginx/sites-enabled
 vim /etc/nginx/sites-available/default
 # Unlink default website: unlink default
+# Link website: sudo ln -s /etc/nginx/sites-available/your-site your-site
 ```
 
 Default website files:
