@@ -28,6 +28,20 @@ vim /etc/nginx/nginx.conf   # Default config file
 cd /etc/nginx/conf.d        # Additional config files
 ```
 
+Default website:
+
+```bash
+cd /etc/nginx/sites-enabled
+vim /etc/nginx/sites-available/default
+# Unlink default website: unlink default
+```
+
+Default website files:
+
+```bash
+cd /var/www/html
+```
+
 ## Static website
 
 Create config file for a domain:
