@@ -11,7 +11,6 @@
   - [Static website](#static-website)
   - [Reverse proxy](#reverse-proxy)
   - [HTML files](#html-files)
-  - [Load balancing](#load-balancing)
   - [Permanent redirect from one page to another](#permanent-redirect-from-one-page-to-another)
 
 ## Installation
@@ -104,12 +103,6 @@ sudo systemctl restart nginx
 cd /var/www/
 cd /usr/share/nginx/html/
 ```
-
-## Load balancing
-
-[↑ NGINX as a load balancer](https://www.youtube.com/watch?v=v81CzSeiQjo).
-
-[↑ HTTP Load Balancing](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/).
 
 ## Permanent redirect from one page to another
 
