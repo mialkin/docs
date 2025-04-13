@@ -144,6 +144,12 @@ You can revoke refresh tokens in case they become compromised.
 
 You can also use refresh token rotation so that every time a client exchanges a refresh token to get a new access token, a new refresh token is also returned. Therefore, you no longer have a long-lived refresh token that, if compromised, could provide illegitimate access to resources. As refresh tokens are continually exchanged and invalidated, the threat is reduced.
 
+The problem that refresh tokens are solving isn't "what if the token gets stolen". It's "what if we fire this guy, and we need revoke their access".
+
+The idea is that the access token gives the person access to distributed systems, and those systems don't need to 'phone home' to check if the access is legit, they can just examine the token directly.
+
+So what if the person gets fired and you need revoke access? Rather than the auth server having to keep track of the distributed systems, or the distributed systems having to check in with the auth server, the auth server can just not issue a new token. That way, the person has 10 minutes, or whatever the expiry is to do the damage (and that 10 minutes is going to be in a meeting informing them that they're fired).
+
 #### Access token
 
 An **access token** is a key that the client will use to communicate with the resource server.
