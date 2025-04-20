@@ -218,7 +218,7 @@ for (var i = 0; i < 5; i++) {
 - [↑ Tutorial: Write your first analyzer and code fix](https://learn.microsoft.com/en-us/dotnet/csharp/roslyn-sdk/tutorials/how-to-write-csharp-analyzer-code-fix)
   - [↑ Menees.Analyzers](https://github.com/menees/Analyzers/tree/master)
 - [↑ Inline и throw](https://habr.com/ru/articles/722374/)
-- `ArrayPool<T>`, <https://habr.com/ru/articles/723420>, <https://code-maze.com/csharp-arraypool-memory-optimization/>
+- `ArrayPool<T>`, <https://habr.com/ru/articles/723420>, <https://code-maze.com/csharp-arraypool-memory-optimization/>, <https://www.youtube.com/shorts/VVMF5vmmKS4>
 - <https://blog.stephencleary.com/2017/03/aspnetcore-synchronization-context.html>
 - [↑ Кирилл Бажайкин — Приемы экономии памяти в .NET](https://www.youtube.com/watch?v=f94Lmm5eTUw)
 - Как устроен StringBuilder под капотом?
