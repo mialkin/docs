@@ -30,6 +30,38 @@ The [↑ `PeriodicTimer`](https://learn.microsoft.com/en-us/dotnet/api/system.th
 
 [↑ Scheduling repeating tasks with .NET 6's new timer](https://www.youtube.com/watch?v=J4JL4zR_l-0).
 
+```csharp
+public class SampleBackgroundService(ILogger<SampleBackgroundService> logger)
+    : Microsoft.Extensions.Hosting.BackgroundService
+{
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    {
+        using PeriodicTimer timer = new(TimeSpan.FromMinutes(1));
+
+        while (!stoppingToken.IsCancellationRequested)
+        {
+            try
+            {
+                var duration = TimeSpan.FromSeconds(Random.Shared.Next(10, 50));
+                logger.LogInformation("Doing some business logic during {Duration}", duration);
+                await Task.Delay(duration, stoppingToken);
+                logger.LogInformation("Finished doing some business logic during {Duration}", duration);
+            }
+            catch (OperationCanceledException)
+            {
+                logger.LogInformation("Timed hosted service is stopping");
+            }
+            catch (Exception exception)
+            {
+                logger.LogError(exception, "Error occurred");
+            }
+
+            await timer.WaitForNextTickAsync(stoppingToken);
+        }
+    }
+}
+```
+
 ## `Progress<T>`
 
 The [↑ `Progress<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.progress-1) class provides an [↑ `IProgress<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.iprogress-1) that invokes callbacks for each reported progress value.
