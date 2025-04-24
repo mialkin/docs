@@ -15,6 +15,7 @@
 | <kbd>⌘ ⌥ 4</kbd>                   | Open in Right Split                  |
 | <kbd>⌘ 7 </kbd>                    | Manage NuGet Packages for Solution   |
 | <kbd>⌘ 8 </kbd>                    | dotMemory Profiler                   |
+| <kbd>⌥ Z </kbd>                    | Soft-Wrap                            |
 | <kbd>⌥ ⇧ F </kbd>                  | Reformat Code                        |
 | <kbd>⌘ E</kbd>, <kbd>⌘ C </kbd>    | Reformat and Cleanup...              |
 | <kbd>⇧ ⌘ R</kbd>                   | Refactor this...                     |
