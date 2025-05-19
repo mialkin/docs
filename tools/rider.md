@@ -48,6 +48,7 @@ Key map: copy of Visual Studio (macOS) key map.
 4. [↑ Enable external source debug](https://youtrack.jetbrains.com/issue/RIDER-33772/Debugger-does-not-stop-at-breakpoints-set-in-decompiled-code-of-external-library).
 5. [↑ Inline hint](https://www.jetbrains.com/help/rider/Inlay_Hints.html).
 6. Editor -> General -> Code Folding -> Markdown -> Collapse links, collapse TOC
+7. Editor -> General -> Code Folding -> General -> Imports (uncheck)
 
 TypeScript:
 
