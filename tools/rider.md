@@ -32,6 +32,8 @@
 | <kbd>⌘ ⇧ N</kbd>                   | New Solution...                      |
 | <kbd>⌘ W</kbd>                     | Close Tab                            |
 | <kbd>⌘ ⇧ W</kbd>                   | Close All Tabs                       |
+| <kbd>⌘ M</kbd>, <kbd>⌘ O</kbd>     | Collapse to Definitions              |
+| <kbd>⌘ M</kbd>, <kbd>⌘ P</kbd>     | Expand All                           |
 | <kbd>⌘ \\</kbd>                    | Split and Move Right                 |
 | <kbd>⌘ ⌥ \\</kbd>                  | Move To Opposite Group               |
 | <kbd>⌘ K</kbd>                     | Clear Terminal                       |
