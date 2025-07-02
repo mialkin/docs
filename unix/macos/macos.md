@@ -281,6 +281,10 @@ echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PA
 }
 ```
 
+| Shortcut         | Description                   |
+| ---------------- | ----------------------------- |
+| <kbd>⌘ ⇧ L</kbd> | Selection -> Split into Lines |
+
 ### Visual Studio Code
 
 [↑ Visual Studio Code](https://code.visualstudio.com)
