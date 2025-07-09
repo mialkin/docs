@@ -5,6 +5,7 @@
 | Shortcut                           | Description                          |
 | ---------------------------------- | ------------------------------------ |
 | <kbd>⌘ ⏎</kbd>                     | Show Context Actions                 |
+| <kbd>⌘ E</kbd>                     | Recent files                         |
 | <kbd>⌘ 0</kbd>                     | Explorer                             |
 | <kbd>⌘ 1</kbd>                     | Terminal                             |
 | <kbd>⌘ ⇧ 1</kbd>                   | Open in Terminal                     |
