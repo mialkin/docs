@@ -1,19 +1,25 @@
-# Idempotence
+# Idempotence. Safe and idempotent HTTP methods
 
 An **idempotence** is the property that an operation may be applied multiple times with the result not differing from the first application.
 
 A typical crosswalk button is an example of an idempotent system.
 
-In RabbitMQ declaring a queue is idempotent — it will only be created if it doesn't exist already.
+## Safe and idempotent HTTP methods
 
-## RESTful services
+A **safe HTTP method** is a HTTP method that doesn't alter the state of the server. Safe HTTP methods: `GET`, `HEAD`, `OPTIONS`, `TRACE`, `PUT` and `DELETE`.
 
-From a RESTful service standpoint, for an operation to be idempotent, clients can make that same call repeatedly while producing the same result. In other words, making multiple identical requests has the same effect as making a single request.
+All safe methods are also _idempotent_, but not all idempotent methods are safe. For example, `PUT` and `DELETE` are both idempotent but unsafe.
 
-## HTTP methods
+An **idempotent HTTP method** is a HTTP method that can be called many times without causing unintended side effects. Idempotent HTTP methods: `GET`, `HEAD`, `PUT`, `DELETE`, `OPTIONS`, and `TRACE`.
 
-Idempotence is an important property of some HTTP methods, ensuring that executing the same request multiple times produces the same result as if it was performed only once.
+Not idempotent HTTP methods: `POST`, `PATCH`.
 
-GET, HEAD, PUT, DELETE, OPTIONS, and TRACE are idempotent methods, meaning they are safe to be retried or executed multiple times without causing unintended side effects.
-
-In contrast, POST and PATCH are generally considered non-idempotent, as their outcomes may vary with each request.
+| **Name**    | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **POST**    | Use `POST` to create a new resource                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| **PUT**     | Use `PUT` to modify a resource. `PUT` updates the entire resource with data that is passed in the body payload. If there is no resource that matches the request, it will create a new resource. With `PUT` you need to pass in data to update the entire resource, even if you only want to modify one field. If you just want to update part of your resource, you still need to send in data for the entire resource when you make a `PUT` request. The better-suited option here would be `PATCH`. |
+| **PATCH**   | A PATCH is not necessarily idempotent, although it can be. Contrast this with `PUT`; which is always idempotent. For example if an auto-incrementing counter field is an integral part of the resource, then a `PUT` will naturally overwrite it, since it overwrites everything, but not necessarily so for `PATCH`                                                                                                                                                                                   |
+| **HEAD**    | Similar to `GET` but returns only headers, no body. Used to check metadata                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **OPTIONS** | Describes the communication options for the target resource                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| **TRACE**   | Echoes the received request, used for debugging purposes                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| **CONNECT** | Establishes a tunnel to the server, typically used for HTTPS over a proxy                                                                                                                                                                                                                                                                                                                                                                                                                              |
