@@ -385,13 +385,13 @@
 - [Statement](csharp/statement.md)
 - [`throw`, `try`, `catch`, `finally`](csharp/throw-try-catch-finally.md)
 - Types
-  - [Value types, `ValueType`, boxing and unboxing](csharp/types/value-types/value-types.md)
+  - [Value types. Value types vs reference types. `ValueType`. Boxing and unboxing](csharp/types/value-types/value-types.md)
     - [↑ Built-in value types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types#built-in-value-types)
       - [`char`, `ref struct`](csharp/types/value-types/char.md)
     - [Enumeration types, `[Flags]`](csharp/types/value-types/enum-types.md)
     - [Structure types, `Span<T>`](csharp/types/value-types/struct-types.md)
     - [↑ Tuple types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples)
-  - [Reference types, nullable reference types](csharp/types/reference-types/reference-types.md)
+  - [Reference types. Reference types vs value types. Nullable reference types](csharp/types/reference-types/reference-types.md)
     - Built-in reference types
       - [`delegate`](csharp/types/reference-types/delegate.md)
       - [`object`, `dynamic`, overriding `GetHashCode` and `Equals`](csharp/types/reference-types/object.md)

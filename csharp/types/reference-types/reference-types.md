@@ -1,10 +1,11 @@
-# Reference types, nullable reference types
+# Reference types. Reference types vs value types. Nullable reference types
 
 ## Table of contents
 
-- [Reference types, nullable reference types](#reference-types-nullable-reference-types)
+- [Reference types. Reference types vs value types. Nullable reference types](#reference-types-reference-types-vs-value-types-nullable-reference-types)
   - [Table of contents](#table-of-contents)
   - [Reference types](#reference-types)
+  - [Reference types vs value types](#reference-types-vs-value-types)
   - [Nullable reference types](#nullable-reference-types)
 
 ## Reference types
@@ -22,7 +23,15 @@ C# also provides the following built-in reference types:
 - [`object`](object.md)
 - [`string`](string/string.md)
 
+Arrays are reference types.
+
 [↑ Built-in reference types (C# reference)](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/reference-types).
+
+## Reference types vs value types
+
+The difference: value types are copied by value and reference types are copied by reference.
+
+[↑ The Stack Is An Implementation Detail, Part One](https://learn.microsoft.com/en-us/archive/blogs/ericlippert/the-stack-is-an-implementation-detail-part-one).
 
 ## Nullable reference types
 

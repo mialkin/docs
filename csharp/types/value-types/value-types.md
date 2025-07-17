@@ -1,4 +1,4 @@
-# Value types, `ValueType`, boxing and unboxing
+# Value types. Value types vs reference types. `ValueType`. Boxing and unboxing
 
 [↑ Value types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types) and [reference types](../reference-types.md) are the two main categories of C# types.
 
@@ -13,11 +13,18 @@ A value type can be one of the two following kinds:
 
 ## Table of contents
 
-- [Value types, `ValueType`, boxing and unboxing](#value-types-valuetype-boxing-and-unboxing)
+- [Value types. Value types vs reference types. `ValueType`. Boxing and unboxing](#value-types-value-types-vs-reference-types-valuetype-boxing-and-unboxing)
   - [Table of contents](#table-of-contents)
+  - [Value types vs reference types](#value-types-vs-reference-types)
   - [`ValueType`](#valuetype)
   - [Boxing and unboxing](#boxing-and-unboxing)
     - [Performance](#performance)
+
+## Value types vs reference types
+
+The difference: value types are copied by value and reference types are copied by reference.
+
+[↑ The Stack Is An Implementation Detail, Part One](https://learn.microsoft.com/en-us/archive/blogs/ericlippert/the-stack-is-an-implementation-detail-part-one).
 
 ## `ValueType`
 
