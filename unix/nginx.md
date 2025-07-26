@@ -12,6 +12,7 @@
   - [Reverse proxy](#reverse-proxy)
   - [HTML files](#html-files)
   - [Permanent redirect from one page to another](#permanent-redirect-from-one-page-to-another)
+  - [Certbot](#certbot)
 
 ## Installation
 
@@ -111,4 +112,24 @@ cd /usr/share/nginx/html/
 server {
   rewrite ^/old/url$ https://new.domain.ru/old/url permanent;
 }
+```
+
+## Certbot
+
+Install [↑ Certbot](https://certbot.eff.org/) for Nginx on Ubuntu:
+
+```bash
+sudo snap install --classic certbot
+```
+
+Get a certificate and have Certbot edit your nginx configuration automatically to serve it, turning on HTTPS access in a single step:
+
+```bash
+sudo certbot --nginx
+```
+
+Test automatic renewal for your certificates:
+
+```bash
+sudo certbot renew --dry-run
 ```
