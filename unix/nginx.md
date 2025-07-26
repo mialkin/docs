@@ -84,6 +84,8 @@ Example of a config file:
 ```text
 server  {
   server_name sub.domain.ru;
+  #proxy_set_header Host $host; # Turn this on in case of localhost redirect
+
   location / {
     proxy_pass http://localhost:5000;
   }
