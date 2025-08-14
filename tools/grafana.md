@@ -1,31 +1,15 @@
-# Grafana
-
-**Grafana** is an open source visualization and analytics platform.
-
-Grafana page at localhost is <http://localhost:3000>.
-
-[↑ Grafana fundamentals](https://grafana.com/tutorials/grafana-fundamentals).
-
-[↑ Grafana tutorials](https://grafana.com/tutorials).
+# Grafana. Grafana Loki
 
 ## Table of contents
 
-- [Grafana](#grafana)
+- [Grafana. Grafana Loki](#grafana-grafana-loki)
   - [Table of contents](#table-of-contents)
-  - [Run](#run)
-  - [Basics](#basics)
-  - [Connect to Prometheus](#connect-to-prometheus)
-  - [Visualizations](#visualizations)
-  - [Data sources](#data-sources)
+  - [Grafana](#grafana)
   - [Grafana Loki](#grafana-loki)
 
-## Run
+## Grafana
 
-```bash
-docker run --detach --publish 3000:3000 --name=grafana grafana/grafana-enterprise
-```
-
-## Basics
+[↑ Grafana](https://grafana.com/grafana/) is an open source visualization and analytics platform.
 
 A **dashboard** is a set of one or more *panels* organized and arranged into one or more *rows*.
 
@@ -39,19 +23,14 @@ Each panel has a query editor specific to the data source selected in the panel.
 
 The query defines *what* data you want to display, whereas the visualization defines *how* the data is displayed.
 
-## Connect to Prometheus
-
-**Configuration** (gear icon) → **Data Sources** → `http://host.docker.internal:9090`
-
-## Visualizations
-
 Grafana offers a variety of [↑ visualizations](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations) to support different use cases.
 
 You can explore [↑ play.grafana.org](https://play.grafana.org) which has a large set of demo dashboards that showcase all the different visualizations.
 
-## Data sources
+Grafana comes with built-in support for many [↑ data sources](https://grafana.com/docs/grafana/latest/datasources).
 
-[↑ Data sources](https://grafana.com/docs/grafana/latest/datasources).
+To connect Grafana to Prometheus go to:
+**Configuration** (gear icon) → **Data Sources** → `http://host.docker.internal:9090`
 
 ## Grafana Loki
 
