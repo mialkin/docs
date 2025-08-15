@@ -52,7 +52,7 @@
 - [Docusaurus](tools/docusaurus.md)
 - [Git](tools/git/git.md)
 - [GitLab](tools/gitlab.md)
-- [Grafana. Loki. Alloy](tools/grafana.md)
+- [Grafana. Loki. Tempo. Alloy](tools/grafana.md)
 - [C4, Graphviz, PlantUML, Mermaid](tools/c4.md)
 - [Jaeger](tools/jaeger.md)
 - [Jenkins](tools/jenkins.md)

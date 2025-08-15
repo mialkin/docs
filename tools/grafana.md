@@ -1,11 +1,12 @@
-# Grafana. Loki. Alloy
+# Grafana. Loki. Tempo. Alloy
 
 ## Table of contents
 
-- [Grafana. Loki. Alloy](#grafana-loki-alloy)
+- [Grafana. Loki. Tempo. Alloy](#grafana-loki-tempo-alloy)
   - [Table of contents](#table-of-contents)
   - [Grafana](#grafana)
   - [Loki](#loki)
+  - [Tempo](#tempo)
   - [Alloy](#alloy)
 
 ## Grafana
@@ -38,6 +39,10 @@ To connect Grafana to Prometheus go to:
 [↑ Grafana Loki](https://grafana.com/docs/loki/latest) is a set of components that can be composed into a fully featured logging stack.
 
 Unlike other logging systems, Loki is built around the idea of only indexing metadata about your logs’ labels (just like Prometheus labels). Log data itself is then compressed and stored in chunks in object stores such as Amazon Simple Storage Service (S3) or Google Cloud Storage (GCS), or even locally on the filesystem.
+
+## Tempo
+
+[↑ Grafana Tempo](https://grafana.com/docs/tempo/latest/) is an open-source, easy-to-use, and high-scale distributed tracing backend.
 
 ## Alloy
 
