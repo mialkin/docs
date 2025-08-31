@@ -4,19 +4,9 @@
 
 - [Ubuntu](#ubuntu)
   - [Table of contents](#table-of-contents)
-  - [Set up aliases](#set-up-aliases)
-  - [Disable welcome message after SSH login](#disable-welcome-message-after-ssh-login)
-  - [Update packages](#update-packages)
-  - [Set time zone](#set-time-zone)
-  - [Set hostname](#set-hostname)
-  - [Create a user](#create-a-user)
-  - [Grant user root priveleges](#grant-user-root-priveleges)
-  - [Change SSH port](#change-ssh-port)
-  - [Add a password to a user](#add-a-password-to-a-user)
-  - [Switch to a user](#switch-to-a-user)
-  - [Allow a user to connect via SSH](#allow-a-user-to-connect-via-ssh)
-  - [Disable password authentication](#disable-password-authentication)
-  - [Delete a user](#delete-a-user)
+  - [VPS harderning](#vps-harderning)
+  - [Create a user and allow him to connect via SSH](#create-a-user-and-allow-him-to-connect-via-ssh)
+  - [Change SSH port and disable password authentication](#change-ssh-port-and-disable-password-authentication)
   - [Watch temperature](#watch-temperature)
     - [CPU](#cpu)
     - [SSD](#ssd)
@@ -26,121 +16,58 @@
     - [List users](#list-users)
     - [Elevate user's permissions](#elevate-users-permissions)
     - [List all user groups](#list-all-user-groups)
+  - [Disable welcome message after SSH login](#disable-welcome-message-after-ssh-login)
+  - [Set time zone](#set-time-zone)
+  - [Set hostname](#set-hostname)
 
-## Set up aliases
+## VPS harderning
+
+Set up aliases:
 
 ```bash
-echo "alias ll='ls -la'" >> ~/.bashrc && \
 echo "alias cls='clear'" >> ~/.bashrc
+# echo "alias ll='ls -la'" >> ~/.bashrc
 ```
 
-## Disable welcome message after SSH login
+Update packages:
 
-```sh
-sudo chmod -x /etc/update-motd.d/*
+```bash
+sudo apt update && sudo apt upgrade -y
+sudo apt install htop curl wget git vim -y
+sudo apt autoremove -y
 ```
 
-## Update packages
+Fix "broken pipe" error by uncommenting `TCPKeepAlive yes` line:
 
-```sh
-sudo apt update
-sudo apt upgrade
+```bash
+vim /etc/ssh/sshd_config
+```
+
+```bash
 sudo systemctl reboot
 ```
 
-## Set time zone
+## Create a user and allow him to connect via SSH
 
-```sh
-timedatectl
-timedatectl list-timezones
-sudo timedatectl set-timezone Europe/Moscow
-date
-```
-
-## Set hostname
+Create a user and append this user to the group `sudo`:
 
 ```bash
-sudo hostnamectl set-hostname YOUR_HOSTNAME
-hostnamectl
+sudo adduser myuser
+# sudo userdel -r myuser
+usermod -aG sudo myuser
 ```
 
-## Create a user
+Switch to a user:
 
 ```bash
-sudo adduser bob --disabled-password
+su myuser
+cd
 ```
 
-The `--disabled-password` option will not set a password, meaning no password is legal, but login is still possible, for example with SSH RSA keys.
-
-## Grant user root priveleges
+Run this on the client:
 
 ```bash
-usermod -aG sudo bob
-```
-
-## Change SSH port
-
-```bash
-sudo vim /etc/ssh/sshd_config.d/50-cloud-init.conf
-```
-
-Add line:
-
-```text
-Port 22000
-```
-
-Restart the SSH server:
-
-```bash
-systemctl restart sshd
-# sudo systemctl restart ssh
-```
-
-When connecting to the server using the ssh command, you need to specify the port to connect using the `-p` flag:
-
-```bash
-ssh remote_username@remote_host -p SSH_PORT_NUMBER
-```
-
-## Add a password to a user
-
-```bash
-sudo passwd bob
-```
-
-## Switch to a user
-
-```bash
-su bob
-```
-
-## Allow a user to connect via SSH
-
-Being logged in as a new user create new `.ssh` directory:
-
-```bash
-mkdir ~/.ssh
-```
-
-Copy your public key to `authorized_keys` file:
-
-```bash
-echo "PUBLIC_KEY_STRING" >> ~/.ssh/authorized_keys
-# Or run this on the client:
-# ssh-copy-id -i ~/.ssh/id_rsa.pub remote_username@remote_host
-```
-
-Recursively remove all "group" and "other" permissions for the ~/.ssh/ directory:
-
-```bash
-chmod -R go= ~/.ssh
-```
-
-If you're using the root account to set up keys for a user account, it's also important that the `~/.ssh` directory belongs to the user and not to root:
-
-```bash
-chown -R bob:bob ~/.ssh
+ssh-copy-id -i ~/.ssh/key.pub myuser@remote_host
 ```
 
 Test connection:
@@ -149,37 +76,32 @@ Test connection:
 ssh bob@domain.xyz
 ```
 
-## Disable password authentication
+## Change SSH port and disable password authentication
 
 ```bash
 sudo vim /etc/ssh/sshd_config.d/50-cloud-init.conf
 ```
 
-Replace:
-
-```text
-PasswordAuthentication yes
-```
-
-with
+Add line:
 
 ```text
 PasswordAuthentication no
+Port 22000
 ```
 
-Restart the SSH server:
+Reboot:
 
 ```bash
-sudo systemctl restart sshd
-# sudo systemctl restart ssh
+sudo reboot
+# Alternatively run:
+#systemctl restart ssh
+#systemctl restart sshd
 ```
 
-## Delete a user
-
-Delete user with its data including `/home/bob` folder:
+When connecting to the server using the ssh command, you need to specify the port to connect using the `-p` flag:
 
 ```bash
-sudo userdel -r bob
+ssh remote_username@remote_host -p SSH_PORT_NUMBER
 ```
 
 ## Watch temperature
@@ -198,7 +120,7 @@ watch sensors # see temperature values updating each second
 
 ```bash
 sudo apt update
-wget http://archive.ubuntu.com/ubuntu/pool/universe/h/hddtemp/hddtemp_0.3-beta15-53_amd64.deb  
+wget http://archive.ubuntu.com/ubuntu/pool/universe/h/hddtemp/hddtemp_0.3-beta15-53_amd64.deb
 sudo apt install ./hddtemp_0.3-beta15-53_amd64.deb
 
 sudo watch hddtemp /dev/sda
@@ -274,4 +196,26 @@ Show group to which current user belongs:
 
 ```bash
 groups
+```
+
+## Disable welcome message after SSH login
+
+```sh
+sudo chmod -x /etc/update-motd.d/*
+```
+
+## Set time zone
+
+```sh
+timedatectl
+timedatectl list-timezones
+sudo timedatectl set-timezone Europe/Moscow
+date
+```
+
+## Set hostname
+
+```bash
+sudo hostnamectl set-hostname YOUR_HOSTNAME
+hostnamectl
 ```
