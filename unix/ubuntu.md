@@ -13,6 +13,7 @@
   - [Enable/disable GUI for Ubuntu Desktop](#enabledisable-gui-for-ubuntu-desktop)
   - [Enable/disable Wi-Fi](#enabledisable-wi-fi)
   - [User management](#user-management)
+    - [Last logged in users](#last-logged-in-users)
     - [List users](#list-users)
     - [Elevate user's permissions](#elevate-users-permissions)
     - [List all user groups](#list-all-user-groups)
@@ -144,6 +145,32 @@ nmcli radio wifi on
 ```
 
 ## User management
+
+### Last logged in users
+
+```bash
+last
+last USERNAME
+last -n 5 # Limit the lines in the output
+last -n 5 -R # Suppress where the user came from: the IP address, hostname, or a kernel version if it’s a system boot activity
+```
+
+The `last` command displays information about the last logged-in users. It's pretty convenient and handy when we need to track login activities or investigate a possible security breach.
+
+The `last` command will, by default, take the system log file `/var/log/wtmp` as the data source to generate reports. The `wtmp` is a binary file on *nix operating systems that maintains a history of all login and logout activities.
+
+```bash
+lastb
+```
+
+The `lastb` command is the same as the last command, except that, by default, it searches through the `/var/log/btmp` file, which contains all the bad login attempts. Regular users don't have read permission on the `/var/log/btmp` file:
+
+```bash
+ls -l /var/log/btmp
+# -rw-rw---- 1 root utmp 1913472 Sep 13 00:06 /var/log/btmp
+```
+
+Therefore, only the `root` user can get the report of bad login attempts using the `lastb` command.
 
 ### List users
 
