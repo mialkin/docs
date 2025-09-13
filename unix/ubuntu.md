@@ -20,6 +20,7 @@
   - [Disable welcome message after SSH login](#disable-welcome-message-after-ssh-login)
   - [Set time zone](#set-time-zone)
   - [Set hostname](#set-hostname)
+  - [See bash history](#see-bash-history)
 
 ## VPS harderning
 
@@ -245,4 +246,13 @@ date
 ```bash
 sudo hostnamectl set-hostname YOUR_HOSTNAME
 hostnamectl
+```
+
+## See bash history
+
+```bash
+history
+history 10
+history | grep "search_term"
+sudo vim /home/USER_YOU_WANT_TO_VIEW/.bash_history
 ```
