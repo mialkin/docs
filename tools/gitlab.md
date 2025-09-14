@@ -34,7 +34,8 @@
       - [SSH executor](#ssh-executor)
       - [Custom executor](#custom-executor)
     - [Monitoring runners](#monitoring-runners)
-  - [Releases](#releases)
+    - [Install runner](#install-runner)
+    - [Delete runner](#delete-runner)
 
 ## CI/CD
 
@@ -361,6 +362,50 @@ You can use Prometheus to monitor your runners. You can view things like the num
 
 [↑ GitLab Runner](https://docs.gitlab.com/runner).
 
-## Releases
+### Install runner
 
-[↑ Releases](https://docs.gitlab.com/ee/user/project/releases/).
+Pull image:
+
+```bash
+docker pull gitlab/gitlab-runner:latest
+```
+
+Install runner:
+
+```bash
+docker run \
+# --privileged \
+--detach \
+--name gitlab-runner \
+--restart always \
+--volume /var/run/docker.sock:/var/run/docker.sock \
+--volume /srv/gitlab-runner/config:/etc/gitlab-runner \
+gitlab/gitlab-runner:latest
+```
+
+Get into container:
+
+```bash
+docker exec -it gitlab-runner /bin/bash
+```
+
+Register runner:
+
+```bash
+docker exec -it gitlab-runner \
+gitlab-runner register \
+--url https://gitlab.com \
+--token REGISTRATION_TOKEN
+```
+
+```text
+Enter and executor: docker
+The default Docker image: docker:latest
+```
+
+### Delete runner
+
+```bash
+docker stop gitlab-runner
+docker rm --volumes gitlab-runner
+```
