@@ -34,8 +34,9 @@
       - [SSH executor](#ssh-executor)
       - [Custom executor](#custom-executor)
     - [Monitoring runners](#monitoring-runners)
-    - [Install runner](#install-runner)
-    - [Delete runner](#delete-runner)
+    - [Install](#install)
+    - [Install via Docker](#install-via-docker)
+    - [Delete](#delete)
 
 ## CI/CD
 
@@ -362,7 +363,40 @@ You can use Prometheus to monitor your runners. You can view things like the num
 
 [↑ GitLab Runner](https://docs.gitlab.com/runner).
 
-### Install runner
+### Install
+
+```bash
+# Download the binary for your system
+sudo curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
+
+# Give it permission to execute
+sudo chmod +x /usr/local/bin/gitlab-runner
+
+# Create a GitLab Runner user
+sudo useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/bash
+
+# Install and run as a service
+sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
+sudo gitlab-runner start
+```
+
+Register:
+
+```bash
+sudo gitlab-runner register -n \
+  --url "https://gitlab.com/" \
+  --registration-token REGISTRATION_TOKEN \
+  --executor docker \
+  --description "My Docker Runner" \
+  --docker-image "docker:24.0.5" \
+  --docker-privileged \
+  --docker-volumes "/certs/client"
+  # --tag-list "tyumen"
+```
+
+[↑ Use the Docker executor with Docker-in-Docker](https://docs.gitlab.com/ci/docker/using_docker_build/#use-the-docker-executor-with-docker-in-docker).
+
+### Install via Docker
 
 Pull image:
 
@@ -403,7 +437,7 @@ Enter and executor: docker
 The default Docker image: docker:latest
 ```
 
-### Delete runner
+### Delete
 
 ```bash
 docker stop gitlab-runner
