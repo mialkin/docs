@@ -31,7 +31,7 @@ SonarQube also highlights the complex areas of code that are less covered by uni
 ```bash
 services:
   sonarqube:
-    image: sonarqube:community
+    image: sonarqube:25.9.0.112764-community
     #    command: -Dsonar.ce.javaOpts=-Xmx1192m -Dsonar.web.javaOpts=-Xmx1192m
     restart: unless-stopped
     container_name: sonarqube
