@@ -275,6 +275,7 @@ apt install ufw
 ufw status
 sudo ufw allow 22000/tcp
 sudo less /etc/ufw/user.rules
+# sudo ufw show added
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw enable
@@ -293,3 +294,11 @@ Check added rules:
 ```bash
 sudo ufw status verbose
 ```
+
+Upon installation, most applications that rely on network connections will register an application profile within UFW, which enables users to quickly allow or deny external access to a service. You can check which profiles are currently registered in UFW with:
+
+```bash
+sudo ufw app list
+```
+
+[↑ How to Set Up a Firewall with UFW on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu).
