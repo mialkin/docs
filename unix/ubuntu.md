@@ -21,6 +21,7 @@
   - [Set time zone](#set-time-zone)
   - [Set hostname](#set-hostname)
   - [See bash history](#see-bash-history)
+  - [`ufw`](#ufw)
 
 ## VPS harderning
 
@@ -158,7 +159,7 @@ last -n 5 -R # Suppress where the user came from: the IP address, hostname, or a
 
 The `last` command displays information about the last logged-in users. It's pretty convenient and handy when we need to track login activities or investigate a possible security breach.
 
-The `last` command will, by default, take the system log file `/var/log/wtmp` as the data source to generate reports. The `wtmp` is a binary file on *nix operating systems that maintains a history of all login and logout activities.
+The `last` command will, by default, take the system log file `/var/log/wtmp` as the data source to generate reports. The `wtmp` is a binary file on \*nix operating systems that maintains a history of all login and logout activities.
 
 ```bash
 lastb
@@ -255,4 +256,21 @@ history
 history 10
 history | grep "search_term"
 sudo vim /home/USER_YOU_WANT_TO_VIEW/.bash_history
+```
+
+## `ufw`
+
+The `ss` (socket statistics) command is a modern utility that provides detailed information about network sockets:
+
+```bash
+sudo ss -tulnp
+```
+
+`t` — display TCP sockets; `u` — display UDP sockets; `l` — display listening sockets; `n` — do not resolve service names or hostnames (displays numerical port numbers and IP addresses); `p` — show the process name and PID.
+
+Install Uncomplicated Firewall:
+
+```bash
+apt install ufw
+ufw status
 ```
