@@ -273,4 +273,23 @@ Install Uncomplicated Firewall:
 ```bash
 apt install ufw
 ufw status
+sudo ufw allow 22000/tcp
+sudo less /etc/ufw/user.rules
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw enable
+```
+
+From a second terminal/session (or your local machine), try to reconnect:
+
+```bash
+ssh -p 22000 user@your-server
+```
+
+Make sure you can log in. Only then should you close your original SSH session — this ensures you don't lock yourself out if something went wrong.
+
+Check added rules:
+
+```bash
+sudo ufw status verbose
 ```
