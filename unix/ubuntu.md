@@ -301,4 +301,10 @@ Upon installation, most applications that rely on network connections will regis
 sudo ufw app list
 ```
 
+Allow Nginx:
+
+```bash
+sudo ufw allow 'Nginx Full'
+```
+
 [↑ How to Set Up a Firewall with UFW on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu).
