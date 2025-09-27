@@ -49,7 +49,7 @@
 - [Docker](tools/docker/docker.md)
   - [Dockerfile](tools/docker/dockerfiles.md)
   - [Docker compose](tools/docker/docker-compose.md)
-- [Docusaurus](tools/docusaurus.md)
+- [Docusaurus, docfx](tools/docusaurus.md)
 - [Git](tools/git/git.md)
 - [GitLab](tools/gitlab.md)
 - [Grafana. Loki. Tempo. Alloy](tools/grafana.md)
