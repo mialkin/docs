@@ -5,14 +5,12 @@
 - [Garbage collection, SOH, LOH, POH, P/Invoke](#garbage-collection-soh-loh-poh-pinvoke)
   - [Table of contents](#table-of-contents)
   - [Garbage collection](#garbage-collection)
-    - [Memory allocation](#memory-allocation)
-    - [Memory release](#memory-release)
+  - [Stack](#stack)
   - [Managed heap](#managed-heap)
     - [Non-GC heap](#non-gc-heap)
     - [SOH](#soh)
     - [LOH](#loh)
     - [POH](#poh)
-      - [`fixed` keyword](#fixed-keyword)
       - [`GCHandle`](#gchandle)
   - [P/Invoke](#pinvoke)
   - [Ephemeral generations and segments](#ephemeral-generations-and-segments)
@@ -21,11 +19,9 @@
 
 A **garbage collection** is an automatic memory management feature in .NET that allocates and releases memory with help of _garbage collector_.
 
-Also the term _garbage collection_ often refers to only [releasing memory](#memory-release) as opposed to both allocating and releasing memory.
-
 A **garbage collector** or **GC** is as an automatic memory manager in the [↑ CLR](https://learn.microsoft.com/en-us/dotnet/standard/clr) that allocates and releases memory for your application.
 
-### Memory allocation
+Also the term _garbage collection_ often refers to only [releasing memory](#memory-release) as opposed to both allocating and releasing memory.
 
 When you initialize a new process, the runtime reserves a contiguous region of address space for the process — the [managed heap](#managed-heap).
 
@@ -33,9 +29,13 @@ All [reference types](/csharp/types/reference-types/reference-types.md) are allo
 
 When an application creates the first reference type, memory is allocated for the type at the base address of the managed heap. As long as address space is available, the runtime continues to allocate space for new objects.
 
-### Memory release
-
 Before a garbage collection starts, all managed threads are suspended except for the thread that triggered the garbage collection.
+
+## Stack
+
+A **stack** is used for storing [value types](/csharp/types/value-types/value-types.md), method parameters, and local variables. It operates on a Last-In-First-Out (LIFO) principle, where memory is allocated and deallocated as methods are called and return.
+
+Each thread in a .NET application has its own dedicated stack.
 
 ## Managed heap
 
@@ -99,36 +99,28 @@ In addition, the LOH is [↑ automatically compacted](https://learn.microsoft.co
 
 The **pinned object heap**, or **POH**, is a specialized heap introduced in .NET 5.0 as part of the .NET runtime.
 
-Pinning objects in C# is primarily used to ensure that an object remains at a fixed memory location and does not get moved by the garbage collector. This is particularly important in scenarios where you need to pass a reference to managed memory to unmanaged code, such as when working with [P/Invoke](#pinvoke) or interfacing with low-level system components. Pinning an object prevents the GC from relocating it, ensuring that the unmanaged code receives a stable pointer.
+Pinning objects in C# is primarily used to ensure that an object remains at a fixed memory location and does not get moved by the garbage collector. This is particularly important in scenarios where you need to pass a reference from [↑ managed memory to unmanaged code](https://learn.microsoft.com/en-us/dotnet/framework/interop/copying-and-pinning), such as when working with [P/Invoke](#pinvoke) or interfacing with low-level system components. Pinning an object prevents the GC from relocating it, ensuring that the unmanaged code receives a stable pointer.
 
-#### `fixed` keyword
-
-Here's a simple example demonstrating how to pin an array and pass it to unmanaged code using the [`fixed`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/fixed) statement:
+Here's a simple example demonstrating how to pin an array and pass it to unmanaged code using the [↑ `fixed`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/fixed) statement:
 
 ```csharp
-using System.Runtime.InteropServices;
-
 [DllImport("SomeNativeLibrary.dll")]
 static extern void NativeFunction(IntPtr ptr);
 
-byte[] data = new byte[100];
+var data = new byte[100];
 
-// Pin the array and get a pointer to its data
 unsafe
 {
-    fixed (byte* pData = data)
+    // Pin the array and get a pointer to its data using `fixed` statement.
+    // The `byte* pointer` is a pointer to the first element of the array.
+    fixed (byte* pointer = data)
     {
-        IntPtr ptr = (IntPtr)pData;
-        NativeFunction(ptr);
+        // Convert the pointer to an `IntPtr` that can be passed to the unmanaged function `NativeFunction`
+        var intPointer = (IntPtr)pointer;
+        NativeFunction(intPointer);
     }
 }
 ```
-
-In this example:
-
-- The `fixed` statement is used to pin the `data` array
-- The `byte* pData` is a pointer to the first element of the array
-- `IntPtr ptr = (IntPtr)pData` converts the pointer to an `IntPtr` that can be passed to the unmanaged function `NativeFunction`
 
 #### `GCHandle`
 
