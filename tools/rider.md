@@ -52,6 +52,7 @@ Key map: copy of Visual Studio (macOS) key map.
 5. [↑ Inline hint](https://www.jetbrains.com/help/rider/Inlay_Hints.html).
 6. Editor -> General -> Code Folding -> Markdown -> Collapse links, collapse TOC
 7. Editor -> General -> Code Folding -> General -> Imports (uncheck)
+8. Editor -> Code style -> C# -> Place property/indexer/event attribute on the same line (Never)
 
 TypeScript:
 
