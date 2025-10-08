@@ -11,7 +11,6 @@
     - [SOH](#soh)
     - [LOH](#loh)
     - [POH](#poh)
-      - [`GCHandle`](#gchandle)
   - [P/Invoke](#pinvoke)
   - [Ephemeral generations and segments](#ephemeral-generations-and-segments)
 
@@ -64,13 +63,13 @@ Allocating memory from the managed heap is faster than unmanaged memory allocati
 
 ### Non-GC heap
 
-A **non-GC heap** is a specialized heap that is not managed by the garbage collector and is designed to store immortal objects with certain benefits for GC and code generation.
+.NET 8.0 introduced a new concept called a _non-GC heap_.
 
-Non-GC heap was introduced in .NET 8.0. The basic idea that certain kinds of objects are essentially immortal and will never be collected, hence, we can put them into a separate storage where they are never scanned or compacted. All string literals are [interned](/csharp/types/reference-types/string.md#string-interning-and-stringempty) and therefore immortal.
+A [↑ **non-GC heap**](https://github.com/dotnet/runtime/blob/main/docs/design/features/NonGC-Heap.md) is a specialized heap that is not managed by the garbage collector and is designed to store immortal objects with certain benefits for GC and code generation.
 
-[↑ NonGC Heap](https://github.com/dotnet/runtime/blob/main/docs/design/features/NonGC-Heap.md).
+The basic idea that certain kinds of objects are essentially immortal and will never be collected, hence, we can put them into a separate storage where they are never scanned or compacted. All string literals are [interned](/csharp/types/reference-types/string.md#string-interning-and-stringempty) and therefore immortal.
 
-[↑ Exploring .NET frozen segments](https://minidump.net/exploring-frozen-segments).
+Although the name is new, the feature is based on pre-existing [↑ frozen segments](https://minidump.net/exploring-frozen-segments) which were added long time ago to serve a similar purpose. What's changed in .NET 8.0 is that this functionality has been exposed to users through public profiling and debugging APIs, and it is now heavily leveraged for several codegen optimizations in [RyuJIT](/dotnet/roslyn.md#ryujit).
 
 ### SOH
 
@@ -97,7 +96,7 @@ In addition, the LOH is [↑ automatically compacted](https://learn.microsoft.co
 
 ### POH
 
-The **pinned object heap**, or **POH**, is a specialized heap introduced in .NET 5.0 as part of the .NET runtime.
+The [↑ **pinned object heap**](https://devblogs.microsoft.com/dotnet/internals-of-the-poh/), or [↑ **POH**](https://github.com/dotnet/runtime/blob/main/docs/design/features/PinnedHeap.md), is a specialized heap introduced in .NET 5.0 as part of the .NET runtime.
 
 Pinning objects in C# is primarily used to ensure that an object remains at a fixed memory location and does not get moved by the garbage collector. This is particularly important in scenarios where you need to pass a reference from [↑ managed memory to unmanaged code](https://learn.microsoft.com/en-us/dotnet/framework/interop/copying-and-pinning), such as when working with [P/Invoke](#pinvoke) or interfacing with low-level system components. Pinning an object prevents the GC from relocating it, ensuring that the unmanaged code receives a stable pointer.
 
@@ -122,37 +121,25 @@ unsafe
 }
 ```
 
-#### `GCHandle`
-
 Another approach to pinning objects is using the [↑ `GCHandle`](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.gchandle) structure, which provides more control over the pinning process and can pin any managed object, not just arrays:
 
 ```csharp
-using System.Runtime.InteropServices;
-
 [DllImport("SomeNativeLibrary.dll")]
 static extern void NativeFunction(IntPtr ptr);
 
-byte[] data = new byte[100];
-GCHandle handle = GCHandle.Alloc(data, GCHandleType.Pinned);
+var data = new byte[100];
+GCHandle gcHandle = GCHandle.Alloc(value: data, type: GCHandleType.Pinned); // Pin the data array
 
 try
 {
-    IntPtr ptr = handle.AddrOfPinnedObject();
-    NativeFunction(ptr);
+    IntPtr intPointer = gcHandle.AddrOfPinnedObject(); // Retrieve the pinned memory address
+    NativeFunction(intPointer);
 }
 finally
 {
-    handle.Free();
+    gcHandle.Free(); // Release the pinning once it is no longer needed
 }
 ```
-
-In this example:
-
-- `GCHandle.Alloc(data, GCHandleType.Pinned)` pins the data array
-- `handle.AddrOfPinnedObject()` retrieves the pinned memory address
-- `handle.Free()` releases the pinning once it is no longer needed
-
-[↑ Pinned Heap](https://github.com/dotnet/runtime/blob/main/docs/design/features/PinnedHeap.md).
 
 ## P/Invoke
 

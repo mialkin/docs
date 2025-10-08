@@ -317,7 +317,7 @@
 - [↑ Performance](https://github.com/adamsitnik/awesome-dot-net-performance)
 - [PowerShell](dotnet/powershell.md)
   - [PowerShell scripting](dotnet/powershell-scripting.md)
-- [Roslyn and Roslyn analyzers](dotnet/roslyn.md)
+- [Roslyn. RyuJIT. Code analysis. Code analyzers](dotnet/roslyn.md)
 
 ## ASP.NET
 
