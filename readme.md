@@ -296,6 +296,7 @@
 - [.NET CLI, `dotnet new`](dotnet/cli.md)
 - [↑ .NET source browser](https://source.dot.net)
 - [.NET tools, `dotnet-ef`, `dotnet format`, `dotnet-outdated`, .NET Aspire](dotnet/dotnet-tools.md)
+- CLR. [↑ The Book of the Runtime](https://github.com/dotnet/runtime/tree/main/docs/design/coreclr/botr)
 - [`dotnet user-secrets`](dotnet/dotnet-user-secrets.md)
 - [Dependency injection in .NET](dotnet/dependency-injection-dotnet.md)
 - Dotnet libraries
