@@ -58,6 +58,7 @@
 - [Jenkins](tools/jenkins.md)
 - [Kafka](tools/kafka/kafka.md)
   - [Schema Registry, Avro](tools/kafka/schema-registry-avro.md)
+  - [kcat](tools/kafka/kcat.md)
 - [Kubernetes](tools/kubernetes/kubernetes.md)
   - [Argo CD](tools/kubernetes/argo-cd.md)
   - [cert-manager](tools/kubernetes/cert-manager.md)
