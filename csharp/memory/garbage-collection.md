@@ -20,7 +20,7 @@ A **garbage collection** is an automatic memory management feature in .NET that 
 
 A **garbage collector** or **GC** is as an automatic memory manager in the [↑ CLR](https://learn.microsoft.com/en-us/dotnet/standard/clr) that allocates and releases memory for your application.
 
-Also the term _garbage collection_ often refers to only [releasing memory](#memory-release) as opposed to both allocating and releasing memory.
+Also the term _garbage collection_ often refers to only releasing memory as opposed to both allocating and releasing memory.
 
 When you initialize a new process, the runtime reserves a contiguous region of address space for the process — the [managed heap](#managed-heap).
 
