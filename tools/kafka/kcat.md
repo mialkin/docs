@@ -30,6 +30,8 @@ kcat \
 -X sasl.password=$KAFKA_PASSWORD
 ```
 
+Meaning of arguments:
+
 ```text
 -b Broker
 -J — Output with JSON envelope
