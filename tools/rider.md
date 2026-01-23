@@ -6,15 +6,14 @@
 | ---------------------------------- | ------------------------------------ |
 | <kbd>⌘ ⏎</kbd>                     | Show Context Actions                 |
 | <kbd>⌘ E</kbd>                     | Recent files                         |
-| <kbd>⌘ 0</kbd>                     | Explorer                             |
 | <kbd>⌘ 1</kbd>                     | Terminal                             |
 | <kbd>⌘ ⇧ 1</kbd>                   | Open in Terminal                     |
 | <kbd>⌘ 2</kbd>                     | Locate/Select in Solution View       |
 | <kbd>⌘ ⇧ 2</kbd>                   | Other -> Reveal in Finder            |
 | <kbd>⌘ 3 </kbd>                    | Pin Active Tab                       |
-| <kbd>⌘ 4</kbd>                     | Split and Move Right                 |
-| <kbd>⌘ ⌥ 4</kbd>                   | Open in Right Split                  |
-| <kbd>⌘ 7 </kbd>                    | Manage NuGet Packages for Solution   |
+| <kbd>⌘ 4</kbd>                     | Explorer                             |
+| <kbd>⌘ 5</kbd>                     | Commit                             |
+| <kbd>⌘ 6 </kbd>                    | Manage NuGet Packages for Solution   |
 | <kbd>⌘ 8 </kbd>                    | dotMemory Profiler                   |
 | <kbd>⌥ Z </kbd>                    | Soft-Wrap                            |
 | <kbd>⌥ ⇧ F </kbd>                  | Reformat Code                        |
