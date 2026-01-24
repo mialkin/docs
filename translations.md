@@ -335,3 +335,4 @@
 ## Ссылки
 
 - [↑ Microsoft language resources](https://learn.microsoft.com/en-us/globalization/reference/microsoft-language-resources)
+- [↑ Context Reverso](https://context.reverso.net/translation/)
