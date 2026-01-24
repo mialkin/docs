@@ -326,6 +326,7 @@
 
 - **Webhook** — веб-перехватчик
 - **Web service** — веб-служба
+- **Wildcard** — подстановочный знак
 - **Work item** — рабочий элемент
 - **Worker** — исполнитель, рабочий
 - **Worker thread** — рабочий поток
@@ -333,4 +334,4 @@
 
 ## Ссылки
 
-- [↑ Языковой портал Микрософт](https://www.microsoft.com/en-us/language)
+- [↑ Microsoft language resources](https://learn.microsoft.com/en-us/globalization/reference/microsoft-language-resources)
