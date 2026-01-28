@@ -145,6 +145,7 @@
 - [DRY, KISS, separation of concerns, YAGNI](design/main-principles.md)
 - [Explicit dependencies principle](design/explicit-dependencies-principle.md)
 - [Event sourcing](design/event-sourcing.md)
+- [Hostage situation](design/hostage-situation.md)
 - [Loose coupling and high cohesion](design/loose-coupling-and-high-cohesion.md)
 - [MapReduce](design/map-reduce.md)
 - [Mission critical, business critical, business operational, office productivity](design/mission-critical-business-critical.md)
