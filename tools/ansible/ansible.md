@@ -1,6 +1,6 @@
 # Ansible
 
-[↑ **Ansible**](https://www.ansible.com/) is a suite of software tools that enables infrastructure as code.
+[↑ **Ansible**](https://www.redhat.com/en/ansible-collaborative) is an open source IT automation engine that automates provisioning, configuration management, application deployment, orchestration, and many other IT processes.
 
 Ansible is a:
 
