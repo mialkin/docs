@@ -1,32 +1,13 @@
 # Ansible
 
-[↑ **Ansible**](https://www.redhat.com/en/ansible-collaborative) is an open source IT automation engine that automates provisioning, configuration management, application deployment, orchestration, and many other IT processes.
-
-Ansible is a:
-
-- simple automation language that can perfectly describe an IT application infrastructure in Ansible Playbooks.
-- automation engine that runs Ansible Playbooks.
+[↑ **Ansible**](https://docs.ansible.com) is an open source IT automation engine that automates provisioning, configuration management, application deployment, orchestration, and many other IT processes.
 
 ## Table of contents
 
 - [Ansible](#ansible)
   - [Table of contents](#table-of-contents)
-  - [macOS installation](#macos-installation)
   - [Components](#components)
   - [Usage](#usage)
-  - [Restarting machines](#restarting-machines)
-  - [Links](#links)
-
-## macOS installation
-
-```bash
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-python get-pip.py --user
-python -m pip install --user ansible
-python -m pip install --user paramiko
-```
-
-[↑ Installing Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html).
 
 ## Components
 
@@ -48,11 +29,11 @@ Example of `hosts` file contents:
 
 ```text
 [nodes]
-node1 ansible_ssh_host=node1.slova.io ansible_ssh_user=aleksei
-node2 ansible_ssh_host=node2.slova.io ansible_ssh_user=aleksei
+node1 ansible_ssh_host=node1.my-host.com ansible_ssh_user=john
+node2 ansible_ssh_host=node2.my-host.com ansible_ssh_user=john
 
 [masters]
-master1 ansible_ssh_host=178.154.235.126 ansible_ssh_user=aleksei
+master1 ansible_ssh_host=178.154.235.126 ansible_ssh_user=john
 
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3
@@ -80,14 +61,46 @@ ansible -m ping nodes
 ansible-playbook -l nodes provisioning.yaml
 ```
 
-## Restarting machines
+`provisioning.yaml` file:
 
-See [reboot.yaml](reboot.yaml) file.
+```yaml
+- hosts: all
+  become: true
+  become_user: root
+  tasks:
+    - name: Disable welcome message after SSH login
+      file:
+        path: /etc/update-motd.d
+        state: directory
+        recurse: yes
+        mode: -x
 
-## Links
+    - name: Set timezone to Europe/Moscow
+      timezone:
+        name: Europe/Moscow
 
-[↑ How to Install and Configure Ansible on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-ubuntu-18-04).
+    - name: Set up "cls" alias
+      become: false
+      blockinfile:
+        path: ~/.bashrc
+        block: alias cls='clear'
 
-[↑ Configuration Management 101: Writing Ansible Playbooks](https://www.digitalocean.com/community/tutorials/configuration-management-101-writing-ansible-playbooks).
+    - name: Update cache and install "htop" package
+      apt:
+        name: htop
+        update_cache: yes
 
-[↑ Specifying SSH key in Ansible playbook file](https://stackoverflow.com/questions/44734179/specifying-ssh-key-in-ansible-playbook-file).
+    - name: Update cache and upgrade all apt packages
+      apt:
+        upgrade: 'yes'
+        update_cache: yes
+
+    - name: Unconditionally reboot the machine with all defaults
+      reboot:
+      msg: "Reboot initiated by Ansible"
+        connect_timeout: 5
+        reboot_timeout: 600
+        pre_reboot_delay: 0
+        post_reboot_delay: 30
+        test_command: whoami
+```
