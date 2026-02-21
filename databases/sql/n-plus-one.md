@@ -1,41 +1,27 @@
 # N + 1 query problem. Natural, surrogate key
 
-## Table of contents
-
-- [N + 1 query problem. Natural, surrogate key](#n--1-query-problem-natural-surrogate-key)
-  - [Table of contents](#table-of-contents)
-  - [N + 1 query problem](#n--1-query-problem)
-  - [Natural, surrogate key](#natural-surrogate-key)
-
 ## N + 1 query problem
 
 The **N + 1 query problem** is a performance issue that occurs in database-driven applications, particularly when using ORM frameworks.
 
 It happens when the application needs to load a collection of related data, and instead of fetching all the necessary data in a single query, it executes one query to retrieve a list of items (N queries) and then executes additional queries to fetch related data for each item in the list (1 query per item). This results in a total of N + 1 queries.
 
-Let's say we have a collection of `Car` objects (database rows), and each `Car` has a collection of `Wheel` objects (also rows). In other words, `Car` → `Wheel` is a 1-to-many relationship.
-
-Now, let's say we need to iterate through all the cars, and for each one, print out a list of the wheels. The naive object–relational mapping implementation would do the following:
+Imagine you want to display a list of recent orders and for each order show customer name and email. Let's say you fetch 10 orders from the database:
 
 ```sql
-select * from Cars;
+SELECT * FROM orders LIMIT 10;
 ```
 
-And then *for each* `Car`:
+Then for each order, you fetch its customer:
 
 ```sql
-select * from Wheels where CarId = ?
+SELECT * FROM customers WHERE id = 1;
+SELECT * FROM customers WHERE id = 5;
+SELECT * FROM customers WHERE id = 3;
+...
 ```
 
-In other words, we have one select for the cars, and then `N` additional selects, where `N` is the total number of cars.
-
-Alternatively, we could get all the wheels and perform the lookups in memory:
-
-```sql
-select * from Wheels;
-```
-
-This reduces the number of round-trips to the database from `N + 1` to `2`.
+This is called the N + 1 problem: 1 query to fetch the parent records, N queries to fetch related records
 
 ## Natural, surrogate key
 
