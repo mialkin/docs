@@ -1,14 +1,14 @@
 # Terraform
 
-[↑ Terraform](https://www.terraform.io) is an infrastructure as code tool that allows to build, change, and version infrastructure safely and efficiently.
+[↑ Terraform](https://developer.hashicorp.com/terraform) is an infrastructure as code tool that allows to build, change, and version infrastructure safely and efficiently.
 
 Examples of infrastructure: compute instances, storage, networking, DNS entries, SaaS features, etc.
 
 ## Providers
 
-Terraform creates and manages resources on cloud platforms and other services through their application programming interfaces (APIs). Providers enable Terraform to work with virtually any platform or service with an accessible API.
+Terraform creates and manages resources on cloud platforms and other services through their APIs. Providers enable Terraform to work with virtually any platform or service with an accessible API.
 
-[↑ HashiCorp](https://www.hashicorp.com) and the Terraform community have already written thousands of providers to manage many different types of resources and services. You can find all publicly available providers on the Terraform Registry, including Amazon Web Services (AWS), Azure, Google Cloud Platform (GCP), Kubernetes, Helm, GitHub, Splunk, DataDog, and many more.
+There are thousands of providers to manage many different types of resources and services. You can find all publicly available providers on the Terraform Registry, including Amazon Web Services (AWS), Azure, Google Cloud Platform (GCP), Kubernetes, Helm, GitHub, Splunk, DataDog, and many more.
 
 ## Terraform workflow
 
