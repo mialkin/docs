@@ -32,7 +32,7 @@
 ```yaml
 services:
   database:
-    image: postgres:17.0
+    image: postgres:18.2
     container_name: postgres
     restart: unless-stopped
     ports:
@@ -42,7 +42,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
     volumes:
-      - ./volumes/postgres:/var/lib/postgresql/data
+      - ./volumes/postgres:/var/lib/postgresql/18/docker
 ```
 
 ```bash
@@ -83,7 +83,7 @@ createuser -s postgres
 Restart PostgreSQL:
 
 ```bash
-brew services restart postgresql@16  
+brew services restart postgresql@16
 ```
 
 ### Ubuntu
@@ -173,7 +173,7 @@ Install Postgres client inside your pod:
 
 ```bash
 apt install -y postgresql-client
-psql --version 
+psql --version
 ```
 
 Try to connect to database:
