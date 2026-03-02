@@ -279,7 +279,7 @@
 ## Computer science
 
 - [Algorithms](computer-science/algorithms/algorithms.md)
-- [Data structures](computer-science/data-structures/data-structures.md)
+- [Data structures, Bloom filter, B-tree](computer-science/data-structures/data-structures.md)
 - [↑ Visualizing data structures and algorithms through animation](https://visualgo.net/en)
 
 ## Hardware
