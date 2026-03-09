@@ -14,6 +14,8 @@
     - [Etcher](#etcher)
     - [ExifTool](#exiftool)
     - [FFmpeg](#ffmpeg)
+      - [Cut](#cut)
+      - [Concatenate](#concatenate)
     - [Fluor](#fluor)
     - [Gifox](#gifox)
     - [HandBrake](#handbrake)
@@ -31,6 +33,7 @@
     - [SensibleSideButtons](#sensiblesidebuttons)
     - [Sublime Text](#sublime-text)
     - [Visual Studio Code](#visual-studio-code)
+    - [yt-dlp](#yt-dlp)
   - [Miscellaneous](#miscellaneous)
     - [TTL](#ttl)
     - [Flush DNS cache](#flush-dns-cache)
@@ -165,6 +168,14 @@ It supports the most obscure ancient formats up to the cutting edge.
 brew install ffmpeg
 ```
 
+#### Cut
+
+```bash
+ffmpeg -ss 00:02:35 -to 00:03:51 -i input.mp4 -c copy output.mp4
+```
+
+#### Concatenate
+
 [↑ Concatenating](https://trac.ffmpeg.org/wiki/Concatenate) multiple files into one:
 
 ```bash
@@ -290,6 +301,25 @@ echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PA
 [↑ Visual Studio Code](https://code.visualstudio.com)
 
 [↑ Install `code` command in PATH](https://stackoverflow.com/a/68273710/1833895).
+
+### yt-dlp
+
+[↑ yt-dlp](https://github.com/yt-dlp/yt-dlp) is is a feature-rich command-line audio/video downloader with support for thousands of sites.
+
+```bash
+brew update
+brew install ffmpeg
+```
+
+```bash
+yt-dlp VIDEO_URL
+```
+
+To keep the tool working (especially when sites change their video delivery methods), run:
+
+```bash
+brew upgrade yt-dlp
+```
 
 ## Miscellaneous
 
