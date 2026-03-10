@@ -1,14 +1,14 @@
-# Covering, composite, partial index, cardinality, index selectivity
+# Covering, composite, partial index, cardinality, selectivity
 
 ## Table of contents
 
-- [Covering, composite, partial index, cardinality, index selectivity](#covering-composite-partial-index-cardinality-index-selectivity)
+- [Covering, composite, partial index, cardinality, selectivity](#covering-composite-partial-index-cardinality-selectivity)
   - [Table of contents](#table-of-contents)
   - [Covering index](#covering-index)
   - [Composite index](#composite-index)
   - [Partial index](#partial-index)
   - [Cardinality](#cardinality)
-  - [Index selectivity](#index-selectivity)
+  - [Selectivity](#selectivity)
 
 ## Covering index
 
@@ -22,26 +22,20 @@ When the columns returned by `SELECT` are not many, consider building a covering
 
 The **composite index** is to create an index on the combination of multiple columns, these columns may contain all the columns of the query, or may not contain. When the column in the composite index contains all the columns in the query, the index is also a covering index. When the composite index does not contain all the data to be queried, the query needs to find the location information of the data through the non-clustered index, and then go to the basic table to find the data.
 
-[↑ How do composite indexes work?](https://stackoverflow.com/questions/795031/how-do-composite-indexes-work).
-
 ## Partial index
 
 A partial index is an index built over a subset of a table; the subset is defined by a conditional expression (called the predicate of the partial index). The index contains entries only for those table rows that satisfy the predicate. Partial indexes are a specialized feature, but there are several situations in which they are useful.
 
 ## Cardinality
 
-A **cardinality** is the the number of unique values in particular column.
+A **cardinality** is the the number of unique values in a column.
 
-## Index selectivity
+If cardinality is high, it means the values are very diverse. On the other hand, if the column has many repeated values, such as gender (with only "male" and "female"), the cardinality is low.
 
-An **index selectivity** is a fraction of rows in a table having the same value for the indexed key.
+## Selectivity
 
-An index selectivity is calculated using the [cardinality](#database-cardinality):
+A **selectivity** is an index's ability to reduce the number of rows returned by a query.
 
-```text
-index selectivity = cardinality / (number of rows) * 100%
-```
+A highly selective index filters out a large portion of the data and therefore speeds up the search. When you query a field that has many distinct values (in other words, is very unique), the index selectivity will be high.
 
-A lower selectivity value is better: it means fewer rows to scan and filter. Oddly, though, we say an index is "highly" selective if it has a low selectivity value.  When a database plans a query, it'll look in its index statistics and estimate how many rows the query will match. Databases can have simple statistics where they simply keep track of an estimate of cardinality, or they can have so-called "histogram" statistics where they track the frequency of ranges of values.
-
-Accessing a table through an index adds some overhead and query planner may decide that it will be quicker just to scan the whole table rather than using the index.
+The HyperLogLog algorithm can be used for cardinality estimation.

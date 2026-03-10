@@ -107,7 +107,7 @@
 ### SQL
 
 - [ACID](databases/sql/acid.md)
-- [Covering, composite, partial index, cardinality, index selectivity](databases/sql/indexes.md)
+- [Covering, composite, partial index, cardinality, selectivity](databases/sql/indexes.md)
 - [CTE. Window function. `HAVING`](databases/sql/relationalcte/cte.md)
 - [EAV model](databases/sql/eav.md)
 - [Isolation levels and read phenomena](databases/sql/isolation-levels/isolation-levels.md)
