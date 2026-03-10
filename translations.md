@@ -56,6 +56,7 @@
 - **Common Language Runtime** — общеязыковая исполняющая среда
 - **Common table expression** — обобщенное табличное выражение
 - **Composite** — Компоновщик (шаблон проектирования)
+- **Composite index** — составной индекс
 - **Concurrency** — единовременность, одновременность, параллелизм
 - **Consistency** — согласованность
 - **Consumer** — потребитель
@@ -66,6 +67,7 @@
 - **Control flow** or **flow of control** — порядок выполнения/исполнения/вычислений
 - **Coupling** — связанность, зацепление
 - **Covariance** — ковариантность
+- **Covering index** — покрывающий индекс
 - **Creational design pattern** — порождающий шаблон проектирования
 - **Critical section** — критическая секция
 - **Cross-cutting concern** — сквозная функциональность/проблема
