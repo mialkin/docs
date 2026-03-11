@@ -14,6 +14,7 @@
     - [Etcher](#etcher)
     - [ExifTool](#exiftool)
     - [FFmpeg](#ffmpeg)
+      - [Convert](#convert)
       - [Cut](#cut)
       - [Concatenate](#concatenate)
     - [Fluor](#fluor)
@@ -166,6 +167,14 @@ It supports the most obscure ancient formats up to the cutting edge.
 
 ```bash
 brew install ffmpeg
+```
+
+#### Convert
+
+MP4 to MOV:
+
+```bash
+ffmpeg -i input.mp4 -f mov output.mov
 ```
 
 #### Cut
