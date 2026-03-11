@@ -177,6 +177,14 @@ MP4 to MOV:
 ffmpeg -i input.mp4 -f mov output.mov
 ```
 
+MOV to MP4:
+
+```bash
+ffmpeg -i input.mov -crf 18 output.mp4
+```
+
+`-crf` sets the quality: a value of `0` is lossless, and `18` looks lossless but really isn't.
+
 #### Cut
 
 ```bash
