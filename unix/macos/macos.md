@@ -16,6 +16,7 @@
     - [FFmpeg](#ffmpeg)
       - [Convert](#convert)
       - [Cut](#cut)
+      - [Change bitrate](#change-bitrate)
       - [Concatenate](#concatenate)
     - [Fluor](#fluor)
     - [Gifox](#gifox)
@@ -190,6 +191,15 @@ ffmpeg -i input.mov -crf 18 output.mp4
 ```bash
 ffmpeg -ss 00:02:35 -to 00:03:51 -i input.mp4 -c copy output.mp4
 ```
+
+#### Change bitrate
+
+```bash
+ffmpeg -y -i input.mp4 -c:v libx264 -b:v 2600k -pass 1 -an -f null /dev/null && \
+ffmpeg -i input.mp4 -c:v libx264 -b:v 2600k -pass 2 -c:a aac -b:a 128k output.mp4
+```
+
+[↑ Two-Pass](https://trac.ffmpeg.org/wiki/Encode/H.264#twopass).
 
 #### Concatenate
 
