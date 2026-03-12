@@ -3,6 +3,7 @@
 - [Data structures](#data-structures)
   - [Array](#array)
   - [Bloom filter](#bloom-filter)
+    - [Description](#description)
     - [Example](#example)
   - [Graph](#graph)
   - [Hash table or hash map](#hash-table-or-hash-map)
@@ -30,6 +31,16 @@ Elements can be added to the set, but not removed (though this can be addressed 
 [↑ Bloom Filter Calculator](https://hur.st/bloomfilter/).
 
 [↑ Bloom Filters - Part 1 of 3](https://www.youtube.com/watch?v=eCUm4U3WDpM).
+
+### Description
+
+An empty Bloom filter is a bit array of $m$ bits, all set to 0. It is equipped with $k$ different hash functions, which map set elements to one of the $m$ possible array positions. To be optimal, the hash functions should be uniformly distributed and independent. Typically, $k$ is a small constant which depends on the desired false error rate $ε$, while $m$ is proportional to $k$ and the number of elements to be added.
+
+To add an element, feed it to each of the $k$ hash functions to get $k$ array positions. Set the bits at all these positions to 1.
+
+To test whether an element is in the set, feed it to each of the $k$ hash functions to get $k$ array positions. If any of the bits at these positions is 0, the element is definitely not in the set; if it were, then all the bits would have been set to 1 when it was inserted. If all are 1, then either the element is in the set, or the bits have by chance been set to 1 during the insertion of other elements, resulting in a false positive. In a simple Bloom filter, there is no way to distinguish between the two cases, but more advanced techniques can address this problem.
+
+Removing an element from this simple Bloom filter is impossible because there is no way to tell which of the $k$ bits it maps to should be cleared. Although setting any one of those $k$ bits to zero suffices to remove the element, it would also remove any other elements that happen to map onto that bit. Since the simple algorithm provides no way to determine whether any other elements have been added that affect the bits for the element to be removed, clearing any of the bits would introduce the possibility of false negatives.
 
 ### Example
 
