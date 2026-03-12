@@ -3,6 +3,7 @@
 - [Data structures](#data-structures)
   - [Array](#array)
   - [Bloom filter](#bloom-filter)
+    - [Example](#example)
   - [Graph](#graph)
   - [Hash table or hash map](#hash-table-or-hash-map)
   - [Heap](#heap)
@@ -29,6 +30,43 @@ Elements can be added to the set, but not removed (though this can be addressed 
 [↑ Bloom Filter Calculator](https://hur.st/bloomfilter/).
 
 [↑ Bloom Filters - Part 1 of 3](https://www.youtube.com/watch?v=eCUm4U3WDpM).
+
+### Example
+
+Technical interview question:
+
+```text
+You have 3 billion URLs.
+You need to detect duplicate URLs efficiently.
+Memory is limited.
+How would you approach this?
+```
+
+This is a classic "Big Data" architectural challenge. With 3 billion URLs, a simple hash set is out of the question. If the average URL is 50 characters, you'd need roughly 150 GB of RAM—likely far exceeding your "limited memory" constraints. Here are the two primary approaches:
+
+**I. Bloom filters**: if a tiny margin of error (false positives) is acceptable, a Bloom filter is the most memory-efficient tool. It uses a bit array and multiple hash functions to tell you if an item _might_ be in the set or is _definitely not_.
+
+Each URL is passed through $k$ different hash functions. Each function outputs an index in a bit array, and those bits are set to 1. If you hash a new URL and all $k$ resulting bits are already 1, the URL is likely a duplicate.
+
+For 3 billion items with a 1% false positive rate, you only need about 4.5 GB of RAM—a massive reduction from 150 GB.
+
+**II. MapReduce & External Sorting**: if you cannot afford any false positives (100% accuracy required), you must use disk-based processing.
+
+_Step A:_ You can't fit the data in RAM, so you split it into manageable "buckets" stored on disk. Apply a hash function to each URL: $hash(URL) \pmod n$, where $n$ is the number of small files (e.g., 100 files). All identical URLs will end up in the same file.
+
+_Step B:_ Load one small file into memory at a time. Since the file size is now small (e.g., 1.5 GB), you can use a standard `HashSet` or sort the file to find duplicates. Process these files in parallel across multiple machines if speed is a priority.
+
+```text
+Can I just use a database index on URL column to solve this problem of "3 billion URLs"?
+```
+
+Standard indexes aren't compressed as tightly as a Bloom filter. A Bloom filter fits 3 billion entries into ~4.5 GB, whereas a database index requires hundreds of gigabytes.
+
+In a real production system, you’d likely use both Bloom filter and database:
+
+1. Bloom filter (in-memory): a "fast-pass" check. If the Bloom filter says "Never seen it," you proceed immediately.
+
+2. Database/NoSQL (on-disk): If the Bloom filter says "maybe," you perform a final check against a fast key-value store like Cassandra or Redis to confirm.
 
 ## Graph
 
