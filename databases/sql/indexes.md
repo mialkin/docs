@@ -32,6 +32,12 @@ A **cardinality** is the the number of unique values in a column.
 
 If cardinality is high, it means the values are very diverse. On the other hand, if the column has many repeated values, such as gender (with only "male" and "female"), the cardinality is low.
 
+To measure the cardinality of a specific column in SQL, you can use the `COUNT` and `DISTINCT` functions:
+
+$$Cardinality = COUNT(DISTINCT column\_name)$$
+
+For example, if a table has 1,000,000 rows but the "Country" column only has 195 distinct values, it is considered low cardinality. This information tells the database engine that using a standard B-tree index might be less efficient than a bitmap index.
+
 ## Selectivity
 
 A **selectivity** is an index's ability to reduce the number of rows returned by a query.
