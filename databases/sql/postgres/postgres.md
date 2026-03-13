@@ -5,7 +5,6 @@
 - [PostgreSQL. `psql`. `pg_dump`. `dropdb`. `createdb`. `pg_restore`](#postgresql-psql-pg_dump-dropdb-createdb-pg_restore)
   - [Table of contents](#table-of-contents)
   - [PostgreSQL](#postgresql)
-    - [Docker](#docker)
     - [macOS](#macos)
     - [Ubuntu](#ubuntu)
       - [Access locally installed Postgres from Kubernetes pods](#access-locally-installed-postgres-from-kubernetes-pods)
@@ -24,30 +23,6 @@
   - [JSON](#json)
 
 ## PostgreSQL
-
-### Docker
-
-`compose.yml` file:
-
-```yaml
-services:
-  database:
-    image: postgres:18.2
-    container_name: postgres
-    restart: unless-stopped
-    ports:
-      - 8420:5432
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: postgres
-    volumes:
-      - ./volumes/postgres:/var/lib/postgresql/18/docker
-```
-
-```bash
-docker exec -it postgres psql -U postgres
-```
 
 ### macOS
 

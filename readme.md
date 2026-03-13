@@ -47,6 +47,7 @@
 - [Amazon S3, MinIO](tools/s3.md)
 - [Ansible](tools/ansible.md)
 - [Docker](tools/docker/docker.md)
+  - [Compose files](tools/docker/compose-files.md)
   - [Dockerfile](tools/docker/dockerfiles.md)
   - [Docker compose](tools/docker/docker-compose.md)
 - [Docusaurus, docfx](tools/docusaurus.md)
