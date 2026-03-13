@@ -195,6 +195,12 @@ The moving average is calculated in the same way for each of the remaining dates
 
 ## `HAVING`
 
+The **`HAVING`** clause filters rows after the aggregation of the `GROUP BY` clause has been applied.
+
+A `HAVING` clause must come after any `GROUP BY` clause and before any `ORDER BY` clause.
+
+A `HAVING` is like `WHERE` clause, but applies to groups. Results from a `HAVING` clause represent groupings or aggregations of original rows, whereas results from a `WHERE` clause are individual original rows.
+
 ```sql
 SELECT fare_conditions, COUNT(*) AS total
 FROM seats
