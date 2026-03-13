@@ -335,7 +335,7 @@ echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PA
 
 ```bash
 brew update
-brew install ffmpeg
+brew install yt-dlp
 ```
 
 ```bash
