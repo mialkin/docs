@@ -46,7 +46,9 @@ Index does not store row visibility information. That's why deletion of a row do
 
 ## Hash index
 
-A [↑ **hash index**](https://www.postgresql.org/docs/current/indexes-types.html#INDEXES-TYPES-HASH) stores a 32-bit hash code derived from the value of the indexed column. Hence, such indexes can only handle simple equality comparisons. The query planner will consider using a hash index whenever an indexed column is involved in a comparison using the equal operator:
+A [↑ **hash index**](https://www.postgresql.org/docs/current/indexes-types.html#INDEXES-TYPES-HASH) stores a 32-bit hash code derived from the value of the indexed column. Hence, such indexes can only handle simple equality comparisons.
+
+The query planner will consider using a hash index whenever an indexed column is involved in a comparison using the equal operator:
 
 ```text
 =

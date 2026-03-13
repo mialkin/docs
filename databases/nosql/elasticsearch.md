@@ -20,8 +20,8 @@ Elasticsearch provides near real-time search and analytics for all types of data
   - [Update documents](#update-documents)
   - [Search documents](#search-documents)
     - [Boolean query](#boolean-query)
-  - [Inverted index](#inverted-index)
   - [Text analysis](#text-analysis)
+  - [Inverted index](#inverted-index)
 
 ## Installation
 
@@ -155,7 +155,7 @@ In the response, we can see that Elasticsearch has incremented the `_version` nu
     "_type" :    "product",
     "_id" :      "bd971fd3-9a7b-4202-a2a4-5d143242d453",
     "_version" : 2,
-    "created":   false 
+    "created":   false
 }
 ```
 
@@ -179,11 +179,7 @@ You can use the [↑ search API](https://www.elastic.co/guide/en/elasticsearch/r
 
 ### Boolean query
 
-[↑ Boolean query](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-bool-query.html).
-
-## Inverted index
-
-[↑ Inverted index](https://www.elastic.co/guide/en/elasticsearch/guide/current/inverted-index.html)
+[↑ Boolean query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-bool-query).
 
 ## Text analysis
 
@@ -228,3 +224,46 @@ For example, a [↑ lowercase token filter](https://www.elastic.co/guide/en/elas
 Token filters are not allowed to change the position or character offsets of each token.
 
 An analyzer may have zero or more token filters, which are applied in order.
+
+## Inverted index
+
+An **inverted index** is a data structure that maps each token to the documents that contain it. It's made up of two key components:
+
+- **Dictionary**: A sorted list of all unique terms in the collection of documents in your index.
+- **Posting list**: For each term, a list of document IDs where the term appears, along with optional metadata like term frequency and position.
+
+```text
+Term      Doc_1  Doc_2
+-------------------------
+Quick   |       |  X
+The     |   X   |
+brown   |   X   |  X
+dog     |   X   |
+dogs    |       |  X
+fox     |   X   |
+foxes   |       |  X
+in      |       |  X
+jumped  |   X   |
+lazy    |   X   |  X
+leap    |       |  X
+over    |   X   |  X
+quick   |   X   |
+summer  |       |  X
+the     |   X   |
+------------------------
+```
+
+Now, if we want to search for quick brown, we just need to find the documents in which each term appears:
+
+```text
+Term      Doc_1  Doc_2
+-------------------------
+brown   |   X   |  X
+quick   |   X   |
+------------------------
+Total   |   2   |  1
+```
+
+Both documents match, but the first document has more matches than the second. If we apply a naive similarity algorithm that just counts the number of matching terms, then we can say that the first document is a better match—​is more relevant to our query—​than the second document.
+
+[↑ Inverted index](https://www.elastic.co/guide/en/elasticsearch/guide/current/inverted-index.html)

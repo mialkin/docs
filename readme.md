@@ -118,7 +118,7 @@
 - [Optimistic and pessimistic concurrency](databases/sql/optimistic-vs-pessimistic-concurrency.md)
 - [PostgreSQL. `psql`. `pg_dump`. `dropdb`. `createdb`. `pg_restore`](databases/sql/postgres/postgres.md)
   - [System catalog, schemas, tablespaces, relations, files and forks, pages, TOAST](databases/sql/postgres/data-organization.md)
-  - [B-tree, hash index, `CLUSTER`](databases/sql/postgres/indexes/indexes.md)
+  - [B-tree index, hash index, `CLUSTER`](databases/sql/postgres/indexes/indexes.md)
   - [↑ QPT-13 YouTube playlist](https://www.youtube.com/playlist?list=PLaFqU3KCWw6JW80WBHPOe-SMJD2NOjmge).
     - [Demo database](databases/sql/postgres/qpt-13/demo-database/demo-database.md)
     - [Sequential access](databases/sql/postgres/qpt-13/sequential-access.md)
