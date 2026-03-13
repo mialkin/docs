@@ -5,6 +5,7 @@
 - [Compose files](#compose-files)
   - [Table of contents](#table-of-contents)
   - [Postgres](#postgres)
+  - [Redis](#redis)
 
 ## Postgres
 
@@ -26,4 +27,26 @@ services:
 
 ```bash
 docker exec -it postgres psql -U postgres
+```
+
+## Redis
+
+```yaml
+services:
+  redis:
+    image: redis:8.6.1
+    container_name: redis-server
+    restart: unless-stopped
+    ports:
+      - 6379:6379
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+
+volumes:
+  redis_data:
+```
+
+```bash
+docker exec -it redis-server redis-cli
 ```

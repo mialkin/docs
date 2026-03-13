@@ -12,7 +12,6 @@ Redis is an acronym that stands for **RE**mote **DI**ctionary **S**erver.
 
 - [Redis](#redis)
   - [Table of contents](#table-of-contents)
-  - [Running in Docker](#running-in-docker)
   - [GUI](#gui)
   - [Redis CLI](#redis-cli)
   - [Redis data types](#redis-data-types)
@@ -25,15 +24,6 @@ Redis is an acronym that stands for **RE**mote **DI**ctionary **S**erver.
     - [Append only file persistence](#append-only-file-persistence)
   - [Repository](#repository)
   - [Links](#links)
-
-## Running in Docker
-
-```bash
-docker run --name redis \
---publish 6379:6379 \
-redis redis-server \
---appendonly yes
-```
 
 ## GUI
 
