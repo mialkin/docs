@@ -3,7 +3,6 @@
 - [Data structures](#data-structures)
   - [Array](#array)
   - [Bloom filter](#bloom-filter)
-    - [Description](#description)
     - [Example](#example)
   - [Graph](#graph)
   - [Hash table or hash map](#hash-table-or-hash-map)
@@ -26,13 +25,9 @@ A [↑ **Bloom filter**](https://en.wikipedia.org/wiki/Bloom_filter) is a space-
 
 False positive matches are possible, but false negatives are not — in other words, a query returns either "possibly in set" or "definitely not in set".
 
-Elements can be added to the set, but not removed (though this can be addressed with the counting Bloom filter variant); the more items added, the larger the probability of false positives.
-
 [↑ Bloom Filter Calculator](https://hur.st/bloomfilter/).
 
-[↑ Bloom Filters - Part 1 of 3](https://www.youtube.com/watch?v=eCUm4U3WDpM).
-
-### Description
+[↑ Bloom filters in Redis](https://redis.io/docs/latest/develop/data-types/probabilistic/bloom-filter).
 
 An empty Bloom filter is a bit array of $m$ bits, all set to 0. It is equipped with $k$ different hash functions, which map set elements to one of the $m$ possible array positions. To be optimal, the hash functions should be uniformly distributed and independent. Typically, $k$ is a small constant which depends on the desired false error rate $ε$, while $m$ is proportional to $k$ and the number of elements to be added.
 
