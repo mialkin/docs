@@ -11,7 +11,6 @@
   - [Join types](#join-types)
     - [`FULL JOIN`](#full-join)
     - [`CROSS JOIN`](#cross-join)
-    - [Script](#script)
 
 ## CTE
 
@@ -226,6 +225,38 @@ Aggregate functions are often used with `GROUP BY` clauses, and by adding `HAVIN
 
 ## Join types
 
+Initialization script:
+
+```sql
+BEGIN TRANSACTION;
+
+CREATE TABLE t1
+(
+    num  integer NOT NULL,
+    name varchar NOT NULL
+);
+
+
+CREATE TABLE t2
+(
+    num   integer NOT NULL,
+    value varchar NOT NULL
+);
+
+INSERT INTO t1 (num, name)
+VALUES (1, 'a'),
+       (2, 'b'),
+       (3, 'c');
+
+
+INSERT INTO t2 (num, value)
+VALUES (1, 'xxx'),
+       (3, 'yyy'),
+       (5, 'zzz');
+
+COMMIT;
+```
+
 `t1` table:
 
 | num | name |
@@ -282,35 +313,3 @@ FROM t1
 | 3   | c    | 1   | xxx   |
 | 3   | c    | 3   | yyy   |
 | 3   | c    | 5   | zzz   |
-
-### Script
-
-```sql
-BEGIN TRANSACTION;
-
-CREATE TABLE t1
-(
-    num  integer NOT NULL,
-    name varchar NOT NULL
-);
-
-
-CREATE TABLE t2
-(
-    num   integer NOT NULL,
-    value varchar NOT NULL
-);
-
-INSERT INTO t1 (num, name)
-VALUES (1, 'a'),
-       (2, 'b'),
-       (3, 'c');
-
-
-INSERT INTO t2 (num, value)
-VALUES (1, 'xxx'),
-       (3, 'yyy'),
-       (5, 'zzz');
-
-COMMIT;
-```
