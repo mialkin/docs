@@ -5,6 +5,8 @@
 - [CTE. Window function. `HAVING`, `FULL JOIN`](#cte-window-function-having-full-join)
   - [Table of contents](#table-of-contents)
   - [CTE](#cte)
+    - [Basic CTE](#basic-cte)
+  - [Temporary table](#temporary-table)
   - [Window function](#window-function)
     - [Window functions vs `GROUP BY`](#window-functions-vs-group-by)
   - [`HAVING`](#having)
@@ -14,32 +16,49 @@
 
 ## CTE
 
-A **common table expressions** or **CTE** is an auxiliary statement which is used in a larger query.
+A **common table expression** or **CTE** is a temporary result set that can be referenced within a `SELECT`, `INSERT`, `UPDATE`, or `DELETE` statement. Think of it as readable, named bucket for your data that exists only during the execution of that single query.
 
-CTE, can be thought of as defining temporary table that exists just for one query.
+CTEs are much cleaner than nested subqueries because they follow a logical "top-to-bottom" flow. Instead of burying a subquery inside your `FROM` clause, you define the logic at the top using the `WITH` keyword.
+
+### Basic CTE
+
+**Scenario**: You want to find all employees who earn more than the average salary.
+
+```sql
+WITH AverageSalaryCTE AS (SELECT AVG(Salary) AS AvgSal
+                          FROM Employees)
+SELECT Name, Salary
+FROM Employees,
+     AverageSalaryCTE
+WHERE Salary > AvgSal;
+```
+
+**Why use it?** It separates the "calculation" step from the "display" step, making the code much easier for a teammate (or future you) to read. Compare it with:
+
+```sql
+SELECT Name, Salary
+FROM Employees
+WHERE Salary > (SELECT AVG(Salary) AS AvgSal
+                FROM Employees);
+```
 
 Each auxiliary statement in a `with` clause can be a `select`, `insert`, `update`, or `delete`. The `with` clause itself is attached to a primary statement that can also be a `select`, `insert`, `update`, or `delete`.
 
-Example of a CTE:
+Question:
 
-```sql
-with whatever as (
-    select *
-    from employee_salary
-),
-somethingelse as
-    (
-        select id, department
-        from employee_salary
-    )
-select whatever.id, whatever.salary, somethingelse.department
-from whatever
-join somethingelse on somethingelse.id = whatever.id;
+```text
+When there are several CTEs inside of a single query do they execute sequentially?
 ```
+
+The short answer is: logically, yes; physically, not necessarily. In SQL, there is a big difference between how you _write_ the code (the logical flow) and how the database _runs_ the code (the execution plan).
+
+Pro-tip: If you have a CTE that performs a very heavy calculation and you use it three different times in your main query, some engines might accidentally run that heavy calculation three times. In those cases, using a [temporary table](#temporary-table) instead of a CTE can be faster because it forces the data to be saved once.
 
 [↑ PostgreSQL `WITH` queries](https://www.postgresql.org/docs/16/queries-with.html).
 
 [↑ T-SQL `WITH common_table_expression`](https://learn.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql).
+
+## Temporary table
 
 ## Window function
 
