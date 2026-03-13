@@ -108,7 +108,7 @@
 
 - [ACID](databases/sql/acid.md)
 - [Covering, composite, partial index, cardinality, selectivity](databases/sql/indexes.md)
-- [CTE. Window function. `HAVING`](databases/sql/relationalcte/cte.md)
+- [CTE. Window function. `HAVING`](databases/sql/cte/cte.md)
 - [EAV model](databases/sql/eav.md)
 - [Isolation levels and read phenomena](databases/sql/isolation-levels/isolation-levels.md)
   - [PostgreSQL isolation levels](databases/sql/isolation-levels/postgres/isolation-levels.md)
