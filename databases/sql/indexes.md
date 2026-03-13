@@ -44,4 +44,4 @@ A **selectivity** is an index's ability to reduce the number of rows returned by
 
 A highly selective index filters out a large portion of the data and therefore speeds up the search. When you query a field that has many distinct values (in other words, is very unique), the index selectivity will be high.
 
-The HyperLogLog algorithm can be used for cardinality estimation.
+The [HyperLogLog](../../computer-science/algorithms/algorithms.md#hyperloglog) algorithm can be used for cardinality estimation.

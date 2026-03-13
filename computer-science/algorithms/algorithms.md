@@ -6,6 +6,7 @@
   - [Bubble sort](#bubble-sort)
   - [Depth-first search](#depth-first-search)
   - [Dijkstra's algorithm](#dijkstras-algorithm)
+  - [HyperLogLog](#hyperloglog)
   - [Selection sort](#selection-sort)
   - [Sorting complexities](#sorting-complexities)
   - [Links](#links)
@@ -14,7 +15,7 @@
 
 A **binary search** is a search algorithm that finds the position of a target value within a sorted array.
 
-Binary search is a *divide and conquer* algorithm. Like all divide-and-conquer algorithms, binary search first divides a large array into two smaller subarrays and then recursively or iteratively operates the subarrays. But instead of working on both subarrays, it discards one subarray and continues on the second subarray. This decision of discarding one subarray is made in just one comparison.
+Binary search is a _divide and conquer_ algorithm. Like all divide-and-conquer algorithms, binary search first divides a large array into two smaller subarrays and then recursively or iteratively operates the subarrays. But instead of working on both subarrays, it discards one subarray and continues on the second subarray. This decision of discarding one subarray is made in just one comparison.
 
 Binary search reduces the search space to half at each step. By search space, we mean a subarray of the given array where the target value is located, if present in the array. Initially, the search space is the entire array, and binary search redefines the search space at every step of the algorithm by using the property of the array that it is sorted. It does so by comparing the mid-value in the search space to the target value. If the target value matches the middle element, its position in the array is returned; otherwise, it discards half of the search space based on the comparison result.
 
@@ -61,7 +62,7 @@ int middle = right - (right - left) / 2;
 
 ## Breadth-first search
 
-A **breadth-first search** or **BFS** is an algorithm for *traversing* or *searching*  a tree or graph data structures. The algorithm starts at the root node, selecting some arbitrary node as the root node in the case of a graph, and explores all nodes at the present depth prior to moving on to the nodes at the next depth level. Extra memory, usually a queue, is needed to keep track of the child nodes that were encountered but not yet explored.
+A **breadth-first search** or **BFS** is an algorithm for _traversing_ or _searching_ a tree or graph data structures. The algorithm starts at the root node, selecting some arbitrary node as the root node in the case of a graph, and explores all nodes at the present depth prior to moving on to the nodes at the next depth level. Extra memory, usually a queue, is needed to keep track of the child nodes that were encountered but not yet explored.
 
 ## Bubble sort
 
@@ -87,11 +88,19 @@ public void Sort(int[] array)
 
 ## Depth-first search
 
-A **depth-first search** (**DFS**) is an algorithm for *traversing* or *searching* a tree or graph data structures. The algorithm starts at the root node (selecting some arbitrary node as the root node in the case of a graph) and explores as far as possible along each branch before backtracking.
+A **depth-first search** (**DFS**) is an algorithm for _traversing_ or _searching_ a tree or graph data structures. The algorithm starts at the root node (selecting some arbitrary node as the root node in the case of a graph) and explores as far as possible along each branch before backtracking.
 
 ## Dijkstra's algorithm
 
 **Dijkstra's algorithm** is an algorithm for finding the shortest paths between nodes in a graph, which may represent, for example, road networks.
+
+## HyperLogLog
+
+The [↑ **HyperLogLog**](https://en.wikipedia.org/wiki/HyperLogLog) is an algorithm for the _count-distinct problem_, approximating the number of distinct elements in a [↑ multiset](https://en.wikipedia.org/wiki/Multiset).
+
+Calculating the exact cardinality of the distinct elements of a multiset requires an amount of memory proportional to the cardinality, which is impractical for very large data sets. Probabilistic cardinality estimators, such as the HyperLogLog algorithm, use significantly less memory than this, but can only approximate the cardinality. The HyperLogLog algorithm is able to estimate cardinalities of $> 10^9$ with a typical accuracy (standard error) of 2%, using 1.5 kB of memory. HyperLogLog is an extension of the earlier LogLog algorithm, itself deriving from the 1984 [↑ Flajolet–Martin algorithm](https://en.wikipedia.org/wiki/Flajolet%E2%80%93Martin_algorithm).
+
+The [↑ **count-distinct problem**](https://en.wikipedia.org/wiki/Count-distinct_problem), also known in applied mathematics as the **cardinality estimation problem**, is the problem of finding the number of distinct elements in a data stream with repeated elements. This is a well-known problem with numerous applications. The elements might represent IP addresses of packets passing through a router, unique visitors to a web site, elements in a large database, motifs in a DNA sequence, or elements of RFID/sensor networks.
 
 ## Selection sort
 
