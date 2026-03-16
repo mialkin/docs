@@ -130,6 +130,7 @@
     - [Merge joins and sorting](databases/sql/postgres/qpt-13/merge-joins-sorting/merge-joins-sorting.md)
     - [Statistics](databases/sql/postgres/qpt-13/statistics/statistics.md)
 - [Replication, sharding, partitioning](databases/sql/replication-sharding-partitioning.md)
+- [SQL interview questions](databases/sql/sql-interview-questions.md)
 - [SQL Server. T-SQL. PL/SQL](databases/sql/tsql.md)
 
 ## Software architecture and design
