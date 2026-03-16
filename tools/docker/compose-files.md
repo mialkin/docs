@@ -13,13 +13,15 @@
 ```yaml
 services:
   otel-lgtm:
-    image: grafana/otel-lgtm
+    image: grafana/otel-lgtm:latest
     container_name: otel-lgtm
     restart: unless-stopped
     ports:
-      - 3000:3000 # Web UI
+      - 3000:3000 # Grafana UI. User: admin, password: admin
       - 4317:4317 # OpenTelemetry gRPC endpoint
       - 4318:4318 # OpenTelemetry HTTP endpoint
+      - 4040:4040 # Pyroscope endpoint
+      - 9090:9090 # Prometheus endpoint
 ```
 
 ## Postgres
