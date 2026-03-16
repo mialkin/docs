@@ -8,6 +8,7 @@
   - [Loki](#loki)
   - [Tempo](#tempo)
   - [Alloy](#alloy)
+  - [`grafana/otel-lgtm`](#grafanaotel-lgtm)
 
 ## Grafana
 
@@ -53,3 +54,11 @@ Alloy pipelines are built using components that perform specific functions:
 - **Collector**: These components collect/receive logs from various sources. This can be scraping logs from a file, receiving logs over HTTP, gRPC or ingesting logs from a message queue.
 - **Transformer**: These components can be used to manipulate logs before they are sent to a writer. This can be used to add additional metadata, filter logs, or batch logs before sending them to a writer.
 - **Writer**: These components send logs to the desired destination. Our documentation will focus on sending logs to Loki, but Alloy supports sending logs to various destinations.
+
+## `grafana/otel-lgtm`
+
+The [↑ `grafana/otel-lgtm`](https://github.com/grafana/docker-otel-lgtm) image contains a preconfigured OpenTelemetry backend based on the [↑ OpenTelemetry Collector](https://opentelemetry.io/docs/collector/), [↑ Prometheus](https://github.com/prometheus/prometheus), [↑ Grafana Loki](https://github.com/grafana/loki/), [↑ Grafana Tempo](https://github.com/grafana/tempo/), [↑ Grafana Pyroscope](https://github.com/grafana/pyroscope), and [↑ Grafana](https://github.com/grafana/grafana).
+
+[↑ An OpenTelemetry backend in a Docker image](https://grafana.com/blog/an-opentelemetry-backend-in-a-docker-image-introducing-grafana-otel-lgtm/).
+
+[↑ Observability in under 5 seconds](https://grafana.com/blog/observability-in-under-5-seconds-reflecting-on-a-year-of-grafana-otel-lgtm/).

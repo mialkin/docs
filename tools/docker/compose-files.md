@@ -4,8 +4,23 @@
 
 - [Compose files](#compose-files)
   - [Table of contents](#table-of-contents)
+  - [`grafana/otel-lgtm`](#grafanaotel-lgtm)
   - [Postgres](#postgres)
   - [Redis](#redis)
+
+## `grafana/otel-lgtm`
+
+```yaml
+services:
+  otel-lgtm:
+    image: grafana/otel-lgtm
+    container_name: otel-lgtm
+    restart: unless-stopped
+    ports:
+      - 3000:3000 # Web UI
+      - 4317:4317 # OpenTelemetry gRPC endpoint
+      - 4318:4318 # OpenTelemetry HTTP endpoint
+```
 
 ## Postgres
 
