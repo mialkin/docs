@@ -52,7 +52,6 @@
 - Как можно вернуть данные из T-SQL-процедуры?
 - T-SQL table variables vs temporary tables
 - Create a deadlock. "Forget" on purpose to commit transaction and see what happens. Try using different isolation levels. <https://www.sqlservercentral.com/forums/topic/what-happens-with-uncommitted-transactions>. Are there any built-in timeouts for transaction to commit?
-- [↑ drop table vs truncate table](https://www.google.com/search?q=drop+table+vs+truncate+table)
 - Преимущества и недостатки хранимых процедур и триггеров
 - [↑ Nested loop join](https://www.google.com/search?q=nested+loop+join)
 - Какие недостатки есть у индексов, какое негативное влияние они оказывают

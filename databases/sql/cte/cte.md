@@ -16,7 +16,7 @@
 
 ## CTE
 
-A **common table expression** or **CTE** is a temporary result set that can be referenced within a `SELECT`, `INSERT`, `UPDATE`, or `DELETE` statement. Think of it as readable, named bucket for your data that exists only during the execution of that single query.
+A **common table expression** or **CTE** is a temporary result set defined with `WITH`. Think of it as readable, named bucket for your data that exists only during the execution of that single query.
 
 CTEs are much cleaner than nested subqueries because they follow a logical "top-to-bottom" flow. Instead of burying a subquery inside your `FROM` clause, you define the logic at the top using the `WITH` keyword.
 
