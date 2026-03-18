@@ -13,7 +13,8 @@
 The following keywords are used to declare reference types:
 
 - `class`
-- `interface`
+- `interface` An interface defines a contract that reference types (classes) or value types (structs) can implement. While a struct is a value type, when it is cast to an interface, it is boxed into a reference type.
+
 - `record`
 
 C# also provides the following built-in reference types:
