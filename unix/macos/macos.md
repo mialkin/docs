@@ -32,6 +32,7 @@
     - [Rectangle](#rectangle)
     - [Rider](#rider)
       - [`rider` command](#rider-command)
+    - [`ripgrep`](#ripgrep)
     - [SensibleSideButtons](#sensiblesidebuttons)
     - [Sublime Text](#sublime-text)
     - [Visual Studio Code](#visual-studio-code)
@@ -298,6 +299,17 @@ Change access mode:
 chmod 775 rider
 ```
 
+### `ripgrep`
+
+```bash
+brew install ripgrep
+```
+
+```bash
+rg "dotnet run"
+```
+
+
 ### SensibleSideButtons
 
 [↑ SensibleSideButtons](https://sensible-side-buttons.archagon.net) is an application that enables side navigation buttons on your third-party mice
@@ -328,6 +340,21 @@ echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PA
 [↑ Visual Studio Code](https://code.visualstudio.com)
 
 [↑ Install `code` command in PATH](https://stackoverflow.com/a/68273710/1833895).
+
+Custom snippets:
+
+<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>  Type **Snippets**.
+
+````json
+{
+  "InsertPythonCode": {
+    "scope": "md,markdown",
+    "prefix": ["py"],
+    "body": ["```py", "$0", "```", ""],
+    "description": "Insert Python code"
+  }
+}
+````
 
 ### yt-dlp
 
