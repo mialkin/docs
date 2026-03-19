@@ -4,18 +4,18 @@
 
 - [Reference types. Reference types vs value types. Nullable reference types](#reference-types-reference-types-vs-value-types-nullable-reference-types)
   - [Table of contents](#table-of-contents)
-  - [Reference types](#reference-types)
   - [Reference types vs value types](#reference-types-vs-value-types)
   - [Nullable reference types](#nullable-reference-types)
-
-## Reference types
 
 The following keywords are used to declare reference types:
 
 - `class`
-- `interface` An interface defines a contract that reference types (classes) or value types (structs) can implement. While a struct is a value type, when it is cast to an interface, it is boxed into a reference type.
-
+- `interface`
 - `record`
+
+Note:
+
+> An interface defines a contract that reference types (classes) or value types (structs) can implement. While a struct is a value type, when it is cast to an interface, it is boxed into a reference type
 
 C# also provides the following built-in reference types:
 
