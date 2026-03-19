@@ -1,10 +1,10 @@
-# CTE. Window function. `HAVING`, `FULL JOIN`
+# CTE `WITH`. . `HAVING`, `FULL JOIN`
 
 ## Table of contents
 
-- [CTE. Window function. `HAVING`, `FULL JOIN`](#cte-window-function-having-full-join)
+- [CTE `WITH`. . `HAVING`, `FULL JOIN`](#cte-with--having-full-join)
   - [Table of contents](#table-of-contents)
-  - [CTE](#cte)
+  - [CTE `WITH`](#cte-with)
     - [Basic CTE](#basic-cte)
   - [Temporary table](#temporary-table)
   - [Window function](#window-function)
@@ -14,7 +14,7 @@
     - [`FULL JOIN`](#full-join)
     - [`CROSS JOIN`](#cross-join)
 
-## CTE
+## CTE `WITH`
 
 A **common table expression** or **CTE** is a temporary result set defined with `WITH`. Think of it as readable, named bucket for your data that exists only during the execution of that single query.
 
