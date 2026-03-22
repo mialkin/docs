@@ -7,6 +7,7 @@ A **window function** in SQL is a function that operates on a selected set of ro
 - [Window functions, `OVER`, `PARTITION BY`](#window-functions-over-partition-by)
   - [Table of contents](#table-of-contents)
   - [DDL \& DML](#ddl--dml)
+  - [3 classes of window functions](#3-classes-of-window-functions)
   - [`ORDER BY`](#order-by)
 
 ## DDL & DML
@@ -49,6 +50,41 @@ ORDER BY name ASC, grade DESC;
 | Петя | физика     | 5     |
 | Петя | история    | 4     |
 | Петя | русский    | 4     |
+
+## 3 classes of window functions
+
+Window functions can be split in 3 categories:
+
+| Aggregate | Ranking        | Value           |
+| :-------- | :------------- | :-------------- |
+| `AVG()`   | `ROW_NUMBER()` | `FIRST_VALUE()` |
+| `COUNT()` | `RANK()`       | `LAST_VALUE()`  |
+| `MAX()`   | `DENSE_RANK()` | `LAG()`         |
+| `MIN()`   | `NTILE()`      | `LEAD()`        |
+| `SUM()`   | `CUME_DIST()`  | `NTH_VALUE()`   |
+
+Aggregating:
+
+```sql
+SELECT *,
+       AVG(grade) OVER (PARTITION BY name),
+       COUNT(*) OVER (PARTITION BY name),
+       MAX(grade) OVER (PARTITION BY name),
+       MIN(grade) OVER (PARTITION BY name),
+       SUM(grade) OVER (PARTITION BY name)
+FROM student_grades
+ORDER BY name;
+```
+
+| name | subject    | grade | avg                | count | max | min | sum |
+| :--- | :--------- | :---- | :----------------- | :---- | :-- | :-- | :-- |
+| Маша | математика | 4     | 3.75               | 4     | 5   | 3   | 15  |
+| Маша | русский    | 3     | 3.75               | 4     | 5   | 3   | 15  |
+| Маша | физика     | 5     | 3.75               | 4     | 5   | 3   | 15  |
+| Маша | история    | 3     | 3.75               | 4     | 5   | 3   | 15  |
+| Петя | физика     | 5     | 4.3333333333333333 | 3     | 5   | 4   | 13  |
+| Петя | история    | 4     | 4.3333333333333333 | 3     | 5   | 4   | 13  |
+| Петя | русский    | 4     | 4.3333333333333333 | 3     | 5   | 4   | 13  |
 
 ## `ORDER BY`
 
