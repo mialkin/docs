@@ -132,7 +132,7 @@
 - [Replication, sharding, partitioning](databases/sql/replication-sharding-partitioning.md)
 - [SQL interview questions](databases/sql/sql-interview-questions.md)
 - [SQL Server. T-SQL. PL/SQL](databases/sql/tsql.md)
-- [Window functions](databases/sql/window-functions.md)
+- [Window functions, `OVER`, `PARTITION BY`](databases/sql/window-functions.md)
 
 ## Software architecture and design
 
