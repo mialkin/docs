@@ -8,6 +8,8 @@ A **window function** in SQL is a function that operates on a selected set of ro
   - [Table of contents](#table-of-contents)
   - [DDL \& DML](#ddl--dml)
   - [3 classes of window functions](#3-classes-of-window-functions)
+    - [Aggregating](#aggregating)
+    - [Ranking](#ranking)
   - [`ORDER BY`](#order-by)
 
 ## DDL & DML
@@ -63,7 +65,7 @@ Window functions can be split in 3 categories:
 | `MIN()`   | `NTILE()`      | `LEAD()`        |
 | `SUM()`   | `CUME_DIST()`  | `NTH_VALUE()`   |
 
-Aggregating:
+### Aggregating
 
 ```sql
 SELECT *,
@@ -85,6 +87,27 @@ ORDER BY name;
 | Петя | физика     | 5     | 4.3333333333333333 | 3     | 5   | 4   | 13  |
 | Петя | история    | 4     | 4.3333333333333333 | 3     | 5   | 4   | 13  |
 | Петя | русский    | 4     | 4.3333333333333333 | 3     | 5   | 4   | 13  |
+
+### Ranking
+
+```sql
+SELECT *,
+       ROW_NUMBER() OVER (PARTITION BY name),
+       RANK() OVER (PARTITION BY name),
+       DENSE_RANK() OVER (PARTITION BY name),
+       NTILE(3) OVER (PARTITION BY name),
+       CUME_DIST() OVER (PARTITION BY name)
+FROM student_grades
+ORDER BY name;
+```
+
+`ROW_NUMBER()` function returns the sequential number of a row within a partition of a result set, starting at 1 for the first row in each partition.
+
+`NTILE(N)` function receives an integer parameter (`N`) and divides the complete set of rows into `N` subsets. Each subset has approximately the same number of rows and is identified by a number between 1 and `N`. This ID number is what `NTILE()` returns.
+
+`RANK()` gives you the ranking within your ordered partition. Ties are assigned the same rank, with the next ranking(s) skipped. So, if you have 3 items at rank 2, the next rank listed would be ranked 5.
+
+`DENSE_RANK()` again gives you the ranking within your ordered partition, but the ranks are consecutive. No ranks are skipped if there are ranks with multiple items. So, if you have 3 items at rank 2, the next rank listed would be ranked 3.
 
 ## `ORDER BY`
 
