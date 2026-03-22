@@ -93,21 +93,56 @@ ORDER BY name;
 ```sql
 SELECT *,
        ROW_NUMBER() OVER (PARTITION BY name),
-       RANK() OVER (PARTITION BY name),
-       DENSE_RANK() OVER (PARTITION BY name),
+       RANK() OVER (PARTITION BY name ORDER BY grade),
+       DENSE_RANK() OVER (PARTITION BY name ORDER BY grade),
        NTILE(3) OVER (PARTITION BY name),
-       CUME_DIST() OVER (PARTITION BY name)
+       CUME_DIST() OVER (PARTITION BY name ORDER BY grade)
 FROM student_grades
 ORDER BY name;
 ```
+
+| name | subject    | grade | row_number | rank | dense_rank | ntile | cume_dist          |
+| :--- | :--------- | :---- | :--------- | :--- | :--------- | :---- | :----------------- |
+| Маша | русский    | 3     | 1          | 1    | 1          | 1     | 0.5                |
+| Маша | история    | 3     | 2          | 1    | 1          | 1     | 0.5                |
+| Маша | математика | 4     | 3          | 3    | 2          | 2     | 0.75               |
+| Маша | физика     | 5     | 4          | 4    | 3          | 3     | 1                  |
+| Петя | русский    | 4     | 1          | 1    | 1          | 1     | 0.6666666666666666 |
+| Петя | история    | 4     | 2          | 1    | 1          | 2     | 0.6666666666666666 |
+| Петя | физика     | 5     | 3          | 3    | 2          | 3     | 1                  |
 
 `ROW_NUMBER()` function returns the sequential number of a row within a partition of a result set, starting at 1 for the first row in each partition.
 
 `NTILE(N)` function receives an integer parameter (`N`) and divides the complete set of rows into `N` subsets. Each subset has approximately the same number of rows and is identified by a number between 1 and `N`. This ID number is what `NTILE()` returns.
 
-`RANK()` gives you the ranking within your ordered partition. Ties are assigned the same rank, with the next ranking(s) skipped. So, if you have 3 items at rank 2, the next rank listed would be ranked 5.
+`RANK()` function gives you the ranking within your ordered partition. Ties are assigned the same rank, with the next ranking(s) skipped. So, if you have 3 items at rank 2, the next rank listed would be ranked 5.
 
-`DENSE_RANK()` again gives you the ranking within your ordered partition, but the ranks are consecutive. No ranks are skipped if there are ranks with multiple items. So, if you have 3 items at rank 2, the next rank listed would be ranked 3.
+`DENSE_RANK()` function gives you the ranking within your ordered partition, but the ranks are consecutive. No ranks are skipped if there are ranks with multiple items. So, if you have 3 items at rank 2, the next rank listed would be ranked 3.
+
+`CUME_DIST()` function calculates the cumulative distribution of a value within a group of values.
+
+By the way, the expression with empty `OVER` also works:
+
+```sql
+SELECT *,
+       ROW_NUMBER() OVER (),
+       RANK() OVER (),
+       DENSE_RANK() OVER (),
+       NTILE(3) OVER (),
+       CUME_DIST() OVER ()
+FROM student_grades
+ORDER BY name;
+```
+
+| name | subject    | grade | row_number | rank | dense_rank | ntile | cume_dist |
+| :--- | :--------- | :---- | :--------- | :--- | :--------- | :---- | :-------- |
+| Маша | математика | 4     | 4          | 1    | 1          | 2     | 1         |
+| Маша | русский    | 3     | 5          | 1    | 1          | 2     | 1         |
+| Маша | физика     | 5     | 6          | 1    | 1          | 3     | 1         |
+| Маша | история    | 3     | 7          | 1    | 1          | 3     | 1         |
+| Петя | физика     | 5     | 2          | 1    | 1          | 1     | 1         |
+| Петя | история    | 4     | 3          | 1    | 1          | 1     | 1         |
+| Петя | русский    | 4     | 1          | 1    | 1          | 1     | 1         |
 
 ## `ORDER BY`
 
