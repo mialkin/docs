@@ -2,6 +2,10 @@
 
 A **window function** in SQL is a function that operates on a selected set of rows (a _window_, _partition_) and performs a calculation for that set of rows in a separate column.
 
+For a function (like `SUM()`, `RANK()`, etc) to actually behave as a "window function," it must be followed by the `OVER` clause.
+
+A window function performs a calculation across a set of table rows that are somehow related to the current row. This is comparable to the type of calculation that can be done with an aggregate function. However, window functions do not cause rows to become grouped into a single output row like non-window aggregate calls would. Instead, the rows retain their separate identities. Behind the scenes, the window function is able to access more than just the current row of the query result.
+
 ## Table of contents
 
 - [Window functions, `OVER`, `PARTITION BY`](#window-functions-over-partition-by)
@@ -120,6 +124,8 @@ ORDER BY name;
 `DENSE_RANK()` function gives you the ranking within your ordered partition, but the ranks are consecutive. No ranks are skipped if there are ranks with multiple items. So, if you have 3 items at rank 2, the next rank listed would be ranked 3.
 
 `CUME_DIST()` function calculates the cumulative distribution of a value within a group of values.
+
+Expert Tip: While `CUME_DIST()` is listed under Ranking, some documentation might group it under "Distribution Functions" along with `PERCENT_RANK()`. However, placing it under Ranking is still contextually correct for most SQL learners.
 
 By the way, the expression with empty `OVER` also works:
 
