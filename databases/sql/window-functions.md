@@ -1,4 +1,4 @@
-# Window functions, `OVER`, `PARTITION BY`
+# Window functions, `OVER`, `PARTITION BY`, running total, moving average
 
 A **window function** in SQL is a function that operates on a selected set of rows (a _window_, _partition_) and performs a calculation for that set of rows in a separate column.
 
@@ -8,13 +8,15 @@ A window function performs a calculation across a set of table rows that are som
 
 ## Table of contents
 
-- [Window functions, `OVER`, `PARTITION BY`](#window-functions-over-partition-by)
+- [Window functions, `OVER`, `PARTITION BY`, running total, moving average](#window-functions-over-partition-by-running-total-moving-average)
   - [Table of contents](#table-of-contents)
   - [DDL \& DML](#ddl--dml)
   - [3 classes of window functions](#3-classes-of-window-functions)
     - [Aggregating](#aggregating)
     - [Ranking](#ranking)
   - [`ORDER BY`](#order-by)
+  - [Running total](#running-total)
+  - [Moving average](#moving-average)
 
 ## DDL & DML
 
@@ -170,3 +172,46 @@ ORDER BY name;
 | Петя | русский    | 4     | 1          |
 | Петя | история    | 4     | 2          |
 | Петя | физика     | 5     | 3          |
+
+## Running total
+
+A [↑ **running total**](https://learnsql.com/blog/what-is-a-running-total-and-how-to-compute-it-in-sql/) is the cumulative sum of the previous numbers in a column.
+
+Look at the example below, which presents the daily registration of users for an online shop:
+
+| registration_date | registered_users | total_users |
+| ----------------- | ---------------- | ----------- |
+| 2020-03-05        | 32               | 32          |
+| 2020-03-06        | 15               | 47          |
+| 2020-03-07        | 6                | 53          |
+
+The first column shows the date. The second column shows the number of users who registered on that date. The third column, `total_users`, sums the total number of registered users on that day.
+
+## Moving average
+
+A [↑ **moving average**](https://learnsql.com/blog/moving-average-in-sql/) is a time series technique for analyzing and determining trends in data.
+
+Sometimes called rolling means, rolling averages, or running averages, they are calculated as the mean of the current and a specified number of immediately preceding values for each point in time.
+
+Below is the table named `stock_price`:
+
+| date       | price |
+| ---------- | ----- |
+| 2020-01-07 | 132   |
+| 2020-01-08 | 130   |
+| 2020-01-09 | 130   |
+| 2020-01-10 | 130   |
+| ...        | ...   |
+| 2020-06-24 | 108   |
+| 2020-06-25 | 109   |
+| 2020-06-26 | 106   |
+| 2020-06-27 | 106   |
+| 2020-06-28 | 107   |
+| 2020-06-29 | 106   |
+| 2020-06-30 | 106   |
+
+Here is how a three-day moving average is calculated for January 9, 2020:
+
+For January 9, 2020, the three-day moving average is calculated as the mean of prices from that day (130) and the two previous days: January 8 (130) and January 7 (132). So, the moving average for January 9, 2020 is the average of these three values (130 + 130 + 132) / 3 = 130.666.
+
+The moving average is calculated in the same way for each of the remaining dates, totaling the three stock prices from the date in question and the two previous days then dividing that total by 3.

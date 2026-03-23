@@ -109,7 +109,7 @@
 
 - [ACID](databases/sql/acid.md)
 - [Covering, composite, partial index, cardinality, selectivity](databases/sql/indexes.md)
-- [CTE. `HAVING`](databases/sql/cte/cte.md)
+- [CTE, `WITH`. `HAVING`, `FULL JOIN`](databases/sql/cte.md)
 - [EAV model](databases/sql/eav.md)
 - [Isolation levels and read phenomena](databases/sql/isolation-levels/isolation-levels.md)
   - [PostgreSQL isolation levels](databases/sql/isolation-levels/postgres/isolation-levels.md)
@@ -132,7 +132,7 @@
 - [Replication, sharding, partitioning](databases/sql/replication-sharding-partitioning.md)
 - [SQL interview questions](databases/sql/sql-interview-questions.md)
 - [SQL Server. T-SQL. PL/SQL](databases/sql/tsql.md)
-- [Window functions, `OVER`, `PARTITION BY`](databases/sql/window-functions.md)
+- [Window functions, `OVER`, `PARTITION BY`, running total, moving average](databases/sql/window-functions.md)
 
 ## Software architecture and design
 
