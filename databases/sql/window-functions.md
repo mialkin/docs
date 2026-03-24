@@ -187,6 +187,78 @@ Look at the example below, which presents the daily registration of users for an
 
 The first column shows the date. The second column shows the number of users who registered on that date. The third column, `total_users`, sums the total number of registered users on that day.
 
+DDL:
+
+```sql
+CREATE TABLE user_registrations
+(
+    country           VARCHAR(50),
+    registration_date DATE,
+    registered_users  INTEGER
+);
+```
+
+DML:
+
+```sql
+INSERT INTO user_registrations (country, registration_date, registered_users)
+VALUES
+    ('England', '2020-03-05', 25),
+    ('England', '2020-03-06', 12),
+    ('England', '2020-03-07', 10),
+    ('Poland',  '2020-03-05', 32),
+    ('Poland',  '2020-03-06', 15),
+    ('Poland',  '2020-03-07', 6);
+```
+
+```sql
+SELECT *
+FROM user_registrations;
+```
+
+| country | registration_date | registered_users |
+| :------ | :---------------- | :--------------- |
+| England | 2020-03-05        | 25               |
+| England | 2020-03-06        | 12               |
+| England | 2020-03-07        | 10               |
+| Poland  | 2020-03-05        | 32               |
+| Poland  | 2020-03-06        | 15               |
+| Poland  | 2020-03-07        | 6                |
+
+Calculating the running total of registered users:
+
+```sql
+SELECT *,
+       SUM(registered_users) OVER (PARTITION BY country ORDER BY registration_date)
+FROM user_registrations;
+```
+
+| country | registration_date | registered_users | sum |
+| :------ | :---------------- | :--------------- | :-- |
+| England | 2020-03-05        | 25               | 25  |
+| England | 2020-03-06        | 12               | 37  |
+| England | 2020-03-07        | 10               | 47  |
+| Poland  | 2020-03-05        | 32               | 32  |
+| Poland  | 2020-03-06        | 15               | 47  |
+| Poland  | 2020-03-07        | 6                | 53  |
+
+Without `ORDER BY` similar query results in a regular sum (no running total calculated):
+
+```sql
+SELECT *,
+       SUM(registered_users) OVER (PARTITION BY country)
+FROM user_registrations;
+```
+
+| country | registration_date | registered_users | sum |
+| :------ | :---------------- | :--------------- | :-- |
+| England | 2020-03-05        | 25               | 47  |
+| England | 2020-03-06        | 12               | 47  |
+| England | 2020-03-07        | 10               | 47  |
+| Poland  | 2020-03-05        | 32               | 53  |
+| Poland  | 2020-03-06        | 15               | 53  |
+| Poland  | 2020-03-07        | 6                | 53  |
+
 ## Moving average
 
 A [↑ **moving average**](https://learnsql.com/blog/moving-average-in-sql/) is a time series technique for analyzing and determining trends in data.
