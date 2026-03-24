@@ -34,13 +34,13 @@ CREATE TABLE student_grades
 DML:
 
 ```sql
-INSERT INTO student_grades (VALUES ('Петя', 'русский', 4),
-                                   ('Петя', 'физика', 5),
-                                   ('Петя', 'история', 4),
-                                   ('Маша', 'математика', 4),
-                                   ('Маша', 'русский', 3),
-                                   ('Маша', 'физика', 5),
-                                   ('Маша', 'история', 3));
+INSERT INTO student_grades (VALUES ('Bob', 'geography', 4),
+                                   ('Bob', 'physics', 5),
+                                   ('Bob', 'history', 4),
+                                   ('Anna', 'math', 4),
+                                   ('Anna', 'geography', 3),
+                                   ('Anna', 'physics', 5),
+                                   ('Anna', 'history', 3));
 ```
 
 ```sql
@@ -49,15 +49,15 @@ FROM student_grades
 ORDER BY name ASC, grade DESC;
 ```
 
-| name | subject    | grade |
-| :--- | :--------- | :---- |
-| Маша | физика     | 5     |
-| Маша | математика | 4     |
-| Маша | русский    | 3     |
-| Маша | история    | 3     |
-| Петя | физика     | 5     |
-| Петя | история    | 4     |
-| Петя | русский    | 4     |
+| name | subject   | grade |
+| :--- | :-------- | :---- |
+| Anna | physics   | 5     |
+| Anna | math      | 4     |
+| Anna | geography | 3     |
+| Anna | history   | 3     |
+| Bob  | physics   | 5     |
+| Bob  | history   | 4     |
+| Bob  | geography | 4     |
 
 ## 3 classes of window functions
 
@@ -84,15 +84,15 @@ FROM student_grades
 ORDER BY name;
 ```
 
-| name | subject    | grade | avg                | count | max | min | sum |
-| :--- | :--------- | :---- | :----------------- | :---- | :-- | :-- | :-- |
-| Маша | математика | 4     | 3.75               | 4     | 5   | 3   | 15  |
-| Маша | русский    | 3     | 3.75               | 4     | 5   | 3   | 15  |
-| Маша | физика     | 5     | 3.75               | 4     | 5   | 3   | 15  |
-| Маша | история    | 3     | 3.75               | 4     | 5   | 3   | 15  |
-| Петя | физика     | 5     | 4.3333333333333333 | 3     | 5   | 4   | 13  |
-| Петя | история    | 4     | 4.3333333333333333 | 3     | 5   | 4   | 13  |
-| Петя | русский    | 4     | 4.3333333333333333 | 3     | 5   | 4   | 13  |
+| name | subject   | grade | avg                | count | max | min | sum |
+| :--- | :-------- | :---- | :----------------- | :---- | :-- | :-- | :-- |
+| Anna | math      | 4     | 3.75               | 4     | 5   | 3   | 15  |
+| Anna | geography | 3     | 3.75               | 4     | 5   | 3   | 15  |
+| Anna | physics   | 5     | 3.75               | 4     | 5   | 3   | 15  |
+| Anna | history   | 3     | 3.75               | 4     | 5   | 3   | 15  |
+| Bob  | physics   | 5     | 4.3333333333333333 | 3     | 5   | 4   | 13  |
+| Bob  | history   | 4     | 4.3333333333333333 | 3     | 5   | 4   | 13  |
+| Bob  | geography | 4     | 4.3333333333333333 | 3     | 5   | 4   | 13  |
 
 ### Ranking
 
@@ -107,15 +107,15 @@ FROM student_grades
 ORDER BY name;
 ```
 
-| name | subject    | grade | row_number | rank | dense_rank | ntile | cume_dist          |
-| :--- | :--------- | :---- | :--------- | :--- | :--------- | :---- | :----------------- |
-| Маша | русский    | 3     | 1          | 1    | 1          | 1     | 0.5                |
-| Маша | история    | 3     | 2          | 1    | 1          | 1     | 0.5                |
-| Маша | математика | 4     | 3          | 3    | 2          | 2     | 0.75               |
-| Маша | физика     | 5     | 4          | 4    | 3          | 3     | 1                  |
-| Петя | русский    | 4     | 1          | 1    | 1          | 1     | 0.6666666666666666 |
-| Петя | история    | 4     | 2          | 1    | 1          | 2     | 0.6666666666666666 |
-| Петя | физика     | 5     | 3          | 3    | 2          | 3     | 1                  |
+| name | subject   | grade | row_number | rank | dense_rank | ntile | cume_dist          |
+| :--- | :-------- | :---- | :--------- | :--- | :--------- | :---- | :----------------- |
+| Anna | geography | 3     | 1          | 1    | 1          | 1     | 0.5                |
+| Anna | history   | 3     | 2          | 1    | 1          | 1     | 0.5                |
+| Anna | math      | 4     | 3          | 3    | 2          | 2     | 0.75               |
+| Anna | physics   | 5     | 4          | 4    | 3          | 3     | 1                  |
+| Bob  | geography | 4     | 1          | 1    | 1          | 1     | 0.6666666666666666 |
+| Bob  | history   | 4     | 2          | 1    | 1          | 2     | 0.6666666666666666 |
+| Bob  | physics   | 5     | 3          | 3    | 2          | 3     | 1                  |
 
 `ROW_NUMBER()` function returns the sequential number of a row within a partition of a result set, starting at 1 for the first row in each partition.
 
@@ -142,15 +142,15 @@ FROM student_grades
 ORDER BY name;
 ```
 
-| name | subject    | grade | row_number | rank | dense_rank | ntile | cume_dist |
-| :--- | :--------- | :---- | :--------- | :--- | :--------- | :---- | :-------- |
-| Маша | математика | 4     | 4          | 1    | 1          | 2     | 1         |
-| Маша | русский    | 3     | 5          | 1    | 1          | 2     | 1         |
-| Маша | физика     | 5     | 6          | 1    | 1          | 3     | 1         |
-| Маша | история    | 3     | 7          | 1    | 1          | 3     | 1         |
-| Петя | физика     | 5     | 2          | 1    | 1          | 1     | 1         |
-| Петя | история    | 4     | 3          | 1    | 1          | 1     | 1         |
-| Петя | русский    | 4     | 1          | 1    | 1          | 1     | 1         |
+| name | subject   | grade | row_number | rank | dense_rank | ntile | cume_dist |
+| :--- | :-------- | :---- | :--------- | :--- | :--------- | :---- | :-------- |
+| Anna | math      | 4     | 4          | 1    | 1          | 2     | 1         |
+| Anna | geography | 3     | 5          | 1    | 1          | 2     | 1         |
+| Anna | physics   | 5     | 6          | 1    | 1          | 3     | 1         |
+| Anna | history   | 3     | 7          | 1    | 1          | 3     | 1         |
+| Bob  | physics   | 5     | 2          | 1    | 1          | 1     | 1         |
+| Bob  | history   | 4     | 3          | 1    | 1          | 1     | 1         |
+| Bob  | geography | 4     | 1          | 1    | 1          | 1     | 1         |
 
 ## `ORDER BY`
 
@@ -163,15 +163,15 @@ FROM student_grades
 ORDER BY name;
 ```
 
-| name | subject    | grade | row_number |
-| :--- | :--------- | :---- | :--------- |
-| Маша | русский    | 3     | 1          |
-| Маша | история    | 3     | 2          |
-| Маша | математика | 4     | 3          |
-| Маша | физика     | 5     | 4          |
-| Петя | русский    | 4     | 1          |
-| Петя | история    | 4     | 2          |
-| Петя | физика     | 5     | 3          |
+| name | subject   | grade | row_number |
+| :--- | :-------- | :---- | :--------- |
+| Anna | geography | 3     | 1          |
+| Anna | history   | 3     | 2          |
+| Anna | math      | 4     | 3          |
+| Anna | physics   | 5     | 4          |
+| Bob  | geography | 4     | 1          |
+| Bob  | history   | 4     | 2          |
+| Bob  | physics   | 5     | 3          |
 
 ## Running total
 
