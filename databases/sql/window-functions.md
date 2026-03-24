@@ -269,24 +269,76 @@ It's most commonly used in time-series analysis, like tracking stock prices, dai
 
 To calculate this in SQL, you use window functions. The query tells the database: "For the current row, look back at the last $X$ rows and calculate their average."
 
-Below is the table named `stock_price`:
+Below is the table named `price_history`:
 
-| date       | price |
-| ---------- | ----- |
-| 2020-06-20 | 132   |
-| 2020-06-21 | 130   |
-| 2020-06-23 | 130   |
-| 2020-06-23 | 130   |
-| 2020-06-24 | 108   |
-| 2020-06-25 | 109   |
-| 2020-06-26 | 106   |
-| 2020-06-27 | 110   |
-| 2020-06-28 | 117   |
-| 2020-06-29 | 126   |
-| 2020-06-30 | 120   |
+```sql
+SELECT *
+FROM price_history;
+```
 
-Here is how a three-day moving average is calculated for January 9, 2020:
+| id  | price_date | price  |
+| :-- | :--------- | :----- |
+| 1   | 2020-06-20 | 132.00 |
+| 2   | 2020-06-21 | 130.00 |
+| 3   | 2020-06-23 | 110.00 |
+| 4   | 2020-06-23 | 120.00 |
+| 5   | 2020-06-24 | 108.00 |
+| 6   | 2020-06-25 | 109.00 |
+| 7   | 2020-06-26 | 106.00 |
+| 8   | 2020-06-27 | 110.00 |
+| 9   | 2020-06-28 | 117.00 |
+| 10  | 2020-06-29 | 126.00 |
+| 11  | 2020-06-30 | 120.00 |
 
-For January 9, 2020, the three-day moving average is calculated as the mean of prices from that day (130) and the two previous days: January 8 (130) and January 7 (132). So, the moving average for January 9, 2020 is the average of these three values (130 + 130 + 132) / 3 = 130.666.
+DDL:
 
-The moving average is calculated in the same way for each of the remaining dates, totaling the three stock prices from the date in question and the two previous days then dividing that total by 3.
+```sql
+CREATE TABLE price_history (
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    price_date DATE NOT NULL,
+    price DECIMAL(12, 2) NOT NULL
+);
+```
+
+DML:
+
+```sql
+INSERT INTO price_history (price_date, price)
+VALUES ('2020-06-20', 132),
+       ('2020-06-21', 130),
+       ('2020-06-23', 110),
+       ('2020-06-23', 120),
+       ('2020-06-24', 108),
+       ('2020-06-25', 109),
+       ('2020-06-26', 106),
+       ('2020-06-27', 110),
+       ('2020-06-28', 117),
+       ('2020-06-29', 126),
+       ('2020-06-30', 120);
+```
+
+Here is a moving average `SELECT`:
+
+```sql
+SELECT *,
+       AVG(price) OVER (ORDER BY price_date)
+FROM price_history;
+```
+
+| id  | price_date | price  | avg                  |
+| :-- | :--------- | :----- | :------------------- |
+| 1   | 2020-06-20 | 132.00 | 132                  |
+| 2   | 2020-06-21 | 130.00 | 131                  |
+| 3   | 2020-06-23 | 110.00 | 123                  |
+| 4   | 2020-06-23 | 120.00 | 123                  |
+| 5   | 2020-06-24 | 108.00 | 120                  |
+| 6   | 2020-06-25 | 109.00 | 118.1666666666666667 |
+| 7   | 2020-06-26 | 106.00 | 116.4285714285714286 |
+| 8   | 2020-06-27 | 110.00 | 115.625              |
+| 9   | 2020-06-28 | 117.00 | 115.7777777777777778 |
+| 10  | 2020-06-29 | 126.00 | 116.8                |
+| 11  | 2020-06-30 | 120.00 | 117.0909090909090909 |
+
+For the row with ID = 2 moving average is calculated as (132+130)/2 = 131.
+
+For the row with ID = 6 moving average is calculated as (132+130+110+120+108+109)/6 = 118.
