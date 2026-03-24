@@ -261,26 +261,29 @@ FROM user_registrations;
 
 ## Moving average
 
-A [↑ **moving average**](https://learnsql.com/blog/moving-average-in-sql/) is a time series technique for analyzing and determining trends in data.
+A [↑ **moving average**](https://learnsql.com/blog/moving-average-in-sql/) is a technique used to smooth out short-term fluctuations in data to see long-term trends.
 
-Sometimes called rolling means, rolling averages, or running averages, they are calculated as the mean of the current and a specified number of immediately preceding values for each point in time.
+Instead of calculating the average of your entire dataset, you calculate the average for a specific "window" of rows that shifts as you move through the results.
+
+It's most commonly used in time-series analysis, like tracking stock prices, daily website traffic, or temperature changes.
+
+To calculate this in SQL, you use window functions. The query tells the database: "For the current row, look back at the last $X$ rows and calculate their average."
 
 Below is the table named `stock_price`:
 
 | date       | price |
 | ---------- | ----- |
-| 2020-01-07 | 132   |
-| 2020-01-08 | 130   |
-| 2020-01-09 | 130   |
-| 2020-01-10 | 130   |
-| ...        | ...   |
+| 2020-06-20 | 132   |
+| 2020-06-21 | 130   |
+| 2020-06-23 | 130   |
+| 2020-06-23 | 130   |
 | 2020-06-24 | 108   |
 | 2020-06-25 | 109   |
 | 2020-06-26 | 106   |
-| 2020-06-27 | 106   |
-| 2020-06-28 | 107   |
-| 2020-06-29 | 106   |
-| 2020-06-30 | 106   |
+| 2020-06-27 | 110   |
+| 2020-06-28 | 117   |
+| 2020-06-29 | 126   |
+| 2020-06-30 | 120   |
 
 Here is how a three-day moving average is calculated for January 9, 2020:
 
