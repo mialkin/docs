@@ -342,3 +342,30 @@ FROM price_history;
 For the row with ID = 2 moving average is calculated as (132+130)/2 = 131.
 
 For the row with ID = 6 moving average is calculated as (132+130+110+120+108+109)/6 = 118.
+
+Here is an example that uses `ROWS BETWEEN N PRECEDING AND CURRENT ROW`:
+
+```sql
+SELECT *,
+       AVG(price) OVER (ORDER BY price_date ROWS BETWEEN 3 PRECEDING AND CURRENT ROW) AS three_day_moving_average,
+       AVG(price) OVER (ORDER BY price_date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS one_week_moving_average
+FROM price_history;
+```
+
+| id  | price_date | price  | three_day_moving_average | one_week_moving_average |
+| :-- | :--------- | :----- | :----------------------- | :---------------------- |
+| 1   | 2020-06-20 | 132.00 | 132                      | 132                     |
+| 2   | 2020-06-21 | 130.00 | 131                      | 131                     |
+| 3   | 2020-06-23 | 110.00 | 124                      | 124                     |
+| 4   | 2020-06-23 | 120.00 | 123                      | 123                     |
+| 5   | 2020-06-24 | 108.00 | 117                      | 120                     |
+| 6   | 2020-06-25 | 109.00 | 111.75                   | 118.1666666666666667    |
+| 7   | 2020-06-26 | 106.00 | 110.75                   | 116.4285714285714286    |
+| 8   | 2020-06-27 | 110.00 | 108.25                   | 113.2857142857142857    |
+| 9   | 2020-06-28 | 117.00 | 110.5                    | 111.4285714285714286    |
+| 10  | 2020-06-29 | 126.00 | 114.75                   | 113.7142857142857143    |
+| 11  | 2020-06-30 | 120.00 | 118.25                   | 113.7142857142857143    |
+
+For the row with ID = 2 `three_day_moving_average` and `one_week_moving_average` is calculated as (132+130)/2 = 131.
+
+For the row with ID = 7 `three_day_moving_average` is calculated as (120+108+109+106)/4 = 110.75 and `one_week_moving_average` is calculated as (132+130+110+120+108+109+106)/7 = 116.42.
