@@ -1,10 +1,10 @@
 # SQL interview questions
 
-## `PARTITION BY`
+## Find the top-N highest-paid employees in each department
 
 You have an `employees` table with fields: `name`, `department`, and `salary`. Write a query to find the top-N highest-paid employees in each department.
 
-How would you handle cases where multiple employees in the same department have the exact same top salary?
+DDL:
 
 ```sql
 CREATE TABLE IF NOT EXISTS employees
@@ -13,7 +13,11 @@ CREATE TABLE IF NOT EXISTS employees
     department text    NOT NULL,
     salary     decimal NOT NULL
 );
+```
 
+DML:
+
+```sql
 INSERT INTO employees
 VALUES ('Anna', 'Development', 300),
        ('Victoria', 'Sales', 200),
@@ -29,12 +33,25 @@ VALUES ('Anna', 'Development', 300),
        ('Igor', 'Development', 100);
 ```
 
-The "trap" in this interview question is that simply selecting `MAX(salary) GROUP BY department` gives you the numbers, but it _cannot_ give you the _names_ associated with those numbers:
+First, let's get all the employees from each department sorted by their salary:
 
 ```sql
-SELECT department, MAX(salary)
+SELECT *,
+       ROW_NUMBER() OVER (PARTITION BY department ORDER BY salary DESC) AS rank
 FROM employees
-GROUP BY department
-ORDER BY MAX(salary) DESC;
 ```
 
+| name     | department  | salary | rank |
+| :------- | :---------- | :----- | :--- |
+| Anna     | Development | 300    | 1    |
+| Boris    | Development | 300    | 2    |
+| Vladimir | Development | 250    | 3    |
+| Vicky    | Development | 250    | 4    |
+| Evgenia  | Development | 200    | 5    |
+| Igor     | Development | 100    | 6    |
+| Elena    | Logistics   | 200    | 1    |
+| Victoria | Sales       | 200    | 1    |
+| Aleksei  | Sales       | 150    | 2    |
+| Pyotr    | Sales       | 150    | 3    |
+| Rita     | Sales       | 125    | 4    |
+| Irina    | Sales       | 115    | 5    |
