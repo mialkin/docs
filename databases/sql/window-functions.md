@@ -137,8 +137,6 @@ ranking(s) skipped. So, if you have 3 items at rank 2, the next rank listed woul
 `DENSE_RANK()` function gives you the ranking within your ordered partition, but the ranks are consecutive. No ranks are
 skipped if there are ranks with multiple items. So, if you have 3 items at rank 2, the next rank listed would be ranked
 
-3.
-
 `CUME_DIST()` function calculates the cumulative distribution of a value within a group of values.
 
 Expert Tip: While `CUME_DIST()` is listed under Ranking, some documentation might group it under "Distribution
@@ -169,6 +167,39 @@ ORDER BY name;
 | Bob  | geography | 4     | 1          | 1    | 1          | 1     | 1         |
 
 ### Value
+
+DDL:
+
+```sql
+CREATE TABLE student_quarter
+(
+    name    varchar,
+    quarter varchar,
+    subject varchar,
+    grade   int
+);
+```
+
+DML:
+
+```sql
+INSERT INTO student_quarter (VALUES ('Anna', '1 quarter', 'physics', 4),
+                                    ('Anna', '2 quarter', 'physics', 3),
+                                    ('Anna', '3 quarter', 'physics', 4),
+                                    ('Anna', '4 quarter', 'physics', 5));
+```
+
+```sql
+SELECT *
+FROM student_quarter;
+```
+
+| name | quarter   | subject | grade |
+| :--- | :-------- | :------ | :---- |
+| Anna | 1 quarter | physics | 4     |
+| Anna | 2 quarter | physics | 3     |
+| Anna | 3 quarter | physics | 4     |
+| Anna | 4 quarter | physics | 5     |
 
 ## `ORDER BY`
 
