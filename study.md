@@ -21,7 +21,6 @@
 - [↑ SignalR](https://www.youtube.com/playlist?list=PLOeFnOV9YBa7nzzuXnThdfsyY06AuCP5V)
 - [↑ pact-net. API contract testing tool](https://github.com/pact-foundation/pact-net)
 - [↑ MassTransit](https://www.youtube.com/@PhatBoyG/videos)
-- [↑ MongoDB](https://www.mongodb.com)
 - Kafka
   - [↑ Error Handling Patterns for Apache Kafka Applications](https://www.confluent.io/blog/error-handling-patterns-in-kafka/)
   - [↑ Kafka producer delivery semantics](https://medium.com/@sdjemails/kafka-producer-delivery-semantics-be863c727d3f)
@@ -35,12 +34,10 @@
 
 ## Databases
 
-- [↑ EAV, Entity–attribute–value model](https://en.wikipedia.org/wiki/Entity%E2%80%93attribute%E2%80%93value_model)
 - [↑ Concurrency Tokens](https://www.npgsql.org/efcore/modeling/concurrency.html)
 - [↑ «Concurrency в базах данных»](https://www.youtube.com/watch?v=a6YzdDFzDl8)
 - Cursor
   - [↑ What are the benefits of using database cursor?](https://stackoverflow.com/questions/3861558/what-are-the-benefits-of-using-database-cursor)
-- Execution plan
 - [↑ Apache Cassandra](https://cassandra.apache.org/_/cassandra-basics.html)
 - [↑ Performance benchmarks of PostgreSQL .NET with Npgsql, Dapper, and Entity Framework Core](https://michaelscodingspot.com/npgsql-dapper-efcore-performance/)
 - [↑ Конспект доклада «Как стать классным спецом по бд» (HL2018, Data Egret, Илья Космодемьянский)](https://habr.com/ru/amp/publications/429508/)
@@ -48,7 +45,6 @@
 - [↑ `ConcurrencyCheck` attribute](https://www.entityframeworktutorial.net/code-first/concurrencycheck-dataannotations-attribute-in-code-first.aspx)
   - <https://metanit.com/sharp/entityframeworkcore/2.11.php>
 - [↑ NoSQL: виды, особенности и применение](https://cloud.yandex.ru/blog/posts/2022/10/nosql)
-- Define what full text search is, how it works and define [↑ inverted index](https://en.wikipedia.org/wiki/Inverted_index)
 - Как можно вернуть данные из T-SQL-процедуры?
 - T-SQL table variables vs temporary tables
 - Create a deadlock. "Forget" on purpose to commit transaction and see what happens. Try using different isolation levels. <https://www.sqlservercentral.com/forums/topic/what-happens-with-uncommitted-transactions>. Are there any built-in timeouts for transaction to commit?
@@ -60,11 +56,10 @@
 - Шардирование и секционирование и какие проблемы эти техники решают
 - Схема репликации master-slave
 - Как делать префиксный и полнотекстовый поиск в базе, как устроены индексы в этом случае
-- [↑ Популярная задача на собеседовании: сотрудники с максимальной зарплатой в отделе](https://habr.com/ru/articles/828728/)
 - Что такое Materialized view
 - Зачем нужно денормализовывать данные
 - Что такое курсоры
-- Привести пример аналитических функций и объяснить как их использовать
+- Привести пример аналитических функций и объяснить, как их использовать
 - Database locks
   - Когда применять каждый тип блокировки
   - Умеет реализовывать распределенную блокировку через БД
@@ -138,7 +133,7 @@ for (var i = 0; i < 5; i++) {
 
 ## .NET
 
-- Memory managment
+- Memory management
   - [↑ Оптимизация сборки мусора в высоконагруженном .NET сервисе](https://habr.com/ru/articles/452298/)
   - [↑ CLRium #5: Курс "Garbage Collector"](https://www.youtube.com/watch?v=DVnmGW6964o)
   - [↑ Memory leaks](https://github.com/sebastienros/memoryleak)
