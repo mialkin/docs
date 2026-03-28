@@ -1,22 +1,31 @@
 # Window functions, `OVER`, `PARTITION BY`, running total, moving average
 
-A **window function** in SQL is a function that operates on a selected set of rows (a _window_, _partition_) and performs a calculation for that set of rows in a separate column.
+A **window function** in SQL is a function that operates on a selected set of rows (a _window_, _partition_) and
+performs a calculation for that set of rows in a separate column.
 
-For a function (like `SUM()`, `RANK()`, etc) to actually behave as a "window function," it must be followed by the `OVER` clause.
+For a function (like `SUM()`, `RANK()`, etc) to actually behave as a "window function," it must be followed by the
+`OVER` clause.
 
-A window function performs a calculation across a set of table rows that are somehow related to the current row. This is comparable to the type of calculation that can be done with an aggregate function. However, window functions do not cause rows to become grouped into a single output row like non-window aggregate calls would. Instead, the rows retain their separate identities. Behind the scenes, the window function is able to access more than just the current row of the query result.
+A window function performs a calculation across a set of table rows that are somehow related to the current row. This is
+comparable to the type of calculation that can be done with an aggregate function. However, window functions do not
+cause rows to become grouped into a single output row like non-window aggregate calls would. Instead, the rows retain
+their separate identities. Behind the scenes, the window function is able to access more than just the current row of
+the query result.
 
 ## Table of contents
 
+<!-- TOC -->
 - [Window functions, `OVER`, `PARTITION BY`, running total, moving average](#window-functions-over-partition-by-running-total-moving-average)
   - [Table of contents](#table-of-contents)
   - [DDL \& DML](#ddl--dml)
   - [3 classes of window functions](#3-classes-of-window-functions)
     - [Aggregating](#aggregating)
     - [Ranking](#ranking)
+    - [Value](#value)
   - [`ORDER BY`](#order-by)
   - [Running total](#running-total)
   - [Moving average](#moving-average)
+<!-- TOC -->
 
 ## DDL & DML
 
@@ -25,9 +34,9 @@ DDL:
 ```sql
 CREATE TABLE student_grades
 (
-    name    varchar,
-    subject varchar,
-    grade   int
+  name    varchar,
+  subject varchar,
+  grade   int
 );
 ```
 
@@ -50,7 +59,7 @@ ORDER BY name ASC, grade DESC;
 ```
 
 | name | subject   | grade |
-| :--- | :-------- | :---- |
+|:-----|:----------|:------|
 | Anna | physics   | 5     |
 | Anna | math      | 4     |
 | Anna | geography | 3     |
@@ -64,7 +73,7 @@ ORDER BY name ASC, grade DESC;
 Window functions can be split in 3 categories:
 
 | Aggregate | Ranking        | Value           |
-| :-------- | :------------- | :-------------- |
+|:----------|:---------------|:----------------|
 | `AVG()`   | `ROW_NUMBER()` | `FIRST_VALUE()` |
 | `COUNT()` | `RANK()`       | `LAST_VALUE()`  |
 | `MAX()`   | `DENSE_RANK()` | `LAG()`         |
@@ -85,7 +94,7 @@ ORDER BY name;
 ```
 
 | name | subject   | grade | avg                | count | max | min | sum |
-| :--- | :-------- | :---- | :----------------- | :---- | :-- | :-- | :-- |
+|:-----|:----------|:------|:-------------------|:------|:----|:----|:----|
 | Anna | math      | 4     | 3.75               | 4     | 5   | 3   | 15  |
 | Anna | geography | 3     | 3.75               | 4     | 5   | 3   | 15  |
 | Anna | physics   | 5     | 3.75               | 4     | 5   | 3   | 15  |
@@ -108,7 +117,7 @@ ORDER BY name;
 ```
 
 | name | subject   | grade | row_number | rank | dense_rank | ntile | cume_dist          |
-| :--- | :-------- | :---- | :--------- | :--- | :--------- | :---- | :----------------- |
+|:-----|:----------|:------|:-----------|:-----|:-----------|:------|:-------------------|
 | Anna | geography | 3     | 1          | 1    | 1          | 1     | 0.5                |
 | Anna | history   | 3     | 2          | 1    | 1          | 1     | 0.5                |
 | Anna | math      | 4     | 3          | 3    | 2          | 2     | 0.75               |
@@ -117,17 +126,26 @@ ORDER BY name;
 | Bob  | history   | 4     | 2          | 1    | 1          | 2     | 0.6666666666666666 |
 | Bob  | physics   | 5     | 3          | 3    | 2          | 3     | 1                  |
 
-`ROW_NUMBER()` function returns the sequential number of a row within a partition of a result set, starting at 1 for the first row in each partition.
+`ROW_NUMBER()` function returns the sequential number of a row within a partition of a result set, starting at 1 for the
+first row in each partition.
 
-`NTILE(N)` function receives an integer parameter (`N`) and divides the complete set of rows into `N` subsets. Each subset has approximately the same number of rows and is identified by a number between 1 and `N`. This ID number is what `NTILE()` returns.
+`NTILE(N)` function receives an integer parameter (`N`) and divides the complete set of rows into `N` subsets. Each
+subset has approximately the same number of rows and is identified by a number between 1 and `N`. This ID number is what
+`NTILE()` returns.
 
-`RANK()` function gives you the ranking within your ordered partition. Ties are assigned the same rank, with the next ranking(s) skipped. So, if you have 3 items at rank 2, the next rank listed would be ranked 5.
+`RANK()` function gives you the ranking within your ordered partition. Ties are assigned the same rank, with the next
+ranking(s) skipped. So, if you have 3 items at rank 2, the next rank listed would be ranked 5.
 
-`DENSE_RANK()` function gives you the ranking within your ordered partition, but the ranks are consecutive. No ranks are skipped if there are ranks with multiple items. So, if you have 3 items at rank 2, the next rank listed would be ranked 3.
+`DENSE_RANK()` function gives you the ranking within your ordered partition, but the ranks are consecutive. No ranks are
+skipped if there are ranks with multiple items. So, if you have 3 items at rank 2, the next rank listed would be ranked
+
+3.
 
 `CUME_DIST()` function calculates the cumulative distribution of a value within a group of values.
 
-Expert Tip: While `CUME_DIST()` is listed under Ranking, some documentation might group it under "Distribution Functions" along with `PERCENT_RANK()`. However, placing it under Ranking is still contextually correct for most SQL learners.
+Expert Tip: While `CUME_DIST()` is listed under Ranking, some documentation might group it under "Distribution
+Functions" along with `PERCENT_RANK()`. However, placing it under Ranking is still contextually correct for most SQL
+learners.
 
 By the way, the expression with empty `OVER` also works:
 
@@ -143,7 +161,7 @@ ORDER BY name;
 ```
 
 | name | subject   | grade | row_number | rank | dense_rank | ntile | cume_dist |
-| :--- | :-------- | :---- | :--------- | :--- | :--------- | :---- | :-------- |
+|:-----|:----------|:------|:-----------|:-----|:-----------|:------|:----------|
 | Anna | math      | 4     | 4          | 1    | 1          | 2     | 1         |
 | Anna | geography | 3     | 5          | 1    | 1          | 2     | 1         |
 | Anna | physics   | 5     | 6          | 1    | 1          | 3     | 1         |
@@ -151,6 +169,8 @@ ORDER BY name;
 | Bob  | physics   | 5     | 2          | 1    | 1          | 1     | 1         |
 | Bob  | history   | 4     | 3          | 1    | 1          | 1     | 1         |
 | Bob  | geography | 4     | 1          | 1    | 1          | 1     | 1         |
+
+### Value
 
 ## `ORDER BY`
 
@@ -164,7 +184,7 @@ ORDER BY name;
 ```
 
 | name | subject   | grade | row_number |
-| :--- | :-------- | :---- | :--------- |
+|:-----|:----------|:------|:-----------|
 | Anna | geography | 3     | 1          |
 | Anna | history   | 3     | 2          |
 | Anna | math      | 4     | 3          |
@@ -175,26 +195,28 @@ ORDER BY name;
 
 ## Running total
 
-A [↑ **running total**](https://learnsql.com/blog/what-is-a-running-total-and-how-to-compute-it-in-sql/) is the cumulative sum of the previous numbers in a column.
+A [↑ **running total**](https://learnsql.com/blog/what-is-a-running-total-and-how-to-compute-it-in-sql/) is the
+cumulative sum of the previous numbers in a column.
 
 Look at the example below, which presents the daily registration of users for an online shop:
 
 | registration_date | registered_users | total_users |
-| ----------------- | ---------------- | ----------- |
+|-------------------|------------------|-------------|
 | 2020-03-05        | 32               | 32          |
 | 2020-03-06        | 15               | 47          |
 | 2020-03-07        | 6                | 53          |
 
-The first column shows the date. The second column shows the number of users who registered on that date. The third column, `total_users`, sums the total number of registered users on that day.
+The first column shows the date. The second column shows the number of users who registered on that date. The third
+column, `total_users`, sums the total number of registered users on that day.
 
 DDL:
 
 ```sql
 CREATE TABLE user_registrations
 (
-    country           VARCHAR(50),
-    registration_date DATE,
-    registered_users  INTEGER
+  country           VARCHAR(50),
+  registration_date DATE,
+  registered_users  INTEGER
 );
 ```
 
@@ -202,13 +224,12 @@ DML:
 
 ```sql
 INSERT INTO user_registrations (country, registration_date, registered_users)
-VALUES
-    ('England', '2020-03-05', 25),
-    ('England', '2020-03-06', 12),
-    ('England', '2020-03-07', 10),
-    ('Poland',  '2020-03-05', 32),
-    ('Poland',  '2020-03-06', 15),
-    ('Poland',  '2020-03-07', 6);
+VALUES ('England', '2020-03-05', 25),
+       ('England', '2020-03-06', 12),
+       ('England', '2020-03-07', 10),
+       ('Poland', '2020-03-05', 32),
+       ('Poland', '2020-03-06', 15),
+       ('Poland', '2020-03-07', 6);
 ```
 
 ```sql
@@ -217,7 +238,7 @@ FROM user_registrations;
 ```
 
 | country | registration_date | registered_users |
-| :------ | :---------------- | :--------------- |
+|:--------|:------------------|:-----------------|
 | England | 2020-03-05        | 25               |
 | England | 2020-03-06        | 12               |
 | England | 2020-03-07        | 10               |
@@ -234,7 +255,7 @@ FROM user_registrations;
 ```
 
 | country | registration_date | registered_users | sum |
-| :------ | :---------------- | :--------------- | :-- |
+|:--------|:------------------|:-----------------|:----|
 | England | 2020-03-05        | 25               | 25  |
 | England | 2020-03-06        | 12               | 37  |
 | England | 2020-03-07        | 10               | 47  |
@@ -251,7 +272,7 @@ FROM user_registrations;
 ```
 
 | country | registration_date | registered_users | sum |
-| :------ | :---------------- | :--------------- | :-- |
+|:--------|:------------------|:-----------------|:----|
 | England | 2020-03-05        | 25               | 47  |
 | England | 2020-03-06        | 12               | 47  |
 | England | 2020-03-07        | 10               | 47  |
@@ -261,13 +282,17 @@ FROM user_registrations;
 
 ## Moving average
 
-A [↑ **moving average**](https://learnsql.com/blog/moving-average-in-sql/) is a technique used to smooth out short-term fluctuations in data to see long-term trends.
+A [↑ **moving average**](https://learnsql.com/blog/moving-average-in-sql/) is a technique used to smooth out short-term
+fluctuations in data to see long-term trends.
 
-Instead of calculating the average of your entire dataset, you calculate the average for a specific "window" of rows that shifts as you move through the results.
+Instead of calculating the average of your entire dataset, you calculate the average for a specific "window" of rows
+that shifts as you move through the results.
 
-It's most commonly used in time-series analysis, like tracking stock prices, daily website traffic, or temperature changes.
+It's most commonly used in time-series analysis, like tracking stock prices, daily website traffic, or temperature
+changes.
 
-To calculate this in SQL, you use window functions. The query tells the database: "For the current row, look back at the last $X$ rows and calculate their average."
+To calculate this in SQL, you use window functions. The query tells the database: "For the current row, look back at the
+last $X$ rows and calculate their average."
 
 Below is the table named `price_history`:
 
@@ -276,27 +301,28 @@ SELECT *
 FROM price_history;
 ```
 
-| id  | price_date | price  |
-| :-- | :--------- | :----- |
-| 1   | 2020-06-20 | 132.00 |
-| 2   | 2020-06-21 | 130.00 |
-| 3   | 2020-06-23 | 110.00 |
-| 4   | 2020-06-23 | 120.00 |
-| 5   | 2020-06-24 | 108.00 |
-| 6   | 2020-06-25 | 109.00 |
-| 7   | 2020-06-26 | 106.00 |
-| 8   | 2020-06-27 | 110.00 |
-| 9   | 2020-06-28 | 117.00 |
-| 10  | 2020-06-29 | 126.00 |
-| 11  | 2020-06-30 | 120.00 |
+| id | price_date | price  |
+|:---|:-----------|:-------|
+| 1  | 2020-06-20 | 132.00 |
+| 2  | 2020-06-21 | 130.00 |
+| 3  | 2020-06-23 | 110.00 |
+| 4  | 2020-06-23 | 120.00 |
+| 5  | 2020-06-24 | 108.00 |
+| 6  | 2020-06-25 | 109.00 |
+| 7  | 2020-06-26 | 106.00 |
+| 8  | 2020-06-27 | 110.00 |
+| 9  | 2020-06-28 | 117.00 |
+| 10 | 2020-06-29 | 126.00 |
+| 11 | 2020-06-30 | 120.00 |
 
 DDL:
 
 ```sql
-CREATE TABLE price_history (
-    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    price_date DATE NOT NULL,
-    price DECIMAL(12, 2) NOT NULL
+CREATE TABLE price_history
+(
+  id         INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  price_date DATE           NOT NULL,
+  price      DECIMAL(12, 2) NOT NULL
 );
 ```
 
@@ -325,19 +351,19 @@ SELECT *,
 FROM price_history;
 ```
 
-| id  | price_date | price  | avg                  |
-| :-- | :--------- | :----- | :------------------- |
-| 1   | 2020-06-20 | 132.00 | 132                  |
-| 2   | 2020-06-21 | 130.00 | 131                  |
-| 3   | 2020-06-23 | 110.00 | 123                  |
-| 4   | 2020-06-23 | 120.00 | 123                  |
-| 5   | 2020-06-24 | 108.00 | 120                  |
-| 6   | 2020-06-25 | 109.00 | 118.1666666666666667 |
-| 7   | 2020-06-26 | 106.00 | 116.4285714285714286 |
-| 8   | 2020-06-27 | 110.00 | 115.625              |
-| 9   | 2020-06-28 | 117.00 | 115.7777777777777778 |
-| 10  | 2020-06-29 | 126.00 | 116.8                |
-| 11  | 2020-06-30 | 120.00 | 117.0909090909090909 |
+| id | price_date | price  | avg                  |
+|:---|:-----------|:-------|:---------------------|
+| 1  | 2020-06-20 | 132.00 | 132                  |
+| 2  | 2020-06-21 | 130.00 | 131                  |
+| 3  | 2020-06-23 | 110.00 | 123                  |
+| 4  | 2020-06-23 | 120.00 | 123                  |
+| 5  | 2020-06-24 | 108.00 | 120                  |
+| 6  | 2020-06-25 | 109.00 | 118.1666666666666667 |
+| 7  | 2020-06-26 | 106.00 | 116.4285714285714286 |
+| 8  | 2020-06-27 | 110.00 | 115.625              |
+| 9  | 2020-06-28 | 117.00 | 115.7777777777777778 |
+| 10 | 2020-06-29 | 126.00 | 116.8                |
+| 11 | 2020-06-30 | 120.00 | 117.0909090909090909 |
 
 For the row with ID = 2 moving average is calculated as (132+130)/2 = 131.
 
@@ -352,20 +378,21 @@ SELECT *,
 FROM price_history;
 ```
 
-| id  | price_date | price  | three_day_moving_average | one_week_moving_average |
-| :-- | :--------- | :----- | :----------------------- | :---------------------- |
-| 1   | 2020-06-20 | 132.00 | 132                      | 132                     |
-| 2   | 2020-06-21 | 130.00 | 131                      | 131                     |
-| 3   | 2020-06-23 | 110.00 | 124                      | 124                     |
-| 4   | 2020-06-23 | 120.00 | 123                      | 123                     |
-| 5   | 2020-06-24 | 108.00 | 117                      | 120                     |
-| 6   | 2020-06-25 | 109.00 | 111.75                   | 118.1666666666666667    |
-| 7   | 2020-06-26 | 106.00 | 110.75                   | 116.4285714285714286    |
-| 8   | 2020-06-27 | 110.00 | 108.25                   | 113.2857142857142857    |
-| 9   | 2020-06-28 | 117.00 | 110.5                    | 111.4285714285714286    |
-| 10  | 2020-06-29 | 126.00 | 114.75                   | 113.7142857142857143    |
-| 11  | 2020-06-30 | 120.00 | 118.25                   | 113.7142857142857143    |
+| id | price_date | price  | three_day_moving_average | one_week_moving_average |
+|:---|:-----------|:-------|:-------------------------|:------------------------|
+| 1  | 2020-06-20 | 132.00 | 132                      | 132                     |
+| 2  | 2020-06-21 | 130.00 | 131                      | 131                     |
+| 3  | 2020-06-23 | 110.00 | 124                      | 124                     |
+| 4  | 2020-06-23 | 120.00 | 123                      | 123                     |
+| 5  | 2020-06-24 | 108.00 | 117                      | 120                     |
+| 6  | 2020-06-25 | 109.00 | 111.75                   | 118.1666666666666667    |
+| 7  | 2020-06-26 | 106.00 | 110.75                   | 116.4285714285714286    |
+| 8  | 2020-06-27 | 110.00 | 108.25                   | 113.2857142857142857    |
+| 9  | 2020-06-28 | 117.00 | 110.5                    | 111.4285714285714286    |
+| 10 | 2020-06-29 | 126.00 | 114.75                   | 113.7142857142857143    |
+| 11 | 2020-06-30 | 120.00 | 118.25                   | 113.7142857142857143    |
 
 For the row with ID = 2 `three_day_moving_average` and `one_week_moving_average` is calculated as (132+130)/2 = 131.
 
-For the row with ID = 7 `three_day_moving_average` is calculated as (120+108+109+106)/4 = 110.75 and `one_week_moving_average` is calculated as (132+130+110+120+108+109+106)/7 = 116.42.
+For the row with ID = 7 `three_day_moving_average` is calculated as (120+108+109+106)/4 = 110.75 and
+`one_week_moving_average` is calculated as (132+130+110+120+108+109+106)/7 = 116.42.
