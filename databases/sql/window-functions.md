@@ -201,6 +201,32 @@ FROM student_quarter;
 | Anna | 3 quarter | physics | 4     |
 | Anna | 4 quarter | physics | 5     |
 
+```sql
+SELECT *,
+       LAG(grade) OVER (ORDER BY quarter)                                                                  AS previous_grade,
+       LEAD(grade) OVER (ORDER BY quarter)                                                                 AS next_grade,
+       FIRST_VALUE(grade) OVER (ORDER BY quarter)                                                          AS first_grade,
+       LAST_VALUE(grade) OVER (ORDER BY quarter RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS last_grade
+FROM student_quarter;
+```
+
+| name | quarter   | subject | grade | previous_grade | next_grade | first_value | last_value |
+| :--- | :-------- | :------ | :---- | :------------- | :--------- | :---------- | :--------- |
+| Anna | 1 quarter | physics | 4     | null           | 3          | 4           | 5          |
+| Anna | 2 quarter | physics | 3     | 4              | 4          | 4           | 5          |
+| Anna | 3 quarter | physics | 4     | 3              | 5          | 4           | 5          |
+| Anna | 4 quarter | physics | 5     | 4              | null       | 4           | 5          |
+
+The `LAG` function pulls data from a previous row. By default, it looks at the row exactly 1 position above.
+
+The `LEAD` function does the opposite; it fetches a value from a subsequent row.
+
+This `FIRST_VALUE` function returns the value from the first row in the window frame. For Anna's grades, this will be her grade from the 1st quarter.
+
+You might expect `LAST_VALUE` to simply grab the final grade, but window functions have a "default frame." By default, the window only looks from the start of the partition to the current row.
+
+If you don't adjust the frame, `LAST_VALUE` will just return the grade of the row you are currently on. To get the true final grade of the year, we use `RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING`.
+
 ## `ORDER BY`
 
 While `ORDER BY grade` orders rows within a _window_, the `ORDER BY name` orders rows within entire _dataset_:
