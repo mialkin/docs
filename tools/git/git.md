@@ -3,6 +3,7 @@
 - [Git](#git)
   - [Git config](#git-config)
     - [Work vs personal credentials](#work-vs-personal-credentials)
+  - [`git lg`](#git-lg)
   - [Commands](#commands)
   - [Push to multiple repositories](#push-to-multiple-repositories)
   - [List remote branches and the last commit's author](#list-remote-branches-and-the-last-commits-author)
@@ -16,7 +17,6 @@
   - [Change commit date](#change-commit-date)
     - [macOS date](#macos-date)
   - [Update forked repository from original repository](#update-forked-repository-from-original-repository)
-  - [`git log` format](#git-log-format)
   - [Git hooks](#git-hooks)
   - [Custom scripts](#custom-scripts)
     - [`git-set-config`](#git-set-config)
@@ -70,6 +70,12 @@ Check username and password inside _specific_ repository:
 ```bash
 git config user.name
 git config user.email
+```
+
+## `git lg`
+
+```bash
+git config --global alias.lg "log --graph --all --pretty=format:'%C(yellow)%h%Creset %C(magenta)%ad%Creset %s %C(bold #ff8c00)(%an)%Creset %C(auto)%d%Creset' --date=format:'%Y-%m-%d %H:%M'"
 ```
 
 ## Commands
@@ -296,23 +302,6 @@ git rebase upstream/master
 ```
 
 [↑ How to Update Fork Repo From Original Repo](https://levelup.gitconnected.com/how-to-update-fork-repo-from-original-repo-b853387dd471).
-
-## `git log` format
-
-Open `.gitconfig` file:
-
-```bash
-vim ~/.gitconfig
-```
-
-Add the following lines:
-
-```text
-[format]
-	pretty = format:%C(yellow)%h %C(cyan)%ad %C(cyan)%d %Creset%s %C(red)%aN
-```
-
-[↑ The shortest possible output from git log containing author and date](https://stackoverflow.com/questions/1441010/the-shortest-possible-output-from-git-log-containing-author-and-date).
 
 ## Git hooks
 
