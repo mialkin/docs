@@ -4,6 +4,7 @@
 
 - [Study list](#study-list)
   - [Table of contents](#table-of-contents)
+  - [Алгоритмы](#алгоритмы)
   - [Technologies](#technologies)
   - [Databases](#databases)
   - [Software architecture and design](#software-architecture-and-design)
@@ -14,6 +15,10 @@
   - [ASP.NET](#aspnet)
   - [Computer science](#computer-science)
   - [Web](#web)
+
+## Алгоритмы
+
+[↑ ТЫ БУДЕШЬ СРАДАТЬ ОТ АЛГОРИТМОВ! (пока не посмотришь это видео)](https://www.youtube.com/watch?v=cpuRbnWEPio)
 
 ## Technologies
 
