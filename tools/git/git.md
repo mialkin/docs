@@ -256,7 +256,13 @@ Since "git pull" tries to merge remote changes with your local ones, a so-called
 
 ## Change commit date
 
-Simple solution:
+This changes both the author date and committer date to now:
+
+```bash
+git commit --amend --no-edit --date="now"
+```
+
+Another solution:
 
 ```bash
 git commit --date="10 day ago" -m "Your commit message"
