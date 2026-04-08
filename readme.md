@@ -413,7 +413,7 @@
 ## Go
 
 - [Go](go/go.md)
-- [Go](go/syntax.md)
+- [Go syntax](go/syntax.md)
 
 ## Miscellaneous
 
