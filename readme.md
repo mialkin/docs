@@ -30,11 +30,11 @@
   - [Security](#security)
   - [Computer science](#computer-science)
   - [Hardware](#hardware)
-  - [Python](#python)
   - [.NET](#net)
   - [ASP.NET](#aspnet)
   - [C#](#c)
   - [Frontend](#frontend)
+  - [Python](#python)
   - [Go](#go)
   - [Miscellaneous](#miscellaneous)
 
@@ -291,11 +291,6 @@
 - [CPU register. CPU cache. CPU cache line](hardware/cpu.md)
 - [Latency numbers. Availability numbers. Power of two](hardware/latency-numbers.md)
 
-## Python
-
-- [Python](python/python.md)
-  - [Syntax](python/syntax.md)
-
 ## .NET
 
 - [.NET CLI, `dotnet new`](dotnet/cli.md)
@@ -410,9 +405,15 @@
 - [ECMAScript, JavaScript, TypeScript](frontend/javascript.md)
 - [Node.js, React, Next.js](frontend/node-js.md)
 
+## Python
+
+- [Python](python/python.md)
+- [Python syntax](python/syntax.md)
+
 ## Go
 
 - [Go](go/go.md)
+- [Go](go/syntax.md)
 
 ## Miscellaneous
 
