@@ -14,6 +14,12 @@ The Go authors [↑ put substantial effort](<https://en.wikipedia.org/wiki/Go_(p
 
 [↑ Download page](https://go.dev/doc/install).
 
+## Go path
+
+```text
+/usr/local/go
+```
+
 ## GoLand
 
 ### `goland` command
@@ -37,4 +43,16 @@ Change access mode:
 
 ```bash
 sudo chmod 775 goland
+```
+
+### Settings
+
+1. Version Control -> Commit -> Clear initial commit message.
+
+## go mod
+
+Initialization command that should be run in the root of the repository:
+
+```bash
+go mod init my-project-name
 ```
