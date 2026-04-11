@@ -56,3 +56,22 @@ Initialization command that should be run in the root of the repository:
 ```bash
 go mod init my-project-name
 ```
+
+## Swagger
+
+```bash
+go get github.com/swaggo/http-swagger
+go get github.com/swaggo/swag/cmd/swag
+```
+
+Add at the end of `~/.zshrc` file:
+
+```text
+export PATH=$(go env GOPATH)/bin:$PATH
+```
+
+Generate Swagger documentation:
+
+```bash
+swag init -g cmd/server/main.go -o docs
+```
