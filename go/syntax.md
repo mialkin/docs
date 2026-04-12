@@ -10,6 +10,7 @@
   - [Comments](#comments)
   - [Variables](#variables)
   - [Constants](#constants)
+  - [Operators](#operators)
 
 ## Entry point
 
@@ -95,4 +96,36 @@ If you replace the `var` keyword with `const`, you declare a constant. Constants
 
 ```go
 const yearOfBirth = 2001
+```
+
+## Operators
+
+Go supports all usual math operators like `+`, `-`, `*`, `/`, and `%` (modulo).
+
+```go
+ten := 5 + 5
+five := 10 / 2
+```
+
+You can join strings with `+`.
+
+```go
+fullName := firstName + " " + lastName
+```
+
+Go supports short forms of incrementing variables:
+
+```go
+// Same thing
+i = i + 1
+i += 1
+i++
+```
+
+Same thing works for other operators:
+
+```go
+counter--
+multiplier *= 2
+divider /= 10
 ```
