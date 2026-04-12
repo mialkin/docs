@@ -9,6 +9,7 @@
   - [Entry point](#entry-point)
   - [Comments](#comments)
   - [Variables](#variables)
+  - [Constants](#constants)
 
 ## Entry point
 
@@ -87,3 +88,11 @@ They're equal to the zero value. It depends on the type. For strings it's an emp
 Use `=` to assign values to already declared variables and when using `var`.
 
 Use `:=` when declaring and assigning variable for the first time.
+
+## Constants
+
+If you replace the `var` keyword with `const`, you declare a constant. Constants can't have their value changed once assigned.
+
+```go
+const yearOfBirth = 2001
+```
