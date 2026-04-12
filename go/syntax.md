@@ -14,6 +14,8 @@
   - [`var` blocks](#var-blocks)
   - [Globals](#globals)
   - [Functions](#functions)
+  - [Collections](#collections)
+    - [Arrays](#arrays)
 
 ## Entry point
 
@@ -219,4 +221,30 @@ If arguments next to each other are of the same type, you can use a shorter form
 func Add(x, y int) int {
   return x + y
 }
+```
+
+## Collections
+
+### Arrays
+
+Arrays keep a set of variables of the same type. They have a fixed size defined within brackets:
+
+```go
+var contactMethods [3]string
+```
+
+You can initialize an array when declaring it:
+
+```go
+contactMethods := [3]string{"email", "phone", "sms"}
+```
+
+You can reference array items by index (starting from 0):
+
+```go
+// Retrieve array item
+email := contactMethods[0]
+
+// Set array item
+contactMethods[1] = "mail"
 ```
