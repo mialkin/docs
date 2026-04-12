@@ -11,8 +11,9 @@
   - [Variables](#variables)
   - [Constants](#constants)
   - [Operators](#operators)
-  - [Globals](#globals)
   - [`var` blocks](#var-blocks)
+  - [Globals](#globals)
+  - [Functions](#functions)
 
 ## Entry point
 
@@ -132,6 +133,26 @@ multiplier *= 2
 divider /= 10
 ```
 
+## `var` blocks
+
+There's a short syntax for declaring many variables at once. You can use it in both local and [global](#globals) scopes.
+
+```go
+var (
+  name  = "Alice"
+  hours = 10
+)
+```
+
+The same works for constants:
+
+```go
+const (
+  pi         = 3.1415
+  hoursInDay = 24
+)
+```
+
 ## Globals
 
 When you declare a variable inside a function, it's called a _local variable_. It means other functions can't access it.
@@ -152,22 +173,50 @@ func main() {
 }
 ```
 
-## `var` blocks
+## Functions
 
-There's a short syntax for declaring many variables at once. You can use it in both local and global scopes.
+You can define functions before or after the `main` function:
 
 ```go
-var (
-  name  = "Alice"
-  hours = 10
-)
+package main
+
+import "fmt"
+
+func main() {
+  Greet("Alice")
+}
+
+func Greet(name string) {
+ fmt.Println("Hello, " + name)
+}
 ```
 
-The same works for constants:
+Functions can return values. You can return either explicit values (like `12`) or a variable with matching type:
 
 ```go
-const (
-  pi         = 3.1415
-  hoursInDay = 24
-)
+func NumberOfMonths() int {
+  return 12
+}
+
+func DaysInAWeek() int {
+  days := 7
+  return days
+}
+```
+
+A function can take any number of arguments, separated by commas:
+
+```go
+func Add(x int, y int) int {
+  sum := x + y
+  return sum
+}
+```
+
+If arguments next to each other are of the same type, you can use a shorter form:
+
+```go
+func Add(x, y int) int {
+  return x + y
+}
 ```
