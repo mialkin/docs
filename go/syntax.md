@@ -11,6 +11,8 @@
   - [Variables](#variables)
   - [Constants](#constants)
   - [Operators](#operators)
+  - [Globals](#globals)
+  - [`var` blocks](#var-blocks)
 
 ## Entry point
 
@@ -128,4 +130,44 @@ Same thing works for other operators:
 counter--
 multiplier *= 2
 divider /= 10
+```
+
+## Globals
+
+When you declare a variable inside a function, it's called a _local variable_. It means other functions can't access it.
+
+You can also declare _global variables_ outside of functions. They have their uses, but are rarely needed — stick to local variables when you can.
+
+```go
+package main
+
+import "fmt"
+
+const taxRate = 0.1
+var price = 40.0
+
+func main() {
+  tax := taxRate * price
+  fmt.Println("tax:", tax)
+}
+```
+
+## `var` blocks
+
+There's a short syntax for declaring many variables at once. You can use it in both local and global scopes.
+
+```go
+var (
+  name  = "Alice"
+  hours = 10
+)
+```
+
+The same works for constants:
+
+```go
+const (
+  pi         = 3.1415
+  hoursInDay = 24
+)
 ```
