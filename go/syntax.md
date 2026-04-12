@@ -8,6 +8,7 @@
   - [Table of contents](#table-of-contents)
   - [Entry point](#entry-point)
   - [Comments](#comments)
+  - [Variables](#variables)
 
 ## Entry point
 
@@ -41,3 +42,48 @@ Go uses two types of comments:
     multi-line comment
 */
 ```
+
+## Variables
+
+When you first declare a variable, pick a name for it and assign a value using `:=`:
+
+```go
+name := "Alice"
+year := 2001
+```
+
+You can then modify the variable using the `=` operator:
+
+```go
+name = "Bob"
+```
+
+To declare a variable, use the `var` keyword together with a name and a type:
+
+```go
+func main() {
+  // Declare
+  var daysInDecember int
+
+  // Assign
+  daysInDecember = 31
+
+  // Declare and assign
+  var pi = 3.1415
+
+  // Also declare and assign
+  learningGo := true
+}
+```
+
+Such variable has no value assigned yet:
+
+```go
+var firstName string
+```
+
+They're equal to the zero value. It depends on the type. For strings it's an empty string (`""`), for numbers it's `0`, and for booleans it's `false`.
+
+Use `=` to assign values to already declared variables and when using `var`.
+
+Use `:=` when declaring and assigning variable for the first time.
