@@ -29,6 +29,7 @@
     - [Mos](#mos)
     - [Nightfall](#nightfall)
     - [OBS](#obs)
+    - [Preview](#preview)
     - [Rectangle](#rectangle)
     - [Rider](#rider)
       - [`rider` command](#rider-command)
@@ -269,6 +270,10 @@ brew install --cask lunar
 ### OBS
 
 [↑ OBS Studio](https://obsproject.com/) is free and open source software for video recording and live streaming.
+
+### Preview
+
+Drag/scroll with mouse: <kbd>Option</kbd> + <kbd>Spacebar</kbd>.
 
 ### Rectangle
 
