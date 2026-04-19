@@ -17,6 +17,7 @@
   - [Collections](#collections)
     - [Arrays](#arrays)
     - [Slices](#slices)
+    - [`len`](#len)
 
 ## Entry point
 
@@ -295,4 +296,13 @@ contacts := []string{
   "John",
   "Emma",
 }
+```
+
+### `len`
+
+The `len` function returns the current length of a slice or array.
+
+```go
+methods := []string{"GET", "POST", "DELETE"}
+numberOfMethods := len(methods) // 3
 ```
