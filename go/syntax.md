@@ -16,6 +16,7 @@
   - [Functions](#functions)
   - [Collections](#collections)
     - [Arrays](#arrays)
+    - [Slices](#slices)
 
 ## Entry point
 
@@ -247,4 +248,51 @@ email := contactMethods[0]
 
 // Set array item
 contactMethods[1] = "mail"
+```
+
+### Slices
+
+Most of the time, you won't work with arrays directly. Instead, you'll use _slices_.
+
+You can think of slices as dynamic arrays. You don't declare how many elements they have. They can expand and shrink.
+
+When declaring a slice, omit the size from brackets:
+
+```go
+var contacts []string
+```
+
+A declared slice is equal to `nil`. `nil` means "nothing" or "no value" — the slice is not initialized yet.
+
+If you try to access elements of a `nil` value, your application will crash:
+
+```go
+var contacts []string
+
+// This will crash your application with message:
+// panic: runtime error: index out of range [0] with length 0
+contacts[0] = "Jenny"
+```
+
+You can use the slice literal to initialize an empty slice:
+
+```go
+contacts := []string{}
+```
+
+Or preallocate some memory for a slice using `make`:
+
+```go
+// A slice of five empty strings
+contacts := make([]string, 5)
+```
+
+Similarly to arrays, you can initialize a slice with a set of values.
+
+```go
+contacts := []string{
+  "Alice",
+  "John",
+  "Emma",
+}
 ```
