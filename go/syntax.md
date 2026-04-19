@@ -18,6 +18,10 @@
     - [Arrays](#arrays)
     - [Slices](#slices)
     - [`len`](#len)
+  - [Control flow](#control-flow)
+    - [`if`](#if)
+    - [`else`](#else)
+    - [`switch`](#switch)
 
 ## Entry point
 
@@ -305,4 +309,61 @@ The `len` function returns the current length of a slice or array.
 ```go
 methods := []string{"GET", "POST", "DELETE"}
 numberOfMethods := len(methods) // 3
+```
+
+## Control flow
+
+### `if`
+
+To make decisions, use the if statement and comparison operators.
+
+```go
+if speedInKnots >= 64 {
+  // A Hurricane!
+}
+```
+
+```go
+if role == "admin" {
+  // Access granted
+}
+```
+
+### `else`
+
+Use `else` to execute code when an `if` condition is not met:
+
+```go
+if role == "admin" {
+  // Access granted
+} else {
+  // Access denied
+}
+```
+
+You can combine any number of conditions with `else if`:
+
+```go
+if role == "admin" {
+  // Admin access granted
+} else if role == "user" {
+  // User access granted
+} else {
+  // Access denied
+}
+```
+
+### `switch`
+
+```go
+switch x {
+case 0:
+  // Zero
+case 1:
+  // One
+case 2:
+  // Two
+default:
+  // Other
+}
 ```
