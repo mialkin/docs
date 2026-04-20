@@ -14,10 +14,18 @@
   - [`var` blocks](#var-blocks)
   - [Globals](#globals)
   - [Functions](#functions)
+    - [Multiple returns](#multiple-returns)
+    - [Returning errors](#returning-errors)
+    - [Error handling](#error-handling)
+    - [Error handling (short form)](#error-handling-short-form)
+    - [`panic`](#panic)
+    - [Skipping unused variable](#skipping-unused-variable)
   - [Collections](#collections)
     - [Arrays](#arrays)
     - [Slices](#slices)
     - [`len`](#len)
+    - [`append`](#append)
+    - [Maps](#maps)
   - [Control flow](#control-flow)
     - [`if`](#if)
     - [`else`](#else)
@@ -229,6 +237,140 @@ func Add(x, y int) int {
 }
 ```
 
+### Multiple returns
+
+Functions can return any number of values. You need to add another pair of parentheses to define such functions. Separate the types with commas `,`:
+
+```go
+func FullName() (string, string) {
+  return "Alice", "Smith"
+}
+```
+
+```go
+func MonthAndYear() (string, int) {
+  month := "April"
+  year := 2012
+  return month, year
+}
+```
+
+### Returning errors
+
+In Go, errors are values returned from the function. If a function returns more than one value, the last one is usually the error, with the type `error`. A `nil` value means no error.
+
+Create new errors with `errors.New()` from the `errors` package:
+
+```go
+func CheckUser(username string) error {
+  if UserExists(username) {
+      return nil
+    } else {
+      return errors.New("user not found")
+    }
+}
+```
+
+If a function returns multiple values and an error occurs, other arguments are usually returned as zero-value:
+
+```go
+func JoinName(firstName string, lastName string) (string, error) {
+  if firstName == "" || lastName == "" {
+    return "", errors.New("missing first name or last name")
+  }
+
+  return firstName + " " + lastName, nil
+}
+```
+
+### Error handling
+
+To tell if a function was successful, you have to check the error value:
+
+```go
+err := EmailExists("alice@example.com")
+if err != nil {
+  fmt.Println("Error:", err)
+}
+```
+
+In Go, you will see this snippet a lot:
+
+```go
+if err != nil {
+  return err
+}
+```
+
+This means the error is returned again, propagated "up the stack". This can happen multiple times, until one handler decides what to do with it.
+
+One way of handling an error is simply logging it:
+
+```go
+if err != nil {
+  fmt.Println(err)
+}
+```
+
+Other times, you might choose to quit the program or show the error to the user.
+
+### Error handling (short form)
+
+The usual error handling is a bit verbose.
+
+```go
+err := SendRequest()
+if err != nil {
+  return err
+}
+```
+
+If you'd like to make this code more concise, you can use a short form:
+
+```go
+if err := SendRequest(); err != nil {
+  return err
+}
+```
+
+Important note: the function's return values are available only in the scope of the `if`. You can't access them outside the `if` statement or its braces. This form is mostly useful for functions that return no other values, just an `error`.
+
+### `panic`
+
+In any moment, you can use the panic function to immediately stop your application with an error message:
+
+```go
+panic("something terrible happened")
+```
+
+A more useful message usually comes from an error:
+
+```go
+if err != nil {
+  panic(err)
+}
+```
+
+A panic prints out a stack trace.
+
+Most of the time, your code shouldn't `panic`. Sometimes it comes handy, like when writing a quick program to validate an idea.
+
+### Skipping unused variable
+
+Sometimes, you don't care about the returned value, just if the result was successful.
+
+A common pattern is to use the `_` identifier to skip a variable:
+
+```go
+_, err := OpenFile("results.csv")
+
+if err != nil {
+  fmt.Println("Failed to open file")
+}
+```
+
+It's not optional. Go won't compile code with declared but unused variables.
+
 ## Collections
 
 ### Arrays
@@ -310,6 +452,72 @@ The `len` function returns the current length of a slice or array.
 methods := []string{"GET", "POST", "DELETE"}
 numberOfMethods := len(methods) // 3
 ```
+
+### `append`
+
+To add a new element to a slice, use the `append` function.
+
+The first argument of append is the slice to append to. Then, any number of arguments that should be appended at the end.
+
+`append` returns the result slice. It doesn't modify the passed slice in-place, so you have to assign the result to a variable:
+
+```go
+colors := []string{}
+
+colors = append(colors, "red")
+colors = append(colors, "blue", "green")
+
+// colors is equal to []string{"red", "blue", "green"}
+```
+
+### Maps
+
+Use maps to store key-value pairs. Map declaration uses brackets with the keys type inside it, followed by the values type.
+
+```go
+// A map of strings to ints
+var limits map[string]int
+```
+
+A declared map is equal to nil. Accessing it in this state will crash your application.
+
+Maps have to be initialized using make:
+
+```go
+limits = make(map[string]int)
+```
+
+Or using the `:=` syntax and a `map` literal:
+
+```go
+limits := map[string]int{}
+```
+
+You can assign values to initialized maps:
+
+```go
+limits["create"] = 10
+```
+
+You can fill maps with values when initializing them:
+
+```go
+limits := map[string]int{
+  "create": 10,
+  "update": 15,
+  "delete": 1,
+}
+```
+
+To retrieve values, use a syntax similar to accessing elements of a slice:
+
+```go
+update := limits["update"]
+```
+
+If a key doesn't exist, the map returns a zero value, depending on the type (like `0` for integers, `""` for strings, or `nil` for pointers).
+
+
 
 ## Control flow
 
