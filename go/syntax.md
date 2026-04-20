@@ -517,7 +517,31 @@ update := limits["update"]
 
 If a key doesn't exist, the map returns a zero value, depending on the type (like `0` for integers, `""` for strings, or `nil` for pointers).
 
+It's often important to know if a value exists at all. You can use a special two-value syntax for this:
 
+```go
+update, ok := limits["update"]
+if !ok {
+  // update limits not found
+}
+
+fmt.Println("Updates limited to", update)
+```
+
+If you just need to check if a key exists, you can skip the value altogether using the underscore `_`:
+
+```go
+_, ok := limits["updates"]
+if !ok {
+  // update limits not found
+}
+```
+
+To delete a key-value pair, use the delete keyword. If the key doesn't exist, it has no effect.
+
+```go
+delete(limits, "update")
+```
 
 ## Control flow
 
