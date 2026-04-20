@@ -12,7 +12,7 @@
 | <kbd>⌘ ⇧ 2</kbd>                   | Other -> Reveal in Finder            |
 | <kbd>⌘ 3 </kbd>                    | Pin Active Tab                       |
 | <kbd>⌘ 4</kbd>                     | Explorer                             |
-| <kbd>⌘ 5</kbd>                     | Commit                             |
+| <kbd>⌘ 5</kbd>                     | Commit                               |
 | <kbd>⌘ 6 </kbd>                    | Manage NuGet Packages for Solution   |
 | <kbd>⌘ 8 </kbd>                    | dotMemory Profiler                   |
 | <kbd>⌥ Z </kbd>                    | Soft-Wrap                            |
@@ -39,6 +39,7 @@
 | <kbd>⌘ K</kbd>                     | Clear Terminal                       |
 | <kbd>⌘ ⇧ W</kbd>                   | Close All Tabs                       |
 | <kbd>⌥ ⇧ G</kbd>                   | Add Carets to Ends of Selected Lines |
+| <kbd>⌘ `</kbd>                     | Activate Next Window                 |
 
 ## Settings
 
@@ -52,6 +53,7 @@ Key map: copy of Visual Studio (macOS) key map.
 6. Editor -> General -> Code Folding -> Markdown -> Collapse links, collapse TOC
 7. Editor -> General -> Code Folding -> General -> Imports (uncheck)
 8. Editor -> Code style -> C# -> Place property/indexer/event attribute on the same line (Never)
+9. Backup and Sync -> Sync settings across: JetBrains IDE products and Android Studio
 
 TypeScript:
 
