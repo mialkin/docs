@@ -20,6 +20,7 @@
     - [Error handling (short form)](#error-handling-short-form)
     - [`panic`](#panic)
     - [Skipping unused variable](#skipping-unused-variable)
+    - [Variadic functions](#variadic-functions)
   - [Collections](#collections)
     - [Arrays](#arrays)
     - [Slices](#slices)
@@ -371,6 +372,43 @@ if err != nil {
 
 It's not optional. Go won't compile code with declared but unused variables.
 
+### Variadic functions
+
+Functions with arbitrary number of arguments are called _variadic_. An example of a variadic function is the `fmt.Println` function.
+
+The list of arguments is marked with three dots `...` before the type's name:
+
+```go
+func ShowNames(names ...string) {
+
+}
+```
+
+The function can take other arguments as well, but they need to come before the variadic list.
+
+```go
+func ShowNames(howMany int, names ...string) {
+
+}
+```
+
+The argument becomes a regular slice inside the function:
+
+```go
+func PrintCount(names ...string) {
+  fmt.Println("Found", len(names), "names")
+}
+```
+
+You can "unpack" a slice of the same type into variadic arguments using the same three dots syntax.
+
+```go
+letters := []string{"a", "b", "c"}
+PrintLetters(letters...)
+```
+
+In a sense, variadic arguments are no different from passing a slice to a function. It's simply a more convenient way to call the function, as you don't need to create the slice before.
+
 ## Collections
 
 ### Arrays
@@ -468,6 +506,14 @@ colors = append(colors, "red")
 colors = append(colors, "blue", "green")
 
 // colors is equal to []string{"red", "blue", "green"}
+```
+
+`append` is a [variadic](#variadic-functions) function. A handy pattern to join two slices is by using the `append` function and _unpacking_ one of them:
+
+```go
+newColors := []string{"orange", "turquoise"}
+
+colors = append(colors, newColors...)
 ```
 
 ### Maps
