@@ -28,6 +28,8 @@
     - [`append`](#append)
     - [Maps](#maps)
     - [`range`](#range)
+    - [`break`](#break)
+    - [`continue`](#continue)
   - [Control flow](#control-flow)
     - [`if`](#if)
     - [`else`](#else)
@@ -682,6 +684,33 @@ for person, color := range interfaceColors {
 ```
 
 A key difference between slices and maps is that maps are not ordered. Calling `range` on a map returns the values in a random order, so you can't rely on it.
+
+### `break`
+
+Use `break` to interrupt the loop immediately:
+
+```go
+found := false
+
+for _, name := range names {
+  if name == targetName {
+    found = true
+    break
+  }
+}
+```
+
+### `continue`
+
+Use `continue` to skip the current loop's iteration and go to the next:
+
+```go
+for _, status := range statuses {
+  if status == "disabled" {
+    continue
+  }
+}
+```
 
 ## Control flow
 
