@@ -31,6 +31,7 @@
     - [`if`](#if)
     - [`else`](#else)
     - [`switch`](#switch)
+    - [`for`](#for)
 
 ## Entry point
 
@@ -676,5 +677,35 @@ case 2:
   // Two
 default:
   // Other
+}
+```
+
+### `for`
+
+Go has one loop — `for`.
+
+Using `for` without arguments creates an infinite loop:
+
+```go
+for {
+  // Infinite loop
+}
+```
+
+The loop bellow will run ten times, as `x` goes from `0` to `9`:
+
+```go
+Copy to clipboardx := 0
+for x < 10 {
+  fmt.Println("x =", x)
+  x++
+}
+```
+
+There's also a short form of this approach:
+
+```go
+for x := 0; x < 10; x++ {
+  fmt.Println("x =", x)
 }
 ```
