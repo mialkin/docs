@@ -45,3 +45,18 @@ A **selectivity** is an index's ability to reduce the number of rows returned by
 A highly selective index filters out a large portion of the data and therefore speeds up the search. When you query a field that has many distinct values (in other words, is very unique), the index selectivity will be high.
 
 The [HyperLogLog](../../computer-science/algorithms/algorithms.md#hyperloglog) algorithm can be used for cardinality estimation.
+
+To check index selectivity run this on the production database:
+
+```sql
+SELECT
+    COUNT(*)                        AS TotalRows,
+    COUNT(DISTINCT Sku)             AS DistinctSkus,
+    CAST(COUNT(DISTINCT Sku) AS FLOAT) / COUNT(*) AS Selectivity
+FROM Orders;
+```
+
+How to interpret the result:
+
+- Selectivity close to 1.0 → high selectivity, index is very useful
+- Selectivity close to 0.0 → low selectivity (e.g., a bit column), index may hurt more than help
