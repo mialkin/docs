@@ -1,5 +1,7 @@
 # Go syntax
 
+[↑ The Go Programming Language Specification](https://go.dev/ref/spec).
+
 [↑ Learn Go in Y minutes](https://learnxinyminutes.com/go/).
 
 ## Table of contents
@@ -35,6 +37,8 @@
     - [`else`](#else)
     - [`switch`](#switch)
     - [`for`](#for)
+  - [Structs](#structs)
+    - [Methods](#methods)
 
 ## Entry point
 
@@ -797,4 +801,96 @@ There's also a short form of this approach:
 for x := 0; x < 10; x++ {
   fmt.Println("x =", x)
 }
+```
+
+## Structs
+
+Struct are groups of variables. The variables held by a struct are called "fields". They let you treat many values as a single unit:
+
+```go
+type Money struct {
+  Amount   int
+  Currency string
+}
+```
+
+You can create a struct with all fields set to zero-values:
+
+```go
+m := Money{}
+```
+
+Or you can fill in all or some of them:
+
+```go
+m := Money{
+  Amount:   10,
+  Currency: "USD",
+}
+```
+
+To access a field, use the struct variable followed by a dot `.` and the field name:
+
+```go
+amount := m.Amount
+m.Currency = "EUR"
+```
+
+Structs come especially useful for passing a group of variables as a single argument:
+
+```go
+type Money struct {
+  Amount   int
+  Currency string
+}
+
+func Format(m Money) string {
+  return fmt.Sprintf("%v %v", m.Amount, m.Currency)
+}
+```
+
+You can initialize structs without field names, passing values in the order they are defined:
+
+```go
+func main() {
+  m := Money{100, "USD"}
+  fmt.Println(Format(m))
+}
+```
+
+### Methods
+
+Methods are functions bound to a single struct. To write a method, write a regular function, but add an extra section in parentheses before its name. It should contain a name and the type:
+
+```go
+type Money struct {
+  Amount   int
+  Currency string
+}
+
+func (m Money) Format() string {
+  return fmt.Sprintf("%v %v", m.Amount, m.Currency)
+}
+```
+
+The receiver part (`(m Money)`) is how you reference the variable inside the method. The name is usually a one letter and should be the same for all methods on a single type.
+
+When you consider the previous example, it's clear that methods are just a more convenient way to write functions working with a struct:
+
+```go
+func Format(m Money) string {
+  return fmt.Sprintf("%v %v", m.Amount, m.Currency)
+}
+
+func (m Money) Format() string {
+  return fmt.Sprintf("%v %v", m.Amount, m.Currency)
+}
+```
+
+You call methods similarly to regular functions. Prefix the method name with the struct variable and a dot `.`:
+
+```go
+formattedByFunction := Format(m)
+
+formattedByMethod := m.Format()
 ```
