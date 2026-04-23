@@ -38,13 +38,13 @@ $$Cardinality = COUNT(DISTINCT column\_name)$$
 
 For example, if a table has 1,000,000 rows but the "Country" column only has 195 distinct values, it is considered low cardinality. This information tells the database engine that using a standard B-tree index might be less efficient than a bitmap index.
 
+The [HyperLogLog](../../computer-science/algorithms/algorithms.md#hyperloglog) algorithm can be used for cardinality estimation.
+
 ## Selectivity
 
 A **selectivity** is an index's ability to reduce the number of rows returned by a query.
 
 A highly selective index filters out a large portion of the data and therefore speeds up the search. When you query a field that has many distinct values (in other words, is very unique), the index selectivity will be high.
-
-The [HyperLogLog](../../computer-science/algorithms/algorithms.md#hyperloglog) algorithm can be used for cardinality estimation.
 
 To check index selectivity run this on the production database:
 
