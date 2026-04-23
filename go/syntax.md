@@ -482,6 +482,33 @@ contacts := []string{
 }
 ```
 
+You can select a part of a slice by specifying two indexes. It will select elements between the indexes, omitting the last one:
+
+```go
+letters := []string{"A", "B", "C", "D", "E", "F"}
+
+fmt.Println(letters[2:4]) // C, D
+```
+
+If you omit the first index, it defaults to 0:
+
+```go
+fmt.Println(letters[:4]) // [A B C D]
+```
+
+If you omit the last index, it defaults to the number of elements (the slice's length):
+
+```go
+fmt.Println(letters[4:]) // [E F]
+```
+
+If you omit both indexes, you get the entire slice:
+
+```go
+fmt.Println(letters[:]) // [A B C D E F]
+```
+
+
 ### `len`
 
 The `len` function returns the current length of a slice or array.
@@ -514,6 +541,12 @@ colors = append(colors, "blue", "green")
 newColors := []string{"orange", "turquoise"}
 
 colors = append(colors, newColors...)
+```
+
+You can use append together with indexing to do other operations on slices, like removing elements:
+
+```go
+withoutThirdElement := append(names[:2], names[3:]...)
 ```
 
 ### Maps
