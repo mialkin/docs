@@ -8,6 +8,7 @@
       - [Desktop \& Dock](#desktop--dock)
       - [Focus](#focus)
       - [Trackpad](#trackpad)
+      - [Terminal](#terminal)
   - [Applications](#applications)
     - [Brew](#brew)
     - [DBeaver Community](#dbeaver-community)
@@ -94,6 +95,28 @@ Uncheck Focus -> Share across devices.
 #### Trackpad
 
 More gestures -> Swipe between pages -> Off
+
+#### Terminal
+
+Change computer name: Settings -> General -> About -> Name.
+
+To verify the change:
+
+```go
+scutil --get ComputerName
+```
+
+Turn off Message of the Day" (motd):
+
+```bash
+touch ~/.hushlogin
+```
+
+If you ever want it back:
+
+```go
+rm ~/.hushlogin
+```
 
 ## Applications
 
