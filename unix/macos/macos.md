@@ -310,7 +310,7 @@ Create file:
 
 ```bash
 cd /usr/local/bin/ && \
-vim rider
+sudo vim rider
 ```
 
 With content:
@@ -324,7 +324,7 @@ open -na "Rider.app" --args "$@"
 Change access mode:
 
 ```bash
-chmod 775 rider
+sudo chmod 775 rider
 ```
 
 ### `ripgrep`
