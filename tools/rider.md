@@ -58,3 +58,26 @@ Key map: copy of Visual Studio (macOS) key map.
 TypeScript:
 
 1. ES6 import/export braces
+
+## `rider` command
+
+Create file:
+
+```bash
+cd /usr/local/bin/ && \
+sudo vim rider
+```
+
+With content:
+
+```text
+#!/bin/sh
+
+open -na "Rider.app" --args "$@"
+```
+
+Change access mode:
+
+```bash
+sudo chmod 775 rider
+```

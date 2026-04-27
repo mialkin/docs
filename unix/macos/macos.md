@@ -21,6 +21,8 @@
       - [Concatenate](#concatenate)
     - [Fluor](#fluor)
     - [Gifox](#gifox)
+    - [GoLand](#goland)
+      - [`goland` command](#goland-command)
     - [HandBrake](#handbrake)
     - [Keka](#keka)
     - [Lens](#lens)
@@ -32,8 +34,6 @@
     - [OBS](#obs)
     - [Preview](#preview)
     - [Rectangle](#rectangle)
-    - [Rider](#rider)
-      - [`rider` command](#rider-command)
     - [`ripgrep`](#ripgrep)
     - [SensibleSideButtons](#sensiblesidebuttons)
     - [Sublime Text](#sublime-text)
@@ -254,6 +254,31 @@ brew install --cask fluor
 
 [↑ Gifox](https://gifox.app) is a macOS status bar application for recording, converting, editing and sharing GIFs.
 
+### GoLand
+
+#### `goland` command
+
+Create file:
+
+```bash
+cd /usr/local/bin/ && \
+sudo vim goland
+```
+
+With content:
+
+```text
+#!/bin/sh
+
+open -na "GoLand.app" --args "$@"
+```
+
+Change access mode:
+
+```bash
+sudo chmod 775 goland
+```
+
 ### HandBrake
 
 [↑ HandBrake](https://handbrake.fr) is an application for converting video from nearly any format to a selection of modern, widely supported codecs.
@@ -302,31 +327,6 @@ Drag/scroll with mouse: <kbd>Option</kbd> + <kbd>Spacebar</kbd>.
 
 [↑ Rectangle](https://rectangleapp.com) is an application that allows to move and resize windows in macOS using keyboard shortcuts or snap areas.
 
-### Rider
-
-#### `rider` command
-
-Create file:
-
-```bash
-cd /usr/local/bin/ && \
-sudo vim rider
-```
-
-With content:
-
-```text
-#!/bin/sh
-
-open -na "Rider.app" --args "$@"
-```
-
-Change access mode:
-
-```bash
-sudo chmod 775 rider
-```
-
 ### `ripgrep`
 
 ```bash
@@ -336,7 +336,6 @@ brew install ripgrep
 ```bash
 rg "dotnet run"
 ```
-
 
 ### SensibleSideButtons
 
