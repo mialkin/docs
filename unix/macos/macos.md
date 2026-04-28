@@ -9,6 +9,7 @@
       - [Focus](#focus)
       - [Trackpad](#trackpad)
       - [Terminal](#terminal)
+      - [Touch ID](#touch-id)
   - [Applications](#applications)
     - [Brew](#brew)
     - [DBeaver Community](#dbeaver-community)
@@ -117,6 +118,22 @@ If you ever want it back:
 ```go
 rm ~/.hushlogin
 ```
+
+#### Touch ID
+
+To use Touch ID for sudo commands in the Terminal run:
+
+```bash
+sudo vim /etc/pam.d/sudo
+```
+
+Add the following line **immediately below** the first line:
+
+```text
+auth       sufficient     pam_tid.so
+```
+
+Save with `wq!` and exit.
 
 ## Applications
 
