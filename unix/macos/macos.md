@@ -10,6 +10,7 @@
       - [Trackpad](#trackpad)
       - [Terminal](#terminal)
       - [Touch ID](#touch-id)
+      - [Keyboard](#keyboard)
   - [Applications](#applications)
     - [Brew](#brew)
     - [DBeaver Community](#dbeaver-community)
@@ -134,6 +135,10 @@ auth       sufficient     pam_tid.so
 ```
 
 Save with `wq!` and exit.
+
+#### Keyboard
+
+System Settings -> Keyboard -> Input Sources -> Add Russian — PC.
 
 ## Applications
 
