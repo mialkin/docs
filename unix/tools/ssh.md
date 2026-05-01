@@ -15,6 +15,7 @@ The **Secure Shell** or **SSH** is a cryptographic network protocol for operatin
     - [`known_hosts` file](#known_hosts-file)
     - [Use multiple keys](#use-multiple-keys)
     - [Fix "broken pipe" error](#fix-broken-pipe-error)
+    - [Add new pair of keys](#add-new-pair-of-keys)
   - [SSH server](#ssh-server)
     - [Disable password authentication](#disable-password-authentication)
     - [Change SSH port](#change-ssh-port)
@@ -153,6 +154,16 @@ Alternatively add this line `cat /etc/ssh/sshd_config` to on the server:
 KeepAlive yes
 # or even this: TCPKeepAlive yes
 ```
+
+### Add new pair of keys
+
+Generate a new pair of keys on a new computer. Copy new public key to the old computer. Connect to SSH server and open `authorized_key` file:
+
+```bash
+vim ~/.ssh/authorized_key
+```
+
+Paste the new key below the existing key. Remove the old public key if needed.
 
 ## SSH server
 
