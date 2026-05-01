@@ -140,9 +140,12 @@ Host handy_server
 Add this lines to `~/.ssh/config` on the client:
 
 ```bash
-ServerAliveInterval 30
-ServerAliveCountMax 1200
+Host *
+    ServerAliveInterval 30
+    ServerAliveCountMax 1200
 ```
+
+Above settings mean the following: check on the server every 30 seconds (send a "null packet"). If you don't hear back, keep trying for 10 hours (30s × 1,200) before officially declaring the connection dead.
 
 Alternatively add this line `cat /etc/ssh/sshd_config` to on the server:
 

@@ -19,7 +19,7 @@
   - [Update forked repository from original repository](#update-forked-repository-from-original-repository)
   - [Git hooks](#git-hooks)
   - [Custom scripts](#custom-scripts)
-    - [`git-set-config`](#git-set-config)
+    - [`git-config`](#git-config-1)
     - [`git-create-repos`](#git-create-repos)
 
 ## Git config
@@ -327,14 +327,15 @@ To "install" a hook, all you have to do is remove the `.sample` extension. Hooks
 
 See [User scripts folder](/unix/macos/macos.md#user-scripts-folder).
 
-### `git-set-config`
+### `git-config`
 
 Create file:
 
 ```bash
 cd /usr/local/bin && \
-touch git-set-config && \
-chmod +x git-set-config
+sudo touch git-config && \
+sudo chmod +x git-config && \
+sudo vim git-config
 ```
 
 Paste content:
@@ -344,7 +345,7 @@ Paste content:
 
 if [ $# -eq 0 ]
   then
-    echo "Supply repository name"
+    echo "Please provide repository name"
     exit 1
 fi
 
