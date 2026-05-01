@@ -62,13 +62,6 @@ echo "alias python='python3'" >> ~/.zshrc && \
 echo "alias dotwatch='dotnet watch --no-hot-reload'" >> ~/.zshrc
 ```
 
-Makefile [↑ autocompletion](https://stackoverflow.com/questions/33760647/makefile-autocompletion-on-mac):
-
-```bash
-echo "zstyle ':completion:*:*:make:*' tag-order 'targets'" >> ~/.zshrc && \
-echo "autoload -U compinit && compinit" >> ~/.zshrc
-```
-
 ### Finder
 
 Always show hidden files in Finder:

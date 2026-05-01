@@ -14,6 +14,7 @@ GNU Make searches files in order for a file named one of `GNUmakefile`, `makefil
   - [Makefiles vs shell scripts](#makefiles-vs-shell-scripts)
     - [Simplicity](#simplicity)
     - [Minimal rebuilds](#minimal-rebuilds)
+    - [Mac autocompletion](#mac-autocompletion)
 
 ## Syntax
 
@@ -56,3 +57,12 @@ You can have Makefiles in all of your projects so that developers can: `make bui
 The general idea is that `make` supports reasonably minimal rebuilds — i.e., you tell it what parts of your program depend on what other parts. When you update some part of the program, it _only_ rebuilds the parts that depend on that. While you _could_ do this with a shell script, it would be a lot more work: explicitly checking the last-modified dates on all the files, etc. The only obvious alternative with a shell script is to rebuild everything every time. For tiny projects this is a perfectly reasonable approach, but for a big project a complete rebuild could easily take an hour or more — using `make`, you might easily accomplish the same thing in a minute or two...
 
 [↑ Why use make over a shell script?](https://stackoverflow.com/questions/3798562/why-use-make-over-a-shell-script).
+
+### Mac autocompletion
+
+```bash
+echo "zstyle ':completion:*:*:make:*' tag-order 'targets'" >> ~/.zshrc && \
+echo "autoload -U compinit && compinit" >> ~/.zshrc
+```
+
+Makefile [↑ autocompletion](https://stackoverflow.com/questions/33760647/makefile-autocompletion-on-mac):
