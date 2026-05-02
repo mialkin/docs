@@ -414,6 +414,7 @@
 
 - [Go](go/go.md)
 - [Go syntax](go/syntax.md)
+- [GoLand](go/goland.md)
 
 ## Miscellaneous
 
