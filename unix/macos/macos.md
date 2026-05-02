@@ -7,10 +7,10 @@
     - [System](#system)
       - [Desktop \& Dock](#desktop--dock)
       - [Focus](#focus)
-      - [Trackpad](#trackpad)
+      - [Keyboard](#keyboard)
       - [Terminal](#terminal)
       - [Touch ID](#touch-id)
-      - [Keyboard](#keyboard)
+      - [Trackpad](#trackpad)
   - [Applications](#applications)
     - [Brew](#brew)
     - [DBeaver Community](#dbeaver-community)
@@ -23,22 +23,21 @@
       - [Concatenate](#concatenate)
     - [Fluor](#fluor)
     - [Gifox](#gifox)
-    - [GoLand](#goland)
-      - [`goland` command](#goland-command)
     - [HandBrake](#handbrake)
     - [Keka](#keka)
     - [Lens](#lens)
     - [Logi Tune](#logi-tune)
     - [LosslessCut](#losslesscut)
-    - [Lunar](#lunar)
+    - [MonitorControl](#monitorcontrol)
     - [Mos](#mos)
-    - [Nightfall](#nightfall)
     - [OBS](#obs)
     - [Preview](#preview)
-    - [Rectangle](#rectangle)
     - [`ripgrep`](#ripgrep)
     - [SensibleSideButtons](#sensiblesidebuttons)
     - [Sublime Text](#sublime-text)
+      - [`subl` command](#subl-command)
+      - [Configuration](#configuration)
+      - [Split selection into lines](#split-selection-into-lines)
     - [Visual Studio Code](#visual-studio-code)
     - [yt-dlp](#yt-dlp)
   - [Miscellaneous](#miscellaneous)
@@ -87,9 +86,9 @@ Click wallpaper to reveal desktop -> Only in Stage Manager.
 
 Uncheck Focus -> Share across devices.
 
-#### Trackpad
+#### Keyboard
 
-More gestures -> Swipe between pages -> Off
+System Settings -> Keyboard -> Input Sources -> Add Russian — PC.
 
 #### Terminal
 
@@ -129,9 +128,9 @@ auth       sufficient     pam_tid.so
 
 Save with `wq!` and exit.
 
-#### Keyboard
+#### Trackpad
 
-System Settings -> Keyboard -> Input Sources -> Add Russian — PC.
+More gestures -> Swipe between pages -> Off
 
 ## Applications
 
@@ -269,31 +268,6 @@ brew install --cask fluor
 
 [↑ Gifox](https://gifox.app) is a macOS status bar application for recording, converting, editing and sharing GIFs.
 
-### GoLand
-
-#### `goland` command
-
-Create file:
-
-```bash
-cd /usr/local/bin/ && \
-sudo vim goland
-```
-
-With content:
-
-```text
-#!/bin/sh
-
-open -na "GoLand.app" --args "$@"
-```
-
-Change access mode:
-
-```bash
-sudo chmod 775 goland
-```
-
 ### HandBrake
 
 [↑ HandBrake](https://handbrake.fr) is an application for converting video from nearly any format to a selection of modern, widely supported codecs.
@@ -314,21 +288,13 @@ sudo chmod 775 goland
 
 [↑ LosslessCut](https://github.com/mifi/lossless-cut) is an application that cuts the data stream and directly copies it over.
 
-### Lunar
+### MonitorControl
 
-[↑ Lunar](https://github.com/alin23/Lunar) is a macOS application for controlling monitors.
-
-```bash
-brew install --cask lunar
-```
+[↑ MonitorControl](https://monitorcontrol.app) is an app that controls external display brightness and volume.
 
 ### Mos
 
 [↑ Mos](https://mos.caldis.me) is a lightweight tool used to smooth scrolling and set scroll direction independently for your mouse on macOS.
-
-### Nightfall
-
-[↑ Nightfall](https://github.com/r-thomson/Nightfall/) is an application that lets you manage macOS's dark mode from the menu bar.
 
 ### OBS
 
@@ -337,10 +303,6 @@ brew install --cask lunar
 ### Preview
 
 Drag/scroll with mouse: <kbd>Option</kbd> + <kbd>Spacebar</kbd>.
-
-### Rectangle
-
-[↑ Rectangle](https://rectangleapp.com) is an application that allows to move and resize windows in macOS using keyboard shortcuts or snap areas.
 
 ### `ripgrep`
 
@@ -362,9 +324,13 @@ May need to add this application to [↑Open at login](https://support.apple.com
 
 [↑ Sublime Text](https://www.sublimetext.com/) is a shareware text and source code editor available for Windows, macOS, and Linux.
 
+#### `subl` command
+
 ```bash
 echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"' >> ~/.zprofile
 ```
+
+#### Configuration
 
 ```json
 {
@@ -372,6 +338,8 @@ echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PA
   "open_files_in_new_window": false
 }
 ```
+
+#### Split selection into lines
 
 | Shortcut         | Description                   |
 | ---------------- | ----------------------------- |
