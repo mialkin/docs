@@ -5,7 +5,9 @@
     - [Aliases](#aliases)
     - [Finder](#finder)
     - [Terminal](#terminal)
-      - [Touch ID](#touch-id)
+      - [Change computer name](#change-computer-name)
+      - [Turn off Message of the Day" (motd)](#turn-off-message-of-the-day-motd)
+      - [Use Touch ID](#use-touch-id)
     - [System Settings](#system-settings)
       - [Accessibility](#accessibility)
       - [Desktop \& Dock](#desktop--dock)
@@ -57,6 +59,8 @@
 ### Aliases
 
 ```bash
+cd ~/Downloads
+
 echo "alias ll='ls -la'" >> ~/.zshrc && \
 echo "alias cls='clear'" >> ~/.zshrc && \
 echo "alias python='python3'" >> ~/.zshrc && \
@@ -80,7 +84,9 @@ Show path bar: View -> Show Path Bar.
 
 ### Terminal
 
-Change computer name: Settings -> General -> About -> Name.
+#### Change computer name
+
+Settings -> General -> About -> Name.
 
 To verify the change:
 
@@ -88,7 +94,7 @@ To verify the change:
 scutil --get ComputerName
 ```
 
-Turn off Message of the Day" (motd):
+#### Turn off Message of the Day" (motd)
 
 ```bash
 touch ~/.hushlogin
@@ -100,7 +106,7 @@ If you ever want it back:
 rm ~/.hushlogin
 ```
 
-#### Touch ID
+#### Use Touch ID
 
 To use Touch ID for sudo commands in the Terminal run:
 
