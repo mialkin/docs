@@ -13,6 +13,7 @@
   - [HTML files](#html-files)
   - [Permanent redirect from one page to another](#permanent-redirect-from-one-page-to-another)
   - [Certbot](#certbot)
+    - [Certificates](#certificates)
 
 ## Installation
 
@@ -135,3 +136,19 @@ Test automatic renewal for your certificates:
 ```bash
 sudo certbot renew --dry-run
 ```
+
+### Certificates
+
+List certificates:
+
+```bash
+certbot certificates
+```
+
+Delete certificate:
+
+```bash
+certbot delete --cert-name YOUR_CERTIFICATE_NAME
+```
+
+Then go to [configuration files](#configuration-files) and remove any artifacts remaining after Certbot.

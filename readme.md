@@ -86,7 +86,7 @@
 
 - [Environment variables](unix/environment-variables.md)
 - [macOS](unix/macos/macos.md)
-- [Nginx](unix/nginx.md)
+- [Nginx](unix/nginx.md). [Certbot](unix/nginx.md#certbot)
 - [Shell and shell scripting](unix/shell-and-shell-scripting.md)
 - [Tools](unix/tools/tools.md)
   - [crontab](unix/tools/crontab.md)
