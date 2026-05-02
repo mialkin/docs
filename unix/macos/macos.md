@@ -4,14 +4,14 @@
   - [Settings](#settings)
     - [Aliases](#aliases)
     - [Finder](#finder)
-    - [System](#system)
+    - [Terminal](#terminal)
+      - [Touch ID](#touch-id)
+    - [System Settings](#system-settings)
+      - [Accessibility](#accessibility)
       - [Desktop \& Dock](#desktop--dock)
-      - [Focus](#focus)
       - [Keyboard](#keyboard)
       - [Lock Screen](#lock-screen)
       - [Menu Bar](#menu-bar)
-      - [Terminal](#terminal)
-      - [Touch ID](#touch-id)
       - [Trackpad](#trackpad)
   - [Applications](#applications)
     - [Brew](#brew)
@@ -78,41 +78,7 @@ Set `Downloads` as default folder:
 
 Show path bar: View -> Show Path Bar.
 
-### System
-
-#### Desktop & Dock
-
-Hot Corners...
-
-|                 |                 |
-| --------------- | --------------- |
-| Mission Control | Mission Control |
-| Apps            | Desktop         |
-
-#### Focus
-
-Uncheck Focus -> Share across devices.
-
-#### Keyboard
-
-System Settings -> Keyboard -> Input Sources -> Add Russian — PC.
-
-#### Lock Screen
-
-System Settings -> Lock Screen.
-
-- Turn display off on battery when inactive -> For 30 minutes
-- Turn display off on power adapter when inactive -> For 1 hour
-- Require password after screen saver begins or display is turned off -> Immediately
-- Show user name and photo -> Off
-
-#### Menu Bar
-
-System Settings -> Menu Bar.
-
-Uncheck what's not needed under **Menu Bar Controls** and **Allow in the Menu Bar** sections.
-
-#### Terminal
+### Terminal
 
 Change computer name: Settings -> General -> About -> Name.
 
@@ -150,9 +116,37 @@ auth       sufficient     pam_tid.so
 
 Save with `wq!` and exit.
 
-#### Trackpad
+### System Settings
 
-System Settings -> Trackpad.
+#### Accessibility
+
+Pointer Control -> Trackpad Options... -> Dragging style -> Three Finger Drag.
+
+#### Desktop & Dock
+
+Hot Corners...
+
+|                 |                 |
+| --------------- | --------------- |
+| Mission Control | Mission Control |
+| Apps            | Desktop         |
+
+#### Keyboard
+
+Input Sources -> Add Russian — PC.
+
+#### Lock Screen
+
+- Turn display off on battery when inactive -> For 30 minutes
+- Turn display off on power adapter when inactive -> For 1 hour
+- Require password after screen saver begins or display is turned off -> Immediately
+- Show user name and photo -> Off
+
+#### Menu Bar
+
+Uncheck what's not needed under **Menu Bar Controls** and **Allow in the Menu Bar** sections.
+
+#### Trackpad
 
 - More gestures -> Swipe between pages -> Off
 
