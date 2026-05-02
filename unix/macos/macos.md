@@ -8,6 +8,8 @@
       - [Desktop \& Dock](#desktop--dock)
       - [Focus](#focus)
       - [Keyboard](#keyboard)
+      - [Lock Screen](#lock-screen)
+      - [Menu Bar](#menu-bar)
       - [Terminal](#terminal)
       - [Touch ID](#touch-id)
       - [Trackpad](#trackpad)
@@ -80,7 +82,12 @@ Show path bar: View -> Show Path Bar.
 
 #### Desktop & Dock
 
-Click wallpaper to reveal desktop -> Only in Stage Manager.
+Hot Corners...
+
+|                 |                 |
+| --------------- | --------------- |
+| Mission Control | Mission Control |
+| Apps            | Desktop         |
 
 #### Focus
 
@@ -89,6 +96,21 @@ Uncheck Focus -> Share across devices.
 #### Keyboard
 
 System Settings -> Keyboard -> Input Sources -> Add Russian — PC.
+
+#### Lock Screen
+
+System Settings -> Lock Screen.
+
+- Turn display off on battery when inactive -> For 30 minutes
+- Turn display off on power adapter when inactive -> For 1 hour
+- Require password after screen saver begins or display is turned off -> Immediately
+- Show user name and photo -> Off
+
+#### Menu Bar
+
+System Settings -> Menu Bar.
+
+Uncheck what's not needed under **Menu Bar Controls** and **Allow in the Menu Bar** sections.
 
 #### Terminal
 
@@ -130,7 +152,9 @@ Save with `wq!` and exit.
 
 #### Trackpad
 
-More gestures -> Swipe between pages -> Off
+System Settings -> Trackpad.
+
+- More gestures -> Swipe between pages -> Off
 
 ## Applications
 
@@ -353,7 +377,7 @@ echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PA
 
 Custom snippets:
 
-<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>  Type **Snippets**.
+<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> Type **Snippets**.
 
 ````json
 {
