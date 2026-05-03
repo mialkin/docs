@@ -17,6 +17,7 @@
       - [Trackpad](#trackpad)
   - [Applications](#applications)
     - [Brew](#brew)
+    - [Buzz](#buzz)
     - [DBeaver Community](#dbeaver-community)
     - [Etcher](#etcher)
     - [ExifTool](#exiftool)
@@ -28,8 +29,10 @@
     - [Fluor](#fluor)
     - [Gifox](#gifox)
     - [HandBrake](#handbrake)
+    - [INNA](#inna)
     - [Keka](#keka)
     - [Lens](#lens)
+    - [LM Studio](#lm-studio)
     - [Logi Tune](#logi-tune)
     - [LosslessCut](#losslesscut)
     - [MonitorControl](#monitorcontrol)
@@ -161,6 +164,10 @@ Uncheck what's not needed under **Menu Bar Controls** and **Allow in the Menu Ba
 ### Brew
 
 [↑ Brew](https://brew.sh/) is the package manager for macOS and Linux.
+
+### Buzz
+
+[↑ Buzz](https://github.com/chidiwilliams/buzz) is a tool that transcribes and translates audio offline. Powered by OpenAI's [↑ Whisper](https://openai.com/index/whisper/).
 
 ### DBeaver Community
 
@@ -296,6 +303,10 @@ brew install --cask fluor
 
 [↑ HandBrake](https://handbrake.fr) is an application for converting video from nearly any format to a selection of modern, widely supported codecs.
 
+### INNA
+
+[↑ IINA](https://iina.io/) `/ˈiːnə/` is the the modern media player for macOS.
+
 ### Keka
 
 [↑ Keka](https://www.keka.io) is a macOS file archiver.
@@ -303,6 +314,10 @@ brew install --cask fluor
 ### Lens
 
 [↑ Lens](https://k8slens.dev/) is a Kubernetes IDE.
+
+### LM Studio
+
+[↑ LM Studio](https://lmstudio.ai/) is a desktop application that allows you to discover, download, and run LLMs locally on your own computer
 
 ### Logi Tune
 
