@@ -38,6 +38,7 @@
     - [MonitorControl](#monitorcontrol)
     - [Mos](#mos)
     - [OBS](#obs)
+    - [OrbStack](#orbstack)
     - [Preview](#preview)
     - [`ripgrep`](#ripgrep)
     - [SensibleSideButtons](#sensiblesidebuttons)
@@ -338,6 +339,16 @@ brew install --cask fluor
 ### OBS
 
 [↑ OBS Studio](https://obsproject.com/) is free and open source software for video recording and live streaming.
+
+### OrbStack
+
+[↑ OrbStack](https://orbstack.dev/) is the fast, light, and easy way to run Docker containers and Linux machines.
+
+```bash
+orb status
+orb start
+orb stop
+```
 
 ### Preview
 
