@@ -9,6 +9,7 @@
       - [Turn off Message of the Day" (motd)](#turn-off-message-of-the-day-motd)
       - [Use Touch ID](#use-touch-id)
     - [System Settings](#system-settings)
+      - [General](#general)
       - [Accessibility](#accessibility)
       - [Desktop \& Dock](#desktop--dock)
       - [Keyboard](#keyboard)
@@ -127,6 +128,10 @@ auth       sufficient     pam_tid.so
 Save with `wq!` and exit.
 
 ### System Settings
+
+#### General
+
+Login Items & Region -> Remove/Uncheck not needed apps after their installation
 
 #### Accessibility
 
