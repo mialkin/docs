@@ -12,9 +12,11 @@
       - [General](#general)
       - [Accessibility](#accessibility)
       - [Desktop \& Dock](#desktop--dock)
-      - [Keyboard](#keyboard)
-      - [Lock Screen](#lock-screen)
+      - [Displays](#displays)
       - [Menu Bar](#menu-bar)
+      - [Sound](#sound)
+      - [Lock Screen](#lock-screen)
+      - [Keyboard](#keyboard)
       - [Trackpad](#trackpad)
   - [Applications](#applications)
     - [Brew](#brew)
@@ -146,9 +148,21 @@ Hot Corners...
 | Mission Control | Mission Control |
 | Apps            | Desktop         |
 
-#### Keyboard
+#### Displays
 
-Input Sources -> Add Russian — PC.
+Turn off "Automatically adjust brightness".
+
+#### Menu Bar
+
+Uncheck what's not needed under **Menu Bar Controls** and **Allow in the Menu Bar** sections.
+
+#### Sound
+
+Turn off:
+
+- Play sound on startup
+- Play user interface sound effects
+- Play feedback when volume is changed
 
 #### Lock Screen
 
@@ -157,9 +171,9 @@ Input Sources -> Add Russian — PC.
 - Require password after screen saver begins or display is turned off -> Immediately
 - Show user name and photo -> Off
 
-#### Menu Bar
+#### Keyboard
 
-Uncheck what's not needed under **Menu Bar Controls** and **Allow in the Menu Bar** sections.
+Input Sources -> Add Russian — PC.
 
 #### Trackpad
 
