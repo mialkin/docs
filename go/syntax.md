@@ -40,6 +40,8 @@
   - [Structs](#structs)
     - [Methods](#methods)
   - [Pointers](#pointers)
+    - [`nil`](#nil)
+    - [`new`](#new)
 
 ## Entry point
 
@@ -934,4 +936,47 @@ var counters map[string]*int
 var choices []*bool
 // a pointer to slice of strings
 var dynamicList *[]string
+```
+
+### `nil`
+
+Declared pointers are equal to their zero-value: `nil`. A `nil` indicates that the pointer doesn't point to anything. You can use this to indicate that a variable wasn't assigned yet:
+
+```go
+var isUpdated *bool
+
+if isUpdated == nil {
+  fmt.Println("isUpdated not set")
+} else {
+  fmt.Println("isUpdated set to", *isUpdated)
+}
+```
+
+An `if` like this is often called a _nil-check_. It's key when working with pointers.
+
+If you try accessing a `nil` pointer's value (also called _dereferencing_) your application will panic.
+
+### `new`
+
+Because a declared pointer is equal to `nil`, you need an extra step to assign it to an empty variable:
+
+```go
+var number int
+pointer := &number
+```
+
+To make it shorter, use the built-in `new` function that creates a zeroed variable and returns a pointer to it:
+
+```go
+pointer := new(int)
+// *pointer is equal 0
+```
+
+You can also use `new` to initialize structs:
+
+```go
+alice := new(User)
+
+// Same thing
+bob := &User{}
 ```
