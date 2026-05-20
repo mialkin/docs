@@ -39,6 +39,7 @@
     - [`for`](#for)
   - [Structs](#structs)
     - [Methods](#methods)
+  - [Pointers](#pointers)
 
 ## Entry point
 
@@ -893,4 +894,44 @@ You call methods similarly to regular functions. Prefix the method name with the
 formattedByFunction := Format(m)
 
 formattedByMethod := m.Format()
+```
+
+## Pointers
+
+A **pointer** is a variable that points to another variable.
+
+To declare a pointer, add an asterisk `*` before the type. The type is crucial: a pointer can only point to variables of the defined type.
+
+```go
+alice := "Alice"
+bob := "Bob"
+
+var current *string
+current = &alice
+```
+
+To access the actual variable, add an asterisk `*` before the variable. It's called _dereferencing_:
+
+```go
+fmt.Println(current)  // Prints: 0x14000010290
+fmt.Println(*current) // Prints: Alice
+```
+
+You can change what the pointer points to at any time:
+
+```go
+current = &bob
+```
+
+Pointers can be used as other types: as struct fields or in collections.
+
+Pointers always refer to the type immediately to the right of the asterisk `*` symbol:
+
+```go
+// a map of string to pointers to integers
+var counters map[string]*int
+// a slice of pointers to booleans
+var choices []*bool
+// a pointer to slice of strings
+var dynamicList *[]string
 ```
