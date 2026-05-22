@@ -40,9 +40,9 @@
   - [Structs](#structs)
     - [Methods](#methods)
     - [Pointer receivers](#pointer-receivers)
+    - [Tags](#tags)
   - [Pointers](#pointers)
     - [Passing pointers](#passing-pointers)
-    - [Tags](#tags)
     - [`nil`](#nil)
     - [`new`](#new)
 
@@ -933,6 +933,45 @@ func (m *Money) ChangeToZero() {
 }
 ```
 
+### Tags
+
+A common use case for structs is transforming them into text (called _marshaling_ or _serializing_). By default, `encoding/json` package bases key names on the struct fields. You can use _tags_ to control this.
+
+Tags are string literals used as metadata on fields. Define them within backticks so you can use the standard double-quotes inside:
+
+```go
+type User struct {
+  Name       string `json:"name"`
+  YearJoined int    `json:"year_joined"`
+  Premium    bool   `json:"premium"`
+}
+```
+
+Here is the marshalling:
+
+```go
+func main() {
+  alice := User{
+    Name:       "Alice",
+    YearJoined: 2022,
+    Premium:    true,
+  }
+
+  marshaledUser, _ := json.Marshal(alice)
+  fmt.Println(string(marshaledUser))
+}
+```
+
+The output of marshaling this struct would be:
+
+```json
+{
+  "name": "Alice",
+  "year_joined": 2022,
+  "premium": true
+}
+```
+
 ## Pointers
 
 A **pointer** is a variable that points to another variable.
@@ -1000,45 +1039,6 @@ func main() {
   x := 0
   Increase(&x)
   // x is now 1
-}
-```
-
-### Tags
-
-A common use case for structs is transforming them into text (called _marshaling_ or _serializing_). By default, `encoding/json` package bases key names on the struct fields. You can use _tags_ to control this.
-
-Tags are string literals used as metadata on fields. Define them within backticks so you can use the standard double-quotes inside:
-
-```go
-type User struct {
-  Name       string `json:"name"`
-  YearJoined int    `json:"year_joined"`
-  Premium    bool   `json:"premium"`
-}
-```
-
-Here is the marshalling:
-
-```go
-func main() {
-  alice := User{
-    Name:       "Alice",
-    YearJoined: 2022,
-    Premium:    true,
-  }
-
-  marshaledUser, _ := json.Marshal(alice)
-  fmt.Println(string(marshaledUser))
-}
-```
-
-The output of marshaling this struct would be:
-
-```json
-{
-  "name": "Alice",
-  "year_joined": 2022,
-  "premium": true
 }
 ```
 
