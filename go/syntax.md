@@ -42,6 +42,7 @@
     - [Pointer receivers](#pointer-receivers)
     - [Tags](#tags)
     - [Exported fields](#exported-fields)
+    - [Constructors](#constructors)
   - [Pointers](#pointers)
     - [Passing pointers](#passing-pointers)
     - [`nil`](#nil)
@@ -984,6 +985,32 @@ type Payload struct {
   Source          string // exported
   internalDetails string // unexported
 }
+```
+
+### Constructors
+
+You can introduce more safety by making the struct's fields unexported and creating a dedicated _constructor_.
+
+A constructor is a function that returns an initialized struct:
+
+```go
+type Money struct {
+  amount   int
+  currency string
+}
+
+func NewMoney(amount int, currency string) Money {
+  return Money{
+    amount:   amount,
+    currency: currency,
+  }
+}
+```
+
+Whoever is using your package, needs to use the constructor to create a new struct instance:
+
+```go
+twentyDollars := money.NewMoney(20, "USD")
 ```
 
 ## Pointers
