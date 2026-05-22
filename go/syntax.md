@@ -39,6 +39,7 @@
     - [`for`](#for)
   - [Structs](#structs)
     - [Methods](#methods)
+    - [Pointer receivers](#pointer-receivers)
   - [Pointers](#pointers)
     - [Passing pointers](#passing-pointers)
     - [`nil`](#nil)
@@ -897,6 +898,38 @@ You call methods similarly to regular functions. Prefix the method name with the
 formattedByFunction := Format(m)
 
 formattedByMethod := m.Format()
+```
+
+### Pointer receivers
+
+Just as with other types, you can pass a pointer to a struct to modify it inside a function.
+
+```go
+func ChangeToZero(m *Money) {
+  m.Amount = 0
+}
+
+func main() {
+  m := &Money{}
+  ChangeToZero(m)
+}
+```
+
+Similarly, methods allow modifying structs in place:
+
+```go
+func main() {
+  m := &Money{}
+  m.ChangeToZero()
+}
+```
+
+To do this, add an asterisk `*` to the receiver type. It lets you modify the struct fields inside methods:
+
+```go
+func (m *Money) ChangeToZero() {
+  m.Amount = 0
+}
 ```
 
 ## Pointers
