@@ -40,6 +40,7 @@
   - [Structs](#structs)
     - [Methods](#methods)
   - [Pointers](#pointers)
+    - [Passing pointers](#passing-pointers)
     - [`nil`](#nil)
     - [`new`](#new)
 
@@ -936,6 +937,36 @@ var counters map[string]*int
 var choices []*bool
 // a pointer to slice of strings
 var dynamicList *[]string
+```
+
+### Passing pointers
+
+If a function modifies its arguments, it doesn't really access the original variable. What it changes is a _copy_ of the passed variable:
+
+```go
+func Increase(number int) {
+  number++
+}
+
+func main() {
+  x := 0
+  Increase(x)
+  // x is still 0
+}
+```
+
+Pointers let you modify the actual passed variable:
+
+```go
+func Increase(number *int) {
+  *number++
+}
+
+func main() {
+  x := 0
+  Increase(&x)
+  // x is now 1
+}
 ```
 
 ### `nil`
