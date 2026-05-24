@@ -442,16 +442,19 @@ Custom snippets:
 ```bash
 brew update
 brew install yt-dlp
+brew upgrade yt-dlp
 ```
+
+Download video:
 
 ```bash
 yt-dlp VIDEO_URL
 ```
 
-To keep the tool working (especially when sites change their video delivery methods), run:
+Download a section (leverages [`ffmpeg`](#ffmpeg)) to fetch only the data you need:
 
 ```bash
-brew upgrade yt-dlp
+yt-dlp --download-sections "*00:01:30-00:02:15" YOUTUBE_VIDEO_URL
 ```
 
 ## Miscellaneous
