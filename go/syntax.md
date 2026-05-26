@@ -2,7 +2,11 @@
 
 [↑ The Go Programming Language Specification](https://go.dev/ref/spec).
 
+[↑ Go Proverbs](https://go-proverbs.github.io/).
+
 [↑ Learn Go in Y minutes](https://learnxinyminutes.com/go/).
+
+[↑ Effective Go](https://www.math.bas.bg/softeng/bantchev/place/go/effective-go.pdf).
 
 ## Table of contents
 
