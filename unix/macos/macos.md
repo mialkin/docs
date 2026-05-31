@@ -152,6 +152,8 @@ Hot Corners...
 
 Turn off "Automatically adjust brightness".
 
+Night Shift... → Schedule From 21:00 to 10:00.
+
 #### Menu Bar
 
 Uncheck what's not needed under **Menu Bar Controls** and **Allow in the Menu Bar** sections.
