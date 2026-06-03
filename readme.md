@@ -99,6 +99,8 @@
 
 ## Databases
 
+- [DataGrip](databases/datagrip.md)
+
 ### NoSQL
 
 - [Elasticsearch](databases/nosql/elasticsearch.md)
