@@ -115,7 +115,7 @@ rm ~/.hushlogin
 
 #### Use Touch ID
 
-To use Touch ID for sudo commands in the Terminal run:
+To use Touch ID for sudo commands in the Terminal, run:
 
 ```bash
 sudo vim /etc/pam.d/sudo
@@ -133,18 +133,18 @@ Save with `wq!` and exit.
 
 #### General
 
-Login Items & Region -> Remove/Uncheck not needed apps after their installation
+Login Items & Region → Remove/Uncheck unnecessary apps after their installation
 
 #### Accessibility
 
-Pointer Control -> Trackpad Options... -> Dragging style -> Three Finger Drag.
+Pointer Control → Trackpad Options... -> Dragging style -> Three Finger Drag.
 
 #### Desktop & Dock
 
 Hot Corners...
 
 |                 |                 |
-| --------------- | --------------- |
+|-----------------|-----------------|
 | Mission Control | Mission Control |
 | Apps            | Desktop         |
 
@@ -189,7 +189,8 @@ Input Sources -> Add Russian — PC.
 
 ### Buzz
 
-[↑ Buzz](https://github.com/chidiwilliams/buzz) is a tool that transcribes and translates audio offline. Powered by OpenAI's [↑ Whisper](https://openai.com/index/whisper/).
+[↑ Buzz](https://github.com/chidiwilliams/buzz) is a tool that transcribes and translates audio offline. Powered by
+OpenAI's [↑ Whisper](https://openai.com/index/whisper/).
 
 ### DBeaver Community
 
@@ -197,11 +198,13 @@ Input Sources -> Add Russian — PC.
 
 ### Etcher
 
-[↑ Etcher](https://etcher.balena.io) is a cross-platform tool to flash OS images onto SD cards and USB drives safely and easily.
+[↑ Etcher](https://etcher.balena.io) is a cross-platform tool to flash OS images onto SD cards and USB drives safely and
+easily.
 
 ### ExifTool
 
-[↑ ExifTool](https://exiftool.org) is a command-line application for reading, writing and editing meta information in a wide variety of files.
+[↑ ExifTool](https://exiftool.org) is a command-line application for reading, writing and editing meta information in a
+wide variety of files.
 
 ```bash
 brew install exiftool
@@ -252,7 +255,8 @@ exiftool -if 'not $datetimeoriginal' -Directory=mysubfolder .
 
 ### FFmpeg
 
-[↑ FFmpeg](https://www.ffmpeg.org/) is the leading multimedia framework, able to decode, encode, transcode, mux, demux, stream, filter and play pretty much anything that humans and machines have created.
+[↑ FFmpeg](https://www.ffmpeg.org/) is the leading multimedia framework, able to decode, encode, transcode, mux, demux,
+stream, filter and play pretty much anything that humans and machines have created.
 
 It supports the most obscure ancient formats up to the cutting edge.
 
@@ -311,7 +315,8 @@ file 'movie_3.mp4'
 
 ### Fluor
 
-[↑ Fluor](https://github.com/Pyroh/Fluor) is a macOS application for switching Fn keys' mode based on active application.
+[↑ Fluor](https://github.com/Pyroh/Fluor) is a macOS application for switching Fn keys' mode based on active
+application.
 
 ```bash
 brew install --cask fluor
@@ -323,7 +328,8 @@ brew install --cask fluor
 
 ### HandBrake
 
-[↑ HandBrake](https://handbrake.fr) is an application for converting video from nearly any format to a selection of modern, widely supported codecs.
+[↑ HandBrake](https://handbrake.fr) is an application for converting video from nearly any format to a selection of
+modern, widely supported codecs.
 
 ### INNA
 
@@ -339,15 +345,18 @@ brew install --cask fluor
 
 ### LM Studio
 
-[↑ LM Studio](https://lmstudio.ai/) is a desktop application that allows you to discover, download, and run LLMs locally on your own computer
+[↑ LM Studio](https://lmstudio.ai/) is a desktop application that allows you to discover, download, and run LLMs locally
+on your own computer
 
 ### Logi Tune
 
-[↑ Logi Tune](https://www.logitech.com/en-eu/video-collaboration/software/logi-tune-software.html) is a software for Logitech web cameras.
+[↑ Logi Tune](https://www.logitech.com/en-eu/video-collaboration/software/logi-tune-software.html) is a software for
+Logitech web cameras.
 
 ### LosslessCut
 
-[↑ LosslessCut](https://github.com/mifi/lossless-cut) is an application that cuts the data stream and directly copies it over.
+[↑ LosslessCut](https://github.com/mifi/lossless-cut) is an application that cuts the data stream and directly copies it
+over.
 
 ### MonitorControl
 
@@ -355,7 +364,8 @@ brew install --cask fluor
 
 ### Mos
 
-[↑ Mos](https://mos.caldis.me) is a lightweight tool used to smooth scrolling and set scroll direction independently for your mouse on macOS.
+[↑ Mos](https://mos.caldis.me) is a lightweight tool used to smooth scrolling and set scroll direction independently for
+your mouse on macOS.
 
 ### OBS
 
@@ -387,13 +397,16 @@ rg "dotnet run"
 
 ### SensibleSideButtons
 
-[↑ SensibleSideButtons](https://sensible-side-buttons.archagon.net) is an application that enables side navigation buttons on your third-party mice
+[↑ SensibleSideButtons](https://sensible-side-buttons.archagon.net) is an application that enables side navigation
+buttons on your third-party mice
 
-May need to add this application to [↑Open at login](https://support.apple.com/en-is/guide/mac-help/mh15189/mac) after installation.
+May need to add this application to [↑Open at login](https://support.apple.com/en-is/guide/mac-help/mh15189/mac) after
+installation.
 
 ### Sublime Text
 
-[↑ Sublime Text](https://www.sublimetext.com/) is a shareware text and source code editor available for Windows, macOS, and Linux.
+[↑ Sublime Text](https://www.sublimetext.com/) is a shareware text and source code editor available for Windows, macOS,
+and Linux.
 
 #### `subl` command
 
@@ -413,7 +426,7 @@ echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PA
 #### Split selection into lines
 
 | Shortcut         | Description                   |
-| ---------------- | ----------------------------- |
+|------------------|-------------------------------|
 | <kbd>⌘ ⇧ L</kbd> | Selection -> Split into Lines |
 
 ### Visual Studio Code
@@ -439,7 +452,8 @@ Custom snippets:
 
 ### yt-dlp
 
-[↑ yt-dlp](https://github.com/yt-dlp/yt-dlp) is is a feature-rich command-line audio/video downloader with support for thousands of sites.
+[↑ yt-dlp](https://github.com/yt-dlp/yt-dlp) is is a feature-rich command-line audio/video downloader with support for
+thousands of sites.
 
 ```bash
 brew update
@@ -481,8 +495,10 @@ echo "alias flush-dns='sudo killall -HUP mDNSResponder'" >> ~/.zshrc
 ### Install developers' applications
 
 1. Just move application into `/Applications` folder and open it
-2. If you see `"YOUR_APPLICATION" cannot be opened because the developer cannot be verified`, please open up **System Preferences** → **Security & Privacy** → **General** → **Open Anyway**.
-3. If you see the error `The application YOUR_APPLICATION can't be opened` error on launch, you could `chmod +x "/Applications/YOUR_APPLICATION.app/Contents/MacOS/YOUR_APPLICATION`"
+2. If you see `"YOUR_APPLICATION" cannot be opened because the developer cannot be verified`, please open up **System
+   Preferences** → **Security & Privacy** → **General** → **Open Anyway**.
+3. If you see the error `The application YOUR_APPLICATION can't be opened` error on launch, you could
+   `chmod +x "/Applications/YOUR_APPLICATION.app/Contents/MacOS/YOUR_APPLICATION`"
 
 ### IP address
 
