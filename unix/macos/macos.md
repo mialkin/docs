@@ -203,7 +203,7 @@ easily.
 
 ### ExifTool
 
-[↑ ExifTool](https://exiftool.org) is a command-line application for reading, writing and editing meta information in a
+[↑ ExifTool](https://exiftool.org) is a command-line application for reading, writing, and editing meta information in a
 wide variety of files.
 
 ```bash
@@ -256,7 +256,7 @@ exiftool -if 'not $datetimeoriginal' -Directory=mysubfolder .
 ### FFmpeg
 
 [↑ FFmpeg](https://www.ffmpeg.org/) is the leading multimedia framework, able to decode, encode, transcode, mux, demux,
-stream, filter and play pretty much anything that humans and machines have created.
+stream, filter, and play pretty much anything that humans and machines have created.
 
 It supports the most obscure ancient formats up to the cutting edge.
 
@@ -324,7 +324,7 @@ brew install --cask fluor
 
 ### Gifox
 
-[↑ Gifox](https://gifox.app) is a macOS status bar application for recording, converting, editing and sharing GIFs.
+[↑ Gifox](https://gifox.app) is a macOS status bar application for recording, converting, editing, and sharing GIFs.
 
 ### HandBrake
 
@@ -333,7 +333,7 @@ modern, widely supported codecs.
 
 ### INNA
 
-[↑ IINA](https://iina.io/) `/ˈiːnə/` is the the modern media player for macOS.
+[↑ IINA](https://iina.io/) `/ˈiːnə/` is the modern media player for macOS.
 
 ### Keka
 
@@ -369,7 +369,7 @@ your mouse on macOS.
 
 ### OBS
 
-[↑ OBS Studio](https://obsproject.com/) is free and open source software for video recording and live streaming.
+[↑ OBS Studio](https://obsproject.com/) is free and open-source software for video recording and live-streaming.
 
 ### OrbStack
 
@@ -383,7 +383,7 @@ orb stop
 
 ### Preview
 
-Drag/scroll with mouse: <kbd>Option</kbd> + <kbd>Spacebar</kbd>.
+Drag/scroll with the mouse: <kbd>Option</kbd> + <kbd>Spacebar</kbd>.
 
 ### `ripgrep`
 
@@ -452,7 +452,7 @@ Custom snippets:
 
 ### yt-dlp
 
-[↑ yt-dlp](https://github.com/yt-dlp/yt-dlp) is is a feature-rich command-line audio/video downloader with support for
+[↑ yt-dlp](https://github.com/yt-dlp/yt-dlp) is a feature-rich command-line audio/video downloader with support for
 thousands of sites.
 
 ```bash
@@ -514,9 +514,9 @@ Enable key repeating:
 defaults write -g ApplePressAndHoldEnabled -bool false
 ```
 
-Next, restart your computer and you should now be able to repeat all characters.
+Next, restart your computer, and you should now be able to repeat all characters.
 
-Replace `true` with `false` to revert changes back.
+Replace `true` with `false` to revert changes.
 
 ### Run application
 
@@ -544,7 +544,7 @@ Check if folder is in `PATH` environment variable:
 echo "$PATH" | tr ':' '\n'
 ```
 
-Add path if it's not there:
+Add the path if it's not there:
 
 ```bash
 echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.zshrc
