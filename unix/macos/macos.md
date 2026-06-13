@@ -268,6 +268,12 @@ brew install ffmpeg
 
 #### Convert
 
+MKV to MP4:
+
+```bash
+ffmpeg -i input.mkv -c:v copy -c:a copy output.mp4
+```
+
 MP4 to MOV:
 
 ```bash
