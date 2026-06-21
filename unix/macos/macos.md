@@ -288,6 +288,12 @@ ffmpeg -i input.mov -crf 18 output.mp4
 
 `-crf` sets the quality: a value of `0` is lossless, and `18` looks lossless but really isn't.
 
+WEBM to MP4:
+
+```bash
+ffmpeg -i input.webm output.mp4
+```
+
 #### Cut
 
 ```bash
