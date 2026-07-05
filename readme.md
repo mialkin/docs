@@ -410,12 +410,12 @@
 ## Python
 
 - [Python](python/python.md)
-- [Python syntax](python/syntax.md)
+- [Python syntax](python/python-syntax.md)
 
 ## Go
 
 - [Go](go/go.md)
-- [Go syntax](go/syntax.md)
+- [Go syntax](go/go-syntax.md)
 - [GoLand](go/goland.md)
 
 ## Miscellaneous

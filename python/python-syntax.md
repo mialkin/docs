@@ -18,7 +18,7 @@
   - [Dictionaries](#dictionaries)
   - [Sets](#sets)
   - [Control flow](#control-flow)
-  - [Exceptions handling](#exceptions-handling)
+  - [Exception handling](#exceptions-handling)
   - [Files](#files)
   - [Iterables](#iterables)
   - [Functions](#functions)
@@ -556,7 +556,7 @@ while x < 4:
     x += 1  # Shorthand for x = x + 1
 ```
 
-## Exceptions handling
+## Exception handling
 
 Handle exceptions with a `try/except` block:
 
