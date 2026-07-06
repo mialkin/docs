@@ -118,7 +118,7 @@ func main() {
 }
 ```
 
-Such variable has no value assigned yet:
+Such a variable has no value assigned yet:
 
 ```go
 var firstName string
@@ -162,7 +162,7 @@ i += 1
 i++
 ```
 
-Same thing works for other operators:
+The same thing works for other operators:
 
 ```go
 counter--
@@ -194,7 +194,7 @@ const (
 
 When you declare a variable inside a function, it's called a _local variable_. It means other functions can't access it.
 
-You can also declare _global variables_ outside of functions. They have their uses, but are rarely needed — stick to local variables when you can.
+You can also declare _global variables_ outside of functions. They have their uses but are rarely needed — stick to local variables when you can.
 
 ```go
 package main
@@ -412,7 +412,7 @@ func ShowNames(howMany int, names ...string) {
 }
 ```
 
-The argument becomes a regular slice inside the function:
+The argument becomes a regular [slice](#slices) inside the function:
 
 ```go
 func PrintCount(names ...string) {
@@ -420,7 +420,7 @@ func PrintCount(names ...string) {
 }
 ```
 
-You can "unpack" a slice of the same type into variadic arguments using the same three dots syntax.
+You can "unpack" a slice of the same type into variadic arguments using the same three-dot syntax.
 
 ```go
 letters := []string{"a", "b", "c"}
@@ -562,7 +562,7 @@ newColors := []string{"orange", "turquoise"}
 colors = append(colors, newColors...)
 ```
 
-You can use append together with indexing to do other operations on slices, like removing elements:
+You can use `append` together with indexing to do other operations on slices, like removing elements:
 
 ```go
 withoutThirdElement := append(names[:2], names[3:]...)
@@ -613,7 +613,7 @@ To retrieve values, use a syntax similar to accessing elements of a slice:
 update := limits["update"]
 ```
 
-If a key doesn't exist, the map returns a zero value, depending on the type (like `0` for integers, `""` for strings, or `nil` for pointers).
+If a key doesn't exist, the map returns a zero value, depending on the type (like `0` for integers, `""` for strings, or [`nil`](#nil) for [pointers](#pointers)).
 
 It's often important to know if a value exists at all. You can use a special two-value syntax for this:
 
@@ -635,7 +635,7 @@ if !ok {
 }
 ```
 
-To delete a key-value pair, use the delete keyword. If the key doesn't exist, it has no effect.
+To delete a key-value pair, use the `delete` keyword. If the key doesn't exist, it has no effect.
 
 ```go
 delete(limits, "update")
@@ -817,7 +817,7 @@ for x := 0; x < 10; x++ {
 
 ## Structs
 
-Struct are groups of variables. The variables held by a struct are called "fields". They let you treat many values as a single unit:
+Structs are groups of variables. The variables held by a struct are called "fields". They let you treat many values as a single unit:
 
 ```go
 type Money struct {
@@ -899,7 +899,7 @@ func (m Money) Format() string {
 }
 ```
 
-You call methods similarly to regular functions. Prefix the method name with the struct variable and a dot `.`:
+You call methods much like regular functions. Prefix the method name with the struct variable and a dot `.`:
 
 ```go
 formattedByFunction := Format(m)
@@ -909,7 +909,7 @@ formattedByMethod := m.Format()
 
 ### Pointer receivers
 
-Just as with other types, you can pass a pointer to a struct to modify it inside a function.
+Just as with other types, you can pass a [pointer](#pointers) to a struct to modify it inside a function.
 
 ```go
 func ChangeToZero(m *Money) {
@@ -1011,7 +1011,7 @@ func NewMoney(amount int, currency string) Money {
 }
 ```
 
-Whoever is using your package, needs to use the constructor to create a new struct instance:
+Whoever is using your package needs to use the constructor to create a new struct instance:
 
 ```go
 twentyDollars := money.NewMoney(20, "USD")
