@@ -30,6 +30,7 @@
     - [Anonymous functions](#anonymous-functions)
     - [Closures](#closures)
     - [Named returns](#named-returns)
+    - [`defer`](#defer)
   - [Collections](#collections)
     - [Arrays](#arrays)
     - [Slices](#slices)
@@ -512,6 +513,57 @@ func Add(x int, y int) (sum int) {
 They act as normal local variables. You still need to write the empty `return` statement to exit from the function.
 
 Since they're already declared, you use `=`, not `:=` to assign values to them.
+
+### `defer`
+
+The `defer` keyword schedules a function to run when the current function returns. No matter how the function exits (normal return, early return, or panic) the deferred function always runs.
+
+```go
+func ReadFile(path string) error {
+	file, err := os.Open(path)
+	if err != nil {
+		return err
+	}
+	defer file.Close() // Runs when ReadFile returns, guaranteed
+
+	// Work with file...
+	return nil
+}
+```
+
+This pattern is common for cleanup: closing files, releasing locks, or recording metrics.
+
+The deferred function runs **after** the return value is set but **before** the function actually returns. You can inspect the result and act on it, automatically, for every return path.
+
+```go
+func Execute(f func() error, metrics *Metrics) (err error) {
+	metrics.StoreExecution()
+
+	defer func() {
+		if err == nil {
+			metrics.StoreSuccess()
+		} else {
+			metrics.StoreFailure()
+		}
+	}()
+
+	// No matter how many returns we add later,
+	// the defer always runs with the final err value
+	return f()
+}
+```
+
+No matter how many `return` statements exist or where they are, the deferred function always runs with the final value of `err`. You cannot forget to call it. Notice the parentheses (`()`) after the anonymous function's body.
+
+You can call `defer` multiple times. The last deferred function is the first that's going to be called.
+
+```go
+func Execute() {
+	defer third()
+	defer second()
+	defer first()
+}
+```
 
 ## Collections
 
