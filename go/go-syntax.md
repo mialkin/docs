@@ -27,6 +27,9 @@
     - [`panic`](#panic)
     - [Skipping unused variable](#skipping-unused-variable)
     - [Variadic functions](#variadic-functions)
+    - [Anonymous functions](#anonymous-functions)
+    - [Closures](#closures)
+    - [Named returns](#named-returns)
   - [Collections](#collections)
     - [Arrays](#arrays)
     - [Slices](#slices)
@@ -429,6 +432,86 @@ PrintLetters(letters...)
 ```
 
 In a sense, variadic arguments are no different from passing a slice to a function. It's simply a more convenient way to call the function, as you don't need to create the slice before.
+
+You can use them in function arguments like any other type.
+
+### Anonymous functions
+
+A function stored as a value is called an **anonymous function**.
+
+```go
+func main() {
+	add := func(x int, y int) int {
+		return x + y
+	}
+
+	multiply := func(x int, y int) int {
+		return x * y
+	}
+
+	Calculate(add)
+	Calculate(multiply)
+}
+
+func Calculate(f func(int, int) int) {
+	result := f(10, 50)
+	fmt.Println(result)
+}
+```
+
+If anonymous functions are values, they can also be returned from other functions:
+
+```go
+func NewGreeter() func() {
+	return func() {
+		fmt.Println("Hello!")
+	}
+}
+
+func main() {
+	greeter := NewGreeter()
+	greeter()
+}
+```
+
+### Closures
+
+**Closures** are [anonymous functions](#anonymous-functions) that use local variables outside their scope.
+
+This is useful for keeping a variable that's shared across the function's calls.
+
+```go
+func NewCounter() func() int {
+	counter := 0
+	return func() int {
+		counter += 1
+		return counter
+	}
+}
+
+func main() {
+	counter := NewCounter()
+
+	a := counter() // 1
+	b := counter() // 2
+	c := counter() // 3
+}
+```
+
+### Named returns
+
+Go allows naming the return values.
+
+```go
+func Add(x int, y int) (sum int) {
+	sum = x + y
+	return
+}
+```
+
+They act as normal local variables. You still need to write the empty `return` statement to exit from the function.
+
+Since they're already declared, you use `=`, not `:=` to assign values to them.
 
 ## Collections
 
