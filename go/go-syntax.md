@@ -51,6 +51,7 @@
     - [Passing pointers](#passing-pointers)
     - [`nil`](#nil)
     - [`new`](#new)
+  - [Interfaces](#interfaces)
 
 ## Entry point
 
@@ -1128,4 +1129,32 @@ alice := new(User)
 
 // Same thing
 bob := &User{}
+```
+
+## Interfaces
+
+Interfaces let you specify what methods you need, without relying on the exact struct.
+
+```go
+type Storage interface {
+	Store(user User)
+}
+
+type User struct {
+	Name string
+}
+
+func NewUser(name string, storage Storage) User {
+	user := User{Name: name}
+	storage.Store(user)
+	return User{}
+}
+
+type MapStorage struct {
+	users map[string]User
+}
+
+func (m MapStorage) Store(user User) {
+	m.users[user.Name] = user
+}
 ```
