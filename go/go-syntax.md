@@ -58,6 +58,7 @@
     - [`new`](#new)
   - [Interfaces](#interfaces)
   - [Modules](#modules)
+    - [`go get`](#go-get)
   - [Packages](#packages)
     - [Exported symbols](#exported-symbols)
 
@@ -1342,6 +1343,32 @@ go 1.23
 The module's name is usually the full path to the repository. For example, `github.com/john-doe/foo-bar`.
 
 It's possible to use any name you like, but it won't be seamless to import your module later. As a rule of thumb, use the full path of your repository as the module's name.
+
+### `go get`
+
+To import an external module, you have to add it as a dependency.
+
+To do so, run the `go get` command followed by the module's full path.
+
+For example:
+
+```bash
+go get github.com/google/uuid
+```
+
+This will change your `go.mod` file to something like:
+
+```text
+module tax
+
+go 1.23
+
+require github.com/google/uuid v1.3.0 // indirect
+```
+
+It will also generate a `go.sum` file with checksums of the dependencies.
+You won't need to modify this file.
+If you use version control (like a git repository), commit both `go.mod` and `go.sum` files.
 
 ## Packages
 
