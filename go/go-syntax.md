@@ -31,6 +31,7 @@
     - [Closures](#closures)
     - [Named returns](#named-returns)
     - [`defer`](#defer)
+    - [`recover`](#recover)
   - [Collections](#collections)
     - [Arrays](#arrays)
     - [Slices](#slices)
@@ -564,6 +565,27 @@ func Execute() {
 	defer first()
 }
 ```
+
+### `recover`
+
+The `recover` function stops a `panic` from crashing your application. You must call it inside a `defer` block, or it has no effect.
+
+`recover` only prevents panics in the function where it's called. It won't catch panics in other functions or goroutines.
+
+```go
+func Example() {
+	defer func() {
+		r := recover()
+		if r != nil {
+			fmt.Println("Recovered panic:", r)
+		}
+	}()
+
+	panic("boom")
+}
+```
+
+An unrecovered panic in a goroutine will crash the entire program, not just that goroutine. Each goroutine must have its own `recover` if you want to handle panics—you can't recover a panic from one goroutine in another.
 
 ## Collections
 
