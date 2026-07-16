@@ -63,6 +63,7 @@
     - [Exported symbols](#exported-symbols)
   - [Concurrency](#concurrency)
     - [Goroutines](#goroutines)
+    - [Channels](#channels)
 
 ## Entry point
 
@@ -1462,7 +1463,7 @@ func Greet(who string) {
 }
 ```
 
-The first `Greet` function is executed *concurrently* to the `main` function. It means that `main` will continue to run, not waiting for it to finish.
+The first `Greet` function is executed _concurrently_ to the `main` function. It means that `main` will continue to run, not waiting for it to finish.
 
 If you run the snippet above, the result will most likely be:
 
@@ -1496,3 +1497,39 @@ Hello, World
 
 When working with goroutines, keep in mind they are _concurrent_.
 You can't determine the order in which they are executed (at least without using more advanced constructs).
+
+### Channels
+
+Goroutines don't know about each other. The functions running as goroutines can't return values in the traditional way, as the caller doesn't wait for them to finish.
+
+The standard way to communicate between goroutines is using _channels_.
+
+A **channel** is a type that lets you send and receive values of a specific type.
+You need to initialize it with `make`, similarly to maps.
+
+```go
+var users chan string
+users = make(chan string)
+
+// Same thing
+users := make(chan string)
+```
+
+To send and receive values, use the `<-` operator. When sending, the channel goes on the left side. When receiving, on the right.
+
+```go
+// Send to the users channel
+users <- "Alice"
+users <- "Bob"
+
+// Retrieve from the users channel
+nextUser := <-users
+```
+
+The `chan` keyword is always followed by a type. If you pass channels as arguments, remember to specify it:
+
+```go
+func AddUser(users chan string) {
+	users <- "Alice"
+}
+```
