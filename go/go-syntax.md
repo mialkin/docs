@@ -59,6 +59,7 @@
   - [Interfaces](#interfaces)
   - [Modules](#modules)
   - [Packages](#packages)
+    - [Exported symbols](#exported-symbols)
 
 ## Entry point
 
@@ -1371,3 +1372,42 @@ The difference between [modules](#modules) and packages:
 - One module can contain many packages (directories)
 - You need only one `go.mod` file in one module (in the top directory)
 - Modules are defined by `go.mod`, packages are defined by directories
+
+### Exported symbols
+
+You can only import symbols (variables, functions, types) from other packages if they start with an uppercase letter.
+
+```go
+func ExportedFunction() {
+
+}
+
+func unexportedFunction() {
+
+}
+
+const ExportedConst = 100
+
+var unexportedVariable = "example"
+
+type ExportedType struct {
+
+}
+```
+
+Aim to export only what external packages would use. Make all internal details unexported.
+
+Similar rule applies to structs. Field names starting with lowercase won't be visible outside the package.
+
+```go
+type Money struct {
+	amount int
+	currency string
+}
+
+func (m Money) String() string {
+	return fmt.Sprint(m.amount, " ", m.currency)
+}
+```
+
+External packages are able to access the `String()` method, but not the `amount` or `currency` fields.
