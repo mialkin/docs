@@ -57,6 +57,7 @@
     - [`nil`](#nil)
     - [`new`](#new)
   - [Interfaces](#interfaces)
+  - [Modules](#modules)
 
 ## Entry point
 
@@ -1315,3 +1316,27 @@ func (m MapStorage) Store(user User) {
 	m.users[user.Name] = user
 }
 ```
+
+## Modules
+
+Modules are complete Go projects, like a library or an application. Usually, a single repository keeps a single module.
+
+A module is defined in a `go.mod` file. You don't need to modify this file.
+The `go` CLI manages it for you.
+To generate the `go.mod` file, run `go mod init` providing the module's name:
+
+```bash
+go mod init my-app
+```
+
+It generates content like this:
+
+```text
+module my-app
+
+go 1.23
+```
+
+The module's name is usually the full path to the repository. For example, `github.com/john-doe/foo-bar`.
+
+It's possible to use any name you like, but it won't be seamless to import your module later. As a rule of thumb, use the full path of your repository as the module's name.
