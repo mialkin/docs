@@ -58,6 +58,7 @@
     - [`new`](#new)
   - [Interfaces](#interfaces)
   - [Modules](#modules)
+  - [Packages](#packages)
 
 ## Entry point
 
@@ -1340,3 +1341,33 @@ go 1.23
 The module's name is usually the full path to the repository. For example, `github.com/john-doe/foo-bar`.
 
 It's possible to use any name you like, but it won't be seamless to import your module later. As a rule of thumb, use the full path of your repository as the module's name.
+
+## Packages
+
+You can group `.go` files in directories. Go treats each directory as a **package**.
+All files in the directory need to have the same `package` at the top.
+
+```go
+package storage
+```
+
+To import a package, add an import path using the full [module](#modules)'s path.
+
+```go
+import "my-app/storage"
+```
+
+To call functions or access variables from the package, use its name.
+
+```go
+users, err := storage.AllUsers()
+```
+
+The package name doesn't need to be the same as the directory name.
+But it's confusing otherwise, so name packages the same as the directories that keep them.
+
+The difference between [modules](#modules) and packages:
+
+- One module can contain many packages (directories)
+- You need only one `go.mod` file in one module (in the top directory)
+- Modules are defined by `go.mod`, packages are defined by directories
