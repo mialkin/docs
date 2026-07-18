@@ -64,6 +64,7 @@
   - [Concurrency](#concurrency)
     - [Goroutines](#goroutines)
     - [Channels](#channels)
+    - [Locks](#locks)
 
 ## Entry point
 
@@ -1500,7 +1501,7 @@ You can't determine the order in which they are executed (at least without using
 
 ### Channels
 
-Goroutines don't know about each other. The functions running as goroutines can't return values in the traditional way, as the caller doesn't wait for them to finish.
+[Goroutines](#goroutines) don't know about each other. The functions running as goroutines can't return values in the traditional way, as the caller doesn't wait for them to finish.
 
 The standard way to communicate between goroutines is using _channels_.
 
@@ -1533,3 +1534,83 @@ func AddUser(users chan string) {
 	users <- "Alice"
 }
 ```
+
+### Locks
+
+Another way to synchronize [goroutines](#goroutines) is using a **mutex**, also known as a **lock**.
+It's a simpler concept than [channels](#channels).
+
+Go provides locks as [`sync.Mutex`](https://pkg.go.dev/sync#Mutex). When you call its `Lock()` method, all subsequent `Lock()` calls will block until `Unlock()` is called.
+
+Locks come helpful when multiple goroutines access a single resource that is not _thread-safe_ (i.e., can't be used by multiple goroutines at once).
+
+A common example is a `map`. If multiple goroutines try to write to the same map, you'll get a panic:
+
+```bash
+fatal error: concurrent map writes
+```
+
+Another example could be a file on disk. If multiple goroutines try to write to a file, you might end up with inconsistent data.
+
+To avoid these problems, use locks around the code that uses the common resource:
+
+
+```go
+var (
+	lock sync.Mutex
+	metrics = map[string]int{}
+)
+
+func SaveMetric(name string, value int) {
+	lock.Lock()
+
+	metrics[name] = value
+
+	lock.Unlock()
+}
+```
+
+When you need to handle errors, you need to be very careful to call `Unlock()` in every scenario.
+If you miss one, you might end up with a deadlock and your application will freeze or crash.
+
+This makes `defer` shine when used together with locks. Simply follow the `Lock()` call with a deferred `Unlock()`.
+Whatever happens in the rest of the function, the lock releases automatically.
+
+```go
+func SaveMetricsToFile(content []byte) error {
+	lock.Lock()
+	defer lock.Unlock()
+
+	return os.WriteFile("metrics.csv", content, 0644)
+}
+```
+
+The `sync.Mutex`'s zero-value is ready to use.
+
+You can't copy a `Mutex` after it's initialized. In Go, structs are copied when passed as functions arguments.
+If you pass a `Mutex` to a function or keep it as a struct field, store it as a pointer.
+
+Remember that the zero-value of `*sync.Mutex` is `nil`, so you have to initialize it in this case.
+
+```go
+type MetricSaver struct {
+	lock *sync.Mutex
+}
+
+func (m MetricSaver) SaveMetricsToFile(content []byte) error {
+	m.lock.Lock()
+	defer m.lock.Unlock()
+
+	return os.WriteFile("metrics.csv", content, 0644)
+}
+
+func main() {
+	saver := MetricSaver{
+		lock: &sync.Mutex{},
+	}
+
+	_ = saver.SaveMetricsToFile([]byte("my metrics"))
+}
+```
+
+Use constructors to initialize structs like this.
