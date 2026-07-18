@@ -67,6 +67,7 @@
       - [Channel range](#channel-range)
       - [Closing channels](#closing-channels)
       - [Channel directions](#channel-directions)
+      - [`select`](#select)
     - [Locks](#locks)
 
 ## Entry point
@@ -1603,6 +1604,82 @@ func writeOnly(ch chan<- string) {
 
 This has an impact on the channel only within the function.
 
+#### `select`
+
+When you need to read from multiple channels at the same time, use `select`.
+
+`select` is similar to `switch` but it works with channels. It blocks until one of the `case` statements can be executed.
+
+When reading from multiple channels, `select` executes the `case` that has values ready to be received.
+If more than one `case` can be executed, `select` picks one randomly.
+
+```go
+select {
+case command := <-commands:
+	// Execute a command
+case err := <-errors:
+	// Handle an error
+}
+```
+
+A common use-case is using `time.After()` to introduce a timeout.
+
+```go
+select {
+case command := <-commands:
+	// Execute a command
+case <-time.After(time.Second):
+	// Timed out waiting for a command
+}
+```
+
+A `default` case is executed if no other actions are possible.
+
+An empty `default` case is a way to continue immediately if there are no values to be received from a channel.
+
+```go
+ready := make(chan bool)
+
+// Blocks until ready
+<-ready
+
+// Checks if ready and continues otherwise
+select {
+case <-ready:
+	fmt.Println("ready")
+default:
+	fmt.Println("not ready yet")
+}
+```
+
+`select` is often useful in combination with `for`.
+
+For example, the snippet below infinitely checks until a value can be received from a channel, with 1-second sleep between checks.
+
+```go
+func WaitUntilReady(ready chan bool) {
+	for {
+		select {
+		case <-ready:
+			fmt.Println("ready")
+			return
+		default:
+			fmt.Println("not ready yet")
+			time.Sleep(time.Second)
+		}
+	}
+}
+```
+
+Warning: using `break` in a select statement interrupts the `select`, not the `for`.
+In this scenario, it's best to use a separate function and a `return` instead.
+
+An empty `select` waits forever. Similarly to an empty `for`, but is much easier on the CPU.
+
+```go
+select {}
+```
+
 ### Locks
 
 Another way to synchronize [goroutines](#goroutines) is using a **mutex**, also known as a **lock**.
@@ -1621,7 +1698,6 @@ fatal error: concurrent map writes
 Another example could be a file on disk. If multiple goroutines try to write to a file, you might end up with inconsistent data.
 
 To avoid these problems, use locks around the code that uses the common resource:
-
 
 ```go
 var (
