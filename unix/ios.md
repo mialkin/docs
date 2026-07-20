@@ -21,7 +21,13 @@ Bottom:
 - Ringtones and Alerts -> Keyboard Feedback -> Sound (off)
 - Ringtones and Alerts -> Lock Sound (off)
 
+## Wallpaper
+
+New Wallpaper -> Colour -> Select blue, toggle brightness
+
 ## General
+
+- Language & Region ->
 
 ## Display & Brightness
 
@@ -32,8 +38,34 @@ Bottom:
 - Appearance -> Raise to Wake (off)
 - Appearance -> Always on Display -> Show Wallpaper (off)
 
-## Веб-приложения
+## Приложения
 
-- ВК Видео
-- Макс
 - Авито
+- Вконтакте
+- ВК Видео
+- Волга
+- Госуслуги
+- Магнит
+- Макс
+- Перекресток
+- РЖД
+- Яндекс ID
+- Яндекс Go
+- Яндекс Диск
+- Яндекс Интернетометр
+- Яндекс Карты
+- Яндекс Маркет
+- Яндекс Метро
+- Яндекс Погода
+- Яндекс Почта
+- Яндекс Путешествия
+- Яндекс Пэй
+- Яндекс Электрички
+- Gmail
+- Instagram
+- Ozon
+- Telegram
+- WhatsApp
+- Wildberries
+- v2RayTun
+- YouTube
