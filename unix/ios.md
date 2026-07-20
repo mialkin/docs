@@ -2,10 +2,19 @@
 
 ## Home Screen
 
+Top:
+
 - Clock
 - Calendar
 - App Store
 - Settings
+
+Bottom:
+
+- Calls
+- Messages
+- Safari
+- Camera
 
 ## Sound & Haptics
 
