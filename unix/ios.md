@@ -27,7 +27,17 @@ New Wallpaper -> Colour -> Select blue, toggle brightness
 
 ## General
 
-- Language & Region ->
+- Language & Region -> English
+
+## Camera
+
+- System Settings -> Camera Control (None)
+- App Settings -> Record Video (1080p at 60 fps)
+- App Settings -> Formats (Most Compatible)
+- Composition -> Grid (on)
+- Composition -> Level (on)
+
+Open Camera -> set Flash off, Live off
 
 ## Display & Brightness
 
@@ -47,6 +57,7 @@ New Wallpaper -> Colour -> Select blue, toggle brightness
 - Госуслуги
 - Магнит
 - Макс
+- МТС, Мегафон, Теле2
 - Перекресток
 - РЖД
 - Яндекс ID
