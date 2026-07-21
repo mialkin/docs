@@ -59,6 +59,7 @@ Open Camera -> set Flash off, Live off
 - Макс
 - МТС, Мегафон, Теле2
 - Перекресток
+- Почта России
 - РЖД
 - Яндекс ID
 - Яндекс Go
@@ -69,14 +70,24 @@ Open Camera -> set Flash off, Live off
 - Яндекс Метро
 - Яндекс Погода
 - Яндекс Почта
+  - Настроить Свайпы
 - Яндекс Путешествия
 - Яндекс Пэй
 - Яндекс Электрички
 - Gmail
+- Health
 - Instagram
 - Ozon
 - Telegram
+- Shortcuts
+  - New Shortcut -> Set VPN (Toggle VPN Client Name).
+  - Then go to Action Button -> Shortcut -> Set VPN
 - WhatsApp
 - Wildberries
 - v2RayTun
 - YouTube
+- VPN client
+
+## iCloud
+
+Uncheck everything that's not needed.
