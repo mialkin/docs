@@ -10,68 +10,14 @@ Go uses a `go1.[major].[patch]` versioning format, such as `go1.26.2` and each m
 
 The Go authors [↑ put substantial effort](<https://en.wikipedia.org/wiki/Go_(programming_language)#Style>) into influencing the style of Go programs.
 
-## Installation
-
-[↑ Download page](https://go.dev/doc/install).
-
-## Go path
-
-```text
-/usr/local/go
-```
-
-## GoLand
-
-### `goland` command
-
-Create file:
+## Install
 
 ```bash
-cd /usr/local/bin/ && \
-sudo vim goland
+brew install go
 ```
 
-With content:
-
-```text
-#!/bin/sh
-
-open -na "GoLand.app" --args "$@"
-```
-
-Change access mode:
+## Update
 
 ```bash
-sudo chmod 775 goland
-```
-
-### Settings
-
-1. Version Control -> Commit -> Clear initial commit message.
-
-## go mod
-
-Initialization command that should be run in the root of the repository:
-
-```bash
-go mod init my-project-name
-```
-
-## Swagger
-
-```bash
-go get github.com/swaggo/http-swagger
-go get github.com/swaggo/swag/cmd/swag
-```
-
-Add at the end of `~/.zshrc` file:
-
-```text
-export PATH=$(go env GOPATH)/bin:$PATH
-```
-
-Generate Swagger documentation:
-
-```bash
-swag init -g cmd/server/main.go -o docs
+brew upgrade go
 ```
