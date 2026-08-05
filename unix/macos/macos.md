@@ -22,6 +22,7 @@
     - [Brew](#brew)
     - [Buzz](#buzz)
     - [DBeaver Community](#dbeaver-community)
+    - [DjVuLibre](#djvulibre)
     - [Etcher](#etcher)
     - [ExifTool](#exiftool)
     - [FFmpeg](#ffmpeg)
@@ -195,6 +196,20 @@ OpenAI's [↑ Whisper](https://openai.com/index/whisper/).
 ### DBeaver Community
 
 [↑ DBeaver Community](https://dbeaver.io/download) is a free cross-platform database tool.
+
+### DjVuLibre
+
+[↑ DjVuLibre](https://djvu.sourceforge.net/) is an open-source implementation of DjVu, including viewers, browser plugins, decoders, simple encoders, and utilities.
+
+```bash
+brew install djvulibre
+```
+
+Convert DjVu file to PDF:
+
+```bash
+ddjvu -format=pdf -quality=85 input.djvu output.pdf
+```
 
 ### Etcher
 
