@@ -112,10 +112,12 @@ Console.WriteLine(num1 + num2);
 
 ### `yield return`
 
-```csharp
-var provider = new NumberProvider();
+See [yield](keywords/yield.md) keyword.
 
-foreach(var number in provider.GetNumbers())
+```csharp
+var numberProvider = new NumberProvider();
+
+foreach (var number in numberProvider.GetNumbers())
     Console.WriteLine(number);
 
 class NumberProvider
@@ -127,6 +129,8 @@ class NumberProvider
     }
 }
 ```
+
+That's how the lowered C# version of everything up to and including `foreach` looks like:
 
 ```csharp
 IEnumerator<string> enumerator =
@@ -143,6 +147,8 @@ finally
         enumerator.Dispose();
 }
 ```
+
+And that's the lowered version of the `NumberProvider` class:
 
 ```csharp
 // Decompiled with JetBrains decompiler
