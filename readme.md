@@ -420,4 +420,5 @@
 
 ## Miscellaneous
 
-- [Translation of terminology into Russian](translations.md)
+- [DJI Osmo Pocket](miscellaneous/dji-osmo-pocket.md)
+- [Translation of terminology into Russian](miscellaneous/translations.md)

@@ -18,7 +18,7 @@
 
 ## Алгоритмы
 
-[↑ ТЫ БУДЕШЬ СРАДАТЬ ОТ АЛГОРИТМОВ! (пока не посмотришь это видео)](https://www.youtube.com/watch?v=cpuRbnWEPio)
+[↑ ТЫ БУДЕШЬ СТРАДАТЬ ОТ АЛГОРИТМОВ! (пока не посмотришь это видео)](https://www.youtube.com/watch?v=cpuRbnWEPio)
 
 ## Technologies
 
