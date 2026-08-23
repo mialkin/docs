@@ -454,7 +454,7 @@ Console.WriteLine($"Third immutable array: {string.Join(", ", thirdImmutableArra
 
 ### `ImmutableDictionary<TKey, TValue>`
 
-The [↑ `ImmutableDictionary<TKey, TValue>`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.immutable.immutabledictionary-2) type uses a balanced binary tree to represent the dictionary. Each node in the tree contains an `ImmutableList<KeyValuePair<TKey, TValue>>`, which is also a balanced binary tree` that holds all the items that hash to the same value.
+The [↑ `ImmutableDictionary<TKey, TValue>`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.immutable.immutabledictionary-2) type uses a balanced binary tree to represent the dictionary. Each node in the tree contains an `ImmutableList<KeyValuePair<TKey, TValue>>`, which is also a balanced binary tree that holds all the items that hash to the same value.
 
 The `ImmutableDictionary<TKey, TValue>` is many times slower and consumes much more mem­ory than `Dictionary<TKey, TValue>`. You should definitely measure performance when using `ImmutableDictionary<TKey, TValue>` to determine whether it's acceptable or not.
 
