@@ -81,7 +81,7 @@ var thread = new Thread(() =>
     {
         Console.WriteLine("Thread was interrupted from a waiting state");
     }
-    
+
     Console.WriteLine("Continuing thread execution...");
 });
 
@@ -99,7 +99,7 @@ Nowadays `Interrupt` is unnecessary: if you are writing the code that blocks, yo
 
 The [↑ `Thread.Abort`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.abort) method raises a `ThreadAbortException` in the thread on which it's invoked, to begin the process of terminating the thread. Calling this method usually terminates the thread.
 
-The `Thread.Abort` APIs are [↑ obsolete](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/5.0/thread-abort-obsolete). Starting in .NET 5, calling this method produces compiler warning `SYSLIB0006`. 
+The `Thread.Abort` APIs are [↑ obsolete](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/5.0/thread-abort-obsolete). Starting in .NET 5, calling this method produces compiler warning `SYSLIB0006`.
 Use a `CancellationToken` to abort processing of a unit of work instead of calling `Thread.Abort`.
 
 ## Background and foreground threads
@@ -149,4 +149,17 @@ However, if you try to allocate an array of 8 millions of records, you get [↑ 
 Stack overflow.
    at Program+<>c.<<Main>$>b__0_0()
    at System.Threading.Thread.StartCallback()
+```
+
+If you try to run this code in the main thread of a console application:
+
+```csharp
+Span<int> numbers = stackalloc int[7_000_000]; // 4 bytes x 7 million records = 28 megabytes
+```
+
+ you'll also get the `StackOverflowException`
+
+```console
+Stack overflow.
+   at Program.<Main>$(System.String[])
 ```
