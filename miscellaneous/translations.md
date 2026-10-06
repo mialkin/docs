@@ -213,6 +213,7 @@
 ## N
 
 - **Node** — узел
+- **NuGet feed** — NuGet-канал
 
 ## O
 
