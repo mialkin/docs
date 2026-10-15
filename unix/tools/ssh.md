@@ -172,8 +172,8 @@ Paste the new key below the existing key. Remove the old public key if needed.
 On client:
 
 ```bash
-ssh-copy-id aleksei@192.168.0.44
-# ssh-copy-id -i ~/.ssh/your-key.pub aleksei@192.168.0.44
+ssh-copy-id your_username@your_server_ip
+# ssh-copy-id -i ~/.ssh/your-key.pub your_username@your_server_ip
 ```
 
 On server:
@@ -193,6 +193,12 @@ Run:
 
 ```bash
 sudo systemctl restart ssh
+```
+
+Verify, that you can't connect via password anymore:
+
+```bash
+ssh -o PubkeyAuthentication=no your_username@your_server_ip
 ```
 
 ### Change SSH port
