@@ -21,6 +21,7 @@
   - [Set time zone](#set-time-zone)
   - [Set hostname](#set-hostname)
   - [See bash history](#see-bash-history)
+  - [`ss`](#ss)
   - [`ufw`](#ufw)
 
 ## VPS harderning
@@ -258,7 +259,7 @@ history | grep "search_term"
 sudo vim /home/USER_YOU_WANT_TO_VIEW/.bash_history
 ```
 
-## `ufw`
+## `ss`
 
 The `ss` (socket statistics) command is a modern utility that provides detailed information about network sockets:
 
@@ -267,6 +268,12 @@ sudo ss -tulnp
 ```
 
 `t` — display TCP sockets; `u` — display UDP sockets; `l` — display listening sockets; `n` — do not resolve service names or hostnames (displays numerical port numbers and IP addresses); `p` — show the process name and PID.
+
+## `ufw`
+
+```bash
+ufw status
+```
 
 Install Uncomplicated Firewall:
 
