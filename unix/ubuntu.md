@@ -2,83 +2,61 @@
 
 ## Table of contents
 
-- [Ubuntu](#ubuntu)
-  - [Table of contents](#table-of-contents)
-  - [VPS harderning](#vps-harderning)
-  - [Create a user and allow him to connect via SSH](#create-a-user-and-allow-him-to-connect-via-ssh)
-  - [Change SSH port and disable password authentication](#change-ssh-port-and-disable-password-authentication)
-  - [Watch temperature](#watch-temperature)
-    - [CPU](#cpu)
-    - [SSD](#ssd)
-  - [Enable/disable GUI for Ubuntu Desktop](#enabledisable-gui-for-ubuntu-desktop)
-  - [Enable/disable Wi-Fi](#enabledisable-wi-fi)
-  - [User management](#user-management)
-    - [Last logged in users](#last-logged-in-users)
-    - [List users](#list-users)
-    - [Elevate user's permissions](#elevate-users-permissions)
-    - [List all user groups](#list-all-user-groups)
-  - [Disable welcome message after SSH login](#disable-welcome-message-after-ssh-login)
-  - [Set time zone](#set-time-zone)
-  - [Set hostname](#set-hostname)
-  - [See bash history](#see-bash-history)
-  - [`ss`](#ss)
-  - [`ufw`](#ufw)
-    - [Disable port](#disable-port)
+<!-- TOC -->
+* [Ubuntu](#ubuntu)
+  * [Table of contents](#table-of-contents)
+  * [VPS hardening](#vps-hardening)
+  * [Change SSH port and disable password authentication](#change-ssh-port-and-disable-password-authentication)
+  * [User management](#user-management)
+    * [Last logged-in users](#last-logged-in-users)
+    * [List users](#list-users)
+    * [Elevate user's permissions](#elevate-users-permissions)
+    * [List all user groups](#list-all-user-groups)
+  * [See bash history](#see-bash-history)
+  * [`ss`](#ss)
+  * [`ufw`](#ufw)
+    * [Disable port](#disable-port)
+<!-- TOC -->
 
-## VPS harderning
-
-Set up aliases:
+## VPS hardening
 
 ```bash
-echo "alias cls='clear'" >> ~/.bashrc
-# echo "alias ll='ls -la'" >> ~/.bashrc
+NEW_USER="bob"; \
+apt-get update && apt-get upgrade -y && \
+apt-get install -y htop curl wget vim ufw && \
+apt-get autoremove -y && \
+# Disable a welcome message after SSH login
+chmod -x /etc/update-motd.d/* && \
+# Add a new SSH user
+adduser "$NEW_USER" && \
+usermod -aG sudo "$NEW_USER"
 ```
 
-Update packages:
-
-```bash
-sudo apt update && sudo apt upgrade -y
-sudo apt install htop curl wget git vim -y
-sudo apt autoremove -y
-```
-
-Fix "broken pipe" error by uncommenting `TCPKeepAlive yes` line:
+Uncomment `TCPKeepAlive yes` line to prevent "broken pipe" error:
 
 ```bash
 vim /etc/ssh/sshd_config
 ```
 
+Reboot:
+
 ```bash
-sudo systemctl reboot
+systemctl reboot
 ```
 
-## Create a user and allow him to connect via SSH
-
-Create a user and append this user to the group `sudo`:
+Run this on your local computer to take your local public SSH key `key.pub` and copy it over to a remote's `~/.ssh/authorized_keys` file. It will prompt you for Bob's password (the one you set during the setup script):
 
 ```bash
-sudo adduser myuser
-# sudo userdel -r myuser
-usermod -aG sudo myuser
+ssh-copy-id -i ~/.ssh/key.pub bob@your_server_ip_or_name
+# Verify it's working by connecting using Bob's private key
+ssh -i ~/.ssh/key bob@your_server_ip_or_name
 ```
 
-Switch to a user:
-
 ```bash
-su myuser
-cd
-```
-
-Run this on the client:
-
-```bash
-ssh-copy-id -i ~/.ssh/key.pub myuser@remote_host
-```
-
-Test connection:
-
-```bash
-ssh bob@domain.xyz
+echo "alias cls='clear'" >> ~/.bashrc && \
+source ~/.bashrc
+sudo hostnamectl set-hostname YOUR_HOSTNAME
+hostnamectl
 ```
 
 ## Change SSH port and disable password authentication
@@ -97,60 +75,26 @@ Port 22000
 Reboot:
 
 ```bash
-sudo reboot
-# Alternatively run:
-#systemctl restart ssh
-#systemctl restart sshd
+sudo systemctl reboot
 ```
 
 When connecting to the server using the ssh command, you need to specify the port to connect using the `-p` flag:
 
 ```bash
-ssh remote_username@remote_host -p SSH_PORT_NUMBER
+ssh bob@your_server_ip_or_name -p SSH_PORT_NUMBER
 ```
 
-## Watch temperature
-
-### CPU
+Set time zone:
 
 ```bash
-sudo apt install lm-sensors
-yes yes | sudo sensors-detect
-sudo service kmod start
-
-watch sensors # see temperature values updating each second
-```
-
-### SSD
-
-```bash
-sudo apt update
-wget http://archive.ubuntu.com/ubuntu/pool/universe/h/hddtemp/hddtemp_0.3-beta15-53_amd64.deb
-sudo apt install ./hddtemp_0.3-beta15-53_amd64.deb
-
-sudo watch hddtemp /dev/sda
-```
-
-## Enable/disable GUI for Ubuntu Desktop
-
-```bash
-sudo systemctl status gdm
-sudo systemctl stop gdm
-#sudo systemctl disable gdm
-#sudo systemctl enable gdm
-sudo systemctl start gdm
-```
-
-## Enable/disable Wi-Fi
-
-```bash
-nmcli radio wifi on
-#nmcli radio wifi off
+timedatectl && \
+sudo timedatectl set-timezone Europe/Moscow && \
+date
 ```
 
 ## User management
 
-### Last logged in users
+### Last logged-in users
 
 ```bash
 last
@@ -223,32 +167,10 @@ Show all existing groups:
 cat /etc/group
 ```
 
-Show group to which current user belongs:
+Show the group to which the current user belongs:
 
 ```bash
 groups
-```
-
-## Disable welcome message after SSH login
-
-```sh
-sudo chmod -x /etc/update-motd.d/*
-```
-
-## Set time zone
-
-```sh
-timedatectl
-timedatectl list-timezones
-sudo timedatectl set-timezone Europe/Moscow
-date
-```
-
-## Set hostname
-
-```bash
-sudo hostnamectl set-hostname YOUR_HOSTNAME
-hostnamectl
 ```
 
 ## See bash history
