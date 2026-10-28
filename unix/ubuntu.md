@@ -23,6 +23,7 @@
   - [See bash history](#see-bash-history)
   - [`ss`](#ss)
   - [`ufw`](#ufw)
+    - [Disable port](#disable-port)
 
 ## VPS harderning
 
@@ -281,6 +282,8 @@ Install Uncomplicated Firewall:
 apt install ufw
 ufw status
 sudo ufw allow 22000/tcp
+# sudo ufw allow 80/tcp
+# sudo ufw allow 443/tcp
 sudo less /etc/ufw/user.rules
 # sudo ufw show added
 sudo ufw default deny incoming
@@ -315,3 +318,11 @@ sudo ufw allow 'Nginx Full'
 ```
 
 [↑ How to Set Up a Firewall with UFW on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu).
+
+### Disable port
+
+```bash
+sudo ufw deny 12345/tcp
+sudo ufw status numbered
+sudo ufw delete 4
+```
