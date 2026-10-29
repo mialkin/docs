@@ -8,7 +8,6 @@
   * [VPS hardening](#vps-hardening)
   * [Change SSH port and disable password authentication](#change-ssh-port-and-disable-password-authentication)
   * [`ufw`](#ufw)
-    * [Disable port](#disable-port)
   * [User management](#user-management)
     * [Last logged-in users](#last-logged-in-users)
     * [List users](#list-users)
@@ -81,7 +80,7 @@ sudo systemctl reboot
 When connecting to the server using the ssh command, you need to specify the port to connect using the `-p` flag:
 
 ```bash
-ssh bob@your_server_ip_or_name -p SSH_PORT_NUMBER
+ssh bob@your_server_ip_or_name -p 22000
 ```
 
 Set time zone:
@@ -97,13 +96,11 @@ date
 ```bash
 # apt install ufw
 # Switch to the root user to avoid typing in sudo in front of each command
-# sudo -i
-ufw status
+sudo -i
 ufw status
 ufw allow 22000/tcp
 # ufw allow 80/tcp
 # ufw allow 443/tcp
-less /etc/ufw/user.rules
 # ufw show added
 ufw default deny incoming
 ufw default allow outgoing
@@ -113,16 +110,10 @@ ufw enable
 From a second terminal/session (or your local machine), try to reconnect:
 
 ```bash
-ssh -p 22000 user@your-server
+ssh bob@your_server_ip_or_name -p 22000
 ```
 
 Make sure you can log in. Only then should you close your original SSH session — this ensures you don't lock yourself out if something went wrong.
-
-Check added rules:
-
-```bash
-sudo ufw status verbose
-```
 
 Upon installation, most applications that rely on network connections will register an application profile within UFW, which enables users to quickly allow or deny external access to a service. You can check which profiles are currently registered in UFW with:
 
@@ -136,9 +127,7 @@ Allow Nginx:
 sudo ufw allow 'Nginx Full'
 ```
 
-[↑ How to Set Up a Firewall with UFW on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu).
-
-### Disable port
+Disabling port;
 
 ```bash
 sudo ufw deny 12345/tcp

@@ -85,7 +85,7 @@
 ## Unix
 
 - [Environment variables](unix/environment-variables.md)
-- [macOS](unix/macos/macos.md), [`ffmpeg`](unix/macos/macos.md#ffmpeg). [`yt-dlp`](unix/macos/macos.md#yt-dlp)
+- [macOS](unix/macos/macos.md), [`ffmpeg`](unix/macos/macos.md#ffmpeg), [`yt-dlp`](unix/macos/macos.md#yt-dlp)
 - [Nginx](unix/nginx.md). [Certbot](unix/nginx.md#certbot)
 - [Shell and shell scripting](unix/shell-and-shell-scripting.md)
 - [Tools](unix/tools/tools.md)
@@ -95,7 +95,7 @@
   - [SSH](unix/tools/ssh.md)
   - [tmux](unix/tools/tmux.md)
   - [Vim](unix/tools/vim.md)
-- [Ubuntu](unix/ubuntu.md)
+- [Ubuntu](unix/ubuntu.md), [`ufw`](unix/ubuntu.md#ufw)
 
 ## Databases
 
