@@ -6,7 +6,7 @@
 * [Ubuntu](#ubuntu)
   * [Table of contents](#table-of-contents)
   * [VPS hardening](#vps-hardening)
-  * [Change SSH port and disable password authentication](#change-ssh-port-and-disable-password-authentication)
+  * [Disable password authentication. Change SSH port](#disable-password-authentication-change-ssh-port)
   * [`ufw`](#ufw)
   * [User management](#user-management)
     * [Last logged-in users](#last-logged-in-users)
@@ -58,7 +58,15 @@ sudo hostnamectl set-hostname YOUR_HOSTNAME
 hostnamectl
 ```
 
-## Change SSH port and disable password authentication
+Set time zone:
+
+```bash
+timedatectl && \
+sudo timedatectl set-timezone Europe/Moscow && \
+date
+```
+
+##  Disable password authentication. Change SSH port
 
 ```bash
 sudo vim /etc/ssh/sshd_config.d/50-cloud-init.conf
@@ -81,14 +89,6 @@ When connecting to the server using the ssh command, you need to specify the por
 
 ```bash
 ssh bob@your_server_ip_or_name -p 22000
-```
-
-Set time zone:
-
-```bash
-timedatectl && \
-sudo timedatectl set-timezone Europe/Moscow && \
-date
 ```
 
 ## `ufw`
