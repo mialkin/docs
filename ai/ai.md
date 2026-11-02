@@ -8,6 +8,9 @@
   - [Generative AI](#generative-ai)
   - [Prompt](#prompt)
   - [Large language model](#large-language-model)
+  - [Machine learning](#machine-learning)
+  - [Deep learning](#deep-learning)
+  - [Neural network](#neural-network)
   - [AI agent](#ai-agent)
   - [Chatbot](#chatbot)
   - [Hugging Face](#hugging-face)
@@ -40,9 +43,37 @@ A **prompt** is an instruction, message, or cue that tells a person or computer 
 
 ## Large language model
 
-A [↑ **large language model**](https://en.wikipedia.org/wiki/Large_language_model) or **LLM** is a machine learning model trained on a vast amount of text for natural language processing tasks, especially language generation.
+A [↑ **large language model**](https://en.wikipedia.org/wiki/Large_language_model) or **LLM** is a machine learning model (typically a [neural network](#neural-network)) trained on a vast amount of text for natural language processing tasks, especially language generation.
 
 LLMs can typically generate, summarize, translate, and analyze text in many contexts. They are the basis for many modern [chatbots](#chatbot), such as ChatGPT, Claude, Gemini, Grok, Qwen, and DeepSeek.
+
+## Machine learning
+
+[↑ **Machine learning**](https://en.wikipedia.org/wiki/Machine_learning) or **ML** is a field of study in [artificial intelligence](#artificial-intelligence) concerned with the development and study of statistical algorithms that can learn from data and generalize to unseen data, and thus perform tasks without being explicitly programmed.
+
+## Deep learning
+
+**Deep learning** or **DL** is a subset of [machine learning](#machine-learning) that uses artificial [neural networks](#neural-network) with multiple layers to learn complex patterns from data.
+
+The word _deep_ refers to the number of layers in a neural network.
+
+## Neural network
+
+A [↑ **neural network**](<https://en.wikipedia.org/wiki/Neural_network_(machine_learning)>) is a computational model inspired by the structure and functions of biological neural networks.
+
+A neural network consists of connected units or nodes called _artificial neurons_, which loosely model the neurons in the brain. These are connected by edges, which model the synapses in the brain. Each artificial neuron receives signals from connected neurons, then processes them and sends a signal to other connected neurons. The "signal" is a real number, and the output of each neuron is computed by some non-linear function of the totality of its inputs, called the _activation function_. The strength of the signal at each connection is determined by a weight, which adjusts as part of the training process.
+
+The most important concept is that _a neural network learns by adjusting its weights and biases to reduce errors_.
+
+The key idea: a neural network is a mathematical function with adjustable parameters. Training is the process of finding parameter values that make the function perform a task well.
+
+When you type a question into a [chatbot](#chatbot):
+
+1. Your text is converted into tokens
+2. Tokens are transformed into numerical vector representations
+3. Those representations pass through many neural network layers
+4. The model computes probabilities for possible next tokens
+5. It generates output tokens sequentially to form its response
 
 ## AI agent
 
