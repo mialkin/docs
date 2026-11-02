@@ -12,6 +12,7 @@
   - [Deep learning](#deep-learning)
   - [Neural network](#neural-network)
   - [AI agent](#ai-agent)
+  - [Retrieval-augmented generation](#retrieval-augmented-generation)
   - [Chatbot](#chatbot)
   - [Hugging Face](#hugging-face)
 
@@ -90,6 +91,10 @@ An AI agent typically consists of several components:
 - Guardrails: permissions and constraints controlling what the agent is allowed to do
 
 Popular examples include OpenAI Codex, Claude Code, OpenClaw.
+
+## Retrieval-augmented generation
+
+[↑ **Retrieval-augmented generation**](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) or **RAG** is an AI technique that improves the accuracy and relevance of [LLM](#large-language-model) responses by retrieving information from external sources before generating an answer.
 
 ## Chatbot
 
