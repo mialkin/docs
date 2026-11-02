@@ -17,6 +17,7 @@
 - [Documenting notes](#documenting-notes)
   - [Table of contents](#table-of-contents)
   - [Books and blogs](#books-and-blogs)
+  - [AI](#ai)
   - [Tools](#tools)
   - [Unix](#unix)
   - [Databases](#databases)
@@ -41,6 +42,10 @@
 ## Books and blogs
 
 - [IT books and blogs](books-blogs/books-blogs.md)
+
+## AI
+
+- [AI](ai/ai.md)
 
 ## Tools
 
