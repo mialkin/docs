@@ -1,20 +1,42 @@
 # AI
 
-[↑ **Artificial intelligence**](https://en.wikipedia.org/wiki/Artificial_intelligence) or **AI** is the ability of computational systems to perform tasks typically associated with human intelligence, such as learning, reasoning, problem-solving, perception, and decision-making.
-
-Prominent applications of AI include advanced web search engines, [chatbots](#chatbot), virtual assistants, autonomous vehicles, play and analysis in strategy games (e.g., chess and Go), and content generation (e.g., text, images, audio, and videos).
-
 ## Table of contents
 
 - [AI](#ai)
   - [Table of contents](#table-of-contents)
+  - [Artificial intelligence](#artificial-intelligence)
   - [Generative AI](#generative-ai)
+  - [Prompt](#prompt)
   - [Large language model](#large-language-model)
   - [AI agent](#ai-agent)
   - [Chatbot](#chatbot)
   - [Hugging Face](#hugging-face)
 
+## Artificial intelligence
+
+[↑ **Artificial intelligence**](https://en.wikipedia.org/wiki/Artificial_intelligence) or **AI** is the ability of computational systems to perform tasks typically associated with human intelligence, such as learning, reasoning, problem-solving, perception, and decision-making.
+
+Prominent applications of AI include advanced web search engines, [chatbots](#chatbot), virtual assistants, autonomous vehicles, play and analysis in strategy games (e.g., chess and Go), and content generation (e.g., text, images, audio, and videos).
+
 ## Generative AI
+
+[↑ **Generative AI**](https://en.wikipedia.org/wiki/Generative_AI) or **GenAI** is a type of [artificial intelligence](#artificial-intelligence) that can create new content, such as text, images, music, videos, and computer code, based on patterns learned from large amounts of training data.
+
+Unlike traditional AI systems, which primarily analyze, classify, or predict information, generative AI produces new content in response to user [prompts](#prompt):
+
+| Traditional AI               | Generative AI                    |
+| ---------------------------- | -------------------------------- |
+| Detects spam emails          | Writes emails                    |
+| Recognizes objects in images | Generates images                 |
+| Predicts house prices        | Creates property descriptions    |
+| Classifies customer feedback | Generates responses to customers |
+| Detects bugs in code         | Generates code to fix bugs       |
+
+A generative model can also perform classification and analysis.
+
+## Prompt
+
+A **prompt** is an instruction, message, or cue that tells a person or computer what to do.
 
 ## Large language model
 
