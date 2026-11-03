@@ -5,15 +5,16 @@
 - [AI](#ai)
   - [Table of contents](#table-of-contents)
   - [Artificial intelligence](#artificial-intelligence)
-  - [Generative AI](#generative-ai)
-  - [Prompt](#prompt)
-  - [Large language model](#large-language-model)
+    - [Generative AI](#generative-ai)
   - [Machine learning](#machine-learning)
-  - [Deep learning](#deep-learning)
-  - [Neural network](#neural-network)
+    - [Deep learning](#deep-learning)
+    - [Neural network](#neural-network)
+  - [Large language model](#large-language-model)
+    - [Prompt](#prompt)
+    - [Context window](#context-window)
+    - [Chatbot](#chatbot)
   - [AI agent](#ai-agent)
   - [Retrieval-augmented generation](#retrieval-augmented-generation)
-  - [Chatbot](#chatbot)
   - [Hugging Face](#hugging-face)
 
 ## Artificial intelligence
@@ -22,7 +23,7 @@
 
 Prominent applications of AI include advanced web search engines, [chatbots](#chatbot), virtual assistants, autonomous vehicles, play and analysis in strategy games (e.g., chess and Go), and content generation (e.g., text, images, audio, and videos).
 
-## Generative AI
+### Generative AI
 
 [↑ **Generative AI**](https://en.wikipedia.org/wiki/Generative_AI) or **GenAI** is a type of [artificial intelligence](#artificial-intelligence) that can create new content, such as text, images, music, videos, and computer code, based on patterns learned from large amounts of training data.
 
@@ -38,27 +39,17 @@ Unlike traditional AI systems, which primarily analyze, classify, or predict inf
 
 A generative model can also perform classification and analysis.
 
-## Prompt
-
-A **prompt** is an instruction, message, or cue that tells a person or computer what to do.
-
-## Large language model
-
-A [↑ **large language model**](https://en.wikipedia.org/wiki/Large_language_model) or **LLM** is a machine learning model (typically a [neural network](#neural-network)) trained on a vast amount of text for natural language processing tasks, especially language generation.
-
-LLMs can typically generate, summarize, translate, and analyze text in many contexts. They are the basis for many modern [chatbots](#chatbot), such as ChatGPT, Claude, Gemini, Grok, Qwen, and DeepSeek.
-
 ## Machine learning
 
 [↑ **Machine learning**](https://en.wikipedia.org/wiki/Machine_learning) or **ML** is a field of study in [artificial intelligence](#artificial-intelligence) concerned with the development and study of statistical algorithms that can learn from data and generalize to unseen data, and thus perform tasks without being explicitly programmed.
 
-## Deep learning
+### Deep learning
 
 **Deep learning** or **DL** is a subset of [machine learning](#machine-learning) that uses artificial [neural networks](#neural-network) with multiple layers to learn complex patterns from data.
 
 The word _deep_ refers to the number of layers in a neural network.
 
-## Neural network
+### Neural network
 
 A [↑ **neural network**](<https://en.wikipedia.org/wiki/Neural_network_(machine_learning)>) is a computational model inspired by the structure and functions of biological neural networks.
 
@@ -75,6 +66,24 @@ When you type a question into a [chatbot](#chatbot):
 3. Those representations pass through many neural network layers
 4. The model computes probabilities for possible next tokens
 5. It generates output tokens sequentially to form its response
+
+## Large language model
+
+A [↑ **large language model**](https://en.wikipedia.org/wiki/Large_language_model) or **LLM** is a machine learning model (typically a [neural network](#neural-network)) trained on a vast amount of text for natural language processing tasks, especially language generation.
+
+LLMs can typically generate, summarize, translate, and analyze text in many contexts. They are the basis for many modern [chatbots](#chatbot), such as ChatGPT, Claude, Gemini, Grok, Qwen, and DeepSeek.
+
+### Prompt
+
+A **prompt** is an instruction, message, or cue that tells a person or computer what to do.
+
+### Context window
+
+### Chatbot
+
+A [↑ **chatbot**](https://en.wikipedia.org/wiki/Chatbot) is a software application designed to converse through text or speech, functioning as a conversation partner.
+
+[Generative AI](#generative-ai) chatbots such as ChatGPT, Gemini, Claude, DeepSeek and Grok are based on deep learning. These chatbots typically use fine-tuned large language models to generate text.
 
 ## AI agent
 
@@ -96,11 +105,8 @@ Popular examples include OpenAI Codex, Claude Code, OpenClaw.
 
 [↑ **Retrieval-augmented generation**](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) or **RAG** is an AI technique that improves the accuracy and relevance of [LLM](#large-language-model) responses by retrieving information from external sources before generating an answer.
 
-## Chatbot
+RAG doesn't teach an LLM new knowledge by modifying its weights. Instead, it supplies relevant external information at the moment the model generates an answer.
 
-A [↑ **chatbot**](https://en.wikipedia.org/wiki/Chatbot) is a software application designed to converse through text or speech, functioning as a conversation partner.
-
-Generative AI chatbots such as ChatGPT, Gemini, Claude, DeepSeek and Grok are based on deep learning. These chatbots typically use fine-tuned large language models to generate text.
 
 ## Hugging Face
 
