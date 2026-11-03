@@ -46,6 +46,7 @@
 ## AI
 
 - [AI](ai/ai.md)
+- [AI agents](ai/ai-agents.md)
 
 ## Tools
 
