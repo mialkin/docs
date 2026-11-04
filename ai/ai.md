@@ -9,9 +9,11 @@
   - [Machine learning](#machine-learning)
     - [Deep learning](#deep-learning)
     - [Neural network](#neural-network)
+  - [Machine learning model](#machine-learning-model)
   - [Large language model](#large-language-model)
     - [Prompt](#prompt)
     - [Context window](#context-window)
+    - [Token](#token)
     - [Chatbot](#chatbot)
   - [AI agent](#ai-agent)
   - [Retrieval-augmented generation](#retrieval-augmented-generation)
@@ -61,23 +63,61 @@ The key idea: a neural network is a mathematical function with adjustable parame
 
 When you type a question into a [chatbot](#chatbot):
 
-1. Your text is converted into tokens
+1. Your text is converted into [tokens](#token)
 2. Tokens are transformed into numerical vector representations
 3. Those representations pass through many neural network layers
 4. The model computes probabilities for possible next tokens
 5. It generates output tokens sequentially to form its response
 
+## Machine learning model
+
+A **machine learning model** is a computational model whose behavior is learned from data rather than being entirely specified through manually written rules.
+
 ## Large language model
 
-A [↑ **large language model**](https://en.wikipedia.org/wiki/Large_language_model) or **LLM** is a machine learning model (typically a [neural network](#neural-network)) trained on a vast amount of text for natural language processing tasks, especially language generation.
+A [↑ **large language model**](https://en.wikipedia.org/wiki/Large_language_model) or **LLM** is a [machine learning model](#machine-learning) (typically a [neural network](#neural-network)) trained on a vast amount of text for natural language processing tasks, especially language generation.
 
 LLMs can typically generate, summarize, translate, and analyze text in many contexts. They are the basis for many modern [chatbots](#chatbot), such as ChatGPT, Claude, Gemini, Grok, Qwen, and DeepSeek.
 
 ### Prompt
 
-A **prompt** is an instruction, message, or cue that tells a person or computer what to do.
+A **prompt** is the input provided to an AI model to instruct it what to do or guide the response it generates.
 
 ### Context window
+
+A **context window** is the maximum amount of text—measured in [tokens](#token) (chunks of characters, words, or sub-words roughly equivalent to $0.75$ words in English)—that a Large Language Model can process and "remember" at any single moment.
+
+Think of it as the model's short-term working memory or RAM during a session. It encompasses everything active in the current interaction: the system [prompt](#prompt), uploaded documents, the entire chat history, and the model's own generated response.
+
+### Token
+
+A **token** is a basic unit of text that an [LLM](#large-language-model) processes.
+
+When you send a prompt to an AI model, the text is divided into smaller pieces called **tokens**. These can represent entire words, parts of words, punctuation marks, or spaces combined with text.
+
+The process of splitting text into tokens is called **tokenization**.
+
+A token is not necessarily a complete word.
+
+For English, a common approximation is: 1 token ≈ 4 characters, 100 tokens ≈ 75 words. The actual ratio depends on the language, vocabulary, formatting, and tokenizer. For example, Russian text can require more tokens per word than English text with some tokenizers.
+
+The model doesn't directly manipulate words as humans do. It operates on numerical representations of tokens.
+
+One of the fundamental tasks of an autoregressive language model is predicting the next token based on previous tokens. The model selects a token according to its decoding strategy, adds it to the sequence, and repeats the process until it finishes generating the response.
+
+Many LLM providers charge based on token usage. For example, imagine hypothetical pricing of:
+
+- Input: $2 per million tokens
+- Output: $8 per million tokens
+
+A request using 10,000 input tokens and generating 2,000 output tokens would cost:
+$$
+\frac{10,000}{1,000,000}\times2+
+\frac{2,000}{1,000,000}\times8
+=\$0.036
+$$
+
+More tokens generally require more computation. Long prompts can increase latency, while generating more output tokens takes additional time.
 
 ### Chatbot
 
@@ -106,7 +146,6 @@ Popular examples include OpenAI Codex, Claude Code, OpenClaw.
 [↑ **Retrieval-augmented generation**](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) or **RAG** is an AI technique that improves the accuracy and relevance of [LLM](#large-language-model) responses by retrieving information from external sources before generating an answer.
 
 RAG doesn't teach an LLM new knowledge by modifying its weights. Instead, it supplies relevant external information at the moment the model generates an answer.
-
 
 ## Hugging Face
 
