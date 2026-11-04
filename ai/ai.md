@@ -20,6 +20,7 @@
     - [Chatbot](#chatbot)
     - [Generative pre-trained transformer](#generative-pre-trained-transformer)
   - [AI agent](#ai-agent)
+    - [Session](#session)
   - [AI workflow](#ai-workflow)
   - [Retrieval-augmented generation](#retrieval-augmented-generation)
   - [Model context protocol](#model-context-protocol)
@@ -185,6 +186,14 @@ An AI agent typically consists of several components:
 - Guardrails: permissions and constraints controlling what the agent is allowed to do
 
 Popular examples include OpenAI Codex, Claude Code, OpenClaw.
+
+### Session
+
+A **session** is a sequence of interactions between a user and an [AI agent](#ai-agent) that share a common conversational context, including previous messages, instructions, and results of executed actions.
+
+A session may span multiple tasks, can often be paused and resumed, and typically ends when explicitly terminated or replaced by a new session.
+
+A session is not the same as a [context window](#context-window). A session is a logical conversation, which can continue over time. A context window is a limited amount of information the AI model can process at once. A session might last several hours and contain hundreds of interactions. When its context window fills up, the AI agent can compact earlier conversation history and continue within the same session.
 
 ## AI workflow
 
