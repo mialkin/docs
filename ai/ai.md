@@ -22,6 +22,7 @@
   - [AI agent](#ai-agent)
   - [Retrieval-augmented generation](#retrieval-augmented-generation)
   - [Model context protocol](#model-context-protocol)
+  - [Harness](#harness)
   - [Hugging Face](#hugging-face)
 
 ## Artificial intelligence
@@ -197,6 +198,33 @@ The [↑ **Model Context Protocol**](https://en.wikipedia.org/wiki/Model_Context
 By default, an LLM cannot directly access external systems such as databases, GitHub repositories, or local files. Without MCP, developers must implement custom integrations for each AI application and external service. MCP solves this problem by providing a common protocol for connecting AI applications to external systems.
 
 Think of MCP as a USB-C port for AI applications: different devices can connect through the same standardized interface.
+
+## Harness
+
+A [↑ **harness**](https://en.wikipedia.org/wiki/Agent_harness) is the software infrastructure that surrounds an [AI model](#ai-model) and manages how it interacts with tools, data, users, and its environment.
+
+An [LLM](#large-language-model) by itself can process input and generate output, but it cannot independently execute code, access databases, or interact with external services. A harness provides these capabilities.
+
+For example, when you ask an AI coding assistant to fix a bug, the harness might:
+
+1. Read relevant source files
+2. Send their contents to the LLM
+3. Receive the LLM's request to modify a file
+4. Execute the requested operation
+5. Run tests and collect their results
+6. Send the results back to the LLM
+7. Repeat until the task is complete or a limit is reached
+
+The LLM makes decisions, while the harness orchestrates their execution
+
+A coding harness may provide:
+
+- File access: Read and modify source code.
+- Terminal access: Execute dotnet build or dotnet test.
+- Context management: Select relevant files and preserve conversation history.
+- Tool integration: Communicate with MCP servers.
+- Safety controls: Restrict dangerous operations or request approval.
+- Execution loop: Repeatedly call the LLM and execute tools until the task is finished.
 
 ## Hugging Face
 
