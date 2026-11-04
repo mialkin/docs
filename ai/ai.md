@@ -20,6 +20,7 @@
     - [Chatbot](#chatbot)
     - [Generative pre-trained transformer](#generative-pre-trained-transformer)
   - [AI agent](#ai-agent)
+  - [AI workflow](#ai-workflow)
   - [Retrieval-augmented generation](#retrieval-augmented-generation)
   - [Model context protocol](#model-context-protocol)
   - [Harness](#harness)
@@ -184,6 +185,26 @@ An AI agent typically consists of several components:
 - Guardrails: permissions and constraints controlling what the agent is allowed to do
 
 Popular examples include OpenAI Codex, Claude Code, OpenClaw.
+
+## AI workflow
+
+An **AI workflow** is a sequence of predefined steps that uses AI to automate or assist with completing a task.
+
+AI workflow example:
+
+```text
+A customer sends an email → AI classifies it → predefined logic selects a department → AI generates a response
+```
+
+An AI workflow typically combines [AI models](#ai-model), traditional programming logic, external tools, and data sources to achieve a specific goal.
+
+An AI workflow typically consists of:
+
+1. **Trigger**: an event that starts the workflow, such as an incoming email, API request, or scheduled task
+2. **AI model**: an LLM or another AI model that processes information, makes classifications, or generates content
+3. **Tools**: external services, APIs, databases, or applications used to perform actions
+4. **Control logic**: predefined rules, conditions, and branching that determine the execution sequence
+5. **Output**: the final result, such as a generated document, database update, or email response
 
 ## Retrieval-augmented generation
 
