@@ -21,6 +21,7 @@
     - [Generative pre-trained transformer](#generative-pre-trained-transformer)
   - [AI agent](#ai-agent)
   - [Retrieval-augmented generation](#retrieval-augmented-generation)
+  - [Model context protocol](#model-context-protocol)
   - [Hugging Face](#hugging-face)
 
 ## Artificial intelligence
@@ -188,6 +189,14 @@ Popular examples include OpenAI Codex, Claude Code, OpenClaw.
 [↑ **Retrieval-augmented generation**](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) or **RAG** is an AI technique that improves the accuracy and relevance of [LLM](#large-language-model) responses by retrieving information from external sources before generating an answer.
 
 RAG doesn't teach an LLM new knowledge by modifying its weights. Instead, it supplies relevant external information at the moment the model generates an answer.
+
+## Model context protocol
+
+The [↑ **Model Context Protocol**](https://en.wikipedia.org/wiki/Model_Context_Protocol) or **MCP** is an open standard that allows AI applications to connect to external tools, services, and data sources through a standardized interface.
+
+By default, an LLM cannot directly access external systems such as databases, GitHub repositories, or local files. Without MCP, developers must implement custom integrations for each AI application and external service. MCP solves this problem by providing a common protocol for connecting AI applications to external systems.
+
+Think of MCP as a USB-C port for AI applications: different devices can connect through the same standardized interface.
 
 ## Hugging Face
 
