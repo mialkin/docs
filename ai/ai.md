@@ -6,15 +6,19 @@
   - [Table of contents](#table-of-contents)
   - [Artificial intelligence](#artificial-intelligence)
     - [Generative AI](#generative-ai)
+  - [Neural network](#neural-network)
   - [Machine learning](#machine-learning)
-    - [Deep learning](#deep-learning)
-    - [Neural network](#neural-network)
-  - [Machine learning model](#machine-learning-model)
+    - [Machine learning model](#machine-learning-model)
+  - [Deep learning](#deep-learning)
+    - [Transformer architecture](#transformer-architecture)
+    - [Attention mechanism](#attention-mechanism)
+  - [AI model](#ai-model)
   - [Large language model](#large-language-model)
     - [Prompt](#prompt)
     - [Context window](#context-window)
     - [Token](#token)
     - [Chatbot](#chatbot)
+    - [Generative pre-trained transformer](#generative-pre-trained-transformer)
   - [AI agent](#ai-agent)
   - [Retrieval-augmented generation](#retrieval-augmented-generation)
   - [Hugging Face](#hugging-face)
@@ -41,17 +45,7 @@ Unlike traditional AI systems, which primarily analyze, classify, or predict inf
 
 A generative model can also perform classification and analysis.
 
-## Machine learning
-
-[↑ **Machine learning**](https://en.wikipedia.org/wiki/Machine_learning) or **ML** is a field of study in [artificial intelligence](#artificial-intelligence) concerned with the development and study of statistical algorithms that can learn from data and generalize to unseen data, and thus perform tasks without being explicitly programmed.
-
-### Deep learning
-
-**Deep learning** or **DL** is a subset of [machine learning](#machine-learning) that uses artificial [neural networks](#neural-network) with multiple layers to learn complex patterns from data.
-
-The word _deep_ refers to the number of layers in a neural network.
-
-### Neural network
+## Neural network
 
 A [↑ **neural network**](<https://en.wikipedia.org/wiki/Neural_network_(machine_learning)>) is a computational model inspired by the structure and functions of biological neural networks.
 
@@ -69,9 +63,48 @@ When you type a question into a [chatbot](#chatbot):
 4. The model computes probabilities for possible next tokens
 5. It generates output tokens sequentially to form its response
 
-## Machine learning model
+## Machine learning
+
+[↑ **Machine learning**](https://en.wikipedia.org/wiki/Machine_learning) or **ML** is a field of study in [artificial intelligence](#artificial-intelligence) concerned with the development and study of statistical algorithms that can learn from data and generalize to unseen data, and thus perform tasks without being explicitly programmed.
+
+### Machine learning model
 
 A **machine learning model** is a computational model whose behavior is learned from data rather than being entirely specified through manually written rules.
+
+## Deep learning
+
+**Deep learning** or **DL** is a subset of [machine learning](#machine-learning) that uses artificial [neural networks](#neural-network) with multiple layers to learn complex patterns from data.
+
+The word _deep_ refers to the number of layers in a neural network.
+
+### Transformer architecture
+
+A [↑ **transformer architecture**](<https://en.wikipedia.org/wiki/Transformer_(deep_learning)>)is a type of deep learning [neural network](#neural-network) architecture designed to process sequences of data, such as text, using a mechanism called attention.
+
+Transformers are the foundation of most modern [LLMs](#large-language-model).
+
+### Attention mechanism
+
+An [↑ **attention mechanism**](<https://en.wikipedia.org/wiki/Attention_(machine_learning)>) is a technique used in [neural networks](#neural-network) that allows a model to determine which parts of the input are most relevant when processing a particular piece of information.
+
+An attention mechanism allows the model to assign different weights to different [tokens](#token) based on their relevance. Attention weights are learned through training, rather than being manually programmed.
+
+Transformers typically use **multi-head attention**, meaning they calculate several sets of attention patterns in parallel.
+
+Different attention heads can learn different relationships, such as:
+
+- Grammatical dependencies
+- Relationships between pronouns and nouns
+- Long-distance contextual dependencies
+- Semantic relationships between words
+
+The outputs of these attention heads are combined and projected to produce the final attention output.
+
+## AI model
+
+An **AI model** is a computational model used to perform tasks associated with [artificial intelligence](#artificial-intelligence), such as reasoning, prediction, classification, or content generation.
+
+An [LLM](#large-language-model) is a specific type of AI model.
 
 ## Large language model
 
@@ -79,9 +112,11 @@ A [↑ **large language model**](https://en.wikipedia.org/wiki/Large_language_mo
 
 LLMs can typically generate, summarize, translate, and analyze text in many contexts. They are the basis for many modern [chatbots](#chatbot), such as ChatGPT, Claude, Gemini, Grok, Qwen, and DeepSeek.
 
+All LLMs are [AI models](#ai-model), but not all AI models are LLMs.
+
 ### Prompt
 
-A **prompt** is the input provided to an AI model to instruct it what to do or guide the response it generates.
+A **prompt** is the input provided to an [AI model](#ai-model) to instruct it what to do or guide the response it generates.
 
 ### Context window
 
@@ -111,6 +146,7 @@ Many LLM providers charge based on token usage. For example, imagine hypothetica
 - Output: $8 per million tokens
 
 A request using 10,000 input tokens and generating 2,000 output tokens would cost:
+
 $$
 \frac{10,000}{1,000,000}\times2+
 \frac{2,000}{1,000,000}\times8
@@ -124,6 +160,12 @@ More tokens generally require more computation. Long prompts can increase latenc
 A [↑ **chatbot**](https://en.wikipedia.org/wiki/Chatbot) is a software application designed to converse through text or speech, functioning as a conversation partner.
 
 [Generative AI](#generative-ai) chatbots such as ChatGPT, Gemini, Claude, DeepSeek and Grok are based on deep learning. These chatbots typically use fine-tuned large language models to generate text.
+
+### Generative pre-trained transformer
+
+A [↑ **generative pre-trained transformer**](https://en.wikipedia.org/wiki/Generative_pre-trained_transformer) or **GPT** is a type of [AI model](#ai-model) designed to understand and generate human-like text, code, images, and other media.
+
+The model uses a neural network architecture called a [transformer](#transformer-architecture), which relies on an [attention mechanism](#attention-mechanism) to understand relationships between tokens.
 
 ## AI agent
 
