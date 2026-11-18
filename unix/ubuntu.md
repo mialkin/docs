@@ -3,29 +3,32 @@
 ## Table of contents
 
 <!-- TOC -->
-* [Ubuntu](#ubuntu)
-  * [Table of contents](#table-of-contents)
-  * [VPS hardening](#vps-hardening)
-  * [Disable password authentication. Change SSH port](#disable-password-authentication-change-ssh-port)
-  * [`ufw`](#ufw)
-  * [User management](#user-management)
-    * [Last logged-in users](#last-logged-in-users)
-    * [List users](#list-users)
-    * [Elevate user's permissions](#elevate-users-permissions)
-    * [List all user groups](#list-all-user-groups)
-  * [See bash history](#see-bash-history)
-  * [`ss`](#ss)
-<!-- TOC -->
+
+- [Ubuntu](#ubuntu)
+  - [Table of contents](#table-of-contents)
+  - [VPS hardening](#vps-hardening)
+  - [Disable password authentication. Change SSH port](#disable-password-authentication-change-ssh-port)
+  - [`ufw`](#ufw)
+  - [User management](#user-management)
+    - [Last logged-in users](#last-logged-in-users)
+    - [List users](#list-users)
+    - [Elevate user's permissions](#elevate-users-permissions)
+    - [List all user groups](#list-all-user-groups)
+  - [See bash history](#see-bash-history)
+  - [`ss`](#ss)
 
 ## VPS hardening
 
 ```bash
-NEW_USER="bob"; \
 apt-get update && apt-get upgrade -y && \
 apt-get install -y htop curl wget vim ufw && \
 apt-get autoremove -y && \
 # Disable a welcome message after SSH login
-chmod -x /etc/update-motd.d/* && \
+chmod -x /etc/update-motd.d/*
+```
+
+```bash
+NEW_USER="bob"; \
 # Add a new SSH user
 adduser "$NEW_USER" && \
 usermod -aG sudo "$NEW_USER"
@@ -53,23 +56,29 @@ ssh -i ~/.ssh/key bob@your_server_ip_or_name
 
 ```bash
 echo "alias cls='clear'" >> ~/.bashrc && \
-source ~/.bashrc
+source ~/.bashrc && \
 sudo hostnamectl set-hostname YOUR_HOSTNAME
+```
+
+```bash
 hostnamectl
 ```
 
 Set time zone:
 
 ```bash
-timedatectl && \
-sudo timedatectl set-timezone Europe/Moscow && \
+sudo timedatectl set-timezone Europe/Moscow
+```
+
+```bash
+timedatectl
 date
 ```
 
-##  Disable password authentication. Change SSH port
+## Disable password authentication. Change SSH port
 
 ```bash
-sudo vim /etc/ssh/sshd_config.d/50-cloud-init.conf
+sudo vim /etc/ssh/sshd_config.d/<SOME_FILE_NAME_HERE>.conf
 ```
 
 Add line:
