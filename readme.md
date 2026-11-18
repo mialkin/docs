@@ -92,7 +92,7 @@
 
 - [Environment variables](unix/environment-variables.md)
 - [macOS](unix/macos/macos.md), [`ffmpeg`](unix/macos/macos.md#ffmpeg), [`yt-dlp`](unix/macos/macos.md#yt-dlp)
-- [Nginx](unix/nginx.md). [Certbot](unix/nginx.md#certbot)
+- [Nginx](unix/nginx.md). [Certbot](unix/nginx.md#certbot). [Caddy](unix/nginx.md#caddy)
 - [Shell and shell scripting](unix/shell-and-shell-scripting.md)
 - [Tools](unix/tools/tools.md)
   - [crontab](unix/tools/crontab.md)

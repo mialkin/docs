@@ -1,28 +1,30 @@
-# Nginx
-
-[↑ Nginx](https://nginx.org) ("engine x") is an HTTP web server, reverse proxy, content cache, load balancer, TCP/UDP proxy server, and mail proxy server.
+# Nginx, Certbot, Caddy
 
 ## Table of context
 
-- [Nginx](#nginx)
+- [Nginx, Certbot, Caddy](#nginx-certbot-caddy)
   - [Table of context](#table-of-context)
-  - [Installation](#installation)
-  - [Configuration files](#configuration-files)
-  - [Static website](#static-website)
-  - [Reverse proxy](#reverse-proxy)
-  - [HTML files](#html-files)
-  - [Permanent redirect from one page to another](#permanent-redirect-from-one-page-to-another)
+  - [Nginx](#nginx)
+    - [Static website](#static-website)
+    - [Reverse proxy](#reverse-proxy)
+    - [HTML files](#html-files)
+    - [Permanent redirect from one page to another](#permanent-redirect-from-one-page-to-another)
   - [Certbot](#certbot)
     - [Certificates](#certificates)
+  - [Caddy](#caddy)
 
-## Installation
+## Nginx
+
+[↑ Nginx](https://nginx.org) ("engine x") is an HTTP web server, reverse proxy, content cache, load balancer, TCP/UDP proxy server, and mail proxy server.
+
+Installation:
 
 ```bash
 sudo apt update
 sudo apt install nginx
 ```
 
-## Configuration files
+Configuration files:
 
 ```sh
 vim /etc/nginx/nginx.conf   # Default config file
@@ -44,7 +46,7 @@ Default website files:
 cd /var/www/html
 ```
 
-## Static website
+### Static website
 
 Create config file for a domain:
 
@@ -71,7 +73,7 @@ sudo nginx -t
 sudo systemctl restart nginx
 ```
 
-## Reverse proxy
+### Reverse proxy
 
 Create config file for a domain:
 
@@ -102,14 +104,14 @@ sudo systemctl restart nginx
 
 [↑ NGINX Reverse Proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/).
 
-## HTML files
+### HTML files
 
 ```sh
 cd /var/www/
 cd /usr/share/nginx/html/
 ```
 
-## Permanent redirect from one page to another
+### Permanent redirect from one page to another
 
 ```text
 server {
@@ -151,4 +153,10 @@ Delete certificate:
 certbot delete --cert-name YOUR_CERTIFICATE_NAME
 ```
 
-Then go to [configuration files](#configuration-files) and remove any artifacts remaining after Certbot.
+Then go to configuration files and remove any artifacts remaining after Certbot.
+
+## Caddy
+
+[↑ Caddy](https://caddyserver.com/) is an open source web server with automatic HTTPS written in Go.
+
+[↑ Installation](https://caddyserver.com/docs/install).
