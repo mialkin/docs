@@ -160,3 +160,9 @@ Then go to configuration files and remove any artifacts remaining after Certbot.
 [↑ Caddy](https://caddyserver.com/) is an open source web server with automatic HTTPS written in Go.
 
 [↑ Installation](https://caddyserver.com/docs/install).
+
+Show help:
+
+```bash
+caddy
+```
